@@ -1,95 +1,94 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/publishing
-title: Einführung in ASP.NET Web Pages - Veröffentlichen einer Website mit WebMatrix | Microsoft Docs
+title: 'Einführung in ASP.NET Web Pages: Veröffentlichen einer Website mit WebMatrix | Microsoft-Dokumentation'
 author: tfitzmac
-description: Dieses Lernprogramm ist der letzte Teil in der Tutorial Menge, die ASP.NET Web Pages und Microsoft WebMatrix eingeführt werden. Es wird erläutert, wie Ihre Website t veröffentlichen...
+description: Dieses Tutorial ist die letzte Folge der tutorialreihe, die ASP.NET Web Pages und Microsoft WebMatrix eingeführt werden. Es wird erläutert, wie zum Veröffentlichen Ihrer Website t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
 ms.topic: article
 ms.assetid: 7e85c70e-1a88-4408-8b3d-29611c7713ed
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/publishing
 msc.type: authoredcontent
-ms.openlocfilehash: 7b9bffac5cc72e1bea3f1b211cc03be2ccb8e499
-ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.openlocfilehash: c6fa7692527b7aa65e93cd57ed5bd56f42e54bd6
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "30899589"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37373486"
 ---
 <a name="introducing-aspnet-web-pages---publishing-a-site-by-using-webmatrix"></a>Einführung in ASP.NET Web Pages - Veröffentlichen einer Website mit WebMatrix
 ====================
 durch [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Dieses Lernprogramm ist der letzte Teil in der Tutorial Menge, die ASP.NET Web Pages und Microsoft WebMatrix eingeführt werden. Es wird erläutert, wie Ihre Website im Internet veröffentlichen, damit andere Benutzer damit arbeiten können. Es wird vorausgesetzt, Sie haben die Reihe über abgeschlossen [für ASP.NET Web Pages-Websites erstellen ein konsistentes Aussehen](https://go.microsoft.com/fwlink/?LinkId=251585).
+> Dieses Tutorial ist die letzte Folge der tutorialreihe, die ASP.NET Web Pages und Microsoft WebMatrix eingeführt werden. Es wird erläutert, wie Ihre Website mit dem Internet zu veröffentlichen, damit andere Benutzer damit arbeiten können. Es wird vorausgesetzt, Sie haben die Reihe über [für ASP.NET Web Pages-Websites Erstellen einer konsistenten aussehen](https://go.microsoft.com/fwlink/?LinkId=251585).
 > 
-> Sie erfahren, wie zum Veröffentlichen Ihrer Website verwendet:
+> Sie erfahren, wie zum Veröffentlichen Ihrer Website verwenden können:
 > 
 > - Microsoft Azure
-> - Web-Hostinganbieter
+> - Web-Hosting-Unternehmen
 
 
 ## <a name="about-publishing-your-site"></a>Zum Veröffentlichen Ihrer Website
 
-Bis jetzt haben Sie Ihre Arbeit auf einem lokalen Computer, z. B. Ihre Seiten testen. Zum Ausführen Ihrer<em>cshtml</em> Seiten die, Sie verwendet haben, den Webserver, die in WebMatrix, nämlich IIS Express integriert ist. Aber natürlich kein können finden Sie unter der Website, die Sie außer dass Sie erstellt haben. Damit um andere Benutzer mit Ihrer Website arbeiten zu können, müssen Sie ihn mit dem Internet zu veröffentlichen.
+Bisher haben Sie Ihre Arbeit auf einem lokalen Computer, z. B. Ihre Seiten testen fertig. Zum Ausführen Ihrer<em>.cshtml</em> Seiten Sie verwendet haben, den Webserver, die in WebMatrix, d. h. IIS Express integriert ist. Aber natürlich niemand können finden Sie auf der Website, die Sie außer dass Sie erstellt haben. Damit um andere Benutzer die Arbeit mit Ihrer Website zu können, müssen Sie sie mit dem Internet zu veröffentlichen.
 
-Sofern nicht bereits Zugriff auf einen öffentlichen Webserver veröffentlichen bedeutet, dass Sie ein Konto mit einem *Cloudplattform* oder ein *Hostinganbieter*. Eine Cloud-Plattform, z. B. Microsoft Azure bietet bei Bedarf-Infrastruktur für Ihre Anwendungen. Hosting-Anbieter ist ein Unternehmen, die öffentlich zugängliche Webserver besitzt und wird, die Sie vermieten, Speicherplatz, der für Ihre Website. Hosten von Plänen von wenige Dollar pro Monat ausführen (oder sogar kostenlos) für kleine Standorte zu vielen Hunderten Dollar pro Monat für hohes Volumen kommerziellen Websites.
+Wenn Sie bereits Zugriff auf einen öffentlichen Webserver verfügen, Veröffentlichung bedeutet, dass Sie ein Konto mit einem *Cloudplattform* oder *Hostinganbieter*. Eine Cloud-Plattform, z. B. Microsoft Azure stellt bei Bedarf Infrastruktur bereit, für Ihre Anwendungen. Ein hosting-Anbieter ist ein Unternehmen, die öffentlich zugänglichen Webserver besitzt und wird, die zu mieten Sie, Speicherplatz für Ihre Website. Hosten von Plänen aus wenige Euro im Monat ausgeführt (oder sogar kostenlos) für kleine Standorte mit vielen Hunderten von Euro im Monat für umfangreiche kommerzielle Websites.
 
 > [!NOTE]
-> Möglicherweise haben Sie Zugriff auf einen öffentlichen Webserver über die Internetdienstanbieter (ISP), mit denen Sie zu Hause Internetdienst abrufen. Allerdings muss Ihrem Hostinganbieter ASP.NET Web Pages unterstützen. Viele Internetdienstanbieter nicht, aber es lohnt sich immer überprüfen.
+> Möglicherweise haben Sie Zugriff auf einen öffentlichen Webserver über die Internetdienstanbieter (ISP), mit denen Sie zu Hause Internetdienst zu erhalten. Allerdings muss der Hostinganbieter ASP.NET Web Pages unterstützt. Viele ISPs nicht, aber es lohnt sich immer überprüfen.
 
 
-In diesem Lernprogramm fügen wir einen Überblick über die Vorgehensweise beim Veröffentlichen und erteilen. Es ist nicht praktikabel ist, geben Sie die genauen Details für alles, da der Vorgang für jede Hostinganbieter etwas unterscheidet sich. Aber Sie erhalten eine Vorstellung der Funktionsweise des Prozesses.
+In diesem Tutorial haben erhalten wir einen Überblick über die Informationen zum Veröffentlichen Sie. Es ist nicht praktikabel ist, geben Sie die genauen Details für alle Elemente, da ein wenig unterscheidet sich der Vorgang für alle Hostinganbieter. Aber Sie erhalten einen guten Überblick darüber, wie der Prozess ausgeführt.
 
-Dieses Lernprogramm enthält vier Teilbereiche:
+Dieses Lernprogramm enthält vier Abschnitte:
 
 1. [Die Standardseite einrichten](#defaultpage)
 2. Veröffentlichen (Wählen Sie eine der folgenden)  
  a. [Veröffentlichen Sie Ihre Website in Microsoft Azure](#azure)  
- b. [Veröffentlichen Ihrer Website zu einem Webhostingdienst Unternehmen](#host)
-3. [Aktualisieren die Live-Standort: Erneutes Veröffentlichen](#update)
+ b. [Veröffentlichen Sie Ihre Website in ein Webhostingunternehmen](#host)
+3. [Aktualisieren der Live-Websites: Erneutes Veröffentlichen](#update)
 
 <a id="defaultpage"></a>
 ## <a name="setting-up-the-default-page"></a>Die Standardseite einrichten
 
-Wenn ein Benutzer auf die Basisadresse für Ihre Website navigiert, wird die Standardseite für Ihre Website für den Benutzer angezeigt. Beispielsweise, wenn als Standardseite für den Standort am www.contoso.com "default.htm" festgelegt ist, und dann weiter navigieren <strong>www.contoso.com</strong> ist identisch mit Navigieren zu <strong>www.contoso.com/Default.htm</strong>.
+Wenn ein Benutzer auf die Basisadresse für Ihre Website navigiert, wird die Standardseite für die Website, die dem Benutzer angezeigt. Z. B. wenn als Standardseite für die Website unter www.contoso.com "default.htm" festgelegt ist, und dann weiter navigieren <strong>www.contoso.com</strong> ist identisch mit der Navigation zu <strong>www.contoso.com/Default.htm</strong>.
 
-Die Website derzeit verwendet **Default.cshtml** als die Standardseite. Diese Seite ist gut für die Standardseite, aber in diesem Lernprogramm nicht hinzugefügt haben alle Inhalte, die diese Seite, damit sie eine leere Seite angezeigt wird. Öffnen Sie Default.cshtml, und Ersetzen Sie den Inhalt durch folgenden Code.
+Ihre Website derzeit verwendet **Default.cshtml** wie die Standardseite. Diese Seite ist für die voreingestellte Seite in Ordnung, aber in diesem Tutorial nicht hinzugefügt haben alle Inhalte der Seite, damit sie eine leere Seite angezeigt wird. Öffnen Sie Default.cshtml, und Ersetzen Sie den Inhalt durch den folgenden Code.
 
 [!code-cshtml[Main](publishing/samples/sample1.cshtml)]
 
-Nun ist Ihr Standort für die Veröffentlichung bereit. Zuerst sehen Sie wie die Website in Azure bereitstellen und es zu einem Webhostingdienst Unternehmen bereitstellen. Beide funktionieren Option für Ihre Website, und Sie müssen nur eine der Optionen für die Bereitstellung ausführen.
+Nachdem Sie Ihre Website für die Veröffentlichung bereit ist. Zunächst sehen Sie wie die Website in Azure bereitstellen, und klicken Sie dann in einem Webhostinganbieter bereitgestellt. Beide funktionieren Option für Ihre Website, und Sie müssen nur eine der Optionen für die Bereitstellung ausführen.
 
 <a id="azure"></a>
 ## <a name="publishing-your-site-to-microsoft-azure"></a>Veröffentlichen Sie Ihre Website in Microsoft Azure
 
-Dieses Lernprogramm zeigt Sie zunächst wie Ihrer Website in Microsoft Azure bereitgestellt wird. Durch Anmelden mit einem Microsoft-Konto, können Sie bis zu 10 kostenlosen Websites in Azure erstellen. Diese kostenlosen Websites bieten eine einfache Möglichkeit, Ihre Standorte zu testen. Sie können diesen Standort Beispiel weiter unten, um zu vermeiden, indem Sie alle Ihre kostenlosen Websites verwenden immer löschen. Sie können in wenigen Minuten ein kostenloses Testkonto erstellen. Weitere Informationen finden Sie unter [kostenlose Azure-Testversion](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
+In diesem Tutorial wird zuerst Ihre Website in Microsoft Azure bereitstellen, veranschaulichen. Anmeldung mit einem Microsoft-Konto, können Sie bis zu 10 kostenlose Websites in Azure erstellen. Diese kostenlosen Websites bieten eine praktische Möglichkeit zum Testen von Ihrer Websites. Sie können diese Beispielwebsite, später, um zu vermeiden, verwenden all Ihre kostenlosen Websites jederzeit löschen. Sie können in nur wenigen Minuten ein kostenloses Testkonto erstellen. Weitere Informationen finden Sie unter [kostenlose Azure-Testversion](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
 
-Klicken Sie in der WebMatrix-Menüband auf die **veröffentlichen** Schaltfläche.
+Klicken Sie in WebMatrix im Menüband auf die **veröffentlichen** Schaltfläche.
 
-![WebMatrix-Menüband die Schaltfläche "Veröffentlichen"](publishing/_static/image1.png)
+!['Publish' Schaltfläche im Menüband von WebMatrix](publishing/_static/image1.png)
 
-Die **Veröffentlichen Ihrer Website** Dialogfeld wird angezeigt. Wenn Sie nicht mit Ihrem Microsoft-Konto angemeldet haben, wird das Dialogfeld enthält einen **erste Schritte mit Azure** Link. Klicken Sie auf diesen Link.
+Die **Veröffentlichen Ihrer Website** Dialogfeld wird angezeigt. Wenn Sie nicht mit Ihrem Microsoft-Konto angemeldet haben, kann das Dialogfeld enthält einen **erste Schritte mit Azure** Link. Klicken Sie auf diesen Link.
 
-![Veröffentlichen Sie Ihrer Website](publishing/_static/image2.png)
+![Ihre Website veröffentlichen](publishing/_static/image2.png)
 
-Wenn Sie nicht mit einem Microsoft-Konto angemeldet haben, erhalten Sie die Möglichkeit, melden Sie sich erneut. Ihre Website in Azure veröffentlichen, müssen Sie sich mit einem Microsoft-Konto anmelden.
+Wenn Sie sich nicht um ein Microsoft-Konto angemeldet haben, erhalten Sie die Möglichkeit, melden Sie sich erneut. Sie müssen ein Microsoft-Konto melden Sie sich auf Ihre Website in Azure zu veröffentlichen.
 
 ![Anmelden](publishing/_static/image3.png)
 
-Nach dem Anmelden bei Ihrem Microsoft-Konto, enthält das Dialogfeld Links, um einen neuen Standort in Azure erstellen oder Herstellen einer Verbindung mit einer vorhandenen Websites in Azure.
+Nach der Anmeldung bei Ihrem Azure-Konto, enthält das Dialogfeld Links zum Erstellen einer neuen Website in Azure oder eine Verbindung mit einer Ihrer vorhandenen Websites in Azure.
 
 ![Neue Website erstellen](publishing/_static/image4.png)
 
 Wählen Sie **Erstellen eines neuen Standorts**.
 
-Wenn Sie das Projekt mit dem Namen **WebPagesMovies**, werden der Standardname für Ihre Website **webpagesmovies.azurewebsites.net**. Dieser Standardname ist sehr wahrscheinlich nicht verfügbar ist, wie durch rotes Ausrufezeichen angezeigt.
+Wenn Sie Ihr Projekt mit dem Namen **WebPagesMovies**, der Standardnamen für die Website werden **webpagesmovies.azurewebsites.net**. Dieser Standardname ist wahrscheinlich nicht verfügbar ist, wie durch das rote Ausrufezeichen angezeigt.
 
 ![Name der Standard-Website](publishing/_static/image5.png)
 
-Ändern Sie den Namen der Website auf einen anderen Wert, der verfügbar ist, und wählen Sie einen Speicherort, der in der Nähe Ihres Speicherorts ist.
+Ändern Sie den Standortnamen in etwas, das verfügbar ist, und wählen Sie einen Speicherort, der Nähe Ihres eigenen Standorts ist.
 
 ![geänderte Standortname](publishing/_static/image6.png)
 
@@ -103,55 +102,55 @@ Wählen Sie **weiterhin**.
 
 Die Ergebnisse von den Kompatibilitätstest werden angezeigt.
 
-![Kompatibilität Ergebnis](publishing/_static/image8.png)
+![Ergebnis der Kompatibilität](publishing/_static/image8.png)
 
 Wählen Sie **weiterhin**.
 
-WebMatrix zeigt die Dateien und Datenbanken, die auf der Website veröffentlicht werden. Da dies beim ersten Sie den Standort veröffentlichen ist, werden alle Dateien aufgeführt. Deaktivieren Sie eine Datei, die nicht zur Veröffentlichung bereit ist. In den nachfolgenden Publikationen werden nur die geänderten Dateien angezeigt. Finden Sie unter [Live-Standort zu aktualisieren: Erneutes Veröffentlichen von](#update).
+WebMatrix zeigt die Dateien und Datenbanken, die auf der Website veröffentlicht werden soll. Da dies beim ersten Sie die Website veröffentlichen ist, werden alle Dateien aufgeführt. Deaktivieren Sie eine Datei, die nicht veröffentlicht werden. In nachfolgenden Veröffentlichungen werden nur die geänderten Dateien angezeigt. Finden Sie unter [Aktualisieren der Live-Websites: Erneutes Veröffentlichen von](#update).
 
-![veröffentlichungsvorschau](publishing/_static/image9.png)
+![Vorschau veröffentlichen](publishing/_static/image9.png)
 
 Wählen Sie **weiterhin**.
 
-Nachdem die Website in Azure bereitgestellt wurde, wird eine Meldung angezeigt, der angibt, dass die Bereitstellung abgeschlossen wurde.
+Nachdem die Website in Azure bereitgestellt wurde, wird eine Meldung angezeigt, der angibt, dass die Bereitstellung abgeschlossen ist.
 
-![vollständige veröffentlichen](publishing/_static/image10.png)
+![Veröffentlichung abgeschlossen](publishing/_static/image10.png)
 
-Des Standorts und der Datenbank auf Azure veröffentlicht wurden, und sind nun für die Öffentlichkeit verfügbar. Klicken Sie auf den Link in der Meldung, die Veröffentlichung abgeschlossen ist, und sehen Sie nun Ihre Website bereitgestellt. Sie oder jede Person mit Zugriff auf das Internet hinzufügen oder Ändern von Datensätzen in der Datenbank.
+Eine Website und Datenbank in Azure veröffentlicht wurden, und sind jetzt frei verfügbar. Klicken Sie auf den Link in die Meldung, die Veröffentlichung abgeschlossen ist, und sehen Sie nun Ihrer bereitgestellten Website. Sie oder ein Benutzer mit Zugriff auf das Internet hinzufügen oder Ändern von Einträgen in der Datenbank.
 
 ![](publishing/_static/image11.png)
 
 <a id="host"></a>
-## <a name="publishing-your-site-to-a-web-hosting-company"></a>Veröffentlichen Ihrer Website zu einem Webhostingdienst Unternehmen
+## <a name="publishing-your-site-to-a-web-hosting-company"></a>Veröffentlichen Sie Ihre Website in ein Webhostingunternehmen
 
 Wenn Sie nicht in Azure veröffentlichen möchten, können Sie stattdessen Ihre Website auf einen Webhostinganbieter veröffentlichen.
 
 Klicken Sie auf die **Webhosting suchen** Link.
 
-![Schaltfläche "Webhosting suchen", im Dialogfeld Veröffentlichungseinstellungen](publishing/_static/image12.png)
+![Schaltfläche "Webhosting suchen", "im Dialogfeld" Veröffentlichungseinstellungen "](publishing/_static/image12.png)
 
-Sie wechseln auf eine Seite auf der Microsoft-Website, unter dem Hostinganbieter aufgeführt, die ASP.NET unterstützen.
+Sie gelangen zu einer Seite auf der Microsoft-Website, in der Hostinganbieter aufgeführt, die ASP.NET unterstützen.
 
-![Seite für Microsoft-Website, die Hostinganbieter Listet](publishing/_static/image13.png)
+![Auf Microsoft-Website, in der Hostinganbieter aufgeführt.](publishing/_static/image13.png)
 
-Natürlich kann es schwierig sein, wissen jetzt genau welche hosting Funktionen langfristig erforderlich sein können. Hier sind einige Dinge zu bedenken:
+Natürlich kann es schwierig sein, wissen nun genau welche hostingfeatures langfristig erforderlich sein können. Hier sind einige Dinge zu bedenken:
 
-- Für die Zwecke des Standorts WebPagesMovies müssen Sie eine separate-Add-On für SQL Server verfügen, die häufig zusätzliche Kosten. An Ihrem Standort verwenden Sie SQL Server Compact Edition, der eigenständig ist. Allerdings benötigen Sie möglicherweise SQL Server-Zugriff für zukünftige Website Arbeit, die Sie erledigen. Wenn Sie, dass Sie möglicherweise glauben, stellen Sie sicher, dass Sie SQL Server-Funktion später hinzufügen können.
-- Überprüfen Sie, ob der Hostinganbieter die publishing Web Deploy-Protokoll unterstützt. Können Sie mithilfe von FTP-Protokolls veröffentlichen, aber es ist einfacher, Web Deploy verwendet werden.
+- Für die Zwecke des Standorts WebPagesMovies müssen Sie ein separates Add-on für SQL Server verfügen, die oft zusätzliche Kosten. Auf der Website verwenden SQL Server Compact Edition, Sie die ist in sich geschlossen. Allerdings benötigen Sie möglicherweise SQL Server-Zugriff für einige Aufgaben für die zukünftige-Website, die Sie ausführen. Wenn Sie, dass Sie möglicherweise glauben, stellen Sie sicher, dass Sie SQL Server-Funktion später hinzufügen können.
+- Überprüfen Sie, ob der Hostinganbieter der Web Deploy-publishing-Protokoll unterstützt. Sie veröffentlichen, indem Sie mithilfe von FTP-Protokoll, aber es ist einfacher, Web Deploy verwendet werden.
 
-Einige Websites bieten einen kostenlose Testzeitraum. Eine kostenlose Testversion ist eine gute Möglichkeit, die Publishing versuchen Sie es und hostet, während Sie weiterhin mit WebMatrix und ASP.NET Web Pages experimentieren sind.
+Einige Websites bieten einen kostenlosen Testzeitraum. Eine kostenlose Testversion ist eine gute Möglichkeit zum Testen der Veröffentlichung, und hosten, während Sie weiterhin mit WebMatrix und ASP.NET Web Pages experimentieren können.
 
-Wählen Sie eine, die Ihnen gefällt. Für dieses Lernprogramm ausgewählt wir DiscountASP.NET, da während wir das Lernprogramm erstellt haben, dieses Unternehmens mit eine Höherstufung enthielt, mit denen Sie Personen, die einen Standort für einige Monate kostenlos hosten können.
+Wählen Sie eine, die Ihnen gefallen. Für dieses Tutorial ausgewählt wir DiscountASP.NET, weil während wir das Tutorial erstellt haben, dieses Unternehmen verwendet eine heraufstufung haben, mit die Benutzer eine Website, die einige Monate lang kostenlos hosten können.
 
 > [!NOTE]
-> Unsere Wahl eines Hostinganbieters für dieses Lernprogramm sollte nicht als Billigung von der jeweiligen Unternehmen über andere interpretiert werden. Aber wir hatten, um eine zu Illustrationszwecken auszuwählen, und DiscountASP.NET ist eines der vielen Unternehmen, die ASP.NET Web Pages und Web Deploy-Protokoll für die Veröffentlichung unterstützt.
+> Unsere Wahl eines Hostinganbieters für dieses Tutorial sollten nicht als Empfehlung der jeweiligen Unternehmen über andere interpretiert werden. Aber wir hatten, um eine Abbildung auszuwählen, und DiscountASP.NET ist eines der vielen Unternehmen, die ASP.NET Web Pages und Web Deploy-Protokoll für die Veröffentlichung unterstützt.
 
 
-In der Regel, nachdem Sie sich mit dem hosting-Anbieter registriert haben, sendet das Unternehmen Ihnen eine e-Mail, die einen Benutzernamen und Kennwort, die URL des Webservers usw. enthält. Hostinganbieter Web Deploy-Protokoll unterstützt, können sie senden Sie eine Datei mit veröffentlichungseinstellungen oder können Sie eine herunterladen. Eine Datei mit veröffentlichungseinstellungen erleichtert den Prozess für Sie.
+In der Regel nach dem Sie mit dem hosting-Anbieter registriert haben, sendet des Unternehmens Sie eine e-Mail, die einen Benutzernamen und Kennwort, die URL der Web-Server und So weiter enthält. Wenn der Hostinganbieter Web Deploy-Protokoll unterstützt, können sie senden Sie eine Datei mit veröffentlichungseinstellungen oder können Sie eine herunterladen. Eine Datei mit veröffentlichungseinstellungen vereinfacht den Prozess für Sie.
 
-Wenn Sie sich registriert haben und für die Veröffentlichung bereit sind, klicken Sie auf die **veröffentlichen** Schaltfläche im Menüband WebMatrix. Die **Veröffentlichungseinstellungen** Dialogfeld wird angezeigt.
+Wenn Sie sich registriert haben und bereit für die Veröffentlichung, klicken Sie auf die **veröffentlichen** Schaltfläche im Menüband WebMatrix. Die **Veröffentlichungseinstellungen** Dialogfeld wird angezeigt.
 
-Wenn der hosting-Anbieter eine Datei mit veröffentlichungseinstellungen gesendet, klicken Sie auf die **veröffentlichungseinstellungen importieren** verknüpfen und importieren Sie die Datei. Wenn Sie nicht über eine Datei mit veröffentlichungseinstellungen verfügen, füllen Sie in den Feldern unter Verwendung der Werte, die per e-Mail Hostinganbieter gesendete. Hier wird die **Veröffentlichungseinstellungen** das Dialogfeld sieht z. B. Wenn Sie fertig sind:
+Wenn der Hostinganbieter Sie eine Datei mit veröffentlichungseinstellungen gesendet haben, klicken Sie auf die **Importieren der veröffentlichungseinstellungen** verknüpfen, und importieren Sie die Datei. Wenn Sie nicht über eine Datei mit veröffentlichungseinstellungen verfügen, geben Sie in den Feldern, unter Verwendung der Werte, die der Hostinganbieter Sie per e-Mail gesendet. Dabei handelt es sich die **Veröffentlichungseinstellungen** das Dialogfeld sieht z. B. Wenn Sie fertig sind:
 
 ![Veröffentlichungseinstellungen ausgefüllt, die im Dialogfeld "Veröffentlichungseinstellungen"](publishing/_static/image14.png)
 
@@ -161,64 +160,64 @@ Klicken Sie auf **überprüft, ob Verbindung**. Wenn alles in Ordnung ist, wird 
 
 Wenn ein Problem vorliegt, führt WebMatrix empfiehlt es sich, Ihnen mitteilen, was das Problem ist:
 
-![Fehlermeldung, wenn es liegt ein Problem mit den veröffentlichungseinstellungen](publishing/_static/image16.png)
+![Fehlermeldung, wenn ein Problem mit den veröffentlichungseinstellungen](publishing/_static/image16.png)
 
-Klicken Sie auf **speichern** zum Speichern der Einstellungen. WebMatrix bietet zum Ausführen eines Tests aus, um sicherzustellen, dass er ordnungsgemäß mit der hosting-Website kommunizieren kann:
+Klicken Sie auf **speichern** zum Speichern der Einstellungen. WebMatrix bietet zum Ausführen eines Tests aus, um sicherzustellen, dass er ordnungsgemäß mit der hosting-Site kommunizieren kann:
 
-![Meldung, die zum Ausführen eines Tests des Veröffentlichungsvorgangs Angebot](publishing/_static/image17.png)
+![Nachricht, die zum Ausführen eines Tests des Veröffentlichungsvorgangs Angebot](publishing/_static/image17.png)
 
-Klicken Sie auf **Ja**. WebMatrix lädt einige Beispieldateien mit dem Hostinganbieter hoch. Wenn der Kompatibilitätstest abgeschlossen ist, werden die Ergebnisse von WebMatrix meldet:
+Klicken Sie auf **Ja**. WebMatrix lädt einige Beispieldateien an den Hostinganbieter ein. Wenn das Testen der Kompatibilität von fertig ist, meldet WebMatrix die Ergebnisse an:
 
-![Die publishing Testergebnisse](publishing/_static/image18.png)
+![Testergebnisse veröffentlichen](publishing/_static/image18.png)
 
-Wenn Sie bereit sind, fahren Sie fort, und klicken Sie auf **Fortfahren** tatsächlichen den Veröffentlichungsprozess zu starten. WebMatrix Abbildungen, welche Dateien sind an Ihrem Standort und befinden sich bereits auf dem Hostserver (zurzeit keine) und bietet Ihnen eine Vorschau des Veröffentlichungsprozesses:
+Wenn Sie fertig sind, fahren Sie fort, und klicken Sie auf **Weiter** tatsächlichen den Veröffentlichungsprozess zu starten. WebMatrix ermittelt, welche Dateien befinden sich in Ihre Website und befinden sich bereits auf dem Host (momentan keine) und bietet Ihnen eine Vorschau des Veröffentlichungsprozesses:
 
 ![Vorschau, welche Dateien, die der Veröffentlichungsprozess hochladen](publishing/_static/image19.png)
 
-Die Liste der Dateien veröffentlichen enthält Webseiten, die Sie z. B. die erstellte *Movies.cshtml*. Die Liste enthält auch die Dateien für Hilfsprogramme, die Sie installiert haben, die Dateien in SQL Server Compact Edition für Ihre Datenbank ausführen und so weiter. Daher der ersten Vorgang veröffentlichen kann erhebliche sein.
+Die Liste der zu veröffentlichenden Dateien enthält, die Webseiten, die Sie z. B. erstellt haben *Movies.cshtml*. Die Liste enthält auch die Dateien für Hilfsmethoden, die Sie installiert haben, die Dateien in SQL Server Compact Edition für Ihre Datenbank ausführen und so weiter. Daher der ersten Veröffentlichungsprozess können beträchtlich sein.
 
-Klicken Sie auf **Weiter**. WebMatrix kopiert die Dateien auf dem Hostinganbieter Server. Wenn dies erfolgt ist, werden die Ergebnisse in der Statusleiste gemeldet:
+Klicken Sie auf **Weiter**. WebMatrix kopiert die Dateien auf der hosting-Anbieter-Server. Wenn dies abgeschlossen ist, werden die Ergebnisse in der Statusleiste gemeldet:
 
-![Statusmeldung Leiste an, wenn der Veröffentlichungsprozess erfolgreich abgeschlossen wurde](publishing/_static/image20.png)
+![Meldung in der Statusleiste, wenn der Veröffentlichungsprozess erfolgreich abgeschlossen wurde](publishing/_static/image20.png)
 
-Um die live-Standort anzuzeigen, klicken Sie auf den Link in der Statusleiste. Hinzufügen *Filme* an die URL, und sehen Sie die *Movies.cshtml* -Datei, die Sie erstellt haben:
+Um Ihre live-Website anzuzeigen, klicken Sie auf den Link in der Statusleiste angezeigt. Hinzufügen *Filme* an die URL, und Sie sehen die *Movies.cshtml* -Datei, die Sie erstellt haben:
 
-![Die live-Standort mit der Seite "Filme"](publishing/_static/image21.png)
+![Der live-Website mit der Seite "Movies"](publishing/_static/image21.png)
 
 <a id="update"></a>
-## <a name="updating-the-live-site-republishing"></a>Aktualisieren die Live-Standort: Erneutes Veröffentlichen
+## <a name="updating-the-live-site-republishing"></a>Aktualisieren der Live-Websites: Erneutes Veröffentlichen
 
-Nachdem Sie Ihre Website (in Azure oder einem Webhostinganbieter) veröffentlicht haben, befinden sich zwei Kopien &mdash; die Version auf Ihrem Computer und die Version auf den Dienstanbieter. Sie möchten wahrscheinlich die Entwicklung der Website fortsetzen (Wenn nichts anderes als Teil des nächsten Lernprogramms). Wenn Sie dies tun, müssen Sie Ihre Website erneut veröffentlichen, um Änderungen an den Dienstanbieter von Ihrem Computer zu kopieren. Der Veröffentlichungsprozess in WebMatrix kann bestimmen, welche Dateien geändert wurden, auf der Website und veröffentlichen nur jene Dateien.
+Nachdem Sie Ihre Website (zu Azure oder ein Webhostingunternehmen) veröffentlicht haben, sind zwei Kopien &mdash; die Version auf Ihrem Computer und die Version auf den Dienstanbieter. Sie sollten das Entwickeln des Standorts fortsetzen (Wenn nichts anderes, als Teil der nächsten Tutorial). Wenn Sie dies tun, müssen Sie Ihre Website erneut zu veröffentlichen, um Änderungen an den Dienstanbieter auf Ihrem Computer zu kopieren. Der Veröffentlichungsprozess in WebMatrix kann bestimmen, welche Dateien auf Ihrer Website geändert haben und nur die Dateien veröffentlichen.
 
-Um zu sehen, wie funktioniert das erneute veröffentlichen, öffnen Sie die *Movies.cshtml* -Website stellen einige kleine Änderung, und speichern Sie die Datei. Ändern Sie den Titel, z. B. `Movies - Updated`.
+Um anzuzeigen, wie funktioniert das erneute veröffentlichen, öffnen Sie die *Movies.cshtml* site, eine kleine Änderung vornehmen und speichern Sie die Datei. Ändern Sie z. B. den Titel in `Movies - Updated`.
 
 Klicken Sie auf die **veröffentlichen** Schaltfläche im Menüband. WebMatrix wird bestimmt, was geändert wird, und zeigt eine Vorschau der Dateien, die sie veröffentlicht werden sollen.
 
-![Im Dialogfeld "Veröffentlichen" mit der geänderten bereit Dateien für das erneute veröffentlichen](publishing/_static/image22.png)
+![Das Dialogfeld "Veröffentlichen" mit der geänderten bereit Dateien, für die wiederveröffentlichung](publishing/_static/image22.png)
 
 > [!IMPORTANT] 
 > 
-> Standardmäßig veröffentlicht WebMatrix Datenbankansicht (*.sdf* Datei) nur beim ersten Verwenden Sie die Website veröffentlichen. Nach Ihrer Website veröffentlicht wird, und Benutzer mit der Website interagieren, gelten für die Datenbank am Standort live in der Regel echte Daten von der Website. Müssen Sie sehr darauf achten, nicht überschreiben die live-Datenbank mit der *.sdf* Datei, die auf Ihrem Computer wird in der Regel nur die Testdaten enthält. Daher Sie sehen, dass die Warnung **Veröffentlichung überschreibt alle Remotedatenbanken**, und warum das Kontrollkästchen für *WebPagesMovies.sdf* ist standardmäßig deaktiviert.
+> Standardmäßig veröffentlicht WebMatrix Ihrer Datenbank (*.sdf* Datei) nur beim ersten Verwenden Sie die Website veröffentlichen. Sobald Ihre Website veröffentlicht wird, und Personen mit der Website interagieren, hat die Datenbank auf der live-Website in der Regel echte Daten von der Website. Sie müssen sehr darauf achten, nicht das Überschreiben der live-Datenbank mit der *.sdf* Datei, die auf dem Computer, die in der Regel nur für die Testdaten enthält. Deshalb die Warnung **Veröffentlichung überschreibt alle Remotedatenbanken**, und warum sich das Kontrollkästchen für *WebPagesMovies.sdf* ist standardmäßig deaktiviert.
 
 
-Klicken Sie auf **Weiter**. WebMatrix veröffentlicht die geänderten Dateien und Sie eine Erfolgsmeldung zeigt, wie es erstmalig, die Sie veröffentlicht haben.
+Klicken Sie auf **Weiter**. WebMatrix die geänderten Dateien veröffentlicht, und es wird gezeigt, eine Erfolgsmeldung, wie es beim ersten, die Sie veröffentlicht.
 
-Wechseln Sie zu der live-Standort (Sie können den Link in der bestätigungsmeldung klicken, wenn sie weiterhin angezeigt wird) und stellen Sie sicher, dass die Änderung veröffentlicht wurde.
+Wechseln Sie zu der live-Website (Sie können den Link in der Success-Nachricht klicken, wenn es immer noch angezeigt werden) und stellen Sie sicher, dass die Änderung veröffentlicht wurde.
 
 > [!TIP] 
 > 
-> **Bearbeiten von Remote-Dateien**
+> **Bearbeiten von Dateien per Remotezugriff**
 > 
-> Als Alternative zum Ändern Ihrer Website und anschließend erneutes veröffentlichen können Sie die remote-Dateien direkt in WebMatrix bearbeiten. In diesem Szenario Öffnen einer Datei, die auf den Dienstanbieter ist, und WebMatrix lädt eine Kopie des Zertifikats für die Sie bearbeiten. Jedes Mal, wenn Sie die Datei speichern, werden die Änderungen von WebMatrix an den Standort gesendet.
+> Als Alternative zum Ändern Ihrer Website und dann erneut veröffentlichen können Sie die remote-Dateien direkt in WebMatrix bearbeiten. Öffnen Sie eine Datei, die auf den Dienstanbieter ist, und WebMatrix lädt eine Kopie der Datei bearbeiten, in diesem Szenario. Jedes Mal, wenn Sie die Datei speichern, werden die Änderungen von WebMatrix an den Standort gesendet.
 > 
-> Bearbeiten von Remote ist eine einfache Möglichkeit, um die live-Standort zu ändern. Allerdings werden nicht die vorgenommenen Änderungen auf diese Weise mit den Dateien an Ihrem lokalen Standort synchronisiert. Um den lokalen Dateien mit dem Remotestandort zu synchronisieren, können Sie die Remotedateien herunterladen. Dieser Prozess funktioniert ähnlich wie die Publishing, außer in umgekehrter Reihenfolge.
+> Remote bearbeiten, ist eine einfache Möglichkeit, um Ihre live-Website zu ändern. Allerdings werden nicht auf diese Weise vorgenommene Änderungen mit den Dateien an Ihrem lokalen Standort synchronisiert. Um die lokalen Dateien mit dem Remotestandort zu synchronisieren, können Sie die Remotedateien herunterzuladen. Dieser Prozess funktioniert ähnlich wie die Veröffentlichung, außer in umgekehrter Reihenfolge.
 > 
-> Es wird nicht mehr über die Remote-Bearbeitung und Remote-Download-Funktionen von WebMatrix hier beschreiben. Sie sind sehr nützlich, wenn mehrere Personen auf derselben Website auf verschiedenen Computern arbeiten. Weitere Informationen finden Sie unter [veröffentlichen und Bearbeiten von einem Remotestandort mit WebMatrix 2 Beta](https://go.microsoft.com/fwlink/?LinkId=251591).
+> Es wird nicht mehr über die Remote-Bearbeitung und Remote-Download-Funktionen von WebMatrix hier beschrieben. Sie sind sehr nützlich, wenn mehrere Personen am selben Standort auf verschiedenen Computern zu arbeiten müssen. Weitere Informationen finden Sie unter [veröffentlichen und Bearbeiten von einem Remotestandort mit WebMatrix 2 Beta](https://go.microsoft.com/fwlink/?LinkId=251591).
 
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [ASP.NET WebMatrix ASP.NET Web Pages-Forum](https://forums.asp.net/1224.aspx/1?WebMatrix+and+ASP+NET+Web+Pages), ein hervorragender Ausgangspunkt veröffentlichen Fragen und Antworten.
+- [ASP.NET WebMatrix ASP.NET Web Pages-Forum](https://forums.asp.net/1224.aspx/1?WebMatrix+and+ASP+NET+Web+Pages), Fragen, die hervorragend zum Posten und Antworten.
 
 > [!div class="step-by-step"]
 > [Vorherige](layouts.md)

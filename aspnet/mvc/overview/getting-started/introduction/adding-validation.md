@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/getting-started/introduction/adding-validation
-title: Hinzufügen einer Validierung | Microsoft Docs
+title: Hinzufügen einer Validierung | Microsoft-Dokumentation
 author: Rick-Anderson
 description: ''
 ms.author: aspnetcontent
@@ -9,15 +9,14 @@ ms.date: 10/17/2013
 ms.topic: article
 ms.assetid: 9f35ca15-e216-4db6-9ebf-24380b0f31b4
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 96dc6724b48daf77034c0741be970be11b81ab37
-ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
+ms.openlocfilehash: 7348b0b51f7db516f398b218d37c9163cb186d73
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961515"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37373408"
 ---
 <a name="adding-validation"></a>Hinzufügen der Validierung
 ====================
@@ -25,31 +24,31 @@ durch [Rick Anderson](https://github.com/Rick-Anderson)
 
 [!INCLUDE [Tutorial Note](sample/code-location.md)]
 
-In diesem Abschnitt fügen Sie Validierungslogik auf die `Movie` Modell, und Sie stellen sicher, dass jederzeit die Validierungsregeln, wenn ein Benutzer versucht erzwungen werden, erstellen oder Bearbeiten eines Films mithilfe der Anwendung.
+In diesem Abschnitt fügen Sie Validierungslogik auf die `Movie` Modell, und stellen sicher, dass die Validierungsregeln immer, die ein Benutzer versucht erzwungen werden, erstellen oder Bearbeiten eines Films mit der Anwendung.
 
-## <a name="keeping-things-dry"></a>Halten Dinge TROCKENEN
+## <a name="keeping-things-dry"></a>Halten Dinge DRY
 
-Einer der Kernaspekte Entwurf von ASP.NET MVC ist [TROCKENEN](http://en.wikipedia.org/wiki/Don't_repeat_yourself) (&quot;wiederhole Dich nicht&quot;). ASP.NET MVC vertraut zu machen, können Funktionen oder Verhalten nur einmal angeben, und dann überall in einer Anwendung berücksichtigt werden. Dadurch reduziert die Menge an Code, den Sie schreiben müssen und den Code, den Sie weniger Fehler fehleranfällig und leichter schreiben zu verwalten.
+Einer der Entwurfsgrundsätze von ASP.NET MVC Core ist [DRY](http://en.wikipedia.org/wiki/Don't_repeat_yourself) (&quot;wiederhole Dich nicht&quot;). ASP.NET MVC empfiehlt Ihnen, Funktionalität und Verhalten nur einmal angeben, und klicken Sie dann es überall in einer Anwendung berücksichtigt werden. Dadurch reduziert die Menge an Code, den Sie schreiben müssen und den Code, den Sie weniger Fehler verursachenden und einfacher schreiben zu verwalten.
 
-Zur Unterstützung der Überprüfung von ASP.NET MVC und Entity Framework Code First ist ein hervorragendes Beispiel für das TROCKENEN Prinzip in Aktion. Sie können Validierungsregeln deklarativ angeben, an einem Ort (in der Modellklasse), und die Regeln werden überall in der Anwendung erzwungen.
+ASP.NET MVC und Entity Framework Code First angebotene Unterstützung der Validierung ist ein gutes Beispiel des DRY-Prinzips in Aktion. Sie können deklarativ Validierungsregeln an zentraler Stelle (in der Modellklasse) angeben und die Regeln werden überall in der Anwendung erzwungen.
 
-Sehen wir uns, wie Sie diese Überprüfung-Unterstützung in der Film-Anwendung nutzen können.
+Sehen wir uns, wie Sie diese überprüfungsunterstützung in der Movie-Anwendung nutzen können.
 
-## <a name="adding-validation-rules-to-the-movie-model"></a>Hinzufügen von Validierungsregeln, die Film-Modell
+## <a name="adding-validation-rules-to-the-movie-model"></a>Hinzufügen von Validierungsregeln zum Modell "Movie"
 
-Sie beginnen, indem Sie die Überprüfung Programmlogik zum Hinzufügen der `Movie` Klasse.
+Sie beginnen mit der Überprüfung Programmlogik zum Hinzufügen der `Movie` Klasse.
 
-Öffnen Sie Datei *Movie.cs*. Beachten Sie, dass die [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) Namespace enthält keine `System.Web`. DataAnnotations bietet einen integrierten Satz von Validierungsattributen, die deklarativ auf eine beliebige Klasse oder eine Eigenschaft angewendet werden können. (Es enthält auch die Formatierungsattribute wie [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) , die die Hilfe für Formatierung und Validierung stellen keine.)
+Öffnen Sie Datei *Movie.cs*. Beachten Sie, dass die [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) Namespace enthält keine `System.Web`. "DataAnnotations" bietet einen integrierten Satz von Validierungsattributen, die Sie deklarativ auf eine Klasse oder Eigenschaft anwenden können. (Es enthält auch Formatierungsattribute wie [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) , bei der Formatierung helfen und keine Validierung bieten.)
 
-Jetzt aktualisieren der `Movie` Klasse, um die integrierte nutzen [ `Required` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx), [ `StringLength` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx), [der reguläre Ausdruck](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx), und [ `Range` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) Validierungsattribute. Ersetzen Sie die `Movie` Klasse durch Folgendes:
+Aktualisieren Sie jetzt die `Movie` Klasse nutzen der integrierten [ `Required` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx), [ `StringLength` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx), [RegularExpression](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx), und [ `Range` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) Validierungsattribute. Ersetzen Sie die `Movie` Klasse durch Folgendes:
 
 [!code-csharp[Main](adding-validation/samples/sample1.cs?highlight=5,13-15,18-19,22-23)]
 
-Die [ `StringLength` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) -Attribut legt die maximale Länge der Zeichenfolge ist, wird diese Einschränkung für die Datenbank und aus diesem Grund wird das Datenbankschema geändert. Klicken Sie mit der rechten Maustaste auf die **Filme** in Tabelle **Server-Explorer** , und klicken Sie auf **Tabellendefinition öffnen**:
+Die [ `StringLength` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) -Attribut legt die maximale Länge der Zeichenfolge ist, wird diese Einschränkung für die Datenbank und aus diesem Grund wird das Datenbankschema geändert. Klicken Sie mit der rechten Maustaste auf die **Filme** -Tabelle **Server-Explorer** , und klicken Sie auf **Tabellendefinition öffnen**:
 
 ![](adding-validation/_static/image1.png)
 
-In der obigen Abbildung sehen Sie, alle der Zeichenfolgenfelder sind auf [NVARCHAR (MAX)](https://technet.microsoft.com/library/ms186939.aspx). Wir werden Migrationen verwenden, um das Schema zu aktualisieren. Erstellen Sie die Projektmappe, und öffnen Sie die **Package Manager Console** Fenster, und geben Sie die folgenden Befehle:
+In der obigen Abbildung sehen Sie, alle die Zeichenfolgenfelder sind auf [NVARCHAR (MAX)](https://technet.microsoft.com/library/ms186939.aspx). Wir verwenden Migrationen zum Aktualisieren des Schemas. Erstellen Sie die Projektmappe, und öffnen Sie die **-Paket-Manager-Konsole** Fenster, und geben Sie die folgenden Befehle aus:
 
 [!code-console[Main](adding-validation/samples/sample2.cmd)]
 
@@ -57,51 +56,51 @@ Wenn dieser Befehl abgeschlossen ist, handelt es sich bei Visual Studio öffnet 
 
 [!code-csharp[Main](adding-validation/samples/sample3.cs)]
 
-Die `Genre` Feld ist nicht mehr NULL-Werte zulässt (Sie müssen einen Wert eingeben). Die `Rating` Feld hat eine maximale Länge von 5 und `Title` besitzt eine maximale Länge von 60. Die minimale Länge von 3 auf `Title` und dem Bereich auf `Price` schemaänderungen erstellt wurde.
+Die `Genre` Feld ist nicht mehr NULL-Werte zulässt (d. h. Sie müssen ein einen Wert eingeben). Die `Rating` Feld hat eine maximale Länge von 5 und `Title` hat eine maximale Länge von 60. Die minimale Länge von 3 auf `Title` und des Bereichs auf `Price` schemaänderungen nicht erstellt wurde.
 
-Überprüfen Sie die Film-Schema:
+Überprüfen Sie das Schema des Films:
 
 ![](adding-validation/_static/image2.png)
 
-Die Zeichenfolgenfelder anzeigen, die neuen Grenzwerte für die Länge und `Genre` nicht mehr als auf NULL festlegbar aktiviert ist.
+Die Zeichenfolgenfelder angezeigt, die neuen Grenzwerte für die Länge und `Genre` nicht mehr als auf NULL festlegbar aktiviert ist.
 
-Die Validierungsattribute geben das Verhalten an, das Sie in den Modelleigenschaften erzwingen möchten, auf die sie angewendet werden. Die Attribute `Required` und `MinimumLength` geben an, dass eine Eigenschaft einen Wert haben muss. Ein Benutzer kann allerdings ein Leerzeichen eingeben, um diese Validierung zu erfüllen. Die [der reguläre Ausdruck](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) Attribut wird verwendet, um einzuschränken, welche Zeichen sein können Eingabe. Im oben angegebenen Code sind für `Genre` und `Rating` nur Buchstaben (keine Leerzeichen, Zahlen und Sonderzeichen) erlaubt. Die [ `Range` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) Attribut schränkt einen Wert innerhalb eines bestimmten Bereichs. Mit dem Attribut `StringLength` können Sie die maximale Länge einer Zeichenfolgeneigenschaft und optional die minimale Länge festlegen. Werttypen (z. B. `decimal, int, float, DateTime`) sind grundsätzlich erforderlich und müssen nicht die `Required` Attribut.
+Die Validierungsattribute geben das Verhalten an, das Sie in den Modelleigenschaften erzwingen möchten, auf die sie angewendet werden. Die Attribute `Required` und `MinimumLength` geben an, dass eine Eigenschaft einen Wert haben muss. Ein Benutzer kann allerdings ein Leerzeichen eingeben, um diese Validierung zu erfüllen. Die [RegularExpression](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) Attribut wird verwendet, um einzuschränken, welche Zeichen sein können Eingabe. Im oben angegebenen Code sind für `Genre` und `Rating` nur Buchstaben (keine Leerzeichen, Zahlen und Sonderzeichen) erlaubt. Die [ `Range` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) Attribut schränkt einen Wert innerhalb eines angegebenen Bereichs. Mit dem Attribut `StringLength` können Sie die maximale Länge einer Zeichenfolgeneigenschaft und optional die minimale Länge festlegen. Werttypen (z. B. `decimal, int, float, DateTime`) sind grundsätzlich erforderlich und müssen nicht die `Required` Attribut.
 
-Code wird zuerst sichergestellt, dass der Validierungsregeln, die Sie, auf eine Modellklasse angeben erzwungen werden, bevor die Anwendung Änderungen in der Datenbank gespeichert. Z. B. der folgenden Code löst eine [DbEntityValidationException](https://msdn.microsoft.com/library/system.data.entity.validation.dbentityvalidationexception(v=vs.103).aspx) Ausnahme bei der `SaveChanges` -Methode aufgerufen wird, da einige erforderliche `Movie` Eigenschaftswerte fehlen:
+Code wird zunächst an, dass die Validierungsregeln, die Sie, auf eine Modellklasse angeben erzwungen werden, bevor die Anwendung Änderungen in der Datenbank speichert. Beispielsweise löst der folgende Code eine [DbEntityValidationException](https://msdn.microsoft.com/library/system.data.entity.validation.dbentityvalidationexception(v=vs.103).aspx) Ausnahme bei der `SaveChanges` -Methode aufgerufen wird, da einige erforderliche `Movie` Eigenschaftswerte sind nicht vorhanden:
 
 [!code-csharp[Main](adding-validation/samples/sample4.cs)]
 
 Der obige Code wird die folgende Ausnahme ausgelöst:
 
-*Fehler bei der Validierung für eine oder mehrere Entitäten. Finden Sie unter 'EntityValidationErrors'-Eigenschaft für weitere Details.*
+*Fehler bei der Überprüfung für eine oder mehrere Entitäten. Finden Sie unter 'EntityValidationErrors'-Eigenschaft für die weitere Details.*
 
-Mit Validierungsregeln, die von .NET Framework automatisch erzwungen. dadurch, dass Ihre Anwendung unter Umständen stabiler. Darüber hinaus wird sichergestellt, dass Sie die Validierung nicht vergessen und nicht versehentlich falsche Daten in die Datenbank übernehmen.
+Dadurch, dass Validierungsregeln automatisch erzwungen, die von .NET Framework machen hilft Ihrer Anwendung stabiler. Darüber hinaus wird sichergestellt, dass Sie die Validierung nicht vergessen und nicht versehentlich falsche Daten in die Datenbank übernehmen.
 
-## <a name="validation-error-ui-in-aspnet-mvc"></a>Validierungsfehler Benutzeroberfläche in ASP.NET MVC
+## <a name="validation-error-ui-in-aspnet-mvc"></a>Fehler bei der Validierung Benutzeroberfläche in ASP.NET MVC
 
 Führen Sie die Anwendung, und navigieren Sie zu der */Movies* URL.
 
-Klicken Sie auf die **neu erstellen** Link, um einen neuen Film hinzufügen. Füllen Sie das Formular mit einigen ungültigen Werten aus. Wenn die clientseitige jQuery-Validierung den Fehler erkennt, wird eine Fehlermeldung angezeigt.
+Klicken Sie auf die **neu erstellen** Link, um einen neuen Film hinzuzufügen. Füllen Sie das Formular mit einigen ungültigen Werten aus. Wenn die clientseitige jQuery-Validierung den Fehler erkennt, wird eine Fehlermeldung angezeigt.
 
 ![8_validationErrors](adding-validation/_static/image3.png)
 
 > [!NOTE]
-> auf die jQuery-Validierung für nicht englischen Gebietsschemas zu unterstützen, verwenden ein Komma (",") für ein Dezimaltrennzeichen, müssen Sie die NuGet einschließen Globalisieren wie zuvor in diesem Lernprogramm beschrieben.
+> zur Unterstützung von jQuery-Validierung für nicht englische Gebietsschemas, in denen ein Komma (",") für ein Dezimaltrennzeichen, müssen Sie die NuGet einschließen Globalisieren wie zuvor in diesem Tutorial beschrieben.
 
 
-Beachten Sie, wie das Formular automatisch eine roten Rahmenfarbe zum verwendet die Textfelder hervorzuheben, die ungültige Daten enthalten, und verfügt über eine entsprechende Überprüfungsfehlermeldung neben jeweils ausgegeben. Die Fehlermeldungen werden sowohl auf Clientseite (mithilfe von JavaScript und jQuery) als auch auf Serverseite erzwungen (wenn ein Benutzer JavaScript deaktiviert hat).
+Beachten Sie, wie das Formular automatisch eine roten Rahmenfarbe verwendet wurde um den Inhalt der Textfelder hervorzuheben, die ungültige Daten enthalten, und verfügt über eine entsprechende Validierungsfehlermeldung neben jeder ausgegeben. Die Fehlermeldungen werden sowohl auf Clientseite (mithilfe von JavaScript und jQuery) als auch auf Serverseite erzwungen (wenn ein Benutzer JavaScript deaktiviert hat).
 
-Ein echter Vorteil ist, dass Sie nicht in eine einzelne Codezeile ändern müssen die `MoviesController` Klasse oder in der *Create.cshtml* anzeigen, um diese Überprüfung Benutzeroberfläche zu aktivieren. Die Controller und Ansichten, die Sie zuvor in diesem Tutorial erstellt haben, haben die angegebenen Validierungsregeln automatisch übernommen (mithilfe der Validierungsattribute für die Eigenschaften der Modellklasse `Movie`). Testen Sie die Validierung mithilfe der Aktionsmethode `Edit`, und es folgt die gleiche Validierung.
+Ein echter Vorteil ist, dass Sie nicht in eine einzige Codezeile ändern müssen die `MoviesController` Klasse oder in der *Create.cshtml* anzeigen, um diese Benutzeroberfläche für die Validierung zu aktivieren. Die Controller und Ansichten, die Sie zuvor in diesem Tutorial erstellt haben, haben die angegebenen Validierungsregeln automatisch übernommen (mithilfe der Validierungsattribute für die Eigenschaften der Modellklasse `Movie`). Testen Sie die Validierung mithilfe der Aktionsmethode `Edit`, und es folgt die gleiche Validierung.
 
-Die Formulardaten werden erst an den Server gesendet, wenn auf Clientseite keine Validierungsfehler mehr auftreten. Sie können dies überprüfen, verlegen Sie einen Haltepunkt in der HTTP-Post-Methode, mit der [Fiddler-Tool](http://fiddler2.com/fiddler2/), oder der Internet Explorer [F12 Entwicklertools](https://msdn.microsoft.com/ie/aa740478).
+Die Formulardaten werden erst an den Server gesendet, wenn auf Clientseite keine Validierungsfehler mehr auftreten. Sie können dies überprüfen, indem Sie Sie in der HTTP-Post-Methode, einen Haltepunkt einfügen, mit der [Fiddler-Tool](http://fiddler2.com/fiddler2/), oder der Internet Explorer [F12-Entwicklertools](https://msdn.microsoft.com/ie/aa740478).
 
-## <a name="how-validation-occurs-in-the-create-view-and-create-action-method"></a>Wie in der Validierung erstellen, anzeigen und Aktionsmethode erstellen
+## <a name="how-validation-occurs-in-the-create-view-and-create-action-method"></a>Wie in der Validierung erstellen, anzeigen, und Erstellen von Action-Methode
 
-Sie fragen sich vielleicht, wie die Benutzeroberfläche für die Validierung ohne Aktualisierungen von Code im Controller oder in Ansichten generiert wurde. Die nächste Auflistung zeigt, was die `Create` Methoden in der `MovieController` sieht der Klasse. Sie sind gegenüber, wie Sie diese zuvor in diesem Lernprogramm erstellt haben.
+Sie fragen sich vielleicht, wie die Benutzeroberfläche für die Validierung ohne Aktualisierungen von Code im Controller oder in Ansichten generiert wurde. Die nächste Liste wird gezeigt, wie die `Create` Methoden in der `MovieController` Klasse aus. Es handelt sich gegenüber, wie Sie diese zuvor in diesem Tutorial erstellt haben.
 
 [!code-csharp[Main](adding-validation/samples/sample5.cs)]
 
-Die erste `Create`-Aktionsmethode (HTTP GET) zeigt das erste Formular „Create“ an. Die zweite Version (`[HttpPost]`) verarbeitet die Formularbereitstellung. Die zweite `Create`-Methode (die `HttpPost`-Version) ruft `ModelState.IsValid` auf, um zu überprüfen, ob der Film Validierungsfehler aufweist. Beim Aufrufen dieser Methode werden alle Validierungsattribute ausgewertet, die auf das Objekt angewendet wurden. Wenn das Objekt Validierungsfehler enthält, zeigt die `Create`-Methode das Formular erneut an. Wenn keine Fehler vorliegen, speichert die Methode den neuen Film in der Datenbank. In unserem Beispiel Film **Form wird nicht an den Server gesendet, treten Validierungsfehler auf der Clientseite; ermittelt das zweite** `Create` **wird nie aufgerufen**. Die Clientvalidierung ist deaktiviert, wenn Sie JavaScript in Ihrem Browser deaktivieren, und die HTTP-POST `Create` Methodenaufrufe `ModelState.IsValid` überprüfen, ob der Film Validierungsfehler aufweist.
+Die erste `Create`-Aktionsmethode (HTTP GET) zeigt das erste Formular „Create“ an. Die zweite Version (`[HttpPost]`) verarbeitet die Formularbereitstellung. Die zweite `Create`-Methode (die `HttpPost`-Version) ruft `ModelState.IsValid` auf, um zu überprüfen, ob der Film Validierungsfehler aufweist. Beim Aufrufen dieser Methode werden alle Validierungsattribute ausgewertet, die auf das Objekt angewendet wurden. Wenn das Objekt Validierungsfehler enthält, zeigt die `Create`-Methode das Formular erneut an. Wenn keine Fehler vorliegen, speichert die Methode den neuen Film in der Datenbank. In unserem filmbeispiel wird **Form wird nicht an den Server gesendet, wenn Validierungsfehler erkannt werden, auf der Clientseite; es gibt die zweite** `Create` **wird nie aufgerufen**. Wenn Sie JavaScript in Ihrem Browser deaktivieren, wird die Clientvalidierung deaktiviert und die HTTP-POST `Create` Methodenaufrufe `ModelState.IsValid` zu überprüfen, ob der Film Validierungsfehler aufweist.
 
 Sie können einen Haltepunkt in der `HttpPost Create`-Methode festlegen und überprüfen, ob die Methode tatsächlich niemals aufgerufen wird und die clientseitige Validierung die Formulardaten nicht sendet, wenn Validierungsfehler gefunden werden. Wenn Sie JavaScript in Ihrem Browser deaktivieren und dann das Formular mit Fehlern senden, wird der Haltepunkt erreicht. Sie erhalten auch ohne JavaScript weiterhin eine vollständige Validierung. Die folgende Abbildung zeigt, wie JavaScript in Internet Explorer deaktiviert.
 
@@ -117,25 +116,25 @@ Die folgende Abbildung zeigt, wie JavaScript im Chrome-Browser deaktiviert wird.
 
 ![](adding-validation/_static/image8.png)
 
-Im folgenden finden Sie die *Create.cshtml* Vorlage anzeigen, die Sie zuvor im Lernprogramm Gerüstbau. Sie wird von den oben erläuterten Aktionsmethoden zum Anzeigen des anfänglichen Formulars und zum erneuten Anzeigen des Formulars bei einem Fehler verwendet.
+Im folgenden finden Sie die *Create.cshtml* Vorlage anzeigen, die Sie zuvor in diesem Tutorial erstellt haben. Sie wird von den oben erläuterten Aktionsmethoden zum Anzeigen des anfänglichen Formulars und zum erneuten Anzeigen des Formulars bei einem Fehler verwendet.
 
 [!code-cshtml[Main](adding-validation/samples/sample6.cshtml?highlight=16-17)]
 
-Beachten Sie, wie der Code verwendet eine `Html.EditorFor` Hilfsmethode zum Ausgeben der `<input>` -Element für jede `Movie` Eigenschaft. Neben dieser Hilfsfunktion aufgerufen wird, die `Html.ValidationMessageFor` Hilfsmethode. Diese zwei Hilfsmethoden arbeiten mit dem Modellobjekt, das vom Controller an die Ansicht übergeben wird (in diesem Fall eine `Movie` Objekt). Sie suchen Sie automatisch nach Validierungsattributen für die Fehlermeldungen Modell und die Anzeige entsprechend angegeben.
+Beachten Sie, wie der Code verwendet ein `Html.EditorFor` Hilfsmethode zum Ausgeben der `<input>` -Element für jede `Movie` Eigenschaft. Neben dieses Hilfsprogramm ist ein Aufruf der `Html.ValidationMessageFor` Hilfsmethode. Diese zwei Hilfsmethoden arbeiten mit dem Modellobjekt, das vom Controller an die Ansicht übergeben wird (in diesem Fall eine `Movie` Objekt). Diese Suche automatisch für Validierungsattribute, die für die Fehlermeldungen Modell und die Anzeige entsprechend angegeben.
 
 Wirklich nützlich an diesem Ansatz ist, dass weder der Controller noch die Ansichtsvorlage `Create` an den eigentlichen Validierungsregeln, die erzwungen werden, oder den spezifischen Fehlermeldungen, die angezeigt werden, beteiligt sind. Die Validierungsregeln und Fehlerzeichenfolgen werden nur in der `Movie`-Klasse angegeben. Diese gleichen Validierungsregeln werden automatisch auf die Ansicht `Edit` und alle anderen Ansichtsvorlagen angewendet, die Sie erstellen und die das Modell bearbeiten.
 
-Falls Sie die Validierungslogik später ändern möchten, Sie können dazu genau zentral durch Hinzufügen von Validierungsattributen für das Modell (in diesem Beispiel wird die `movie` Klasse). Sie müssen sich keine Gedanken darüber machen, ob die verschiedenen Teile der Anwendung inkonsistent sind und wie Regeln erzwungen werden: Die gesamte Validierungslogik wird zentral definiert und überall verwendet. Dies hält den Code sehr übersichtlich und vereinfacht die Verwaltung und Entwicklung. Dies bedeutet, dass Sie vollständig berücksichtigt werden müssen, und die *TROCKENEN* Prinzip.
+Wenn Sie die Validierungslogik später ändern möchten, erreichen Sie dies an genau einer Stelle durch Hinzufügen der Validierungsattribute zum Modell (in diesem Beispiel die `movie` Klasse). Sie müssen sich keine Gedanken darüber machen, ob die verschiedenen Teile der Anwendung inkonsistent sind und wie Regeln erzwungen werden: Die gesamte Validierungslogik wird zentral definiert und überall verwendet. Dies hält den Code sehr übersichtlich und vereinfacht die Verwaltung und Entwicklung. Und dies bedeutet, dass Sie vollständig berücksichtigt werden, werden die *DRY* Prinzip.
 
 ## <a name="using-datatype-attributes"></a>Verwenden von „DataType“-Attributen
 
-Öffnen Sie die Datei *Movie.cs*, und überprüfen Sie die Klasse `Movie`. Die [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) -Namespace stellt zusätzlich zu den integrierten Satz von Validierungsattributen Formatierungsattribute bereit. Wir haben bereits angewendet haben eine [ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) Enumerationswert der freigabetermin und den Preis Feldern. Der folgende code zeigt die `ReleaseDate` und `Price` Eigenschaften mit dem entsprechenden [ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) Attribut.
+Öffnen Sie die Datei *Movie.cs*, und überprüfen Sie die Klasse `Movie`. Die [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) -Namespace stellt neben dem integrierten Satz von Validierungsattributen Formatierungsattribute bereit. Wir haben bereits angewendet. eine [ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) Enumerationswert, um das Veröffentlichungsdatum und Preisfelder. Der folgende code zeigt die `ReleaseDate` und `Price` Eigenschaften mit dem entsprechenden [ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) Attribut.
 
 [!code-csharp[Main](adding-validation/samples/sample7.cs)]
 
-Die [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) Attribute werden nur Hinweise für das Ansichtsmodul formatieren die Daten bereitstellen (und geben Sie Attribute wie z. B. `<a>` für URLs und `<a href="mailto:EmailAddress.com">` zum Abrufen von e-Mails. Sie können die [der reguläre Ausdruck](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) Attribut, um das Format der Daten zu überprüfen. Die [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) Attribut wird verwendet, um einen Datentyp angeben, die als Datenbank systeminternen Typ genauer bestimmt ist, sind sie ***nicht*** Validierungsattribute. In diesem Fall soll nur das Datum verfolgt werden, nicht das Datum und die Zeit. Die [DataType-Enumeration](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) bietet für viele Datentypen, wie z. B. *Date "," Time "," PhoneNumber "," Währung "," EmailAddress* und vieles mehr. Das `DataType`-Attribut kann der Anwendung auch ermöglichen, typspezifische Features bereitzustellen. Z. B. eine `mailto:` Link erstellt werden kann, für [DataType.EmailAddress](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx), und ein Datum Selektor kann bereitgestellt werden, für die [DataType.Date](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) in Browsern mit Unterstützung [HTML5](http://html5.org/). Die [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) Attribute ausgibt HTML 5 [Data -](http://ejohn.org/blog/html-5-data-attributes/) (ausgesprochen *Daten Dash*) Attribute, die HTML 5-Browser zu bringen. Die [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) Attribute bieten keine Validierung.
+Die [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) Attribute geben nur die Hinweise für die Anzeige-Engine zum Formatieren der Daten (und liefern Attribute wie z. B. `<a>` für URLs und `<a href="mailto:EmailAddress.com">` -e-Mail. Sie können die [RegularExpression](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) Attribut, um das Format der Daten zu überprüfen. Die [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) Attribut wird verwendet, um einen Datentyp anzugeben, der spezifischer als der datenbankinterne Typ ist, sind sie ***nicht*** Validierungsattribute. In diesem Fall soll nur das Datum verfolgt werden, nicht das Datum und die Zeit. Die [DataType-Enumeration](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) stellt viele Datentypen, z. B. *Datum "," Uhrzeit "," PhoneNumber "," Währung "," EmailAddress* und vieles mehr. Das `DataType`-Attribut kann der Anwendung auch ermöglichen, typspezifische Features bereitzustellen. Z. B. eine `mailto:` Link erstellt werden kann, für die [DataType.EmailAddress](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx), und eine Datumsauswahl kann angegeben werden, für die [DataType.Date](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) in Browsern mit Unterstützung [HTML5](http://html5.org/). Die [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) Attribute gibt HTML 5 [Data -](http://ejohn.org/blog/html-5-data-attributes/) (ausgesprochen als *Daten Dash*) Attribute, die HTML5-Browsern genutzt werden können. Die [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) Attribute bieten keine Validierung.
 
-`DataType.Date` gibt nicht das Format des Datums an, das angezeigt wird. Standardmäßig wird das Feld "Daten" entsprechend der Standardformate basierend auf dem Server angezeigt [CultureInfo](https://msdn.microsoft.com/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx).
+`DataType.Date` gibt nicht das Format des Datums an, das angezeigt wird. Standardmäßig wird das Datenfeld gemäß den Standardformaten basierend auf dem Server des [CultureInfo](https://msdn.microsoft.com/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx).
 
 Das `DisplayFormat`-Attribut dient zum expliziten Angeben des Datumsformats:
 
@@ -143,22 +142,22 @@ Das `DisplayFormat`-Attribut dient zum expliziten Angeben des Datumsformats:
 [!code-csharp[Main](adding-validation/samples/sample8.cs)]
 
 
-Die `ApplyFormatInEditMode` Einstellung gibt an, dass die angegebene Formatierung auch angewendet werden soll, wenn der Wert in einem Textfeld, das für die Bearbeitung angezeigt wird. (Sie möchten nicht, die für einige Felder – z. B. für die Currency-Werte nicht empfiehlt das Währungssymbol in das Textfeld für die Bearbeitung.)
+Die `ApplyFormatInEditMode` Einstellung gibt an, dass die angegebene Formatierung auch angewendet werden soll, wenn der Wert in einem Textfeld zur Bearbeitung angezeigt wird. (Möchten Sie vielleicht nicht, die für einige Felder, z. B. für Währungsangaben nicht empfiehlt das Währungssymbol im Textfeld für die Bearbeitung.)
 
-Können Sie die [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) Attribut von selbst, aber es ist im Allgemeinen empfiehlt sich, verwenden Sie die [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) auch Attribut. Die `DataType` Attribut vermittelt die *Semantik* der Daten als dagegen spricht, wie er auf dem Bildschirm gerendert werden, und bietet die folgenden Vorteile, die Sie nicht mit erhalten `DisplayFormat`:
+Können Sie die [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) Attribut selbst, aber es ist im Allgemeinen eine gute Idee, verwenden Sie die [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) auch Attribut. Die `DataType` -Attribut übermittelt die *Semantik* der Daten als dagegen spricht, wie sie auf dem Bildschirm gerendert, und bietet die folgenden Vorteile, die nicht im Lieferumfang enthalten `DisplayFormat`:
 
-- Der Browser kann die HTML5-Funktionen (z. B. zum Anzeigen eines Kalendersteuerelements, dem Gebietsschema entsprechende Währungssymbol, Links per e-Mail usw.).
-- Standardmäßig wird der Browser Rendern von Daten über das richtige Format auf Grundlage Ihrer [Gebietsschema](https://msdn.microsoft.com/library/vstudio/wyzd2bce.aspx).
-- Die [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) Attribut kann MVC auf das Feld nach rechts-Vorlage zum Rendern der Daten auswählen, aktivieren (die [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) verwendeten selbst die Zeichenfolge Vorlage verwendet). Weitere Informationen finden Sie in Brad Wilsons [ASP.NET MVC 2-Vorlagen](http://bradwilson.typepad.com/blog/2009/10/aspnet-mvc-2-templates-part-1-introduction.html). (Obwohl für MVC 2 geschrieben, gilt dieses Artikels noch auf die aktuelle Version von ASP.NET MVC.)
+- Der Browser kann HTML5-Features (z. B. zum Anzeigen eines Kalendersteuerelements, dem Gebietsschema entsprechenden Währungssymbols, e-Mail-Links usw.) aktivieren.
+- Standardmäßig rendert der Browser Daten mit dem richtigen Format basierend auf Ihrer [Gebietsschema](https://msdn.microsoft.com/library/vstudio/wyzd2bce.aspx).
+- Die [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) Attribut kann MVC die richtige Feldvorlage zum Rendern der Daten auswählen zu aktivieren (die [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) von verwendet selbst verwendet die zeichenfolgenvorlage). Weitere Informationen finden Sie in Brad Wilsons [ASP.NET MVC 2-Vorlagen](http://bradwilson.typepad.com/blog/2009/10/aspnet-mvc-2-templates-part-1-introduction.html). (Obwohl für MVC 2 geschrieben wird, gilt in diesem Artikel noch auf die aktuelle Version von ASP.NET MVC.)
 
-Bei Verwendung der `DataType` Attribut mit einem Datumsfeld müssen Sie angeben der `DisplayFormat` Attribut auch, um sicherzustellen, dass das Feld in Chrome-Browsern ordnungsgemäß gerendert wird. Weitere Informationen finden Sie unter [dieser Thread StackOverflow](http://stackoverflow.com/questions/12633471/mvc4-datatype-date-editorfor-wont-display-date-value-in-chrome-fine-in-ie).
+Bei Verwendung der `DataType` Attribut mit einem Datumsfeld müssen Sie angeben der `DisplayFormat` Attribut auch, um sicherzustellen, dass das Feld in Chrome-Browsern richtig gerendert wird. Weitere Informationen finden Sie unter [dieser Stack Overflow-Thread](http://stackoverflow.com/questions/12633471/mvc4-datatype-date-editorfor-wont-display-date-value-in-chrome-fine-in-ie).
 
 > [!NOTE]
 > jQuery-Validierung funktioniert nicht mit der [Bereich](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) Attribut und ["DateTime"](https://msdn.microsoft.com/library/system.datetime.aspx). Bei folgendem Code wird z.B. stets ein clientseitiger Validierungsfehler angezeigt, auch wenn sich das Datum im angegebenen Bereich befindet:
 > 
 > [!code-csharp[Main](adding-validation/samples/sample9.cs)]
 > 
-> Sie benötigen zum Deaktivieren der Validierung von jQuery Datum verwendet die [Bereich](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) -Attribut mit ["DateTime"](https://msdn.microsoft.com/library/system.datetime.aspx). Es ist im Allgemeinen nicht empfohlen, kompilieren Sie feste Datumsangaben in Ihren Modellen, die mit der [Bereich](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) Attribut und ["DateTime"](https://msdn.microsoft.com/library/system.datetime.aspx) wird abgeraten.
+> Sie müssen mit jQuery-datumsvalidierung Deaktivieren der [Bereich](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) -Attribut mit ["DateTime"](https://msdn.microsoft.com/library/system.datetime.aspx). Es ist im Allgemeinen nicht empfohlen, feste Datumsangaben in Ihren Modellen, also Kompilieren der [Bereich](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) Attribut und ["DateTime"](https://msdn.microsoft.com/library/system.datetime.aspx) wird davon abgeraten.
 
 
 Der folgende Code zeigt die Kombination von Attributen in einer Zeile:

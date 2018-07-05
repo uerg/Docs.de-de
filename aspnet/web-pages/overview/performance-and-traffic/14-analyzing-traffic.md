@@ -1,94 +1,93 @@
 ---
 uid: web-pages/overview/performance-and-traffic/14-analyzing-traffic
-title: Die Überwachungsinformationen Besucher (Analytics) für eine ASP.NET-Webseiten (Razor) Standort | Microsoft Docs
+title: Die Überwachungsinformationen Besucher (Analytics) für eine ASP.NET-Webseiten (Razor) Standort | Microsoft-Dokumentation
 author: tfitzmac
-description: Nachdem Sie Ihre Website über gelangt sind, empfiehlt es sich um Website-Datenverkehr zu analysieren.
+description: Nachdem Sie Ihre Website jetzt gelangt sind, empfiehlt es sich um Ihre Website-Datenverkehr zu analysieren.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/17/2014
 ms.topic: article
 ms.assetid: 360bc6e1-84c5-4b8e-a84c-ea48ab807aa4
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/performance-and-traffic/14-analyzing-traffic
 msc.type: authoredcontent
-ms.openlocfilehash: 9a381ebaed30325fdfa5f0f558910d3002c61559
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 48782606083b4aa1e32adf6163bcb3f2d9828bc3
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26528759"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37387136"
 ---
 <a name="tracking-visitor-information-analytics-for-an-aspnet-web-pages-razor-site"></a>Überwachungsinformationen Besucher (Analytics) für eine ASP.NET Web Pages (Razor)
 ====================
 durch [Tom FitzMacken](https://github.com/tfitzmac)
 
-> In diesem Artikel wird beschrieben, wie mithilfe ein Hilfsprogramms Website Analytics Seiten auf einer Website für ASP.NET Web Pages (Razor) hinzugefügt wird.
+> Dieser Artikel beschreibt, wie Sie eine Hilfsprogramm, um Seiten auf einer Website für ASP.NET Web Pages (Razor) websiteanalyse hinzuzufügen.
 > 
-> Lernen Sie:
+> Sie lernen Folgendes:
 > 
-> - Informationen zum Senden von Informationen zu Ihrer Website-Datenverkehr an einen analyseanbieter.
+> - Wie Sie Informationen zu Ihrer Website-Datenverkehr an einen analyseanbieter zu senden.
 > 
-> Hierbei handelt es sich um den ASP.NET Programmieren von Funktionen, die im Artikel:
+> Hierbei handelt es sich um das ASP.NET-PROGRAMMIERMODELL in diesem Artikel vorgestellten Funktionen dar:
 > 
 > - Die `Analytics` Helper.
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>In diesem Lernprogramm verwendeten Versionen der Software
+> ## <a name="software-versions-used-in-the-tutorial"></a>Softwareversionen, die in diesem Tutorial verwendet werden.
 > 
 > 
 > - ASP.NET Web Pages (Razor) 2
 > - ASP.NET Web Helpers Library (NuGet-Paket)
 
 
-Analytics ist ein allgemeiner Begriff für Technologie, die Datenverkehr auf Ihrer Website misst, damit Sie verstehen können, wie Benutzer die Site verwenden. Viele Analytics Services sind verfügbar, einschließlich der Dienste von Google, Yahoo und StatCounter.
+Analytics ist ein allgemeiner Begriff für die Technologie, die Datenverkehr auf Ihrer Website misst, damit Sie nachvollziehen können, wie Benutzer die Site verwenden. Viele Analytics-Dienste sind verfügbar, einschließlich Google, Yahoo, StatCounter und andere Dienste.
 
-Die Möglichkeit Analytics Works liegt darin, dass Sie sich für ein Konto mit der analyseanbieter registrieren, wo Sie die Website registrieren, die Sie möchten nachverfolgen. Der Anbieter sendet Ihnen einen Ausschnitt des JavaScript-Code, der eine ID oder das Nachverfolgen von Code für Ihr Konto enthält. Die Webseiten, auf die Website, die Sie nachverfolgen möchten hinzugefügt den JavaScript-Ausschnitt. (Fügen Sie üblicherweise in den Ausschnitt Analytics eine Fußzeile oder das Layout der Seite oder andere HTML-Markup, das auf jeder Seite an Ihrem Standort angezeigt wird.) Wenn Benutzer eine Seite, die einen dieser JavaScript-Ausschnitte enthält anfordern, sendet der Ausschnitt Informationen über die aktuelle Seite an die analyseanbieter, wer die verschiedenen Details über die Seite zeichnet.
+Die Möglichkeit Analyse funktioniert liegt darin, dass Sie sich für ein Konto mit dem Analytics-Anbieter registrieren, in dem Sie die Website registrieren, die Sie möchten nachverfolgen. Der Anbieter sendet Ihnen einen Ausschnitt des JavaScript-Code, der eine ID oder das Verfolgen von Code für Ihr Konto enthält. Die Webseiten auf der Website, die Sie nachverfolgen möchten, hinzugefügt den JavaScript-Codeausschnitt. (Hinzugefügt in der Regel den Analytics-Codeausschnitt eine Fußzeile oder das Layout der Seite oder andere HTML-Markup, das auf jeder Seite auf Ihrer Website angezeigt wird.) Wenn Benutzer eine Seite, die eine der folgenden JavaScript-Codeausschnitt enthält anfordern, sendet der Codeausschnitt Informationen über die aktuelle Seite auf den Analytics-Anbieter, der verschiedenen Details über die Seite zeichnet.
 
-Wenn Sie einen Blick auf Ihre Website-Statistiken verwenden möchten, melden Sie sich bei der analyseanbieter-Website. Sie können dann wie alle Arten von Berichten zu Ihrer Website anzeigen:
+Wenn Sie einen Blick auf Ihre Website-Statistiken möchten, melden Sie sich in der Analyse Website des Anbieters. Sie können dann wie alle Arten von Berichten zu Ihrer Website anzeigen:
 
-- Die Anzahl der Seitenaufrufe für einzelne Seiten. Dadurch können Sie ablesen (ungefähr), wie viele Personen die Site besuchen, und die Seiten auf Ihrer Website am häufigsten sind.
-- Wie lange Personen auf bestimmte Seiten verbringen. Dadurch können Sie erkennen Dinge gibt an, ob Ihre Startseite Personen zu überwachende beibehalten wird.
-- Welche Standorte Personen wurden auf, bevor sie Ihre Website besucht hat. Dadurch können Sie wissen, ob der Datenverkehr von Verknüpfungen, von Suchvorgängen usw. stammt.
-- Wenn Personen Ihre Site besuchen, und wie lange sie bleiben.
-- Welche Länder die Besucher Ihrer sind.
-- Welche Browser und Betriebssysteme Besucher Ihrer verwenden.
+- Die Anzahl der Seitenaufrufe für einzelne Seiten. Dadurch sehen Sie (ungefähr) wie viele Personen die Website besuchen und welche Seiten auf Ihrer Website am häufigsten genutzt werden.
+- Wie viel Zeit verbringen Benutzer auf bestimmte Seiten ein. Dies kann Ihnen sagen z.B. gibt an, ob Ihre Startseite geweckt Interesse beibehalten wird.
+- Welche Websites Benutzer waren auf, bevor sie Ihre Website besucht. Dadurch können Sie ermitteln, ob Links von Suchvorgängen und So weiter Ihren Datenverkehr stammt.
+- Wenn Benutzer Ihre Site besuchen, und wie lange sie bleiben.
+- Welchen Ländern stammen die Besucher Ihrer aus.
+- Welche Browser und Betriebssysteme die Besucher Ihrer verwenden.
 
-    ![Ch14traffic 1](14-analyzing-traffic/_static/image1.jpg)
+    ![Ch14traffic-1](14-analyzing-traffic/_static/image1.jpg)
 
-## <a name="using-a-helper-to-add-analytics-to-a-page"></a>Verwenden eine Hilfsmethode Analytics zu einer Seite hinzufügen
+## <a name="using-a-helper-to-add-analytics-to-a-page"></a>Verwenden eines Hilfsprogramms Analytics zu einer Seite hinzufügen
 
-ASP.NET Web Pages enthält mehrere Analytics-Hilfsprogramme (`Analytics.GetGoogleHtml`, `Analytics.GetYahooHtml`, und `Analytics.GetStatCounterHtml`), die erleichtern das Verwalten der JavaScript-Ausschnitte, die für die Analyse verwendet. Statt zu ermitteln, wie und wo versetzen Sie den JavaScript-Code müssen Sie lediglich lediglich das Hilfsobjekt zu einer Seite hinzufügen. Die einzige Informationen, die Sie bereitstellen müssen ist der Kontoname, ID oder Nachverfolgungscode. (Für StatCounter müssen Sie auch einige zusätzliche Werte angeben.)
+ASP.NET Web Pages enthält mehrere Analytics-Hilfsprogramme (`Analytics.GetGoogleHtml`, `Analytics.GetYahooHtml`, und `Analytics.GetStatCounterHtml`), mit denen die JavaScript-Codeausschnitte, die verwendet werden, für die Analyse zu verwalten. Statt herauszufinden, wie und wo platzieren Sie den JavaScript-Code müssen Sie lediglich das Hilfsobjekt zu einer Seite hinzufügen. Die einzige Informationen, die Sie bereitstellen müssen ist Ihr Kontoname, ID oder Nachverfolgungscode. (Für StatCounter müssen Sie auch einige zusätzliche Werte angeben.)
 
-In diesem Verfahren erstellen Sie eine Layoutseite, verwendet die `GetGoogleHtml` Helper. Wenn Sie bereits über ein Konto mit einem anderen Anbieter Analytics haben, können Sie verwenden Sie stattdessen dieses Konto und geringfügige Anpassungen vornehmen, nach Bedarf.
+In diesem Verfahren erstellen Sie eine Layoutseite, verwendet der `GetGoogleHtml` Helper. Wenn Sie bereits über ein Konto mit einem der anderen analyseanbieter verfügen, können Sie verwenden Sie stattdessen dieses Konto und geringfügige Anpassungen vornehmen, je nach Bedarf.
 
 > [!NOTE]
-> Wenn Sie eine Analytics-Konto erstellen, registrieren Sie die URL der Site, die nachverfolgt werden sollen. Wenn Sie alles, was auf dem lokalen Computer testen, Sie wird nicht nachverfolgt werden tatsächlichen Datenverkehr (nur Datenverkehr ist Sie), damit Sie Website aufzeichnen und Anzeigen von Statistiken nicht. Aber diese Prozedur zeigt, wie Sie eine Analyse Hilfe zu einer Seite hinzufügen. Wenn Sie Ihre Website veröffentlichen, sendet live-Standort Informationen an Ihren analyseanbieter für die.
+> Wenn Sie ein Analytics-Konto erstellen, registrieren Sie die URL der Website, die nachverfolgt werden sollen. Wenn Sie alles, was auf dem lokalen Computer testen, Sie wird nicht nachverfolgt werden tatsächliche Datenverkehr (nur der Datenverkehr ist Sie), damit Sie nicht aufzeichnen und Anzeigen von Websitestatistiken können. Aber dieses Verfahren zeigt, wie Sie eine Analytics-Hilfe zu einer Seite hinzufügen. Wenn Sie Ihre Website veröffentlichen, sendet die live-Website Informationen an Ihren analyseanbieter für die.
 
 
-1. Der ASP.NET Web Helpers Library zu Ihrer Website hinzufügen, wie in beschrieben [installieren-Hilfsprogramme in einer ASP.NET Web Pages-Website](https://go.microsoft.com/fwlink/?LinkId=252372), wenn Sie bereits hinzugefügt haben.
+1. Die ASP.NET Web Helpers Library zu Ihrer Website hinzufügen, wie in beschrieben [Hilfsprogramme installieren, in einer ASP.NET Web Pages-Website](https://go.microsoft.com/fwlink/?LinkId=252372), falls Sie bereits hinzugefügt haben.
 2. Erstellen Sie ein Konto mit Google Analytics, und notieren Sie den Kontonamen.
-3. Erstellen eine Layoutseite mit dem Namen *Analytics.cshtml* und fügen Sie das folgende Markup hinzu:
+3. Erstellen Sie eine Layoutseite, die mit dem Namen *Analytics.cshtml* und fügen Sie das folgende Markup hinzu:
 
     [!code-cshtml[Main](14-analyzing-traffic/samples/sample1.cshtml)]
 
     > [!NOTE]
-    > Richten Sie den Aufruf der `Analytics` Helper im Text einer Webseite (vor der `</body>` Tag). Andernfalls wird der Browser das Skript nicht ausgeführt.
+    > Müssen Sie den Aufruf zum Platzieren der `Analytics` Hilfsprogramm im Text einer Webseite (vor der `</body>` Tag). Andernfalls wird der Browser nicht das Skript ausgeführt.
 
-    Wenn Sie einen anderen analyseanbieter verwenden, verwenden Sie eine der folgenden Helfer stattdessen:
+    Wenn Sie einen anderen Analytics-Anbieter verwenden, verwenden Sie eine der folgenden Helfer stattdessen:
 
-    - (Yahoo)`@Analytics.GetYahooHtml("myaccount")`
-    - (StatCounter)`@Analytics.GetStatCounterHtml("project", "security")`
-4. Ersetzen Sie `myaccount` durch den Namen des der Konto-ID bzw. Nachverfolgungscode, die Sie in Schritt 1 erstellt haben.
+    - (Yahoo) `@Analytics.GetYahooHtml("myaccount")`
+    - (StatCounter) `@Analytics.GetStatCounterHtml("project", "security")`
+4. Ersetzen Sie dies `myaccount` mit dem Namen des Kontos, ID oder Nachverfolgungscode, die Sie in Schritt 1 erstellt haben.
 5. Führen Sie die Seite im Browser. (Stellen Sie sicher, dass die Seite ist ausgewählt, der **Dateien** Arbeitsbereich vor der Ausführung.)
-6. Zeigen Sie im Browser die Seitenquelle. Sie müssen den gerenderten Analytics-Code zu sehen sein:
+6. Zeigen Sie den Quellcode der Seite im Browser. Sie werden den gerenderten Analytics-Code zu sehen:
 
     [!code-html[Main](14-analyzing-traffic/samples/sample2.html)]
-7. Melden Sie sich auf der Google Analytics-Website, und untersuchen Sie die Statistiken für Ihre Website. Wenn Sie die Seite auf einer live-Website ausführen, sehen Sie einen Eintrag, der den Besuch der Seite protokolliert.
+7. Melden Sie sich auf der Website von Google Analytics, und überprüfen Sie die Statistiken für Ihre Website. Wenn Sie die Seite auf einer live-Website ausführen, sehen Sie einen Eintrag, der den Besuch auf Ihrer Seite protokolliert.
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 - [Google Analytics-Website](https://www.google.com/analytics/)
-- [Yahoo! Analytics-Website](http://help.yahoo.com/l/us/yahoo/ywa/)
+- [Yahoo! Web Analytics-Website](http://help.yahoo.com/l/us/yahoo/ywa/)
 - [StatCounter-Website](http://statcounter.com/)

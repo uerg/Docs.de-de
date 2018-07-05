@@ -1,23 +1,22 @@
 ---
 uid: web-pages/overview/getting-started/aspnet-web-pages-razor-faq
-title: ASP.NET Web Pages (Razor) – häufig gestellte Fragen | Microsoft Docs
+title: ASP.NET Web Pages (Razor) – häufig gestellte Fragen | Microsoft-Dokumentation
 author: tfitzmac
-description: In diesem Artikel werden einige häufig gestellten Fragen zu ASP.NET Web Pages (Razor) und WebMatrix aufgelistet. Versionen der Software verwendet, in dem Lernprogramm ASP.NET Web Pages (R...
+description: In diesem Artikel werden einige häufig gestellten Fragen zu ASP.NET Web Pages (Razor) und WebMatrix aufgeführt. Software-Versionen verwendet, in dem Tutorial ASP.NET Web Pages (R...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/07/2014
 ms.topic: article
 ms.assetid: b137bd04-25e1-47cb-9d96-ef2e179ecf1f
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/aspnet-web-pages-razor-faq
 msc.type: authoredcontent
-ms.openlocfilehash: 60cc4ca364923cb131d5e91cd7b6307b1e68644b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9546a5639da6baeadf9f01dfbe7da59d3dc4d6c6
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28042458"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37374755"
 ---
 <a name="aspnet-web-pages-razor-faq"></a>ASP.NET Web Pages (Razor) – häufig gestellte Fragen
 ====================
@@ -26,9 +25,9 @@ durch [Tom FitzMacken](https://github.com/tfitzmac)
 > > [!NOTE] 
 > > WebMatrix wird nicht mehr als eine integrierte Entwicklungsumgebung für ASP.NET Web Pages empfohlen. Verwendung [Visual Studio](xref:aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio) oder [Visual Studio-Code](https://code.visualstudio.com/).
 >
-> In diesem Artikel werden einige häufig gestellten Fragen zu ASP.NET Web Pages (Razor) und WebMatrix aufgelistet.
+> In diesem Artikel werden einige häufig gestellten Fragen zu ASP.NET Web Pages (Razor) und WebMatrix aufgeführt.
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>In diesem Lernprogramm verwendeten Versionen der Software
+> ## <a name="software-versions-used-in-the-tutorial"></a>Softwareversionen, die in diesem Tutorial verwendet werden.
 > 
 > 
 > - ASP.NET Web Pages (Razor) 3
@@ -36,100 +35,100 @@ durch [Tom FitzMacken](https://github.com/tfitzmac)
 > - WebMatrix 3
 >   
 > 
-> Dieses Lernprogramm funktioniert auch mit ASP.NET Web Pages 2, 2 von WebMatrix und Visual Studio 2012.
+> In diesem Tutorial funktioniert auch mit ASP.NET Web Pages 2 WebMatrix 2 und Visual Studio 2012.
 
 
 - [Was ist der Unterschied zwischen ASP.NET Web Pages, ASP.NET Web Forms und ASP.NET MVC?](#Whats_the_difference_between_ASP.NET_Web_Pages,_ASP.NET_Web_Forms,_and_ASP.NET_MVC)
-- [Benötige ich für die Arbeit mit Webseiten WebMatrix?](#Do_I_need_WebMatrix_in_order_to_work_with_Web_Pages)
-- [Kann ich die ASP.NET Web Forms-Steuerelemente auf einer Web Pages-Seite verwenden?](#Can_I_use_ASP.NET_Web_Forms_controls_on_a_Web_Pages_page)
+- [Benötige ich für die Arbeit mit Web Pages WebMatrix?](#Do_I_need_WebMatrix_in_order_to_work_with_Web_Pages)
+- [Kann ich ASP.NET Web Forms-Steuerelemente auf einer Seite für die Webseiten verwenden?](#Can_I_use_ASP.NET_Web_Forms_controls_on_a_Web_Pages_page)
 - [Kann ich eine ASP.NET Web Pages-Website bereitstellen, ohne mithilfe von WebMatrix?](#Can_I_deploy_an_ASP.NET_Web_Pages_site_without_using_WebMatrix)
-- [Habe ich das WebSecurity-Hilfsprogramm verwenden, um Anmeldungen zu unterstützen?](#Do_I_have_to_use_the_WebSecurity_helper_to_support_logins)
+- [Habe ich, um die WebSecurity-Hilfsprogramm verwenden, um Anmeldungen zu unterstützen?](#Do_I_have_to_use_the_WebSecurity_helper_to_support_logins)
 - [Unterstützt die ASP.NET Web Pages HTML5?](#Does_ASP.NET_Web_Pages_support_HTML5)
 - [Kann ich JavaScript und jQuery mit Webseiten verwenden?](#Can_I_use_JavaScript_and_jQuery_with_Web_Pages)
 - [Additional Resources](#AdditionalResources) (Zusätzliche MSBuild-Ressourcen)
 
-Fragen zu Fehlern und anderen Problemen finden Sie auf der [Problembehandlungshandbuch für ASP.NET Web Pages (Razor)](https://go.microsoft.com/fwlink/?LinkId=253001).
+Fragen zu Fehlern und anderen Problemen finden Sie auf die [ASP.NET Web Pages (Razor) – Handbuch zur Problembehandlung](https://go.microsoft.com/fwlink/?LinkId=253001).
 
 <a id="Whats_the_difference_between_ASP.NET_Web_Pages,_ASP.NET_Web_Forms,_and_ASP.NET_MVC"></a>
 ## <a name="whats-the-difference-between-aspnet-web-pages-aspnet-web-forms-and-aspnet-mvc"></a>Was ist der Unterschied zwischen ASP.NET Web Pages, ASP.NET Web Forms und ASP.NET MVC?
 
-Alle drei sind ASP.NET-Technologien für die Erstellung dynamischer Webanwendungen:
+Alle drei sind ASP.NET-Technologien für das Erstellen dynamischer Webanwendungen:
 
-- ASP.NET Web Pages konzentriert sich auf das Hinzufügen von dynamischen (serverseitige) Code und den Datenbankzugriff zu HTML-Seiten und Funktionen einfache und kompakte Syntax.
-- ASP.NET Web Forms basiert auf einer Seite-Objektmodell und herkömmliche Fenstertyp Steuerelemente (Schaltflächen, Listen, usw.). WebForms verwendet eine ereignisbasierte Modell, vertraut, die bei der Entwicklung für Client-basierten (Windows Forms) gearbeitet haben.
-- ASP.NET MVC implementiert das Model View Controller-Muster für ASP.NET. Die Betonung liegt auf "Trennung von Anliegen" (Verarbeitungs-, Daten- und UI-Ebenen).
+- Hinzufügen von Code der dynamischen (serverseitig) und Zugriff auf die Datenbank zu HTML-Seiten und Features einfache und Syntax ASP.NET Web Pages im Mittelpunkt.
+- ASP.NET Web Forms basiert auf einer Page-Objektmodell und herkömmlichen Fenstertyp-Steuerelemente (Schaltflächen, Listen, usw.). Web Forms verwendet eine ereignisbasierte Modell, das vertraut ist, die mit der Entwicklung für Client-basierten (Windows Forms) gearbeitet haben.
+- ASP.NET MVC implementiert das Model-View-Controller-Muster für ASP.NET. Der Schwerpunkt liegt auf "Trennung von Belangen" (Verarbeitungs-, Daten- und UI-Ebenen).
 
-Alle drei Frameworks vollständig unterstützt werden und weiterhin vom Team ASP.NET entwickelt werden. Die Wahl, welche-Framework verwenden im Allgemeinen abhängig ist, auf den Hintergrund und Erfahrung im Umgang mit ASP.NET.
+Alle drei Frameworks werden vollständig unterstützt und weiterhin vom ASP.NET-Team entwickelt werden. Im Allgemeinen die Wahl des welches Framework verwenden, hängt von Ihrem Hintergrund und Erfahrung mit ASP.NET.
 
-ASP.NET Web Pages insbesondere ist so ausgelegt für Personen erleichtern, die HTML für die Verarbeitung zu ihren Seiten hinzufügen bereits vertraut. Es ist eine gute Wahl für Studenten, Tüftler, in der Regel Personen, die die Programmierung vertraut sind. Sie können auch eine gute Wahl für Entwickler sein, die Erfahrung mit nicht zu ASP.NET Web-Technologien verfügen.
+ASP.NET Web Pages insbesondere soll es einfach für Personen, die HTML für die Verarbeitung ihrer Seiten hinzufügen, um bereits kennen. Es ist eine gute Wahl für Schüler/Studenten, Hobbyprogrammierer, in der Regel Personen, die in der Programmierung sind. Es kann auch eine gute Wahl für Entwickler sein, die sich mit nicht zu ASP.NET Web-Technologien auskennen.
 
 <a id="Do_I_need_WebMatrix_in_order_to_work_with_Web_Pages"></a>
-## <a name="do-i-need-webmatrix-in-order-to-work-with-web-pages"></a>Benötige ich für die Arbeit mit Webseiten WebMatrix?
+## <a name="do-i-need-webmatrix-in-order-to-work-with-web-pages"></a>Benötige ich für die Arbeit mit Web Pages WebMatrix?
 
 Nein. WebMatrix wird nicht mehr als eine integrierte Entwicklungsumgebung für ASP.NET Web Pages empfohlen. Verwendung [Visual Studio](program-asp-net-web-pages-in-visual-studio.md) oder [Visual Studio-Code](https://code.visualstudio.com/).
 
-Wenn Sie nicht Visual Studio oder Visual Studio-Code verwenden möchten, können Sie die Komponente Produkte einzeln mit installieren [Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx). Sie benötigen die folgenden Produkte:
+Wenn Sie nicht Visual Studio oder Visual Studio Code verwenden möchten, können Sie einzeln mit Komponentenprodukte installieren [Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx). Sie benötigen die folgenden Produkte:
 
 - Microsoft .NET Framework 4.5
-- ASP.NET MVC 5 (wodurch das ASP.NET Web Pages-Framework installiert wird)
-- IIS Express (Webserver)
+- ASP.NET MVC 5 (der auch die ASP.NET Web Pages-Framework installiert wird)
+- IIS Express (der Webserver)
 - Microsoft SQL Server Compact 4.0 (Datenbank)
 
-Verwenden Sie einen Text-Editor, um bearbeiten *cshtml* (oder *vbhtml*) Seiten.
+Sie können einen Text-Editor zum Bearbeiten *.cshtml* (oder *vbhtml*) Seiten.
 
-Verwalten von SQL Server Compact-Datenbanken (*.sdf* Dateien), ohne ein Tool etwas schwieriger ist. Visual Studio Containds Tools zum Verwalten von *.sdf* Datenbanken. Sie können auch SQL-Befehle im Code zur Ausführung zahlreicher SQL Server-Management-Aufgaben ausführen.
+Verwalten von SQL Server Compact-Datenbanken (*.sdf* Dateien), ohne ein Tool etwas schwieriger ist. Visual Studio Containds-Tools für die Verwaltung von *.sdf* Datenbanken. Sie können auch SQL-Befehle im Code, um viele SQL Server-Verwaltungsaufgaben ausführen.
 
-So testen Sie *cshtml* Seiten ohne eine integrierte Entwicklungsumgebung (IDE) verwenden, können Sie diese bereitstellen auf einem live-Server. (Siehe [können eine ASP.NET Web Pages-Website ohne mithilfe von WebMatrix bereitstellen?](#Can_I_deploy_an_ASP.NET_Web_Pages_site_without_using_WebMatrix))
+So testen Sie *.cshtml* Seiten ohne Verwendung einer integrierten Entwicklungsumgebung (IDE), können Sie sie bereitstellen auf einem live-Server. (Finden Sie unter [kann ich eine ASP.NET Web Pages-Website ohne mithilfe von WebMatrix bereitstellen?](#Can_I_deploy_an_ASP.NET_Web_Pages_site_without_using_WebMatrix))
 
-### <a name="running-iis-express-without-using-an-ide"></a>Ausführen von IIS Express ohne Verwendung einer IDE
+### <a name="running-iis-express-without-using-an-ide"></a>IIS Express ausführen, ohne mit einer IDE
 
-Bei der Installation von IIS Express auf dem Computer als Webserver können, der Sie die Seiten testen. Sie können IIS Express über die Befehlszeile ausführen und eine bestimmte Portnummer zuordnen. Sie klicken Sie dann diesen Port angeben, wenn Sie anfordern *cshtml* Dateien in Ihrem Browser.
+Bei der Installation von IIS Express auf Ihrem Computer als Webserver können, der Sie um die Seiten zu testen. Sie können IIS Express ausführen, von der Befehlszeile aus und ordnen es mit einer bestimmten Portnummer. Sie klicken Sie dann diesen Port angeben, wenn Sie anfordern *.cshtml* Dateien in Ihrem Browser.
 
-Klicken Sie in Windows öffnen eine Eingabeaufforderung mit Administratorrechten, und ändern Sie in *c:\Programme\Microsoft Files\IIS Express.* (Für 64-Bit-Systemen verwenden Sie den Ordner *C:\Program Files (x86) \IIS Express.)* Geben Sie dann den folgenden Befehl ein, mit dem tatsächlichen Pfad zu Ihrer Website:
+Klicken Sie in Windows, öffnen Sie eine Eingabeaufforderung mit Administratorrechten, und ändern Sie in *c:\Programme\Microsoft Files\IIS Express.* (Für 64-Bit-Systemen verwenden Sie den Ordner *C:\Program Files (x86) \IIS Express.)* Geben Sie dann, um den tatsächlichen Pfad zu Ihrer Website über den folgenden Befehl aus:
 
 `iisexpress.exe /port:35896 /path:C:\BasicWebSite`
 
-Sie können jede beliebige Portnummer verwenden, die bereits von einem anderen Prozess reserviert ist nicht. (Portnummern, die über 1024 sind in der Regel kostenlos.) Für die `path` Wert, verwenden Sie den Pfad des Website-Ordners, in dem die *cshtml* Dateien sind.
+Sie können eine beliebige Portnummer verwenden, die bereits von einem anderen Prozess reserviert ist nicht. (Portnummern über 1024 sind in der Regel kostenlos.) Für die `path` -Wert aufweist, verwenden Sie den Pfad des Ordners Website, in denen die *.cshtml* Dateien sind.
 
-Nach dem Ausführen dieses Befehls IIS Express für Einrichten Ihrer Seiten können Sie einen Browser öffnen und navigieren Sie zu einem *cshtml* Datei. Verwenden Sie eine URL wie folgt:
+Nach dem Ausführen dieses Befehls auf IIS Express so einrichten, Ihre Seiten angeboten werden, können Sie diese öffnen Sie einen Browser und navigieren Sie zu einem *.cshtml* Datei. Verwenden Sie eine URL wie folgt:
 
 `http://localhost:35896/default.cshtml`
 
-Geben Sie Informationen zu IIS Express-Befehlszeilenoptionen, `iisexpress.exe /?` in der Befehlszeile.
+Geben Sie für Hilfe zur IIS Express-Befehlszeilenoptionen, `iisexpress.exe /?` an der Befehlszeile eingeben.
 
 <a id="Can_I_use_ASP.NET_Web_Forms_controls_on_a_Web_Pages_page"></a>
-## <a name="can-i-use-aspnet-web-forms-controls-on-a-web-pages-page"></a>Kann ich die ASP.NET Web Forms-Steuerelemente auf einer Web Pages-Seite verwenden?
+## <a name="can-i-use-aspnet-web-forms-controls-on-a-web-pages-page"></a>Kann ich ASP.NET Web Forms-Steuerelemente auf einer Seite für die Webseiten verwenden?
 
-Nein. Web Forms-Steuerelemente, z. B. die [Kontrollkästchen](https://msdn.microsoft.com/library/system.web.ui.webcontrols.checkbox) -Steuerelement, das [Validierungssteuerelemente](https://msdn.microsoft.com/library/bwd43d0x), und die [GridView](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview) steuern, nur die Arbeitsaufgaben in Web Forms-Seiten (*aspx* Dateien). Diese Steuerelemente erfordern das Web Forms-Seite-Framework.
+Nein. Web Forms-Steuerelemente, wie die [Kontrollkästchen](https://msdn.microsoft.com/library/system.web.ui.webcontrols.checkbox) -Steuerelement, das [Steuerelemente zur gültigkeitsprüfung](https://msdn.microsoft.com/library/bwd43d0x), und die [GridView](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview) funktioniert nur in Web Forms-Seiten steuern (*aspx* Dateien). Diese Steuerelemente erfordern des Web Forms-Seiten-Frameworks.
 
 <a id="Can_I_deploy_an_ASP.NET_Web_Pages_site_without_using_WebMatrix"></a>
 ## <a name="can-i-deploy-an-aspnet-web-pages-site-without-using-webmatrix"></a>Kann ich eine ASP.NET Web Pages-Website bereitstellen, ohne mithilfe von WebMatrix?
 
-Ja. Sie können die Websitedateien manuell auf einem Server kopieren, (in der Regel mithilfe von FTP). Wenn Sie eine manuelle Kopie ausführen, müssen Sie auch die Dateien zu kopieren, die SQL Server Compact (Datenbank) unterstützen. Weitere Informationen finden Sie im Blogeintrag [Web Pages Bereitstellen von Anwendungen ohne ein Tool](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2317).
+Ja. Sie können manuell Websitedateien auf einem Server (in der Regel mithilfe von FTP) kopieren. Wenn Sie eine manuelle Kopie ausführen, müssen Sie auch die Dateien zu kopieren, die SQL Server Compact (Datenbank) unterstützen. Weitere Informationen finden Sie im Blogeintrag [Bereitstellen von Web Pages-Anwendungen, ohne ein Tool](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2317).
 
 <a id="Do_I_have_to_use_the_WebSecurity_helper_to_support_logins"></a>
-## <a name="do-i-have-to-use-the-websecurity-helper-to-support-logins"></a>Habe ich das WebSecurity-Hilfsprogramm verwenden, um Anmeldungen zu unterstützen?
+## <a name="do-i-have-to-use-the-websecurity-helper-to-support-logins"></a>Habe ich, um die WebSecurity-Hilfsprogramm verwenden, um Anmeldungen zu unterstützen?
 
-Nein. Die `SimpleMembership` Anbieter, die Teil von ASP.NET Web Pages ist eine Option. Die Sicherheitsanbieter, die Teil von ASP.NET sind (die Sie verwendet werden können, arbeiten mit in Web Forms) sind ebenfalls verfügbar. Z. B. können Formularauthentifizierung in ASP.NET Web Pages Sie genau wie in Web Forms. Ein Beispiel zum Verwenden der Formularauthentifizierung finden Sie unter den Microsoft Support-Artikel [implementieren formularbasierter Authentifizierung in Ihrer ASP.NET-Anwendung erfolgt mithilfe von C# .NET](https://support.microsoft.com/kb/301240). Um ein einfaches Beispiel herunterzuladen, rufen Sie [ASP.NET-Version "Login &amp; Kennwort](http://www.codeguru.com/csharp/.net/net_asp/scripting/article.php/c19295/ASPNET-version-of-Login--Password.htm).
+Nein. Die `SimpleMembership` -Anbieter, die Teil von ASP.NET Web Pages ist eine Option. Der Sicherheitsanbieter, die Teil von ASP.NET sind (die Sie verwendet werden können, mit der in Web Forms arbeiten) sind ebenfalls verfügbar. Z. B. können Formularauthentifizierung in ASP.NET Web Pages Sie genau wie in Web Forms. Ein Beispiel zur Verwendung der Formularauthentifizierung finden Sie unter den Microsoft Support-Artikel [implementieren formularbasierter Authentifizierung in Ihrer ASP.NET-Anwendung erfolgt mithilfe von c#.NET](https://support.microsoft.com/kb/301240). Ein einfaches Beispiel finden Sie unter [ASP.NET-Version "Anmeldung &amp; Kennwort](http://www.codeguru.com/csharp/.net/net_asp/scripting/article.php/c19295/ASPNET-version-of-Login--Password.htm).
 
-Informationen zur Verwendung von Windows-Authentifizierung finden Sie im Blogbeitrag [mithilfe der Windows-Authentifizierung in ASP.NET Web Pages](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2298).
+Informationen zur Verwendung von Windows-Authentifizierung finden Sie im Blogbeitrag [mithilfe von Windows-Authentifizierung in ASP.NET Web Pages](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2298).
 
 <a id="Does_ASP.NET_Web_Pages_support_HTML5"></a>
 ## <a name="does-aspnet-web-pages-support-html5"></a>Unterstützt die ASP.NET Web Pages HTML5?
 
-Ja. Die Seiten, die Sie mit ASP.NET Web Pages erstellen (*cshtml* oder *vbhtml* Seiten) sind im Wesentlichen HTML-Seiten, die auch Code enthalten, die auf dem Server ausgeführt wird, bevor die Seite gerendert wird. Solange der Browser des Benutzers HTML5 unterstützt, können Sie HTML5-Elemente in einem *cshtml* oder *vbhtml* Seite.
+Ja. Die Seiten, die Sie mit ASP.NET Web Pages erstellen (*.cshtml* oder *vbhtml* Seiten) sind im Wesentlichen HTML-Seiten, die auch Code enthalten, die auf dem Server ausgeführt wird, bevor die Seite gerendert wird. Solange der Browser des Benutzers HTML5 unterstützt, können Sie HTML5-Elementen in einem *.cshtml* oder *vbhtml* Seite.
 
 <a id="Can_I_use_JavaScript_and_jQuery_with_Web_Pages"></a>
 ## <a name="can-i-use-javascript-and-jquery-with-web-pages"></a>Kann ich JavaScript und jQuery mit Webseiten verwenden?
 
-Unbedingt. Die Seiten, die Sie mit ASP.NET Web Pages erstellen (*cshtml* oder *vbhtml* Seiten) werden nur HTML-Seiten mit Servercode darin. Aus diesem Grund können erfolgt in einer normalen HTML-Seite, indem mithilfe von JavaScript oder jQuery Sie können auch nichts einer *cshtml* oder *vbhtml* Seite.
+Unbedingt. Die Seiten, die Sie mit ASP.NET Web Pages erstellen (*.cshtml* oder *vbhtml* Seiten) werden nur HTML-Seiten mit Servercode darin. Aus diesem Grund alles was Sie tun können durch eine normale HTML-Seite mit JavaScript oder jQuery ist ebenfalls möglich ein *.cshtml* oder *vbhtml* Seite.
 
-Die **Starter Site** Vorlage in WebMatrix enthält eine Reihe von jQuery-Bibliotheken. Wenn Sie eine Website erstellen, mit der Vorlage der *Skripts* Ordner enthält eine jQuery-Kernbibliothek (*Jquery-1.6.2.js)* und Bibliotheken für jQuery-Validierung (*jquery.validate.js*usw..).
+Die **Starter Site** Vorlage in WebMatrix enthält eine Reihe von jQuery-Bibliotheken. Wenn Sie eine Website erstellen, mit der Vorlage, mit der *Skripts* Ordner enthält eine jQuery-Kernbibliothek (*Jquery-1.6.2.js)* und-Bibliotheken für die jQuery-Validierung (*"jQuery.Validate.js"* usw..).
 
-Hier sind einige Blogbeiträge, die die Verwendungsmöglichkeiten von jQuery mit ASP.NET Web Pages veranschaulichen:
+Hier sind einige Blogbeiträge, die veranschaulichen, wie jQuery mit ASP.NET Web Pages verwendet:
 
-- [Hinzufügen von jQuery Eignung für ASP.NET Web Pages mithilfe von WebMatrix](http://rachelappel.com/jquery/adding-jquery-goodness-to-asp-net-web-pages-using-webmatrix/) von Rachel Appel
-- [5 Minuten: WebMatrix + jQuery UI Json + jQuery Vorlagen](http://joeriks.com/2011/01/30/5-min-webmatrix-jquery-ui-json-jquery-templates/) von Jonas Eriksson
+- [Durch Hinzufügen von jQuery-Vorteile für ASP.NET Web Pages mithilfe von WebMatrix](http://rachelappel.com/jquery/adding-jquery-goodness-to-asp-net-web-pages-using-webmatrix/) von Rachel Appel
+- [5 Min.: WebMatrix und jQuery UI + Json und die jQuery-Vorlagen](http://joeriks.com/2011/01/30/5-min-webmatrix-jquery-ui-json-jquery-templates/) von Jonas Eriksson
 - [WebMatrix und jQuery-Formulare](http://mikesdotnetting.com/Article/155/WebMatrix-And-jQuery-Forms) von Mike Brind
 
 <a id="AdditionalResources"></a>

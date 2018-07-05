@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-10
-title: Veröffentlichen Sie die App in Azure-Azure App Service | Microsoft Docs
+title: Veröffentlichen Sie die App in Azure, Azure App Service | Microsoft-Dokumentation
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,42 +9,41 @@ ms.date: 06/16/2014
 ms.topic: article
 ms.assetid: 10fd812b-94d6-4967-be97-a31ce9c45e2c
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-10
 msc.type: authoredcontent
-ms.openlocfilehash: cc8a9199144e9fac041435938ea8899374ea199f
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0290b392c1b292d0f3cc080dbfa25ec6103b2751
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30867813"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37400803"
 ---
-<a name="publish-the-app-to-azure-azure-app-service"></a>Veröffentlichen Sie die App in Azure-Azure App Service
+<a name="publish-the-app-to-azure-azure-app-service"></a>Veröffentlichen Sie die App in Azure, Azure App Service
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson)
 
-[Herunterladen des abgeschlossenen Projekts](https://github.com/MikeWasson/BookService)
+[Abgeschlossenes Projekt herunterladen](https://github.com/MikeWasson/BookService)
 
-Als letzten Schritt veröffentlichen Sie die Anwendung in Azure. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste des Projekts, und wählen **veröffentlichen**.
+Als letzten Schritt veröffentlichen Sie die Anwendung in Azure. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste in des Projekts, und wählen **veröffentlichen**.
 
 ![](part-10/_static/image1.png)
 
-Auf **veröffentlichen** Ruft die **Web veröffentlichen** Dialogfeld. Wenn Sie diese Option aktiviert **Host in der Cloud** bei Erstellung des Projekts, und klicken Sie dann auf die Verbindung und Einstellungen bereits konfiguriert sind. In diesem Fall klicken Sie einfach auf die **Einstellungen** und prüfen Sie &quot;führen Sie Code First-Migrationen&quot;. (Wenn Sie eine Überprüfung auf nicht **Host in der Cloud** am Anfang, und führen Sie dann die Schritte in der [nächsten Abschnitt](#new-website).)
+Auf **veröffentlichen** Ruft die **Webveröffentlichung** Dialogfeld. Wenn Sie aktiviert **Host in der Cloud** Wenn Sie zuerst das Projekt, und klicken Sie dann auf die Verbindung erstellt haben und die Einstellungen bereits konfiguriert sind. In diesem Fall, klicken Sie einfach auf die **Einstellungen** Registerkarte, und überprüfen Sie &quot;Execute Code First Migrations&quot;. (Wenn Sie eine Überprüfung auf nicht **Host in der Cloud** am Anfang, und befolgen Sie dann die Schritte in der [nächsten Abschnitt](#new-website).)
 
 [![](part-10/_static/image3.png)](part-10/_static/image2.png)
 
-Um die app bereitstellen möchten, klicken Sie auf **veröffentlichen**. Sie können die publishing Status in Anzeigen der **Webaktivität veröffentlichen** Fenster. (Aus der **Ansicht** klicken Sie im Menü **Weitere Fenster**, und wählen Sie dann **Webaktivität veröffentlichen**.)
+Klicken Sie zum Bereitstellen der app auf **veröffentlichen**. Sehen Sie den veröffentlichungsfortschritt in die **Webveröffentlichungsaktivität** Fenster. (Aus der **Ansicht** , wählen Sie im Menü **Other Windows**, und wählen Sie dann **Webveröffentlichungsaktivität**.)
 
 ![](part-10/_static/image4.png)
 
-Beendigung Visual Studio Bereitstellen der app der Standardbrowser automatisch geöffnet wird, um die URL der Website bereitgestellt, und die Anwendung, die Sie erstellt haben, wird nun in der Cloud ausgeführt. Die URL in die Adressleiste des Browsers zeigt, dass die Website aus dem Internet geladen wird.
+Wenn Visual Studio abgeschlossen ist, das Bereitstellen der app, an die URL der bereitgestellten Website automatisch im Standardbrowser geöffnet wird, und die Anwendung, die Sie erstellt haben, wird jetzt in der Cloud ausgeführt. Die URL in die Adressleiste des Browsers zeigt, dass die Website aus dem Internet geladen wird.
 
 [![](part-10/_static/image6.png)](part-10/_static/image5.png)
 
 <a id="new-website"></a>
 ## <a name="deploying-to-a-new-website"></a>Bereitstellung in einer neuen Website
 
-Wenn Sie nicht überprüfen **Host in der Cloud** beim Erstellen des Projekts können Sie jetzt eine neue Web-app konfigurieren. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste des Projekts, und wählen **veröffentlichen**. Wählen Sie die **Profil** Registerkarte, und klicken Sie auf **Microsoft Azure-Websites**. Wenn Sie derzeit in Azure angemeldet sind, werden Sie aufgefordert, sich anzumelden.
+Wenn Sie nicht aktiviert haben **Host in der Cloud** , wenn Sie zuerst das Projekt erstellt haben, können Sie eine neue Web-app jetzt konfigurieren. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste in des Projekts, und wählen **veröffentlichen**. Wählen Sie die **Profil** Registerkarte, und klicken Sie auf **Microsoft Azure Websites**. Wenn Sie sich derzeit in Azure angemeldet sind, werden Sie aufgefordert werden, für die Anmeldung.
 
 [![](part-10/_static/image8.png)](part-10/_static/image7.png)
 
@@ -52,11 +51,11 @@ In der **vorhandene Websites** Dialogfeld klicken Sie auf **neu**.
 
 ![](part-10/_static/image9.png)
 
-Geben Sie einen Standortnamen an. Wählen Sie Ihr Azure-Abonnement und die Region an. Unter **Datenbankserver**Option **Erstellen neuer Server**, oder wählen Sie einen vorhandenen Server. Klicken Sie auf **Erstellen**.
+Geben Sie einen Standortnamen an. Wählen Sie Ihr Azure-Abonnement und die Region an. Klicken Sie unter **Datenbankserver**Option **neuen Server erstellen**, oder wählen Sie einen vorhandenen Server. Klicken Sie auf **Erstellen**.
 
 [![](part-10/_static/image11.png)](part-10/_static/image10.png)
 
-Klicken Sie auf die **Einstellungen** und prüfen Sie &quot;führen Sie Code First-Migrationen&quot;. Klicken Sie dann auf **veröffentlichen**.
+Klicken Sie auf die **Einstellungen** Registerkarte, und überprüfen Sie &quot;Execute Code First Migrations&quot;. Klicken Sie dann auf **veröffentlichen**.
 
 > [!div class="step-by-step"]
 > [Vorherige](part-9.md)

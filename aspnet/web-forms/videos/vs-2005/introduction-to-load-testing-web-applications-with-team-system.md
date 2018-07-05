@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/vs-2005/introduction-to-load-testing-web-applications-with-team-system
-title: Einführung in die Tests mit TeamSystem-Webanwendungen zu laden. | Microsoft Docs
+title: Laden Auslastungstests für Webanwendungen mit TeamSystem – Einführung | Microsoft-Dokumentation
 author: rick-anderson
-description: In diesem Video wird ersichtlich, wie Sie die Testen Ihrer Webanwendungen mithilfe der Funktionen von Visual Studio Team System-Auslastungstests laden können.
+description: In diesem Video sehen wir, wie Sie zum Testen Ihrer Webanwendungen, die Verwendung der auslastungstestfunktionen von Visual Studio Team System laden können.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/09/2007
 ms.topic: article
 ms.assetid: c2a80ef9-3dc4-4051-8103-495ddf1b8a46
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/vs-2005/introduction-to-load-testing-web-applications-with-team-system
 msc.type: video
-ms.openlocfilehash: 012eb24699da82bbf335e00e2cb92889704fd77a
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: bd67b66dda728656b5b087a0a488cea91ed765b9
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30894219"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37387256"
 ---
-<a name="introduction-to-load-testing-web-applications-with-team-system"></a>Einführung in die Tests mit TeamSystem-Webanwendungen zu laden.
+<a name="introduction-to-load-testing-web-applications-with-team-system"></a>Laden Auslastungstests für Webanwendungen mit TeamSystem – Einführung
 ====================
 von Eric Lee
 
-In diesem Video wird ersichtlich, wie Sie die Testen Ihrer Webanwendungen mithilfe der Funktionen von Visual Studio Team System-Auslastungstests laden können.
+In diesem Video sehen wir, wie Sie zum Testen Ihrer Webanwendungen, die Verwendung der auslastungstestfunktionen von Visual Studio Team System laden können.
 
-[&#9654;Sehen Sie sich an (9 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-load-testing-web-applications-with-team-system)
+[&#9654;Sehen Sie sich Video (9 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-load-testing-web-applications-with-team-system)
 
 > [!div class="step-by-step"]
 > [Zurück](introduction-to-testing-web-applications-with-team-system.md)

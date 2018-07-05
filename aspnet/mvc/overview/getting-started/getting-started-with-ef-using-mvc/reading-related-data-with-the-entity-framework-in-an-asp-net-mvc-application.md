@@ -1,34 +1,33 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
-title: Lesen von verknüpften Daten mit dem Entity Framework in einer ASP.NET MVC-Anwendung | Microsoft Docs
+title: Lesen von relevanten Daten mit dem Entitätsframework in einer ASP.NET MVC-Anwendung | Microsoft-Dokumentation
 author: tdykstra
-description: /ajax/tutorials/using-ajax-control-toolkit-controls-and-control-extenders-vb
+description: /AJAX/Tutorials/Using-AJAX-Control-Toolkit-Controls-and-Control-Extenders-VB
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/07/2014
 ms.topic: article
 ms.assetid: 18cdd896-8ed9-4547-b143-114711e3eafb
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 06784d8b610856e71eae78b0db2d0253faedb955
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 24ee4cd1de4b2868af15513439a88e5363ee11e9
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30875323"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37401275"
 ---
-<a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Lesen-bezogene Daten mit dem Entity Framework in einer ASP.NET MVC-Anwendung
+<a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Lesen verwandter Daten mit dem Entitätsframework in einer ASP.NET MVC-Anwendung
 ====================
 durch [Tom Dykstra](https://github.com/tdykstra)
 
-[Herunterladen des abgeschlossenen Projekts](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) oder [PDF herunterladen](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
+[Herunterladen des abgeschlossenen Projekts](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) oder [PDF-Datei herunterladen](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
 
-> Die Contoso-University Beispielwebanwendung veranschaulicht, wie ASP.NET MVC 5-Anwendungen, die mit dem Entity Framework 6 Code First und Visual Studio 2013. Informationen zu dieser Tutorialreihe finden Sie im [ersten Tutorial der Reihe](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+> Die Contoso University-Beispielwebanwendung veranschaulicht, wie ASP.NET MVC 5-Anwendungen, die mit dem Entity Framework 6 Code First "und" Visual Studio 2013. Informationen zu dieser Tutorialreihe finden Sie im [ersten Tutorial der Reihe](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 
-Im vorherigen Lernprogramm abgeschlossen Sie das Datenmodell "School". In diesem Lernprogramm werden Sie lesen und Anzeigen verknüpfter Daten – d. h. die Daten, die das Entity Framework in Navigationseigenschaften lädt.
+Im vorherigen Tutorial haben Sie das Datenmodell "School". In diesem Tutorial werden Sie lesen und Anzeigen von verknüpften Daten, d. h. Daten, die Entity Framework in Navigationseigenschaften lädt.
 
 Die folgenden Abbildungen zeigen die Seiten, mit den Sie arbeiten werden.
 
@@ -36,52 +35,52 @@ Die folgenden Abbildungen zeigen die Seiten, mit den Sie arbeiten werden.
 
 ![Instructors_index_page_with_instructor_and_course_selected](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
 
-## <a name="lazy-eager-and-explicit-loading-of-related-data"></a>Verzögerte Eager und explizite Laden von verknüpften Daten
+## <a name="lazy-eager-and-explicit-loading-of-related-data"></a>Verzögerte, Eager und explizite Laden verwandter Daten
 
-Es gibt mehrere Möglichkeiten, das Entity Framework in die Navigationseigenschaften einer Entität verknüpfte Daten geladen werden können:
+Es gibt mehrere Möglichkeiten, Entity Framework zugehörige Daten in die Navigationseigenschaften einer Entität laden kann:
 
-- *Lazy Loading (verzögertes Laden)*. Wenn die Entität zuerst gelesen wird, werden verwandte Daten nicht abgerufen. Wenn Sie jedoch zum ersten Mal versuchen, auf eine Navigationseigenschaft zuzugreifen, werden die für diese Navigationseigenschaft erforderlichen Daten automatisch abgerufen. Dies führt zu mehreren Abfragen an die Datenbank gesendet – eine für die Entität selbst und eine jedes Mal, die Daten, die für die Entität verknüpft abgerufen werden muss. Die `DbContext` Klasse verzögertes Laden sind standardmäßig aktiviert. 
+- *Lazy Loading (verzögertes Laden)*. Wenn die Entität zuerst gelesen wird, werden verwandte Daten nicht abgerufen. Wenn Sie jedoch zum ersten Mal versuchen, auf eine Navigationseigenschaft zuzugreifen, werden die für diese Navigationseigenschaft erforderlichen Daten automatisch abgerufen. Dies führt zu mehreren Abfragen, die an die Datenbank gesendet – eine für die Entität selbst und eine jedes Mal, die Daten für die Entität beziehen abgerufen werden muss. Die `DbContext` Klasse Lazy Load sind standardmäßig aktiviert. 
 
     ![Lazy_loading_example](https://asp.net/media/2577850/Windows-Live-Writer_Reading-Re.NET-MVC-Application-5-of-10h1_ADC3_Lazy_loading_example_2c44eabb-5fd3-485a-837d-8e3d053f2c0c.png)
-- *Eager Loading (vorzeitiges Laden)*. Wenn die Entität gelesen wird, werden ihre verwandten Daten mit ihr abgerufen. Dies führt normalerweise zu einer einzelnen Joinabfrage, die alle Daten abruft, die erforderlich sind. Geben Sie unverzüglichem Laden mithilfe der `Include` Methode.
+- *Eager Loading (vorzeitiges Laden)*. Wenn die Entität gelesen wird, werden ihre verwandten Daten mit ihr abgerufen. Dies führt normalerweise zu einer einzelnen Joinabfrage, die alle Daten abruft, die erforderlich sind. Sie geben eager Loading mit der `Include` Methode.
 
     ![Eager_loading_example](https://asp.net/media/2577856/Windows-Live-Writer_Reading-Re.NET-MVC-Application-5-of-10h1_ADC3_Eager_loading_example_33f907ff-f0b0-4057-8e75-05a8cacac807.png)
-- *Explizites Laden*. Dies gleicht dem verzögerten Laden, mit dem Unterschied, dass Sie explizit die verknüpften Daten im Code abrufen; Es ist nicht automatisch ausgeführt, wenn Sie Zugriff auf eine Navigationseigenschaft. Sie laden verknüpfte Daten manuell, indem beim Abrufen der Objekt-Eintrag für die Status-Manager für eine Entität und der Aufruf der [Collection.Load](https://msdn.microsoft.com/library/gg696220(v=vs.103).aspx) Methode für Sammlungen oder die [Reference.Load](https://msdn.microsoft.com/library/gg679166(v=vs.103).aspx) Methode für die Eigenschaften, enthalten ein einzelne Entität. (Im folgenden Beispiel, mussten Sie zum Laden der Navigationseigenschaft Administrator ersetzen `Collection(x => x.Courses)` mit `Reference(x => x.Administrator)`.) In der Regel verwenden Sie explizite Laden nur, wenn Sie lazy loading-aktiviert haben.
+- *Explizites Laden*. Dies ist ähnlich wie beim verzögerten Laden, mit dem Unterschied, dass Sie explizit im Code die verwandten Daten abgerufen werden; Dies erfolgt nicht automatisch beim Zugriff auf eine Navigationseigenschaft. Sie verwandte Daten manuell laden durch Abrufen der Objekt-Status-Manager-Eintrag für eine Entität und das Aufrufen der [Collection.Load](https://msdn.microsoft.com/library/gg696220(v=vs.103).aspx) -Methode für Sammlungen oder [Reference.Load](https://msdn.microsoft.com/library/gg679166(v=vs.103).aspx) Methode für die Eigenschaften, die enthalten eine einzelne Entität. (Im folgenden Beispiel, wenn Sie die Administrator-Navigationseigenschaft laden möchten ersetzen `Collection(x => x.Courses)` mit `Reference(x => x.Administrator)`.) In der Regel verwenden Sie explizite Laden nur, wenn Sie lazy loading-aktiviert haben.
 
     ![Explicit_loading_example](https://asp.net/media/2577862/Windows-Live-Writer_Reading-Re.NET-MVC-Application-5-of-10h1_ADC3_Explicit_loading_example_79d8c368-6d82-426f-be9a-2b443644ab15.png)
 
-Da sie nicht die Eigenschaftswerte sofort abrufen, verzögertes Laden und explizites Laden sind auch beide genannt *verzögertes Laden*.
+Da sie sofort der Abrufen von Eigenschaftswerten nicht lazy Loading und explizites Laden werden auch beide genannt *verzögertes Laden*.
 
 ### <a name="performance-considerations"></a>Überlegungen zur Leistung
 
-Wenn Sie wissen, dass Sie für jede abgerufene Entität verwandte Daten benötigen, bietet Eager Loading häufig die beste Leistung, da eine einzelne Abfrage, die an die Datenbank gesendet wird, in der Regel effizienter ist als separate Abfragen für jede abgerufene Entität. Angenommen Sie in den obigen Beispielen wird, dass jede Abteilung zehn Verwandte Kurse gelten. Im Beispiel unverzüglichem Laden führt in nur einer einzigen (Join)-Abfrage und einem einzelnen Roundtrip mit der Datenbank. Das verzögerte Laden und explizites Laden Beispiele für ergibt beide elf Abfragen und elf Roundtrips zur Datenbank. Die zusätzlichen Roundtrips zur Datenbank beeinträchtigen die Leistung besonders bei hoher Latenz.
+Wenn Sie wissen, dass Sie für jede abgerufene Entität verwandte Daten benötigen, bietet Eager Loading häufig die beste Leistung, da eine einzelne Abfrage, die an die Datenbank gesendet wird, in der Regel effizienter ist als separate Abfragen für jede abgerufene Entität. Angenommen Sie in den obigen Beispielen wird, dass jede Abteilung zehn Verwandte Kurse hat. Das Beispiel für eager Loading würde nur einen einzelnen (Join)-Abfrage und einem einzelnen Roundtrip zur Datenbank führen. Der lazy Loading und Beispiele für explizites Laden ergibt beide elf Abfragen und elf Roundtrips zur Datenbank. Die zusätzlichen Roundtrips zur Datenbank beeinträchtigen die Leistung besonders bei hoher Latenz.
 
-In einigen Szenarien ist das verzögertes Laden andererseits, effizienter. Unverzüglichem Laden kann es sich um eine sehr komplexe Verknüpfung erzeugt werden kann, führen, der SQL Server effizient verarbeiten kann. Oder wenn Sie den Zugriff auf eine Entität Navigationseigenschaften nur für einen Teil einer Reihe von Entitäten müssen Sie verarbeiten möchten, verzögertes Laden möglicherweise eine bessere Leistung, da unverzüglichem Laden mehr Daten als benötigt abrufen würde. Wenn die Leistung wichtig ist, empfiehlt es sich, die Leistung mit beiden Möglichkeiten zu testen, um die beste Wahl treffen zu können.
+In einigen Szenarien ist lazy Loading auf der anderen Seite effizienter. Eager Loading möglicherweise eine sehr komplexe Verknüpfung generieren, die SQL Server nicht effizient verarbeiten kann. Oder Sie verarbeiten können, Lazy Load möglicherweise besser ausgeführt werden, da eager Loading mehr Daten als benötigt abrufen würde, wenn Sie Navigationseigenschaften einer Entität, nur für einen Teil einer Reihe von Entitäten zugreifen müssen. Wenn die Leistung wichtig ist, empfiehlt es sich, die Leistung mit beiden Möglichkeiten zu testen, um die beste Wahl treffen zu können.
 
-Verzögertes Laden kann Code maskieren, die Leistungsprobleme verursacht. Beispielsweise ist die Code, der eager oder expliziten Laden nicht angeben, aber eine große Anzahl von Entitäten verarbeitet und verwendet mehrere Navigationseigenschaften in jeder Iteration (aufgrund von viele Roundtrips zur Datenbank) möglicherweise sehr ineffizient. Eine Anwendung, die auch in der Entwicklung mit einer lokalen SQL Servers führt möglicherweise Leistungsprobleme, wenn aufgrund der Latenzzeit und lazy Loading zu Azure SQL-Datenbank verschoben. Profilerstellung für die Datenbankabfragen mit einer realistischen testladevorgang hilft zu bestimmen, ob das verzögertes Laden geeignet ist. Weitere Informationen finden Sie unter [Demystifying Entity Framework-Strategien: Laden von verknüpften Daten](https://msdn.microsoft.com/magazine/hh205756.aspx) und [mit dem Entity Framework zum Verringern der Netzwerklatenz in SQL Azure](https://msdn.microsoft.com/magazine/gg309181.aspx).
+Lazy Loading kann Code maskiert, für die Leistungsprobleme verursacht. Kann z. B., Code, der nicht geben eager oder expliziten Laden jedoch eine große Anzahl von Entitäten verarbeitet und verwendet mehrere Navigationseigenschaften in jeder Iteration sehr ineffizient (Dank der viele Roundtrips zur Datenbank). Eine Anwendung, die sich für die Entwicklung mit einer lokalen SQLServer führt möglicherweise Leistungsprobleme, wenn aufgrund der Latenzzeit und Lazy Load in Azure SQL-Datenbank verschoben. Profilieren von Datenbankabfragen mit einer realistischen testladevorgang können Sie bestimmen, wenn lazy Loading geeignet ist. Weitere Informationen finden Sie unter [die Enträtselung der Entity Framework-Strategien: Laden von verknüpften Daten](https://msdn.microsoft.com/magazine/hh205756.aspx) und [mithilfe von Entity Framework zum Verringern der Netzwerklatenz zu SQL Azure](https://msdn.microsoft.com/magazine/gg309181.aspx).
 
-### <a name="disable-lazy-loading-before-serialization"></a>Das verzögertes Laden vor der Serialisierung deaktivieren
+### <a name="disable-lazy-loading-before-serialization"></a>Deaktivieren Sie lazy Loading vor der Serialisierung
 
-Wenn Sie lazy loading-aktivierten während der Serialisierung lassen, können Sie schließlich Abfragen deutlich mehr Daten als beabsichtigt. Serialisierung funktioniert im Allgemeinen durch den Zugriff auf jede Eigenschaft in einer Instanz eines Typs. Eigenschaftenzugriff löst das verzögertes Laden, und die verzögerten geladenen Entitäten serialisiert werden. Der Serialisierungsprozess greift dann auf jede Eigenschaft des verzögerten geladene Entitäten verursacht möglicherweise noch mehr verzögertes Laden und Serialisierung. Um diese runaway Kettenreaktion zu verhindern, aktivieren Sie lazy loading-deaktivieren, bevor Sie eine Entität serialisieren.
+Wenn Sie lazy loading-aktivierten während der Serialisierung lassen, können Sie schließlich Abfragen deutlich mehr Daten als beabsichtigt. Serialisierung funktioniert im Allgemeinen durch den Zugriff auf jede Eigenschaft in einer Instanz eines Typs. Zugriff auf Eigenschaften wird lazy Loading ausgelöst, und die verzögerte geladenen Entitäten serialisiert werden. Der Serialisierungsprozess greift dann auf jede Eigenschaft der lazy geladenen Entitäten, und zwar mit möglicherweise sogar noch mehr lazy Loading und Serialisierung. Um diese runaway Kettenreaktion zu verhindern, aktivieren Sie lazy loading-deaktivieren, bevor Sie eine Entität zu serialisieren.
 
-Serialisierung kann auch durch die Webdienstproxy-Klassen, die das Entity Framework verwendet, kompliziert, wie beschrieben in der [erweiterte Szenarien der Lernprogramm](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#proxies).
+Serialisierung kann auch durch die Webdienstproxy-Klassen, die das Entity Framework verwendet werden, erschwert werden, wie unter der [erweiterte Szenarien der Tutorial](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#proxies).
 
-Eine Möglichkeit zur Vermeidung von Problemen der Serialisierung wird zum Serialisieren von datenübertragungsobjekte (DTOs) anstelle von Entitätsobjekten, entsprechend der [mithilfe des Web-API mit Entity Framework](../../../../web-api/overview/data/using-web-api-with-entity-framework/part-5.md) Lernprogramm.
+Eine Möglichkeit zur Vermeidung von Problemen der Serialisierung wird zum Serialisieren von datentransferobjekte (DTOs) anstelle von Entitätsobjekten, siehe die [mithilfe des Web-API mit Entity Framework](../../../../web-api/overview/data/using-web-api-with-entity-framework/part-5.md) Tutorial.
 
-Wenn Sie DTOs nicht verwenden, können Sie diese deaktivieren verzögerten Laden und vermeiden Probleme mit Proxy von [deaktivieren Proxyerstellung](https://msdn.microsoft.com/data/jj592886.aspx).
+Wenn Sie keine DTOs verwenden, können Sie diese deaktivieren Sie lazy Loading und vermeiden Sie Proxyprobleme von [deaktivieren die Proxyerstellung](https://msdn.microsoft.com/data/jj592886.aspx).
 
-Hier sind einige andere [Möglichkeiten, deaktivieren Sie das verzögertes Laden](https://msdn.microsoft.com/data/jj574232):
+Hier sind einige andere [Möglichkeiten zur Deaktivierung von lazy Loading](https://msdn.microsoft.com/data/jj574232):
 
-- Lassen Sie für bestimmte Navigationseigenschaften, die `virtual` -Schlüsselwort, wenn Sie die Eigenschaft deklarieren.
-- Legen Sie für alle Navigationseigenschaften `LazyLoadingEnabled` zu `false`, platzieren Sie den folgenden Code im Konstruktor der Context-Klasse: 
+- Lassen Sie für bestimmte Eigenschaften, die `virtual` -Schlüsselwort, wenn Sie die Eigenschaft deklarieren.
+- Legen Sie für alle Navigationseigenschaften `LazyLoadingEnabled` zu `false`, platzieren Sie den folgenden Code im Konstruktor der Kontextklasse: 
 
     [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-## <a name="create-a-courses-page-that-displays-department-name"></a>Erstellen Sie eine Seite Kurse, zeigt Abteilungsnamen
+## <a name="create-a-courses-page-that-displays-department-name"></a>Erstellen einer Kursseite, zeigt Abteilungsname
 
-Die `Course` Entität enthält, eine Navigationseigenschaft, die enthält die `Department` Entität der Abteilung, die der Kurs zugewiesen ist. Um den Namen der zugewiesenen Abteilung in einer Liste von Kurse anzuzeigen, müssen Sie die `Name` Eigenschaft aus der `Department` Entität, die in der `Course.Department` Navigationseigenschaft.
+Die `Course` Entität enthält eine Navigationseigenschaft, enthält die `Department` Entität des Fachbereichs, die der Kurs zugewiesen ist. Um den Namen der zugewiesenen Abteilung in einer Kursliste anzuzeigen, müssen Sie zum Abrufen der `Name` Eigenschaft aus der `Department` Entität, die in der `Course.Department` Navigationseigenschaft.
 
-Erstellen Sie einen Controller mit dem Namen `CourseController` (nicht CoursesController) für die `Course` Entitätstyp mit denselben Optionen für die **MVC 5-Controller mit Ansichten unter Verwendung von Entity Framework** Scaffolder, die Sie zuvor für die `Student` Controller, wie in der folgenden Abbildung gezeigt:
+Erstellen Sie einen Controller mit dem Namen `CourseController` (nicht CoursesController) für die `Course` Entitätstyp, verwenden Sie dieselben Optionen für die **MVC 5-Controller mit Ansichten unter Verwendung von Entity Framework** gerüstbauers, die bereits für die zuvor`Student` Controller, wie in der folgenden Abbildung gezeigt:
 
 ![Add_Controller_dialog_box_for_Course_controller](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
 
@@ -91,45 +90,45 @@ Open *Controllers\CourseController.cs* und sehen Sie sich die `Index` Methode:
 
 Der automatische Gerüstbau hat mithilfe der `Include`-Methode ein Eager Loading für die `Department`-Navigationseigenschaft angegeben.
 
-Open *Views\Course\Index.cshtml* , und Ersetzen Sie den Code durch den folgenden Code. Die Änderungen werden hervorgehoben:
+Open *Views\Course\Index.cshtml* , und Ersetzen Sie den Vorlagencode durch den folgenden Code. Die Änderungen werden hervorgehoben:
 
 [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample3.cshtml?highlight=4,7,14-16,23-25,31-33,40-42)]
 
 Sie haben die folgenden Änderungen am eingerüsteten Code vorgenommen:
 
-- Die Überschrift aus geändert **Index** auf **Kurse**.
-- Die Spalte **Anzahl** wurde hinzugefügt. Sie zeigt den `CourseID`-Eigenschaftswert an. Primärschlüssel werden nicht standardmäßig Gerüstbau, da normalerweise sie Endbenutzern bedeutungslos sind. Allerdings ist in diesem Fall der Primärschlüssel sinnvoll, und Sie möchten ihn anzeigen.
-- Verschoben der **Abteilung** Spalte auf der rechten Seite und die Spaltenüberschrift geändert. Die Scaffolder ordnungsgemäß anzeigen möchten die `Name` Eigenschaft aus der `Department` Entität jedoch hier in der Seite Kurs den Spaltenüberschrift muss **Abteilung** statt **Namen**.
+- Die Überschrift von geändert **Index** zu **Kurse**.
+- Die Spalte **Anzahl** wurde hinzugefügt. Sie zeigt den `CourseID`-Eigenschaftswert an. Standardmäßig werden nicht die Primärschlüssel eingerüstet, da Sie normalerweise sie ohne Bedeutung für Endbenutzer sind. Allerdings ist in diesem Fall der Primärschlüssel sinnvoll, und Sie möchten ihn anzeigen.
+- Verschoben der **Abteilung** Spalte auf der rechten Seite und deren Überschrift geändert. Der gerüstbauer ordnungsgemäß anzeigen möchte die `Name` Eigenschaft aus der `Department` Entität, aber hier in der Seite "Kurs" die Überschrift der Spalte muss **Abteilung** statt **Namen**.
 
-Beachten Sie, dass für die Department-Spalte der scaffolded Code zeigt die `Name` Eigenschaft von der `Department` Entität, die geladen wird die `Department` Navigationseigenschaft:
+Beachten Sie, dass für die Department-Spalte der eingerüstete Code zeigt die `Name` Eigenschaft der `Department` Entität, die in den geladen wird die `Department` Navigationseigenschaft:
 
 [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample4.cshtml?highlight=2)]
 
-Führen Sie die Seite (Wählen Sie die **Kurse** Registerkarte auf der Startseite des Contoso-University) um die Liste mit den Abteilungsnamen anzuzeigen.
+Führen Sie die Seite (Wählen Sie die **Kurse** Registerkarte auf der Contoso University-Startseite) um die Liste mit den Abteilungsnamen anzuzeigen.
 
 ![Courses_index_page_with_department_names](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
 
-## <a name="create-an-instructors-page-that-shows-courses-and-enrollments"></a>Erstellen Sie eine Lehrkräfte-Seite, in der Kurse und Registrierung angezeigt.
+## <a name="create-an-instructors-page-that-shows-courses-and-enrollments"></a>Erstellen einer Dozentenseite, die Kurse und Registrierungen anzeigt
 
-In diesem Abschnitt Sie erstellen einen Controller und zeigen Sie für die `Instructor` Entität, um die Seite Lehrkräfte anzuzeigen:
+In diesem Abschnitt erstellen Sie einen Controller und zeigen Sie für die `Instructor` Entität, um die dozentenseite anzuzeigen:
 
 ![Instructors_index_page_with_instructor_and_course_selected](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
 
 Auf dieser Seite werden verwandte Daten auf folgende Weise gelesen und angezeigt:
 
-- Die Liste der Lehrkräfte zeigt verknüpfte Daten aus der `OfficeAssignment` Entität. Die `Instructor`- und `OfficeAssignment`-Entitäten stehen in einer 1:0..1-Beziehung zueinander. Verwenden Sie unverzüglichem Laden für die `OfficeAssignment` Entitäten. Wie zuvor erläutert, ist Eager Loading in der Regel effizienter, wenn Sie die verwandten Daten für alle abgerufenen Zeilen der primären Tabelle benötigen. In diesem Fall sollten Sie die Office-Anweisungen für alle angezeigten Dozenten anzeigen.
-- Wenn der Benutzer wählt einen Kursleiter, die im Zusammenhang `Course` Entitäten werden angezeigt. Die `Instructor`- und `Course`-Entitäten stehen in einer m:n-Beziehung zueinander. Verwenden Sie unverzüglichem Laden für die `Course` Entitäten und die zugehörigen `Department` Entitäten. In diesem Fall kann das verzögertes Laden effizienter sein, da Sie nur für den ausgewählten Dozenten Kurse benötigen. Dieses Beispiel zeigt jedoch, wie Eager Loading für Navigationseigenschaften in Entitäten in den Navigationseigenschaften verwendet wird.
-- Wenn der Benutzer einen Kurs auswählt, beziehen Sie Daten aus der `Enrollments` Entitätenmenge wird angezeigt. Die `Course`- und `Enrollment`-Entitäten stehen in einer 1:n-Beziehung zueinander. Fügen Sie das explizite Laden für `Enrollment` Entitäten und die zugehörigen `Student` Entitäten. (Explizites Laden nicht erforderlich, da verzögertes Laden ist aktiviert, aber dies veranschaulicht das explizite laden.)
+- Die Liste der Dozenten Zeigt verwandte Daten aus der `OfficeAssignment` Entität. Die `Instructor`- und `OfficeAssignment`-Entitäten stehen in einer 1:0..1-Beziehung zueinander. Verwenden Sie eager Loading für die `OfficeAssignment` Entitäten. Wie zuvor erläutert, ist Eager Loading in der Regel effizienter, wenn Sie die verwandten Daten für alle abgerufenen Zeilen der primären Tabelle benötigen. In diesem Fall sollten Sie die Office-Anweisungen für alle angezeigten Dozenten anzeigen.
+- Wenn der Benutzer einen Dozenten, die im Zusammenhang auswählt `Course` Entitäten werden angezeigt. Die `Instructor`- und `Course`-Entitäten stehen in einer m:n-Beziehung zueinander. Verwenden Sie eager Loading für die `Course` Entitäten und den zugehörigen `Department` Entitäten. In diesem Fall kann Lazy Load effizienter sein, da Sie Kurse nur für den ausgewählten Dozenten benötigt. Dieses Beispiel zeigt jedoch, wie Eager Loading für Navigationseigenschaften in Entitäten in den Navigationseigenschaften verwendet wird.
+- Wenn der Benutzer einen Kurs auswählt, verwandte Daten aus der `Enrollments` Entitätenmenge wird angezeigt. Die `Course`- und `Enrollment`-Entitäten stehen in einer 1:n-Beziehung zueinander. Fügen Sie das explizite Laden für `Enrollment` Entitäten und den zugehörigen `Student` Entitäten. (Explizites Laden nicht erforderlich, da lazy Loading aktiviert, jedoch wird veranschaulicht, wie Eager Loading.)
 
-### <a name="create-a-view-model-for-the-instructor-index-view"></a>Erstellen Sie ein Ansichtsmodell für die Indexansicht Dozenten
+### <a name="create-a-view-model-for-the-instructor-index-view"></a>Erstellen Sie ein Ansichtsmodell für "Instructor" Ansicht "Index"
 
-Die Seite "Lehrkräfte" zeigt drei verschiedene Tabellen. Aus diesem Grund erstellen Sie ein Ansichtsmodell, das drei Eigenschaften enthält. Jede enthält Daten für eine der Tabellen.
+Die dozentenseite zeigt drei verschiedene Tabellen. Aus diesem Grund erstellen Sie ein Ansichtsmodell, das drei Eigenschaften enthält. Jede enthält Daten für eine der Tabellen.
 
-In der *ViewModels* Ordner erstellen *InstructorIndexData.cs* und Ersetzen Sie den vorhandenen Code durch folgenden Code:
+In der *ViewModels* Ordner erstellen *InstructorIndexData.cs* , und Ersetzen Sie den vorhandenen Code durch den folgenden Code:
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample5.cs)]
 
-### <a name="create-the-instructor-controller-and-views"></a>Erstellen Sie die Instructor-Controller und Ansichten
+### <a name="create-the-instructor-controller-and-views"></a>Erstellen der Dozentencontroller und-Ansichten
 
 Erstellen Sie eine `InstructorController` (nicht InstructorsController)-Controller mit EF Lese-/schreibaktionen wie in der folgenden Abbildung gezeigt:
 
@@ -139,33 +138,33 @@ Open *Controllers\InstructorController.cs* und Hinzufügen einer `using` -Anweis
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample6.cs)]
 
-Der scaffolded Code in der `Index` Methode gibt unverzüglichem Laden nur für die `OfficeAssignment` Navigationseigenschaft:
+Der eingerüstete Code in die `Index` -Methode gibt eager Loading nur für die `OfficeAssignment` Navigationseigenschaft:
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample7.cs)]
 
-Ersetzen Sie die `Index` Methode durch den folgenden Code aus, um die zusätzliche Last-bezogene Daten, und fügen Sie ihn in das Modell anzeigen:
+Ersetzen Sie die `Index` -Methode durch den folgenden Code, um weitere laden zugehöriger Daten, und fügen Sie ihn in das Ansichtsmodell:
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample8.cs)]
 
-Die Methode akzeptiert optionale Routendaten (`id`) und einen Abfragezeichenfolgenparameter (`courseID`), geben Sie die ID-Werte der ausgewählten Kursleiter und ausgewählten Kurs, und übergibt alle erforderlichen Daten an die Ansicht. Die Parameter werden durch die **Auswählen**-Links auf der Seite bereitgestellt.
+Die Methode akzeptiert optionale Routendaten (`id`) und einen Abfragezeichenfolgen-Parameter (`courseID`) die ID-Werte, der den ausgewählten Dozenten und Kurses bereitstellen und alle erforderlichen Daten an die Ansicht übergibt. Die Parameter werden durch die **Auswählen**-Links auf der Seite bereitgestellt.
 
-Der Code erstellt zuerst eine Instanz des Ansichtsmodells und fügt die Dozentenliste ein. Der Code gibt unverzüglichem Laden für die `Instructor.OfficeAssignment` und `Instructor.Courses` Navigationseigenschaft.
+Der Code erstellt zuerst eine Instanz des Ansichtsmodells und fügt die Dozentenliste ein. Der Code gibt eager Loading für die `Instructor.OfficeAssignment` und `Instructor.Courses` Navigationseigenschaft.
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample9.cs?highlight=3-4)]
 
-Die zweite `Include` Methode lädt Kurse und für jeden Kurs, die geladen wird, ist dies der Fall ist unverzüglichem Laden für die `Course.Department` Navigationseigenschaft.
+Die zweite `Include` Methode lädt, Kurse und für jeden Kurs, der geladen wird, ist dies der Fall ist eager Loading für die `Course.Department` Navigationseigenschaft.
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample10.cs)]
 
-Wie bereits erwähnt, unverzüglichem Laden ist nicht erforderlich, jedoch wird durchgeführt, um die Leistung zu verbessern. Da die Sicht muss die `OfficeAssignment` Entität, es ist jedoch effizienter, die in derselben Abfrage abgerufen. `Course` Entitäten sind erforderlich, wenn auf der Webseite ein Kursleiter ausgewählt ist, damit unverzüglichem Laden ist besser als lazy loading, nur dann, wenn die Seite mit einem Kurs ausgewählt als ohne häufiger angezeigt wird.
+Wie bereits erwähnt, ist Eager Load ist nicht erforderlich, aber erfolgt, um die Leistung zu verbessern. Da die Ansicht immer erforderlich ist der `OfficeAssignment` Entität ist es effizienter, die in der gleichen Abfrage abgerufen. `Course` Entitäten sind erforderlich, wenn auf der Webseite ein Dozent ausgewählt wird, damit Sie eager Loading ist besser als das verzögerte Laden nur dann, wenn die Seite häufiger mit einem ausgewählten Kurs als ohne angezeigt wird.
 
-Instructor-ID wurde ausgewählt, wird der ausgewählte Kursleiter aus der Liste der Kursleiter das Ansichtsmodell abgerufen. Des Ansichtsmodells `Courses` Eigenschaft wird dann geladen, mit der `Course` Entitäten aus dieser Dozenten `Courses` Navigationseigenschaft.
+Wenn eine ID für "Instructor" ausgewählt wurde, wird der ausgewählte Dozent aus der Liste der Dozenten im Ansichtsmodell abgerufen. Des Ansichtsmodells `Courses` Eigenschaft wird dann geladen, mit der `Course` Entitäten aus dieser "Instructor" `Courses` Navigationseigenschaft.
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample11.cs)]
 
-Die `Where` -Methode gibt eine Auflistung, aber in diesem Fall die Kriterien, die nur eine einzelne Methode zu übergeben `Instructor` Entität zurückgegeben wird. Die `Single` -Methode konvertiert die Auflistung in einem einzelnen `Instructor` Entität, die Sie Zugriff auf diese Entität gewährt `Courses` Eigenschaft.
+Die `Where` -Methode gibt eine Auflistung, aber in diesem Fall die Kriterien, die nur eine einzige Methode zu übergeben `Instructor` Entität zurückgegeben wird. Die `Single` Methode konvertiert die Sammlung in eine einzelne `Instructor` -Entität, die Sie Zugriff auf die juristischen Person erhalten `Courses` Eigenschaft.
 
-Verwenden Sie die [einzelne](https://msdn.microsoft.com/library/system.linq.enumerable.single.aspx) Methode auf eine Auflistung, wenn Sie wissen, dass die Auflistung wird nur ein Element verfügen. Die `Single` Methode löst eine Ausnahme aus, wenn die übergebene Auflistung leer ist oder wenn mehr als ein Element vorhanden ist. Ist eine Alternative [SingleOrDefault](https://msdn.microsoft.com/library/bb342451.aspx), dem einen Standardwert zurückgegeben (`null` in diesem Fall), wenn die Auflistung leer ist. Jedoch in diesem Fall, da immer noch ansonsten eine Ausnahme (aus beim Suchen nach einer `Courses` Eigenschaft auf einen `null` Verweis), und die Ausnahmemeldung würde weniger deutlich die Ursache des Problems angeben. Beim Aufrufen der `Single` -Methode, können Sie auch übergeben der `Where` Bedingung statt der `Where` Methode getrennt:
+Sie verwenden die [einzelne](https://msdn.microsoft.com/library/system.linq.enumerable.single.aspx) Methode für eine Sammlung aus, wenn Sie wissen, dass die Auflistung wird nur ein Element aufweisen. Die `Single` Methode löst eine Ausnahme aus, wenn die Auflistung, die an sie übergebenen leer ist oder wenn mehr als ein Element vorhanden ist. Eine Alternative ist die [SingleOrDefault](https://msdn.microsoft.com/library/bb342451.aspx), womit einen Standardwert (`null` in diesem Fall), wenn die Auflistung leer ist. Allerdings in diesem Fall, die immer noch würde zu einer Ausnahme (versucht, finden Sie eine `Courses` Eigenschaft für eine `null` Verweis), und die Ausnahmemeldung würde die Ursache des Problems weniger deutlich angeben. Beim Aufrufen der `Single` -Methode, Sie können auch übergeben die `Where` Bedingung statt der `Where` Methode getrennt:
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample12.cs)]
 
@@ -173,13 +172,13 @@ anstelle von:
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample13.cs)]
 
-Wenn ein Kurs ausgewählt wurde, wird der ausgewählte Kurs aus der Kursliste im Ansichtsmodell abgerufen. Klicken Sie dann die des Ansichtsmodells `Enrollments` Eigenschaft geladen wird, mit der `Enrollment` Entitäten aus dieser Kurs `Enrollments` Navigationseigenschaft.
+Wenn ein Kurs ausgewählt wurde, wird der ausgewählte Kurs aus der Kursliste im Ansichtsmodell abgerufen. Klicken Sie dann die des Ansichtsmodells `Enrollments` Eigenschaft wird geladen, mit der `Enrollment` Entitäten aus dieser Kurs die `Enrollments` Navigationseigenschaft.
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample14.cs)]
 
-### <a name="modify-the-instructor-index-view"></a>Ändern Sie die Indexansicht Dozenten
+### <a name="modify-the-instructor-index-view"></a>Ändern der Indexansicht "Instructor"
 
-In *Views\Instructor\Index.cshtml*, den Code durch den folgenden Code ersetzen. Die Änderungen werden hervorgehoben:
+In *Views\Instructor\Index.cshtml*, ersetzen Sie den Vorlagencode durch den folgenden Code. Die Änderungen werden hervorgehoben:
 
 [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample15.cshtml?highlight=1,4,14-18,21,23-28,38-43,45)]
 
@@ -187,25 +186,25 @@ Sie haben die folgenden Änderungen am bestehenden Code vorgenommen:
 
 - Die Modellklasse wurde zu `InstructorIndexData` geändert.
 - Der Seitenname wurde von **Index** in **Dozenten** geändert.
-- Hinzugefügt ein **Office** Spalte `item.OfficeAssignment.Location` nur, wenn `item.OfficeAssignment` ist ungleich null. (Da dies eine 1: 0 (null)-oder-1-Beziehung ist, gibt es möglicherweise keiner verknüpften `OfficeAssignment` Entität.) 
+- Hinzugefügt ein **Office** Spalte `item.OfficeAssignment.Location` nur, wenn `item.OfficeAssignment` nicht null ist. (Da dies eine 1: 0 (null)-oder-1-Beziehung ist, gibt es möglicherweise keine verknüpfte `OfficeAssignment` Entität.) 
 
     [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample16.cshtml)]
-- Code hinzugefügt, die dynamisch hinzufügen `class="success"` auf die `tr` Element des ausgewählten Kursleiter. Dadurch wird eine Hintergrundfarbe für die ausgewählte Zeile mit einem [Bootstrap](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap) Klasse. 
+- Code hinzugefügt, die dynamisch hinzufügen `class="success"` auf die `tr` Element des ausgewählten Dozenten. Hiermit wird eine Hintergrundfarbe für die ausgewählte Zeile mithilfe einer [Bootstrap](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap) Klasse. 
 
     [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample17.cshtml)]
-- Ein neues hinzugefügt `ActionLink` mit der Bezeichnung **wählen** unmittelbar vor der Links von anderen in jeder Zeile, die die ausgewählte Instructor-ID, die zu sendende verursacht die `Index` Methode.
+- Einen neuen `ActionLink` mit der Bezeichnung **wählen** unmittelbar vor den anderen Links in jeder Zeile, wodurch die ID des ausgewählten Dozenten zu sendende der `Index` Methode.
 
-Führen Sie die Anwendung, und wählen Sie die **Lehrkräfte** Registerkarte. Die Seite zeigt die `Location` Eigenschaft verwandter `OfficeAssignment` Entitäten und eine leere Tabelle Zelle bei Nein, die im Zusammenhang `OfficeAssignment` Entität.
+Führen Sie die Anwendung, und wählen Sie die **Dozenten** Registerkarte. Die Seite zeigt die `Location` Eigenschaft des zugehörigen `OfficeAssignment` Entitäten und eine leere Tabelle Zelle bei Nein, die im Zusammenhang `OfficeAssignment` Entität.
 
 ![Instructors_index_page_with_nothing_selected](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image7.png)
 
-In der *Views\Instructor\Index.cshtml* Datei, nach dem schließenden `table` Element (am Ende der Datei), fügen Sie folgenden Code. Dieser Code zeigt eine Liste der Kurse an, die im Zusammenhang mit einem Dozenten stehen, wenn ein Dozent ausgewählt wird.
+In der *Views\Instructor\Index.cshtml* -Datei nach dem schließenden `table` Element (am Ende der Datei), fügen Sie den folgenden Code hinzu. Dieser Code zeigt eine Liste der Kurse an, die im Zusammenhang mit einem Dozenten stehen, wenn ein Dozent ausgewählt wird.
 
 [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample18.cshtml)]
 
-Dieser Code liest die `Courses`-Eigenschaft des Ansichtsmodells, um eine Kursliste anzuzeigen. Sie bietet außerdem eine `Select` Link, der die ID der ausgewählten Kurs, sendet der `Index` Aktionsmethode.
+Dieser Code liest die `Courses`-Eigenschaft des Ansichtsmodells, um eine Kursliste anzuzeigen. Es bietet auch eine `Select` Hyperlink, der die ID des ausgewählten Kurs, sendet der `Index` Aktionsmethode.
 
-Führen Sie die Seite, und wählen Sie einen Kursleiter. Jetzt sehen Sie ein Raster, das die dem Dozenten zugewiesenen Kurse anzeigt. Sie sehen auch den Namen der zugewiesenen Abteilung für jeden Kurs.
+Führen Sie die Seite, und wählen Sie einen Dozenten. Jetzt sehen Sie ein Raster, das die dem Dozenten zugewiesenen Kurse anzeigt. Sie sehen auch den Namen der zugewiesenen Abteilung für jeden Kurs.
 
 ![Instructors_index_page_with_instructor_selected](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image8.png)
 
@@ -213,25 +212,25 @@ Fügen Sie den folgenden Code hinzu, nachdem Sie den Codeblock hinzugefügt habe
 
 [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample19.cshtml)]
 
-Dieser Code liest die `Enrollments` Eigenschaft des Modells Ansicht um eine Liste der Schüler anzuzeigen, die in den Kurs registriert sind.
+Dieser Code liest die `Enrollments` -Eigenschaft des Ansichtsmodells, um eine Liste von Teilnehmern anzuzeigen, die in diesem Kurs registrierten.
 
-Führen Sie die Seite, und wählen Sie einen Kursleiter. Wählen Sie dann einen Kurs aus, um die Liste der registrierten Studenten und deren Noten einzusehen.
+Führen Sie die Seite, und wählen Sie einen Dozenten. Wählen Sie dann einen Kurs aus, um die Liste der registrierten Studenten und deren Noten einzusehen.
 
 ![Instructors_index_page_with_instructor_and_course_selected](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image9.png)
 
-### <a name="adding-explicit-loading"></a>Explizites Laden hinzufügen
+### <a name="adding-explicit-loading"></a>Hinzufügen von expliziten Laden
 
-Open *InstructorController.cs* und suchen Sie nach, wie die `Index` Methode ruft die Liste der Registrierung für einen ausgewählten Kurs:
+Open *InstructorController.cs* und sehen Sie sich wie die `Index` Methode ruft die Liste der Registrierungen für einen ausgewählten Kurs:
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample20.cs)]
 
-Wenn Sie die Liste der Lehrkräfte abgerufen, angegebene unverzüglichem Laden für die `Courses` Navigationseigenschaft und für die `Department` Eigenschaft jeder natürlich. Sie Sie platzieren der `Courses` Sammlung das Ansichtsmodell und nachdem Sie zugreifen, die `Enrollments` Navigationseigenschaft von einer Entität in der Auflistung. Da Sie nicht unverzüglichem Laden für angegeben haben die `Course.Enrollments` Navigationseigenschaft, die Daten aus dieser Eigenschaft auf der Seite aufgrund einer verzögerten Laden angezeigt werden.
+Wenn Sie die Liste der Dozenten abgerufen haben, Sie angegeben haben eager Loading für die `Courses` Navigationseigenschaft und für die `Department` Eigenschaft für jeden Kurs. Platzieren Sie Sie der `Courses` Sammlung im Ansichtsmodell, und nachdem auf Sie zugreifen, die `Enrollments` Navigationseigenschaft von einer Entität in der Auflistung. Da Sie eager Loading für nicht angegeben haben die `Course.Enrollments` Navigationseigenschaft, die Daten aus dieser Eigenschaft werden auf der Seite als Ergebnis der Lazy Load angezeigt.
 
-Wenn Sie das verzögertes Laden deaktiviert, ohne den Code auf andere Weise ändern die `Enrollments` Eigenschaft würde unabhängig davon, wie viele Registrierungen in Kurs Wirklichkeit null sein. In diesem Fall wird beim Laden der `Enrollments` -Eigenschaft, müssten Sie unverzüglichem Laden oder explizites Laden angeben. Sie haben bereits gesehen, wie unverzüglichem Laden ausgeführt werden. Um ein Beispiel für explizite Laden angezeigt wird, ersetzen die `Index` Methode durch den folgenden Code, die explizit lädt die `Enrollments` Eigenschaft. Der Code geändert werden hervorgehoben.
+Wenn Sie lazy Loading deaktiviert, ohne den Code auf andere Weise, die `Enrollments` Eigenschaft würde unabhängig davon, wie viele Registrierungen, die die Vorgehensweise bekannt, ob null sein. In diesem Fall beim Laden der `Enrollments` -Eigenschaft müssen entweder eager Loading oder expliziten Laden angeben. Sie haben bereits Eager Load Vorgehensweise gesehen. Um ein Beispiel für explizites Laden anzuzeigen, ersetzen die `Index` Methode durch den folgenden Code, der explizit lädt die `Enrollments` Eigenschaft. Der Code geändert werden hervorgehoben.
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample21.cs?highlight=20-31)]
 
-Nach dem Abrufen der ausgewählten `Course` Entität, der neue Code lädt explizit des Kurses `Enrollments` Navigationseigenschaft:
+Nach dem Abrufen des ausgewählten `Course` Entität, der neue Code lädt explizit des Kurses `Enrollments` Navigationseigenschaft:
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample22.cs)]
 
@@ -239,17 +238,17 @@ Anschließend er explizit jedes lädt `Enrollment` Entität die verbundene `Stud
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample23.cs)]
 
-Beachten Sie, mit denen Sie die `Collection` -Methode zum Laden von Auflistungseigenschaft, aber für eine Eigenschaft, die nur eine Entität enthält, verwenden Sie die `Reference` Methode.
+Beachten Sie, die Sie verwenden die `Collection` Methode zum Laden einer Auflistungseigenschaft, aber für eine Eigenschaft, die nur eine einzelne Entität enthält, verwenden Sie die `Reference` Methode.
 
-Die Instructor-Indexseite jetzt ausführen und keinen Unterschied in der Anzeige auf der Seite wird angezeigt, obwohl Sie geändert haben, wie die Daten abgerufen werden.
+Die Indexseite für "Instructor" jetzt ausführen, und Sie sehen keinen Unterschied in der Anzeige auf der Seite auf, obwohl Sie geändert haben, wie die Daten abgerufen werden.
 
 ## <a name="summary"></a>Zusammenfassung
 
-Sie haben jetzt alle drei Arten (lazy eager und explizite) zum Laden von verknüpfter Daten in den Navigationseigenschaften verwendet werden. Das nächste Tutorial zeigt die Aktualisierung verwandter Daten.
+Sie haben jetzt alle drei Möglichkeiten (lazy, eager und explizite) zum Laden von verknüpfter Daten in die Navigationseigenschaften verwendet. Das nächste Tutorial zeigt die Aktualisierung verwandter Daten.
 
-Lassen Sie Sie Feedback auf wie in diesem Lernprogramm mögen und was wir weiter verbessern können. Sie können auch neue Themen am anfordern [Me wie mit Code anzeigen](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
+Lassen Sie Feedback auf, wie Sie in diesem Tutorial gefallen hat und was wir verbessern können. Sie können auch neue Themen anfordern [anzeigen Me How With Code](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
 
-Links zu anderen Entity Framework-Ressourcen finden Sie in der [ASP.NET Data Access - Ressourcen empfohlen](../../../../whitepapers/aspnet-data-access-content-map.md).
+Links zu anderen Ressourcen des Entity Framework finden Sie in der [ASP.NET-Datenzugriff – empfohlene Ressourcen](../../../../whitepapers/aspnet-data-access-content-map.md).
 
 > [!div class="step-by-step"]
 > [Zurück](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)

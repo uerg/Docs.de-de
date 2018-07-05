@@ -1,114 +1,113 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12
-title: 'Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio oder Visual Web Developer: Bereitstellen von einem Code-Only-Update - 8 12 | Microsoft Docs'
+title: 'Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio oder Visual Web Developer: Bereitstellen einer Code-Only-Update – 8 von 12 | Microsoft-Dokumentation'
 author: tdykstra
-description: Diese Reihe von Lernprogrammen wird gezeigt, wie das Bereitstellen einer ASP.NET-Anwendung (veröffentlichen) Webanwendungsprojekt, die eine SQL Server Compact-Datenbank enthält, mithilfe von Visual das...
+description: In dieser tutorialreihe erfahren Sie, wie zum Bereitstellen einer ASP.NET-Anwendung (veröffentlichen) Webanwendungsprojekt, die eine SQL Server Compact-Datenbank enthält, mithilfe von Visual Stu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
 ms.topic: article
 ms.assetid: ddf6252f-9413-4c0c-a360-2cef8d231717
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 6305a8cb87d9b00b6bb4c4f8fa6114bddc4eb89f
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 39075d2e979076f88200ea595c92f95f38f35911
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30886913"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37374012"
 ---
-<a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-a-code-only-update---8-of-12"></a>Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio oder Visual Web Developer: Bereitstellen von einem Code-Only-Update - 8 von 12
+<a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-a-code-only-update---8-of-12"></a>Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio oder Visual Web Developer: Bereitstellen einer Code-Only-Update – 8 von 12
 ====================
 durch [Tom Dykstra](https://github.com/tdykstra)
 
 [Startprojekt herunterladen](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
-> Diese Reihe von Lernprogrammen wird gezeigt, wie das Bereitstellen einer ASP.NET-Anwendung (veröffentlichen) Webanwendungsprojekt, die eine SQL Server Compact-Datenbank mithilfe von Visual Studio 2012 RC oder Visual Studio Express 2012 RC für das Web enthält. Sie können auch Visual Studio 2010 verwenden, wenn Sie das Web veröffentlichen Update installieren. Eine Einführung in der Reihe, finden Sie unter [im ersten Lernprogramm, in der Reihe](deployment-to-a-hosting-provider-introduction-1-of-12.md).
+> In dieser tutorialreihe erfahren Sie, wie zum Bereitstellen einer ASP.NET-Anwendung (veröffentlichen) Webanwendungsprojekt, das eine SQL Server Compact-Datenbank mithilfe von Visual Studio 2012 RC oder Visual Studio Express 2012 RC für Web enthält. Sie können auch Visual Studio 2010 verwenden, wenn Sie die Web Publish Update installieren. Eine Einführung in die Reihe, finden Sie unter [im ersten Tutorial der Reihe](deployment-to-a-hosting-provider-introduction-1-of-12.md).
 > 
-> Ein Lernprogramm, die die Bereitstellungsfeatures nach der RC-Version von Visual Studio 2012 eingeführt wurde, wird gezeigt, wie SQL Server-Editionen als SQL Server Compact bereitstellen, und zeigt die Vorgehensweise beim Bereitstellen in Azure App Service-Web-Apps, finden Sie unter [ASP.NET Web Deploy Mithilfe von Visual Studio](../../deployment/visual-studio-web-deployment/introduction.md).
+> Ein Lernprogramm, das zeigt, Bereitstellungsfunktionen, die nach der RC-Version von Visual Studio 2012 eingeführt wurden, zeigt, wie zum Bereitstellen von SQL Server-Editionen als SQL Server Compact und zeigt, wie Sie in Azure App Service-Web-Apps bereitstellen, finden Sie unter [ASP.NET-webbereitstellung Mithilfe von Visual Studio](../../deployment/visual-studio-web-deployment/introduction.md).
 
 
 ## <a name="overview"></a>Übersicht
 
-Nach der anfänglichen Bereitstellung können Ihre Arbeit verwalten und entwickeln Ihre Website fortgesetzt und lange wird eine Aktualisierung bereitstellen möchten. Dieses Lernprogramm führt Sie durch den Prozess der Bereitstellung von Aktualisierungen an den Anwendungscode. Dieses Update beinhaltet keine Änderung an einer Datenbank; sehen Sie, ob Sie zum Bereitstellen der Änderung an einer Datenbank in den nächsten Lernprogrammen unterschiedlich ist.
+Nach der erstbereitstellung Ihre Arbeit verwalten und entwickeln Ihre Website wird fortgesetzt, und vor dem Long-Wert wird ein Update bereitstellen möchten. Dieses Tutorial führt Sie durch den Prozess der Bereitstellung eines Updates an Ihrem Anwendungscode. Dieses Update muss keine Änderung an einer Datenbank werden; sehen Sie, ob Sie zum Bereitstellen der Änderung an einer Datenbank im nächsten Tutorial unterschiedlich ist.
 
-Hinweis: Wenn Sie eine Fehlermeldung erhalten, oder etwas funktioniert nicht, wenn Sie das Lernprogramm absolvieren, müssen Sie überprüfen die [Website](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md).
+Erinnerung: Wenn Sie eine Fehlermeldung erhalten, oder etwas nicht funktioniert, wie Sie das Lernprogramm durchzuarbeiten, sollten Sie unbedingt die [Problembehandlungsseite](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md).
 
-## <a name="making-a-code-change"></a>Eine codeänderung
+## <a name="making-a-code-change"></a>Eine Codeänderung vornimmt
 
-Als einfaches Beispiel eines Updates für Ihre Anwendung, fügen Sie auf der **Lehrkräfte** Seite eine Liste der ausgewählten Dozent unterrichtet Kurse.
+Fügen Sie ein einfaches Beispiel eines Updates für Ihre Anwendung, um die **Dozenten** Seite eine Liste der Kurse, die von den ausgewählten Dozenten unterrichtet.
 
-Wenn das Ausführen der **Lehrkräfte** Seite werden Sie feststellen, dass es gibt **wählen** Links im Raster, aber nicht der Fall ist etwas anderes als stellen die Zeile Background grau dargestellt.
+Wenn das Ausführen der **Dozenten** Seite werden Sie feststellen, dass es gibt **wählen** Verknüpfungen im Raster, aber nicht der Fall ist etwas anderes als stellen die Zeile Background grau dargestellt.
 
 [![Instructors_page](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image2.png)](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image1.png)
 
-Nachdem Sie Code hinzufügen, die ausgeführt, wenn wird die **wählen** Link geklickt wird, und zeigt eine Liste der ausgewählten Dozent unterrichtet Kurse.
+Nachdem Sie Code hinzufügen, die ausgeführt, wenn wird die **wählen** Link geklickt wird, und zeigt eine Liste der Kurse, die von den ausgewählten Dozenten unterrichtet.
 
-In *Instructors.aspx*, fügen Sie das folgende Markup unmittelbar nach der **ErrorMessageLabel** `Label` Steuerelement:
+In *Instructors.aspx*, fügen Sie das folgende Markup direkt nach der **ErrorMessageLabel** `Label` Steuerelement:
 
 [!code-aspx[Main](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/samples/sample1.aspx)]
 
-Führen Sie die Seite, und wählen Sie einen Kursleiter. Sie sehen eine Liste der Kurse, Dozent unterrichtet.
+Führen Sie die Seite, und wählen Sie einen Dozenten. Sie sehen eine Liste der Kurse, die durch dieses Dozenten unterrichtet.
 
 [![Instructors_page_with_courses](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image4.png)](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image3.png)
 
 ## <a name="deploying-the-code-update-to-the-test-environment"></a>Bereitstellen des Code-Updates in der Testumgebung
 
-Bereitstellung in der testumgebung wird problemlos der Ausführung nur einem Klick erneut veröffentlichen. Um diesen Prozess zu beschleunigen, können Sie die **Web eine klicken Sie auf Publish** Symbolleiste.
+Bereitstellung in der testumgebung ist einfach der Ausführung von nur einem Klick erneut veröffentlichen. Um diesen Prozess zu beschleunigen, können Sie die **klicken Sie auf Webveröffentlichung mit einem** Symbolleiste.
 
-In der **Ansicht** Menü Wählen Sie **Symbolleisten** und wählen Sie dann **Web eine klicken Sie auf Publish**.
+In der **Ansicht** Menü wählen **Symbolleisten** und wählen Sie dann **klicken Sie auf Webveröffentlichung mit einem**.
 
 ![Selecting_One_Click_Publish_toolbar](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image5.png)
 
 In **Projektmappen-Explorer**, wählen Sie das Projekt ContosoUniversity.
 
-die **Web eine klicken Sie auf Publish** Symbolleiste, wählen Sie die **Test** Veröffentlichungsprofil, und klicken Sie dann auf **Web veröffentlichen** (das Symbol mit den Pfeilen nach links und rechts).
+die **klicken Sie auf Webveröffentlichung mit einem** Symbolleiste wählen Sie die **Test** Veröffentlichungsprofil aus, und klicken Sie dann auf **Webveröffentlichung** (das Symbol mit den Pfeilen nach links und rechts).
 
 ![Web_One_Click_Publish_toolbar](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image6.png)
 
-Visual Studio wird die aktualisierte Anwendung bereitgestellt, und der Browser automatisch geöffnet wird, um zur Startseite. Führen Sie die Seite Lehrkräfte, und wählen Sie einen Kursleiter, um sicherzustellen, dass das Update erfolgreich bereitgestellt wurde.
+Visual Studio stellt die aktualisierte Anwendung bereit, und der Browser automatisch geöffnet wird, auf der Startseite. Führen Sie die dozentenseite, und wählen Sie einen Dozenten aus, um sicherzustellen, dass das Update wurde erfolgreich bereitgestellt wurde.
 
 [![Instructors_page_with_courses_Test](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image8.png)](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image7.png)
 
-Sie würden normalerweise Gleiches Regressionstests (d. h. den Rest des Standorts, um sicherzustellen, dass die neue Änderung vorhandene Funktionalität unterbrechen nicht testen). Aber für dieses Lernprogramm überspringen Sie diesen Schritt und fahren Sie mit das Update für die Produktion bereitstellen.
+Sie würden normalerweise auch tun Regressionstests (d. h. den Rest des Standorts, um sicherzustellen, dass die neue Änderung keine vorhandene Funktionalität nicht beeinträchtigt haben testen). Aber für dieses Tutorial überspringen Sie diesen Schritt und fahren Sie mit der Bereitstellung des Updates für die Produktion.
 
-## <a name="preventing-redeployment-of-the-initial-database-state-to-production"></a>Verhindern, dass für die erneute Bereitstellung des ersten Datenbankstatus bis hin zur Produktion
+## <a name="preventing-redeployment-of-the-initial-database-state-to-production"></a>Verhindern, dass für die erneute Bereitstellung des ersten Datenbankstatus in der Produktion
 
-In einer realen Anwendung Benutzer interagieren mit Ihren Produktionsstandort nach Ihrer anfänglichen Bereitstellung und die Datenbanken mit live-Daten aufgefüllt werden. Daher möchten Sie die Mitgliedschaftsdatenbank seinen anfänglichen aktiven Status erneut bereitstellen, die alle die Livedaten zurücksetzen würden. Da SQL Server Compact-Datenbanken sind, die Dateien in den *App\_Daten* Ordner, müssen Sie dies verhindern, indem Sie die bereitstellungseinstellungen ändern, damit, die in Dateien der *App\_Daten* Ordner werden nicht bereitgestellt.
+In einer echten Anwendung Benutzer interagieren mit Ihren Produktionsstandort nach Ihrer anfänglichen Bereitstellung und die Datenbanken mit live-Daten aufgefüllt werden. Aus diesem Grund möchten nicht die Mitgliedschaftsdatenbank in den Anfangszustand, erneut bereitstellen, das alle live-Daten zurücksetzen würden. Da die Dateien in SQL Server Compact-Datenbanken sind die *App\_Daten* Ordner müssen Sie dies verhindern, indem Sie die bereitstellungseinstellungen ändern, damit, die in Dateien der *App\_Daten* Ordner werden nicht bereitgestellt werden.
 
-Öffnen der **Projekteigenschaften** Fenster für die ContosoUniversity-Projekt, und wählen die **Web packen/veröffentlichen** Registerkarte. Stellen Sie sicher, dass die **Konfiguration** Dropdown-Menü wurde entweder **aktiv (Release)** oder **Release** ausgewählt ist, wählen Sie **Ausschließen von Dateien aus der App\_Datenordner**.
+Öffnen der **Projekteigenschaften** Fenster für das ContosoUniversity-Projekt, und wählen Sie die **Web packen/veröffentlichen** Registerkarte. Stellen Sie sicher, dass die **Konfiguration** Dropdown-Listenfeld wurde entweder **aktiv (Release)** oder **Version** ausgewählt haben, wählen Sie **Ausschließen von Dateien aus der App\_Datenordner**.
 
 ![Exclude_files_from_the_App_Data_folder](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image9.png)
 
-Für den Fall, dass Sie einen Debugbuild in der Zukunft bereitstellen möchten, ist es eine gute Idee, machen die gleiche Änderung für die Debug-Buildkonfiguration: Ändern Sie **Konfiguration** auf **Debuggen** und wählen Sie dann **ausschließen Dateien aus der App\_Datenordner**.
+Für den Fall, dass Sie einen Debugbuild in Zukunft bereitstellen möchten, ist es eine gute Idee, die die gleiche Änderung für die Debug-Buildkonfiguration vornehmen: Ändern Sie **Konfiguration** zu **Debuggen** und wählen Sie dann **ausschließen Dateien aus der App\_Datenordner**.
 
 Speichern und schließen Sie die **Web packen/veröffentlichen** Registerkarte.
 
 > [!NOTE] 
 > 
 > [!IMPORTANT]
-> Stellen Sie sicher, dass Sie keine **entfernen weiterer Dateien am Ziel** in Ihre Veröffentlichungsprofile ausgewählt. Wenn Sie diese Option auswählen, wird der Bereitstellungsprozess die Datenbanken, die App verwendet löschen\_Daten in den bereitgestellten Standort aus, und löschen Sie die App werden\_Datenordner selbst.
+> Stellen Sie sicher, dass Sie keine **entfernen weiterer Dateien am Ziel** in Ihren Profilen veröffentlichen ausgewählt. Wenn Sie diese Option auswählen, werden während des Bereitstellungsvorgangs die Datenbanken, die Sie in der App gelöscht\_löschen Sie Daten in der bereitgestellten Website, und es werden die App\_Datenordner selbst.
 
 
-## <a name="preventing-user-access-to-the-production-site-during-update"></a>Benutzerzugriff auf die Produktionsstandort zu verhindern, während der Aktualisierung
+## <a name="preventing-user-access-to-the-production-site-during-update"></a>Verhindern, dass Benutzerzugriff auf den Produktionsstandort während des Updates
 
-Die Änderung, die Sie bereitstellen, ist jetzt eine einfache Änderung an einer einzelnen Seite. Aber manchmal Sie größere Änderungen bereitstellen und in diesem Fall die Website seltsames Verhalten kann, wenn ein Benutzer eine Seite anfordert, bevor die Bereitstellung abgeschlossen ist. Um dies zu verhindern, können Sie eine *app\_offline.htm* Datei. Wenn Sie eine Datei namens einfügen *app\_offline.htm* im Stammordner der Anwendung, IIS automatisch diese Datei statt der Anwendungsstatus angezeigt. Damit während der Bereitstellung den Zugriff verhindern möchten, Sie platzieren *app\_offline.htm* im Stammordner, den Bereitstellungsvorgang ausführen, und entfernen Sie *app\_offline.htm*.
+Die Änderung, die Sie bereitstellen, ist jetzt eine einfache Änderung an einer einzelnen Seite. Aber manchmal Sie größere Änderungen bereitstellen und in diesem Fall die Website kann sich seltsam Verhalten, wenn ein Benutzer eine Seite anfordert, bevor die Bereitstellung abgeschlossen ist. Um dies zu verhindern, können Sie eine *app\_offline.htm* Datei. Wenn Sie eine Datei namens einfügen *app\_offline.htm* im Stammordner Ihrer Anwendung, IIS automatisch die Datei statt der Ausführung Ihrer Anwendung angezeigt. Damit um den Zugriff während der Bereitstellung zu verhindern, Sie fügen *app\_offline.htm* im Stammordner, den Bereitstellungsvorgang ausführen, und entfernen Sie *app\_offline.htm*.
 
-In **Projektmappen-Explorer**mit der rechten Maustaste auf die Projektmappe (nicht eines der Projekte), und wählen Sie **neuen Projektmappenordner**.
+In **Projektmappen-Explorer**mit der rechten Maustaste auf die Projektmappe (nicht auf eines der Projekte), und wählen Sie **Neuer Projektmappenordner**.
 
 ![Creating_a_solution_folder](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image10.png)
 
-Benennen Sie den Ordner *SolutionFiles*.
+Nennen Sie den Ordner *SolutionFiles*.
 
-In den neuen Ordner erstellen Sie eine HTML-Seite mit dem Namen *app\_offline.htm*. Ersetzen Sie den vorhandenen Inhalt durch Folgendes Markup:
+In den neuen Ordner erstellen Sie eine HTML-Seite, die mit dem Namen *app\_offline.htm*. Ersetzen Sie den vorhandenen Inhalt durch Folgendes Markup:
 
 [!code-html[Main](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/samples/sample2.html)]
 
-Sie kopieren können die *app\_offline.htm* Datei mit dem Standort mithilfe von FTP-Verbindung oder die **Manager für Dateiserver** Hilfsprogramm in der Systemsteuerung des Hostinganbieters. Für dieses Lernprogramm verwenden Sie die **Manager für Dateiserver**.
+Sie kopieren können die *app\_offline.htm* Datei mit dem Standort mithilfe von FTP-Verbindung oder die **Manager für Dateiserver** Hilfsprogramm in der Systemsteuerung des Hostinganbieters. In diesem Tutorial verwenden Sie die **Manager für Dateiserver**.
 
-Öffnen Sie die Systemsteuerung, und wählen Sie **Manager für Dateiserver** wie in der [in der Produktionsumgebung bereitstellen](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md) Lernprogramm. Wählen Sie **contosouniversity.com** und dann **"Wwwroot"** zum Stammordner der Anwendung erhalten haben, und klicken Sie auf **hochladen**.
+Öffnen Sie die Systemsteuerung, und wählen **Manager für Dateiserver** wie in der [in der Produktionsumgebung bereitstellen](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md) Tutorial. Wählen Sie **contosouniversity.com** und dann **"Wwwroot"** zum Stammordner Ihrer Anwendung zu erhalten, und klicken Sie auf **hochladen**.
 
 [![Upload_button_in_File_Manager](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image12.png)](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image11.png)
 
@@ -116,27 +115,27 @@ In der **Datei hochladen** wählen Sie im Dialogfeld die *app\_offline.htm* Date
 
 [![Upload_dialog_box_in_File_Manager](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image14.png)](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image13.png)
 
-Navigieren Sie zu Ihrer Website-URL. Sie sehen, dass die *app\_offline.htm* Seite wird jetzt anstatt Ihre Startseite angezeigt.
+Navigieren Sie zu Ihrer Website-URL. Sie sehen, dass die *app\_offline.htm* Seite wird nun anstelle Ihrer Startseite angezeigt.
 
 [![App_offline.htm_page_in_production](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image16.png)](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image15.png)
 
-Sie sind jetzt bereit für die Bereitstellung bis hin zur Produktion.
+Sie können nun in der produktionsumgebung bereitstellen.
 
-## <a name="deploying-the-code-update-to-the-production-environment"></a>Das Update Code bereitstellen in der Produktionsumgebung
+## <a name="deploying-the-code-update-to-the-production-environment"></a>Die Codeaktualisierung Bereitstellen in der Produktionsumgebung
 
-In der **Web eine klicken Sie auf Publish** Symbolleiste, wählen Sie die **Produktion** Veröffentlichungsprofil, und klicken Sie dann auf **Web veröffentlichen**.
+In der **klicken Sie auf Webveröffentlichung mit einem** Symbolleiste wählen Sie die **Produktion** Veröffentlichungsprofil aus, und klicken Sie dann auf **Webveröffentlichung**.
 
-Visual Studio stellt die aktualisierte Anwendung bereit und öffnet den Browser, um die Homepage der Website. Die *app\_offline.htm* Datei wird angezeigt. Sie testen können, um die erfolgreiche Bereitstellung zu überprüfen, müssen Sie Sie entfernen die *app\_offline.htm* Datei.
+Visual Studio stellt die aktualisierte Anwendung bereit und öffnet der Browser zur Startseite der Website. Die *app\_offline.htm* Datei wird angezeigt. Bevor Sie zum Überprüfen der erfolgreichen Bereitstellung testen können, müssen Sie entfernen die *app\_offline.htm* Datei.
 
-Zurück zu den **Manager für Dateiserver** Anwendung in der Systemsteuerung. Wählen Sie **contosouniversity.com** und **"Wwwroot"** Option **app\_offline.htm**, und klicken Sie dann auf **löschen**.
+Wechseln Sie zurück zur der **Manager für Dateiserver** Anwendung in der Systemsteuerung. Wählen Sie **contosouniversity.com** und **"Wwwroot"** Option **app\_offline.htm**, und klicken Sie dann auf **löschen**.
 
 [![Deleting_app_offline.htm](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image18.png)](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image17.png)
 
-Klicken Sie im Browser öffnen Sie die Lehrkräfte-Seite in der öffentlichen Website, und wählen Sie einen Kursleiter, um sicherzustellen, dass das Update erfolgreich bereitgestellt wurde.
+Klicken Sie im Browser öffnen Sie die dozentenseite in der öffentlichen Website, und wählen Sie einen Dozenten aus, um sicherzustellen, dass das Update wurde erfolgreich bereitgestellt wurde.
 
 [![Instructors_page_with_courses_Prod](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image20.png)](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image19.png)
 
-Sie haben jetzt ein Anwendungsupdate bereitgestellt, die keine Änderung an einer Datenbank umfassen. Die nächste Lernprogramm veranschaulicht die Änderung an einer Datenbank bereitstellen.
+Sie haben jetzt ein Anwendungsupdate bereitgestellt, die keine Änderung an einer Datenbank einschließen. Im nächste Tutorial erfahren Sie, wie Sie die Änderung an einer Datenbank bereitstellen.
 
 > [!div class="step-by-step"]
 > [Zurück](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md)

@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms
-title: Mithilfe von Web-API mit ASP.NET Web Forms | Microsoft Docs
+title: Verwenden Web-API mit ASP.NET Web Forms | Microsoft-Dokumentation
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,52 +9,51 @@ ms.date: 04/03/2012
 ms.topic: article
 ms.assetid: 25da8c3f-4e90-4946-9765-4f160985e1e4
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms
 msc.type: authoredcontent
-ms.openlocfilehash: af918671a8bcc97a0050ea033ccd14dd96416e73
-ms.sourcegitcommit: 037d3900f739dbaa2ba14158e3d7dc81478952ad
+ms.openlocfilehash: 91811031b937d3ca05888ce8d4f28bcc33537c76
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2017
-ms.locfileid: "26536079"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37400878"
 ---
-<a name="using-web-api-with-aspnet-web-forms"></a>Mithilfe von Web-API mit ASP.NET Web Forms
+<a name="using-web-api-with-aspnet-web-forms"></a>Verwenden Web-API mit ASP.NET Web Forms
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson)
 
-Obwohl der ASP.NET Web-API mit ASP.NET MVC verpackt wird, ist es einfach, Web-API zu einer herkömmlichen ASP.NET Web Forms-Anwendung hinzufügen. Dieses Lernprogramm führt Sie durch die Schritte aus.
+Obwohl ASP.NET Web-API mit ASP.NET MVC gepackt wurde, ist es einfach, eine herkömmliche ASP.NET Web Forms-Anwendung-Web-API hinzugefügt. Dieses Tutorial führt Sie durch die Schritte.
 
 ## <a name="overview"></a>Übersicht
 
-Um Web-API in einer Web Forms-Anwendung zu verwenden, gibt es zwei Hauptschritte:
+Um Web-API in einer Web Forms-Anwendung verwenden zu können, gibt es zwei Hauptschritte:
 
-- Fügen Sie einen Web-API-Controller, die von abgeleitet ist die **ApiController** Klasse.
-- Hinzufügen einer Routentabelle zu den **Anwendung\_starten** Methode.
+- Fügen Sie einen Web-API-Controller, die von abgeleitet der **ApiController** Klasse.
+- Fügen Sie eine Routingtabelle die **Anwendung\_starten** Methode.
 
-## <a name="create-a-web-forms-project"></a>Erstellen eines Web Forms-Anwendungsprojekts
+## <a name="create-a-web-forms-project"></a>Erstellen einer Web Forms-Projekt
 
-Starten Sie Visual Studio, und wählen Sie **neues Projekt** aus der **starten** Seite. Oder von der **Datei** klicken Sie im Menü **neu** und dann **Projekt**.
+Starten Sie Visual Studio, und wählen Sie **neues Projekt** aus der **starten** Seite. Alternativ wählen Sie in der **Datei** , wählen Sie im Menü **neu** und dann **Projekt**.
 
-In der **Vorlagen** klicken Sie im Bereich **installierte Vorlagen** und erweitern Sie die **Visual C#-** Knoten. Klicken Sie unter **Visual C#-** Option **Web**. Wählen Sie in der Liste der Projektvorlagen **ASP.NET Web Forms-Anwendung**. Geben Sie einen Namen für das Projekt, und klicken Sie auf **OK**.
+In der **Vorlagen** wählen Sie im Bereich **installierte Vorlagen** und erweitern Sie die **Visual C#-** Knoten. Klicken Sie unter **Visual C#-** Option **Web**. Wählen Sie in der Liste der Projektvorlagen das Projekt **ASP.NET Web Forms-Anwendung**. Geben Sie einen Namen für das Projekt, und klicken Sie auf **OK**.
 
 ![](using-web-api-with-aspnet-web-forms/_static/image1.png)
 
-## <a name="create-the-model-and-controller"></a>Erstellen Sie das Modell und der Controller
+## <a name="create-the-model-and-controller"></a>Erstellen Sie das Modell und Controller
 
-Dieses Lernprogramm verwendet die gleichen Modell und Controller-Klassen wie der [Einstieg](tutorial-your-first-web-api.md) Lernprogramm.
+In diesem Tutorial verwendet die gleichen Modell und Controller-Klassen als die [Einstieg](tutorial-your-first-web-api.md) Tutorial.
 
-Fügen Sie zuerst eine Modellklasse hinzu. In **Projektmappen-Explorer**mit der rechten Maustaste auf das Projekt, und wählen Sie **Klasse hinzufügen**. Benennen Sie die Klasse Product, und fügen Sie die folgende Implementierung:
+Fügen Sie zunächst eine Modellklasse. In **Projektmappen-Explorer**mit der rechten Maustaste auf das Projekt, und wählen Sie **Klasse hinzufügen**. Benennen Sie die Product-Klasse, und fügen Sie die folgende Implementierung:
 
 [!code-csharp[Main](using-web-api-with-aspnet-web-forms/samples/sample1.cs)]
 
-Fügen Sie einen Web-API-Controller zu dem Projekt. eine *Controller* ist das Objekt, das HTTP-Anforderungen für die Web-API behandelt.
+Fügen Sie einen Web-API-Controller zum Projekt., ein *Controller* ist das Objekt, das HTTP-Anforderungen für Web-API behandelt.
 
-In **Projektmappen-Explorer**, mit der rechten Maustaste des Projekts. Wählen Sie **neues Element hinzufügen**.
+In **Projektmappen-Explorer**, mit der rechten Maustaste in des Projekts. Wählen Sie **neues Element hinzufügen**.
 
 ![](using-web-api-with-aspnet-web-forms/_static/image2.png)
 
-Klicken Sie unter **installierte Vorlagen**, erweitern Sie **Visual C#-** , und wählen Sie **Web**. Wählen Sie dann aus der Liste der Vorlagen, **Web-API-Controllerklasse**. Nennen Sie den Controller "ProductsController", und klicken Sie auf **hinzufügen**.
+Klicken Sie unter **installierte Vorlagen**, erweitern Sie **Visual C#-** , und wählen Sie **Web**. Wählen Sie dann aus der Liste der Vorlagen, **Web API Controller Class**. Nennen Sie den Controller "ProductsController", und klicken Sie auf **hinzufügen**.
 
 ![](using-web-api-with-aspnet-web-forms/_static/image3.png)
 
@@ -62,31 +61,31 @@ Die **neues Element hinzufügen** Assistenten wird eine Datei namens ProductsCon
 
 [!code-csharp[Main](using-web-api-with-aspnet-web-forms/samples/sample2.cs)]
 
-Weitere Informationen zu den Code in diesem Controller, finden Sie unter der [Einstieg](tutorial-your-first-web-api.md) Lernprogramm.
+Weitere Informationen zu den Code in diesem Controller, finden Sie unter den [Einstieg](tutorial-your-first-web-api.md) Tutorial.
 
 ## <a name="add-routing-information"></a>Hinzufügen von Routinginformationen
 
-Als Nächstes wir fügen eine URI-Route also dieses URIs im Format &quot;/API/Produkte/&quot; an den Controller weitergeleitet werden.
+Anschließend wir fügen eine URI-Route also diese URIs der Form &quot;/API/Produkte/&quot; an den Controller weitergeleitet werden.
 
-In **Projektmappen-Explorer**, doppelklicken Sie auf "Global.asax", um die Code-Behind-Datei Global.asax.cs zu öffnen. Fügen Sie die folgenden **mit** Anweisung.
+In **Projektmappen-Explorer**, doppelklicken Sie auf "Global.asax", um den Code-Behind-Datei "Global.asax.cs" zu öffnen. Fügen Sie die folgenden **mit** Anweisung.
 
 [!code-csharp[Main](using-web-api-with-aspnet-web-forms/samples/sample3.cs)]
 
-Fügen Sie folgenden Code, der **Anwendung\_starten** Methode:
+Klicken Sie dann fügen Sie den folgenden Code der **Anwendung\_starten** Methode:
 
 [!code-csharp[Main](using-web-api-with-aspnet-web-forms/samples/sample4.cs)]
 
-Weitere Informationen zu Routingtabellen, finden Sie unter [Routing in ASP.NET Web API](../web-api-routing-and-actions/routing-in-aspnet-web-api.md).
+Weitere Informationen zu Routingtabellen finden Sie unter [Routing in ASP.NET Web-API](../web-api-routing-and-actions/routing-in-aspnet-web-api.md).
 
-## <a name="add-client-side-ajax"></a>Fügen Sie die clientseitige AJAX
+## <a name="add-client-side-ajax"></a>Hinzufügen der clientseitigen AJAX
 
-Das ist alles, die müssen Sie eine Web-API zu erstellen, die Clients zugreifen können. Nun fügen wir eine HTML-Seite, jQuery verwendet wird, zum Aufrufen der API, hinzu.
+Das ist alles, die müssen Sie eine Web-API zu erstellen, die Clients zugreifen können. Nun fügen Sie eine HTML-Seite, die jQuery zum Aufrufen der API verwendet.
 
-Stellen Sie sicher, dass die Gestaltungsvorlage (z. B. *Site.Master*) umfasst eine `ContentPlaceHolder` mit `ID="HeadContent"`:
+Stellen Sie sicher, dass die Masterseite (z. B. *Site.Master*) umfasst eine `ContentPlaceHolder` mit `ID="HeadContent"`:
 
 [!code-html[Main](using-web-api-with-aspnet-web-forms/samples/sample8.html)]
 
-Öffnen Sie die Datei "default.aspx". Ersetzen Sie den Standardtext, der Sie im Abschnitt Inhalt ist an, wie dargestellt:
+Öffnen Sie die Datei "default.aspx". Ersetzen Sie den Standardtext, der im Abschnitt Inhalt ist an, wie dargestellt:
 
 [!code-aspx[Main](using-web-api-with-aspnet-web-forms/samples/sample5.aspx)]
 
@@ -94,16 +93,16 @@ Fügen Sie einen Verweis auf die jQuery-Quelldatei in die `HeaderContent` Abschn
 
 [!code-aspx[Main](using-web-api-with-aspnet-web-forms/samples/sample6.aspx?highlight=2)]
 
-Hinweis: Sie können problemlos hinzufügen Skriptverweis per Drag & Drop die Datei aus **Projektmappen-Explorer** in das Fenster des Code-Editor.
+Hinweis: Sie können problemlos hinzufügen den Skriptverweis durch Ziehen und Ablegen der Datei aus **Projektmappen-Explorer** in das Fenster des Code-Editor.
 
 ![](using-web-api-with-aspnet-web-forms/_static/image4.png)
 
-Fügen Sie die folgenden Skriptblock hinzu, unter dem jQuery-Skript-Tag:
+Fügen Sie den nachstehenden Skriptbaustein unterhalb des jQuery-Skript-Tags hinzu:
 
 [!code-html[Main](using-web-api-with-aspnet-web-forms/samples/sample7.html)]
 
-Wenn das Dokument geladen wird, wird dieses Skript eine AJAX-Anforderung an &quot;-api-Produkte&quot;. Die Anforderung gibt eine Liste der Produkte im JSON-Format zurück. Das Skript fügt die Produktinformationen der HTML-Tabelle.
+Wenn das Dokument geladen wird, wird dieses Skript eine AJAX-Anforderung an &quot;-api/Produkte&quot;. Die Anforderung gibt eine Liste der Produkte im JSON-Format zurück. Das Skript fügt die Produktinformationen in den HTML-Tabelle.
 
-Wenn Sie die Anwendung ausführen, sollten sie wie folgt aussehen:
+Wenn Sie die Anwendung ausführen, sollte es wie folgt aussehen:
 
 ![](using-web-api-with-aspnet-web-forms/_static/image5.png)

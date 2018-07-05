@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/iis/troubleshooting-production-aspnet-apps
-title: Problembehandlung bei der Produktion ASP.NET-Apps | Microsoft Docs
+title: Problembehandlung bei ASP.NET-Produktions-Apps | Microsoft-Dokumentation
 author: JoeStagner
-description: Dieses Video bietet Ihnen eine schnelle Inventur der Tools zur Problembehandlung für ASP.NET-Anwendungen Produktion.
+description: Dieses Video bietet eine schnelle Inventur der Tools zur Problembehandlung für Ihre Produktionsanwendungen für ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/09/2009
 ms.topic: article
 ms.assetid: ee45ab78-bc04-45dc-bfac-5c0c023b3f17
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/iis/troubleshooting-production-aspnet-apps
 msc.type: video
-ms.openlocfilehash: cc3b12f3063e677ad6a235fd0aa51854947a3361
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 869258c2cd2287c92ea89873c818d236dfb7ec77
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30886094"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37387243"
 ---
-<a name="troubleshooting-production-aspnet-apps"></a>Problembehandlung bei der Erzeugung von ASP.NET-Anwendungen
+<a name="troubleshooting-production-aspnet-apps"></a>Problembehandlung bei ASP.NET-Produktions-Apps
 ====================
 durch [Joe Stagner](https://github.com/JoeStagner)
 
-Dieses Video bietet Ihnen eine schnelle Inventur der Tools zur Problembehandlung für ASP.NET-Anwendungen Produktion.
+Dieses Video bietet eine schnelle Inventur der Tools zur Problembehandlung für Ihre Produktionsanwendungen für ASP.NET.
 
-[&#9654;Sehen Sie sich an (30 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/troubleshooting-production-aspnet-apps)
+[&#9654;Sehen Sie sich Video (30 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/troubleshooting-production-aspnet-apps)
 
 > [!div class="step-by-step"]
 > [Zurück](feature-specific-delegated-management.md)

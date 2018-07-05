@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/advanced/sending-html-form-data-part-2
-title: 'HTML-Formulardaten in ASP.NET Web-API senden: Datei hochladen und Multipart / MIME | Microsoft Docs'
+title: 'Senden von HTML-Formulardaten in ASP.NET Web-API: Dateiupload und mehrteiligen MIME-Nachrichten | Microsoft-Dokumentation'
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,99 +9,98 @@ ms.date: 06/21/2012
 ms.topic: article
 ms.assetid: a7f3c1b5-69d9-4261-b082-19ffafa5f16a
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/sending-html-form-data-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 331d0e520a1fd8ec84aecd09a9c9e6d286c5893b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7c1c85f462141daf747e23aa4215d47f2d263140
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28040141"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37386707"
 ---
-<a name="sending-html-form-data-in-aspnet-web-api-file-upload-and-multipart-mime"></a>Senden von HTML-Formulardaten in ASP.NET Web-API: hochladen und Multipart / MIME-Datei
+<a name="sending-html-form-data-in-aspnet-web-api-file-upload-and-multipart-mime"></a>Senden von HTML-Formulardaten in ASP.NET Web-API: Dateiupload und mehrteiligen MIME-Nachrichten
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson)
 
-## <a name="part-2-file-upload-and-multipart-mime"></a>Teil 2: Datei hochladen und Multipart / MIME-
+## <a name="part-2-file-upload-and-multipart-mime"></a>Teil 2: Dateiupload und mehrteiligen MIME-
 
-Dieses Lernprogramm zeigt, wie zum Hochladen von Dateien in eine Web-API. Es beschreibt auch, wie zum Verarbeiten von mehrteiliger MIME-Daten.
+In diesem Tutorial wird das Hochladen von Dateien in einer Web-API veranschaulicht. Es wird beschrieben, wie zum Verarbeiten von mehrteiliger MIME-Daten.
 
 > [!NOTE]
 > [Herunterladen des abgeschlossenen Projekts](https://code.msdn.microsoft.com/ASPNET-Web-API-File-Upload-a8c0fb0d).
 
 
-Hier ist ein Beispiel für ein HTML-Formular für das Hochladen einer Datei ein:
+Hier ist ein Beispiel für ein HTML-Formular zum Hochladen einer Datei ein:
 
 [!code-html[Main](sending-html-form-data-part-2/samples/sample1.html)]
 
 ![](sending-html-form-data-part-2/_static/image1.png)
 
-Dieses Formular enthält, eines Texteingabe-Steuerelements und Eingabesteuerelement einer Datei. Wenn ein Formular Eingabesteuerelement einer Datei enthält die **Enctype** Attribut muss immer werden &quot;Multipart/Form-Data&quot;, der angibt, dass das Formular als einer mehrteiligen MIME-Nachricht gesendet werden.
+Dieses Formular enthält ein Texteingabe-Steuerelement und ein Datei-Steuerelement. Wenn ein Formular ein Steuerelement, Datei enthält die **Enctype** Attribut muss immer &quot;Multipart/Form-Data&quot;, der angibt, dass das Formular als eine mehrteilige MIME-Nachricht gesendet wird.
 
 Das Format einer mehrteiligen MIME-Nachricht ist am einfachsten, zu verstehen, betrachten ein Beispiel für eine Anforderung:
 
 [!code-console[Main](sending-html-form-data-part-2/samples/sample2.cmd)]
 
-Diese Meldung wird in zwei unterteilt *Teile*, eine für jede Form-Steuerelement. Teil-Grenzen werden durch die Zeilen angezeigt, die mithilfe von Gedankenstrichen beginnen.
+Diese Meldung wird in zwei unterteilt *Teile*, eine für die einzelnen Steuerelemente. Teil-Grenzen werden durch die Zeilen angezeigt, die mit Bindestrichen beginnen.
 
 > [!NOTE]
-> Die Grenze Teil umfasst eine zufällige-Komponente (&quot;41184676334&quot;), stellen Sie sicher, dass die Trennungszeichenfolge nicht versehentlich in einem Nachrichtenteil angezeigt wird.
+> Die Grenze Teil umfasst eine zufällige-Komponente (&quot;41184676334&quot;) um sicherzustellen, dass die Trennungszeichenfolge nicht versehentlich in einem Teil der Nachricht angezeigt wird.
 
 
-Jeder Teil der Nachricht enthält eine oder mehrere Header, gefolgt von den Inhalts des Nachrichtenteils.
+Jeder Teil der Nachricht enthält eine oder mehrere Kopfzeilen, gefolgt von den Inhalts des Nachrichtenteils.
 
-- Der Content-Disposition-Header enthält den Namen des Steuerelements. Für Dateien enthält er auch den Dateinamen ein.
-- Der Content-Type-Header beschreibt die Daten in den Bereich. Wenn dieser Header fehlt, ist die Standardeinstellung Text/Plain an.
+- Der Content-Disposition-Header enthält den Namen des Steuerelements. Für Dateien enthält sie auch den Dateinamen ein.
+- Der Content-Type-Header werden die Daten im Webpart beschrieben. Wenn dieser Header fehlt, ist die Standardeinstellung Text/unformatiert.
 
-Im vorherigen Beispiel hochgeladen der Benutzer eine Datei namens GrandCanyon.jpg, mit dem Inhaltstyp Image/Jpeg; und der Wert der Texteingabe war &quot;Summer Urlaub&quot;.
+Im vorherigen Beispiel hochgeladen der Benutzer eine Datei namens GrandCanyon.jpg, mit dem Content-Type-Image/Jpeg; und den Wert der Texteingabe &quot;Sommer Urlaub&quot;.
 
-## <a name="file-upload"></a>Datei hochladen
+## <a name="file-upload"></a>Dateiupload
 
-Jetzt sehen wir uns einen Web-API-Controller, die Dateien aus einer mehrteiligen MIME-Nachricht liest. Der Controller wird für die Dateien asynchron gelesen werden. Web-API unterstützt die asynchrone Aktionen, die mit der [aufgabenbasierten Programmiermodell](https://msdn.microsoft.com/library/dd460693.aspx). Zunächst hier stammt der Code bei der Sie Ausrichtung auf .NET Framework 4.5, das unterstützt die **Async** und **"await"** Schlüsselwörter.
+Jetzt sehen wir uns einen Web-API-Controller, die Dateien aus einer mehrteiligen MIME-Nachricht liest. Der Controller wird für die Dateien asynchron gelesen werden. Web-API unterstützt asynchrone Aktionen, die mit der [aufgabenbasierten Programmiermodell](https://msdn.microsoft.com/library/dd460693.aspx). Zunächst der Code hier ist, wenn Sie .NET Framework 4.5 verwenden möchten, die unterstützt die **Async** und **"await"** Schlüsselwörter.
 
 [!code-csharp[Main](sending-html-form-data-part-2/samples/sample3.cs)]
 
-Beachten Sie, dass der Controlleraktion keine Parameter akzeptiert. Da wir den Hauptteil der Anforderung innerhalb der Aktion verarbeiten, ohne einen medientypformatierer aufzurufen ist.
+Beachten Sie, dass die Controlleraktion keine Parameter annimmt. Das ist da wir den Text der Anforderung innerhalb der Aktion verarbeiten, ohne einen medientypformatierer aufzurufen.
 
-Die **IsMultipartContent** Methode überprüft, ob die Anforderung eine mehrteilige MIME-Nachricht enthält. Wenn dies nicht der Fall ist, wird der Controller zurückgegeben, Statuscode "HTTP" 415 (nicht unterstützter Medientyp).
+Die **IsMultipartContent** Methode überprüft, ob die Anforderung eine mehrteilige MIME-Nachricht enthält. Wenn dies nicht der Fall ist, wird der Controller Gibt HTTP-Statuscode 415 (nicht unterstützter Medientyp).
 
-Die **MultipartFormDataStreamProvider** Klasse ist Hilfsobjekt, das Dateistreams für hochgeladene Dateien belegt wird. Um den mehrteiligen MIME-Nachricht zu lesen, rufen Sie die **ReadAsMultipartAsync** Methode. Diese Methode alle Teile der Nachricht extrahiert und schreibt sie in die Datenströme gebotenen der **MultipartFormDataStreamProvider**.
+Die **MultipartFormDataStreamProvider** Klasse ist ein Hilfsobjekt, der Datenströme für hochgeladene Dateien zuordnet. Rufen Sie zum Lesen von mehrteiligen MIME-Nachricht, die **ReadAsMultipartAsync** Methode. Diese Methode alle Teile der Nachricht und schreibt sie in der von bereitgestellten Streams der **MultipartFormDataStreamProvider**.
 
 Wenn die Methode abgeschlossen ist, erhalten Sie Informationen zu den Dateien aus dem **FileData** -Eigenschaft, die eine Auflistung von **MultipartFileData** Objekte.
 
 - **MultipartFileData.FileName** ist der Name der lokalen Datei auf dem Server, in dem die Datei gespeichert wurde.
-- **MultipartFileData.Headers** enthält der Header Teil (*nicht* Anforderungsheader). Hiermit können Sie den Zugriff auf die Inhalte\_Disposition "und" Content-Type-Header.
+- **MultipartFileData.Headers** enthält den Teil-Header (*nicht* Header der Anforderung). Hiermit können Sie den Zugriff auf die Inhalte\_Disposition und Content-Type-Header.
 
-Wie der Name bereits vermuten lässt, **ReadAsMultipartAsync** ist eine asynchrone Methode. Verwenden Sie Aufgaben nach Abschluss der Methode, eine [Fortsetzungsaufgabe](https://msdn.microsoft.com/library/ee372288.aspx) (.NET 4.0) oder die **"await"** Schlüsselwort (.NET 4.5).
+Wie der Name schon sagt, **ReadAsMultipartAsync** ist eine asynchrone Methode. Verwenden Sie zum Ausführen von Aufgaben nach Abschluss der Methode eine [Fortsetzungsaufgabe](https://msdn.microsoft.com/library/ee372288.aspx) ((.NET 4.0) oder die **"await"** Schlüsselwort ((.NET 4.5).
 
-Hier ist die .NET Framework 4.0-Version des vorherigen Codes ein:
+Hier ist der .NET Framework 4.0-Version des obigen Codes:
 
 [!code-csharp[Main](sending-html-form-data-part-2/samples/sample4.cs)]
 
-## <a name="reading-form-control-data"></a>Lesen von Formulardaten-Steuerelement
+## <a name="reading-form-control-data"></a>Lesen von Form-Steuerelementdaten
 
-Das HTML-Formular, das zuvor gezeigten mussten ein Texteingabe-Steuerelements.
+Das HTML-Formular, das weiter oben gezeigt wurde, hatte ein Texteingabe-Steuerelement.
 
 [!code-html[Main](sending-html-form-data-part-2/samples/sample5.html)]
 
-Sie erhalten den Wert des Steuerelements aus der **FormData** Eigenschaft von der **MultipartFormDataStreamProvider**.
+Sie erhalten den Wert des Steuerelements, aus der **FormData** Eigenschaft der **MultipartFormDataStreamProvider**.
 
 [!code-csharp[Main](sending-html-form-data-part-2/samples/sample6.cs?highlight=15)]
 
-**FormData** ist ein **NameValueCollection** enthält Name/Wert-Paare für die Steuerelemente des Formulars. Die Auflistung kann doppelte Schlüssel enthalten. Betrachten Sie dieses Formular ein:
+**FormData** ist eine **NameValueCollection** , Name/Wert-Paare für Steuerelemente des Formulars enthält. Die Auflistung kann doppelte Schlüssel enthalten. Betrachten Sie dieses Formular aus:
 
 [!code-html[Main](sending-html-form-data-part-2/samples/sample7.html)]
 
 ![](sending-html-form-data-part-2/_static/image2.png)
 
-Der Anforderungstext kann wie folgt aussehen:
+Text der Anforderung kann wie folgt aussehen:
 
 [!code-console[Main](sending-html-form-data-part-2/samples/sample8.cmd)]
 
-In diesem Fall die **FormData** Auflistung würde die folgenden Schlüssel/Wert-Paare enthalten:
+In diesem Fall die **FormData** Auflistung enthält die folgenden Schlüssel/Wert-Paare:
 
 - Reise: Round-Trip
-- options: nonstop
+- Optionen: direkten Weg
 - Optionen: Datumsangaben
-- Arbeitsplätze: Fenster
+- Arbeitsplatz: Fenster

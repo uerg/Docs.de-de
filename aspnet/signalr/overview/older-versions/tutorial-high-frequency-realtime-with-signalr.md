@@ -1,67 +1,66 @@
 ---
 uid: signalr/overview/older-versions/tutorial-high-frequency-realtime-with-signalr
-title: Hochfrequente Realtime mit SignalR 1.x | Microsoft Docs
+title: Echtzeitnachrichten mit SignalR 1.x | Microsoft-Dokumentation
 author: pfletcher
-description: Dieses Lernprogramm veranschaulicht, wie eine Webanwendung zu erstellen, die ASP.NET SignalR verwendet wird, um hochfrequente Messagingfunktionen bereitzustellen. Hochfrequenz messaging in...
+description: Dieses Tutorial veranschaulicht, wie eine Webanwendung erstellen, die ASP.NET SignalR verwendet wird, um häufige-messaging-Funktionalität bereitzustellen. Häufige Messagings in...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/16/2013
 ms.topic: article
 ms.assetid: ad2a5da5-2e79-40ea-bc84-028d327f5982
 ms.technology: dotnet-signalr
-ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 0c680a7d8b911b2734647948b683d5ff6e47aec4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d9a5539d79d0b6396282af8036f2c6417f44ce23
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26505839"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37401133"
 ---
-<a name="high-frequency-realtime-with-signalr-1x"></a>Hochfrequente Realtime mit SignalR 1.x
+<a name="high-frequency-realtime-with-signalr-1x"></a>Echtzeitnachrichten mit SignalR 1.x
 ====================
 durch [Patrick Fletcher](https://github.com/pfletcher)
 
-> Dieses Lernprogramm veranschaulicht, wie eine Webanwendung zu erstellen, die ASP.NET SignalR verwendet wird, um hochfrequente Messagingfunktionen bereitzustellen. Hochfrequente messaging bedeutet in diesem Fall Updates, die mit einer festen Rate gesendet werden. Bei dieser Anwendung werden bis zu 10 Nachrichten pro Sekunde.
+> Dieses Tutorial veranschaulicht, wie eine Webanwendung erstellen, die ASP.NET SignalR verwendet wird, um häufige-messaging-Funktionalität bereitzustellen. Häufige messaging bedeutet in diesem Fall die Updates, die mit einer festen Rate gesendet werden; Bei dieser Anwendung bis zu 10 Nachrichten pro Sekunde.
 > 
-> Die Anwendung, die in diesem Lernprogramm Sie erstellen zeigt eine Form, die Benutzer gezogen werden können. Die Position der Form in allen anderen verbundenen Browsern werden entsprechend die Position der gezogene Form über zeitgesteuerte Updates aktualisiert werden.
+> Die Anwendung, die Sie in diesem Tutorial erstellen, zeigt eine Form, die Benutzer ziehen können. Die Position der Form in allen anderen verbundenen Browsern wird dann entsprechend die Position der gezogene Form mithilfe von zeitlich festgelegte Updates aktualisiert werden.
 > 
-> In diesem Lernprogramm eingeführte Konzepte haben Anwendungen in Echtzeit Spiele und anderen Simulation.
+> In diesem Tutorial eingeführte Konzepte müssen Anwendungen in Echtzeit Spiele und andere Anwendungen für die Simulation.
 > 
-> Kommentare in das Lernprogramm sind Willkommen. Wenn Sie Fragen, die nicht direkt mit dem Lernprogramm verknüpft sind haben, bereitstellen können, die [ASP.NET SignalR-Forum](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oder [StackOverflow.com](http://stackoverflow.com).
+> Kommentare, die auf dem Lernprogramm sind Willkommen. Wenn Sie Fragen, die nicht direkt mit dem Tutorial verknüpft sind haben, können Sie sie veröffentlichen das [ASP.NET SignalR-Forum](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oder [StackOverflow.com](http://stackoverflow.com).
 
 
 ## <a name="overview"></a>Übersicht
 
-Dieses Lernprogramm veranschaulicht, wie eine Anwendung erstellen, der den Zustand eines Objekts mit anderen Browsern in Echtzeit. Die Anwendung, die wir erstellen müssen, wird MoveShape aufgerufen. Der Seite "MoveShape" wird ein HTML-Div-Element angezeigt, die der Benutzer ziehen kann. der Benutzer das DIV-Element zieht, wird seiner neue Position an den Server gesendet werden, die informieren dann anderen verbundenen Clients die Position der Form entsprechend aktualisiert wird.
+In diesem Tutorial wird veranschaulicht, wie eine Anwendung erstellen, die den Zustand eines Objekts mit anderen Browsern in Echtzeit gemeinsam verwendet wird. Die Anwendung erstellten wird MoveShape aufgerufen. Die Seite "MoveShape" wird ein HTML-Div-Element anzeigen, die der Benutzer ziehen können; der Benutzer das DIV-Element zieht, wird seiner neue Position an den Server gesendet werden, die dann alle anderen verbundenen Clients, um die Position der Form entsprechend zu aktualisieren. darüber informiert.
 
 ![Das Anwendungsfenster](tutorial-high-frequency-realtime-with-signalr/_static/image1.png)
 
-Die Anwendung, die in diesem Lernprogramm erstellten basiert auf einer Demo von Damian Edwards. Ein Video, enthält diese Demo überwachungsarbeitsbereich [hier](https://channel9.msdn.com/Series/Building-Web-Apps-with-ASP-NET-Jump-Start/Building-Web-Apps-with-ASPNET-Jump-Start-08-Real-time-Communication-with-SignalR).
+Die Anwendung, die in diesem Tutorial erstellten basiert auf einer Demo von Damian Edwards. Ein Video, enthält diese Demo sehen [hier](https://channel9.msdn.com/Series/Building-Web-Apps-with-ASP-NET-Jump-Start/Building-Web-Apps-with-ASPNET-Jump-Start-08-Real-time-Communication-with-SignalR).
 
-Im Lernprogramm wird vorgeführt, wie zum Senden von Nachrichten von SignalR aus jedes Ereignis, das ausgelöst wird, wie die Form gezogen wird gestartet. Jedem verbundenen Client wird dann die Position der lokalen Version der Form aktualisiert, sobald eine Nachricht empfangen wird.
+Das Lernprogramm zunächst veranschaulicht, wie SignalR-Nachrichten von jedem Ereignis zu senden, die ausgelöst wird, wie die Form gezogen wird. Jede verbundene Clients klicken Sie dann aktualisiert die Position der lokalen Version von der Form jedes Mal, die eine Nachricht empfangen wird.
 
-Während die Anwendung diese Methode verwenden funktioniert, ist dies nicht empfohlene Programmiermodell, da gäbe es keine obere Grenze für die Anzahl der Nachrichten, Abrufen von gesendet werden, damit die Clients und Server mit Nachrichten überlastet abrufen konnte, und würde die Leistung beeinträchtigen . Die angezeigte Animation auf dem Client wäre auch separaten, wie die Form durch jede Methode sofort verschoben werden würde, statt zu jeder neuen Speicherort verschieben. In späteren Abschnitten des Lernprogramms werden gezeigt, wie eine Zeitgeber-Funktion erstellt, die die maximale Übertragungsrate einschränkt, mit der Nachrichten vom Client oder Server gesendet werden, und wie Sie die Form reibungslos zwischen Standorten zu verschieben. Die endgültige Version der Anwendung, die in diesem Lernprogramm erstellten kann von heruntergeladen werden [Code Gallery](https://code.msdn.microsoft.com/SignalR-MoveShape-demo-3366dac6).
+Während die Anwendung mit dieser Methode verwendet werden kann, ist dies keine empfohlene Programmiermodell, da gäbe es keine obere Grenze für die Anzahl der Nachrichten, Abrufen von gesendet werden, damit die Clients und Server mit Nachrichten überlastet zu erhalten konnte, und würde die Leistung beeinträchtigen . Die angezeigten Animation, auf dem Client wäre auch reibungslos auf jeder neuen Speicherort verschieben, statt separater, da die Form von jeder Methode, sofort verschoben werden sollen. Abschnitten des Lernprogramms zeige, wie zum Erstellen einer timerfunktion, die die maximale Rate einschränkt, mit der Nachrichten vom Client oder Server gesendet werden, und wie Sie die Form reibungslos zwischen Standorten verschieben. Die endgültige Version der in diesem Lernprogramm erstellten Anwendung kann heruntergeladen werden [Code Gallery](https://code.msdn.microsoft.com/SignalR-MoveShape-demo-3366dac6).
 
-Dieses Lernprogramm enthält folgende Abschnitte:
+In diesem Tutorial enthält die folgenden Abschnitte:
 
 - [Erforderliche Komponenten](#prerequisites)
 - [Erstellen des Projekts](#createtheproject)
-- [Die ASP.NET SignalR und JQuery.UI NuGet-Pakete hinzufügen](#nugetpackages)
-- [Die Basis-Anwendung erstellen](#baseapp)
-- [Fügen Sie die Client-Schleife hinzu](#clientloop)
-- [Fügen Sie die Server-Schleife hinzu](#serverloop)
-- [Hinzufügen von Animationen zum Glätten auf dem client](#animation)
+- [Fügen Sie die ASP.NET SignalR und JQuery.UI-NuGet-Pakete](#nugetpackages)
+- [Erstellen Sie die grundlegende Anwendung](#baseapp)
+- [Die Client-Schleife hinzufügen](#clientloop)
+- [Der Server-Schleife hinzufügen](#serverloop)
+- [Fügen Sie auf dem Client flüssige Animation hinzu](#animation)
 - [Weitere Schritte](#furthersteps)
 
 <a id="prerequisites"></a>
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
-Dieses Lernprogramm erfordert Visual Studio 2012 oder Visual Studio 2010. Wenn Visual Studio 2010 verwendet wird, wird das Projekt .NET Framework 4 und .NET Framework 4.5 verwenden.
+Dieses Lernprogramm erfordert Visual Studio 2012 oder Visual Studio 2010. Wenn Visual Studio 2010 verwendet wird, wird das Projekt .NET Framework 4 anstatt des .NET Framework 4.5 verwenden.
 
-Wenn Sie Visual Studio 2012 verwenden, wird empfohlen, Sie installieren die [Update für ASP.NET und Web Tools 2012.2](https://go.microsoft.com/fwlink/?LinkId=282650). Dieses Update enthält neue Features wie Erweiterungen zu veröffentlichen, werden neue Funktionen und neue Vorlagen.
+Wenn Sie Visual Studio 2012 verwenden, wird empfohlen, dass es sich bei der Installation der [Update für ASP.NET und Web Tools 2012.2](https://go.microsoft.com/fwlink/?LinkId=282650). Dieses Update enthält neue Funktionen wie veröffentlichen, neue Funktionen, Verbesserungen und neue Vorlagen.
 
 Wenn Sie Visual Studio 2010 haben, stellen sicher, dass [NuGet](https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c) installiert ist.
 
@@ -71,7 +70,7 @@ Wenn Sie Visual Studio 2010 haben, stellen sicher, dass [NuGet](https://visualst
 
 In diesem Abschnitt erstellen wir das Projekt in Visual Studio.
 
-1. Aus der **Datei** klicken Sie im Menü **neues Projekt**.
+1. Von der **Datei** klicken Sie im Menü **neues Projekt**.
 2. In der **neues Projekt** Dialogfeld erweitern Sie **c#** unter **Vorlagen** , und wählen Sie **Web**.
 3. Wählen Sie die **leere ASP.NET-Webanwendung** Vorlage, nennen Sie das Projekt *MoveShapeDemo*, und klicken Sie auf **OK**.
 
@@ -79,109 +78,109 @@ In diesem Abschnitt erstellen wir das Projekt in Visual Studio.
 
 <a id="nugetpackages"></a>
 
-## <a name="add-the-signalr-and-jqueryui-nuget-packages"></a>Fügen Sie die SignalR und JQuery.UI NuGet-Pakete
+## <a name="add-the-signalr-and-jqueryui-nuget-packages"></a>Fügen Sie den SignalR und JQuery.UI NuGet-Pakete
 
-Sie können die SignalR-Funktionalität zu einem Projekt hinzufügen, durch die Installation von NuGet-Paket. In diesem Lernprogramm verwenden ebenfalls das JQuery.UI-Paket zugelassen wird, dass die Form gezogen und animiert werden kann.
+Sie können die SignalR-Funktionen zu einem Projekt hinzufügen, durch die Installation von NuGet-Paket. In diesem Tutorial wird das JQuery.UI-Paket auch verwenden, für das Zulassen der Form gezogen und animiert werden.
 
-1. Klicken Sie auf **Tools | Bibliothek-Paket-Manager | Paket-Manager-Konsole**.
-2. Geben Sie den folgenden Befehl in der Paket-Manager aus.
+1. Klicken Sie auf **Tools | Bibliothekspaket-Manager | Paket-Manager-Konsole**.
+2. Geben Sie den folgenden Befehl aus, in der Paket-Manager.
 
     [!code-powershell[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample1.ps1)]
 
-    Die SignalR-Paket installiert eine Reihe von anderen NuGet-Pakete als Abhängigkeiten. Wenn die Installation abgeschlossen ist, müssen Sie alle Server und Client erforderlichen Komponenten für SignalR in einer ASP.NET-Anwendung zu verwenden.
-3. Geben Sie den folgenden Befehl in der Paket-Manager-Konsole zum Installieren der Pakete JQuery und JQuery.UI aus.
+    Der SignalR-Paket installiert eine Reihe von anderen NuGet-Pakete als Abhängigkeiten. Wenn die Installation abgeschlossen ist, müssen Sie alle Server und Client-Komponenten erforderlich, um die SignalR-Komponente in einer ASP.NET-Anwendung einsetzen.
+3. Geben Sie den folgenden Befehl aus, in der Paket-Manager-Konsole zum Installieren der Pakete JQuery und JQuery.UI.
 
     [!code-powershell[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample2.ps1)]
 
 <a id="baseapp"></a>
 
-## <a name="create-the-base-application"></a>Die Basis-Anwendung erstellen
+## <a name="create-the-base-application"></a>Erstellen Sie die grundlegende Anwendung
 
-In diesem Abschnitt erstellen wir eine Browseranwendung, die den Speicherort der Form an den Server, während jede Mauszeigerposition ausgelöste Ereignis sendet. Daten beim Empfang, sendet der Server dann diese Informationen für alle anderen verbundenen Clients. Es wird auf diese Anwendung in späteren Abschnitten erweitern.
+In diesem Abschnitt erstellen wir eine Browser-Anwendung, die den Speicherort der Form an den Server, während jede MouseMove-Ereignis sendet. Der Server überträgt klicken Sie dann diese Informationen, um alle anderen verbundenen Clients, wie sie empfangen wird. Wir müssen für diese Anwendung in späteren Abschnitten erweitern.
 
-1. In **Projektmappen-Explorer**mit der rechten Maustaste auf das Projekt, und wählen Sie **hinzufügen**, **Klasse...** . Benennen Sie die Klasse **MoveShapeHub** , und klicken Sie auf **hinzufügen**.
+1. In **Projektmappen-Explorer**mit der rechten Maustaste auf das Projekt, und wählen Sie **hinzufügen**, **Klasse...** . Nennen Sie die Klasse **MoveShapeHub** , und klicken Sie auf **hinzufügen**.
 2. Ersetzen Sie den Code in der neuen **MoveShapeHub** Klasse durch den folgenden Code.
 
     [!code-csharp[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample3.cs)]
 
-    Die `MoveShapeHub` Klasse oben ist eine Implementierung eines SignalR-Hubs. Wie in der [erste Schritte mit SignalR](index.md) Lernprogramm Hub verfügt über eine Methode, die die Clients direkt aufruft. In diesem Fall sendet der Client ein Objekt mit der neuen X- und Y-Koordinaten der Form auf dem Server, der dann an alle anderen verbundenen Clients weitergegeben ruft. SignalR wird automatisch dieses Objekts unter Verwendung von JSON serialisiert werden.
+    Die `MoveShapeHub` oben gezeigte Klasse ist eine Implementierung eines SignalR-Hubs. Wie in der [erste Schritte mit SignalR](index.md) Tutorial der Hub verfügt über eine Methode, die den Clients direkt aufruft. In diesem Fall sendet der Client ein Objekt mit den neuen X und Y-Koordinaten der Form auf dem Server, wodurch die haben ruft dann alle anderen verbundenen Clients übertragen. SignalR wird automatisch dieses Objekts unter Verwendung von JSON zu serialisieren.
 
-    Das Objekt, das an den Client gesendet werden sollen (`ShapeModel`) enthält Elemente, um die Position der Form zu speichern. Die Version des Objekts auf dem Server enthält außerdem einen Member zum Nachverfolgen von der Client Daten gespeichert werden, sodass ein Client gesendet werden, ihre eigenen Daten wird nicht. Dieses Element verwendet die `JsonIgnore` Attribut und verhindert, serialisiert und an den Client gesendet wird.
-3. Als Nächstes führen wir den Hub eingerichtet, beim Starten der Anwendung. In **Projektmappen-Explorer**Sie mit der rechten Maustaste des Projekts, und klicken Sie auf **hinzufügen | Globale Anwendungsklasse**. Übernehmen Sie den Standardnamen *Global* , und klicken Sie auf **OK**.
+    Das Objekt, das an den Client gesendet wird (`ShapeModel`) enthält Elemente, um die Position der Form zu speichern. Die Version des Objekts auf dem Server enthält auch ein Element zum Nachverfolgen der Clientdaten gespeichert wird, damit ein bestimmtes Clients nicht ihre eigenen Daten gesendet wird. Dieses Element verwendet die `JsonIgnore` Attribut, um zu verhindern serialisiert und an den Client gesendet.
+3. Als Nächstes müssen wir den Hub einrichten, beim Starten der Anwendung. In **Projektmappen-Explorer**mit der rechten Maustaste auf das Projekt, und klicken Sie auf **hinzufügen | Globale Anwendungsklasse**. Akzeptieren Sie den Namen der *Global* , und klicken Sie auf **OK**.
 
-    ![Globale Anwendungsklasse hinzufügen](tutorial-high-frequency-realtime-with-signalr/_static/image3.png)
-4. Fügen Sie die folgenden `using` Anweisung nach der bereitgestellten **mit** Anweisungen in der Global.asax.cs-Klasse.
+    ![Hinzufügen von globalen Anwendungsklasse](tutorial-high-frequency-realtime-with-signalr/_static/image3.png)
+4. Fügen Sie die folgenden `using` Anweisung nach der bereitgestellten **mit** Anweisungen in der Klasse "Global.asax.cs".
 
     [!code-csharp[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample4.cs)]
-5. Fügen Sie die folgende Codezeile in der `Application_Start` Methode der globalen so registrieren Sie die Standardroute für SignalR-Klasse.
+5. Fügen Sie die folgende Zeile des Codes in der `Application_Start` -Methode der globalen Klasse die Standardroute für die SignalR zu registrieren.
 
     [!code-csharp[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample5.cs)]
 
-    Die Datei "global.asax" sollte wie folgt aussehen:
+    Die Datei "Global.asax" sollte wie folgt aussehen:
 
     [!code-csharp[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample6.cs)]
-6. Fügen Sie anschließend den Client. In **Projektmappen-Explorer**Sie mit der rechten Maustaste des Projekts, und klicken Sie auf **hinzufügen | Neues Element**. In der **neues Element hinzufügen** wählen Sie im Dialogfeld **Html-Seite**. Geben Sie die Seite einen passenden Namen (z. B. **"default.HTML"**), und klicken Sie auf **hinzufügen**.
+6. Als Nächstes fügen wir den Client. In **Projektmappen-Explorer**mit der rechten Maustaste auf das Projekt, und klicken Sie auf **hinzufügen | Neues Element**. In der **neues Element hinzufügen** wählen Sie im Dialogfeld **Html-Seite**. Geben Sie die Seite einen passenden Namen (z. B. **"default.HTML"**), und klicken Sie auf **hinzufügen**.
 7. In **Projektmappen-Explorer**mit der rechten Maustaste auf die Seite, die Sie gerade erstellt haben, und klicken Sie auf **als Startseite festlegen**.
-8. Ersetzen Sie den Standardcode in der HTML-Seite mit dem folgenden Codeausschnitt an.
+8. Ersetzen Sie den Standardcode in der HTML-Seite mit den folgenden Codeausschnitt ein.
 
     > [!NOTE]
-    > Stellen Sie sicher, dass das Skript unten Übereinstimmung, die Pakete dem Projekt im Ordner "Skripts" hinzugefügt verweist. In Visual Studio 2010 kann die Version von JQuery und SignalR, die dem Projekt hinzugefügt, die folgenden Versionsnummern nicht überein.
+    > Stellen Sie sicher, dass das Skript unten Übereinstimmung, die Pakete dem Projekt im Ordner "Scripts" hinzugefügt verweist. In Visual Studio 2010 kann die Version von JQuery und SignalR, die dem Projekt hinzugefügt, nicht die folgenden Versionsnummern überein.
 
     [!code-html[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample7.html)]
 
-    Die oben genannten HTML und JavaScript-Code erstellt ein rotes Div Form aufgerufen, können Sie die Form ziehen Verhalten mithilfe der jQuery-Bibliothek und verwendet die Form vom Typ `drag` Ereignis, um die Position der Form an den Server gesendet.
-9. Starten Sie die Anwendung durch Drücken von F5. Kopieren Sie die URL der Seite, und fügen Sie ihn in einem zweiten Browserfenster. Ziehen Sie die Form in einem Browserfenster. die Form, in dem anderen Browserfenster sollten verschieben.
+    Der obige HTML und JavaScript-Code erstellt ein Rot DIV-Element wird aufgerufen, Form, können Sie das Verhalten des Shapes ziehen mit der jQuery-Bibliothek und verwendet die Form vom Typ `drag` Ereignis, um die Position der Form an den Server gesendet.
+9. Starten Sie die Anwendung durch Drücken von F5. Kopieren Sie die URL der Seite, und fügen Sie ihn in ein zweites Browserfenster. Ziehen Sie die Form eines Browserfenster; die Form im anderen Browserfenster sollten verschieben.
 
     ![Das Anwendungsfenster](tutorial-high-frequency-realtime-with-signalr/_static/image4.png)
 
 <a id="clientloop"></a>
 
-## <a name="add-the-client-loop"></a>Fügen Sie die Client-Schleife hinzu
+## <a name="add-the-client-loop"></a>Die Client-Schleife hinzufügen
 
-Da den Speicherort der Form für jede Mauszeigerposition ausgelöste Ereignis senden eine ist ggf. unnötig Umfang des Netzwerkverkehrs erstellen, müssen die Nachrichten vom Client gedrosselt werden. Verwenden wir die Javascript `setInterval` Funktion So richten Sie eine Schleife ein, die Informationen zur neuen Position in einer festen Rate auf dem Server sendet. Diese Schleife ist eine sehr einfache Darstellung der eine "Spiel Schleife", eine wiederholt aufgerufene Funktion, die die Funktionalität eines Spiels oder andere Simulation Laufwerke.
+Da ein ist ggf. unnötig Umfang des Netzwerkverkehrs, senden den Speicherort der Form auf jede MouseMove-Ereignis erstellt werden wird, müssen die Nachrichten vom Client gedrosselt werden. Wir verwenden den JavaScript-Code `setInterval` Funktion, um eine Schleife einrichten, die Informationen zur neuen Position an den Server mit einer festen Rate sendet. Diese Schleife ist eine einfache Darstellung einer "spielschleife" eine wiederholt aufgerufene Funktion, die die Funktionalität eines Spiels oder einer anderen Simulation steuert.
 
-1. Aktualisieren Sie den Clientcode in der HTML-Seite entsprechend den folgenden Codeausschnitt an.
+1. Aktualisieren Sie den Clientcode in der HTML-Seite entsprechend den folgenden Codeausschnitt ein.
 
     [!code-html[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample8.html)]
 
-    Die oben genannten Update fügt die `updateServerModel` -Funktion, die auf einer festen Frequenz aufgerufen wird. Diese Funktion sendet die Positionsdaten, an den Server immer die `moved` Flag gibt an, dass neue die zu sendenden Positionsdaten.
-2. Starten Sie die Anwendung durch Drücken von F5. Kopieren Sie die URL der Seite, und fügen Sie ihn in einem zweiten Browserfenster. Ziehen Sie die Form in einem Browserfenster. die Form, in dem anderen Browserfenster sollten verschieben. Die Animation wird nicht so reibungslos wie im vorherigen Abschnitt angezeigt, da die Anzahl der Nachrichten, die an den Server gesendet werden können gedrosselt werden, wird.
+    Die oben genannten Update fügt die `updateServerModel` -Funktion, die einer festen Häufigkeit aufgerufen wird. Diese Funktion sendet die Positionsdaten, an den Server nach der `moved` Flag gibt an, dass neue die zu sendenden Positionsdaten.
+2. Starten Sie die Anwendung durch Drücken von F5. Kopieren Sie die URL der Seite, und fügen Sie ihn in ein zweites Browserfenster. Ziehen Sie die Form eines Browserfenster; die Form im anderen Browserfenster sollten verschieben. Da die Anzahl der Nachrichten, die an den Server gesendet werden können gedrosselt werden, wird die Animation nicht so reibungslos wie im vorherigen Abschnitt angezeigt.
 
     ![Das Anwendungsfenster](tutorial-high-frequency-realtime-with-signalr/_static/image5.png)
 
 <a id="serverloop"></a>
 
-## <a name="add-the-server-loop"></a>Fügen Sie die Server-Schleife hinzu
+## <a name="add-the-server-loop"></a>Der Server-Schleife hinzufügen
 
-Wechseln in der aktuellen Anwendung Nachrichten, die vom Server an den Client gesendet so oft, wie sie empfangen werden. Dies stellt ein ähnliches Problem wie auf dem Client dargestellt wurde; Nachrichten können häufiger werden bei Bedarf, und die Verbindung konnte daher überflutet werden gesendet werden. In diesem Abschnitt wird beschrieben, wie beim Aktualisieren des Servers zum Implementieren eines Zeitgebers, das die Rate der ausgehenden Nachrichten schränkt wird.
+Die aktuelle Anwendung wechseln Sie in Nachrichten, die vom Server an den Client gesendet so oft, wie sie empfangen werden. Dies stellt ein ähnliches Problem wie auf dem Client aufgetreten ist; Nachrichten können als werden bei Bedarf, und die Verbindung kann daher überflutet werden häufig gesendet werden. Dieser Abschnitt beschreibt das Aktualisieren des Servers zum Implementieren eines Zeitgebers, das die Rate der ausgehenden Nachrichten drosselt.
 
-1. Ersetzen Sie den Inhalt des `MoveShapeHub.cs` mit dem folgenden Codeausschnitt.
+1. Ersetzen Sie den Inhalt der `MoveShapeHub.cs` mit dem folgenden Codeausschnitt.
 
     [!code-csharp[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample9.cs)]
 
-    Der obige Code erweitert den Client hinzufügen die `Broadcaster` -Klasse, die schränkt den ausgehenden Nachrichten mithilfe der `Timer` Klasse von .NET Framework.
+    Der obige Code dehnt der Client hinzufügen die `Broadcaster` -Klasse, die schränkt den ausgehenden Nachrichten anhand der `Timer` Klasse von .NET Framework.
 
-    Seit der Hub selbst um ein vorübergehendes handelt (er ist erstellt jedes Mal, wenn er benötigt wird), die `Broadcaster` wird als Singleton erstellt werden. Verzögerter Initialisierung (eingeführt in .NET 4) wird verwendet, um zu seiner Erstellung zu verzögern, bis diese benötigt wird, um sicherzustellen, dass die erste hubinstanz vollständig erstellt wird, bevor der Timer gestartet wird.
+    Da der Hub selbst vorübergehende ist (es wird erstellt jedes Mal, wenn er benötigt wird), die `Broadcaster` als Singleton erstellt werden. Verzögerter Initialisierung (eingeführt in .NET 4) wird zum seiner Erstellung zu verzögern, bis diese benötigt wird, um sicherzustellen, dass die erste hubinstanz vollständig erstellt wurde, bevor der Timer gestartet wird, verwendet.
 
-    Der Aufruf an die Clients' `UpdateShape` Funktion wird dann aus des Hubs verschoben `UpdateModel` Methode, sodass die It nicht mehr aufgerufen wird, sofort, wenn eingehende Nachrichten empfangen werden. Stattdessen werden die Nachrichten an die Clients gesendet werden, mit einer Rate von 25 Aufrufe pro Sekunde, von verwaltet die `_broadcastLoop` Timer innerhalb der `Broadcaster` Klasse.
+    Der Aufruf des Clients `UpdateShape` Funktion wird dann aus des Hubs des verschoben `UpdateModel` Methode, sodass die It nicht mehr aufgerufen wird, sobald eingehende Nachrichten empfangen werden. Stattdessen werden die Nachrichten an die Clients gesendet werden, mit einer Geschwindigkeit von 25 Aufrufe pro Sekunde, von verwaltet die `_broadcastLoop` Zeitgeber innerhalb der `Broadcaster` Klasse.
 
-    Schließlich anstelle von Aufrufen der Methode vom Hub direkt die `Broadcaster` Klasse muss einen Verweis auf den aktuell ausgeführten Hub abrufen (`_hubContext`) mithilfe der `GlobalHost`.
-2. Starten Sie die Anwendung durch Drücken von F5. Kopieren Sie die URL der Seite, und fügen Sie ihn in einem zweiten Browserfenster. Ziehen Sie die Form in einem Browserfenster. die Form, in dem anderen Browserfenster sollten verschieben. Es werden ein Unterschied im Browser aus dem vorherigen Abschnitt, aber gedrosselt die Anzahl der Nachrichten, die an den Client gesendet werden können.
+    Abschließend anstelle der Methode aus dem Hub direkt die `Broadcaster` Klasse muss einen Verweis auf den aktuell ausgeführten Hub abrufen (`_hubContext`) mithilfe der `GlobalHost`.
+2. Starten Sie die Anwendung durch Drücken von F5. Kopieren Sie die URL der Seite, und fügen Sie ihn in ein zweites Browserfenster. Ziehen Sie die Form eines Browserfenster; die Form im anderen Browserfenster sollten verschieben. Es werden nicht sichtbarer Unterschied im Browser aus dem vorherigen Abschnitt, aber die Anzahl der Nachrichten, die an den Client gesendet werden können, werden gedrosselt werden.
 
     ![Das Anwendungsfenster](tutorial-high-frequency-realtime-with-signalr/_static/image6.png)
 
 <a id="animation"></a>
 
-## <a name="add-smooth-animation-on-the-client"></a>Hinzufügen von Animationen zum Glätten auf dem client
+## <a name="add-smooth-animation-on-the-client"></a>Fügen Sie auf dem Client flüssige Animation hinzu
 
-Die Anwendung ist fast abgeschlossen, aber stellen wir eine weitere Verbesserung, die während des Verschiebens der Form auf dem Client beim Server Nachrichten verschieben. Anstatt das Festlegen der Position der Form an den neuen Speicherort, der vom Server erhält, verwenden wir der JQuery UI-Bibliotheks `animate` Funktion, um die Form problemlos zwischen der aktuellen und der neuen Position verschieben.
+Die Anwendung ist fast abgeschlossen, aber stellen wir eine weitere Verbesserung, die während der Übertragung der Form auf dem Client während der Übertragung als Antwort auf die Server-Meldungen. Anstatt die Position der Form an den neuen Speicherort, der vom Server erhalten, verwenden wir der JQuery-UI-Bibliotheks `animate` Funktion, um die Form reibungslos zwischen der aktuellen und neuen Position zu verschieben.
 
-1. Aktualisieren Sie den Client `updateShape` Methode gesucht werden soll, wie z. B. den folgenden hervorgehobenen Code:
+1. Aktualisieren des Clients `updateShape` Methode, um zu sehen, wie den folgenden hervorgehobenen Code:
 
     [!code-html[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample10.html?highlight=35-42)]
 
-    Der obige Code verschiebt die Form an der ursprünglichen Stelle in das neue Projekt, das vom Server im Verlauf der Animation Intervall (in diesem Fall 100 Millisekunden) angegeben. Alle vorherige Animation unter der Form "wird gelöscht, bevor die neue Animation gestartet wird.
-2. Starten Sie die Anwendung durch Drücken von F5. Kopieren Sie die URL der Seite, und fügen Sie ihn in einem zweiten Browserfenster. Ziehen Sie die Form in einem Browserfenster. die Form, in dem anderen Browserfenster sollten verschieben. Die Verschiebung der Form in das andere Fenster sollte weniger holprig, wie ihre Bewegung über wird einmal pro eingehender Nachricht festgelegt, anstatt Zeit interpoliert wird angezeigt.
+    Der obige Code verschiebt die Form am alten Speicherort in das neue Projekt, das vom Server im Verlauf der Animation-Intervall (in diesem Fall 100 Millisekunden) angegeben. Alle vorherige Animation, die unter der Form "wird gelöscht, bevor die neue Animation gestartet wird.
+2. Starten Sie die Anwendung durch Drücken von F5. Kopieren Sie die URL der Seite, und fügen Sie ihn in ein zweites Browserfenster. Ziehen Sie die Form eines Browserfenster; die Form im anderen Browserfenster sollten verschieben. Die Verschiebung von der Form, in dem anderen Fenster sollte weniger ruckartige, wie ihre Bewegung auf einmal pro eingehender Nachricht festgelegt wird, statt Zeit interpoliert wird angezeigt.
 
     ![Das Anwendungsfenster](tutorial-high-frequency-realtime-with-signalr/_static/image7.png)
 
@@ -189,11 +188,11 @@ Die Anwendung ist fast abgeschlossen, aber stellen wir eine weitere Verbesserung
 
 ## <a name="further-steps"></a>Weitere Schritte
 
-In diesem Lernprogramm haben Sie gelernt, die eine SignalR-Anwendung zu programmieren, in denen hochfrequente Nachrichten zwischen Clients und Servern an. Dieses Paradigma Kommunikation eignet sich für die Entwicklung von Onlinespielen und andere Simulationen, z. B. [ShootR Spiel erstellt, die mit SignalR](http://shootr.signalr.net).
+In diesem Tutorial haben Sie gelernt, wie Sie eine SignalR-Anwendung programmieren, die häufige Nachrichten zwischen Clients und Servern sendet. Dieses Paradigma für die Kommunikation ist nützlich für die Entwicklung von Onlinespielen und andere Simulationen, z. B. [ShootR Spiel erstellt, die mit SignalR](http://shootr.signalr.net).
 
-Die vollständige Anwendung, die in diesem Lernprogramm erstellten heruntergeladen werden kann, aus [Code Gallery](https://code.msdn.microsoft.com/SignalR-MoveShape-demo-3366dac6).
+Die vollständige Anwendung, die in diesem Tutorial erstellten kann heruntergeladen werden [Code Gallery](https://code.msdn.microsoft.com/SignalR-MoveShape-demo-3366dac6).
 
-Besuchen Sie die folgenden Websites für SignalR-Quellcode und Ressourcen, um weitere Informationen zu SignalR Entwicklung Konzepte:
+Weitere Informationen zu Konzepten der SignalR-Entwicklung finden Sie unter den folgenden Websites für SignalR-Quellcode und Ressourcen:
 
 - [SignalR-Projekt](http://signalr.net)
 - [SignalR Github und Beispiele](https://github.com/SignalR/SignalR)

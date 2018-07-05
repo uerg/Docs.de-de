@@ -1,64 +1,63 @@
 ---
 uid: mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-fundamentals
-title: ASP.NET MVC 4-Grundlagen | Microsoft Docs
+title: ASP.NET MVC 4 – Grundlagen | Microsoft-Dokumentation
 author: rick-anderson
-description: Diese praktische Übungseinheit auf MVC (Model View Controller) Music Store eine lernprogrammanwendung basiert, eingeführt und erläutert schrittweise, wie ASP.NET MV verwenden...
+description: Diese praktische Übungseinheit wird MVC (Model View Controller) Music Store, eine lernprogrammanwendung basiert auf eingeführt und erläutert Schritt für Schritt, wie ASP.NET MV verwenden...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
 ms.topic: article
 ms.assetid: b7dba543-73c3-4534-a9a0-ba70fa2c6a8a
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-fundamentals
 msc.type: authoredcontent
-ms.openlocfilehash: 225dff4663e0e556cfb8966f1078848b4c2b47a5
-ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
+ms.openlocfilehash: 3a282d02ba929eb86571e92f190550614962524d
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34306766"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37386574"
 ---
-# <a name="aspnet-mvc-4-fundamentals"></a>ASP.NET MVC 4-Grundlagen
+# <a name="aspnet-mvc-4-fundamentals"></a>ASP.NET MVC 4 – Grundlagen
 
-Durch [Web Lager Team](https://twitter.com/webcamps)
+durch [Web Camps Team](https://twitter.com/webcamps)
 
-[Herunterladen von Web-Lager Training Kit](https://aka.ms/webcamps-training-kit)
+[Herunterladen Sie Web Camps Training Kit](https://aka.ms/webcamps-training-kit)
 
-Diese praktische Übungseinheit basiert auf MVC (Model View Controller) Music Store eine lernprogrammanwendung, die werden vorgestellt und erläutert schrittweise, wie ASP.NET MVC und Visual Studio verwenden. Im Labor erfahren Sie der Einfachheit halber noch Stromversorgung, der die gemeinsame Verwendung von diesen Technologien. Sie werden mit einer einfachen Anwendung gestartet und realisiert werden erst stehen Ihnen eine voll funktionsfähige ASP.NET MVC 4-Webanwendung.
+Diese praktische Übungseinheit wird MVC (Model View Controller) Music Store, eine lernprogrammanwendung basiert auf eingeführt und erläutert Schritt für Schritt, wie ASP.NET MVC und Visual Studio verwenden. Erfahren Sie in den Laboren die Einfachheit halber noch Power diese Technologien zusammen verwendet. Sie werden mit einer einfachen Anwendung gestartet und werden es erstellt, bis Sie über eine voll funktionsfähige ASP.NET MVC 4-Webanwendung verfügen.
 
-In dieser Umgebung funktioniert mit ASP.NET MVC 4.
+Dieses Lab funktioniert mit ASP.NET MVC 4.
 
-Wenn Sie die ASP.NET MVC 3-Version des Lernprogramms Anwendung untersuchen möchten, finden Sie in [MVC-Music-Store](https://github.com/evilDave/MVC-Music-Store).
+Wenn Sie die ASP.NET MVC 3-Version der Anwendung Tutorial erkunden möchten, finden Sie in [MVC-Musik-Store](https://github.com/evilDave/MVC-Music-Store).
 
-Diese praktische Übungseinheit wird davon ausgegangen, dass der Entwickler Erfahrung in der Entwicklung von webtechnologien wie HTML und JavaScript hat.
+Diese praktische Übungseinheit wird davon ausgegangen, dass der Entwickler Erfahrungen in der Entwicklung von webtechnologien wie HTML und JavaScript.
 
 > [!NOTE]
-> Alle Beispielcode und Codeausschnitte sind im Web Lager Training Kit unter enthalten [Versionen von Microsoft-Web/WebCampTrainingKit](https://aka.ms/webcamps-training-kit). Das Projekt, das speziell für diese Übung finden Sie unter [ASP.NET MVC 4-Grundlagen](https://github.com/Microsoft-Web/HOL-MVC4Fundamentals).
+> Alle Beispielcode und Ausschnitte sind im Web Camps Training Kit unter enthalten [Versionen der Microsoft-Web/WebCampTrainingKit](https://aka.ms/webcamps-training-kit). Das Projekt, das speziell für dieses Lab finden Sie unter [Grundlagen von ASP.NET MVC 4](https://github.com/Microsoft-Web/HOL-MVC4Fundamentals).
 
 <a id="The_Music_Store_application"></a>
 ### <a name="the-music-store-application"></a>Die Music Store-Anwendung
 
-Die Music Store-Webanwendung, die in dieser Umgebung erstellt werden besteht aus drei Hauptteilen zusammen: Warenkorb, Auschecken und Verwaltung. Besucher sind Lage Alben durchsuchen, indem "Genre" Einkaufswagen Alben hinzu, überprüfen ihre Auswahl, und fahren Sie schließlich mit Auschecken, um sich anzumelden, und führen Sie die Reihenfolge. Darüber hinaus werden Administratoren Store verfügbaren Alben sowie ihre wichtigsten Eigenschaften verwalten können.
+Die Music Store-Anwendung, die in dieser Übung erstellt wird, umfasst drei Hauptkomponenten: Warenkorb, Auschecken und Verwaltung. Besucher werden Alben nach Genre durchsuchen, Alben zu Einkaufswagen hinzufügen, überprüfen ihre Auswahl und schließlich fortfahren, lesen Sie die Anmeldung und vervollständigen Sie die Bestellung. Darüber hinaus werden Store-Administratoren verfügbaren Alben sowie ihre Haupteigenschaften verwalten können.
 
-![Music Store Bildschirme](aspnet-mvc-4-fundamentals/_static/image1.png "Music Store Bildschirme")
+![Music Store-Bildschirme](aspnet-mvc-4-fundamentals/_static/image1.png "Music Store Bildschirme")
 
-*Music Store Bildschirme*
+*Music Store-Bildschirme*
 
 <a id="ASPNET_MVC_4_Essentials"></a>
-### <a name="aspnet-mvc-4-essentials"></a>ASP.NET MVC 4-Essentials
+### <a name="aspnet-mvc-4-essentials"></a>ASP.NET MVC 4 Essentials
 
-Music Store-Anwendung erstellt, die mit **Model View Controller (MVC)**, eine architektonische Muster, das trennt eine Anwendung in drei Hauptkomponenten:
+Music Store-Anwendung erstellt werden mit **Model View Controller (MVC)**, ein Architekturmuster, das trennt eine Anwendung in drei Hauptkomponenten:
 
-- **Modelle**: Modellobjekte sind die Teile der Anwendung, die die Domänenlogik implementieren. Modellobjekte wird häufig auch abrufen, und der Modellzustand in einer Datenbank speichern.
-- **Ansichten:** Ansichten sind die Komponenten, die Benutzeroberfläche (UI) der Anwendung anzeigen. In der Regel wird diese Benutzeroberfläche aus den Modelldaten erstellt. Ein Beispiel wäre der Bearbeitungsansicht von Alben, die Textfelder und eine Dropdown-Liste basierend auf den aktuellen Status eines Objekts Album anzeigt.
-- **Domänencontroller:** Controller sind die Komponenten behandeln Benutzerinteraktionen, bearbeiten das Modell und letztlich wählen Sie eine Ansicht zum Rendern der Benutzeroberflächenautomatisierungs. In einer MVC-Anwendung zeigt die Ansicht nur Informationen an. Benutzereingaben und -interaktionen werden vom Controller verarbeitet und beantwortet.
+- **Modelle**: Modellobjekte sind die Teile der Anwendung, die die Domänenlogik implementieren. Model-Objekte wird häufig auch abrufen, und der Modellzustand in einer Datenbank speichern.
+- **Ansichten:** Ansichten sind die Komponenten, die der Anwendung die Benutzeroberfläche (UI) an. In der Regel wird diese Benutzeroberfläche aus den Modelldaten erstellt. Ein Beispiel wäre der Bearbeitungsansicht von Alben, die Textfelder und eine Dropdown-Liste basierend auf den aktuellen Status eines Objekts Album anzeigt.
+- **Domänencontroller:** Controller sind Komponenten, die Benutzerinteraktionen verarbeiten, bearbeiten das Modell und letztlich eine Ansicht zum Rendern der Benutzeroberflächenautomatisierungs auswählen. In einer MVC-Anwendung zeigt die Ansicht nur Informationen an. Benutzereingaben und -interaktionen werden vom Controller verarbeitet und beantwortet.
 
-Das MVC-Muster unterstützt Sie beim Erstellen von Anwendungen, die die verschiedenen Aspekte der Anwendung (Eingabelogik, Geschäftslogik und Benutzeroberflächen-Logik), und gleichzeitig eine lose Kopplung zwischen diesen Elementen liegen. Aufgrund dieser Trennung können Sie die Komplexität bei der Erstellung einer Anwendung verwalten, wie Sie auf einen Aspekt der Implementierung zu einem Zeitpunkt konzentrieren können. Darüber hinaus erleichtert das MVC-Schema zum Testen von Anwendungen, auch wenn Sie die Verwendung von Test-driven Development (TDD) zum Erstellen von Anwendungen.
+Das MVC-Muster unterstützt Sie beim Erstellen von Anwendungen, die die verschiedenen Aspekte der Anwendung (Eingabelogik, Geschäftslogik und UI-Logik), und gleichzeitig eine lose Kopplung zwischen diesen Elementen zu trennen. Diese Trennung ermöglicht Ihnen das bewältigen von Komplexität beim Erstellen einer Anwendung, da Sie sich auf einen Aspekt der Implementierung zu einem Zeitpunkt konzentrieren können. Darüber hinaus erleichtert das MVC-Muster zum Testen von Anwendungen, da Sie auch die Verwendung der testgesteuerten Entwicklung (TDD) zum Erstellen von Anwendungen.
 
-Die **ASP.NET-MVC** Framework bietet eine Alternative zum ASP.NET Web Forms-Muster für das Erstellen von ASP.NET MVC-basierten Webanwendungen. Die **ASP.NET-MVC** Framework ist eine kompakte, mitgliedschaftsbasierte zu testendes Präsentationsframework, (wie bei Web Forms-basierten Anwendungen) ist in vorhandene ASP.NET-Funktionen, z. B. Gestaltungsvorlagen und Mitgliedschaft basierende integriert Authentifizierung, sodass Sie die gesamte Leistungsfähigkeit von .NET Framework Core abrufen. Dies ist hilfreich, wenn Sie bereits mit ASP.NET Web Forms vertraut sind, da alle Bibliotheken, die Sie bereits verwenden, ebenfalls in ASP.NET MVC 4 verfügbar sind.
+Die **ASP.NET MVC** Framework stellt eine Alternative für das ASP.NET Web Forms-Muster zum Erstellen von Webanwendungen mit ASP.NET MVC-basierten. Die **ASP.NET MVC** Framework ist eine einfache und leicht zu testendes Präsentationsframework, (wie bei Web Forms-basierte Anwendungen) ist in vorhandene ASP.NET-Funktionen, z. B. Gestaltungsvorlagen und mitgliedschaftsbasierte integriert Authentifizierung, um die Leistungsfähigkeit von .NET Core Framework zu erhalten. Dies ist nützlich, wenn Sie bereits mit ASP.NET Web Forms vertraut sind, da alle Bibliotheken, mit denen Sie auch in ASP.NET MVC 4 verfügbar sind.
 
-Der lose Kopplung zwischen den drei Hauptkomponenten einer MVC-Anwendung begünstigt darüber hinaus auch die parallele Entwicklung. Z. B. ein Entwickler kann für die Sicht arbeiten, ein zweiter Entwickler an der Controllerlogik arbeiten kann und ein dritter Entwickler auf die Geschäftslogik im Modell konzentrieren kann.
+Darüber hinaus wird die lose Kopplung zwischen den drei Hauptkomponenten einer MVC-Anwendung auch parallele Entwicklung. Z. B. ein Entwickler kann die auf die Ansicht, ein zweiter Entwickler an der Controllerlogik arbeiten kann und ein dritter Entwickler kann sich auf die Geschäftslogik im Modell konzentrieren.
 
 <a id="Objectives"></a>
 
@@ -67,19 +66,19 @@ Der lose Kopplung zwischen den drei Hauptkomponenten einer MVC-Anwendung begüns
 
 In dieser praktischen Übungseinheit erfahren Sie, wie Sie:
 
-- Erstellen einer ASP.NET MVC-Anwendung von Grund auf Grundlage des Lernprogramms Music Store-Anwendung
-- Hinzufügen von Domänencontroller zum Behandeln von URLs zur Startseite des Standorts und seine wichtigsten Funktionen durchsuchen
-- Fügen Sie eine Ansicht, um den Inhalt angezeigt, zusammen mit den Stil anzupassen
-- Fügen Sie Modellklassen zum enthalten und Verwalten von Daten und Domäne Logik hinzu
-- Verwenden Sie ViewModel-Muster, um Informationen aus Controlleraktionen an die Ansichtsvorlagen zu übergeben.
-- Untersuchen Sie die neue ASP.NET MVC 4-Vorlage für Internetanwendungen
+- Erstellen Sie eine ASP.NET MVC-Anwendung von Grund auf neu, die basierend auf dem Lernprogramm für die Music Store-Anwendung
+- Hinzufügen von Controllern zum Behandeln von URLs zur Homepage der Website und seine wichtigsten Funktionen durchsuchen
+- Hinzufügen einer Ansicht, um den Inhalt, der angezeigt wird, zusammen mit den Stil anzupassen
+- Hinzufügen von Modellklassen um enthalten und Verwalten von Daten und Domänenlogik
+- Verwenden Sie View Model-Muster, um Informationen aus Controlleraktionen an die Ansichtsvorlagen zu übergeben.
+- Erkunden der neuen ASP.NET MVC 4-Vorlage von Internetanwendungen
 
 <a id="Prerequisites"></a>
 
 <a id="Prerequisites"></a>
 ### <a name="prerequisites"></a>Erforderliche Komponenten
 
-Sie benötigen zum Abschließen dieser testumgebung die folgenden Elemente:
+Sie benötigen Folgendes, um diese testumgebung abzuschließen:
 
 - [Visual Studio 2012 Express für Web](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web) (Lesen [Anhang A](#AppendixA) Anleitungen zur Installation)
 
@@ -90,66 +89,66 @@ Sie benötigen zum Abschließen dieser testumgebung die folgenden Elemente:
 
 **Installieren von Codeausschnitten**
 
-Der Einfachheit halber gilt Großteil des Codes, den Sie entlang dieser Übung verwalten als Visual Studio-Codeausschnitte verfügbar. So installieren Sie die Codeausschnitte ausführen **.\Source\Setup\CodeSnippets.vsi** Datei.
+Der Einfachheit halber ist Großteil des Codes, die entlang dieser Übungseinheit verwaltet werden soll als Codeausschnitte für Visual Studio verfügbar. So installieren Sie die Codeausschnitte ausführen **.\Source\Setup\CodeSnippets.vsi** Datei.
 
-Wenn Sie nicht mit den Visual Studio-Codeausschnitte und zu erfahren, wie deren Verwendung vertraut sind, Sie können finden Sie im Anhang in diesem Dokument &quot; [Anhang "c:" mithilfe von Code Snippets](#AppendixC)&quot;.
+Wenn Sie nicht mit dem Visual Studio Code Snippets und zu erfahren, wie Sie deren Verwendung vertraut sind, sehen Sie sich im Anhang in diesem Dokument &quot; [Anhang C: Verwenden von Code Snippets](#AppendixC)&quot;.
 
 <a id="Exercises"></a>
 
 <a id="Exercises"></a>
 ## <a name="exercises"></a>Übungen
 
-Diese praktische Übungseinheit wird durch den folgenden Übungen umfasst:
+Diese praktische Übungseinheit besteht aus durch die folgenden Übungen:
 
-1. [Übung 1: Erstellen von ASP.NET MVC-Webanwendungsprojekt MusicStore](#Exercise1)
-2. [Übung 2: Erstellen eines Domänencontrollers](#Exercise2)
-3. [Übung 3: Übergeben von Parametern zu einem Domänencontroller](#Exercise3)
+1. [Übung 1: Erstellen von ASP.NET MVC-Webanwendungsprojekt Music Store](#Exercise1)
+2. [Übung 2: Erstellen eines Controllers](#Exercise2)
+3. [Übung 3: Übergeben von Parametern an einen Controller](#Exercise3)
 4. [Übung 4: Erstellen einer Ansicht](#Exercise4)
-5. [Übung 5: Erstellen eines Modells anzeigen](#Exercise5)
+5. [Schritt 5: Erstellen von Anzeigemodellen](#Exercise5)
 6. [Übung 6: Verwenden von Parametern in der Ansicht](#Exercise6)
-7. [Übung 7: Lap um neue ASP.NET MVC 4-Projektvorlage](#Exercise7)
+7. [Übung 7: Eine Tour durch neue ASP.NET MVC 4-Vorlage](#Exercise7)
 
 > [!NOTE]
-> Jede Übung beiliegen ein **End** Ordner, der sich so ergebende Lösung, die Sie nach Abschluss der Übung abrufen soll. Sie können diese Lösung als Leitfaden verwenden, ggf. zusätzliche Hilfe bei der Übungen durcharbeiten.
+> Jede Übung umfasst eine **End** Ordner mit der resultierenden Lösung, die Sie nach Abschluss der Übungen abrufen soll. Sie können diese Lösung als Leitfaden verwenden, bei Bedarf zusätzliche Hilfe bei der die Übungen durcharbeiten.
 
 
-Geschätzte Zeit zum Abschließen dieser testumgebung: **60 Minuten**.
+Geschätzte Zeit für diese testumgebung abzuschließen: **60 Minuten**.
 
 <a id="Exercise1"></a>
 
 <a id="Exercise_1_Creating_MusicStore_ASPNET_MVC_Web_Application_Project"></a>
-### <a name="exercise-1-creating-musicstore-aspnet-mvc-web-application-project"></a>Übung 1: Erstellen von ASP.NET MVC-Webanwendungsprojekt MusicStore
+### <a name="exercise-1-creating-musicstore-aspnet-mvc-web-application-project"></a>Übung 1: Erstellen von ASP.NET MVC-Webanwendungsprojekt Music Store
 
-In dieser Übung erfahren Sie, wie eine ASP.NET MVC-Anwendung in Visual Studio 2012 Express für Web sowie seiner Organisation Hauptordner zu erstellen. Darüber hinaus erfahren Sie, wie fügen einen neuen Domänencontroller, und stellen sie eine einfache Zeichenfolge auf der Startseite der Anwendung angezeigt.
+In dieser Übung lernen Sie, wie Sie eine ASP.NET MVC-Anwendung in Visual Studio 2012 Express für Web als auch der Ordner "main"-Organisation zu erstellen. Darüber hinaus erfahren Sie, wie zum Hinzufügen eines neuen Controllers, und stellen sie eine einfache Zeichenfolge auf der Startseite der Anwendung angezeigt.
 
 <a id="Ex1Task1"></a>
 
 <a id="Task_1_-_Creating_the_ASPNET_MVC_Web_Application_Project"></a>
-#### <a name="task-1---creating-the-aspnet-mvc-web-application-project"></a>Aufgabe 1: Erstellen der ASP.NET MVC-Webanwendungsprojekts
+#### <a name="task-1---creating-the-aspnet-mvc-web-application-project"></a>Aufgabe 1: Erstellen das ASP.NET MVC-Webanwendungsprojekt
 
 1. In dieser Aufgabe erstellen Sie eine leere ASP.NET MVC-Anwendungsprojekt mit der Visual Studio für MVC-Vorlage. Starten Sie **Visual Studio Express für Web**.
 2. Klicken Sie im Menü **Datei** auf **Neues Projekt**.
 3. In der **neues Projekt** aktivieren Sie im Dialogfeld die **ASP.NET MVC 4-Webanwendung** Projekttyp, befindet sich im **Visual c#** **Web** Vorlage Liste.
-4. Ändern der **Namen** auf *MvcMusicStore*.
-5. Legen Sie den Speicherort für die Projektmappe in einem neuen **beginnen** Ordner in dieser Übung Quellordner, z. B. **[HOL-den-PATH] \Source\Ex01-CreatingMusicStoreProject\Begin**. Klicken Sie auf **OK**.
+4. Ändern der **Namen** zu *MvcMusicStore*.
+5. Legen Sie den Speicherort der Lösung in einem neuen **beginnen** im Ordner "in dieser Übung die Quelle", z. B. **[YOUR-HOL-PATH] \Source\Ex01-CreatingMusicStoreProject\Begin**. Klicken Sie auf **OK**.
 
     ![Dialogfeld Neues Projekt erstellen](aspnet-mvc-4-fundamentals/_static/image2.png "Dialogfeld Neues Projekt erstellen")
 
     *Dialogfeld Neues Projekt erstellen*
-6. In der **neues ASP.NET MVC 4-Projekt** aktivieren Sie im Dialogfeld die **grundlegende** Vorlage und stellen Sie sicher, dass die **Ansichtsmodul** ausgewählt ist **Razor**. Klicken Sie auf **OK**.
+6. In der **neues ASP.NET MVC 4-Projekt** aktivieren Sie im Dialogfeld die **grundlegende** Vorlage und stellen Sie sicher, dass die **Ansichts-Engine** ausgewählt **Razor**. Klicken Sie auf **OK**.
 
-    ![Neues ASP.NET MVC 4-Projekt (Dialogfeld)](aspnet-mvc-4-fundamentals/_static/image3.png "neue ASP.NET MVC 4-Projekt (Dialogfeld)")
+    ![Dialogfeld Neues ASP.NET MVC 4-Projekt](aspnet-mvc-4-fundamentals/_static/image3.png "neue ASP.NET MVC 4-Projekt (Dialogfeld)")
 
     *Neues ASP.NET MVC 4-Projekt (Dialogfeld)*
 
 <a id="Ex1Task2"></a>
 
 <a id="Task_2_-_Exploring_the_Solution_Structure"></a>
-#### <a name="task-2---exploring-the-solution-structure"></a>Aufgabe 2: Untersuchen der Projektmappenstruktur
+#### <a name="task-2---exploring-the-solution-structure"></a>Aufgabe 2: untersuchen die Lösungsstruktur
 
-ASP.NET MVC-Framework enthält eine Visual Studio-Projektvorlage, mit die Sie die Erstellung von Webanwendungen ermöglichen das MVC-Muster unterstützen kann. Diese Vorlage erstellt eine neue ASP.NET MVC-Webanwendung mit der erforderlichen Ordnern, Elementvorlagen und Konfigurationsdatei Einträge.
+ASP.NET MVC-Framework enthält eine Visual Studio-Projektvorlage, die Ihnen das Erstellen von Webanwendungen unterstützen das MVC-Muster hilft. Diese Vorlage erstellt eine neue ASP.NET MVC-Webanwendung, mit der erforderlichen Ordnern, Elementvorlagen und Konfigurationsdatei Einträge.
 
-In dieser Aufgabe untersuchen Sie die Lösungsstruktur werden die Elemente erläutert, die beteiligt sind und ihre Beziehungen. Die folgenden Ordner sind in der ASP.NET MVC-Anwendung enthalten, da das ASP.NET MVC-Framework standardmäßig verwendet eine &quot;Konvention über Konfiguration&quot; Ansatz und lässt einige Standard-Annahmen basierend auf den Ordner benennen Konventionen.
+In dieser Aufgabe untersuchen Sie die Projektmappenstruktur, die Elemente zu verstehen, die beteiligt sind und deren Beziehungen. Die folgenden Ordner sind in der ASP.NET MVC-Anwendung enthalten, da das ASP.NET MVC-Framework standardmäßig verwendet eine &quot;Konvention geht vor Konfiguration&quot; Ansatz und legt einige Annahmen basiert, für die Benennung von Ordner Konventionen.
 
 1. Nachdem das Projekt erstellt wurde, überprüfen Sie die Ordnerstruktur, die im Projektmappen-Explorer auf der rechten Seite erstellt wurde:
 
@@ -157,38 +156,38 @@ In dieser Aufgabe untersuchen Sie die Lösungsstruktur werden die Elemente erlä
 
     *ASP.NET MVC-Ordnerstruktur in Projektmappen-Explorer*
 
-   1. **Controller**. Dieser Ordner enthält die Controllerklassen. In einer MVC-basierten Anwendung sind Domänencontroller verantwortlich für die Behandlung von End-Benutzerinteraktion, bearbeiten das Modell und letztendlich eine Ansicht zum Rendern der Benutzeroberflächenautomatisierungs auswählen.
+   1. **Controller**. Dieser Ordner enthält die Controllerklassen. In einer MVC-basierten Anwendung dienen Controller Verarbeiten von End-Benutzerinteraktionen, das Modell bearbeiten und auswählen letztlich eine Ansicht für die Benutzeroberfläche zu rendern.
 
        > [!NOTE]
        > Das MVC-Framework erfordert die Namen aller Controller endet nicht mit &quot;Controller&quot;– z. B. HomeController, LoginController oder ProductController.
-   2. **Modelle**. Dieser Ordner wird für Klassen bereitgestellt, die das Anwendungsmodell für die MVC-Webanwendung darstellen. Dies schließt in der Regel Code, der Objekte und die Logik für die Interaktion mit dem Datenspeicher definiert. In der Regel werden die eigentlichen Modellobjekte in separaten Klassenbibliotheken. Wenn Sie eine neue Anwendung erstellen, können Sie allerdings umfassen Klassen und klicken Sie dann im Entwicklungszyklus in separate Klassenbibliotheken zu einem späteren Zeitpunkt verschieben.
-   3. **Sichten**. Dieser Ordner ist der empfohlene Speicherort für Ansichten, die Komponenten, die für die Anzeige der Benutzeroberfläche der Anwendung verantwortlich. Ansichten verwenden aspx, .ascx, cshtml und Master-Dateien zusätzlich zu anderen Dateien, die zum Rendern von Ansichten verknüpft werden. Ordner Views enthält einen Ordner für jeden Controller. der Ordner den Namen mit dem Controller-Namenspräfix. Angenommen, Sie haben einen Controller mit dem Namen **HomeController**, der Ordner Views enthält einen Ordner mit der Bezeichnung Home. Wird standardmäßig beim Laden von ASP.NET MVC-Framework einer Sicht sucht es nach einer ASPX-Datei mit dem angeforderten Namen im Ordner "Views\controllerName" (**Ansichten [ControllerName] [Aktion] aspx**) oder (**Ansichten [ControllerName] [Aktion] cshtml**) für die Razor-Ansichten.
+   2. **Modelle**. Dieser Ordner wird für Klassen bereitgestellt, die das Anwendungsmodell für die MVC-Webanwendung darstellen. Dies schließt in der Regel Code, der Objekte und die Logik für die Interaktion mit dem Datenspeicher definiert. In der Regel werden die eigentlichen Modellobjekte in separaten Klassenbibliotheken. Wenn Sie eine neue Anwendung erstellen, können Sie jedoch umfassen Klassen und Sie dann im Entwicklungszyklus in separate Klassenbibliotheken zu einem späteren Zeitpunkt verschieben.
+   3. **Ansichten**. Dieser Ordner ist der empfohlene Speicherort für Ansichten, die Komponenten, die für die Anzeige der Benutzeroberfläche der Anwendung verantwortlich. Ansichten verwenden aspx, ASCX, .cshtml und Master-Dateien zusätzlich zu anderen Dateien, die zum Rendern von Ansichten verknüpft werden. Ordner "Views" enthält einen Ordner für jeden Controller. der Ordner den Namen mit dem Controller-Namenspräfix. Wenn Sie einen Controller mit dem Namen haben z. B. **HomeController**, den Ordner "Views" enthält einen Ordner mit der Bezeichnung Home. In der Standardeinstellung beim Laden von ASP.NET MVC-Framework einer Ansicht, gesucht, der eine ASPX-Datei mit dem angeforderten Namen im Ordner "Views\controllerName" (**Ansichten [Namedescontrollers] [Action] aspx**) oder (**Ansichten [Namedescontrollers] [Aktion] .cshtml**) für Razor-Ansichten.
 
       > [!NOTE]
-      > Zusätzlich zu den zuvor aufgeführten Ordnern verwendet eine MVC-Webanwendung die **"Global.asax"** standardmäßig Datei globale URL-routing und verwendet die **"Web.config"** Datei zum Konfigurieren der Anwendung.
+      > Zusätzlich zu den zuvor aufgeführten Ordnern verwendet eine MVC-Web-Anwendung die **"Global.asax"** standardmäßig hinzu, um globale URL-routing einzurichten, und es verwendet die **"Web.config"** Datei zum Konfigurieren der Anwendung.
 
 <a id="Ex1Task3"></a>
 
 <a id="Task_3_-_Adding_a_HomeController"></a>
-#### <a name="task-3---adding-a-homecontroller"></a>Aufgabe 3: Hinzufügen einer HomeController
+#### <a name="task-3---adding-a-homecontroller"></a>Aufgabe 3: hinzufügen einen HomeController
 
-In ASP.NET-Anwendungen, die das MVC-Framework nicht verwenden, ist eine Benutzerinteraktion Seiten und herum durch das Auslösen und Behandeln von Ereignissen aus diesen Seiten angeordnet. Im Gegensatz dazu ist Benutzerinteraktion in ASP.NET-MVC-Anwendungen in Controllern und deren Aktionsmethoden organisiert.
+In ASP.NET-Anwendungen, die das MVC-Framework nicht verwenden, wird in eine Benutzerinteraktion nach Seiten und Auslösen und Behandeln von Ereignissen aus diesen Seiten angeordnet werden. Im Gegensatz dazu ist Benutzerinteraktion in ASP.NET-MVC-Anwendungen in Controllern und ihre Aktionsmethoden organisiert.
 
-ASP.NET MVC-Framework ordnet andererseits, URLs Klassen, die als Domänencontroller bezeichnet werden. Controller verarbeiten eingehende Anforderungen, behandeln Benutzereingaben und Interaktionen, führen Sie die entsprechende Anwendungslogik und die Antwort zurück an den Client senden zu bestimmen (HTML-Seite anzeigen, eine Datei herunterladen, Umleiten zu einer anderen URL usw.). Im Fall von HTML anzeigen, ruft eine Controllerklasse in der Regel eine separate Ansichtskomponente zum Generieren von HTML-Markup für die Anforderung. In einer MVC-Anwendung zeigt die Ansicht nur Informationen an. Benutzereingaben und -interaktionen werden vom Controller verarbeitet und beantwortet.
+ASP.NET MVC-Framework ordnet URLs auf der anderen Seite zu Klassen, die als Domänencontroller bezeichnet werden. Controller verarbeiten eingehende Anforderungen, behandeln Benutzereingaben und Interaktionen, führen Sie die zugehörige Anwendungslogik und die Antwort zurück an den Client senden zu bestimmen (HTML-Seite anzeigen, eine Datei herunterzuladen, Umleitung an eine andere URL usw.). Im Fall von HTML anzeigen, ruft eine Controller-Klasse in der Regel eine separate Ansichtskomponente, um das HTML-Markup für die Anforderung zu generieren. In einer MVC-Anwendung zeigt die Ansicht nur Informationen an. Benutzereingaben und -interaktionen werden vom Controller verarbeitet und beantwortet.
 
-In dieser Aufgabe fügen Sie eine Controllerklasse, die URLs zur Startseite des Standorts Music Store behandelt.
+In dieser Aufgabe fügen Sie eine Controller-Klasse, die URLs, die auf der Startseite der Music Store-Website behandelt.
 
-1. Mit der rechten Maustaste **Controller** Ordner im Projektmappen-Explorer wählen **hinzufügen** und dann **Controller** Befehl:
+1. Mit der rechten Maustaste **Controller** Ordner im Projektmappen-Explorer, wählen Sie **hinzufügen** und dann **Controller** Befehl:
 
-    ![Hinzufügen eines Befehls Controller](aspnet-mvc-4-fundamentals/_static/image5.png "fügen Sie einen Controllerbefehl")
+    ![Fügen Sie einen Controllerbefehl](aspnet-mvc-4-fundamentals/_static/image5.png "fügen einen Controllerbefehl hinzu")
 
-    *Controllerbefehl hinzufügen*
+    *Controllerbefehl "hinzufügen"*
 2. Die **Controller hinzufügen** Dialogfeld wird angezeigt. Nennen Sie den Controller *HomeController* , und drücken Sie **hinzufügen**.
 
     ![Controller-Dialogfeld "hinzufügen"](aspnet-mvc-4-fundamentals/_static/image6.png "Controller-Dialogfeld \"hinzufügen\"")
 
     *Controller-Dialogfeld "hinzufügen"*
-3. Die Datei **HomeController.cs** wird erstellt, der **Controller** Ordner. Um die **HomeController** geben eine Zeichenfolge zurück, dessen Index-Aktion bei, ersetzen Sie die **Index** -Methode durch folgenden Code:
+3. Die Datei **"HomeController.cs"** wird erstellt, der **Controller** Ordner. Damit die **HomeController** geben eine Zeichenfolge zurück, auf die Index-Aktion, ersetzen Sie die **Index** Methode durch den folgenden Code:
 
     (Codeausschnitt - *Grundlagen von ASP.NET MVC 4 - Ex1 HomeController Index*)
 
@@ -199,48 +198,48 @@ In dieser Aufgabe fügen Sie eine Controllerklasse, die URLs zur Startseite des 
 <a id="Task_4_-_Running_the_Application"></a>
 #### <a name="task-4---running-the-application"></a>Aufgabe 4: Ausführen der Anwendung
 
-In dieser Aufgabe wird die Anwendung in einem Webbrowser testen werden.
+In dieser Aufgabe werden Sie die Anwendung in einem Webbrowser testen.
 
-1. Drücken Sie **F5** um die Anwendung auszuführen. Kompilieren des Projekts, und der lokalen IIS-Webserver startet. Lokalen IIS-Webserver wird einen Webbrowser auf die URL des Webservers automatisch geöffnet.
+1. Drücken Sie **F5** zum Ausführen der Anwendung. Das Projekt kompiliert wird, und die lokale IIS-Webserver gestartet wird. Die lokale IIS-Webserver wird einen Webbrowser zur URL des Webservers automatisch geöffnet.
 
-    ![In einem Webbrowser ausgeführte Anwendung](aspnet-mvc-4-fundamentals/_static/image7.png "Anwendung in einem Webbrowser ausgeführt wird")
+    ![In einem Webbrowser ausgeführte Anwendung](aspnet-mvc-4-fundamentals/_static/image7.png "Anwendung, die in einem Webbrowser ausgeführt wird")
 
-    *Anwendung in einem Webbrowser ausgeführt wird*
+    *Anwendung, die in einem Webbrowser ausgeführt wird*
 
     > [!NOTE]
-    > Dem lokalen IIS-Webserver wird eine zufällige freie Portnummer an der Website ausführen. In der obigen Abbildung dem Standort ausgeführt wird, am `http://localhost:50103/`, sodass Port 50103 verwendet wird. Die Portnummer kann variieren.
+    > Lokale IIS-Webservers wird die Website auf eine zufällige freie Portnummer ausgeführt werden. In der obigen Abbildung die Website ausgeführt wird, am `http://localhost:50103/`, sodass sie Port 50103 verwendet wird. Ihre Portnummer kann variieren.
 2. Schließen Sie den Browser.
 
 <a id="Exercise2"></a>
 
 <a id="Exercise_2_Creating_a_Controller"></a>
-### <a name="exercise-2-creating-a-controller"></a>Übung 2: Erstellen eines Domänencontrollers
+### <a name="exercise-2-creating-a-controller"></a>Übung 2: Erstellen eines Controllers
 
-In dieser Übung erfahren Sie, wie beim Aktualisieren des Controllers, um eine einfache Funktionalität der Music Store-Anwendung zu implementieren. Dieser Controller definieren Aktionsmethoden, um die folgenden spezifischen Anforderungen zu verarbeiten:
+In dieser Übung lernen Sie, wie beim Aktualisieren des Controllers zur einfachen Funktionalität die Music Store-Anwendung zu implementieren. Dieser Controller definieren Aktionsmethoden anwenden, um die folgenden spezifischen Anforderungen zu verarbeiten:
 
-- Eine Auflistung-Seite mit der Musik Genres im Music Store
-- Seite "Durchsuchen", die alle Musikalben für einen bestimmten "Genre" aufgelistet sind
-- Seite "Details", das Informationen zu einem bestimmten Musikalbum anzeigt
+- Eine Angebotsseite des Genres Musik in die Music Store
+- Seite "Durchsuchen", die alle die Alben für eine bestimmte "Genre" aufgeführt werden
+- Eine Seite, die Informationen zu einem bestimmten Musikalbum anzeigt
 
-Für den Rahmen dieser Übung gibt diese Aktionen nun einfach eine Zeichenfolge zurück.
+Für den Bereich in dieser Übung gibt diese Aktionen jetzt einfach eine Zeichenfolge zurück.
 
 <a id="Ex2Task1"></a>
 
 <a id="Task_1_-_Adding_a_New_StoreController_Class"></a>
 #### <a name="task-1---adding-a-new-storecontroller-class"></a>Aufgabe 1: Hinzufügen einer neuen StoreController-Klasse
 
-In dieser Aufgabe fügen Sie einen neuen Domänencontroller.
+In dieser Aufgabe fügen Sie einen neuen Controller hinzu.
 
 1. Wenn nicht bereits geöffnet ist, starten Sie **Visual Studio Express für Web 2012**.
-2. In der **Datei** Menü wählen **geöffneten Projekt**. Navigieren Sie zu, klicken Sie im Dialogfeld "Projekt öffnen" **Source\Ex02 CreatingAController\Begin**Option **Begin.sln** , und klicken Sie auf **öffnen**. Alternativ können Sie mit der Lösung fortfahren, dass Sie nach Abschluss der vorherigen Übung erhalten haben.
+2. In der **Datei** Menü wählen **geöffneten Projekt**. Navigieren Sie in das Dialogfeld "Projekt öffnen" zum **Source\Ex02-CreatingAController\Begin**Option **Begin.sln** , und klicken Sie auf **öffnen**. Alternativ kann der Projektmappe fortgesetzt werden, dass Sie nach Abschluss der vorherigen Übung abgerufen.
 
-   1. Wenn Sie die bereitgestellten geöffnet **beginnen** Lösung müssen Sie einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Klicken Sie hierzu auf die **Projekt** Menü **NuGet-Pakete verwalten**.
+   1. Wenn Sie die bereitgestellten geöffnet **beginnen** Lösung, Sie müssen einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Zu diesem Zweck klicken Sie auf die **Projekt** Menü **NuGet-Pakete verwalten**.
    2. In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf **wiederherstellen** um das Herunterladen fehlender Pakete.
-   3. Schließlich erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
+   3. Abschließend erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
 
       > [!NOTE]
-      > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
-3. Hinzufügen eines neuen Controllers. Zu diesem Zweck Maustaste die **Controller** Ordner im Projektmappen-Explorer, wählen Sie **hinzufügen** und dann die **Controller** Befehl. Ändern der **Controllernamen** auf *StoreController*, und klicken Sie auf **hinzufügen**.
+      > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken in Ihrem Projekt, Versand Verringern der Projektgröße. Mit NuGet Power Tools können werden durch Angabe von Versionen des Pakets in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, die, das Sie das Projekt ausführen, können. Deshalb müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit wird.
+3. Fügen Sie dem neuen Controller hinzu. Dazu, mit der Maustaste der **Controller** Ordner im Projektmappen-Explorer, wählen Sie **hinzufügen** und klicken Sie dann die **Controller** Befehl. Ändern der **Controllername** zu *StoreController*, und klicken Sie auf **hinzufügen**.
 
     ![Controller-Dialogfeld "hinzufügen"](aspnet-mvc-4-fundamentals/_static/image8.png "Controller-Dialogfeld \"hinzufügen\"")
 
@@ -251,14 +250,14 @@ In dieser Aufgabe fügen Sie einen neuen Domänencontroller.
 <a id="Task_2_-_Modifying_the_StoreControllers_Actions"></a>
 #### <a name="task-2---modifying-the-storecontrollers-actions"></a>Aufgabe 2: Ändern der StoreController Aktionen
 
-In dieser Aufgabe ändern Sie die Controller-Methoden, die aufgerufen werden **Aktionen**. Aktionen sind verantwortlich für die Behandlung von URL-Anforderungen und bestimmen den Inhalt, der wieder an den Browser oder Benutzer, der die URL aufgerufen gesendet werden soll.
+In dieser Aufgabe ändern Sie die Controller-Methoden, die aufgerufen werden **Aktionen**. Aktionen sind verantwortlich für die Verarbeitung von URL-Anforderungen, und bestimmen den Inhalt, der zurück an den Browser oder die Benutzer, die die URL aufgerufen gesendet werden soll.
 
-1. Die **StoreController** -Klasse verfügt bereits über ein **Index** Methode. Sie verwenden es später in dieser Übung die Seite zu implementieren, die alle Genres von Music Store aufgelistet. Ersetzen Sie jetzt einfach die **Index** Methode durch den folgenden Code, der eine Zeichenfolge zurückgibt, &quot;Hello aus Store.Index()&quot;:
+1. Die **StoreController** Klasse verfügt bereits über ein **Index** Methode. Sie verwenden es später in diesem Kurs auf um die Seite zu implementieren, die alle Genres im Music Store auflistet. Ersetzen Sie vorerst einfach die **Index** Methode durch den folgenden Code, der eine Zeichenfolge zurückgibt, &quot;Grüße aus Store.Index()&quot;:
 
     (Codeausschnitt - *Grundlagen von ASP.NET MVC 4 - Ex2 StoreController Index*)
 
     [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample2.cs)]
-2. Hinzufügen **Durchsuchen** und **Details** Methoden. Zu diesem Zweck fügen Sie den folgenden Code aus, um die **StoreController**:
+2. Hinzufügen **Durchsuchen** und **Details** Methoden. Zu diesem Zweck fügen Sie den folgenden Code der **StoreController**:
 
     (Codeausschnitt - *Grundlagen von ASP.NET MVC 4 - Ex2 StoreController BrowseAndDetails*)
 
@@ -269,14 +268,14 @@ In dieser Aufgabe ändern Sie die Controller-Methoden, die aufgerufen werden **A
 <a id="Task_3_-_Running_the_Application"></a>
 #### <a name="task-3---running-the-application"></a>Aufgabe 3: Ausführen der Anwendung
 
-In dieser Aufgabe wird die Anwendung in einem Webbrowser testen werden.
+In dieser Aufgabe werden Sie die Anwendung in einem Webbrowser testen.
 
-1. Drücken Sie **F5** um die Anwendung auszuführen.
-2. Das Projekt gestartet wird, der **Home** Seite. Ändern Sie die URL, um zu überprüfen, ob jede Aktion-Implementierung.
+1. Drücken Sie **F5** zum Ausführen der Anwendung.
+2. Das Projekt startet der **Startseite** Seite. Ändern Sie die URL, um die Implementierung der einzelnen Aktionen zu überprüfen.
 
-    1. **/ Speichern**. Sehen Sie  **&quot;Hello aus Store.Index()&quot;**.
-    2. **/ Store/Durchsuchen**. Sehen Sie  **&quot;Hello aus Store.Browse()&quot;**.
-    3. **/ Store/Detail-**. Sehen Sie  **&quot;Hello aus Store.Details()&quot;**.
+    1. **/ Store**. Sehen Sie  **&quot;Grüße aus Store.Index()&quot;**.
+    2. **/ Store/durchsuchen**. Sehen Sie  **&quot;Grüße aus Store.Browse()&quot;**.
+    3. **/ Store/Details**. Sehen Sie  **&quot;Grüße aus Store.Details()&quot;**.
 
         ![Durchsuchen von StoreBrowse](aspnet-mvc-4-fundamentals/_static/image9.png "StoreBrowse durchsuchen")
 
@@ -286,61 +285,61 @@ In dieser Aufgabe wird die Anwendung in einem Webbrowser testen werden.
 <a id="Exercise3"></a>
 
 <a id="Exercise_3_Passing_parameters_to_a_Controller"></a>
-### <a name="exercise-3-passing-parameters-to-a-controller"></a>Übung 3: Übergeben von Parametern zu einem Domänencontroller
+### <a name="exercise-3-passing-parameters-to-a-controller"></a>Übung 3: Übergeben von Parametern an einen Controller
 
-Bis jetzt haben Sie Konstante Zeichenfolgen aus Controller zurückgeben wurde. In dieser Übung erfahren Sie, wie Parameter auf einen Domänencontroller mithilfe der URL und Abfragezeichenfolge, und nehmen Sie dann die methodenaktionen reagiert mit Text an den Browser zu übergeben.
+Bis jetzt haben Sie durch den Controller, Konstante Zeichenfolgen zurück, wurde. In dieser Übung lernen Sie, wie zum Übergeben von Parametern an einen Controller mithilfe der URL und Abfragezeichenfolge, und nehmen Sie dann die methodenaktionen, die mit dem Text an den Browser zu reagieren.
 
 <a id="Ex3Task1"></a>
 
 <a id="Task_1_-_Adding_Genre_Parameter_to_StoreController"></a>
-#### <a name="task-1---adding-genre-parameter-to-storecontroller"></a>Aufgabe 1: Hinzufügen von "Genre"-Parameter StoreController
+#### <a name="task-1---adding-genre-parameter-to-storecontroller"></a>Aufgabe 1: Hinzufügen von "Genre"-Parameter, um StoreController
 
-In dieser Aufgabe verwenden Sie die **Querystring** Parameter zum Senden der **Durchsuchen** Aktionsmethode in der **StoreController**.
+In dieser Aufgabe verwenden Sie die **Querystring** Senden von Parametern, die **Durchsuchen** Aktionsmethode in der **StoreController**.
 
 1. Wenn nicht bereits geöffnet ist, starten Sie **Visual Studio Express für Web**.
-2. In der **Datei** Menü wählen **geöffneten Projekt**. Navigieren Sie zu, klicken Sie im Dialogfeld "Projekt öffnen" **Source\Ex03 PassingParametersToAController\Begin**Option **Begin.sln** , und klicken Sie auf **öffnen**. Alternativ können Sie mit der Lösung fortfahren, dass Sie nach Abschluss der vorherigen Übung erhalten haben.
+2. In der **Datei** Menü wählen **geöffneten Projekt**. Navigieren Sie in das Dialogfeld "Projekt öffnen" zum **Source\Ex03-PassingParametersToAController\Begin**Option **Begin.sln** , und klicken Sie auf **öffnen**. Alternativ kann der Projektmappe fortgesetzt werden, dass Sie nach Abschluss der vorherigen Übung abgerufen.
 
-   1. Wenn Sie die bereitgestellten geöffnet **beginnen** Lösung müssen Sie einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Klicken Sie hierzu auf die **Projekt** Menü **NuGet-Pakete verwalten**.
+   1. Wenn Sie die bereitgestellten geöffnet **beginnen** Lösung, Sie müssen einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Zu diesem Zweck klicken Sie auf die **Projekt** Menü **NuGet-Pakete verwalten**.
    2. In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf **wiederherstellen** um das Herunterladen fehlender Pakete.
-   3. Schließlich erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
+   3. Abschließend erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
 
       > [!NOTE]
-      > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
+      > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken in Ihrem Projekt, Versand Verringern der Projektgröße. Mit NuGet Power Tools können werden durch Angabe von Versionen des Pakets in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, die, das Sie das Projekt ausführen, können. Deshalb müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit wird.
 3. Open **StoreController** Klasse. Klicken Sie hierzu in der **Projektmappen-Explorer**, erweitern Sie die **Controller** Ordner und doppelklicken Sie auf **StoreController.cs**.
-4. Ändern der **Durchsuchen** Methode, die einen Zeichenfolgenparameter an die Anforderung für einen bestimmten "Genre" hinzufügen. ASP.NET MVC automatisch alle Querystring übergeben oder Parameter mit den Namen der formularbereitstellung **"Genre"** auf diese Aktionsmethode beim Aufrufen. Ersetzen Sie hierzu die **Durchsuchen** -Methode durch folgenden Code:
+4. Ändern der **Durchsuchen** Methode, die einen Zeichenfolgenparameter zum Anfordern von für eine spezifische Genre hinzufügen. ASP.NET MVC automatisch alle Abfragezeichenfolge übergeben oder FormPost-Parameter, die mit dem Namen **"Genre"** beim Aufrufen dieser Aktion-Methode. Ersetzen Sie hierzu die **Durchsuchen** Methode durch den folgenden Code:
 
     (Codeausschnitt - *Grundlagen von ASP.NET MVC 4 - Ex3 StoreController BrowseMethod*)
 
     [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample4.cs)]
 
 > [!NOTE]
-> Verwenden Sie die **HttpUtility.HtmlEncode durchführen** Hilfsprogrammmethode zum verhindert, dass Benutzer Räumen Javascript in der Ansicht mit einem Link wie   **/Store/durchsuchen? "Genre" =&lt;Skript&gt;window.location= "[http://hackersite.com](http://hackersite.com)"&lt;/script&gt;**.
+> Sie verwenden die **HttpUtility.HtmlEncode durchführen** Utility-Methode, um Benutzer daran gehindert Einfügen von Javascript in der Ansicht mit einem Link wie   **/Store/durchsuchen? Genre =&lt;Skript&gt;Window.Location = "[http://hackersite.com](http://hackersite.com)"&lt;/script&gt;**.
 > 
-> Weitere Hinweise finden Sie auf [diesem Msdn-Artikel](https://msdn.microsoft.com/library/a2a4yykt(v=VS.80).aspx).
+> Weitere Informationen finden Sie unter [diesem Msdn-Artikel](https://msdn.microsoft.com/library/a2a4yykt(v=VS.80).aspx).
 
 <a id="Ex3Task2"></a>
 
 <a id="Task_2_-_Running_the_Application"></a>
 #### <a name="task-2---running-the-application"></a>Aufgabe 2: Ausführen der Anwendung
 
-In dieser Aufgabe wird die Anwendung in einem Webbrowser testen und verwenden Sie die **"Genre"** Parameter.
+In dieser Aufgabe Sie die Anwendung in einem Webbrowser testen und Verwenden der **"Genre"** Parameter.
 
-1. Drücken Sie **F5** um die Anwendung auszuführen.
-2. Das Projekt gestartet wird, der **Home** Seite. Ändern Sie die URL zum   */speichern/suchen? "Genre" = Disco* um sicherzustellen, dass die Aktion den Parameter "Genre" empfängt.
+1. Drücken Sie **F5** zum Ausführen der Anwendung.
+2. Das Projekt startet der **Startseite** Seite. Ändern Sie die URL zum   */Store/durchsuchen? Genre = Disco* um sicherzustellen, dass die Aktion den genreparameter empfängt.
 
-    ![Durchsuchen von StoreBrowseGenre = Disco](aspnet-mvc-4-fundamentals/_static/image10.png "StoreBrowseGenre durchsuchen Disco =")
+    ![Durchsuchen von StoreBrowseGenre = Disco](aspnet-mvc-4-fundamentals/_static/image10.png "durchsuchen StoreBrowseGenre = Disco")
 
-    *Durchsuchen Sie /Store/Browse? "Genre" Disco =*
+    *Durchsuchen Sie /Store/Browse? Genre = Disco*
 3. Schließen Sie den Browser.
 
 <a id="Ex3Task3"></a>
 
 <a id="Task_3_-_Adding_an_Id_Parameter_Embedded_in_the_URL"></a>
-#### <a name="task-3---adding-an-id-parameter-embedded-in-the-url"></a>Aufgabe 3: Hinzufügen eines Id-Parameters, die in die URL eingebettet
+#### <a name="task-3---adding-an-id-parameter-embedded-in-the-url"></a>Aufgabe 3: Hinzufügen eines Id-Parameters, die in der URL eingebettet
 
-In dieser Aufgabe verwenden Sie die **URL** übergeben ein **Id** Parameter an die **Details** Aktionsmethode von der **StoreController**. ASP.NETs standardmäßig routing-Konvention ist, das eine URL-Segment nach dem Methodennamen Aktion zu behandeln, als einen Parameter namens **Id**. Wenn der Aktionsmethode Parameter Id verfügt, wird ASP.NET MVC automatisch das URL-Segment für Sie als Parameter übergeben. In der URL **Store/Informationen/5**, **Id** als interpretiert **5**.
+In dieser Aufgabe verwenden Sie die **URL** übergeben eine **Id** Parameter, um die **Details** Action-Methode der der **StoreController**. Routing-Konvention wird das Segment der URL nach dem Namen der Aktionsmethode behandelt, als Parameter mit dem Namen ASP.NETs-Standard **Id**. Wenn Ihrer Aktionsmethode Parameter Id verfügt, wird ASP.NET MVC automatisch das URL-Segment für Sie als Parameter übergeben. In der URL **Store/Details/5**, **Id** wird als interpretiert **5**.
 
-1. Ändern der **Details** Methode der **StoreController**, Hinzufügen von einer **Int** Parameter namens **Id**. Ersetzen Sie hierzu die **Details** -Methode durch folgenden Code:
+1. Ändern der **Details** -Methode der der **StoreController**, Hinzufügen einer **Int** Parameter namens **Id**. Ersetzen Sie hierzu die **Details** Methode durch den folgenden Code:
 
     (Codeausschnitt - *Grundlagen von ASP.NET MVC 4 - Ex3 StoreController DetailsMethod*)
 
@@ -351,10 +350,10 @@ In dieser Aufgabe verwenden Sie die **URL** übergeben ein **Id** Parameter an d
 <a id="Task_4_-_Running_the_Application"></a>
 #### <a name="task-4---running-the-application"></a>Aufgabe 4: Ausführen der Anwendung
 
-In dieser Aufgabe wird die Anwendung in einem Webbrowser testen und verwenden Sie die **Id** Parameter.
+In dieser Aufgabe Sie die Anwendung in einem Webbrowser testen und Verwenden der **Id** Parameter.
 
-1. Drücken Sie **F5** um die Anwendung auszuführen.
-2. Das Projekt gestartet wird, der **Home** Seite. Ändern Sie die URL zum */Store/Details/5* um sicherzustellen, dass die Aktion der Id-Parameter erhält.
+1. Drücken Sie **F5** zum Ausführen der Anwendung.
+2. Das Projekt startet der **Startseite** Seite. Ändern Sie die URL zum */Store/Details/5* um sicherzustellen, dass die Aktion mit den Id-Parameter empfängt.
 
     ![Durchsuchen von StoreDetails5](aspnet-mvc-4-fundamentals/_static/image11.png "StoreDetails5 durchsuchen")
 
@@ -365,151 +364,151 @@ In dieser Aufgabe wird die Anwendung in einem Webbrowser testen und verwenden Si
 <a id="Exercise_4_Creating_a_View"></a>
 ### <a name="exercise-4-creating-a-view"></a>Übung 4: Erstellen einer Ansicht
 
-Bisher haben Sie Zeichenfolgen aus Controlleraktionen zurückgegeben wurde. Obwohl dies ist eine hilfreiche Möglichkeit zum Verständnis der Funktionsweise von Domänencontrollern, ist es nicht, wie Ihre echten Web-Anwendungen erstellt werden. Ansichten sind Komponenten, die einen besseren Ansatz zum Generieren von HTML-Codes zurück an den Browser mit der Verwendung von Vorlagendateien zu bieten.
+Bisher haben Sie Zeichenfolgen aus Controlleraktionen zurückgegeben wurde. Obwohl dies ist eine gute Möglichkeit für das Verständnis der Funktionsweise von Controllern, ist es nicht, wie Ihre echten Webanwendungen erstellt werden. Ansichten sind Komponenten, die einen besseren Ansatz zum Generieren von HTML zurück an den Browser mit der Verwendung von Vorlagendateien bereitstellen.
 
-In dieser Übung erfahren Sie, wie eine Layout-Gestaltungsvorlage zum Einrichten einer Vorlage für allgemeine HTML-Inhalt, ein StyleSheet für das Aussehen und Verhalten der Website und schließlich eine Vorlage anzeigen HomeController zurückzugebenden HTML aktivieren verbessern hinzugefügt werden.
+In dieser Übung lernen Sie das Hinzufügen eine Masterseite "Layout" zum Einrichten einer Vorlage für allgemeine HTML-Inhalt, ein StyleSheet, um das Aussehen und Verhalten der Website und schließlich eine ansichtsvorlage zu HomeController HTML zurückgeben zu verbessern.
 
 <a id="Ex4Task1"></a>
 
 <a id="Task_1_-_Modifying_the_file__layoutcshtml"></a>
 #### <a name="task-1---modifying-the-file-layoutcshtml"></a>Aufgabe 1: Ändern der Datei \_layout.cshtml
 
-Die Datei **~/Views/Shared/\_layout.cshtml** ermöglicht es Ihnen so richten Sie eine Vorlage für allgemeine HTML, über die gesamte Website zu verwenden. In dieser Aufgabe fügen Sie eine master-Layoutseite mit einer allgemeinen Header mit Links in den Bereich auf der Startseite und Speicher.
+Die Datei **~/Views/Shared/\_layout.cshtml** können Sie eine Vorlage für gemeinsamer HTML-Code für die Verwendung in der gesamten Website einrichten. In dieser Aufgabe fügen Sie im Bereich auf der Startseite "und" Store eine Layout-Masterseite mit ein common-Header mit Links hinzu.
 
 1. Wenn nicht bereits geöffnet ist, starten Sie **Visual Studio Express für Web**.
-2. In der **Datei** Menü wählen **geöffneten Projekt**. Navigieren Sie zu, klicken Sie im Dialogfeld "Projekt öffnen" **Source\Ex04 CreatingAView\Begin**Option **Begin.sln** , und klicken Sie auf **öffnen**. Alternativ können Sie mit der Lösung fortfahren, dass Sie nach Abschluss der vorherigen Übung erhalten haben.
+2. In der **Datei** Menü wählen **geöffneten Projekt**. Navigieren Sie in das Dialogfeld "Projekt öffnen" zum **Source\Ex04-CreatingAView\Begin**Option **Begin.sln** , und klicken Sie auf **öffnen**. Alternativ kann der Projektmappe fortgesetzt werden, dass Sie nach Abschluss der vorherigen Übung abgerufen.
 
-   1. Wenn Sie die bereitgestellten geöffnet **beginnen** Lösung müssen Sie einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Klicken Sie hierzu auf die **Projekt** Menü **NuGet-Pakete verwalten**.
+   1. Wenn Sie die bereitgestellten geöffnet **beginnen** Lösung, Sie müssen einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Zu diesem Zweck klicken Sie auf die **Projekt** Menü **NuGet-Pakete verwalten**.
    2. In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf **wiederherstellen** um das Herunterladen fehlender Pakete.
-   3. Schließlich erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
+   3. Abschließend erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
 
       > [!NOTE]
-      > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
-3. Die Datei  <strong>\_layout.cshtml</strong> das HTML-Container-Layout für alle Seiten auf der Website enthält. Es enthält die <strong>&lt;html&gt;</strong> -Element für die HTML-Antwort als auch die <strong>&lt;Head&gt;</strong> und <strong>&lt;Text&gt;</strong> Elemente. <strong>@RenderBody()</strong> innerhalb des HTML-Text zu identifizieren Regionen dieser Ansicht Vorlagen werden in der Lage, sich mit dynamischen Inhalten zu füllen.
+      > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken in Ihrem Projekt, Versand Verringern der Projektgröße. Mit NuGet Power Tools können werden durch Angabe von Versionen des Pakets in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, die, das Sie das Projekt ausführen, können. Deshalb müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit wird.
+3. Die Datei  <strong>\_layout.cshtml</strong> enthält die HTML-Containerlayout für alle Seiten auf der Website. Es enthält die <strong>&lt;html&gt;</strong> -Element für die HTML-Antwort als auch die <strong>&lt;Head&gt;</strong> und <strong>&lt;Text&gt;</strong> Elemente. <strong>@RenderBody()</strong> im HTML-Code identifizieren Text Regionen diese Ansicht, die Vorlagen werden in der Lage, sich mit dynamischen Inhalten zu füllen.
    (C#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample6.cshtml)]
-4. Fügen Sie einen allgemeinen Header mit Links in den Bereich auf der Startseite und Speicher auf allen Seiten der Website hinzu. Zu diesem Zweck fügen Sie den folgenden Code, der unten &lt;Text&gt; Anweisung.
+4. Fügen Sie einen allgemeinen Header mit Links in den Bereich "Startseite" und "Store" auf allen Seiten der Website hinzu. Zu diesem Zweck fügen Sie den folgenden Code unter &lt;Text&gt; Anweisung.
    (C#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample7.cshtml)]
-5. Enthalten Sie ein Div um Textabschnitt Rand jeder Seite zu rendern. Ersetzen Sie  <strong>@RenderBody()</strong> durch den folgenden Code der Higlighted: (c#)
+5. Enthalten Sie ein DIV-Element um das Body-Bereich jeder Seite zu rendern. Ersetzen Sie dies  <strong>@RenderBody()</strong> durch den folgenden Code der Higlighted: (c#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample8.cshtml)]
 
     > [!NOTE]
-    > Wussten Sie schon? Visual Studio 2012 weist Ausschnitte, die zum Hinzufügen von häufig verwendeten Code in HTML, Codedateien und mehr erleichtern! Versuchen Sie es, indem Sie Folgendes eingeben **&lt;Div&gt;** und **Registerkarte** zweimal, um eine vollständige einfügen **Div** Tag.
+    > Wussten Sie schon? Visual Studio 2012 stellt Ausschnitte, die häufig verwendeten Code hinzufügen, in HTML, Codedateien und mehr erleichtern. Versuchen Sie es, indem Sie eingeben **&lt;Div&gt;** und **Registerkarte** zweimal, um eine vollständige einfügen **Div** Tag.
 
 <a id="Ex4Task2"></a>
 
 <a id="Task_2_-_Adding_CSS_Stylesheet"></a>
 #### <a name="task-2---adding-css-stylesheet"></a>Aufgabe 2: Hinzufügen von CSS-Stylesheet
 
-Die leere Projektvorlage enthält eine sehr optimierte CSS-Datei, die Stile, die zum Anzeigen von grundlegenden Formen und validierungsmeldungen enthält nur. Sie zusätzliche CSS-Images (die möglicherweise von einem Designer bereitgestellt werden) verwenden und damit das Aussehen und Verhalten des Standorts zu verbessern.
+Die leere Projektvorlage enthält eine sehr optimierte CSS-Datei, die Stile, die zum Anzeigen von grundlegenden Formen und validierungsmeldungen enthält nur. Sie werden zusätzliche CSS- und -Images (die möglicherweise von einem Designer bereitgestellt werden) verwenden, um das Aussehen und Verhalten der Website zu verbessern.
 
-In dieser Aufgabe fügen Sie eine CSS-Stylesheet, um die Formatvorlagen der Site zu definieren.
+In dieser Aufgabe fügen Sie eine CSS-Stylesheet an, um die Formatvorlagen der Site zu definieren.
 
-1. Die CSS-Datei und die Bilder befinden sich die **Source\Assets\Content** Ordner dieser Anleitung. Um diese an die Anwendung hinzuzufügen, ziehen Sie ihren Inhalt aus einem **Windows Explorer** Fenster in der **Projektmappen-Explorer** in Visual Studio Express für Web, wie unten dargestellt:
+1. Die CSS-Datei und die Bilder befinden sich der **Source\Assets\Content** Ordner dieser Anleitung. Um diese an die Anwendung hinzuzufügen, ziehen Sie in ihrer Inhalte mit einer **Windows Explorer** Einblick in die **Projektmappen-Explorer** in Visual Studio Express für Web, wie unten dargestellt:
 
-    ![Ziehen die Formatvorlage Inhalt](aspnet-mvc-4-fundamentals/_static/image12.png "Stil Inhalt ziehen")
+    ![Style-Inhalte ziehen](aspnet-mvc-4-fundamentals/_static/image12.png "Style-Inhalte ziehen")
 
-    *Ziehen die Formatvorlage Inhalt*
-2. Ein Warndialogfeld angezeigt nach einer Bestätigung ersetzen **"Site.CSS" ändern** Datei- und einige vorhandener Bilder. Überprüfen Sie **für alle Elemente übernehmen** , und klicken Sie auf **Ja**.
+    *Ziehen die Style-Inhalt*
+2. Eine Warnmeldung angezeigt, in der Sie gefragt, ersetzen Sie dies zu bestätigen **"Site.CSS"** Datei- und einige vorhandene Images. Überprüfen Sie **anwenden, um alle Elemente** , und klicken Sie auf **Ja**.
 
 <a id="Ex4Task3"></a>
 
 <a id="Task_3_-_Adding_a_View_Template"></a>
-#### <a name="task-3---adding-a-view-template"></a>Aufgabe 3: Hinzufügen einer Vorlage für eine Sicht
+#### <a name="task-3---adding-a-view-template"></a>Aufgabe 3: Hinzufügen einer Vorlage anzeigen
 
-In dieser Aufgabe fügen Sie eine Vorlage anzeigen, um HTML-Antwort zu generieren, die das Layout-Gestaltungsvorlage verwendet wird, und CSS in dieser Übung hinzugefügt.
+In dieser Aufgabe fügen Sie eine Vorlage anzeigen, um die HTML-Antwort zu generieren, die die Masterseite Layout verwendet werden, und CSS in dieser Übung hinzugefügt.
 
-1. Um eine Vorlage anzeigen beim Durchsuchen der Homepage der Website zu verwenden, müssen Sie zuerst an, dass eine Zeichenfolge zurückgegeben, sondern die **HomeController Index** Methode zurückgegeben wird ein **Ansicht**. Öffnen **HomeController** Klasse, und Ändern seiner **Index** -Methode zur Rückgabe einer **ActionResult**, und zurückgeben **View()**.
+1. Um eine ansichtsvorlage beim Durchsuchen der Homepage der Website zu verwenden, müssen Sie zuerst an, dass anstelle einer Zeichenfolge, die **HomeController Index** Methode gibt zurück, eine **Ansicht**. Open **HomeController** Klasse, und ändern die **Index** -Methode zur Rückgabe einer **ActionResult**, und zurückliefern **View()**.
 
     (Codeausschnitt - *Grundlagen von ASP.NET MVC 4 - Ex4 HomeController Index*)
 
     [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample9.cs)]
-2. Nun müssen Sie eine entsprechende Ansichtenvorlage hinzufügen. Hierzu **mit der rechten Maustaste** innerhalb der **Index** Aktionsmethode, und wählen **Ansicht hinzufügen**. Hierdurch erscheint der **Ansicht hinzufügen** Dialogfeld.
+2. Nun müssen Sie eine geeignete ansichtsvorlage hinzufügen. Zu diesem Zweck **mit der rechten Maustaste** innerhalb der **Index** Aktionsmethode, und wählen **Ansicht hinzufügen**. Hierdurch wird die **Ansicht hinzufügen** Dialogfeld.
 
-    ![Hinzufügen einer Ansicht von innerhalb der Methode Index](aspnet-mvc-4-fundamentals/_static/image13.png "Hinzufügen einer Ansicht von innerhalb der Index-Methode")
+    ![Hinzufügen einer Ansicht aus, in die Indexmethode](aspnet-mvc-4-fundamentals/_static/image13.png "Hinzufügen einer Ansicht aus, in der Index-Methode")
 
-    *Hinzufügen einer Ansicht von innerhalb der Index-Methode*
-3. Die **Ansicht hinzufügen** wird ein Dialogfeld angezeigt, um eine Vorlagendatei Ansicht zu generieren. Standardmäßig füllt dieses Dialogfeld den Namen der Vorlage anzeigen, damit diese die Aktionsmethode übereinstimmt, die verwendet werden. Da Sie verwendet die **Ansicht hinzufügen** Kontextmenü innerhalb der **Index** Aktionsmethode innerhalb der HomeController die **Ansicht hinzufügen** Dialogfeld Index mit dem Standardnamen für die Sicht hat. Klicken Sie auf **Hinzufügen**.
+    *Hinzufügen einer Ansicht aus, in der Index-Methode*
+3. Die **Ansicht hinzufügen** Dialogfeld wird angezeigt, um eine ansichtsvorlagendatei zu generieren. Standardmäßig füllt dieses Dialogfeld den Namen der Vorlage anzeigen, damit diese die Aktionsmethode entspricht, die dazu verwendet werden. Da Sie verwendet die **Ansicht hinzufügen** Kontextmenü innerhalb der **Index** Action-Methode im HomeController, die **Ansicht hinzufügen** Dialogfeld hat den Index als den Standardnamen für die Ansicht. Klicken Sie auf **Hinzufügen**.
 
-    ![View-Dialogfeld "hinzufügen"](aspnet-mvc-4-fundamentals/_static/image14.png "Ansicht-Dialogfeld \"hinzufügen\"")
+    ![Ansicht-Dialogfeld "hinzufügen"](aspnet-mvc-4-fundamentals/_static/image14.png "anzeigen-Dialogfeld \"hinzufügen\"")
 
-    *View-Dialogfeld "hinzufügen"*
-4. Visual Studio generiert eine **Index.cshtml** Vorlage anzeigen, in der **Views\Home den** Ordner und dann geöffnet.
+    *Ansicht-Dialogfeld "hinzufügen"*
+4. Visual Studio generiert eine **"Index.cshtml"** ansichtsvorlage innerhalb der **Views\Home** Ordner und anschließend geöffnet.
 
-    ![Home Indexansicht erstellt](aspnet-mvc-4-fundamentals/_static/image15.png "Home Indexansicht erstellt")
+    ![Startseite der Indexansicht erstellt](aspnet-mvc-4-fundamentals/_static/image15.png "Startseite Indexansicht erstellt")
 
     *Home Indexansicht erstellt*
 
     > [!NOTE]
-    > Name und Speicherort der der **Index.cshtml** Datei spielt und folgt die Standard-ASP.NET-MVC-Benennungskonventionen.
+    > Name und Speicherort der der **"Index.cshtml"** Datei relevant ist und die standardmäßige ASP.NET-MVC-Namenskonventionen entspricht.
     > 
-    > Der Ordner \Views\**Home** den Controllernamen entspricht (**Home** Controller). Den Namen der Sicht (**Index**), entspricht der Aktionsmethode des Controllers der Ansicht anzeigen werden.
+    > Der Ordner \Views\**Startseite** den Controllernamen entspricht (**Startseite** Controller). Namen der Ansicht (**Index**), entspricht der Aktionsmethode des Controllers der Ansicht anzeigen lassen.
     > 
-    > Auf diese Weise vermeidet ASP.NET-MVC den Namen oder Speicherort der Vorlage für eine Sicht explizit angeben, wenn Sie diese Namenskonvention mithilfe eine Sicht zurück.
-5. Generierte Ansichtenvorlage basiert auf der  **\_layout.cshtml** Vorlage, die zuvor definiert. Aktualisieren Sie die ViewBag.Title-Eigenschaft, um **Home**, und ändern Sie den Hauptinhalt zu **Dies ist die Startseite**, wie im folgenden Code gezeigt:
+    > Auf diese Weise wird ASP.NET MVC vermieden, müssen den Namen oder Speicherort, der eine ansichtsvorlage explizit angeben, wenn diese Benennungskonvention zu verwenden, um eine Ansicht zurückgegeben.
+5. Die generierte ansichtsvorlage basiert auf der  **\_layout.cshtml** Vorlage, die zuvor definierten. Aktualisieren Sie die ViewBag.Title-Eigenschaft, um **Startseite**, und ändern Sie den Hauptinhalt **Dies ist die Startseite**, wie im folgenden Code gezeigt:
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample10.cshtml)]
-6. Wählen Sie **MvcMusicStore** Projekt im Projektmappen-Explorer und drücken Sie **F5** um die Anwendung auszuführen.
+6. Wählen Sie **MvcMusicStore** -Projekt in der Projektmappen-Explorer, und drücken Sie **F5** zum Ausführen der Anwendung.
 
 <a id="Ex4Task4"></a>
 
 <a id="Task_4_Verification"></a>
 #### <a name="task-4-verification"></a>Aufgabe 4: Überprüfung
 
-Um sicherzustellen, dass Sie alle Schritte richtig im vorherigen Schritt ausgeführt haben, gehen Sie wie folgt aus:
+Um sicherzustellen, dass Sie alle Schritte in der vorherigen Übung ordnungsgemäß ausgeführt haben, gehen Sie wie folgt aus:
 
-Mit der Anwendung in einem Browser geöffnet wird sollten Sie Folgendes beachten:
+Mit der Anwendung, die in einem Browser geöffnet wird sollten Sie Folgendes beachten:
 
-1. Die HomeController Index Aktionsmethode gefunden und angezeigt der **\Views\Home\Index.cshtml** Vorlage anzeigen, auch wenn der Code aufgerufen **zurückgeben View()**, da gefolgt von der Vorlage Anzeigen der standardmäßige Benennungskonvention zu verwenden.
-2. Auf der Startseite zeigt die Begrüßungsnachricht, der definiert, die innerhalb der **\Views\Home\Index.cshtml** Vorlage anzeigen.
-3. Die Startseite wird mithilfe der  **\_layout.cshtml** Vorlage, und damit die Willkommensnachricht innerhalb der standardmäßigen Website HTML-Layout enthalten ist.
+1. Des HomeController Index-Aktionsmethode gefunden und angezeigt, die **\Views\Home\Index.cshtml** Vorlage anzeigen, auch wenn der Code aufgerufen **View() zurückgeben**, da die ansichtsvorlage gefolgt der standardmäßige Benennungskonvention zu verwenden.
+2. Auf der Startseite zeigt die Willkommensnachricht in definiert die **\Views\Home\Index.cshtml** Vorlage anzeigen.
+3. Auf der Startseite wird mithilfe der  **\_layout.cshtml** Vorlage, und daher die Willkommensnachricht in der Standardwebsite HTML-Layout enthalten ist.
 
-    ![Mit dem definierten LayoutPage und Stil Indexansicht Home](aspnet-mvc-4-fundamentals/_static/image16.png "Home Indexansicht, die mit dem definierten LayoutPage und Stil")
+    ![Indexansicht mit dem definierten LayoutPage und Stil Home](aspnet-mvc-4-fundamentals/_static/image16.png "Startseite Ansicht \"Index\" mit dem definierten LayoutPage und Stil")
 
-    *Home Indexansicht mit dem definierten LayoutPage und Stil*
+    *Home Ansicht "Index" mit dem definierten LayoutPage und Stil*
 
 <a id="Exercise5"></a>
 
 <a id="Exercise_5_Creating_a_View_Model"></a>
-### <a name="exercise-5-creating-a-view-model"></a>Übung 5: Erstellen eines Modells anzeigen
+### <a name="exercise-5-creating-a-view-model"></a>Schritt 5: Erstellen von Anzeigemodellen
 
-Bisher vorgenommenen Ihre Ansichten hartcodiert HTML angezeigt, aber damit dynamischer Webanwendungen erstellen können, sollten die Vorlage anzeigen Informationen vom Controller erhalten. Ist ein allgemeines Verfahren für diesen Zweck verwendet werden soll die **ViewModel** Muster, welches einen Controller ermöglicht so verpacken Sie die Informationen, die zum Generieren der entsprechenden HTML-Antwort erforderlich.
+Bis jetzt vorgenommenen Ihre Ansichten, die hartcodierte HTML anzeigen, aber zum Erstellen dynamischer Webanwendungen die ansichtsvorlage erhalten Informationen über den Controller. Ein gängiges Verfahren, die für diesen Zweck verwendet werden wird die **"ViewModel"** Muster, das einen Domänencontroller, um alle Informationen, die zum Generieren der entsprechenden HTML-Antwort benötigt Verpacken kann.
 
-In dieser Übung erfahren Sie, wie eine ViewModel-Klasse erstellen, und fügen die erforderlichen Eigenschaften: die Anzahl der in den Speicher und eine Liste von diesen Genres Genres. Sie werden auch die StoreController Verwendung erstellte ViewModel aktualisiert, und schließlich erstellen Sie eine neue Vorlage anzeigen, in denen die genannten Eigenschaften auf der Seite angezeigt wird.
+In dieser Übung erfahren Sie, wie erstellen eine ViewModel-Klasse, und fügen Sie die erforderlichen Eigenschaften: die Anzahl von Genres in den Speicher und eine Liste mit diesen Genres. Aktualisieren Sie auch die StoreController zur Verwendung von "ViewModel" erstellt, und schließlich erstellen Sie eine neue Vorlage anzeigen, die die genannten Eigenschaften auf der Seite angezeigt werden.
 
 <a id="Ex5Task1"></a>
 
 <a id="Task_1_-_Creating_a_ViewModel_Class"></a>
-#### <a name="task-1---creating-a-viewmodel-class"></a>Aufgabe 1: Erstellen einer ViewModel-Klasse
+#### <a name="task-1---creating-a-viewmodel-class"></a>Aufgabe 1: erstellen eine ViewModel-Klasse
 
-In dieser Aufgabe erstellen Sie eine ViewModel-Klasse, die im Speicher "Genre" Angebot Szenario implementiert wird.
+In dieser Aufgabe erstellen Sie eine ViewModel-Klasse, die das Store "Genre" Auflistung Szenario implementiert wird.
 
 1. Wenn nicht bereits geöffnet ist, starten Sie **Visual Studio Express für Web**.
-2. In der **Datei** Menü wählen **geöffneten Projekt**. Navigieren Sie zu, klicken Sie im Dialogfeld "Projekt öffnen" **Source\Ex05 CreatingAViewModel\Begin**Option **Begin.sln** , und klicken Sie auf **öffnen**. Alternativ können Sie mit der Lösung fortfahren, dass Sie nach Abschluss der vorherigen Übung erhalten haben.
+2. In der **Datei** Menü wählen **geöffneten Projekt**. Navigieren Sie in das Dialogfeld "Projekt öffnen" zum **Source\Ex05-CreatingAViewModel\Begin**Option **Begin.sln** , und klicken Sie auf **öffnen**. Alternativ kann der Projektmappe fortgesetzt werden, dass Sie nach Abschluss der vorherigen Übung abgerufen.
 
-   1. Wenn Sie die bereitgestellten geöffnet **beginnen** Lösung müssen Sie einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Klicken Sie hierzu auf die **Projekt** Menü **NuGet-Pakete verwalten**.
+   1. Wenn Sie die bereitgestellten geöffnet **beginnen** Lösung, Sie müssen einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Zu diesem Zweck klicken Sie auf die **Projekt** Menü **NuGet-Pakete verwalten**.
    2. In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf **wiederherstellen** um das Herunterladen fehlender Pakete.
-   3. Schließlich erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
+   3. Abschließend erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
 
       > [!NOTE]
-      > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
-3. Erstellen einer **ViewModels** Ordner für das ViewModel. Zu diesem Zweck der obersten Ebene Maustaste **MvcMusicStore** -Projekt, wählen **hinzufügen** und dann **neuer Ordner**.
+      > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken in Ihrem Projekt, Versand Verringern der Projektgröße. Mit NuGet Power Tools können werden durch Angabe von Versionen des Pakets in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, die, das Sie das Projekt ausführen, können. Deshalb müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit wird.
+3. Erstellen Sie eine **ViewModels** Ordner für das "ViewModel". Dazu, mit der Maustaste der obersten Ebene **MvcMusicStore** -Projekt, wählen **hinzufügen** und dann **neuer Ordner**.
 
     ![Hinzufügen eines neuen Ordners](aspnet-mvc-4-fundamentals/_static/image17.png "einen neuen Ordner hinzufügen")
 
     *Hinzufügen eines neuen Ordners*
-4. Benennen Sie den Ordner *ViewModels*.
+4. Nennen Sie den Ordner *ViewModels*.
 
-    ![ViewModels-Ordner im Projektmappen-Explorer](aspnet-mvc-4-fundamentals/_static/image18.png "ViewModels-Ordner im Projektmappen-Explorer")
+    ![Ordner "ViewModels" im Projektmappen-Explorer](aspnet-mvc-4-fundamentals/_static/image18.png "Ordner \"ViewModels\" im Projektmappen-Explorer")
 
-    *ViewModels-Ordner im Projektmappen-Explorer*
-5. Erstellen einer **ViewModel** Klasse. Zu diesem Zweck mit der Maustaste auf die **ViewModels** Ordner vor kurzem erstellt wurde, wählen Sie **hinzufügen** und dann **neues Element**. Klicken Sie unter **Code**, wählen Sie die **Klasse** -Element aus, und nennen Sie die Datei *StoreIndexViewModel.cs*, klicken Sie dann auf **hinzufügen**.
+    *Ordner "ViewModels" im Projektmappen-Explorer*
+5. Erstellen Sie eine **"ViewModel"** Klasse. Zu diesem Zweck mit der Maustaste auf die **ViewModels** Ordner vor kurzem erstellt haben, wählen Sie **hinzufügen** und dann **neues Element**. Klicken Sie unter **Code**, wählen Sie die **Klasse** Element aus, und nennen Sie die Datei *StoreIndexViewModel.cs*, klicken Sie dann auf **hinzufügen**.
 
-    ![Hinzufügen einer neuen Klasse](aspnet-mvc-4-fundamentals/_static/image19.png "Hinzufügen einer neuen Klasse")
+    ![Hinzufügen einer neuen Klasse](aspnet-mvc-4-fundamentals/_static/image19.png "eine neue Klasse hinzufügen")
 
     *Hinzufügen einer neuen Klasse*
 
@@ -520,79 +519,79 @@ In dieser Aufgabe erstellen Sie eine ViewModel-Klasse, die im Speicher "Genre" A
 <a id="Ex5Task2"></a>
 
 <a id="Task_2_-_Adding_Properties_to_the_ViewModel_class"></a>
-#### <a name="task-2---adding-properties-to-the-viewmodel-class"></a>Aufgabe 2: Hinzufügen von Eigenschaften für das ViewModel-Klasse
+#### <a name="task-2---adding-properties-to-the-viewmodel-class"></a>Aufgabe 2: Hinzufügen von Eigenschaften, die ViewModel-Klasse
 
-Es gibt zwei Parameter an die Vorlage anzeigen aus der StoreController übergeben werden, um die erwartete HTML-Antwort zu generieren: die Anzahl der in den Speicher und eine Liste von diesen Genres Genres.
+Es gibt zwei Parameter an die ansichtsvorlage aus der StoreController übergeben werden, um die erwartete HTML-Antwort zu generieren: die Anzahl von Genres in den Speicher und eine Liste mit diesen Genres.
 
-In dieser Aufgabe fügen Sie dieser 2 Eigenschaften der **StoreIndexViewModel** Klasse: **NumberOfGenres** (eine Ganzzahl) und **Genres** (eine Liste von Zeichenfolgen).
+In dieser Aufgabe fügen Sie dieser 2 Eigenschaften der **StoreIndexViewModel** Klasse: **NumberOfGenres** (eine ganze Zahl) und **Genres** (eine Liste von Zeichenfolgen).
 
-1. Hinzufügen **NumberOfGenres** und **Genres** Eigenschaften der **StoreIndexViewModel** Klasse. Zu diesem Zweck fügen Sie der Klassendefinition die 2 folgenden Zeilen hinzu:
+1. Hinzufügen **NumberOfGenres** und **Genres** Eigenschaften, die die **StoreIndexViewModel** Klasse. Zu diesem Zweck fügen Sie die folgenden 2 Zeilen an die Klassendefinition hinzu:
 
-    (Codeausschnitt - *ASP.NET MVC 4-Grundlagen - Ex5 StoreIndexViewModel Eigenschaften*)
+    (Codeausschnitt - *ASP.NET MVC 4-Grundlagen – Ex5 StoreIndexViewModel Eigenschaften*)
 
     [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample11.cs)]
 
 > [!NOTE]
-> Die **{abrufen; festlegen;}**  Notation nutzt # Funktion automatisch implementierte Eigenschaften. Bietet die Vorteile einer Eigenschaft ohne uns einen dahinter liegende Feld nicht deklariert werden.
+> Die **{get; festlegen;}**  Notation nutzt # Funktion für automatisch implementierte Eigenschaften. Es bietet die Vorteile einer Eigenschaft, ohne uns um ein dahinter liegendes Feld zu deklarieren.
 
 <a id="Ex5Task3"></a>
 
 <a id="Task_3_-_Updating_StoreController_to_use_the_StoreIndexViewModel"></a>
-#### <a name="task-3---updating-storecontroller-to-use-the-storeindexviewmodel"></a>Aufgabe 3 - Update StoreController die StoreIndexViewModel verwenden
+#### <a name="task-3---updating-storecontroller-to-use-the-storeindexviewmodel"></a>Aufgabe 3: Aktualisieren StoreController der StoreIndexViewModel verwenden
 
-Die **StoreIndexViewModel** -Klasse kapselt die benötigten Informationen zum Übergeben von **StoreController**des **Index** Methode, um eine Vorlage anzeigen, um eine Antwort zu generieren. .
+Die **StoreIndexViewModel** -Klasse kapselt die erforderlichen Informationen zum Übergeben von **StoreController**des **Index** Methode, um eine Vorlage anzeigen, um eine Antwort zu generieren. .
 
 In dieser Aufgabe aktualisieren Sie die **StoreController** verwenden die **StoreIndexViewModel**.
 
 1. Open **StoreController** Klasse.
 
-    ![Öffnen StoreController Klasse](aspnet-mvc-4-fundamentals/_static/image21.png "öffnende StoreController-Klasse")
+    ![Öffnen StoreController Klasse](aspnet-mvc-4-fundamentals/_static/image21.png "öffnen StoreController-Klasse")
 
     *Öffnende StoreController-Klasse*
-2. Zum Verwenden der **StoreIndexViewModel** -Klasse aus den **StoreController**, fügen Sie den folgenden Namespace am Anfang der **StoreController** Code:
+2. Zum Verwenden der **StoreIndexViewModel** -Klasse aus der **StoreController**, den folgenden Namespace hinzufügen, am oberen Rand der **StoreController** Code:
 
-    (Codeausschnitt - *ASP.NET MVC 4-Grundlagen - Ex5 StoreIndexViewModel mit ViewModels*)
+    (Codeausschnitt - *ASP.NET MVC 4-Grundlagen – Ex5 StoreIndexViewModel Verwenden von ViewModels*)
 
     [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample12.cs)]
-3. Ändern der **StoreController**des **Index** Aktionsmethode so, dass er erstellt und füllt eine **StoreIndexViewModel** -Objekt und übergibt Sie es dann, um eine Ansicht aus, um Generieren einer HTML-Antwort mit.
+3. Ändern der **StoreController**des **Index** Action-Methode so, dass die It erstellt und füllt eine **StoreIndexViewModel** Objekt aus, und leitet diese dann an eine ansichtsvorlage deaktivieren Generieren einer HTML-Antwort mit.
 
     > [!NOTE]
-    > Im Labor &quot;ASP.NET MVC-Modelle und Datenzugriff&quot; schreiben Sie Code, der die Liste der Store Genres aus einer Datenbank abruft. In den folgenden Code, erstellen Sie eine **Liste** von Genres dummy-Daten, die mit Daten Auffüllen der **StoreIndexViewModel**.
+    > In Übungseinheit &quot;ASP.NET MVC-Modelle und Datenzugriff&quot; schreiben Sie Code, der die Liste der Store Genres aus einer Datenbank abruft. In den folgenden Code, erstellen Sie eine **Liste** Dummydaten Genres, das Auffüllen der **StoreIndexViewModel**.
     > 
-    > Nach dem Erstellen und Einrichten der **StoreIndexViewModel** übergeben, es wird als Argument an die **Ansicht** Methode. Dies gibt an, dass die Vorlage anzeigen zum Generieren einer HTML-Antwort, damit dieses Objekt verwendet.
-4. Ersetzen Sie die **Index** -Methode durch folgenden Code:
+    > Nach dem Erstellen und Einrichten der **StoreIndexViewModel** Objekt, übergeben sie als Argument an die **Ansicht** Methode. Dies gibt an, dass die ansichtsvorlage zum Generieren einer HTML-Antwort, damit dieses Objekt verwendet.
+4. Ersetzen Sie die **Index** Methode durch den folgenden Code:
 
-    (Codeausschnitt - *ASP.NET MVC 4-Grundlagen - Ex5 StoreController Index Methode*)
+    (Codeausschnitt - *ASP.NET MVC 4-Grundlagen – Ex5 StoreController Indexmethode*)
 
     [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample13.cs)]
 
 > [!NOTE]
-> Wenn Sie nicht mit c# vertraut sind, Sie können davon ausgehen, dass die Verwendung **Var** bedeutet, dass die **ViewModel** Variable wird spät gebunden. Das ist nicht richtig - Typrückschluss basierend auf, was Sie der Variable zuzuweisen ermitteln, ob der C#-Compiler verwendeten **ViewModel** ist vom Typ **StoreIndexViewModel**. Auch durch das Kompilieren des lokalen **ViewModel** -Variable als ein **StoreIndexViewModel** Geben Sie Get kompilierzeitüberprüfung und Unterstützung von Visual Studio Code-Editors.
+> Wenn Sie nicht mit c# vertraut sind, Sie können davon ausgehen, dass die Verwendung **Var** bedeutet, dass die **"ViewModel"** Variable ist spät gebunden. Das ist nicht falsch – c#-Compiler verwendet den Typrückschluss basierend auf was Sie auf die Variable zuweisen ermitteln, ob **"ViewModel"** ist vom Typ **StoreIndexViewModel**. Darüber hinaus durch das Kompilieren des lokalen **"ViewModel"** -Variable als ein **StoreIndexViewModel** Geben Sie Get kompilierzeitüberprüfung und Visual Studio Code-Editor-Unterstützung.
 
 <a id="Ex5Task4"></a>
 
 <a id="Task_4_-_Creating_a_View_Template_that_Uses_StoreIndexViewModel"></a>
-#### <a name="task-4---creating-a-view-template-that-uses-storeindexviewmodel"></a>Aufgabe 4: Erstellen einer Ansichtenvorlage für die, die StoreIndexViewModel verwendet.
+#### <a name="task-4---creating-a-view-template-that-uses-storeindexviewmodel"></a>Aufgabe 4: Erstellen einer Vorlage anzeigen, die StoreIndexViewModel verwendet
 
-In dieser Aufgabe erstellen Sie eine Vorlage anzeigen, die ein StoreIndexViewModel-Objekt, das vom Controller übergebenen nutzt, um eine Liste von Genres anzuzeigen.
+In dieser Aufgabe erstellen Sie eine Vorlage anzeigen, die ein StoreIndexViewModel-Objekt, das vom Controller übergebenen verwendet, um eine Liste der Genres anzuzeigen.
 
-1. Vor dem Erstellen der neuen Vorlage anzeigen, erstellen Sie das Projekt, damit die **Ansicht-Dialogfeld hinzufügen** kennt die **StoreIndexViewModel** Klasse. Erstellen des Projekts durch Auswahl der **erstellen** Menüelement und dann **MvcMusicStore erstellen**.
+1. Vor dem Erstellen der neuen Vorlage anzeigen, erstellen Sie das Projekt, damit die **anzeigen-Dialogfeld hinzufügen** kennt die **StoreIndexViewModel** Klasse. Erstellen Sie das Projekt durch Auswählen der **erstellen** Menüelement und dann **erstellen MvcMusicStore**.
 
     ![Beim Erstellen des Projekts](aspnet-mvc-4-fundamentals/_static/image22.png "beim Erstellen des Projekts")
 
     *Beim Erstellen des Projekts*
-2. Erstellen Sie eine neue Ansichtenvorlage für die ein. Zu diesem Zweck Maustaste innerhalb der **Index** Methode, und wählen **Ansicht hinzufügen**.
+2. Erstellen Sie eine neue ansichtsvorlage für die ein. Klicken Sie dazu auf, auf die **Index** Methode, und wählen **Ansicht hinzufügen**.
 
-    ![Hinzufügen einer Ansicht](aspnet-mvc-4-fundamentals/_static/image23.png "eine Sicht hinzufügen")
+    ![Hinzufügen einer Ansicht](aspnet-mvc-4-fundamentals/_static/image23.png "Hinzufügen einer Ansicht")
 
     *Hinzufügen einer Ansicht*
-3. Da die **Ansicht-Dialogfeld hinzufügen** aufgerufen wurde, aus der **StoreController**, wird standardmäßig in der Vorlage anzeigen hinzugefügt eine **\Views\Store\Index.cshtml** Datei. Überprüfen Sie die **erstellen Sie eine stark typisierte-anzeigen** Kontrollkästchen, und wählen Sie dann **StoreIndexViewModel** als die **Modellschemas**. Stellen Sie außerdem sicher, dass das Ansichtsmodul ausgewählt ist **Razor**. Klicken Sie auf **Hinzufügen**.
+3. Da die **anzeigen-Dialogfeld hinzufügen** aufgerufen wurde, aus der **StoreController**, fügen sie die ansichtsvorlage standardmäßig in eine **\Views\Store\Index.cshtml** Datei. Überprüfen Sie die **erstellen Sie eine stark typisierte-anzeigen** Kontrollkästchen und wählen Sie dann **StoreIndexViewModel** als die **Modellklasse**. Stellen Sie außerdem sicher, dass die Ansichts-Engine ausgewählt ist **Razor**. Klicken Sie auf **Hinzufügen**.
 
-    ![View-Dialogfeld "hinzufügen"](aspnet-mvc-4-fundamentals/_static/image24.png "Ansicht-Dialogfeld \"hinzufügen\"")
+    ![Ansicht-Dialogfeld "hinzufügen"](aspnet-mvc-4-fundamentals/_static/image24.png "anzeigen-Dialogfeld \"hinzufügen\"")
 
-    *View-Dialogfeld "hinzufügen"*
+    *Ansicht-Dialogfeld "hinzufügen"*
 
-    Die **\Views\Store\Index.cshtml** Vorlagendatei Ansicht erstellt und geöffnet wird. Anhand der Informationen bereitgestellt, um die **Ansicht hinzufügen** Dialogfeld im letzten Schritt die Ansicht, die Vorlage erwarten, dass ein **StoreIndexViewModel** -Instanz wie die Daten zum Generieren einer HTML-Antwort. Sie werden feststellen, dass die Vorlage übernimmt eine `ViewPage<musicstore.viewmodels.storeindexviewmodel>` in C# geschrieben.
+    Die **\Views\Store\Index.cshtml** ansichtsvorlagendatei wird erstellt und geöffnet. Anhand der Informationen bereitgestellt, um die **Ansicht hinzufügen** Dialogfeld im letzten Schritt die Ansicht, die Vorlage werden erwarten, dass eine **StoreIndexViewModel** -Instanz wie die Daten zu verwenden, um eine HTML-Antwort zu generieren. Sie werden feststellen, dass die Vorlage übernimmt eine `ViewPage<musicstore.viewmodels.storeindexviewmodel>` in C# geschrieben.
 
 <a id="Ex5Task5"></a>
 
@@ -602,9 +601,9 @@ In dieser Aufgabe erstellen Sie eine Vorlage anzeigen, die ein StoreIndexViewMod
 In dieser Aufgabe aktualisieren Sie die Vorlage anzeigen, die in der vorhergehenden Aufgabe zum Abrufen der Anzahl von Genres und deren Namen auf der Seite erstellt.
 
 > [!NOTE]
-> Verwenden Sie @ Syntax (so genannte &quot;Codeausdrücke&quot;) zum Ausführen von Code in der Vorlage anzeigen.
+> Verwenden Sie @-Syntax (bezeichnet als &quot;Codeausdrücke&quot;) zum Ausführen von Code in der Vorlage anzeigen.
 
-1. In der **Index.cshtml** Datei, in der **Store** Ordner, ersetzen Sie den Code durch Folgendes:
+1. In der **"Index.cshtml"** -Datei, in der **Store** Ordner, ersetzen Sie den Code durch Folgendes:
 
 [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample14.cshtml)]
 
@@ -618,15 +617,15 @@ In dieser Aufgabe aktualisieren Sie die Vorlage anzeigen, die in der vorhergehen
     > The **Model** property references the **StoreIndexViewModel** object that the Controller passed to the View template. This means that you can access all of the data passed from the Controller to the View template via the **Model** property, and format it into an appropriate HTML response within the View template.
     > 
     > You can just select the **NumberOfGenres** property from the Intellisense list rather than typing it in and then it will auto-complete it by pressing the **tab key**.
-2. Schleife in der Liste der "Genre" **StoreIndexViewModel** , und erstellen Sie ein HTML **&lt;Ul&gt;** Liste mit einer **Foreach** Schleife.
+2. Schleife über der Liste "Genre" in **StoreIndexViewModel** , und erstellen Sie eine HTML **&lt;Ul&gt;** auflisten mithilfe einer **Foreach** Schleife.
    (C#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample15.cshtml)]
-3. Drücken Sie **F5** , führen Sie die Anwendung, und navigieren Sie **/speichern**. Sehen Sie die Liste von Genres übergeben der **StoreIndexViewModel** -Objekt aus der **StoreController** der Vorlage anzeigen.
+3. Drücken Sie **F5** , führen Sie die Anwendung, und navigieren Sie **/Store**. Sehen Sie die Liste der Genres übergeben die **StoreIndexViewModel** -Objekt aus der **StoreController** der Vorlage anzeigen.
 
-    ![Anzeigen einer Liste von Genres Ansicht](aspnet-mvc-4-fundamentals/_static/image26.png "anzeigen, die eine Liste von Genres anzeigen")
+    ![Ansicht zum Anzeigen einer Liste der Genres](aspnet-mvc-4-fundamentals/_static/image26.png "Ansicht zum Anzeigen einer Liste der Genres")
 
-    *Anzeigen einer Liste von Genres anzeigen*
+    *Ansicht zum Anzeigen einer Liste der genres*
 4. Schließen Sie den Browser.
 
 <a id="Exercise6"></a>
@@ -634,40 +633,40 @@ In dieser Aufgabe aktualisieren Sie die Vorlage anzeigen, die in der vorhergehen
 <a id="Exercise_6_Using_Parameters_in_View"></a>
 ### <a name="exercise-6-using-parameters-in-view"></a>Übung 6: Verwenden von Parametern in der Ansicht
 
-Übung 3 haben Sie gelernt, wie Parameter an den Controller übergeben wird. In dieser Übung erfahren Sie, wie diese Parameter in der Vorlage anzeigen verwendet werden. Zu diesem Zweck werden Sie zuerst mit Modellklassen bekannt gemacht werden, die Sie zum Verwalten Ihrer Daten und Domänenlogik unterstützt. Darüber hinaus erfahren Sie, wie Links zu Seiten in der ASP.NET MVC-Anwendung erstellt wird, unabhängig von der Dinge URL-Pfade, die Codierung.
+In Übung 3 haben Sie gelernt, wie Parameter an den Controller übergeben werden. In dieser Übung lernen Sie, wie Sie diese Parameter in die ansichtsvorlage zu verwenden. Zu diesem Zweck werden Sie zuerst auf ViewModel-Klassen vorgestellt, mit denen Sie Ihre Daten und Domänenlogik zu verwalten. Darüber hinaus lernen Sie, wie Sie Links zu Seiten in ASP.NET MVC-Anwendung zu erstellen, ohne sich Gedanken machen Dinge wie URL-Pfade, die Codierung.
 
 <a id="Ex6Task1"></a>
 
 <a id="Task_1_-_Adding_Model_Classes"></a>
 #### <a name="task-1---adding-model-classes"></a>Aufgabe 1: Hinzufügen von Modellklassen
 
-Im Gegensatz zu ViewModels, die erstellt werden, um Informationen vom Controller an die Ansicht zu übergeben, werden Modellklassen zum enthalten und Verwalten von Daten und Domänenlogik erstellt. In dieser Aufgabe fügen Sie zwei Modellklassen zur Darstellung dieser Konzepte: **"Genre"** und **Album**.
+Im Gegensatz zu ViewModels, die erstellt werden, um Informationen vom Controller an die Ansicht zu übergeben, werden ViewModel-Klassen erstellt, um enthalten und Verwalten von Daten und Domänenlogik. In dieser Aufgabe fügen Sie zwei Modellklassen zur Darstellung dieser Konzepte: **"Genre"** und **Album**.
 
 1. Wenn nicht bereits geöffnet ist, starten Sie **Visual Studio Express für Web**
-2. In der **Datei** Menü wählen **geöffneten Projekt**. Navigieren Sie zu, klicken Sie im Dialogfeld "Projekt öffnen" **Source\Ex06 UsingParametersInView\Begin**Option **Begin.sln** , und klicken Sie auf **öffnen**. Alternativ können Sie mit der Lösung fortfahren, dass Sie nach Abschluss der vorherigen Übung erhalten haben.
+2. In der **Datei** Menü wählen **geöffneten Projekt**. Navigieren Sie in das Dialogfeld "Projekt öffnen" zum **Source\Ex06-UsingParametersInView\Begin**Option **Begin.sln** , und klicken Sie auf **öffnen**. Alternativ kann der Projektmappe fortgesetzt werden, dass Sie nach Abschluss der vorherigen Übung abgerufen.
 
-   1. Wenn Sie die bereitgestellten geöffnet **beginnen** Lösung müssen Sie einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Klicken Sie hierzu auf die **Projekt** Menü **NuGet-Pakete verwalten**.
+   1. Wenn Sie die bereitgestellten geöffnet **beginnen** Lösung, Sie müssen einige fehlende NuGet-Pakete herunterladen bevor Sie fortfahren. Zu diesem Zweck klicken Sie auf die **Projekt** Menü **NuGet-Pakete verwalten**.
    2. In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf **wiederherstellen** um das Herunterladen fehlender Pakete.
-   3. Schließlich erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
+   3. Abschließend erstellen Sie die Projektmappe, indem Sie auf **erstellen** | **Projektmappe**.
 
       > [!NOTE]
-      > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken, die sich in Ihrem Projekt liefern Verringern der Projektgröße. Mit NuGet-Powertools werden durch Angabe der Paketversionen in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, wenn, das Sie das Projekt ausführen, können. Deshalb wird müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit.
-3. Hinzufügen einer **"Genre"** Modellschemas. Zu diesem Zweck Maustaste die **Modelle** Ordner in der **Projektmappen-Explorer**Option **hinzufügen** und dann die **neues Element** Option. Klicken Sie unter **Code**, wählen Sie die **Klasse** -Element aus, und nennen Sie die Datei *Genre.cs*, klicken Sie dann auf **hinzufügen**.
+      > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken in Ihrem Projekt, Versand Verringern der Projektgröße. Mit NuGet Power Tools können werden durch Angabe von Versionen des Pakets in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, die, das Sie das Projekt ausführen, können. Deshalb müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit wird.
+3. Hinzufügen einer **"Genre"** Modellklasse. Dazu, mit der Maustaste der **Modelle** Ordner in der **Projektmappen-Explorer**Option **hinzufügen** und klicken Sie dann die **neues Element** Option. Klicken Sie unter **Code**, wählen Sie die **Klasse** Element aus, und nennen Sie die Datei *Genre.cs*, klicken Sie dann auf **hinzufügen**.
 
     ![Hinzufügen einer Klasse](aspnet-mvc-4-fundamentals/_static/image27.png "Hinzufügen einer Klasse")
 
-    *Ein neues Element hinzufügen*
+    *Hinzufügen eines neuen Elements*
 
-    ![Hinzufügen von "Genre" Modellklasse](aspnet-mvc-4-fundamentals/_static/image28.png "Modellklasse \"Genre\" hinzufügen")
+    ![Hinzufügen der Modellklasse für "Genre"](aspnet-mvc-4-fundamentals/_static/image28.png "\"Genre\" Modellklasse hinzufügen")
 
-    *Fügen Sie "Genre"-Modell-Klasse*
-4. Hinzufügen einer **Namen** Eigenschaft der Klasse "Genre". Fügen Sie hierzu den folgenden Code hinzu:
+    *Hinzufügen von "Genre" Model-Klasse*
+4. Hinzufügen einer **Namen** Eigenschaft der Klasse "Genre". Zu diesem Zweck fügen Sie den folgenden Code hinzu:
 
     (Codeausschnitt - *Grundlagen von ASP.NET MVC 4 - Ex6 "Genre"*)
 
     [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample16.cs)]
-5. Befolgen die gleiche Vorgehensweise wie zuvor, Hinzufügen einer **Album** Klasse. Zu diesem Zweck Maustaste die **Modelle** Ordner in der **Projektmappen-Explorer**Option **hinzufügen** und dann die **neues Element** Option. Klicken Sie unter **Code**, wählen Sie die **Klasse** -Element aus, und nennen Sie die Datei *Album.cs*, klicken Sie dann auf **hinzufügen**.
-6. Fügen Sie zwei Eigenschaften zur Klasse Album: **"Genre"** und **Titel**. Fügen Sie hierzu den folgenden Code hinzu:
+5. Befolgen die gleiche Vorgehensweise wie zuvor Hinzufügen einer **Album** Klasse. Dazu, mit der Maustaste der **Modelle** Ordner in der **Projektmappen-Explorer**Option **hinzufügen** und klicken Sie dann die **neues Element** Option. Klicken Sie unter **Code**, wählen Sie die **Klasse** Element aus, und nennen Sie die Datei *Album.cs*, klicken Sie dann auf **hinzufügen**.
+6. Fügen Sie zwei Eigenschaften zur Klasse Album: **"Genre"** und **Titel**. Zu diesem Zweck fügen Sie den folgenden Code hinzu:
 
     (Codeausschnitt - *Grundlagen von ASP.NET MVC 4 - Ex6 Album*)
 
@@ -678,45 +677,45 @@ Im Gegensatz zu ViewModels, die erstellt werden, um Informationen vom Controller
 <a id="Task_2_-_Adding_a_StoreBrowseViewModel"></a>
 #### <a name="task-2---adding-a-storebrowseviewmodel"></a>Aufgabe 2: Hinzufügen einer StoreBrowseViewModel
 
-Ein **StoreBrowseViewModel** wird in dieser Aufgabe verwendet werden, um die Alben anzeigen, die einem ausgewählten "Genre" entsprechen. In dieser Aufgabe wird diese Klasse erstellen und fügen Sie dann zwei Eigenschaften zum Behandeln der **"Genre"** und seine **Album**der Liste.
+Ein **StoreBrowseViewModel** wird in dieser Aufgabe verwendet werden, um Alben anzuzeigen, die eine ausgewählte Genre entsprechen. In dieser Aufgabe Sie diese Klasse erstellen und dann fügen Sie zwei Eigenschaften zum Behandeln der **"Genre"** und die zugehörige **Album**der Liste.
 
-1. Hinzufügen einer **StoreBrowseViewModel** Klasse. Zu diesem Zweck Maustaste die **ViewModels** Ordner in der **Projektmappen-Explorer**Option **hinzufügen** und dann die **neues Element** Option. Klicken Sie unter **Code**, wählen Sie die **Klasse** -Element aus, und nennen Sie die Datei *StoreBrowseViewModel.cs*, klicken Sie dann auf **hinzufügen**.
-2. Hinzufügen eines Verweises auf die Modelle in **StoreBrowseViewModel** Klasse. Fügen Sie hierzu die folgenden Namespace verwenden:
+1. Hinzufügen einer **StoreBrowseViewModel** Klasse. Dazu, mit der Maustaste der **ViewModels** Ordner in der **Projektmappen-Explorer**Option **hinzufügen** und klicken Sie dann die **neues Element** Option. Klicken Sie unter **Code**, wählen Sie die **Klasse** Element aus, und nennen Sie die Datei *StoreBrowseViewModel.cs*, klicken Sie dann auf **hinzufügen**.
+2. Hinzufügen eines Verweises auf die Modelle in **StoreBrowseViewModel** Klasse. Zu diesem Zweck fügen Sie die folgenden Namespace verwenden:
 
     (Codeausschnitt - *Grundlagen von ASP.NET MVC 4 - Ex6 UsingModel*)
 
     [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample18.cs)]
-3. Zwei Eigenschaften hinzufügen **StoreBrowseViewModel** Klasse: **"Genre"** und **Alben**. Fügen Sie hierzu den folgenden Code hinzu:
+3. Fügen Sie zwei Eigenschaften, **StoreBrowseViewModel** Klasse: **"Genre"** und **Alben**. Zu diesem Zweck fügen Sie den folgenden Code hinzu:
 
     (Codeausschnitt - *Grundlagen von ASP.NET MVC 4 - Ex6 ModelProperties*)
 
     [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample19.cs)]
 
 > [!NOTE]
-> Was ist **Liste&lt;Album&gt;**  ?: dieser Definition wird mithilfe der **Liste&lt;T&gt;**  Typ, in dem **T** schränkt die auf welche Elemente dieses Typs **Liste** gehören, in diesem Fall **Album** (oder eines seiner Nachfolger).
+> Was ist **Liste&lt;Album&gt;**  ?: Diese Definition ist die Verwendung der **Liste&lt;T&gt;**  Typ, in denen **T** schränkt die Typ der Elemente dieser **Liste** gehören, in diesem Fall **Album** (oder eines seiner Nachfolger).
 > 
-> Diese Fähigkeit zum Entwerfen von Klassen und Methoden, die die Angabe von einem oder mehreren Typen verzögern, bis die Klasse oder Methode deklariert und instanziiert, indem Clientcode ein Feature von C#-Sprache ist namens **Generika**.
+> Diese Möglichkeit zum Entwerfen von Klassen und Methoden, die die Spezifikation des einen oder mehrere Typen verzögern, bis die Klasse oder Methode deklariert und instanziiert, indem der Client-Code ein Feature von c#-Sprache ist namens **Generika**.
 > 
-> **Liste&lt;T&gt;**  entspricht dem generischen der **ArrayList** geben und steht in den **System.Collections.Generic** Namespace. Einer der Vorteile der Verwendung von **Generika** ist, da der Typ angegeben wird, Sie nicht überprüfen Vorgänge wie die Elemente in die Umwandlung von Typen kümmern müssen **Album** wie mit einer **ArrayList**.
+> **Liste&lt;T&gt;**  ist die generische Entsprechung, der die **ArrayList** geben und steht in der **System.Collections.Generic** Namespace. Einer der Vorteile der Verwendung von **Generika** , da der Typ angegeben ist, müssen Sie keine typüberprüfung für Vorgänge wie das Umwandeln der Elemente in kümmern **Album** wie mit einer **ArrayList**.
 
 <a id="Ex6Task3"></a>
 
 <a id="Task_3_-_Using_the_New_ViewModel_in_the_StoreController"></a>
-#### <a name="task-3---using-the-new-viewmodel-in-the-storecontroller"></a>Aufgabe 3: verwenden das neue ViewModel in der StoreController
+#### <a name="task-3---using-the-new-viewmodel-in-the-storecontroller"></a>Aufgabe 3: verwenden das neue "ViewModel" in der StoreController
 
-In dieser Aufgabe ändern Sie die **StoreController**des **Durchsuchen** und **Details** Aktionsmethoden der neuen **StoreBrowseViewModel** .
+In dieser Aufgabe ändern Sie die **StoreController**des **Durchsuchen** und **Details** Aktionsmethoden anwenden, um die Verwendung der neuen **StoreBrowseViewModel** .
 
-1. Hinzufügen eines Verweises auf den Ordner Models in **StoreController** Klasse. Zu diesem Zweck, erweitern Sie die **Controller** Ordner in der **Projektmappen-Explorer** , und öffnen Sie die **StoreController** Klasse. Fügen Sie dann den folgenden Code hinzu:
+1. Hinzufügen eines Verweises auf den Ordner "Models" im **StoreController** Klasse. Zu diesem Zweck, erweitern Sie die **Controller** Ordner in der **Projektmappen-Explorer** , und öffnen Sie die **StoreController** Klasse. Fügen Sie dann den folgenden Code hinzu:
 
     (Codeausschnitt - *Grundlagen von ASP.NET MVC 4 - Ex6 UsingModelInController*)
 
     [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample20.cs)]
-2. Ersetzen Sie die **Durchsuchen** Aktionsmethode mit den **StoreViewBrowseController** Klasse. Erstellen Sie eine "Genre" und zwei neue Alben Objekte mit dummy-Daten (in der nächsten praktische Übungseinheit verwenden Sie echte Daten von einer Datenbank). Ersetzen Sie hierzu die **Durchsuchen** -Methode durch folgenden Code:
+2. Ersetzen Sie die **Durchsuchen** Aktionsmethode verwendet die **StoreViewBrowseController** Klasse. Erstellen Sie ein Genre und zwei neue Alben Objekte mit unechten Daten (in der nächsten praktische Übungseinheit verwenden Sie echte Daten von einer Datenbank). Ersetzen Sie hierzu die **Durchsuchen** Methode durch den folgenden Code:
 
     (Codeausschnitt - *Grundlagen von ASP.NET MVC 4 - Ex6 BrowseMethod*)
 
     [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample21.cs)]
-3. Ersetzen Sie die **Details** Aktionsmethode mit den **StoreViewBrowseController** Klasse. Erstellen Sie ein neues **Album** zu zurückzugebenden Objekt zu den **Ansicht**. Ersetzen Sie hierzu die **Details** -Methode durch folgenden Code:
+3. Ersetzen Sie die **Details** Aktionsmethode verwendet die **StoreViewBrowseController** Klasse. Erstellen Sie ein neues **Album** zu zurückzugebenden Objekts der **Ansicht**. Ersetzen Sie hierzu die **Details** Methode durch den folgenden Code:
 
     (Codeausschnitt - *Grundlagen von ASP.NET MVC 4 - Ex6 DetailsMethod*)
 
@@ -725,18 +724,18 @@ In dieser Aufgabe ändern Sie die **StoreController**des **Durchsuchen** und **D
 <a id="Ex6Task4"></a>
 
 <a id="Task_4_-_Adding_a_Browse_View_Template"></a>
-#### <a name="task-4---adding-a-browse-view-template"></a>Aufgabe 4: Hinzufügen eines Sicht zum Durchsuchen einer Vorlage
+#### <a name="task-4---adding-a-browse-view-template"></a>Aufgabe 4: Hinzufügen eines durchsuchen-Vorlage anzeigen
 
-In dieser Aufgabe fügen Sie eine **Durchsuchen** Anzeigen von Alben für einen bestimmten "Genre" gefunden.
+In dieser Aufgabe fügen Sie eine **Durchsuchen** zum Anzeigen der Alben für eine spezifische Genre gefunden.
 
-1. Vor dem Erstellen der neuen Vorlage anzeigen, erstellen Sie das Projekt, damit die **Ansicht hinzufügen** Dialogfeld kennt die **ViewModel** -Klasse. Erstellen des Projekts durch Auswahl der **erstellen** Menüelement und dann **MvcMusicStore erstellen**.
-2. Hinzufügen einer **Durchsuchen** anzeigen. Zu diesem Zweck mit der Maustaste in die **Durchsuchen** Aktionsmethode von der **StoreController** , und klicken Sie auf **Ansicht hinzufügen**.
-3. In der **Ansicht hinzufügen** Dialogfeld Vergewissern Sie sich, dass der Ansichtsname ist **Durchsuchen**. Überprüfen Sie die **eine stark typisierte Ansicht erstellen** Kontrollkästchen, und wählen Sie **StoreBrowseViewModel** aus der **Modellschemas** Dropdownliste. Lassen Sie die anderen Felder, die Standardwerte. Klicken Sie anschließend auf **Hinzufügen**.
+1. Vor dem Erstellen der neuen Vorlage anzeigen, sollten Sie das Projekt erstellen, damit die **Ansicht hinzufügen** Dialogfeld kennt die **"ViewModel"** zu verwendende Klasse an. Erstellen Sie das Projekt durch Auswählen der **erstellen** Menüelement und dann **erstellen MvcMusicStore**.
+2. Hinzufügen einer **Durchsuchen** anzeigen. Zu diesem Zweck mit der Maustaste in den **Durchsuchen** Action-Methode der der **StoreController** , und klicken Sie auf **Ansicht hinzufügen**.
+3. In der **Ansicht hinzufügen** Dialogfeld Vergewissern Sie sich, dass der Ansichtsname ist **Durchsuchen**. Überprüfen Sie die **eine stark typisierte Ansicht erstellen** Kontrollkästchen, und wählen Sie **StoreBrowseViewModel** aus der **Modellklasse** Dropdownliste. Lassen Sie die anderen Felder auch die Standardwerte. Klicken Sie anschließend auf **Hinzufügen**.
 
     ![Hinzufügen einer Ansicht durchsuchen](aspnet-mvc-4-fundamentals/_static/image29.png "Hinzufügen einer Ansicht durchsuchen")
 
     *Hinzufügen einer Ansicht durchsuchen*
-4. Ändern der **Browse.cshtml** zum Anzeigen von Informationen für die "Genre", den Zugriff auf die **StoreBrowseViewModel** -Objekt, das an die Ansichtenvorlage übergeben wird. Ersetzen Sie dazu den Inhalt durch Folgendes: (c#)
+4. Ändern der **Browse.cshtml** zur Anzeige von Informationen für die "Genre", den Zugriff auf die **StoreBrowseViewModel** -Objekt, das die ansichtsvorlage übergeben wird. Zu diesem Zweck ersetzen Sie den Inhalt durch Folgendes: (c#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample23.cshtml)]
 
@@ -747,27 +746,27 @@ In dieser Aufgabe fügen Sie eine **Durchsuchen** Anzeigen von Alben für einen 
 
 In dieser Aufgabe testen Sie, die die **Durchsuchen** Methode ruft Alben aus der **Durchsuchen** Methodenaktion.
 
-1. Drücken Sie **F5** um die Anwendung auszuführen.
-2. Das Projekt wird auf der Startseite gestartet. Ändern Sie die URL zum   **/speichern/suchen? "Genre" = Disco** , stellen Sie sicher, dass die Aktion zwei Alben zurückgibt.
+1. Drücken Sie **F5** zum Ausführen der Anwendung.
+2. Das Projekt, die auf der Startseite wird gestartet. Ändern Sie die URL zum   **/Store/durchsuchen? Genre = Disco** zu überprüfen, ob die Aktion zwei Alben zurückgibt.
 
-    ![Disco Alben Store durchsuchen](aspnet-mvc-4-fundamentals/_static/image30.png "Disco Alben Store durchsuchen")
+    ![Durchsuchen Store Disco Alben](aspnet-mvc-4-fundamentals/_static/image30.png "Disco Alben Store durchsuchen")
 
     *Disco Alben Store durchsuchen*
 
 <a id="Ex6Task6"></a>
 
 <a id="Task_6_-_Displaying_information_About_a_Specific_Album"></a>
-#### <a name="task-6---displaying-information-about-a-specific-album"></a>Aufgabe 6: Anzeigen von Informationen zu bestimmten Album
+#### <a name="task-6---displaying-information-about-a-specific-album"></a>Aufgabe 6: Anzeigen von Informationen über ein bestimmtes Album
 
-In diesem Schritt implementieren Sie die **Store/Detail-** können Sie Informationen zu einem bestimmten Album anzeigen. In dieser praktischen Übungseinheit alles, was Sie über das Album zeigt ist bereits Bestandteil der **Ansicht** Vorlage. In diesem Fall erstellen Sie anstelle einer **StoreDetailsViewModel** -Klasse, verwenden Sie die aktuelle **StoreBrowseViewModel** Vorlage Album an sie übergibt.
+In dieser Aufgabe implementieren Sie die **Store/Details** können Sie Informationen über ein bestimmtes Album anzeigen. In dieser praktischen Übungseinheit alles, was Sie über das Album zeigt ist bereits Bestandteil der **Ansicht** Vorlage. In diesem Fall statt einer **StoreDetailsViewModel** -Klasse, verwenden Sie die aktuelle **StoreBrowseViewModel** Vorlage, die das Album an sie übergibt.
 
-1. Schließen Sie den Browser, die ggf. zu Visual Studio-Fenster zurückzukehren. Fügen Sie einen neuen **Details** anzeigen für die **StoreController**des **Details** Aktionsmethode. Zu diesem Zweck Maustaste die **Details** Methode in der **StoreController** Klasse, und klicken Sie auf **Ansicht hinzufügen**.
-2. In der **Ansicht hinzufügen** Dialogfeld, überprüfen Sie, ob die **Sichtname** ist **Details**. Überprüfen der **eine stark typisierte Ansicht erstellen** Kontrollkästchen, und wählen Sie **Album** aus der **Modellschemas** Dropdownliste aus. Lassen Sie die anderen Felder, die Standardwerte. Klicken Sie anschließend auf **Hinzufügen**. Dies erstellt und öffnet eine **\Views\Store\Details.cshtml** Datei.
+1. Schließen Sie den Browser, die ggf. zu Visual Studio-Fenster zurückzukehren. Fügen Sie einen neuen **Details** anzeigen für die **StoreController**des **Details** Aktionsmethode. Dazu, mit der Maustaste der **Details** -Methode in der die **StoreController** Klasse, und klicken Sie auf **Ansicht hinzufügen**.
+2. In der **Ansicht hinzufügen** Dialogfeld, überprüfen Sie, ob die **Sichtname** ist **Details**. Überprüfen Sie die **eine stark typisierte Ansicht erstellen,** Kontrollkästchen, und wählen Sie **Album** aus der **Modellklasse** Dropdown-Liste. Lassen Sie die anderen Felder auch die Standardwerte. Klicken Sie anschließend auf **Hinzufügen**. Wird erstellt, und öffnen Sie eine **\Views\Store\Details.cshtml** Datei.
 
-    ![Hinzufügen einer Detailansicht](aspnet-mvc-4-fundamentals/_static/image31.png "eine Detailansicht hinzufügen")
+    ![Hinzufügen einer Detailansicht](aspnet-mvc-4-fundamentals/_static/image31.png "Hinzufügen einer Detailansicht")
 
     *Hinzufügen einer Detailansicht*
-3. Ändern der **Details.cshtml** Datei auf dem Album Informationen anzuzeigen, den Zugriff auf die **Album** -Objekt, das an die Ansichtenvorlage übergeben wird. Ersetzen Sie dazu den Inhalt durch Folgendes: (c#)
+3. Ändern der **Details.cshtml** Datei zur Anzeige von Informationen des Albums, den Zugriff auf die **Album** -Objekt, das die ansichtsvorlage übergeben wird. Zu diesem Zweck ersetzen Sie den Inhalt durch Folgendes: (c#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample24.cshtml)]
 
@@ -776,75 +775,75 @@ In diesem Schritt implementieren Sie die **Store/Detail-** können Sie Informati
 <a id="Task_7_-_Running_the_Application"></a>
 #### <a name="task-7---running-the-application"></a>Aufgabe 7: Ausführen der Anwendung
 
-In dieser Aufgabe testen Sie, die die **Details** Sicht Ruft Informationen zu den Album aus der **Details Aktion** Methode.
+In dieser Aufgabe testen Sie, die die **Details** Ansicht abruft Albuminformationen aus der **Details Aktion** Methode.
 
-1. Drücken Sie **F5** um die Anwendung auszuführen.
-2. Das Projekt gestartet wird, der **Home** Seite. Ändern Sie die URL zum **/Store/Details/5** das Album Informationen überprüfen.
+1. Drücken Sie **F5** zum Ausführen der Anwendung.
+2. Das Projekt startet der **Startseite** Seite. Ändern Sie die URL zum **/Store/Details/5** des Albums Informationen überprüfen.
 
-    ![Durchsuchen von Alben Detail](aspnet-mvc-4-fundamentals/_static/image32.png "Alben Detail durchsuchen")
+    ![Durchsuchen Alben Detail](aspnet-mvc-4-fundamentals/_static/image32.png "Alben Detail durchsuchen")
 
-    *Durchsuchen des Albums Detail*
+    *Durchsuchen des Albums-Details*
 
 <a id="Ex6Task8"></a>
 
 <a id="Task_8_-_Adding_Links_Between_Pages"></a>
 #### <a name="task-8---adding-links-between-pages"></a>Aufgabe 8: Hinzufügen von Verknüpfungen zwischen Seiten
 
-In dieser Aufgabe fügen Sie einen Link in der Ansicht speichern, haben einen Link in jedem Namen "Genre" in das entsprechende **/Store/durchsuchen** URL. Wenn Sie z. B. auf eine "Genre", klicken auf diese Weise **Disco**, wird es navigieren Sie zu **/Store/durchsuchen? "Genre" = Disco** URL.
+In dieser Aufgabe fügen Sie einen Link in der Ansicht der Store über einen Link in die Namen aller "Genre" in den entsprechenden **/Store/durchsuchen** URL. Auf diese Weise beim Klicken auf ein Genre, z. B. **Disco**, navigiert er zur **/Store/durchsuchen? Genre = Disco** URL.
 
-1. Schließen Sie den Browser, die ggf. zu Visual Studio-Fenster zurückzukehren. Update der **Index** Seite, um einen Link zum Hinzufügen der **Durchsuchen** Seite. Klicken Sie hierzu in der **Projektmappen-Explorer** erweitern Sie die **Ansichten** Ordner, und dann die **Store** Ordner und doppelklicken Sie auf die **Index.cshtml** Seite.
-2. Fügen Sie einen Link auf die Ansicht durchsuchen, der angibt, die "Genre" ausgewählt. Ersetzen Sie hierzu die folgenden hervorgehobenen Code innerhalb der **&lt;li&gt;** Tags: (c#)
+1. Schließen Sie den Browser, die ggf. zu Visual Studio-Fenster zurückzukehren. Update der **Index** einen Link zum Hinzufügen der **Durchsuchen** Seite. Klicken Sie hierzu in der **Projektmappen-Explorer** erweitern Sie die **Ansichten** Ordner die **Store** Ordner und doppelklicken Sie auf die **"Index.cshtml"** Seite.
+2. Die Ansicht durchsuchen, der angibt, des Genres ausgewählt haben, wird keine Verknüpfung hinzugefügt. Ersetzen Sie hierzu den folgenden hervorgehobenen Code innerhalb der **&lt;li&gt;** Tags: (c#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample25.cshtml)]
 
    > [!NOTE]
-   > ein anderer Ansatz würde direkt auf der Seite mit einem Code wie den folgenden verknüpfen:
+   > ein anderer Ansatz würde direkt auf der Seite mit einem Code wie folgt verknüpft werden:
    > 
-   > &lt;ein Href =&quot;/Store/durchsuchen? "Genre" =@genreName&quot;&gt;@genreName &lt; /a&gt;
+   > &lt;ein Href =&quot;/Store/durchsuchen? Genre =@genreName&quot;&gt;@genreName &lt; /a&gt;
    > 
-   > Obwohl dieser Ansatz funktioniert, hängt es eine hartcodierte Zeichenfolge ein. Wenn Sie später den Controller umbenennen, müssen Sie diese Anweisung manuell ändern. Eine bessere Alternative ist die Verwendung einer **HTML-Hilfsobjekt** Methode. ASP.NET MVC umfasst eine HTML-Hilfsobjekt-Methode die für Aufgaben verfügbar ist. Die **Html.ActionLink()** Hilfsmethode erleichtert das Erstellen von HTML **&lt;eine&gt;** Links, die sicherstellen, dass URL-Pfade sind ordnungsgemäß URL-codiert.
+   > Obwohl dieser Ansatz funktioniert, hängt es eine hartcodierte Zeichenfolge ein. Wenn Sie später den Controller umbenennen, müssen Sie diese Anweisung manuell ändern. Eine bessere Alternative ist die Verwendung einer **HTML-Hilfsobjekt** Methode. ASP.NET MVC umfasst eine HTML-Hilfsobjekt-Methode, die für die Ausführung von Aufgaben verfügbar ist. Die **Html.ActionLink()** Hilfsmethode erleichtert Ihnen die Erstellung von HTML **&lt;eine&gt;** Links, sodass Sie sicher, dass die URL-Pfade sind ordnungsgemäß URL-codiert.
    > 
    > Htlm.ActionLink weist mehrere Überladungen. In dieser Übung werden Sie eine verwenden, die drei Parameter akzeptiert:
    > 
    > 1. Text des Links, der den Namen "Genre" angezeigt wird
-   > 2. Controller Aktionsname (**Durchsuchen**)
-   > 3. Weiterleiten von Parameterwerten, die beide den Namen angeben (**"Genre"**) und dem Wert (**"Genre" Namen**)
+   > 2. Name des Domänencontrollers Aktion (**Durchsuchen**)
+   > 3. Weiterleiten von Parameterwerten, die sowohl den Namen angeben (**"Genre"**) und der Wert (**Name des Genres**)
 
 <a id="Ex6Task9"></a>
 
 <a id="Task_9_-_Running_the_Application"></a>
 #### <a name="task-9---running-the-application"></a>Aufgabe 9: Ausführen der Anwendung
 
-In dieser Aufgabe testen Sie, dass jede "Genre", mit einem Link zu der entsprechenden angezeigt wird **/Store/durchsuchen** URL.
+In dieser Aufgabe testen Sie, dass jedes Genre, mit einem Link zu den entsprechenden angezeigt wird **/Store/durchsuchen** URL.
 
-1. Drücken Sie **F5** um die Anwendung auszuführen.
-2. Das Projekt wird auf der Startseite gestartet. Ändern Sie die URL zum **/speichern** um sicherzustellen, dass jedes Genres an die entsprechende links **/Store/durchsuchen** URL.
+1. Drücken Sie **F5** zum Ausführen der Anwendung.
+2. Das Projekt, die auf der Startseite wird gestartet. Ändern Sie die URL zum **/Store** um sicherzustellen, dass jedes Genres an den entsprechenden links **/Store/durchsuchen** URL.
 
-    ![Durchsuchen von Genres mit Links auf der Seite "Durchsuchen"](aspnet-mvc-4-fundamentals/_static/image33.png "durchsuchen Genres mit Links auf der Seite \"Durchsuchen\"")
+    ![Durchsuchen von Genres mit Links zu der Seite "Durchsuchen"](aspnet-mvc-4-fundamentals/_static/image33.png "Genres durchsuchen, mit Links zu der Seite \"Durchsuchen\"")
 
-    *Durchsuchen von Genres mit Links auf der Seite "Durchsuchen"*
+    *Durchsuchen von Genres mit Links zu der Seite "Durchsuchen"*
 
 <a id="Ex6Task10"></a>
 
 <a id="Task_10_-_Using_Dynamic_ViewModel_Collection_to_Pass_Values"></a>
-#### <a name="task-10---using-dynamic-viewmodel-collection-to-pass-values"></a>Aufgabe 10 - mit dynamischen ViewModel Auflistung zum Übergeben von Werten
+#### <a name="task-10---using-dynamic-viewmodel-collection-to-pass-values"></a>Aufgabe 10 – mit dynamischen ViewModel-Auflistung zum Übergeben der Werte
 
-In dieser Aufgabe erfahren Sie, eine einfache und leistungsstarke Methode zum Übergeben von Werten zwischen dem Controller und die Ansicht, ohne Änderungen im Modell. ASP.NET MVC 4 stellt die Auflistung &quot;ViewModel&quot;, dynamische ausnahmslos zugewiesen und innerhalb der Controller und Ansichten ebenfalls zugegriffen werden können.
+In dieser Aufgabe lernen Sie, eine einfache und leistungsstarke Methode zum Übergeben von Werten zwischen dem Controller und die Ansicht, ohne dass Änderungen im Modell. ASP.NET MVC 4 stellt die Auflistung &quot;"ViewModel"&quot;, die auf einen dynamischen Wert zugewiesen und innerhalb von Controllern und Ansichten ebenfalls aufgerufen werden können.
 
-Verwenden Sie jetzt die ViewBag dynamische Auflistung zum Übergeben von &quot; **mit Stern Genres** &quot; auf dem Controller auf die Ansicht. Die Columnstore-Index-Ansicht wird der Zugriff auf **ViewModel** und die Informationen anzuzeigen.
+Sie verwenden nun die dynamische ViewBag-Auflistung, übergeben eine Liste der &quot; **Sterne erhalten Genres** &quot; vom Controller an die Ansicht. Die Store Indexansicht wird Zugriff auf **"ViewModel"** und die Informationen anzuzeigen.
 
-1. Schließen Sie den Browser, die ggf. zu Visual Studio-Fenster zurückzukehren. Open **StoreController.cs** und Ändern von **Index** Methode zum Erstellen einer Liste von Genres in ViewModel Auflistung markiert:
+1. Schließen Sie den Browser, die ggf. zu Visual Studio-Fenster zurückzukehren. Open **StoreController.cs** und Ändern von **Index** Methode zum Erstellen einer Liste der Sterne Genres in ViewModel-Auflistung erhalten:
 
     [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample26.cs)]
 
     > [!NOTE]
-    > Sie können auch die Syntax **ViewBag [&quot;Starred&quot;]** Zugriff auf die Eigenschaften.
-2. Das Sternsymbol **&quot;starred.png&quot;** dient in der **Source\Assets\Images** Ordner dieser Anleitung. Um die Anwendung hinzugefügt haben, ziehen Sie ihren Inhalt aus einem **Windows Explorer** Fenster in der **Projektmappen-Explorer** in Visual Web Developer Express, wie unten dargestellt:
+    > Außerdem können Sie die Syntax **"ViewBag" [&quot;Starred&quot;]** auf die Eigenschaften zugreifen.
+2. Das Sternsymbol **&quot;starred.png&quot;** befindet sich auf die **Source\Assets\Images** Ordner dieser Anleitung. Um sie an die Anwendung hinzuzufügen, ziehen Sie in ihrer Inhalte mit einem **Windows Explorer** Einblick in die **Projektmappen-Explorer** in Visual Web Developer Express, wie unten dargestellt:
 
-    ![Stern Bild hinzufügen, der Projektmappe](aspnet-mvc-4-fundamentals/_static/image34.png "Stern Bild der Projektmappe hinzufügen")
+    ![Stern Image hinzufügen, mit der Lösung](aspnet-mvc-4-fundamentals/_static/image34.png "Stern Image hinzufügen, mit der Lösung")
 
-    *Stern Bild hinzufügen zur Projektmappe*
-3. Öffnen Sie die Ansicht **Store/Index.cshtml** und ändern Sie den Inhalt. Sie liest die &quot;mit Stern&quot; Eigenschaft in der **ViewBag** -Auflistung, und gefragt, ob der Name der aktuellen "Genre" in der Liste befindet. In diesem Fall zeigt das einem Sternsymbol rechts auf den Link "Genre".
+    *Stern Image Hinzufügen zur Projektmappe*
+3. Öffnen Sie die Ansicht **Store/Index.cshtml** und ändern Sie den Inhalt. Sie liest die &quot;Sterne erhalten&quot; -Eigenschaft in der **"ViewBag"** -Auflistung, und bitten Sie den Namen des aktuellen "Genre" in der Liste ist. In diesem Fall werden Sie einem Sternsymbol direkt auf den Link "Genre" angezeigt.
    (C#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample27.cshtml)]
@@ -854,101 +853,101 @@ Verwenden Sie jetzt die ViewBag dynamische Auflistung zum Übergeben von &quot; 
 <a id="Task_11_-_Running_the_Application"></a>
 #### <a name="task-11---running-the-application"></a>Aufgabe 11: Ausführen der Anwendung
 
-In dieser Aufgabe testen Sie, dass die mit Sternchen Genres einem Sternsymbol angezeigt.
+In dieser Aufgabe testen Sie, dass die mit Sternen versehenen Genres einem Sternsymbol angezeigt.
 
-1. Drücken Sie **F5** um die Anwendung auszuführen.
-2. Das Projekt gestartet wird, der **Home** Seite. Ändern Sie die URL zum **/speichern** überprüfen, ob jede ausgewählte "Genre" respektieren Bezeichnung verfügt:
+1. Drücken Sie **F5** zum Ausführen der Anwendung.
+2. Das Projekt startet der **Startseite** Seite. Ändern Sie die URL zum **/Store** um sicherzustellen, dass jedes ausgewählte Genre die respektieren Bezeichnung aufweist:
 
-    ![Durchsuchen von Genres mit Elementen mit Sternchen](aspnet-mvc-4-fundamentals/_static/image35.png "Genres mit Elementen mit Sternchen durchsuchen")
+    ![Durchsuchen von Genres mit Sternen versehenen Elemente](aspnet-mvc-4-fundamentals/_static/image35.png "Genres mit Sternen versehenen Elemente durchsuchen")
 
-    *Durchsuchen von Genres mit mit Sternchen Elementen*
+    *Durchsuchen von Genres mit Sternen versehenen Elemente*
 
 <a id="Exercise7"></a>
 
 <a id="Exercise_7_A_lap_around_ASPNET_MVC_4_new_template"></a>
-### <a name="exercise-7-a-lap-around-aspnet-mvc-4-new-template"></a>Übung 7: Lap um neue ASP.NET MVC 4-Vorlage
+### <a name="exercise-7-a-lap-around-aspnet-mvc-4-new-template"></a>Übung 7: Eine Tour durch neue ASP.NET MVC 4-Vorlage
 
-In dieser Übung untersuchen Sie die hier enthaltenen Erweiterungen der ASP.NET MVC 4-Projektvorlagen erstellen einem Blick die wichtigsten Features der neuen Vorlage.
+In dieser Übung untersuchen Sie die Verbesserungen in den ASP.NET MVC 4-Projektvorlagen, Blick auf die wichtigsten Features der neuen Vorlage.
 
 <a id="Ex7Task1"></a>
 
 <a id="Task_1_Exploring_the_ASPNET_MVC_4_Internet_Application_Template"></a>
-#### <a name="task-1-exploring-the-aspnet-mvc-4-internet-application-template"></a>Aufgabe 1: Untersuchen der ASP.NET MVC 4 Internet Application-Vorlage
+#### <a name="task-1-exploring-the-aspnet-mvc-4-internet-application-template"></a>Aufgabe 1: Untersuchen der Internetanwendungsvorlage in ASP.NET MVC 4
 
 1. Wenn nicht bereits geöffnet ist, starten Sie **Visual Studio Express für Web**
-2. Wählen Sie die **Datei | Neue | Projekt** Menübefehl. In der **neues Projekt** wählen Sie im Dialogfeld die **Visual C# | Web** Vorlage auf der linken Struktur, und wählen Sie die **ASP.NET MVC 4-Webanwendung**. **Namen** des Projekts *MusicStore* und Aktualisieren der **Projektmappenname** auf *beginnen*, dann wählen Sie einen Speicherort (oder übernehmen Sie den Standardwert), und klicken Sie auf **OK** .
+2. Wählen Sie die **Datei | Neue | Projekt** Menübefehl. In der **neues Projekt** wählen Sie im Dialogfeld die **Visual c# | Web** Vorlage auf der linken Struktur, und wählen Sie die **ASP.NET MVC 4-Webanwendung**. **Namen** des Projekts *Music Store* und aktualisieren Sie die **Projektmappenname** zu *beginnen*, und wählen Sie einen Standort (oder übernehmen Sie den Standardwert), und klicken Sie auf **OK** .
 
     ![Erstellen ein neues ASP.NET MVC 4-Projekt](aspnet-mvc-4-fundamentals/_static/image36.png "erstellen ein neues ASP.NET MVC 4-Projekt")
 
     *Erstellen ein neues ASP.NET MVC 4-Projekt*
-3. In der **neues ASP.NET MVC 4-Projekt** wählen Sie im Dialogfeld die **Internetanwendung** -Projektvorlage, und klicken Sie auf **OK**. Beachten Sie, dass Sie das Ansichtsmodul Razor oder ASPX auswählen können.
+3. In der **neues ASP.NET MVC 4-Projekt** wählen Sie im Dialogfeld die **Internetanwendung** Projektvorlage aus, und klicken Sie auf **OK**. Beachten Sie, dass Sie Razor oder ASPX als Ansichtsmodul auswählen können.
 
     ![Erstellen einer neuen ASP.NET MVC 4 Internetanwendung](aspnet-mvc-4-fundamentals/_static/image37.png "Erstellen einer neuen ASP.NET MVC 4 Internet-Anwendung")
 
     *Erstellen einer neuen ASP.NET MVC 4 Internet-Anwendung*
 
     > [!NOTE]
-    > Razor-Syntax wurde in ASP.NET MVC 3 eingeführt. Das Ziel besteht darin, die Anzahl von Zeichen und Tastatureingaben in einer Datei erforderlich, eine schnelle und Fluid Codierung Workflow aktivieren zu minimieren. Razor nutzt die vorhandenen C#/VB (oder andere) Sprachkenntnisse und übermittelt Sie eine Vorlage Markup-Syntax, die einen awesome HTML-Konstruktion-Workflow ermöglicht.
-4. Drücken Sie **F5** führen Sie die Projektmappe, und die erneuerte Vorlage angezeigt. Sie können die folgenden Funktionen Auschecken:
+    > Razor-Syntax wurde in ASP.NET MVC 3 eingeführt wurde. Das Ziel ist, die die Anzahl von Zeichen und Tastaturanschläge erforderlich sind in einer Datei, und Aktivieren einer schnell und fließend, die Codierung von Workflows zu minimieren. Razor nutzt die vorhandenen C#/VB (oder andere) Fähigkeiten und bietet eine Vorlage Markupsyntax, die einen tollen HTML-Konstruktion Workflow ermöglicht.
+4. Drücken Sie **F5** führen Sie die Projektmappe, und finden in der Vorlage erneuerten. Sie können Sie die folgenden Features überprüfen:
 
-    1. **Modernes Vorlagen**
+    1. **Modernes-Vorlagen**
 
-        Die Vorlagen haben erneuert wurde, mehr Modern aussehende Arten bereitstellen.
+        Die Vorlagen haben erneuert wurde, weitere Modern aussehende Formate bereitstellt.
 
-        ![Vorlagen für ASP.NET MVC 4 restyled](aspnet-mvc-4-fundamentals/_static/image38.png "ASP.NET MVC 4 restyled Vorlagen")
+        ![Vorlagen für ASP.NET MVC 4 neu gestaltet](aspnet-mvc-4-fundamentals/_static/image38.png "neu gestaltet Vorlagen von ASP.NET MVC 4")
 
-        *ASP.NET MVC 4 restyled Vorlagen*
-    2. **Adaptives Rendering**
+        *Vorlagen für ASP.NET MVC 4 neu gestaltet*
+    2. **Adaptive Rendering**
 
-        Sehen Sie sich die Größe des Browserfensters, und beachten Sie, wie das Seitenlayout dynamisch an die Größe des neuen Fensters anpasst. Diese Vorlagen mithilfe der adaptiven Renderingtechnik um ordnungsgemäß auf Desktop- und mobile Plattformen ohne Anpassung zu rendern.
+        Sehen Sie sich die Größe des Browserfensters, und beachten Sie, wie das Seitenlayout passen diese dynamisch auf die neue Fenstergröße an. Diese Vorlagen mithilfe der adaptiven Renderingtechnik um Desktop- und mobile Plattformen ohne Anpassung ordnungsgemäß zu rendern.
 
-        ![ASP.NET MVC 4-Projektvorlage in anderen Browser Größen](aspnet-mvc-4-fundamentals/_static/image39.png "ASP.NET MVC 4-Projektvorlage in anderen Browser Größen")
+        ![ASP.NET MVC 4-Projektvorlage in Größen von anderen Browser](aspnet-mvc-4-fundamentals/_static/image39.png "ASP.NET MVC 4-Projektvorlage in Größen von anderen Browser.")
 
-        *ASP.NET MVC 4-Projektvorlage in anderen Browser Größen*
+        *ASP.NET MVC 4-Projektvorlage in Größen von anderen Browser.*
 5. Schließen Sie den Browser, um den Debugger beenden und zurück zu Visual Studio.
-6. Nun können Sie in der Lage, untersuchen die Projektmappe, und sehen Sie sich einige der neuen Funktionen, die in der Projektvorlage von ASP.NET MVC 4 eingeführt.
+6. Jetzt können Sie in der Lage, untersuchen die Projektmappe, und sehen sich die neuen Funktionen in der Projektvorlage von ASP.NET MVC 4.
 
-    ![ASP.NET MVC 4-Internet-Anwendung –--Projektvorlage](aspnet-mvc-4-fundamentals/_static/image40.png "der Projektvorlage Internet ASP.NET MVC 4")
+    ![ASP.NET MVC4-Internet-Anwendung--Projektvorlage](aspnet-mvc-4-fundamentals/_static/image40.png "der Projekt Internetanwendungsvorlage in ASP.NET MVC 4")
 
-    *Die ASP.NET MVC 4 Internet Application-Projektvorlage*
+    *Der Projekt Internetanwendungsvorlage in ASP.NET MVC 4*
 
    1. **HTML5-markup**
 
-       Durchsuchen Sie die Ansichten der Vorlagen so ermitteln Sie das neue Design Markup, z. B. open **About.cshtml** in anzeigen **Home** Ordner.
+       Vorlage-Ansichten, um zu ermitteln, das neue Design Markup, z. B. open suchen **"About.cshtml"** anzeigen in **Startseite** Ordner.
 
-       ![Neue Vorlage für die Verwendung von Razor und HTML5-Markups](aspnet-mvc-4-fundamentals/_static/image41.png "neue Vorlage für die Verwendung von Razor und HTML5-Markups")
+       ![Neue Vorlage für die Verwendung von Razor und HTML5-Markup](aspnet-mvc-4-fundamentals/_static/image41.png "neue Vorlage für die Verwendung von Razor und HTML5-Markup")
 
-       *Neue Vorlage für die Verwendung von Razor und HTML5-Markups*
+       *Neue Vorlage für die Verwendung von Razor und HTML5-markup*
    2. **JavaScript-Bibliotheken enthalten**
 
-      1. **jQuery**: jQuery vereinfacht die HTML-Dokument durchlaufen, Ereignisbehandlung, Animation und Ajax-Aktivitäten.
-      2. **jQuery UI**: Diese Bibliothek bietet Abstraktionen für die Low-Level-Interaktion und Animation, erweiterte Auswirkungen und Design beeinflusst Widgets, baut auf dem jQuery JavaScript-Bibliothek.
+      1. **jQuery**: jQuery vereinfacht die HTML-Dokument durchlaufen, Ereignisbehandlung, Animation und Ajax-Interaktionen.
+      2. **jQuery UI**: Diese Bibliothek bietet Abstraktionen für die Low-Level-Interaktion und Animationen, Erweiterte Effekte und Design beeinflusst Widgets, baut auf die jQuery-Bibliothek für JavaScript.
 
          > [!NOTE]
-         > Sie können erfahren, jQuery und jQuery UI in [ [ http://docs.jquery.com/ ](http://docs.jquery.com/) ](http://docs.jquery.com/).
-      3. **KnockoutJS**: der ASP.NET MVC 4-Standardvorlage enthält jetzt **KnockoutJS**, ein MVVM JavaScript-Framework, das umfangreiche und extrem reaktionsschnellen Webanwendungen, die mit JavaScript und HTML erstellen kann. Wie werden in ASP.NET MVC 3, jQuery und jQuery UI-Bibliotheken ebenfalls in ASP.NET MVC 4 enthalten.
+         > Sie erfahren, jQuery und jQuery UI in [ [ http://docs.jquery.com/ ](http://docs.jquery.com/) ](http://docs.jquery.com/).
+      3. **KnockoutJS**: die ASP.NET MVC 4-Standardvorlage enthält jetzt **KnockoutJS**, ein JavaScript-MVVM-Framework, das Sie umfassende und reaktionsschnelle Web-Anwendungen, die mit JavaScript und HTML-Elemente erstellen kann. Wie sind in ASP.NET MVC 3, jQuery und jQuery UI-Bibliotheken ebenfalls in ASP.NET MVC 4 enthalten.
 
           > [!NOTE]
-          > Sie erhalten weitere Informationen zur KnockOutJS Library unter diesem Link: [ http://learn.knockoutjs.com/ ](http://learn.knockoutjs.com/).
-      4. **Modernizr**: Diese Bibliothek automatisch ausgeführt, macht Ihre Website mit älteren Browsern kompatibel, bei Verwendung von HTML5- und CSS3-Technologien.
+          > Erhalten Sie weitere Informationen zur KnockOutJS-Bibliothek unter diesem Link: [ http://learn.knockoutjs.com/ ](http://learn.knockoutjs.com/).
+      4. **Modernizr**: Diese Bibliothek automatisch ausgeführt, Ihre Website kompatibel mit älteren Browsern HTML5 und CSS3-Technologien mit herstellen.
 
           > [!NOTE]
-          > Sie erhalten weitere Informationen zu Modernizr-Bibliothek unter diesem Link: [ http://www.modernizr.com/ ](http://www.modernizr.com/).
-   3. **In der Projektmappe enthaltenen SimpleMembership**
+          > Erhalten Sie weitere Informationen zu Modernizr-Bibliothek unter diesem Link: [ http://www.modernizr.com/ ](http://www.modernizr.com/).
+   3. **In der Projektmappe enthalten SimpleMembership**
 
-       SimpleMembership wurde als Ersatz für das vorherige ASP.NET Rollen- und Mitgliedschaftseinstellungen anbietersystem entwickelt. Er verfügt über viele neue Features, die für den Entwickler sichere Webseiten in ein flexibleres erleichtern.
+       SimpleMembership wurde als Ersatz für das vorherige ASP.NET Rollen- und Mitgliedschaftseinstellungen anbietersystem entwickelt. Es verfügt über viele neue Features, die für den Entwickler sichere Webseiten auf eine flexiblere Art und Weise zu vereinfachen.
 
-       Die Internet-Vorlage bereits eingerichtet hat einige Punkte, die SimpleMembership integrieren, z. B. die AccountController OAuthWebSecurity (für OAuth kontoregistrierung, Login, Verwaltung, usw.) und -Websicherheit verwenden vorbereitet wird.
+       Die Internet-Vorlage hat bereits ein paar Dinge SimpleMembership integrieren festgelegt ist, z. B. AccountController-Komponente wird vorbereitet "oauthwebsecurity" (für OAuth-kontoregistrierung "," Login "," Verwaltung "," usw. ") und Internet-Sicherheit verwenden.
 
-       ![SimpleMembership in der Projektmappe enthaltenen](aspnet-mvc-4-fundamentals/_static/image42.png "SimpleMembership in der Projektmappe enthaltenen")
+       ![SimpleMembership in der Projektmappe enthalten](aspnet-mvc-4-fundamentals/_static/image42.png "SimpleMembership in der Projektmappe enthalten.")
 
-       *SimpleMembership in der Projektmappe enthaltenen*
+       *SimpleMembership in der Projektmappe enthalten.*
 
        > [!NOTE]
-       > Weitere Informationen finden Sie Informationen zu [OAuthWebSecurity](https://msdn.microsoft.com/library/jj158393(v=vs.111).aspx) in MSDN.
+       > Weitere Informationen finden Sie Informationen zu ["oauthwebsecurity"](https://msdn.microsoft.com/library/jj158393(v=vs.111).aspx) in MSDN.
 
 > [!NOTE]
-> Darüber hinaus können Sie die Bereitstellung dieser Anwendung, die Windows Azure-Websites folgenden [Anhang B: Veröffentlichen einer ASP.NET MVC 4-Anwendung mithilfe von Web Deploy](#AppendixB).
+> Darüber hinaus können Sie diese Anwendung für Windows Azure-Websites Folgendes bereitstellen [Anhang B: Veröffentlichen einer ASP.NET MVC 4-Anwendung mit Web Deploy](#AppendixB).
 
 
 * * *
@@ -958,49 +957,49 @@ In dieser Übung untersuchen Sie die hier enthaltenen Erweiterungen der ASP.NET 
 <a id="Summary"></a>
 ## <a name="summary"></a>Zusammenfassung
 
-Durch diese praktische Übungseinheit haben Sie gelernt, dass die Grundlagen von ASP.NET MVC:
+Von dieser praktischen Übungseinheit haben Sie die Grundlagen von ASP.NET MVC gelernt:
 
-- Kernelemente des MVC-Anwendung und ihre Interaktion
+- Die Kernelemente einer MVC-Anwendung und deren Interaktion
 - Vorgehensweise: Erstellen einer ASP.NET MVC-Anwendung
-- Zum Hinzufügen und Konfigurieren von Domänencontrollern, um Parameter zu behandeln, übergeben die URL und Abfragezeichenfolge
-- Zum Hinzufügen einer Layoutseite master zum Einrichten einer Vorlage für allgemeine HTML-Inhalt, ein StyleSheet, um das Aussehen und Verhalten und Ansichtenvorlage zum Anzeigen von HTML-Inhalte zu verbessern
-- Wie das ViewModel-Muster zur Weitergabe der Eigenschaften der Vorlage anzeigen dynamischer Informationen anzuzeigen
-- Verwendung von Parametern übergeben auf Domänencontroller in der Vorlage anzeigen
-- Zum Hinzufügen von Links zu Seiten in der ASP.NET MVC-Anwendung
-- Gewusst wie: Hinzufügen und Verwenden von dynamischen Eigenschaften in einer Ansicht
+- Das Hinzufügen und Konfigurieren von Controllern zum Verarbeiten von Parametern übergeben wird, über die URL und Abfragezeichenfolge
+- Gewusst wie: hinzufügen eine Masterseite "Layout" zum Einrichten einer Vorlage für allgemeine HTML-Inhalt, ein StyleSheet, um das Aussehen und Verhalten und eine ansichtsvorlage zum Anzeigen von HTML-Inhalten zu verbessern
+- Gewusst wie: Verwenden Sie das ViewModel-Muster für die Übergabe von Eigenschaften an die ansichtsvorlage zum Anzeigen dynamischer Informationen
+- Verwendung von Parametern an Controller übergeben werden, in der Vorlage anzeigen
+- Gewusst wie: Hinzufügen von Links zu Seiten, die in der ASP.NET MVC-Anwendung
+- Das Hinzufügen und Verwenden von dynamischen Eigenschaften in einer Sicht
 - Die Verbesserungen in ASP.NET MVC 4-Projektvorlagen
 
 <a id="AppendixA"></a>
 
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
-## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Anhang A: Installieren von Visual Studio Express 2012 für das Web
+## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Anhang A: Installieren von Visual Studio Express 2012 für Web
 
-Sie installieren können **Microsoft Visual Studio Express 2012 für das Web** oder ein anderes &quot;Express&quot; Version mithilfe der **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)**. Die folgenden Anweisungen führen Sie durch die erforderlichen Schritte zum Installieren *Visual Studio Express 2012 für das Web* mit *Microsoft Web Platform Installer*.
+Sie installieren können **Microsoft Visual Studio Express 2012 für Web** oder einem anderen &quot;Express&quot; Version verwenden, die **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)**. Die folgenden Anweisungen führen Sie über die erforderlichen Schritte zum Installieren *Visual Studio Express 2012 für Web* mit *Microsoft Web Platform Installer*.
 
-1. Wechseln Sie zu [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Auch wenn Sie bereits Webplattform-Installer installiert haben, können Sie öffnen es, und suchen Sie nach dem Produkt &quot; <em>Visual Studio Express 2012 für das Web mit Windows Azure SDK</em>&quot;.
-2. Klicken Sie auf **jetzt installieren**. Wenn Sie keine **Webplattform-Installer** Sie Informationen zum Herunterladen und installieren Sie diese zuerst umgeleitet werden.
+1. Wechseln Sie zu [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Auch wenn Sie bereits Webplattform-Installer installiert haben, können Sie öffnen ihn, und suchen Sie nach dem Produkt &quot; <em>Visual Studio Express 2012 für das Web mit Windows Azure SDK</em>&quot;.
+2. Klicken Sie auf **jetzt installieren**. Wenn Sie keine **Webplattform-Installer** gelangen Sie zum Herunterladen und installieren Sie diese zuerst.
 3. Einmal **Webplattform-Installer** geöffnet ist, klicken Sie auf **installieren** um das Setup zu starten.
 
-    ![Visual Studio Express installieren](aspnet-mvc-4-fundamentals/_static/image43.png "Visual Studio Express installieren")
+    ![Installieren von Visual Studio Express](aspnet-mvc-4-fundamentals/_static/image43.png "Installieren von Visual Studio Express")
 
-    *Installieren Sie Visual Studio Express*
-4. Lesen Sie die Produkte, Lizenzen und Begriffe, und klicken Sie auf **ich stimme** um den Vorgang fortzusetzen.
+    *Installieren von Visual Studio Express*
+4. Lesen Sie die Produkte Lizenzen und Begriffe, und klicken Sie auf **akzeptieren** um den Vorgang fortzusetzen.
 
     ![Akzeptieren der Lizenzbedingungen](aspnet-mvc-4-fundamentals/_static/image44.png)
 
     *Akzeptieren der Lizenzbedingungen*
-5. Warten Sie, bis der Prozess herunterladen und die Installation abgeschlossen ist.
+5. Warten Sie, bis der Prozess zum Herunterladen und die Installation abgeschlossen ist.
 
     ![Installationsstatus](aspnet-mvc-4-fundamentals/_static/image45.png)
 
     *Installationsstatus*
-6. Nach Abschluss der Installation klicken Sie auf **Fertig stellen**.
+6. Wenn die Installation abgeschlossen ist, klicken Sie auf **Fertig stellen**.
 
-    ![Installation wurde abgeschlossen](aspnet-mvc-4-fundamentals/_static/image46.png)
+    ![Die Installation wurde abgeschlossen](aspnet-mvc-4-fundamentals/_static/image46.png)
 
-    *Installation wurde abgeschlossen*
+    *Die Installation wurde abgeschlossen*
 7. Klicken Sie auf **beenden** Webplattform-Installer zu schließen.
-8. Um Visual Studio Express für Web zu öffnen, wechseln Sie zu der **starten** Startseite ein, und starten Sie das Schreiben von &quot; **Visual Studio Express**&quot;, klicken Sie dann auf die **Visual Studio Express für Web** Kachel.
+8. Um Visual Studio Express für Web zu öffnen, wechseln Sie zu der **starten** schreiben zu starten und Bildschirm &quot; **VS Express**&quot;, klicken Sie dann auf die **Visual Studio Express für Web** die Kachel.
 
     ![Visual Studio Express für Web-Kachel](aspnet-mvc-4-fundamentals/_static/image47.png)
 
@@ -1009,9 +1008,9 @@ Sie installieren können **Microsoft Visual Studio Express 2012 für das Web** o
 <a id="AppendixB"></a>
 
 <a id="Appendix_B_Publishing_an_ASPNET_MVC_4_Application_using_Web_Deploy"></a>
-## <a name="appendix-b-publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>Anhang B: Veröffentlichen einer ASP.NET MVC 4-Anwendung mithilfe von Web Deploy
+## <a name="appendix-b-publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>Anhang B: Veröffentlichen einer ASP.NET MVC 4-Anwendung mit Web Deploy
 
-In diesem Anhang wird gezeigt, wie eine neue Website aus dem Windows Azure-Verwaltungsportal erstellen und veröffentlichen Sie die Anwendung, die Sie erhalten haben anhand der testumgebung profitieren von der Web Deploy Veröffentlichungsfunktion von Windows Azure bereitgestellt werden.
+In diesem Anhang wird veranschaulicht, wie erstellen eine neue Website aus dem Windows Azure-Verwaltungsportal, und Veröffentlichen der Anwendung, die Sie erhalten haben, indem der testumgebung können die Nutzung der Web Deploy-publishing-Funktion von Windows Azure bereitgestellte.
 
 <a id="ApxBTask1"></a>
 
@@ -1021,28 +1020,28 @@ In diesem Anhang wird gezeigt, wie eine neue Website aus dem Windows Azure-Verwa
 1. Wechseln Sie zu der [Windows Azure-Verwaltungsportal](https://manage.windowsazure.com/) und melden Sie sich mit den Microsoft-Anmeldeinformationen, die Ihrem Abonnement zugeordnet.
 
     > [!NOTE]
-    > Sie können mit Windows Azure hosten 10 ASP.NET-Websites kostenlos und skalieren Sie, wenn Ihr Datenverkehr zunimmt. Sie können registrieren [hier](http://aka.ms/aspnet-hol-azure).
+    > Mit Windows Azure können Sie 10 ASP.NET-Websites kostenlos hosten und dann zu skalieren, wenn Ihr Datenverkehr zunimmt. Sie können registrieren [hier](http://aka.ms/aspnet-hol-azure).
 
     ![Melden Sie sich bei Windows Azure-Portal](aspnet-mvc-4-fundamentals/_static/image48.png "melden Sie sich bei Windows Azure-Portal")
 
     *Melden Sie sich bei Windows Azure-Verwaltungsportal*
-2. Klicken Sie auf **neu** in der Befehlszeile.
+2. Klicken Sie auf **neu** auf der Befehlsleiste.
 
     ![Erstellen einer neuen Website](aspnet-mvc-4-fundamentals/_static/image49.png "Erstellen einer neuen Website")
 
     *Erstellen einer neuen Website*
-3. Klicken Sie auf **berechnen** | **Website**. Wählen Sie dann **Schnellerfassung** Option. Verfügbare URL für die neue Website bereitstellen, und klicken Sie auf **Website erstellen**.
+3. Klicken Sie auf **Compute** | **Website**. Wählen Sie dann **Schnellerfassung** Option. Geben Sie eine verfügbare URL für die neue Website, und klicken Sie auf **Website erstellen**.
 
     > [!NOTE]
-    > Eine Windows Azure-Website ist der Host für eine Webanwendung, die ausgeführt wird, in der Cloud, die Sie steuern und verwalten können. Die Option Schnellerfassung können Sie eine vollständige Webanwendung, die Windows Azure-Website von außerhalb des Portals bereitstellen. Es umfasst nicht die Schritte zum Einrichten einer Datenbank.
+    > Ein Windows Azure-Website ist der Host für eine Webanwendung, die in der Cloud, die Sie steuern und verwalten können. Die Option "Schnellerfassung" können Sie eine vollständige Webanwendung auf dem Windows Azure-Website von außerhalb des Portals bereitstellen. Er umfasst keine Informationen zum Einrichten einer Datenbank.
 
-    ![Erstellen eine neue Website, die mit der Schnellerfassung](aspnet-mvc-4-fundamentals/_static/image50.png "erstellen eine neue Website, die mit der Schnellerfassung")
+    ![Erstellen einer neuen Website mithilfe der Schnellerfassung](aspnet-mvc-4-fundamentals/_static/image50.png "Erstellen einer neuen Website mithilfe der Schnellerfassung")
 
-    *Erstellen eine neue Website, die mit der Schnellerfassung*
-4. Warten Sie, bis die neue **Website** wird erstellt.
-5. Nachdem die Website erstellt wurde, klicken Sie auf den Link unter der **URL** Spalte. Überprüfen Sie, dass die neue Website funktioniert.
+    *Erstellen einer neuen Website mithilfe der Schnellerfassung*
+4. Warten Sie, bis die neue **Website** erstellt wird.
+5. Nachdem die Website erstellt wurde, klicken Sie auf den Link unter der **URL** Spalte. Überprüfen Sie, dass die neue Website ausgeführt wird.
 
-    ![Um die neue Website durchsuchen](aspnet-mvc-4-fundamentals/_static/image51.png "durchsuchen, um die neue Website")
+    ![Navigieren zu der neuen Website](aspnet-mvc-4-fundamentals/_static/image51.png "auf die neue Website durchsuchen")
 
     *Um die neue Website durchsuchen*
 
@@ -1054,15 +1053,15 @@ In diesem Anhang wird gezeigt, wie eine neue Website aus dem Windows Azure-Verwa
     ![Öffnen die Website-Verwaltungsseiten](aspnet-mvc-4-fundamentals/_static/image53.png "öffnen die Website-Verwaltungsseiten")
 
     *Öffnen die Website-Verwaltungsseiten*
-7. In der **Dashboard** Seite der **kurzer Blick** auf die **Herunterladen eines Veröffentlichungsprofils** Link.
+7. In der **Dashboard** Seite die **Blick** auf die **Veröffentlichungsprofil herunterladen** Link.
 
     > [!NOTE]
-    > Die *Veröffentlichungsprofil* enthält alle Informationen zum Veröffentlichen einer Webanwendung in einer Windows Azure-Website für die einzelnen aktivierten Veröffentlichungsmethoden erforderlich sind. Das Veröffentlichungsprofil enthält die URLs, Benutzeranmeldeinformationen und datenbankzeichenfolgen, die erforderlich sind, eine Verbindung herstellen und die Authentifizierung für alle Endpunkte für die eine Veröffentlichungsmethode aktiviert ist. **Microsoft WebMatrix 2**, **Microsoft Visual Studio Express für Web** und **Microsoft Visual Studio 2012** Unterstützung beim Lesen von veröffentlichungsprofilen zum Automatisieren der Konfiguration dieser Programme für Veröffentlichung von Webanwendungen auf Windows Azure-Websites.
+    > Die *Veröffentlichungsprofil* enthält alle Informationen zum Veröffentlichen einer Webanwendung in einer Windows Azure-Website für die einzelnen aktivierten Veröffentlichungsmethoden erforderlich sind. Das Veröffentlichungsprofil enthält die URLs, Benutzeranmeldeinformationen und datenbankzeichenfolgen, die zum Herstellen einer Verbindung mit und die Authentifizierung bei jedem der Endpunkte für die eine Veröffentlichungsmethode aktiviert ist. **Microsoft WebMatrix 2**, **Microsoft Visual Studio Express für Web** und **Microsoft Visual Studio 2012** Unterstützung, die beim Lesen von veröffentlichungsprofilen Automatisieren der Konfiguration von diesen Programmen Veröffentlichung von Webanwendungen in Windows Azure-Websites.
 
-    ![Herunterladen der Website-Veröffentlichungsprofil](aspnet-mvc-4-fundamentals/_static/image54.png "der Website herunterladen eines Veröffentlichungsprofils")
+    ![Herunterladen der Website-Veröffentlichungsprofil](aspnet-mvc-4-fundamentals/_static/image54.png "herunterladen den Website-Veröffentlichungsprofil")
 
-    *Die Website herunterladen eines Veröffentlichungsprofils*
-8. Laden Sie das Veröffentlichungsprofil an einem bekannten Speicherort ein. In dieser Übung wird weiter Gewusst wie: Verwenden Sie diese Datei zum Veröffentlichen einer Webanwendung auf einem Windows Azure-Websites in Visual Studio angezeigt.
+    *Herunterladen der Website-Veröffentlichungsprofil*
+8. Laden Sie das Veröffentlichungsprofil an einem bekannten Speicherort herunter. In dieser Übung wird weiter wie Sie diese Datei verwenden, um das Veröffentlichen einer Webanwendung auf einem Windows Azure-Websites in Visual Studio angezeigt.
 
     ![Speichern das Veröffentlichungsprofil](aspnet-mvc-4-fundamentals/_static/image55.png "speichern das Veröffentlichungsprofil")
 
@@ -1071,21 +1070,21 @@ In diesem Anhang wird gezeigt, wie eine neue Website aus dem Windows Azure-Verwa
 <a id="ApxBTask2"></a>
 
 <a id="Task_2_-_Configuring_the_Database_Server"></a>
-#### <a name="task-2---configuring-the-database-server"></a>Aufgabe 2: konfigurieren den Datenbankserver
+#### <a name="task-2---configuring-the-database-server"></a>Aufgabe 2: Konfigurieren des Datenbank-Servers
 
-Wenn die Anwendung durchführt, verwenden Sie SQL Server Datenbanken Sie einen SQL-Datenbankserver erstellen müssen. Wenn eine einfache Anwendung bereitstellen, die keine SQL Server verwendet werden sollen, können Sie diese Aufgabe überspringen.
+Wenn Ihre Anwendung nutzt SQL Server Datenbanken, die Sie zum Erstellen eines SQL-Datenbank-Servers benötigen. Wenn zum Bereitstellen einer einfachen Anwendung, die keine SQL Server verwendet werden sollen, können Sie diese Aufgabe überspringen.
 
-1. Sie benötigen einen SQL-Datenbankserver zum Speichern der Anwendungsdatenbank. Sehen Sie die SQL-Datenbankservern über Ihr Abonnement in Windows Azure-Verwaltungsportal am **Sql-Datenbanken** | **Server** | **des Servers Dashboard**. Wenn Sie keinen Server erstellt haben, können Sie erstellen, mit der **hinzufügen** auf der Befehlsleiste auf die Schaltfläche. Notieren Sie die **Servername und -URL, Administrator-Benutzername und Kennwort**, wie Sie sie in den nächsten Aufgaben verwenden. Erstellen Sie die Datenbank nicht noch, wie er in einer späteren Phase erstellt wird.
+1. Sie benötigen einen SQL-Datenbank-Server zum Speichern der Datenbank. Sehen Sie die SQL-Datenbank-Server aus Ihrem Abonnement in das Windows Azure-Verwaltungsportal unter **Sql-Datenbanken** | **Server** | **des Servers Dashboard**. Wenn Sie nicht mit eine Server-Instanz verfügen, können Sie erstellen, mithilfe der **hinzufügen** auf der Befehlsleiste auf die Schaltfläche. Notieren Sie sich die **Servername und -URL, Administrator-Anmeldenamen und Kennwort**, wie Sie sie in den nächsten Aufgaben verwenden. Erstellen Sie die Datenbank nicht noch, wie es in einem späteren Zeitpunkt erstellt wird.
 
-    ![SQL-Datenbank-Dashboard](aspnet-mvc-4-fundamentals/_static/image56.png "SQL-Datenbank-Dashboard")
+    ![SQL Server-Datenbank-Dashboard](aspnet-mvc-4-fundamentals/_static/image56.png "Dashboard der SQL-Datenbank-Server")
 
-    *SQL-Datenbank-Dashboard*
-2. In der nächsten Aufgabe testen Sie die Verbindung mit der Datenbank, aus Visual Studio aus diesem Grund Sie die lokale IP-Adresse in der Serverliste des müssen **zulässigen IP-Adressen**. Klicken Sie hierzu auf **konfigurieren**, wählen Sie die IP-Adresse von **aktuelle Client-IP-Adresse** und fügen Sie ihn auf die **IP-Startadresse** und **IP-Endadresse** Textfelder, und klicken Sie auf die ![add-client-ip-address-ok-button](aspnet-mvc-4-fundamentals/_static/image57.png) Schaltfläche.
+    *SQL Server-Datenbank-Dashboard*
+2. In der nächsten Aufgabe testen Sie die Verbindung mit der Datenbank, in Visual Studio aus diesem Grund Sie Ihre lokale IP-Adresse in der Liste des Servers der einschließen müssen **zulässige IP-Adressen**. Zu diesem Zweck klicken Sie auf **konfigurieren**, wählen Sie die IP-Adresse von **Current Client IP Address** und fügen Sie ihn auf die **IP-Startadresse** und **IP-Endadresse** Textfelder, und klicken Sie auf die ![add-client-ip-address-ok-button](aspnet-mvc-4-fundamentals/_static/image57.png) Schaltfläche.
 
     ![Client-IP-Adresse hinzufügen](aspnet-mvc-4-fundamentals/_static/image58.png)
 
     *Client-IP-Adresse hinzufügen*
-3. Einmal die **IP-Clientadresse** wird zu den zulässigen IP-Adressen hinzugefügt Liste, klicken Sie auf **speichern** um die Änderungen zu bestätigen.
+3. Einmal die **Client-IP-Adresse** wird hinzugefügt, um die zulässigen IP-Adressen aufzulisten, klicken Sie auf **speichern** um die Änderungen zu bestätigen.
 
     ![Bestätigen von Änderungen](aspnet-mvc-4-fundamentals/_static/image59.png)
 
@@ -1094,102 +1093,102 @@ Wenn die Anwendung durchführt, verwenden Sie SQL Server Datenbanken Sie einen S
 <a id="ApxBTask3"></a>
 
 <a id="Task_3_-_Publishing_an_ASPNET_MVC_4_Application_using_Web_Deploy"></a>
-#### <a name="task-3---publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>Aufgabe 3: Veröffentlichen einer ASP.NET MVC 4-Anwendung mithilfe von Web Deploy
+#### <a name="task-3---publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>Aufgabe 3: Veröffentlichen einer ASP.NET MVC 4-Anwendung mit Web Deploy
 
-1. Wechseln Sie zurück, die ASP.NET MVC 4-Projektmappe. In der **Projektmappen-Explorer**mit der rechten Maustaste auf das Websiteprojekt, und wählen Sie **veröffentlichen**.
+1. Wechseln Sie zurück, der ASP.NET MVC 4-Projektmappe. In der **Projektmappen-Explorer**mit der rechten Maustaste auf das Websiteprojekt, und wählen Sie **veröffentlichen**.
 
     ![Veröffentlichen der Anwendung](aspnet-mvc-4-fundamentals/_static/image60.png "Veröffentlichen der Anwendung")
 
     *Veröffentlichen der Website*
-2. Importieren Sie das Veröffentlichungsprofil, das Sie in der ersten Aufgabe gespeichert.
+2. Importieren Sie das Veröffentlichungsprofil, die, das Sie in der ersten Aufgabe gespeichert.
 
-    ![Importieren des Veröffentlichungsprofils](aspnet-mvc-4-fundamentals/_static/image61.png "Importieren des Veröffentlichungsprofils")
+    ![Importieren das Veröffentlichungsprofil](aspnet-mvc-4-fundamentals/_static/image61.png "Importieren des Veröffentlichungsprofils")
 
     *Importieren Sie das Veröffentlichungsprofil*
 3. Klicken Sie auf **überprüft, ob Verbindung**. Klicken Sie nach Abschluss der Überprüfung auf **Weiter**.
 
     > [!NOTE]
-    > Überprüfung ist beendet, sobald Sie sehen, dass ein grünes Häkchen neben der Schaltfläche "Validate Connection" angezeigt werden.
+    > Die Überprüfung ist abgeschlossen, wenn Sie sehen, dass ein grünes Häkchen neben der Schaltfläche "Verbindung überprüfen" angezeigt werden.
 
     ![Überprüfen der Verbindung](aspnet-mvc-4-fundamentals/_static/image62.png "Überprüfen der Verbindung")
 
     *Überprüfen der Verbindung*
-4. In der **Einstellungen** Seite der **Datenbanken** auf die Schaltfläche neben dem Textfeld für die datenbankverbindung (d. h. **DefaultConnection**).
+4. In der **Einstellungen** Seite die **Datenbanken** auf die Schaltfläche neben dem Textfeld für die datenbankverbindung (d. h. **DefaultConnection**).
 
     ![Web deploy-Konfiguration](aspnet-mvc-4-fundamentals/_static/image63.png "Web deploy-Konfiguration")
 
     *Web deploy-Konfiguration*
 5. Konfigurieren Sie die Verbindung mit der Datenbank wie folgt:
 
-   - In der **Servernamen** Geben Sie Ihre SQL-Datenbank Server-URL unter Verwendung der *Tcp:* Präfix.
-   - In **Benutzername** Geben Sie Ihre Administrator Serveranmeldenamen an.
-   - In **Kennwort** Geben Sie Ihre Server-Administratorkennwort.
+   - In der **Servernamen** Geben Sie Ihre SQL-Datenbankserver URL mit der *Tcp:* Präfix.
+   - In **Benutzernamen** Geben Sie Ihre Server Administrator-Anmeldenamen.
+   - In **Kennwort** Geben Sie Ihre Server Administrator-Anmeldekennwort.
    - Geben Sie einen neuen Datenbanknamen ein, z. B.: *MVC4SampleDB*.
 
-     ![Konfigurieren von Zielverbindungszeichenfolge](aspnet-mvc-4-fundamentals/_static/image64.png "Zielverbindungszeichenfolge konfigurieren")
+     ![Konfigurieren von Ziel-Verbindungszeichenfolge](aspnet-mvc-4-fundamentals/_static/image64.png "Zielverbindungszeichenfolge konfigurieren")
 
      *Konfigurieren von Ziel-Verbindungszeichenfolge*
-6. Klicken Sie dann auf **OK**. Bei der Aufforderung zum Erstellen des Datenbank auf **Ja**.
+6. Klicken Sie dann auf **OK**. Bei der Aufforderung zum Erstellen der Datenbank auf **Ja**.
 
-    ![Erstellen der Datenbank](aspnet-mvc-4-fundamentals/_static/image65.png "erstellen die Datenbank-Zeichenfolge")
+    ![Erstellen der Datenbank](aspnet-mvc-4-fundamentals/_static/image65.png "erstellen die datenbankzeichenfolge")
 
     *Erstellen der Datenbank*
-7. Die Verbindungszeichenfolge, die Sie verwenden für die Verbindung mit SQL-Datenbank in Windows Azure ist innerhalb der Verbindung standardmäßig Textfeld angezeigt. Klicken Sie dann auf **Weiter**.
+7. Die Verbindungszeichenfolge, die Sie für die Verbindung mit SQL-Datenbank in Windows Azure verwendet werden, ist innerhalb der Verbindungstyp Standard Textfeld angezeigt. Klicken Sie dann auf **Weiter**.
 
-    ![Verbindungszeichenfolge zur SQL-Datenbank zeigt](aspnet-mvc-4-fundamentals/_static/image66.png "Verbindungszeichenfolge zur SQL-Datenbank zeigt")
+    ![Auf der SQL-Datenbank-Verbindungszeichenfolge](aspnet-mvc-4-fundamentals/_static/image66.png "auf SQL-Datenbank-Verbindungszeichenfolge")
 
-    *Verbindungszeichenfolge, die auf der SQL-Datenbank*
+    *Auf der SQL-Datenbank-Verbindungszeichenfolge*
 8. In der **Vorschau** auf **veröffentlichen**.
 
     ![Veröffentlichen der Webanwendung](aspnet-mvc-4-fundamentals/_static/image67.png "Veröffentlichen der Webanwendung")
 
     *Veröffentlichen der Webanwendung*
-9. Sobald der Veröffentlichungsprozess abgeschlossen ist, wird der Standardbrowser veröffentlichten Website geöffnet.
+9. Sobald der Veröffentlichungsprozess abgeschlossen ist, öffnet Ihr Standardbrowser die veröffentlichte Website.
 
-    ![Anwendung in Windows Azure veröffentlicht](aspnet-mvc-4-fundamentals/_static/image68.png "Veröffentlichung der Anwendung in Windows Azure")
+    ![Anwendung auf Windows Azure veröffentlicht](aspnet-mvc-4-fundamentals/_static/image68.png "Anwendung auf Windows Azure veröffentlicht")
 
-    *Anwendung, die auf Windows Azure veröffentlicht werden soll*
+    *Anwendung in Windows Azure veröffentlicht*
 
 <a id="AppendixC"></a>
 
 <a id="Appendix_C_Using_Code_Snippets"></a>
-## <a name="appendix-c-using-code-snippets"></a>Anhang C: Verwendung von Codeausschnitten
+## <a name="appendix-c-using-code-snippets"></a>Anhang C: Verwenden von Codeausschnitten
 
-Mit Codeausschnitten müssen Sie den Code, den Sie jederzeit griffbereit benötigen. Das Lab-Dokument erfahren Sie, wenn Sie genau, verwenden können wie in der folgenden Abbildung dargestellt.
+Mit Codeausschnitten müssen Sie den Code zur Hand benötigten. Das Lab-Dokument informiert Sie genau wann sie verwendet werden kann wie in der folgenden Abbildung dargestellt.
 
-![Verwendung von Visual Studio-Codeausschnitten zum Einfügen von Code in Ihr Projekt](aspnet-mvc-4-fundamentals/_static/image69.png "Codeausschnitte zum Einfügen von Code in Ihr Projekt mit Visual Studio")
+![Verwenden von Visual Studio-Codeausschnitten zum Einfügen von Code in Ihrem Projekt](aspnet-mvc-4-fundamentals/_static/image69.png "mithilfe von Visual Studio-Codeausschnitten, die Code in das Projekt einfügen.")
 
-*Verwendung von Visual Studio-Codeausschnitten zum Einfügen von Code in Ihr Projekt*
+*Verwenden von Visual Studio-Codeausschnitten zum Einfügen von Code in Ihrem Projekt*
 
-***Hinzufügen ein Codeausschnitts, die mithilfe der Tastatur (nur c#)***
+***Hinzufügen ein Codeausschnitts, die über die Tastatur (nur c#)***
 
-1. Platzieren Sie den Cursor, wo möchten Sie den Code einfügen.
-2. Starten Sie den Namen des Ausschnitts (ohne Leerzeichen oder Bindestriche) eingeben.
-3. Beobachten Sie, wie IntelliSense zeigt übereinstimmenden Namen Ausschnitte.
-4. Wählen Sie den richtigen Ausschnitt (oder behalten Sie eingeben, bis der gesamte Ausschnitt Name ausgewählt ist).
-5. Drücken Sie die Tab-Taste zweimal, um den Ausschnitt an der Cursorposition eingefügt.
+1. Platzieren Sie den Cursor, wo Sie möchten den Code einfügen.
+2. Starten Sie den codeausschnittsnamen (ohne Leerzeichen oder Bindestriche) eingeben.
+3. Beobachten Sie, wie IntelliSense zeigt übereinstimmende Codeausschnitte Namen.
+4. Wählen Sie den richtigen Codeausschnitt (oder halten Sie eingeben, bis die gesamte codeausschnittsnamen ausgewählt ist).
+5. Drücken Sie die Tab-Taste zweimal auf Einfügen des Codeausschnitts an der Cursorposition ein.
 
-![Geben Sie den Namen des Ausschnitts](aspnet-mvc-4-fundamentals/_static/image70.png "starten Sie den Namen des Ausschnitts eingeben")
+![Geben Sie den Namen des Ausschnitts](aspnet-mvc-4-fundamentals/_static/image70.png "Geben Sie den Namen des Ausschnitts")
 
-*Starten Sie den Namen des Ausschnitts eingeben*
+*Geben Sie den Namen des Ausschnitts*
 
-![Drücken Sie Tab, auf den hervorgehobenen Ausschnitt](aspnet-mvc-4-fundamentals/_static/image71.png "drücken Sie die Tab hervorgehobenen Ausschnitt auswählen")
+![Tabstopp drücken, um den hervorgehobenen Codeausschnitt auswählen](aspnet-mvc-4-fundamentals/_static/image71.png "Tab drücken, um den hervorgehobenen Codeausschnitt auswählen")
 
-*Drücken Sie Tab, um den markierten Ausschnitt auszuwählen*
+*Drücken Sie Tabstopp, um den hervorgehobenen Codeausschnitt auswählen*
 
-![Drücken Sie erneut die Tab und den Ausschnitt erweitert](aspnet-mvc-4-fundamentals/_static/image72.png "drücken Sie erneut die Tab und den Ausschnitt erweitert")
+![Drücken Sie die Tabulatortaste erneut, und der Ausschnitt erweitert](aspnet-mvc-4-fundamentals/_static/image72.png "drücken Sie die Tabulatortaste erneut, und der Ausschnitt werden erweitert.")
 
-*Drücken Sie erneut die Tab und den Ausschnitt erweitert*
+*Drücken Sie die Tabulatortaste erneut, und der Ausschnitt werden erweitert.*
 
-***Hinzufügen ein Codeausschnitts, die mit der Maus (c#, Visual Basic und XML)*** 1. Mit der rechten Maustaste, in dem Sie den Codeausschnitt einfügen möchten.
+***Hinzufügen ein Codeausschnitts, die mit der Maus (c#, Visual Basic und XML)*** 1. Mit der rechten Maustaste, in dem den Codeausschnitt eingefügt werden soll.
 
-1. Wählen Sie **Ausschnitt einfügen** gefolgt von **eigene Codeausschnitte**.
-2. Wählen Sie die relevanten Ausschnitt aus der Liste, indem Sie darauf klicken.
+1. Wählen Sie **Ausschnitt einfügen** gefolgt von **Meine Codeausschnitte**.
+2. Wählen Sie die relevante Codeausschnitte in der Liste, indem Sie darauf klicken.
 
 ![Mit der rechten Maustaste, in dem Sie den Codeausschnitt einfügen, und wählen Ausschnitt einfügen möchten](aspnet-mvc-4-fundamentals/_static/image73.png "mit der rechten Maustaste, in dem Sie den Codeausschnitt einfügen, und wählen Ausschnitt einfügen möchten,")
 
 *Mit der rechten Maustaste, in dem Sie den Codeausschnitt einfügen, und wählen Ausschnitt einfügen möchten*
 
-![Wählen Sie den relevanten Ausschnitt aus der Liste, indem Sie darauf klicken](aspnet-mvc-4-fundamentals/_static/image74.png "den relevanten Ausschnitt aus der Liste auswählen, indem Sie darauf klicken")
+![Wählen Sie die relevante Codeausschnitte in der Liste, indem Sie darauf klicken](aspnet-mvc-4-fundamentals/_static/image74.png "die relevante Codeausschnitte in der Liste auswählen, indem Sie darauf klicken")
 
-*Wählen Sie den relevanten Ausschnitt aus der Liste, indem Sie darauf klicken*
+*Wählen Sie die relevante Codeausschnitte in der Liste, indem Sie darauf klicken*

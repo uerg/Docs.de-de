@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-master-pages-and-site-navigation
-title: '[Gewusst wie:] Verwenden Sie Masterseiten und Websitenavigation? | Microsoft-Dokumentation'
+title: '[Gewusst wie:] Verwendung der Masterseiten und Sitenavigation? | Microsoft-Dokumentation'
 author: microsoft
-description: Erstellen Sie eine Website mit einem konsistentes Layout und Entwurf für alle Seiten mithilfe von ASP.NET 2.0 MasterPages. Finden Sie, wie einfach es ist, die Navigation zu einer Website hinzufügen...
+description: Erstellen Sie eine Website mit einem konsistentes Layout und Entwurf für alle Seiten mit ASP.NET 2.0-Masterseiten. Sehen Sie, wie einfach es ist, um die Navigation zu einer Website hinzufügen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/11/2006
 ms.topic: article
 ms.assetid: e598bb3b-4e2e-4a71-a255-3ee89061ce7a
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-master-pages-and-site-navigation
 msc.type: video
-ms.openlocfilehash: b9532de57a06fa9ef5a0f1cb5d7f66a75307fe99
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 21c2a173a2e549e27aff51317faf5c8fd1475191
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26521499"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37400482"
 ---
-<a name="how-do-i-use-master-pages-and-site-navigation"></a>[Gewusst wie:] Verwenden Sie Masterseiten und Websitenavigation?
+<a name="how-do-i-use-master-pages-and-site-navigation"></a>[Gewusst wie:] Verwendung der Masterseiten und Sitenavigation?
 ====================
 durch [Microsoft](https://github.com/microsoft)
 
-Erstellen Sie eine Website mit einem konsistentes Layout und Entwurf für alle Seiten mithilfe von ASP.NET 2.0 MasterPages. Finden Sie, wie einfach es ist, die Navigation zu einer Website mithilfe der neuen TreeView und SiteMapPath Steuerelemente hinzuzufügen.
+Erstellen Sie eine Website mit einem konsistentes Layout und Entwurf für alle Seiten mit ASP.NET 2.0-Masterseiten. Sehen Sie, wie einfach es ist, um die Navigation einer Website mit der neuen TreeView- und SiteMapPath-Steuerelemente hinzufügen.
 
-[&#9654; Sehen Sie sich an (13 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-master-pages-and-site-navigation)
+[&#9654;Sehen Sie sich Video (13 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-master-pages-and-site-navigation)

@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-outputcache-to-cache-an-aspnet-page
-title: '[Gewusst wie:] Verwenden Sie OutputCache zum Zwischenspeichern von einer ASP.NET-Seite | Microsoft Docs'
+title: '[Gewusst wie:] Zwischenspeichern einer ASP.NET-Seite mithilfe von OutputCache | Microsoft-Dokumentation'
 author: rick-anderson
-description: In diesem video Chris Pels wird gezeigt, wie die Nutzung der integrierten Zwischenspeichern von ASP.NET auf eine Seite im Cache speichern, sodass sie keinen erneut gerendert werden. Zunächst wird die...
+description: In diesem video Chris Pels wird beschrieben, wie Sie das integrierte Zwischenspeichern von ASP.NET auf eine Seite im Cache speichern, sodass es keine erneut gerendert werden. Zunächst wird die...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/05/2009
 ms.topic: article
 ms.assetid: 651c54da-becb-467e-9076-d6ace7456351
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-outputcache-to-cache-an-aspnet-page
 msc.type: video
-ms.openlocfilehash: dee99ec6ca8796032a95e9915c684106ac418649
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6c7b2070c68636c3e109c1b6606e64fe297138d4
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26526199"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37373873"
 ---
-<a name="how-do-i-use-outputcache-to-cache-an-aspnet-page"></a>[Gewusst wie:] Verwenden Sie OutputCache zum Zwischenspeichern von einer ASP.NET-Seite
+<a name="how-do-i-use-outputcache-to-cache-an-aspnet-page"></a>[Gewusst wie:] Zwischenspeichern einer ASP.NET-Seite mithilfe von OutputCache
 ====================
-durch [Chris PEL-Spareinlagen](https://twitter.com/chrispels)
+durch [Chris Pels](https://twitter.com/chrispels)
 
-In diesem video Chris Pels wird gezeigt, wie die Nutzung der integrierten Zwischenspeichern von ASP.NET auf eine Seite im Cache speichern, sodass sie keinen erneut gerendert werden. Zuerst die einfachste Form der caching-Seite wird veranschaulicht, in dem die gesamte Seite für einen angegebenen Zeitraum zwischengespeichert wird. Als Nächstes wird ein präziseren Ansatz übernommen, in dem die Werte der Abfragezeichenfolgen-Variablen als Grundlage für das caching von Seiten verwendet werden. Schließlich finden Sie unter den Typ des Browsers haben, als Grundlage zum Zwischenspeichern von einer Seite sein.
+In diesem video Chris Pels wird beschrieben, wie Sie das integrierte Zwischenspeichern von ASP.NET auf eine Seite im Cache speichern, sodass es keine erneut gerendert werden. Zunächst die einfachste Form der Zwischenspeicherung der Seite wird veranschaulicht, in dem die gesamte Seite für einen angegebenen Zeitraum zwischengespeichert wird. Als Nächstes wird ein präziserer Ansatz verwendet, in denen die Werte von Abfragezeichenfolgen-Variablen als Grundlage für die Zwischenspeicherung von Seiten verwendet werden. Schließlich sehen Sie, wie Sie den Typ des Browsers als Grundlage für die Zwischenspeicherung einer Seite zu werden.
 
-[&#9654; Sehen Sie sich an (14 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-outputcache-to-cache-an-aspnet-page)
+[&#9654;Sehen Sie sich Video (14 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-outputcache-to-cache-an-aspnet-page)
