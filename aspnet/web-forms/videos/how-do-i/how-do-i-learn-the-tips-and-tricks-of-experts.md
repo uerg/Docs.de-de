@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-learn-the-tips-and-tricks-of-experts
-title: '[Gewusst wie:] Erfahren Sie die Tipps und Tricks von Experten in Anspruch? | Microsoft-Dokumentation'
+title: '[Gewusst wie:] Lernen Sie Tipps und Tricks der Experten? | Microsoft-Dokumentation'
 author: microsoft
-description: Tipps und Tricks, einschließlich des Verschlüsselns vertraulichen Informationen in der Datei "Web.config" Posten von Beiträgen Inhalt an eine andere Seite, vereinfachen komplexe URLs Anzeige
+description: Anzeigen von Tipps und Tricks, einschließlich des Verschlüsselns vertrauliche Informationen in der web.config-Datei zu speichern, veröffentlichen Inhalte an eine andere Seite, vereinfachen komplexe URLs...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/16/2006
 ms.topic: article
 ms.assetid: 77526e53-524b-4cae-9025-3e493f2895d0
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-learn-the-tips-and-tricks-of-experts
 msc.type: video
-ms.openlocfilehash: e2a4c3f78355af8bf07ad4981ffe29ada7701e4e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4d5d70c65c462b715dcad13daeb4f44a9d1d13ad
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26525759"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37387324"
 ---
-<a name="how-do-i-learn-the-tips-and-tricks-of-experts"></a>[Gewusst wie:] Erfahren Sie die Tipps und Tricks von Experten in Anspruch?
+<a name="how-do-i-learn-the-tips-and-tricks-of-experts"></a>[Gewusst wie:] Lernen Sie Tipps und Tricks der Experten?
 ====================
 durch [Microsoft](https://github.com/microsoft)
 
-Zeigen Sie Tipps und Tricks, einschließlich des Verschlüsselns vertraulichen Informationen in der Datei "Web.config" Posten von Beiträgen Inhalt an eine andere Seite, vereinfachen komplexe URLs mithilfe von URL neuzuordnung und vieles wesentlich mehr an.
+Zeigen Sie Tipps und Tricks, einschließlich des Verschlüsselns vertrauliche Informationen in der web.config-Datei zu speichern, veröffentlichen Inhalte an eine andere Seite, vereinfachen komplexe URLs mit neuzuordnung von URL und vieles mehr an.
 
-[&#9654; Sehen Sie sich an (18 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-learn-the-tips-and-tricks-of-experts)
+[&#9654;Sehen Sie sich Video (18 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-learn-the-tips-and-tricks-of-experts)

@@ -1,6 +1,6 @@
 ---
 uid: entity-framework
-title: Entity Framework | Microsoft Docs
+title: Entitätsframework | Microsoft-Dokumentation
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
@@ -9,28 +9,27 @@ ms.date: 03/12/2010
 ms.topic: article
 ms.assetid: faa761a9-86b3-4859-b9c0-60d5c5bc5e93
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /entity-framework
 msc.type: content
-ms.openlocfilehash: 2647e3cb9455ca7efdbdce593df20a62d04f4ec3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 927025ea8088604b5ab80585b3143873145ddb8c
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26497959"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37374346"
 ---
 <a name="entity-framework"></a>Entity Framework
 ====================
-Entity Framework (EF) ist eine Objekt-objektrelationale Zuordnungen, die .NET Entwicklern mit relationalen Daten mithilfe von domänenspezifischen Objekten arbeiten. Er wird für die meisten der Datenzugriffs-Code, den in der Regel müssen Entwickler schreiben überflüssig.
+Entity Framework (EF) ist eine objektrelationale Zuordnung, die .NET Entwicklern die Arbeit mit relationalen Daten mithilfe von domänenspezifischen Objekten ermöglicht. In EF Core ist der Großteil des Datenzugriffscodes, den Entwickler in der Regel schreiben müssen, nicht mehr erforderlich.
 
 
-- [Rufen Sie die Anwendung:](https://msdn.com/data/ee712906) fügen Sie Ihrem Projekt und Nutzen dieser leistungsstarken O/RM.
-- [Erste Schritte:](https://msdn.com/data/ee712907) finden Sie im Handbuch Videos und Lernprogramme, mit denen Sie die optimale Nutzung von Daten vornehmen.
-- [Get-Help:](https://msdn.com/data/hh913619) erfahren Sie, wie zum Abrufen von Hilfe von den Experten und mit den Daten auf Stack Overflow beitragen.
-- [Beitragen:](https://github.com/aspnet/EntityFramework6) herauszufinden, wie Sie helfen können, Entity Framework, eine offene Entwicklungsmodell noch besser zu machen, indem Sie auf der GitHub-Website.
+- [Herunterladen:](https://msdn.com/data/ee712906) dies zu Ihrem Projekt hinzufügen und die Nutzung der Vorteile dieses leistungsstarken O/RM umgeschichtet
+- [Erste Schritte:](https://msdn.com/data/ee712907) finden Sie im Handbuch für Videos und Lernprogramme, mit denen Sie das beste aus Ihrer Daten zu stellen.
+- [Hilfe abrufen:](https://msdn.com/data/hh913619) erfahren Sie, wie Sie Hilfe von Experten und mitwirken an der Data-Community auf Stack Overflow.
+- [Mitwirken:](https://github.com/aspnet/EntityFramework6) erfahren Sie, wie Ihnen helfen kann, Entity Framework ist eine offene Entwicklungsmodell, noch besser zu machen, indem Sie die GitHub-Website besuchen.
 
 
-Verwenden von Entity Framework mit ASP.NET
+Verwenden von Entitätsframework mit ASP.NET
 
 - [Web Forms-Lernprogramme](web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md)
 - [MVC-Lernprogramme](mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)

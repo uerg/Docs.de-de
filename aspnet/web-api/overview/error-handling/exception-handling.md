@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/error-handling/exception-handling
-title: Ausnahmebehandlung in ASP.NET Web-API | Microsoft Docs
+title: Behandlung von Ausnahmen in ASP.NET Web-API | Microsoft-Dokumentation
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,17 +9,16 @@ ms.date: 03/12/2012
 ms.topic: article
 ms.assetid: cbebeb37-2594-41f2-b71a-f4f26520d512
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/error-handling/exception-handling
 msc.type: authoredcontent
-ms.openlocfilehash: c65ddcca012840d70ab5a33af92edb30041be971
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ac01a4f35cde99a1f8ec699e6d31bf597f1d334e
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26506959"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37400819"
 ---
-<a name="exception-handling-in-aspnet-web-api"></a>Ausnahmebehandlung in ASP.NET Web-API
+<a name="exception-handling-in-aspnet-web-api"></a>Behandlung von Ausnahmen in ASP.NET Web-API
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson)
 
@@ -33,87 +32,87 @@ Dieser Artikel beschreibt die Fehler- und Ausnahmebehandlung in ASP.NET Web-API.
 <a id="httpresponserexception"></a>
 ## <a name="httpresponseexception"></a>HttpResponseException
 
-Was geschieht, wenn ein Web-API-Controller eine nicht abgefangene Ausnahme ausgelöst? Standardmäßig werden die meisten Ausnahmen in einer HTTP-Antwort mit dem Statuscode 500 Internal Server Error übersetzt.
+Was geschieht, wenn ein Web-API-Controller eine unerwartete Ausnahme auslöst? Standardmäßig werden die meisten Ausnahmen in einer HTTP-Antwort mit dem Statuscode 500 Internal Server Error übersetzt.
 
-Die **HttpResponseException** Typ ist ein Sonderfall. Diese Ausnahme gibt alle HTTP-Statuscode an, die Sie in der Ausnahmekonstruktor angeben. Beispielsweise gibt die folgende Methode 404 Nichtgefunden wird, zurück, wenn die *Id* -Parameter ist ungültig.
+Die **HttpResponseException** Typ ist ein besonderer Fall. Diese Ausnahme gibt alle HTTP-Statuscode, die Sie in der Ausnahmekonstruktor angeben. Beispielsweise gibt die folgende Methode 404-Antwort, nicht gefunden wird, zurück, wenn die *Id* -Parameter ist ungültig.
 
 [!code-csharp[Main](exception-handling/samples/sample1.cs)]
 
-Mehr Kontrolle über die Antwort kann auch die gesamte Antwortnachricht zu erstellen und fügen Sie ihn mit dem **HttpResponseException:** 
+Mehr Kontrolle über die Antwort zu erhalten, können Sie auch die gesamte Antwortnachricht zu erstellen und fügen Sie ihn mit der **HttpResponseException:** 
 
 [!code-csharp[Main](exception-handling/samples/sample2.cs)]
 
 <a id="exception_filters"></a>
 ## <a name="exception-filters"></a>Ausnahmefilter
 
-Sie können anpassen, wie Ausnahmen von Web-API durch Schreiben von behandelt eine *Ausnahmefilter*. Ein Ausnahmefilter wird ausgeführt, wenn eine Controllermethode nicht behandelte Ausnahme auslöst, wird *nicht* ein **HttpResponseException** Ausnahme. Die **HttpResponseException** Typ ist ein Sonderfall, da dieser Standard entwickelt wurde speziell für die Rückgabe einer HTTP-Antwort.
+Sie können anpassen, wie Web-API-Ausnahmen durch das Schreiben von behandelt eine *Ausnahmefilter*. Ein Ausnahmefilter wird immer dann ausgeführt, wenn eine Controllermethode eine unbehandelte Ausnahme auslöst, die *nicht* ein **HttpResponseException** Ausnahme. Die **HttpResponseException** Typ ist ein Sonderfall, da es nur speziell für eine HTTP-Antwort zurückgeben.
 
-Ausnahmefilter implementieren die **System.Web.Http.Filters.IExceptionFilter** Schnittstelle. Die einfachste Methode zum Schreiben eines Ausnahmefilters ist die Ableitung der **System.Web.Http.Filters.ExceptionFilterAttribute** Klasse, und überschreiben die **OnException** Methode.
+Ausnahmefilter implementieren die **System.Web.Http.Filters.IExceptionFilter** Schnittstelle. Die einfachste Möglichkeit zum Schreiben eines Ausnahmefilters ist die Ableitung der **System.Web.Http.Filters.ExceptionFilterAttribute** Klasse, und überschreiben die **OnException** Methode.
 
 > [!NOTE]
-> Ausnahmefilter in ASP.NET Web-API sind in ASP.NET MVC vergleichbar. Allerdings werden sie in einem separaten Namespace und die Funktion separat deklariert. Insbesondere die **von HandleErrorAttribute** Klasse zur Verwendung in MVC-Web-API-Controller ausgelöste Ausnahmen nicht behandelt.
+> Ausnahmefilter in ASP.NET Web-API sind ähnlich wie in ASP.NET MVC. Allerdings sind sie in einem separaten Namespace und die Funktion separat deklariert. Insbesondere die **HandleErrorAttribute** im MVC verwendete Klasse nicht von Web-API-Controllern ausgelöste Ausnahmen behandelt.
 
 
 Hier ist ein Filter, der konvertiert **NotImplementedException** Ausnahmen in HTTP-Status code 501, nicht implementiert:
 
 [!code-csharp[Main](exception-handling/samples/sample3.cs)]
 
-Die **Antwort** Eigenschaft von der **HttpActionExecutedContext** Objekt enthält die HTTP-Antwortnachricht, die an den Client gesendet werden sollen.
+Die **Antwort** Eigenschaft der **HttpActionExecutedContext** Objekt enthält die HTTP-Antwortnachricht, die an den Client gesendet werden.
 
 <a id="registering_exception_filters"></a>
 ## <a name="registering-exception-filters"></a>Ausnahmefilter registrieren
 
-Es gibt mehrere Möglichkeiten zum Registrieren eines Web-API-Ausnahmefilters aus:
+Es gibt mehrere Möglichkeiten zum Registrieren einer Web-API-Ausnahmefilters:
 
-- Von der Aktion
-- Vom Netzwerkcontroller
+- Nach Aktion
+- Vom controller
 - Global
 
-Um den Filter auf eine bestimmte Aktion anwenden, fügen Sie den Filter auf die Aktion als Attribut hinzu:
+Um den Filter auf eine bestimmte Aktion anzuwenden, fügen Sie den Filter auf die Aktion als Attribut hinzu:
 
 [!code-csharp[Main](exception-handling/samples/sample4.cs)]
 
-Zum Anwenden des Filters für alle Aktionen auf einem Domänencontroller fügen Sie den Filter auf die Controllerklasse als Attribut hinzu:
+Um den Filter auf alle Aktionen auf einem Controller anzuwenden, fügen Sie den Filter der Controllerklasse als Attribut hinzu:
 
 [!code-csharp[Main](exception-handling/samples/sample5.cs)]
 
-Um den Filter Global auf alle Web-API-Controller anzuwenden, fügen Sie eine Instanz des Filters, der die **GlobalConfiguration.Configuration.Filters** Auflistung. Batchverarbeitungsorchestrierung Filter in dieser Sammlung gelten für alle Web-API-Controlleraktion.
+Um den Filter Global auf alle Web-API-Controller anzuwenden, fügen Sie eine Instanz des Filters, der die **GlobalConfiguration.Configuration.Filters** Auflistung. Batchverarbeitungsorchestrierung-Filter in dieser Auflistung können auf jeder beliebigen Controlleraktion der Web-API.
 
 [!code-csharp[Main](exception-handling/samples/sample6.cs)]
 
-Wenn Sie die Projektvorlage "ASP.NET MVC 4-Webanwendung" verwenden, um das Projekt zu erstellen, speichern Sie Ihre Web-API-Konfigurationscode innerhalb der `WebApiConfig` -Klasse, die in der App befindet\_Startordner:
+Wenn Sie die Projektvorlage "ASP.NET MVC 4-Webanwendung" verwenden, um Ihr Projekt erstellen, fügen Sie Ihrer Web-API-Konfigurationscode in die `WebApiConfig` -Klasse, die in der App befindet\_Startordner:
 
 [!code-csharp[Main](exception-handling/samples/sample7.cs?highlight=5)]
 
 <a id="httperror"></a>
 ## <a name="httperror"></a>HttpError
 
-Die **HttpError** Objekt bietet eine konsistente Möglichkeit, Fehlerinformationen im Antworttext zurückgegeben. Im folgende Beispiel wird gezeigt, wie das zurückzugebende HTTP-Statuscode 404 (Nichtgefunden) mit einem **HttpError** im Antworttext.
+Die **HttpError** -Objekt bietet eine einheitliche Methode zum Zurückgeben von Fehlerinformationen im Antworttext. Das folgende Beispiel zeigt, wie HTTP-Statuscode 404 (nicht gefunden) zurückgeben mit einem **HttpError** im Antworttext.
 
 [!code-csharp[Main](exception-handling/samples/sample8.cs)]
 
-**CreateErrorResponse** ist eine Erweiterungsmethode definiert der **System.Net.Http.HttpRequestMessageExtensions** Klasse. Intern **CreateErrorResponse** erstellt eine **HttpError** Instanz, und erstellt dann ein **HttpResponseMessage** , enthält die **HttpError**.
+**CreateErrorResponse** ist eine Erweiterungsmethode definiert der **System.Net.Http.HttpRequestMessageExtensions** Klasse. Intern **CreateErrorResponse** erstellt eine **HttpError** -Instanz, und erstellt dann ein **HttpResponseMessage** , enthält die **HttpError**.
 
-Wenn die Methode erfolgreich ist, gibt es in diesem Beispiel das Produkt in der HTTP-Antwort zurück Wenn das angeforderte Produkt nicht gefunden wird, die HTTP-Antwort enthält jedoch eine **HttpError** im Hauptteil Anforderung. Die Antwort kann wie folgt aussehen:
+In diesem Beispiel wenn die Methode erfolgreich ist, ist wird das Produkt in der HTTP-Antwort. Aber wenn das angeforderte Produkt nicht gefunden wird, die HTTP-Antwort enthält ein **HttpError** im Hauptteil Anforderung. Die Antwort sieht wie folgt aus:
 
 [!code-console[Main](exception-handling/samples/sample9.cmd)]
 
-Beachten Sie, dass die **HttpError** in diesem Beispiel wird in JSON serialisiert wurde. Ein Vorteil der Verwendung von **HttpError** ist, dass darin über dasselbe [Inhalt Aushandlung](../formats-and-model-binding/content-negotiation.md) und Serialisierungsprozess wie jede andere stark typisiertes Modell.
+Beachten Sie, dass die **HttpError** in JSON serialisiert wurde, die in diesem Beispiel. Ein Vorteil der Verwendung **HttpError** besteht darin, dass er über dasselbe geht [Inhalte-Aushandlung](../formats-and-model-binding/content-negotiation.md) und Serialisierung verarbeiten, wie jede andere stark typisiertes Modell.
 
-### <a name="httperror-and-model-validation"></a>HttpError und Modellvalidierung
+### <a name="httperror-and-model-validation"></a>HttpError und zur Modellüberprüfung
 
-Für die modellüberprüfung, können Sie der Modellzustand, übergeben **CreateErrorResponse**, die Validierungsfehler in die Antwort eingeschlossen werden sollen:
+Sie können für die modellüberprüfung den Modellzustand, übergeben **CreateErrorResponse**, um Fehler bei der Validierung in der Antwort enthalten:
 
 [!code-csharp[Main](exception-handling/samples/sample10.cs)]
 
-In diesem Beispiel wird möglicherweise die folgende Antwort zurück:
+In diesem Beispiel gibt möglicherweise die folgende Antwort zurück:
 
 [!code-console[Main](exception-handling/samples/sample11.cmd)]
 
-Weitere Informationen zur modellvalidierung finden Sie unter [Modellvalidierung in ASP.NET Web API](../formats-and-model-binding/model-validation-in-aspnet-web-api.md).
+Weitere Informationen zur modellvalidierung finden Sie unter [Model Validation in ASP.NET Web-API](../formats-and-model-binding/model-validation-in-aspnet-web-api.md).
 
-### <a name="using-httperror-with-httpresponseexception"></a>Verwenden von HttpError mit HttpResponseException
+### <a name="using-httperror-with-httpresponseexception"></a>Verwenden HttpError mit HttpResponseException
 
-In den vorherigen Beispielen zurückgegeben ein **HttpResponseMessage** Nachricht aus der Controlleraktion, aber Sie können auch **HttpResponseException** zurückzugebenden ein **HttpError**. Auf diese Weise können Sie ein stark typisiertes Modell. im Erfolgsfall normalen zurück, bei der Rückgabe von weiterhin **HttpError** , wenn ein Fehler aufgetreten ist:
+Zurück in den vorherigen Beispielen ein **HttpResponseMessage** Nachricht aus der Controlleraktion, aber Sie können auch **HttpResponseException** zurückzugebenden ein **HttpError**. Dadurch können Sie ein stark typisiertes Modell bei normalen Erfolg zurückgegeben, bei der Rückgabe von weiterhin **HttpError** , wenn ein Fehler auftritt:
 
 [!code-csharp[Main](exception-handling/samples/sample12.cs)]

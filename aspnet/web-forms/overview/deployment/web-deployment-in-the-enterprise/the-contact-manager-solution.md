@@ -1,72 +1,71 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/the-contact-manager-solution
-title: Die Kontakt-Manager-Lösung | Microsoft Docs
+title: Contact Manager-Lösung | Microsoft-Dokumentation
 author: jrjlee
-description: Diese Reihe von Lernprogrammen verwendet eine beispiellösung&#x2014;die Projektmappe Contact Manager&#x2014;zur Darstellung einer Enterprise-Skalierung-Anwendung mit einer realistischen Leve...
+description: In dieser tutorialreihe verwendet eine beispiellösung&#x2014;Contact Manager-Lösung&#x2014;zur Darstellung einer unternehmensweiten-Anwendung mit einer realistischen arbeiten...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
 ms.topic: article
 ms.assetid: 4d8c8d19-055b-4b70-9ee1-f748f0db3a01
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/the-contact-manager-solution
 msc.type: authoredcontent
-ms.openlocfilehash: d7034f800df98747d10401d7e2c7297fea0e46d4
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 8187766190da43ded52359892601f8129b9940ce
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30883699"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37388107"
 ---
-<a name="the-contact-manager-solution"></a>Die Kontakt-Manager-Lösung
+<a name="the-contact-manager-solution"></a>Contact Manager-Lösung
 ====================
 durch [Jason Lee](https://github.com/jrjlee)
 
 [PDF herunterladen](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Dies [Reihe von Lernprogrammen](web-deployment-in-the-enterprise.md) verwendet eine beispiellösung&#x2014;die Projektmappe Contact Manager&#x2014;um eine Enterprise-Skalierung-Anwendung mit einer realistischen Maß an Komplexität darzustellen. Dieses Thema führt die Kontakt-Manager-Lösung, beschreibt die wichtigsten Komponenten der Lösung und identifiziert die Herausforderungen bei der Bereitstellung dieser Art von Anwendung an verschiedenen Ziel Plattformen in einer unternehmensumgebung.
+> Dies [Reihe von Tutorials](web-deployment-in-the-enterprise.md) verwendet eine beispiellösung&#x2014;Contact Manager-Lösung&#x2014;um eine unternehmensweite-Anwendung mit einem realistischen Maß an Komplexität darzustellen. In diesem Thema Contact Manager-Lösung führt, werden die Hauptkomponenten der Lösung und identifiziert die Herausforderungen bei der diese Art von Anwendungen für verschiedene Plattformen von Ziel in einer unternehmensumgebung bereitstellen.
 > 
-> Arbeit durch die Themen in diesen Lernprogrammen können Sie die Projektmappe Contact Manager als eine referenzimplementierung verwenden, die zeigt, wie Sie bestimmte Probleme in Bereitstellungsszenarios erfüllen können. Im nächsten Thema [Einstellung von der Kontakt-Manager-Lösung](setting-up-the-contact-manager-solution.md), herunterladen und Ausführen der Projektmappe auf der Arbeitsstation Developer beschreibt.
+> Wie Sie in den Themen in diesen Tutorials durcharbeiten, können Sie Contact Manager-Lösung als eine referenzimplementierung verwenden, die veranschaulicht, wie Sie bestimmte Herausforderungen bei Bereitstellungsszenarios erfüllen können. Im nächsten Thema, [Einstellung Einrichten der Contact Manager-Lösung](setting-up-the-contact-manager-solution.md), beschreibt, wie Sie herunterladen und Ausführen der Lösung auf der Entwicklerarbeitsstation.
 
 
-## <a name="solution-overview"></a>Lösungsübersicht
+## <a name="solution-overview"></a>Übersicht über die Lösung
 
-Die Kontakt-Manager-Lösung besteht aus vier einzelne Projekte:
+Contact Manager-Lösung besteht aus vier einzelne Projekte:
 
 ![](the-contact-manager-solution/_static/image1.png)
 
-- **ContactManager.Mvc**. Dies ist eine ASP.NET MVC 3-Webanwendungsprojekt, die den Einstiegspunkt für die Projektmappe darstellt. Er bietet einige grundlegende Web Application-Funktionen, wie Benutzern die Möglichkeit zum Erstellen und Anzeigen von Details des Kontakts. Die Anwendung verwendet einen Windows Communication Foundation (WCF)-Dienst zum Verwalten von Kontakten und eine Datenbank für ASP.NET-Anwendungsdienste zum Verwalten der Authentifizierung und Autorisierung.
+- **ContactManager.Mvc**. Dies ist ein ASP.NET MVC 3-Webanwendungsprojekt, das den Einstiegspunkt für die Projektmappe darstellt. Es bietet einige Funktionen der einfachen Web-Anwendung, wie Benutzern die Möglichkeit zum Erstellen und Anzeigen von Details für sicherheitskontakt bereitstellen. Die Anwendung verwendet einen Windows Communication Foundation (WCF)-Dienst zum Verwalten von Kontakten und eine Datenbank für ASP.NET-Anwendungsdienste zum Verwalten der Authentifizierung und Autorisierung.
 - **ContactManager.Database**. Dies ist ein Visual Studio-Datenbankprojekt. Das Projekt definiert das Schema für eine Datenbank, speichert Informationen wenden Sie sich an.
-- **ContactManager.Service**. Dies ist ein WCF-Webdienstprojekt. Die WCF-Dienst verfügbar gemachten ein Endpunkt, der Aufrufern ermöglicht, führen zu erstellen, abrufen, aktualisieren und Löschvorgänge (CRUD) auf die **ContactManager** Datenbank. Der Dienst basiert auf der **ContactManager** Datenbank und die **ContactManager.Common.dll** Assembly.
-- **ContactManager.Common**. Dies ist ein Klassenbibliotheksprojekt. Der WCF-Dienst basiert auf in dieser Assembly definierten Typen.
+- **ContactManager.Service**. Dies ist ein WCF-Webdienstprojekt. Der WCF-Dienst macht ein Endpunkt, der Aufrufern ermöglicht, führen Sie zu erstellen, abrufen, aktualisieren und Löschvorgängen (CRUD) für die **ContactManager** Datenbank. Der Dienst beruht, die **ContactManager** Datenbank und die **ContactManager.Common.dll** Assembly.
+- **ContactManager.Common**. Dies ist ein Klassenbibliotheksprojekt. Der WCF-Dienst basiert auf Typen, die in dieser Assembly definiert.
 
-Die Lösung umfasst auch einen Projektmappenordner, der mit dem Namen veröffentlichen. Dieses enthält verschiedene benutzerdefinierte Projektdateien und Befehlsdateien, die veranschaulichen, wie Sie steuern und die Build- und Bereitstellungsprozess Prozess bearbeiten können. Diese werden weiter unten in diesem Lernprogramm ausführlicher behandelt.
+Die Lösung umfasst auch einen Projektmappenordner mit dem Namen veröffentlichen. Enthält verschiedene benutzerdefinierte Projektdateien und Befehlsdateien, die veranschaulichen, wie Sie steuern, und Bearbeiten des Build & Deployment-Prozesses. Diese werden später in diesem Lernprogramm ausführlicher behandelt.
 
-Auf konzeptioneller Ebene passen die Komponenten der Projektmappe zusammen wie folgt:
+Auf konzeptioneller Ebene passen die Komponenten der Lösung zusammen wie folgt:
 
 ![](the-contact-manager-solution/_static/image2.png)
 
 > [!NOTE]
-> Während Sie den ASP.NET-Mitgliedschaftsanbieter in ASP.NET MVC 3-Webanwendung verwendet wird, werden alle Seiten innerhalb der Webanwendung anonymen Zugriff zulassen. Dies ist jedoch deutlich keine realistische Konfiguration. Allerdings ist die Lösung einrichten auf diese Weise bereitstellen und testen die Projektmappe ohne Konfiguration der Benutzerkonten und Rollen erleichtern.
+> Während die ASP.NET MVC 3-Webanwendung dem ASP.NET-Mitgliedschaftsanbieter verwendet wird, werden alle Seiten innerhalb der Webanwendung anonymen Zugriff zulassen. Dies ist natürlich keine realistische Konfiguration. Allerdings ist die Lösung richten Sie auf diese Weise, die es erleichtern Ihnen das Bereitstellen und Testen der Lösung ohne Benutzerkonten und Rollen zu konfigurieren.
 
 
-## <a name="deployment-challenges"></a>Bereitstellung
+## <a name="deployment-challenges"></a>Herausforderungen bei der Bereitstellung
 
-Die Kontakt-Manager-Lösung veranschaulicht verschiedene Herausforderung, die zu einer Vielzahl von Bereitstellungsszenarios gemeinsam verwendet werden:
+Contact Manager-Lösung veranschaulicht verschiedene Herausforderungen bei der Bereitstellung, die zu einer Vielzahl von Bereitstellungsszenarios gelten:
 
-- Die Lösung besteht aus mehreren abhängige Projekte. Sie müssen diese Projekte gleichzeitig bereitstellen.
-- Verbindungszeichenfolgen und Dienstendpunkte für jede Umgebung aktualisiert werden müssen, und in vielen Fällen diese Informationen werden für den Entwickler verfügbar.
-- Bei der Bereitstellung der **ContactManager** Datenbank für Staging und Produktion Umgebungen müssen Sie vorhandene Daten bei nachfolgenden Bereitstellungen beibehalten.
-- Wenn Sie die Datenbank für ASP.NET-Anwendungsdienste bereitstellen, müssen Sie bereitstellen einiger Konfigurationsdaten jedoch weglassen von Benutzerdaten Konto.
-- Die Projekte enthalten einige Dateien und Ordner, die nicht bereitgestellt werden sollen. Sie müssen den Bereitstellungsprozess diese Dateien und Ordner ausschließen.
-- Die Lösung muss automatisierte Bereitstellung aus einem Build-Server mit Team Foundation Server (TFS) zu unterstützen.
+- Die Lösung besteht aus mehreren abhängigen Projekten. Sie müssen diese Projekte gleichzeitig bereitstellen.
+- Verbindungszeichenfolgen und Dienstendpunkten für jede Umgebung aktualisiert werden müssen, und in vielen Fällen diese Informationen werden nicht für den Entwickler verfügbar.
+- Bei der Bereitstellung der **ContactManager** Datenbank Staging-und produktionsumgebungen müssen Sie vorhandene Daten bei nachfolgenden Bereitstellungen beibehalten.
+- Wenn Sie die Datenbank für ASP.NET-Anwendungsdienste bereitstellen, müssen Sie einige Konfigurationsdaten bereitstellen, aber lassen Sie alle Benutzerdaten für das Konto.
+- Die Projekte enthalten einige Dateien und Ordner, die nicht bereitgestellt werden sollen. Sie müssen diese Dateien und Ordner aus dem Bereitstellungsprozess ausgeschlossen.
+- Die Lösung muss automatisierte Bereitstellung aus einem Build-Server für Team Foundation Server (TFS) zu unterstützen.
 
 ## <a name="conclusion"></a>Schlussbemerkung
 
-In diesem Thema eine allgemeine Übersicht über die Projektmappe Contact Manager bereitgestellt und identifiziert einige der inhärenten Bereitstellung Herausforderungen, die zu einer Vielzahl von Bereitstellungsszenarios gemeinsam verwendet werden. Die übrigen Themen in diesem Lernprogramm werden einige der Methoden, die Sie verwenden können, um diese Auflagen erfüllt werden beschrieben.
+In diesem Thema eine allgemeine Übersicht über die Contact Manager-Lösung bereitgestellt und identifiziert einige der inhärenten Herausforderungen bei der Bereitstellung, die zu einer Vielzahl von Bereitstellungsszenarios gelten. Die übrigen Themen in diesem Tutorial werden einige der Techniken, die Sie verwenden können, um diese Herausforderungen zu erfüllen.
 
-Im nächsten Thema [Einstellung von der Kontakt-Manager-Lösung](setting-up-the-contact-manager-solution.md), herunterladen und Ausführen der Projektmappe auf der Arbeitsstation Developer beschreibt.
+Im nächsten Thema, [Einstellung Einrichten der Contact Manager-Lösung](setting-up-the-contact-manager-solution.md), beschreibt, wie Sie herunterladen und Ausführen der Lösung auf der Entwicklerarbeitsstation.
 
 > [!div class="step-by-step"]
 > [Zurück](web-deployment-in-the-enterprise.md)
