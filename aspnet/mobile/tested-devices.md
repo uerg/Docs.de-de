@@ -4,19 +4,16 @@ title: ASP.NET Mobile ASP.NET-Steuerelemente getestete Geräte | Microsoft-Dokum
 author: rick-anderson
 description: Die folgenden Geräte und Browser wurden mit dem Microsoft Mobile Internet Toolkit v1. 0 und ASP.NET mobile-Steuerelemente getestet. Microsoft Mobile Internet...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/28/2011
-ms.topic: article
 ms.assetid: 51b447d5-eaa1-4df1-917c-f4f2746ed62d
-ms.technology: ''
 msc.legacyurl: /mobile/tested-devices
 msc.type: content
-ms.openlocfilehash: 443414a02612136d35cf1db8dd1d7c0d2142187e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: dba860d74e2dbded832d4f6e9da6edfecbf4c303
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37373590"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37815875"
 ---
 <a name="aspnet-mobile-controls-tested-devices"></a>ASP.NET Mobile ASP.NET-Steuerelemente getestete Geräte
 ====================

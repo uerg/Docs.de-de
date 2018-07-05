@@ -1,8 +1,8 @@
-Der generierte Code der Identity-Datenbank erfordert [Entity Framework Core Migrationen](/ef/core/managing-schemas/migrations/). Erstellen Sie eine Migration aus, und Aktualisieren der Datenbank. Führen Sie z. B. die folgenden Befehle ein:
+Der generierte Code für die Identität Datenbank erfordert [Entity Framework Core-Migrationen](/ef/core/managing-schemas/migrations/). Erstellen Sie eine Migration aus, und aktualisieren Sie die Datenbank. Führen Sie z. B. die folgenden Befehle ein:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-In Visual Studio **Package Manager Console**:
+In der Visual Studio **-Paket-Manager-Konsole**:
 
 ```PMC
 Add-Migration CreateIdentitySchema
@@ -18,4 +18,4 @@ dotnet ef database update
 
 ------
 
-Die Name-Parameter von "CreateIdentitySchema" für die `Add-Migration` Befehl ist willkürlich. `"CreateIdentitySchema"` Beschreibt die Migration an.
+Der "CreateIdentitySchema"-Name-Parameter für die `Add-Migration` Befehl ist willkürlich. `"CreateIdentitySchema"` Beschreibt die Migration.

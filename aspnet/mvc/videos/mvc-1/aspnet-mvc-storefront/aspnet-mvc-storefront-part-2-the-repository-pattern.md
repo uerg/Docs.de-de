@@ -4,19 +4,16 @@ title: 'ASP.NET MVC Storefront, Teil 2: Das Repositorymuster | Microsoft-Dokumen
 author: robconery
 description: Rob Conery führt durch die Repository-Implementierung und schreibt den ersten Hauptsatz von Komponententests. Er wird auch um die anfängliche Layer-Methode Struktur...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/27/2008
-ms.topic: article
 ms.assetid: 94dd6eec-3685-4323-ac75-75a70a4f766a
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-2-the-repository-pattern
 msc.type: video
-ms.openlocfilehash: 2daa77ffbed6a37f46bea6809f2cfd005e630ca5
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6af2afe89c08124311efac3423299aa22a0c9729
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37399882"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37829408"
 ---
 <a name="aspnet-mvc-storefront-part-2-the-repository-pattern"></a>ASP.NET MVC Storefront, Teil 2: Das Repository-Muster
 ====================

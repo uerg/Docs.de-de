@@ -4,19 +4,16 @@ title: '[Gewusst wie:] Hinzufügen von Steuerelementen auf einer ASP.NET-Webseit
 author: rick-anderson
 description: In diesem video Chris Pels wird zeigen, wie ein ASP.NET-Serversteuerelement zur Laufzeit programmgesteuert zu erstellen und zu einer Seite hinzufügen. Zunächst erfahren Sie, den grundlegende Konzept o...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/24/2008
-ms.topic: article
 ms.assetid: 1576e0a4-73ca-4816-bc09-20ae393a66f9
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-add-controls-to-an-aspnet-web-page-programmatically
 msc.type: video
-ms.openlocfilehash: f0863e031ca52b6373f665ea68c718d28d962565
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0e55288d341833256cbc0d1c480a4712f836649f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37367372"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802551"
 ---
 <a name="how-do-i-add-controls-to-an-aspnet-web-page-programmatically"></a>[Gewusst wie:] Programmgesteuertes Hinzufügen von Steuerelementen auf einer ASP.NET-Webseite
 ====================

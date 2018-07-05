@@ -1,114 +1,114 @@
 ---
-title: Allgemeine Daten Schutz vor (GDPR)-Unterstützung in ASP.NET Core
+title: Datenschutz-Grundverordnung (DSGVO)-Unterstützung in ASP.NET Core
 author: rick-anderson
-description: Erfahren Sie, wie die Erweiterungspunkte GDPR in einer ASP.NET Core-Web-app zugreifen.
+description: Erfahren Sie, wie Sie auf die DSGVO-Erweiterungspunkte in einer ASP.NET Core-Web-app zugreifen.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/29/2018
 uid: security/gdpr
-ms.openlocfilehash: c986eeca572eecb43e76d56dbc5cb872a9dff6b2
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 10384d2abad7692d45f2be19f3ba7f8f8e8c3e17
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277637"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832029"
 ---
-# <a name="eu-general-data-protection-regulation-gdpr-support-in-aspnet-core"></a>Europa allgemeine Daten Schutz vor (GDPR)-Unterstützung in ASP.NET Core
+# <a name="eu-general-data-protection-regulation-gdpr-support-in-aspnet-core"></a>Europa Allgemein Datenschutz-Grundverordnung (DSGVO)-Unterstützung in ASP.NET Core
 
 Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-ASP.NET Core bietet APIs und Vorlagen, um einige der erfüllen die [Europa allgemeine Daten Schutz vor (GDPR)](https://www.eugdpr.org/) Anforderungen:
+ASP.NET Core bietet APIs und Vorlagen, um einige der erfüllen die [Europa Allgemein Datenschutz-Grundverordnung (DSGVO)](https://www.eugdpr.org/) Anforderungen:
 
-* Die Projektvorlagen enthalten Erweiterungspunkte und gekürzte Markup, das Sie mit Ihren Datenschutz und Cookies verwenden Gruppenrichtlinien ersetzen können.
-* Ein Cookie Zustimmung-Feature können Sie seine Zustimmung bitten (und Nachverfolgen) Ihre Benutzer zum Speichern von persönlichen Informationen. Wenn ein Benutzer nicht, um die Datensammlung zugestimmt hat und die app mit festgelegt ist [CheckConsentNeeded](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.checkconsentneeded) zu `true`, unbedeutende Cookies werden nicht an den Browser gesendet werden.
-* Cookies können als wesentlich markiert werden. Wichtige Cookies werden an den Browser gesendet, selbst wenn der Benutzer nicht zugestimmt hat und die Überwachung ist deaktiviert.
-* [TempData und Sitzungscookies](#tempdata) sind nicht funktionsfähig, wenn die Überwachung deaktiviert ist.
-* Die [Verwaltung der Identität](#pd) Seite enthält einen Link zum Herunterladen und Löschen von Benutzerdaten.
+* Die Projektvorlagen enthalten Erweiterungspunkte und liegenden ereignisfelds Markup, das Sie durch den Datenschutz und Cookies verwenden von Richtlinien ersetzen können.
+* Ein Cookie Zustimmung-Feature können Sie Ihre Zustimmung anfordern (und Nachverfolgen) von Ihren Benutzern zum Speichern von persönlichen Informationen. Wenn ein Benutzer noch nicht, um die Datensammlung zugestimmt und die app verfügt über [CheckConsentNeeded](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.checkconsentneeded) festgelegt `true`, nicht unbedingt Cookies werden nicht an den Browser gesendet.
+* Cookies können als wichtig markiert werden. Wichtige Cookies werden an den Browser gesendet, selbst wenn der Benutzer noch nicht zugestimmt hat und nachverfolgung ist deaktiviert.
+* [TempData und Sitzungscookies](#tempdata) nicht funktionsfähig sind, bei der Überwachung deaktiviert ist.
+* Die [identitätsverwaltung](#pd) Seite enthält einen Link zum Herunterladen und Löschen von Daten des Benutzers.
 
-Die [Beispiel-app](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample) können Sie die meisten GDPR Erweiterungspunkte und APIs, die an den Vorlagen für ASP.NET Core 2.1 hinzugefügt testen. Finden Sie unter der [Infodatei](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample) Datei zum Testen von Anweisungen.
+Die [Beispiel-app](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample) können Sie testen, die meisten der DSGVO Erweiterungspunkte und APIs hinzugefügt, um die Vorlagen für ASP.NET Core 2.1. Finden Sie unter den [Infodatei](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample) -Datei zum Testen von Anweisungen.
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="aspnet-core-gdpr-support-in-template-generated-code"></a>ASP.NET Core GDPR-Unterstützung in der Vorlage generierter code
+## <a name="aspnet-core-gdpr-support-in-template-generated-code"></a>DSGVO-Unterstützung von ASP.NET Core in Vorlagen generierter code
 
-Razor-Seiten und MVC-Projekte mit den Projektvorlagen erstellt umfassen die folgenden GDPR-Unterstützung:
+Razor-Seiten und MVC-Projekte erstellt, die mit den Projektvorlagen enthalten die folgende DSGVO-Unterstützung:
 
 * [CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions) und [UseCookiePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyappbuilderextensions.usecookiepolicy) in festgelegt sind `Startup`.
 * Die *_CookieConsentPartial.cshtml* [Teilansicht](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper).
-* Die *Pages/Privacy.cshtml* oder *Home/Privacy.cshtml* Ansicht bietet eine Seite, um die Datenschutzrichtlinie des Standorts ausführlich beschrieben. Die *_CookieConsentPartial.cshtml* Datei wird einen Link zur Seite "Datenschutz" generiert.
-* Für Anwendungen mit Konten einzelner Benutzer erstellt wurde, enthält der Seite "verwalten" Links zum Herunterladen und Löschen von [persönlicher Benutzerdaten](#pd).
+* Die *Pages/Privacy.cshtml* Seite oder *Views/Home/Privacy.cshtml* Ansicht bietet eine Seite Ihrer Website-Datenschutzrichtlinie ausführlich beschrieben. Die *_CookieConsentPartial.cshtml* -Datei generiert einen Link zu die "Datenschutz".
+* Für apps, die mit individuellen Benutzerkonten erstellt werden, bietet der Seite "verwalten" Links zum Herunterladen und Löschen von [persönliche Benutzerdaten](#pd).
 
 ### <a name="cookiepolicyoptions-and-usecookiepolicy"></a>CookiePolicyOptions und UseCookiePolicy
 
-[CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions) initialisiert werden die `Startup` Klasse `ConfigureServices` Methode:
+[CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions) initialisiert werden `Startup.ConfigureServices`:
 
 [!code-csharp[Main](gdpr/sample/Startup.cs?name=snippet1&highlight=14-20)]
 
-[UseCookiePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyappbuilderextensions.usecookiepolicy) wird aufgerufen, der `Startup` Klasse `Configure` Methode:
+[UseCookiePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyappbuilderextensions.usecookiepolicy) unter "lautet" `Startup.Configure`:
 
-[!code-csharp[Main](gdpr/sample/Startup.cs?name=snippet1&highlight=49)]
+[!code-csharp[](gdpr/sample/Startup.cs?name=snippet1&highlight=49)]
 
-### <a name="cookieconsentpartialcshtml-partial-view"></a>Teilansicht _CookieConsentPartial.cshtml
+### <a name="cookieconsentpartialcshtml-partial-view"></a>_CookieConsentPartial.cshtml Teilansicht
 
-Die *_CookieConsentPartial.cshtml* partielle Ansicht:
+Die *_CookieConsentPartial.cshtml* Teilansicht:
 
-[!code-html[Main](gdpr/sample/RP/Pages/Shared/_CookieConsentPartial.cshtml)]
+[!code-html[](gdpr/sample/RP/Pages/Shared/_CookieConsentPartial.cshtml)]
 
 Diese partielle:
 
-* Ruft den Status der Überwachung für den Benutzer ab. Wenn die Anwendung konfiguriert ist, um seine Zustimmung erforderlich muss der Benutzer zustimmen, damit Cookies nachverfolgt werden können. Wenn Zustimmung erforderlich ist, wird das Cookie Zustimmung Chrome behoben, oben auf der Navigationsleiste in erstellt die *Pages/Shared/_Layout.cshtml* Datei.
-* Stellt eine HTML `<p>` Element zusammengefasst Datenschutz und Cookies verwenden Gruppenrichtlinien.
-* Enthält einen Link zu *Pages/Privacy.cshtml* , in dem können Sie Ihrer Website-Datenschutzrichtlinie ausführlich beschrieben.
+* Ruft den Status der Überwachung für den Benutzer ab. Wenn die app konfiguriert ist, um die Zustimmung erforderlich ist, muss der Benutzer zustimmen, bevor Cookies nachverfolgt werden können. Wenn Zustimmung erforderlich ist, das Cookie Zustimmung der Bereiche am oberen Rand der Navigationsleiste von erstellten fixiert ist die *"_Layout.cshtml"* Datei.
+* Stellt eine HTML `<p>` Element, um den Datenschutz und Cookies zusammenzufassen mithilfe der Gruppenrichtlinie.
+* Enthält einen Link zu "Datenschutz" oder Ansicht, in denen Sie Ihrer Website-Datenschutzrichtlinie beschreiben können.
 
 ## <a name="essential-cookies"></a>Wichtige cookies
 
-Wenn Zustimmung nicht angegeben wurde, werden nur Cookies gekennzeichnet wesentliche an den Browser gesendet. Im folgenden Code werden einen Cookie wichtig:
+Wenn Ihre Zustimmung nicht festgelegt wurde, werden nur die Cookies, die als wichtig markiert an den Browser gesendet. Im folgenden Code werden einen Cookie wichtig:
 
 [!code-csharp[Main](gdpr/sample/RP/Pages/Cookie.cshtml.cs?name=snippet1&highlight=5)]
 
 <a name="tempdata"></a>
 
-## <a name="tempdata-provider-and-session-state-cookies-are-not-essential"></a>TempData-Anbieter und Status Sitzungscookies sind nicht wichtig
+## <a name="tempdata-provider-and-session-state-cookies-are-not-essential"></a>TempData-Anbieter und -Status-Sitzungscookies sind nicht wichtig
 
-Die [Tempdata Anbieter](xref:fundamentals/app-state#tempdata) Cookie ist nicht unbedingt erforderlich. Wenn die Überwachung deaktiviert ist, ist der Anbieter Tempdata nicht funktionsfähig. Damit der Tempdata-Anbieter kann bei der Überwachung deaktiviert ist, markieren Sie das Cookie TempData als im Wesentlichen `ConfigureServices`:
+Die [Tempdata-Anbieters](xref:fundamentals/app-state#tempdata) Cookie nicht wichtig ist. Wenn die Überwachung deaktiviert ist, nicht der Tempdata-Anbieter. Um der Tempdata-Anbieter aktivieren, wenn die nachverfolgung deaktiviert ist, Markieren des TempData-Cookies als wesentlich `Startup.ConfigureServices`:
 
 [!code-csharp[Main](gdpr/sample/RP/Startup.cs?name=snippet1)]
 
-[Sitzungsstatus](xref:fundamentals/app-state) Cookies sind nicht wichtig. Status der Sitzung ist nicht funktionsfähig, wenn die Überwachung deaktiviert ist.
+[Sitzungsstatus](xref:fundamentals/app-state) Cookies sind nicht wichtig. Sitzungsstatus nicht funktionsfähig, wenn die nachverfolgung deaktiviert ist.
 
 <a name="pd"></a>
 
-## <a name="personal-data"></a>Persönlichen Daten
+## <a name="personal-data"></a>Personenbezogene Daten
 
-ASP.NET Core-Anwendungen, die mit den einzelnen Benutzerkonten erstellt einschließen von Code zum Herunterladen und Löschen von persönlichen Daten.
+Mit einzelnen Benutzerkonten erstellten ASP.NET Core-apps enthalten Code zum Herunterladen und Löschen von personenbezogenen Daten.
 
-Wählen Sie den Benutzernamen ein, und wählen Sie dann **persönliche Daten**:
+Wählen Sie den Benutzernamen ein, und wählen Sie dann **personenbezogene Daten**:
 
-![Verwalten persönlicher Daten (Seite)](gdpr/_static/pd.png)
+![Verwalten personenbezogener Daten (Seite)](gdpr/_static/pd.png)
 
 Notizen:
 
-* Zum Generieren der `Account/Manage` code, finden Sie unter [Gerüst Identität](xref:security/authentication/scaffold-identity).
-* Löschen und nur Auswirkungen auf die Standard-Identitätsdaten herunterladen. Apps, die benutzerdefinierten Benutzerdaten erstellen müssen Delete / die benutzerdefinierten Benutzerdaten herunterladen erweitert werden. GitHub-Problem [hinzufügen und Löschen von benutzerdefinierten Benutzerdaten Identität](https://github.com/aspnet/Docs/issues/6226) einen vorgeschlagenen Artikel zum Erstellen von benutzerdefinierten/löschen/Herunterladen von benutzerdefinierten Benutzerdaten verfolgt. Wenn Sie, finden in diesem Thema priorisiert möchten, lassen Sie eine Daumen hoch Reaktion in der Ausgabe.
-* Gespeicherte Token für den Benutzer, die in der Datenbanktabelle Identität gespeichert sind `AspNetUserTokens` werden gelöscht, wenn der Benutzer, über das cascading Delete Verhalten aufgrund gelöscht wird der [Fremdschlüssel](https://github.com/aspnet/Identity/blob/release/2.1/src/EF/IdentityUserContext.cs#L152).
+* Zum Generieren der `Account/Manage` programmieren, finden Sie unter [Gerüst Identität](xref:security/authentication/scaffold-identity).
+* Löschen und nur die Auswirkung der Standard-Identitätsdaten herunterladen. Apps, die benutzerdefinierten Daten zu erstellen, müssen zum Löschen und die benutzerdefinierten Benutzerdaten herunterladen erweitert werden. Weitere Informationen finden Sie unter [hinzufügen, herunterladen und Löschen von benutzerdefinierten Daten Identität](xref:security/authentication/add-user-data).
+* Gespeicherte Token für den Benutzer, die in der Identity-Datenbanktabelle gespeichert sind `AspNetUserTokens` werden gelöscht, wenn der Benutzer, über das kaskadierende Delete Verhalten aufgrund gelöscht wird der [Fremdschlüssel](https://github.com/aspnet/Identity/blob/release/2.1/src/EF/IdentityUserContext.cs#L152).
 
-## <a name="encryption-at-rest"></a>Verschlüsselung ruhender
+## <a name="encryption-at-rest"></a>Verschlüsselung ruhender Daten
 
-Einige Datenbanken und andere Speichermechanismen ermöglichen Verschlüsselung ruhender. Verschlüsselung ruhender:
+Einige Datenbanken und andere Speichermechanismen ermöglichen die Verschlüsselung im Ruhezustand. Verschlüsselung ruhender Daten:
 
 * Gespeicherte Daten verschlüsselt automatisch.
-* Verschlüsselt ohne Konfiguration, Programmierung und andere arbeiten, die für die Software, die auf die Daten zugreift.
+* Verschlüsselt, ohne Konfiguration, Programmierung oder andere Aufgaben für die Software, die die Daten zugreift.
 * Ist die einfachste und sicherste Option.
-* So kann die Datenbank Verwalten von Schlüsseln und Verschlüsselung.
+* Kann die Datenbank Verwalten von Schlüsseln und Verschlüsselung.
 
 Zum Beispiel:
 
-* Bereitstellen von Microsoft SQL- und Azure SQL [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE).
+* Bereitstellen von Microsoft SQL und Azure SQL [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE).
 * [SQL Azure werden die Datenbank standardmäßig verschlüsselt.](https://azure.microsoft.com/updates/newly-created-azure-sql-databases-encrypted-by-default/)
-* [Azure-Blobs, Dateien, Tabelle und Warteschlangenspeicher standardmäßig verschlüsselt](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
+* [Azure-Blobs, Dateien, Table und Queue Storage standardmäßig verschlüsselt](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
 
-Für Datenbanken, die integrierte Verschlüsselung ruhender nicht bieten möglicherweise Sie datenträgerverschlüsselung verwenden, um den gleichen Schutz bereitstellen können. Zum Beispiel:
+Für Datenbanken, die integrierte Verschlüsselung ruhender Daten nicht bereitstellen, können Sie datenträgerverschlüsselung zu verwenden, um den gleichen Schutz bereitstellen können. Zum Beispiel:
 
 * [BitLocker für WindowsServer](/windows/security/information-protection/bitlocker/bitlocker-how-to-deploy-on-windows-server)
 * Linux:

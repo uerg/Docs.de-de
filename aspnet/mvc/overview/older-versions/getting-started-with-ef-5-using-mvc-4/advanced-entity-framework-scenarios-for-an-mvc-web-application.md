@@ -4,19 +4,16 @@ title: Erweiterte Entity Framework-Szenarien für eine MVC-Webanwendung (10 von 
 author: tdykstra
 description: Die Contoso University-Beispielwebanwendung veranschaulicht, wie ASP.NET MVC 4-Anwendungen, die mit dem Entity Framework 5 Code First "und" Visual Studio...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/30/2013
-ms.topic: article
 ms.assetid: 64906a1d-f734-41cf-9615-ee95f8740996
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: e4e0a754163ad6b44ca02678fe6a0407e71ec3e6
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 5a75d85140a40660314ab267fdd74a8058d791fc
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398196"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832674"
 ---
 <a name="advanced-entity-framework-scenarios-for-an-mvc-web-application-10-of-10"></a>Erweiterte Entity Framework-Szenarios für eine MVC-Webanwendung (10 von 10)
 ====================

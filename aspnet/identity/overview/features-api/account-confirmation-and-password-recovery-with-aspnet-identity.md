@@ -4,19 +4,16 @@ title: Kontobestätigung und Kennwortwiederherstellung in ASP.NET Identity (c#) 
 author: HaoK
 description: Vor der Durchführung dieses Tutorials sollten Sie zuerst erstellen Sie eine sichere ASP.NET MVC 5-Web-app mit Anmeldung, e-Mail-Bestätigung und kennwortzurücksetzung abschließen. In diesem Tutorial...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/26/2015
-ms.topic: article
 ms.assetid: 8d54180d-f826-4df7-b503-7debf5ed9fb3
-ms.technology: ''
 msc.legacyurl: /identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 38b908d145986102ff1b1734cdcef75b320bd0ab
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 08a954f8fab4a92b84bd79b4f644bcc1f55b1bc6
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384130"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37831082"
 ---
 <a name="account-confirmation-and-password-recovery-with-aspnet-identity-c"></a>Kontobestätigung und Kennwortwiederherstellung in ASP.NET Identity (c#)
 ====================
@@ -92,7 +89,7 @@ Zunächst installieren und Ausführen von [Visual Studio Express 2013 für Web](
 
 Der Standard-Datenspeicher für ASP.NET Identity ist Entity Framework, aber Sie können konfigurieren, verwenden Sie andere Datenspeicher und zusätzliche Felder hinzufügen. Finden Sie unter [Zusatzressourcen](#addRes) Abschnitt am Ende dieses Tutorials.
 
-Die [OWIN-Startklasse](../../../aspnet/overview/owin-and-katana/owin-startup-class-detection.md) ( *"Startup.cs"* ) wird aufgerufen, wenn die Anwendung gestartet und ruft die `ConfigureAuth` -Methode in der *App\_Start\Startup.Auth.cs*, die OWIN-Pipeline konfiguriert und initialisiert ASP.NET Identity. Überprüfen Sie die `ConfigureAuth` Methode. Jede `CreatePerOwinContext` Aufruf registriert einen Rückruf (gespeichert der `OwinContext`) aufgerufen wird einmal pro Anforderung zum Erstellen einer Instanz des angegebenen Typs. Sie können einen Haltepunkt festlegen, in den Konstruktor und `Create` Methode jedes Typs (`ApplicationDbContext, ApplicationUserManager`) und überprüfen Sie, ob sie bei jeder Anforderung aufgerufen werden. Eine Instanz der `ApplicationDbContext` und `ApplicationUserManager` befindet sich in der OWIN-Kontext, die in der gesamten Anwendung zugegriffen werden kann. ASP.NET Identity klinkt sich in der OWIN-Pipeline, über Cookie-Middleware. Weitere Informationen finden Sie unter [pro Anforderung Prozesslebensdauer-Verwaltung für UserManager-Klasse in ASP.NET Identity](https://blogs.msdn.com/b/webdev/archive/2014/02/12/per-request-lifetime-management-for-usermanager-class-in-asp-net-identity.aspx).
+Die [OWIN-Startklasse](../../../aspnet/overview/owin-and-katana/owin-startup-class-detection.md) ( *"Startup.cs"* ) wird aufgerufen, wenn die Anwendung gestartet und ruft die `ConfigureAuth` -Methode in der *App\_Start\Startup.Auth.cs*, die OWIN-Pipeline konfiguriert und initialisiert ASP.NET Identity. Untersuchen Sie die Methode `ConfigureAuth`. Jede `CreatePerOwinContext` Aufruf registriert einen Rückruf (gespeichert der `OwinContext`) aufgerufen wird einmal pro Anforderung zum Erstellen einer Instanz des angegebenen Typs. Sie können einen Haltepunkt festlegen, in den Konstruktor und `Create` Methode jedes Typs (`ApplicationDbContext, ApplicationUserManager`) und überprüfen Sie, ob sie bei jeder Anforderung aufgerufen werden. Eine Instanz der `ApplicationDbContext` und `ApplicationUserManager` befindet sich in der OWIN-Kontext, die in der gesamten Anwendung zugegriffen werden kann. ASP.NET Identity klinkt sich in der OWIN-Pipeline, über Cookie-Middleware. Weitere Informationen finden Sie unter [pro Anforderung Prozesslebensdauer-Verwaltung für UserManager-Klasse in ASP.NET Identity](https://blogs.msdn.com/b/webdev/archive/2014/02/12/per-request-lifetime-management-for-usermanager-class-in-asp-net-identity.aspx).
 
 Wenn Sie Ihrem Sicherheitsprofil ändern, ein neuen sicherheitsstempel generiert und gespeichert, der `SecurityStamp` Feld der *"aspnetusers"* Tabelle. Beachten Sie, dass die `SecurityStamp` Feld unterscheidet sich das Sicherheitscookie. Das Sicherheitscookie befindet sich nicht in der `AspNetUsers` Tabelle (oder an anderer Stelle in der Identity-DB). Das Sicherheitstoken für das Cookie ist selbstsigniert mit [DPAPI](https://msdn.microsoft.com/library/system.security.cryptography.protecteddata.aspx) und wird erstellt, mit der `UserId, SecurityStamp` und Ablauf von Uhrzeitangaben.
 

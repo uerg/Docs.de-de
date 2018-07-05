@@ -1,38 +1,38 @@
 ---
-title: Benutzerdefinierte Speicheranbieter für ASP.NET Core Identität
+title: Benutzerdefinierte Speicheranbieter für ASP.NET Core Identity
 author: ardalis
-description: Informationen Sie zum Konfigurieren von benutzerdefinierten Speicheranbieter für ASP.NET Core Identität.
+description: Erfahren Sie, wie Sie benutzerdefinierte Speicheranbieter für ASP.NET Core Identity zu konfigurieren.
 ms.author: riande
 ms.date: 05/24/2017
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 11c49d630c922b0aa91678277e9553bf0c25134d
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: d7baa8ed142a7d3337adceff2dc93274604bde4c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278426"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37831335"
 ---
-# <a name="custom-storage-providers-for-aspnet-core-identity"></a>Benutzerdefinierte Speicheranbieter für ASP.NET Core Identität
+# <a name="custom-storage-providers-for-aspnet-core-identity"></a>Benutzerdefinierte Speicheranbieter für ASP.NET Core Identity
 
 Von [Steve Smith](https://ardalis.com/)
 
-ASP.NET Core Identität ist ein erweiterbares System können Sie zum Erstellen eines benutzerdefinierten Speicheranbieters und verbinden Sie ihn mit Ihrer app. Dieses Thema beschreibt das Erstellen eines benutzerdefinierten Speicheranbieters für ASP.NET Core Identität. Es enthält die wichtige Konzepte zum Erstellen eigener Speicheranbieter, ist jedoch eine schrittweise exemplarische Vorgehensweise.
+ASP.NET Core Identity handelt es sich um ein erweiterbares System können Sie zum Erstellen eines benutzerdefinierten Speicheranbieters und verbinden sie zu Ihrer app. Dieses Thema beschreibt, wie Sie einen benutzerdefinierte Speicheranbieter für ASP.NET Core Identity zu erstellen. Es behandelt die entscheidenden Konzepte für Ihren eigenen Anbieter erstellen, ist aber eine schrittweise exemplarische Vorgehensweise.
 
 [Beispiel anzeigen oder von GitHub herunterladen](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample).
 
 ## <a name="introduction"></a>Einführung
 
-Standardmäßig speichert die ASP.NET-Identität-Core-System Benutzerinformationen in einer SQL Server-Datenbank über Entity Framework Core. Für viele apps eignet sich dieser Ansatz gut. Möglicherweise bevorzugen Sie jedoch einen anderen Dauerhaftigkeit oder Datenschema verwenden. Zum Beispiel:
+Standardmäßig speichert die ASP.NET Core Identity-System Benutzerinformationen in einer SQL Server-Datenbank mit Entity Framework Core. Bei vielen apps können eignet sich dieser Ansatz gut. Möglicherweise bevorzugen Sie jedoch einen anderen persistenzmechanismus oder Datenschema verwenden. Zum Beispiel:
 
-* Verwenden Sie [Azure Table Storage](https://docs.microsoft.com/azure/storage/) oder einen anderen Datenspeicher.
-* Die Datenbanktabellen haben eine andere Struktur. 
-* Sie möchten einen unterschiedlichen Zugriff Ansatz verwenden, z. B. [dapper, durch](https://github.com/StackExchange/Dapper). 
+* Verwenden Sie [Azure Table Storage](https://docs.microsoft.com/azure/storage/) oder einem anderen Datenspeicher.
+* Datenbanktabellen haben eine andere Struktur. 
+* Möglicherweise möchten Sie verwenden Sie einen Ansatz für unterschiedliche Daten, z. B. [Dapper](https://github.com/StackExchange/Dapper). 
 
-In jedem dieser Fälle können einen benutzerdefinierten Anbieter für Ihre Speichermechanismus schreiben und schließen Sie diesen Anbieter in Ihrer app.
+In jedem dieser Fälle können schreiben ein benutzerdefiniertes Anbieters für den Storage-Mechanismus und schließen Sie diesen Anbieter in Ihrer app.
 
-ASP.NET Core Identität ist in-Projektvorlagen in Visual Studio mit der Option "Einzelne Benutzerkonten" enthalten.
+ASP.NET Core Identity ist in-Projektvorlagen in Visual Studio mit der Option "Einzelne Benutzerkonten" enthalten.
 
-Wenn Sie die .NET Core-Befehlszeilenschnittstelle verwenden zu können, fügen `-au Individual`:
+Wenn Sie .NET Core-CLI verwenden möchten, fügen `-au Individual`:
 
 ```console
 dotnet new mvc -au Individual
@@ -41,57 +41,57 @@ dotnet new webapi -au Individual
 
 ## <a name="the-aspnet-core-identity-architecture"></a>Die ASP.NET Core Identity-Architektur
 
-ASP.NET Core Identity besteht aus Klassen, die aufgerufen wird, Manager und speichert. *Manager* sind allgemeine Klassen, die app-Entwickler verwendet wird, um die Vorgänge, z. B. Erstellen einer Identität eines Benutzers ausführen. *Speichert* sind auf niedrigerer Ebene Klassen, die angeben, wie die Entitäten, z. B. Benutzer und Rollen, beibehalten werden. Speichert befolgen Sie die [Repositorymusters](http://deviq.com/repository-pattern/) und sind eng gekoppelt mit der Persistenz-Mechanismus. Aus Datenspeichern, was bedeutet, dass Sie die Dauerhaftigkeit ersetzen können, ohne Änderung des Codes der Anwendung (mit Ausnahme der Konfiguration) Manager entkoppelt.
+ASP.NET Core Identity besteht aus Klassen, die aufgerufen wird, Manager und Speicher. *Manager* sind allgemeine Klassen, die app-Entwickler zum Ausführen von Vorgängen, z. B. das Erstellen von eines Identity-Benutzers verwendet. *Speichert* sind Low-Level-Klassen, die angeben, wie Entitäten, z. B. Benutzer und Rollen, beibehalten werden. Führen Sie die Speicher der [Repositorymuster](http://deviq.com/repository-pattern/) und den Dauerhaftigkeitsmechanismus eng gekoppelt sind. Manager sind aus Geschäften, entkoppelt, was bedeutet, dass Sie den persistenzmechanismus ersetzen können, ohne Änderung des Codes der Anwendung (mit Ausnahme der Konfiguration).
 
-Das folgende Diagramm zeigt, wie eine Web-app mit Managern, interagiert, während der Speicher mit der Datenzugriffsebene interagieren.
+Das folgende Diagramm zeigt, wie eine Web-app mit Managern, interagiert wird, während Speicher mit der Datenzugriffsebene interagieren.
 
-![ASP.NET Core-Apps funktionieren mit-Managern (z. B. "UserManager", "RoleManager"). -Manager funktionieren mit speichert (z. B. "UserStore") die Kommunikation mit einer Datenquelle mit einer wie Entity Framework Core-Bibliothek.](identity-custom-storage-providers/_static/identity-architecture-diagram.png)
+![ASP.NET Core-Apps arbeiten mit Managern (z. B. "UserManager", "RoleManager"). Manager arbeiten mit speichern (z. B. "UserStore"), kommunizieren mit einer Datenquelle mithilfe einer Bibliothek wie Entity Framework Core.](identity-custom-storage-providers/_static/identity-architecture-diagram.png)
 
-Erstellen Sie zum Erstellen eines benutzerdefinierten Speicheranbieters der Datenquelle, die Datenzugriffsebene und die Store-Klassen, die Interaktion mit diesem Datenzugriffsebene (die grünen und graue Felder in der Abbildung oben). Sie müssen nicht die Managers "oder" app-Code, der mit ihnen (die blaue Felder oben) interagiert anpassen.
+Erstellen Sie zum Erstellen eines benutzerdefinierten Speicheranbieters der Datenquelle, die Datenzugriffsebene und den Store-Klassen, die Interaktion mit diesen Datenzugriffsebene (der grüne und die grauen Felder in der Abbildung oben). Sie müssen nicht die-Manager oder Ihren app-Code, mit der interagiert werden (die blauen Felder oben) anpassen.
 
-Beim Erstellen einer neuen Instanz des `UserManager` oder `RoleManager` Geben Sie den Typ des User-Klasse und eine Instanz der Klasse Store als Argument übergeben. Dieser Ansatz können Sie Ihren benutzerdefinierten Klassen in ASP.NET Core einbinden. 
+Beim Erstellen einer neuen Instanz der `UserManager` oder `RoleManager` Sie geben den Typ der Benutzerklasse, und übergeben Sie eine Instanz der Store-Klasse als Argument. Dadurch können Sie Ihre benutzerdefinierten Klassen in ASP.NET Core zu integrieren. 
 
-[Konfigurieren Sie die app aus, um neue Speicheranbieter verwenden](#reconfigure-app-to-use-new-storage-provider) wird gezeigt, wie instanziieren `UserManager` und `RoleManager` mit einem benutzerdefinierten Speicher.
+[Konfigurieren der app zur Verwendung der neuen Speicheranbieter](#reconfigure-app-to-use-new-storage-provider) wird gezeigt, wie zum Instanziieren `UserManager` und `RoleManager` mit einem benutzerdefinierten Speicher.
 
-## <a name="aspnet-core-identity-stores-data-types"></a>ASP.NET Core Identität speichert-Datentypen
+## <a name="aspnet-core-identity-stores-data-types"></a>ASP.NET Core Identity speichert-Datentypen
 
-[ASP.NET Core Identity](https://github.com/aspnet/identity) Datentypen werden in den folgenden Abschnitten beschrieben:
+[ASP.NET Core Identity](https://github.com/aspnet/identity) -Datentypen werden in den folgenden Abschnitten beschrieben:
 
 ### <a name="users"></a>Benutzer
 
-Registrierte Benutzer Ihrer Website. Die [IdentityUser](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuser) Typ erweitert oder als ein Beispiel für einen eigenen benutzerdefinierten Typ verwendet werden kann. Sie müssen nicht erben von einem bestimmten Typ implementieren Ihre eigenen benutzerdefinierten Identität speicherlösung.
+Registrierte Benutzer Ihrer Website. Die ["identityuser"](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuser) Typ erweitert oder als ein Beispiel für einen eigenen benutzerdefinierten Typ verwendet werden kann. Sie müssen nicht erben, implementieren Ihre eigenen benutzerdefinierten identitätslösung für den Speicher eines bestimmten Typs.
 
 ### <a name="user-claims"></a>Benutzeransprüche
 
-Eine Reihe von Anweisungen (oder [Ansprüche](/dotnet/api/system.security.claims.claim)) über den Benutzer, die die Identität des Benutzers darstellen. Kann größer Ausdruck, der die Identität des Benutzers als über Rollen erzielt werden kann.
+Ein Satz von Anweisungen (oder [Ansprüche](/dotnet/api/system.security.claims.claim)) über den Benutzer, die die Identität des Benutzers darstellen. Sie können größer Ausdruck, der die Identität des Benutzers als über Rollen erreicht werden kann.
 
-### <a name="user-logins"></a>Benutzernamen
+### <a name="user-logins"></a>Benutzeranmeldungen
 
-Informationen zu den externen Authentifizierungsanbieter (z. B. Facebook oder ein Microsoft-Konto) verwenden, wenn Sie einen Benutzer anmelden. [Beispiel](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuserlogin)
+Informationen zu den externen Authentifizierungsanbieter (z.B. Facebook oder ein Microsoft-Konto) beim Anmelden eines Benutzers verwenden. [Beispiel](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuserlogin)
 
 ### <a name="roles"></a>Rollen
 
-Eine Autorisierungsgruppe für Ihre Website. Enthält den Rollennamen-Id und die Rolle (z. B. "Admin" oder "Employee"). [Beispiel](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityrole)
+Autorisierungsgruppe für Ihre Website. Enthält den Rollennamen Id und der Rolle (z. B. "Admin" oder "Employee"). [Beispiel](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityrole)
 
 ## <a name="the-data-access-layer"></a>Die Datenzugriffsebene
 
-In diesem Thema wird davon ausgegangen, dass Sie mit der Persistenz-Mechanismus, den Sie verwenden möchten, und zum Erstellen von Entitäten für diesen Mechanismus vertraut sind. Dieses Thema stellt ausführliche Informationen zum Erstellen des Repositorys oder Datenzugriffsklassen keinen; Es enthält einige Vorschläge für die entwurfsentscheidungen beim Arbeiten mit ASP.NET Core Identity.
+In diesem Thema wird davon ausgegangen, dass Sie mit der persistenzmechanismus, den Sie beabsichtigen, verwenden Sie "und" Vorgehensweise: Erstellen von Entitäten für diesen Mechanismus vertraut sind. In diesem Thema angeben nicht ausführliche Informationen zum Erstellen des Repositorys oder Datenzugriffsklassen; Es bietet einige Vorschläge, entwurfsentscheidungen, bei der Arbeit mit ASP.NET Core Identity.
 
-Beim Entwerfen eines benutzerdefinierten Speicheranbieters der Datenzugriffsebene, stehen Ihnen viel Flexibilität. Sie müssen nur Persistenz Mechanismen für die Funktionen erstellen, die Sie in Ihrer app verwenden möchten. Wenn Sie keine Rollen in Ihrer app verwenden, müssen Sie z. B. Speicher für Rollen oder Zuordnungen zwischen Benutzer und Rollen zu erstellen. Die Technologie und die vorhandene Infrastruktur möglicherweise eine Struktur, die die standardmäßige Implementierung des ASP.NET Core Identity erheblich unterscheiden. In der Datenzugriffsebene Geben Sie die Logik zum Arbeiten mit der Struktur Ihrer Speicher-Implementierung.
+Sie haben nur wenige freiheiten beim Entwerfen eines benutzerdefinierten Speicheranbieters für der Datenzugriffsebene. Sie müssen nur die Dauerhaftigkeitsmechanismen für Funktionen zu erstellen, die Sie in Ihrer app verwenden möchten. Wenn Sie keine Rollen in Ihrer app verwenden, müssen Sie z. B. Speicher für Rollen oder Zuordnungen zwischen Benutzer und Rollen zu erstellen. Ihre Technologie und die vorhandene Infrastruktur möglicherweise eine Struktur, die sehr stark von der Standardimplementierung von ASP.NET Core Identity ist. In der Datenzugriffsebene Geben Sie die Logik zum Arbeiten mit der Struktur Ihrer Speicher-Implementierung.
 
-Die Datenzugriffsebene enthält die Logik zum Speichern der Daten von ASP.NET Core Identität mit einer Datenquelle. Die Datenzugriffsebene für Ihre benutzerdefinierten Speicheranbieter kann die folgenden Klassen zum Speichern von Benutzer-und Rolle enthalten.
+Die Datenzugriffsebene enthält die Logik, um die Daten von ASP.NET Core Identity in einer Datenquelle zu speichern. Die Datenzugriffsebene für Ihre benutzerdefinierte Speicheranbieter sind zum Beispiel die folgenden Klassen zum Speichern von Informationen für Benutzer und die Rolle.
 
 ### <a name="context-class"></a>Context-Klasse
 
-Kapselt die Informationen zum Herstellen einer Verbindung mit Ihrem Dauerhaftigkeit und Ausführen von Abfragen. Mehrere Datenklassen erfordern eine Instanz dieser Klasse, die in der Regel über Abhängigkeitsinjektion bereitgestellt. [Beispiel](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identitydbcontext-1).
+Kapselt die Informationen zur Verbindung mit Ihrem persistenzmechanismus aus, und Abfragen ausführen. Mehrere Datenklassen erfordern eine Instanz dieser Klasse, die in der Regel über Dependency Injection bereitgestellt werden. [Beispiel](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identitydbcontext-1).
 
 ### <a name="user-storage"></a>Benutzerspeicher
 
-Speichert und ruft Benutzerinformationen (z. B. Benutzer und Kennwort-Hash) ab. [Beispiel](/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
+Speichert und Benutzerinformationen (z. B. Benutzer und Kennwort-Hash) abruft. [Beispiel](/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
 ### <a name="role-storage"></a>Rolle Speicher
 
-Speichert Rolleninformationen und abruft (z. B. die Rolle ""). [Beispiel](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.rolestore-1)
+Speichert und ruft Rolleninformationen (z. B. der Role-Name) ab. [Beispiel](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.rolestore-1)
 
 ### <a name="userclaims-storage"></a>Speicherung von userclaims.
 
@@ -99,77 +99,77 @@ Speichert und Anspruch Benutzerinformationen (z. B. den Anspruchstyp und-Wert) a
 
 ### <a name="userlogins-storage"></a>Speicherung von userlogins.
 
-Speichert und ruft die Benutzer-Anmeldeinformationen (z. B. eines externen Authentifizierungsanbieters) ab. [Beispiel](/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
+Speichert und ruft die Benutzeranmeldeinformationen (z. B. ein externer Authentifizierungsanbieter) ab. [Beispiel](/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
-### <a name="userrole-storage"></a>Speicher der Benutzerrollen
+### <a name="userrole-storage"></a>Speicherauslastung
 
-Speichert und abruft, welche Benutzer die Rollen zugewiesen sind. [Beispiel](/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
+Speichert und ruft Sie ab, welche Benutzer welche Rollen zugewiesen sind. [Beispiel](/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
-**Tipp:** implementieren nur die Klassen, die Sie in Ihrer app verwenden möchten.
+**Tipp:** nur implementieren die Klassen, die Sie in Ihrer app verwenden möchten.
 
-Geben Sie in der Datenzugriffsklassen Code zum Ausführen von Datenvorgängen für die Dauerhaftigkeit. Beispielsweise in einen benutzerdefinierten Anbieter möglicherweise, müssen Sie den folgenden Code zum Erstellen eines neuen Benutzers in der *speichern* Klasse:
+Geben Sie in den Klassen der Data Access Code zum Ausführen von Datenvorgängen für den persistenzmechanismus. Z. B. in einen benutzerdefinierten Anbieter, Sie müssen möglicherweise den folgenden Code zum Erstellen eines neuen Benutzers in der *speichern* Klasse:
 
 [!code-csharp[](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs?name=createuser&highlight=7)]
 
-Die Implementierungslogik zum Erstellen des Benutzers befindet sich in der `_usersTable.CreateAsync` unten gezeigte Methode.
+Die Implementierungslogik für die Erstellung des Benutzers befindet sich in der `_usersTable.CreateAsync` unten gezeigte Methode.
 
-## <a name="customize-the-user-class"></a>Anpassen der User-Klasse
+## <a name="customize-the-user-class"></a>Anpassen der-Klasse
 
 Wenn Sie einen Speicheranbieter zu implementieren, erstellen Sie eine Benutzerklasse entspricht dem [ `IdentityUser` Klasse](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuser).
 
-User-Klasse umfasst mindestens eine `Id` und ein `UserName` Eigenschaft.
+Die User-Klasse muss mindestens enthalten eine `Id` und `UserName` Eigenschaft.
 
-Die `IdentityUser` Klasse definiert die Eigenschaften, die die `UserManager` wird aufgerufen, wenn das Ausführen von angeforderten Vorgänge. Der Standardtyp der `Id` -Eigenschaft ist eine Zeichenfolge, aber Sie können die erben von `IdentityUser<TKey, TUserClaim, TUserRole, TUserLogin, TUserToken>` , und geben Sie einen anderen Typ. Das Framework erwartet, dass der Speicher-Implementierung, die datentypkonvertierungen zu behandeln.
+Die `IdentityUser` Klasse definiert die Eigenschaften, die die `UserManager` wird aufgerufen, wenn das Ausführen von angeforderten Vorgänge. Der Standardtyp der `Id` Eigenschaft ist eine Zeichenfolge, Sie können jedoch `IdentityUser<TKey, TUserClaim, TUserRole, TUserLogin, TUserToken>` , und geben Sie einen anderen Typ. Das Framework erwartet, dass die speicherimplementierung, die datentypkonvertierungen zu behandeln.
 
 ## <a name="customize-the-user-store"></a>Passen Sie den Speicher des Benutzers
 
-Erstellen Sie eine `UserStore` -Klasse, die die Methoden für alle Vorgänge für den Benutzer bereitstellt. Diese Klasse entspricht dem [UserStore<TUser> ](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.userstore-1) Klasse. In Ihrem `UserStore` -Klasse, implementieren Sie `IUserStore<TUser>` und die optionalen Schnittstellen erforderlich. Sie wählen die optionalen Schnittstellen implementieren basierend auf den Funktionen, die in Ihrer app bereitgestellt.
+Erstellen Sie eine `UserStore` -Klasse, die Methoden für alle Vorgänge für den Benutzer bereitstellt. Diese Klasse ist, entspricht die [UserStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.userstore-1) Klasse. In Ihrer `UserStore` Klasse und implementieren Sie `IUserStore<TUser>` und die optionalen Schnittstellen, die erforderlich sind. Sie wählen die optionalen Schnittstellen implementieren basierend auf den Funktionen, die in Ihrer app bereitgestellt.
 
 ### <a name="optional-interfaces"></a>Optionale Schnittstellen
 
-- IUserRoleStore /dotnet/api/microsoft.aspnetcore.identity.iuserrolestore-1
-- IUserClaimStore /dotnet/api/microsoft.aspnetcore.identity.iuserclaimstore-1
-- IUserPasswordStore /dotnet/api/microsoft.aspnetcore.identity.iuserpasswordstore-1
-- IUserSecurityStampStore <!-- make these all links and remove / -->
-- IUserEmailStore
-- IPhoneNumberStore
-- IQueryableUserStore
-- IUserLoginStore
-- IUserTwoFactorStore
-- IUserLockoutStore
+* [IUserRoleStore](/dotnet/api/microsoft.aspnetcore.identity.iuserrolestore-1)
+* [IUserClaimStore](/dotnet/api/microsoft.aspnetcore.identity.iuserclaimstore-1)
+* [IUserPasswordStore](/dotnet/api/microsoft.aspnetcore.identity.iuserpasswordstore-1)
+* [IUserSecurityStampStore](/dotnet/api/microsoft.aspnetcore.identity.iusersecuritystampstore-1)
+* [IUserEmailStore](/dotnet/api/microsoft.aspnetcore.identity.iuseremailstore-1)
+* [IPhoneNumberStore](/dotnet/api/microsoft.aspnetcore.identity.iphonenumberstore-1)
+* [IQueryableUserStore](/dotnet/api/microsoft.aspnetcore.identity.iqueryableuserstore-1)
+* [IUserLoginStore](/dotnet/api/microsoft.aspnetcore.identity.iuserloginstore-1)
+* [IUserTwoFactorStore](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactorstore-1)
+* [IUserLockoutStore](/dotnet/api/microsoft.aspnetcore.identity.iuserlockoutstore-1)
 
-Die optionale Schnittstellen erben von `IUserStore`. Sehen Sie eine teilweise implementierte beispielbenutzers speichern [hier](https://github.com/aspnet/Docs/blob/master/aspnetcore/security/authentication/identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs).
+Die optionale Schnittstellen erben von `IUserStore<TUser>`. Sehen Sie einen teilweise implementierte Beispielbenutzer im Speichern der [Beispiel-app](https://github.com/aspnet/Docs/blob/master/aspnetcore/security/authentication/identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs).
 
-Innerhalb der `UserStore` -Klasse, verwenden Sie die Access-Datenklassen, die Sie erstellt haben, um Vorgänge auszuführen. Diese werden mithilfe der Abhängigkeitsinjektion übergeben. Beispielsweise ist in SQL Server mit Dapper Implementierung der `UserStore` -Klasse verfügt über die `CreateAsync` Methode, die eine Instanz der verwendet `DapperUsersTable` , einen neuen Datensatz einzufügen:
+In der `UserStore` -Klasse, verwenden Sie die Data Access-Klassen, die Sie erstellt haben, um Vorgänge auszuführen. Diese werden mithilfe der Abhängigkeitsinjektion übergeben. In SQL Server mit Dapper-Implementierung, z. B. die `UserStore` -Klasse verfügt über die `CreateAsync` Methode verwendet eine Instanz von `DapperUsersTable` , einen neuen Datensatz einzufügen:
 
 [!code-csharp[](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/DapperUsersTable.cs?name=createuser&highlight=7)]
 
-### <a name="interfaces-to-implement-when-customizing-user-store"></a>Schnittstellen implementiert werden, wenn Benutzerspeicher anpassen
+### <a name="interfaces-to-implement-when-customizing-user-store"></a>Schnittstellen zu implementieren, wenn der Speicher des Benutzers anpassen
 
 - **IUserStore**  
- Die [IUserStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserstore-1) -Schnittstelle ist die einzige müssen Sie in den Speicher des Benutzers implementieren. Definiert Methoden zum Erstellen, aktualisieren, löschen und Abrufen von Benutzern.
+ Die ["iuserstore"&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserstore-1) Schnittstelle ist die einzige Schnittstelle müssen Sie in den Speicher des Benutzers implementieren. Definiert Methoden zum Erstellen, aktualisieren, löschen und Abrufen von Benutzern.
 - **IUserClaimStore**  
- Die [IUserClaimStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserclaimstore-1) Schnittstelle definiert die Methoden, die Sie zum Aktivieren von benutzeransprüchen implementieren. Enthält Methoden zum Hinzufügen, entfernen und das Abrufen von benutzeransprüchen.
+ Die [IUserClaimStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserclaimstore-1) Schnittstelle definiert die Methoden, die Sie zum Aktivieren von benutzeransprüchen implementieren. Sie enthält Methoden zum Hinzufügen, entfernen und Abrufen von Ansprüchen des Benutzers.
 - **IUserLoginStore**  
- Die [IUserLoginStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserloginstore-1) definiert die Methoden, die Sie implementieren, um externe Authentifizierungsanbieter zu aktivieren. Enthält Methoden zum Hinzufügen, entfernen und Abrufen von benutzeranmeldungen und eine Methode zum Abrufen von einem Benutzer basierend auf der Anmeldeinformationen.
+ Die [IUserLoginStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserloginstore-1) definiert die Methoden, die Sie implementieren, um externe Authentifizierungsanbieter zu aktivieren. Sie enthält Methoden zum Hinzufügen, entfernen und Abrufen von benutzeranmeldungen und eine Methode zum Abrufen von einem Benutzer basierend auf den Anmeldeinformationen.
 - **IUserRoleStore**  
- Die [IUserRoleStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserrolestore-1) Schnittstelle definiert die Methoden, die Sie implementieren, um die Zuordnung von Benutzern zu einer Rolle. Enthält Methoden zum Hinzufügen, entfernen und Abrufen von Rollen eines Benutzers und eine Methode zum Überprüfen, ob ein Benutzer einer Rolle zugewiesen ist.
+ Die [IUserRoleStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserrolestore-1) Schnittstelle definiert die Methoden, die Sie implementieren, um einen Benutzer einer Rolle zuzuordnen. Sie enthält Methoden zum Hinzufügen, entfernen, und rufen Sie die Rollen eines Benutzers und eine Methode zum Überprüfen, ob ein Benutzer eine Rolle zugewiesen ist.
 - **IUserPasswordStore**  
- Die [IUserPasswordStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserpasswordstore-1) Schnittstelle definiert die Methoden, die Sie implementieren, um verschlüsselte Kennwörter beibehalten werden. Enthält Methoden zum Abrufen und festlegen, das verschlüsselte Kennwort und eine Methode, die angibt, ob der Benutzer ein Kennwort festgelegt wurde.
+ Die ["iuserpasswordstore"&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserpasswordstore-1) Schnittstelle definiert die Methoden, die Sie implementieren, um verschlüsselte Kennwörter beibehalten werden. Sie enthält Methoden zum Abrufen und festlegen, das verschlüsselte Kennwort, und eine Methode, die angibt, ob der Benutzer ein Kennwort festgelegt hat.
 - **IUserSecurityStampStore**  
- Die [IUserSecurityStampStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iusersecuritystampstore-1) Schnittstelle definiert die Methoden, die Sie implementieren, um Sie verwenden einen sicherheitsstempel für den, der angibt, ob die Benutzerkontoinformationen geändert hat. Dieser Zeitstempel wird aktualisiert, wenn ein Benutzer das Kennwort ändert oder hinzufügt oder entfernt Anmeldungen. Enthält Methoden zum Abrufen und Festlegen der sicherheitsstempel.
+ Die [IUserSecurityStampStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iusersecuritystampstore-1) Schnittstelle definiert die Methoden, die Sie implementieren, um Sie verwenden einen sicherheitsstempel für den, der angibt, ob die Kontoinformationen des Benutzers geändert wurde. Dieser Zeitstempel wird aktualisiert, wenn ein Benutzer ändert das Kennwort ein, oder hinzufügt oder entfernt Anmeldungen. Sie enthält Methoden zum Abrufen und Festlegen des sicherheitsstempels.
 - **IUserTwoFactorStore**  
- Die [IUserTwoFactorStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactorstore-1) Schnittstelle definiert die Methoden, die Sie implementieren, um die zweistufige Authentifizierung unterstützen. Enthält Methoden zum Abrufen und festlegen, ob zweistufige Authentifizierung für einen Benutzer aktiviert ist.
+ Die [IUserTwoFactorStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactorstore-1) Schnittstelle definiert die Methoden, die Sie implementieren, um die zweistufige Authentifizierung unterstützen. Sie enthält Methoden zum Abrufen und festlegen, ob die zweistufige Authentifizierung für einen Benutzer aktiviert ist.
 - **IUserPhoneNumberStore**  
- Die [IUserPhoneNumberStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserphonenumberstore-1) Schnittstelle definiert die Methoden, die Sie implementieren, um Telefonnummern des Benutzers gespeichert. Enthält Methoden zum Abrufen und Festlegen der Telefonnummer und gibt an, ob die Telefonnummer bestätigt ist.
+ Die [IUserPhoneNumberStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserphonenumberstore-1) Schnittstelle definiert die Methoden, die Sie implementieren, um die Telefonnummern des Benutzers zu speichern. Sie enthält Methoden zum Abrufen und festlegen, die Telefonnummer und gibt an, ob die Telefonnummer bestätigt ist.
 - **IUserEmailStore**  
- Die [IUserEmailStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuseremailstore-1) Schnittstelle definiert die Methoden, die Sie implementieren, um e-Mail-Adressen von Benutzern zu speichern. Enthält Methoden zum Abrufen und festlegen, die e-Mail-Adresse und gibt an, ob die e-Mail bestätigt ist.
+ Die [IUserEmailStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuseremailstore-1) Schnittstelle definiert die Methoden, die Sie implementieren, um die Benutzer-e-Mail-Adressen zu speichern. Sie enthält Methoden zum Abrufen und festlegen, die e-Mail-Adresse und gibt an, ob die e-Mail bestätigt ist.
 - **IUserLockoutStore**  
- Die [IUserLockoutStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserlockoutstore-1) Schnittstelle definiert die Methoden, die Sie implementieren, um Informationen zum Sperren eines Kontos zu speichern. Enthält Methoden zum Nachverfolgen von zugriffsversuchsfehlern und sperren.
+ Die [IUserLockoutStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserlockoutstore-1) Schnittstelle definiert die Methoden, die Sie implementieren, um Informationen zum Sperren ein Konto zu speichern. Sie enthält Methoden zum Nachverfolgen von zugriffsversuchsfehlern und Sperrungen.
 - **IQueryableUserStore**  
  Die [IQueryableUserStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iqueryableuserstore-1) Schnittstelle definiert die Elemente, die Sie implementieren, um einen abfragbaren benutzerpeicher.
 
-Implementieren Sie nur die Schnittstellen, die erforderlich sind, in Ihrer app. Zum Beispiel:
+Sie implementieren nur die Schnittstellen, die erforderlich sind, in Ihrer app. Zum Beispiel:
 
 ```csharp
 public class UserStore : IUserStore<IdentityUser>,
@@ -185,35 +185,35 @@ public class UserStore : IUserStore<IdentityUser>,
 
 ### <a name="identityuserclaim-identityuserlogin-and-identityuserrole"></a>IdentityUserClaim IdentityUserLogin und IdentityUserRole
 
-Die `Microsoft.AspNet.Identity.EntityFramework` Namespace enthält die Implementierung der [IdentityUserClaim](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserclaim-1), [IdentityUserLogin](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuserlogin), und [IdentityUserRole](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserrole-1) Klassen. Wenn Sie diese Funktionen verwenden, empfiehlt es sich, eine eigene Versionen dieser Klassen erstellen und definieren Sie die Eigenschaften für Ihre app. Manchmal ist es jedoch effizienter, diese Entitäten nicht in den Arbeitsspeicher geladen, beim Ausführen von grundlegenden Vorgänge (z. B. hinzufügen oder Entfernen eines Benutzers Anspruch). Stattdessen können die Back-End-Speicher-Klassen diese Vorgänge direkt auf die Datenquelle ausgeführt werden. Z. B. die `UserStore.GetClaimsAsync` -Methodenaufruf können die `userClaimTable.FindByUserId(user.Id)` Methode zum Ausführen einer Abfrage auf, die Tabelle direkt und eine Liste von Ansprüchen zurückgeben.
+Die `Microsoft.AspNet.Identity.EntityFramework` -Namespace enthält die Implementierungen der [IdentityUserClaim](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserclaim-1), [IdentityUserLogin](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuserlogin), und [IdentityUserRole](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserrole-1) Klassen. Wenn Sie diese Funktionen verwenden, empfiehlt es sich um Ihre eigenen Versionen dieser Klassen zu erstellen und definieren Sie die Eigenschaften für Ihre app. Manchmal ist es jedoch sehr viel effizienter, diese Entitäten nicht in den Arbeitsspeicher geladen, beim Ausführen von grundlegenden Vorgängen (z. B. hinzufügen oder Entfernen eines Benutzers Anspruch). Die Back-End-Speicher-Klassen können stattdessen diese Vorgänge direkt auf die Datenquelle ausführen. Z. B. die `UserStore.GetClaimsAsync` Methodenaufruf kann der `userClaimTable.FindByUserId(user.Id)` Methode zum Ausführen einer Abfrage auf, die Tabelle direkt aus, und eine Liste mit Ansprüchen zurückgeben.
 
-## <a name="customize-the-role-class"></a>Anpassen der Rolle ""-Klasse
+## <a name="customize-the-role-class"></a>Anpassen der Role-Klasse
 
-Beim Implementieren eines Rollenanbieters für den Speicher können Sie eine benutzerdefinierte Rollentyp erstellen. Sie müssen eine bestimmte Schnittstelle nicht implementieren, muss jedoch ein `Id` und in der Regel muss ein `Name` Eigenschaft.
+Beim Implementieren eines Rollenanbieters für den Speicher können Sie einen Typ für die benutzerdefinierte Rolle erstellen. Sie müssen eine bestimmte Schnittstelle nicht implementieren, es müssen jedoch eine `Id` und in der Regel verfügt über eine `Name` Eigenschaft.
 
-Im folgenden finden eine Beispiel-rollenklasse:
+Im folgenden finden eine Rolle-Beispielklasse:
 
 [!code-csharp[](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/ApplicationRole.cs)]
 
 ## <a name="customize-the-role-store"></a>Anpassen der rollenspeicher
 
-Sie erstellen eine `RoleStore` -Klasse, die die Methoden für alle Vorgänge für Rollen bereitstellt. Diese Klasse entspricht dem [RoleStore<TRole> ](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.rolestore-1) Klasse. In der `RoleStore` -Klasse, die Sie implementieren die `IRoleStore<TRole>` und optional die `IQueryableRoleStore<TRole>` Schnittstelle.
+Sie erstellen eine `RoleStore` -Klasse, die Methoden für alle Vorgänge für Rollen bereitstellt. Diese Klasse ist, entspricht die [RoleStore&lt;TRole&gt; ](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.rolestore-1) Klasse. In der `RoleStore` -Klasse, die Sie implementieren die `IRoleStore<TRole>` und optional die `IQueryableRoleStore<TRole>` Schnittstelle.
 
 - **IRoleStore&lt;TRole&gt;**  
- Die [IRoleStore](/dotnet/api/microsoft.aspnetcore.identity.irolestore-1) Schnittstelle definiert die Methoden, die in der Rolle Store-Klasse implementiert. Enthält Methoden zum Erstellen, aktualisieren, löschen und Abrufen von Rollen.
+ Die [IRoleStore&lt;TRole&gt; ](/dotnet/api/microsoft.aspnetcore.identity.irolestore-1) Schnittstelle definiert die Methoden, die in der Rolle Store-Klasse implementieren. Sie enthält Methoden zum Erstellen, aktualisieren, löschen und Rollen werden abgerufen.
 - **RoleStore&lt;TRole&gt;**  
- Anpassen `RoleStore`, erstellen Sie eine Klasse, die implementiert die `IRoleStore` Schnittstelle. 
+ Zum Anpassen `RoleStore`, erstellen Sie eine Klasse, die implementiert die `IRoleStore<TRole>` Schnittstelle. 
 
-## <a name="reconfigure-app-to-use-new-storage-provider"></a>Konfigurieren Sie die app aus, um neue Speicheranbieter verwenden
+## <a name="reconfigure-app-to-use-a-new-storage-provider"></a>Konfigurieren der app, um einen neuen Speicheranbieter verwenden
 
-Nachdem Sie einen Speicheranbieter implementiert haben, konfigurieren Sie Ihre app zur Verwendung an. Wenn Ihre app den Standardanbieter verwendet haben, ersetzen Sie ihn durch einen benutzerdefinierten Anbieter aus.
+Nachdem Sie einen Speicheranbieter implementiert haben, konfigurieren Sie Ihre app aus, um es zu verwenden. Wenn Ihre app den Standardanbieter verwendet werden, durch den benutzerdefinierten Anbieter ersetzen.
 
 1. Entfernen Sie die `Microsoft.AspNetCore.EntityFramework.Identity` NuGet-Paket.
-1. Wenn Sie der Speicheranbieter in einem separaten Projekt oder Paket befindet, fügen Sie einen Verweis darauf hinzu.
+1. Wenn der Speicheranbieter in einem separaten Projekt oder Paket befindet, fügen Sie einen Verweis darauf hinzu.
 1. Ersetzen Sie alle Verweise auf `Microsoft.AspNetCore.EntityFramework.Identity` mit einer using-Anweisung für den Namespace von Ihrem Speicheranbieter.
-1. In der `ConfigureServices` -Methode, ändern die `AddIdentity` Methode, um die benutzerdefinierten Typen verwenden. Sie können Ihre eigenen Erweiterungsmethoden für diesen Zweck erstellen. Finden Sie unter [IdentityServiceCollectionExtensions](https://github.com/aspnet/Identity/blob/rel/1.1.0/src/Microsoft.AspNetCore.Identity/IdentityServiceCollectionExtensions.cs) ein Beispiel.
-1. Wenn Sie Rollen verwenden, Aktualisieren der `RoleManager` verwenden Ihre `RoleStore` Klasse.
-1. Aktualisieren Sie die Verbindungszeichenfolge sowie Anmeldeinformationen auf Ihre app-Konfiguration.
+1. In der `ConfigureServices` -Methode, Ändern der `AddIdentity` Methode, um Ihre benutzerdefinierten Typen verwenden. Sie können Ihre eigenen Erweiterungsmethoden für diesen Zweck erstellen. Finden Sie unter [IdentityServiceCollectionExtensions](https://github.com/aspnet/Identity/blob/rel/1.1.0/src/Microsoft.AspNetCore.Identity/IdentityServiceCollectionExtensions.cs) verdeutlicht.
+1. Wenn Sie Rollen verwenden, aktualisieren Sie die `RoleManager` verwenden Ihre `RoleStore` Klasse.
+1. Aktualisieren Sie die Verbindungszeichenfolge und Anmeldeinformationen zu Ihrer app Konfiguration.
 
 Beispiel:
 

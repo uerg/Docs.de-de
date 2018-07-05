@@ -4,19 +4,16 @@ title: '[Gewusst wie:] Verwenden Sie eine Visual Studio 2008-Webbereitstellungsp
 author: rick-anderson
 description: In diesem Video zeigt Chris Pels, wie mit der Bereitstellung von Visual Studio 2008-Web-Add-On-Bereitstellungsprojekte mit einer feineren Kontrolle über die Verwendung erstellen...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/11/2008
-ms.topic: article
 ms.assetid: 9517a342-e414-4c93-b0a6-5b52b391c908
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-a-visual-studio-2008-web-deployment-project
 msc.type: video
-ms.openlocfilehash: 651d27d94d6fae61b4d2468faab57a569c303f58
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 183ac4543fb294ca9815ec99f4c8c017fe637e8f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37391825"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803482"
 ---
 <a name="how-do-i-use-a-visual-studio-2008-web-deployment-project"></a>[Gewusst wie:] Verwenden Sie eine Visual Studio 2008-Webbereitstellungsprojekts
 ====================

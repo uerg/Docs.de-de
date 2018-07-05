@@ -4,19 +4,16 @@ title: Dynamisches Steuern von UpdatePanel-Animationen (VB) | Microsoft-Dokument
 author: wenz
 description: Die Animation-Steuerelement in ASP.NET AJAX Control Toolkit ist nicht nur ein Steuerelement, aber ein ganzes Framework Animationen an ein Steuerelement hinzufügen. Für den Inhalt einer...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: bea66072-59b6-42b4-98fa-211812f5925f
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/dynamically-controlling-updatepanel-animations-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 79a256f5d5c62123184beffce3365ade0ac13e46
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b93ed1c7994c7561396298d876af213ae872f787
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37365940"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803654"
 ---
 <a name="dynamically-controlling-updatepanel-animations-vb"></a>Dynamisches Steuern von UpdatePanel-Animationen (VB)
 ====================

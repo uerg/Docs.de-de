@@ -4,19 +4,16 @@ title: Das dynamische Hinzufügen von Steuerelementen zu einer Webseite | Micros
 author: JoeStagner
 description: In diesem Video zeige ich ihnen, eine Technik, um dynamisch eine unbestimmte Anzahl von Steuerelementen auf Ihrer Webseite hinzuzufügen.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/16/2008
-ms.topic: article
 ms.assetid: 718e7b1d-e02c-41fe-85d5-44c0d288201f
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-to-dynamically-add-controls-to-a-web-page
 msc.type: video
-ms.openlocfilehash: 4c3bbfa9fc15e0560f879de8ad5a4aa61e802165
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 3849e844616247ac9fad3482ed3cd27969c86acf
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37386316"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37829735"
 ---
 <a name="how-to-dynamically-add-controls-to-a-web-page"></a>Das dynamische Hinzufügen von Steuerelementen zu einer Webseite
 ====================

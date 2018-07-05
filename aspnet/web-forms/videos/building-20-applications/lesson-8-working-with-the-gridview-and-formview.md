@@ -4,19 +4,16 @@ title: '[Lektion 8:] Arbeiten mit GridView und FormView | Microsoft-Dokumentatio
 author: microsoft
 description: In dieser Lektion lernen Sie die GridView und FormView-Steuerelemente, und wie können Sie einige der Features dieser Steuerelemente stellen bearbeiten und anzeigen...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/29/2005
-ms.topic: article
 ms.assetid: be41acae-1e1e-403c-bdd2-28cdcd11a22a
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/building-20-applications/lesson-8-working-with-the-gridview-and-formview
 msc.type: video
-ms.openlocfilehash: 330a03bd176be0fcbf9f89251cdf485f7ee62d8c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 3039119bb851f18de4bfc2da3c19e28690522844
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37402667"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830111"
 ---
 <a name="lesson-8-working-with-the-gridview-and-formview"></a>[Lektion 8:] Arbeiten mit GridView und FormView
 ====================

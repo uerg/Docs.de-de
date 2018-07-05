@@ -4,19 +4,16 @@ title: Erstellen von Benutzerkonten (VB) | Microsoft-Dokumentation
 author: rick-anderson
 description: In diesem Tutorial wird erläutert, mit, dass das mitgliedschaftsframework (über die SqlMembershipProvider) neue Benutzerkonten erstellen. Wir sehen uns neu zu erstellen...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/18/2008
-ms.topic: article
 ms.assetid: 9ef3e893-bebe-4b13-9fe5-8b71720dd85e
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/creating-user-accounts-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 24261515af5213cdf58661cdfd6d1ba4653f8aa6
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: fe5e55df3fa9f65a94199c2064a785255f231537
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37380719"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37815342"
 ---
 <a name="creating-user-accounts-vb"></a>Erstellen von Benutzerkonten (VB)
 ====================

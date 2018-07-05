@@ -4,19 +4,16 @@ title: Abfragen von Daten mit dem SqlDataSource-Steuerelement (VB) | Microsoft-D
 author: rick-anderson
 description: In den vorherigen Tutorials verwendet haben wir das ObjectDataSource-Steuerelement, um die Darstellungsschicht vollständig von der Datenzugriffsschicht zu trennen. Mit diesem Tutor wird gestartet...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2007
-ms.topic: article
 ms.assetid: b12f752d-3502-40a4-b695-fc7b7d08cfd3
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d7ec182325d609877ac0d3603a5124b5fbe5a229
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2fa26eeb640ddf096d5002b9bffbb48a87cfccd9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37365710"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830531"
 ---
 <a name="querying-data-with-the-sqldatasource-control-vb"></a>Abfragen von Daten mit dem SqlDataSource-Steuerelement (VB)
 ====================

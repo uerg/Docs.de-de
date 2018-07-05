@@ -4,19 +4,16 @@ title: '[Gewusst wie:] Erstellen eines benutzerdefinierten Anbieters für die Pr
 author: rick-anderson
 description: Chris Pels wird gezeigt, wie zum Erstellen eines benutzerdefinierten Anbieters für die ASP.NET "heath" Überwachungssystem, mit dem Systemüberwachungsereignisse in eine textbasierte Protokolldatei aufgezeichnet werden. LE...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/06/2008
-ms.topic: article
 ms.assetid: 18ae018d-b388-4f79-a218-b5dd4dc4e75b
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-a-custom-provider-for-logging-health-monitoring-events
 msc.type: video
-ms.openlocfilehash: 05b5ea9ad21e500593fce643b53d5ccb7c66ca66
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a8bccfbfee3a0989d8a9d69723969a1ccd649bd4
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381142"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802000"
 ---
 <a name="how-do-i-create-a-custom-provider-for-logging-health-monitoring-events"></a>[Gewusst wie:] Erstellen eines benutzerdefinierten Anbieters für die Protokollierung von Systemüberwachungsereignissen
 ====================

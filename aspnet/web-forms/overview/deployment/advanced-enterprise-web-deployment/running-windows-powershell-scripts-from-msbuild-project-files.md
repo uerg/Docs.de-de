@@ -4,19 +4,16 @@ title: Ausführen von Windows PowerShell-Skripts aus MSBuild-Projektdateien | Mi
 author: jrjlee
 description: In diesem Thema wird beschrieben, wie ein Windows PowerShell-Skript als Teil eines Build & Deployment-Prozesses ausgeführt wird. Sie können ein Skript lokal ausführen (das heißt, auf die b...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: 55f1ae45-fcb5-43a9-8415-fa5b935fc9c9
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/running-windows-powershell-scripts-from-msbuild-project-files
 msc.type: authoredcontent
-ms.openlocfilehash: ddb658d8a8f224a7c417321df3e17ce0610d2473
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: faedcee480b6c50dc560055206fedbe7af4d5f67
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362894"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803148"
 ---
 <a name="running-windows-powershell-scripts-from-msbuild-project-files"></a>Ausführen von Windows PowerShell-Skripts aus MSBuild-Projektdateien
 ====================
@@ -59,7 +56,7 @@ In diesem Thema zeigt Sie, wie Sie diese Schritte ausführen. Die Aufgaben und e
 Die Aufgaben in diesem Thema verwenden Sie ein Windows PowerShell-Beispielskript, mit dem Namen **LogDeploy.ps1** zum veranschaulichen des zum Ausführen von Skripts aus MSBuild. Die **LogDeploy.ps1** Skript enthält eine einfache Funktion, die einen Eintrag für einzeilige in eine Protokolldatei schreibt:
 
 
-[!code-javascript[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample1.js)]
+[!code-powershell[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample1.ps1)]
 
 
 Die **LogDeploy.ps1** Skript akzeptiert zwei Parameter. Der erste Parameter stellt den vollständigen Pfad, in die Protokolldatei zu der Sie einen Eintrag hinzufügen möchten, und der zweite Parameter stellt das Bereitstellungsziel aus, dem in der Protokolldatei aufgezeichnet werden sollen. Wenn Sie das Skript ausführen, fügt es eine Zeile in die Protokolldatei im folgenden Format hinzu:

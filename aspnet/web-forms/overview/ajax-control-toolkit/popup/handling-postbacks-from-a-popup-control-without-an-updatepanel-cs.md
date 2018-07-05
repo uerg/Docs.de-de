@@ -4,19 +4,16 @@ title: Verarbeiten von Postbacks über ein Popupsteuerelement ohne ein UpdatePan
 author: wenz
 description: Der PopupControl Extender im AJAX Control Toolkit bietet eine einfache Möglichkeit, ein Popup auslösen, wenn ein anderes Steuerelement aktiviert ist. Wenn ein Postback in "su" erfolgt...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 25444121-5a72-4dac-8e50-ad2b7ac667af
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-without-an-updatepanel-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d74a44a277bdcb460dc20b78bad3e5ed68445b4a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 108595a37d6c15a4bd6ddee365ca718969ca9c8c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37370982"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37804034"
 ---
 <a name="handling-postbacks-from-a-popup-control-without-an-updatepanel-c"></a>Verarbeiten von Postbacks über ein Popupsteuerelement ohne ein UpdatePanel-Steuerelement (c#)
 ====================
