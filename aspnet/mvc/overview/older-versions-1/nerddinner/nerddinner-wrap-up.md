@@ -4,19 +4,16 @@ title: NerdDinner – Zusammenfassung | Microsoft-Dokumentation
 author: microsoft
 description: Dies ist die Schlussfolgerung eines zum NerdDinner-Tutorial, und erhalten Sie Informationen dazu, wie weitere.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/27/2010
-ms.topic: article
 ms.assetid: 5c6371c0-a944-4adf-a28e-5afbdd011ca8
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/nerddinner-wrap-up
 msc.type: authoredcontent
-ms.openlocfilehash: bc4e4528ff62b92407d2149d825e6872c40e5126
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e58b187d3f25e76195be7690c865fc11d284da78
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37387061"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37818232"
 ---
 <a name="nerddinner-wrap-up"></a>NerdDinner – Zusammenfassung
 ====================

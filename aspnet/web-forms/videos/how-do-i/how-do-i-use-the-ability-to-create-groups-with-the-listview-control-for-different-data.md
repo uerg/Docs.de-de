@@ -4,19 +4,16 @@ title: '[Gewusst wie:] Verwenden Sie die Möglichkeit zum Erstellen von Gruppen 
 author: rick-anderson
 description: In diesem Video zeigt Chris Pels, wie Sie Elemente zu gruppieren, Anzeigen von Daten in einem ListView-Steuerelement. Lesen Sie zunächst, die Grundlagen der Elementlayout, in der ListView hinsichtlich...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/20/2008
-ms.topic: article
 ms.assetid: 694103ee-3845-451a-aac4-be06559530d2
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-the-ability-to-create-groups-with-the-listview-control-for-different-data
 msc.type: video
-ms.openlocfilehash: e65add534b6d848b17bec6f07860de93e6ec8585
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 3dd9d0b8445fcb9b832c4359e970180b4017a2f8
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37375976"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37817800"
 ---
 <a name="how-do-i-use-the-ability-to-create-groups-with-the-listview-control-for-different-data"></a>[Gewusst wie:] Verwenden Sie die Möglichkeit zum Erstellen von Gruppen mit dem ListView-Steuerelement für unterschiedliche Daten
 ====================

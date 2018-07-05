@@ -4,19 +4,16 @@ title: '[Gewusst wie:] Mithilfe von MSBuild des ASP.NET-Compilers und Hilfsprogr
 author: rick-anderson
 description: In diesem video Chris Pels zeigt, wie ein MSBuild-Projekt zu erstellen, der die Ausführung der Dienstprogramme Aspnet_compiler und Aspnet_merge für einen ASP tätig orchestriert...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/07/2008
-ms.topic: article
 ms.assetid: 14f2b333-59f5-4ae4-88db-2a78f809cef3
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-35/how-do-i/how-do-i-use-msbuild-to-automate-the-aspnet-compiler-and-merge-utilities
 msc.type: video
-ms.openlocfilehash: b2803bbd9d63cb5e79ced227719e762eaf697aa6
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 8414489f495ae2b194a503bf3129467c3219ce8c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37392109"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37818190"
 ---
 <a name="how-do-i-use-msbuild-to-automate-the-aspnet-compiler-and-merge-utilities"></a>[Gewusst wie:] Mithilfe von MSBuild des ASP.NET-Compilers und Hilfsprogrammen zum Zusammenführen
 ====================

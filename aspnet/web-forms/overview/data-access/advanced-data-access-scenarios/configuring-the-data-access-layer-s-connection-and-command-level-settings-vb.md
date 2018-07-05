@@ -4,19 +4,16 @@ title: Konfigurieren der Datenzugriffsschicht (VB) Verbindung und Befehlsebene-E
 author: rick-anderson
 description: Die TableAdapters in einem typisierten DataSet kümmert sich automatisch eine Verbindung mit der Datenbank, Ausgeben von Befehlen und eine "DataTable" mit den Ergebnissen aufgefüllt...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/03/2007
-ms.topic: article
 ms.assetid: d57dfa2b-d627-45cb-b5b1-abbf3159d770
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 85ec20795b337d5457becc5182b148b03e1554fa
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6d8f5aa0e114d22a3192b89f190baa83315bfa8c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37402066"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37818290"
 ---
 <a name="configuring-the-data-access-layers-connection--and-command-level-settings-vb"></a>Konfigurieren von Einstellungen für die Datenzugriffsebene Verbindung und Befehlsebene (VB)
 ====================

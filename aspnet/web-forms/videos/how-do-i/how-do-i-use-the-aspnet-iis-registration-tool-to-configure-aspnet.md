@@ -4,19 +4,16 @@ title: Wie verwende ich das ASP.NET IIS Registration-Tool zum Konfigurieren von 
 author: rick-anderson
 description: In diesem video Chris Pels zeigt, wie das ASP.NET IIS Registration-Tool zum Konfigurieren von ASP.NET verwenden. Lesen Sie zunächst, die Zuordnung von Dateierweiterungen zu ASP.NET Core in der...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/01/2008
-ms.topic: article
 ms.assetid: 2565839b-30b8-45e1-946e-34fffe940c48
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-the-aspnet-iis-registration-tool-to-configure-aspnet
 msc.type: video
-ms.openlocfilehash: 590fb504d1bf2b5e7a68b6898715c0c18c447025
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 9e577901e04c9c92113f754cc5ef13ad21274afa
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37395151"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37818821"
 ---
 <a name="how-do-i-use-the-aspnet-iis-registration-tool-to-configure-aspnet"></a>Wie verwende ich das ASP.NET IIS Registration-Tool zum Konfigurieren von ASP.NET aus
 ====================

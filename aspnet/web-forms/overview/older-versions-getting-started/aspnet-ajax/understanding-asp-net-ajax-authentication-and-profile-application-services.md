@@ -4,19 +4,16 @@ title: Grundlegendes zur Authentifizierung in ASP.NET AJAX und-Profilanwendungsd
 author: scottcate
 description: Der Authentifizierungsdienst ermöglicht es Benutzern, Anmeldeinformationen anzugeben, um ein Authentifizierungscookie zu erhalten, und der Gatewaydienst kann benutzerdefinierte geht an...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/14/2008
-ms.topic: article
 ms.assetid: 6ab4efb6-aab6-45ac-ad2c-bdec5848ef9e
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-authentication-and-profile-application-services
 msc.type: authoredcontent
-ms.openlocfilehash: 323fec56f18281b5b5a3d312a2e4c4c7133e3f03
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6c08cffacb9ebde6f29398f53b2e568b4bd59d5d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393060"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37831679"
 ---
 <a name="understanding-aspnet-ajax-authentication-and-profile-application-services"></a>Grundlegendes zur Authentifizierung in ASP.NET AJAX und-Profilanwendungsdienste
 ====================

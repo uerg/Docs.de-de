@@ -4,19 +4,16 @@ title: CSS mit dem UpdatePanel von ASP.NET AJAX dynamisch ändern | Microsoft-Do
 author: JoeStagner
 description: Dieses Video veranschaulicht, wie das Format Ihrer Seite mithilfe von CSS und AJAX UpdatePanel dynamisch zu ändern.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/16/2008
-ms.topic: article
 ms.assetid: 6e0eca38-0344-4732-97de-73acf0551c28
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-to-dynamically-change-css-using-the-aspnet-ajax-updatepanel
 msc.type: video
-ms.openlocfilehash: eb8c806949b109c5b5dc406f208e1e2e36e24858
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f635c8e153d17c96684704b1622041b381c5f2a7
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37378883"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37804658"
 ---
 <a name="how-to-dynamically-change-css-using-the-aspnet-ajax-updatepanel"></a>Das UpdatePanel von ASP.NET AJAX mit CSS dynamisch zu ändern
 ====================

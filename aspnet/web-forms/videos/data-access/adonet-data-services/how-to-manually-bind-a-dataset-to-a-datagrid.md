@@ -4,19 +4,16 @@ title: 'Gewusst wie: Binden Sie ein Dataset manuell an ein Datenraster | Microso
 author: JoeStagner
 description: In diesem Video, Teil 2 von 3 verwendet Joe Stagner die ASP-beispielanwendung, die in Teil eins, erstellt, veranschaulicht, wie Sie ein Dataset manuell an ein DataGrid-Steuerelement zu binden. Für ...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/07/2008
-ms.topic: article
 ms.assetid: 1e339f8a-72ea-463a-b186-c09dd7b12993
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/data-access/adonet-data-services/how-to-manually-bind-a-dataset-to-a-datagrid
 msc.type: video
-ms.openlocfilehash: 2f9d550dd244b532354eb5aca6e69d982d116911
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 25c3ef065ef1681f3d85bb24cacaa1fc56359ae7
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37382045"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37817996"
 ---
 <a name="how-to-manually-bind-a-dataset-to-a-datagrid"></a>Gewusst wie: Binden Sie ein Dataset manuell an ein Datenraster
 ====================

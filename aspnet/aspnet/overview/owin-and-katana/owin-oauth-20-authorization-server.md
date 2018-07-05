@@ -4,19 +4,16 @@ title: OWIN OAuth 2.0-Autorisierungsserver | Microsoft-Dokumentation
 author: hongyes
 description: Dieses Tutorial führt Sie zum Implementieren von OAuth 2.0-Autorisierungsserver mit OWIN-OAuth-Middleware. Dies ist ein erweitertes Lernprogramm, nur Outlin...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/20/2014
-ms.topic: article
 ms.assetid: 20acee16-c70c-41e9-b38f-92bfcf9a4c1c
-ms.technology: ''
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 msc.type: authoredcontent
-ms.openlocfilehash: d2c5e984fb5866ab4bc01e10600bad4ee88bd4ed
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e3b5b37b4f22f3c59d3c1f4043e9b52e46a8926b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37387337"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37828418"
 ---
 <a name="owin-oauth-20-authorization-server"></a>OWIN OAuth 2.0-Autorisierungsserver
 ====================

@@ -4,19 +4,16 @@ title: Hinzufügen von Animationen zu einem Steuerelement (VB) | Microsoft-Dokum
 author: wenz
 description: Die Animation-Steuerelement in ASP.NET AJAX Control Toolkit ist nicht nur ein Steuerelement, aber ein ganzes Framework Animationen an ein Steuerelement hinzufügen. Dieses Tutorial zeigt, wie...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: c120187e-963e-4439-bb85-32771bc7f1f4
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/adding-animation-to-a-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3909422dc5d261b39f3efd7d7eaeb5cfb1976f2b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 7ae2fd6c680ed89022772c62bb6148808d2f4daf
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37364925"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37818125"
 ---
 <a name="adding-animation-to-a-control-vb"></a>Hinzufügen von Animationen zu einem Steuerelement (VB)
 ====================

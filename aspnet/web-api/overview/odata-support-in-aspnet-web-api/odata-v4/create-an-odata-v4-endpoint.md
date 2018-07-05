@@ -4,19 +4,16 @@ title: Erstellen einer ASP.NET Web API 2.2 verwendet OData v4-Endpunkts | Micros
 author: MikeWasson
 description: Das Open Data Protocol (OData) ist eine Data Access-Protokoll für das Web. OData bietet eine einheitliche Möglichkeit zum Abfragen und Bearbeiten von Datensätzen über CRUD-Vorgänge...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/24/2014
-ms.topic: article
 ms.assetid: 1e1927c0-ded1-4752-80fd-a146628d2f09
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: 55cfae975f0202e29908edaa84c6ef33416f2a54
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 04fad9b569972f11256c6b7288db34d4996ca8bf
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37397800"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37804211"
 ---
 <a name="create-an-odata-v4-endpoint-using-aspnet-web-api-22"></a>Erstellen einer ASP.NET Web API 2.2 verwendet OData v4-Endpunkts
 ====================

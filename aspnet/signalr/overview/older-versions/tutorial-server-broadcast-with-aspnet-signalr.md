@@ -4,19 +4,16 @@ title: 'Tutorial: Serverübertragung mit ASP.NET SignalR 1.x | Microsoft-Dokumen
 author: pfletcher
 description: Dieses Tutorial veranschaulicht, wie eine Webanwendung erstellen, die ASP.NET SignalR verwendet, um Server-broadcast-Funktionalität bereitzustellen. Serverübertragung bedeutet, dass das communic...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/10/2013
-ms.topic: article
 ms.assetid: ab7b2554-956a-4f6d-b2a0-4ae0c62e8580
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: caaafd0ff353b180b0f71a1e1f9522cfa574d854
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1f98b35236812aac1362f1e36e60971ff8d896bc
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37369934"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37816193"
 ---
 <a name="tutorial-server-broadcast-with-aspnet-signalr-1x"></a>Tutorial: Serverübertragung mit ASP.NET SignalR 1.x
 ====================
