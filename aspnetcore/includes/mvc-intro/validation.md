@@ -1,4 +1,4 @@
-# <a name="adding-validation"></a>Hinzufügen von Validierung
+# <a name="add-validation-to-an-aspnet-core-mvc-app"></a>Hinzufügen der Validierung zu einer ASP.NET Core MVC-App
 
 Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 

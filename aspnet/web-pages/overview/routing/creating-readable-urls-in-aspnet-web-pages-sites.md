@@ -1,100 +1,99 @@
 ---
 uid: web-pages/overview/routing/creating-readable-urls-in-aspnet-web-pages-sites
-title: Lesbare URLs erstellen, in der ASP.NET Web Pages (Razor)-Websites | Microsoft Docs
+title: Erstellen von lesbaren URLs in der ASP.NET Web Pages (Razor) Sites | Microsoft-Dokumentation
 author: tfitzmac
-description: Dieser Artikel beschreibt in einer Website für ASP.NET Web Pages (Razor), und wie können Sie die URLs verwenden, die besser lesbar und besser für SEO routing. Was sind Sie in der...
+description: Dieser Artikel beschreibt die in einer Website für ASP.NET Web Pages (Razor), und wie diese können Sie URLs verwenden, die besser lesbar und besser für SEO-routing. Was sind Sie in der...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/17/2014
 ms.topic: article
 ms.assetid: a8aac1ac-89de-4415-afe0-97a41c6423d2
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/routing/creating-readable-urls-in-aspnet-web-pages-sites
 msc.type: authoredcontent
-ms.openlocfilehash: 7858b7cbd6dccafb2867ed9a1d102561e211e435
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d027be2924f24c1080deb4ee2deacc235bbd1001
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26529749"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37385747"
 ---
-<a name="creating-readable-urls-in-aspnet-web-pages-razor-sites"></a>Erstellen lesbare URLs in ASP.NET Web Pages (Razor)-Websites
+<a name="creating-readable-urls-in-aspnet-web-pages-razor-sites"></a>Erstellen von lesbaren URLs in ASP.NET Web Pages (Razor)-Websites
 ====================
 durch [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Dieser Artikel beschreibt in einer Website für ASP.NET Web Pages (Razor), und wie können Sie die URLs verwenden, die besser lesbar und besser für SEO routing.
+> Dieser Artikel beschreibt die in einer Website für ASP.NET Web Pages (Razor), und wie diese können Sie URLs verwenden, die besser lesbar und besser für SEO-routing.
 > 
-> Lernen Sie:
+> Sie lernen Folgendes:
 > 
 > - Wie ASP.NET verwendet routing, um Sie besser lesbar und durchsuchbaren URLs verwenden können.
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>In diesem Lernprogramm verwendeten Versionen der Software
+> ## <a name="software-versions-used-in-the-tutorial"></a>Softwareversionen, die in diesem Tutorial verwendet werden.
 > 
 > 
 > - ASP.NET Web Pages (Razor) 3
 >   
 > 
-> Dieses Lernprogramm funktioniert auch mit ASP.NET Web Pages 2.
+> In diesem Tutorial funktioniert auch mit ASP.NET Web Pages 2.
 
 
-## <a name="about-routing"></a>Zum Routing
+## <a name="about-routing"></a>Informationen zum Routing
 
-Die URLs für die Seiten auf Ihrer Website möglich wirkt sich auf die Website wie gut funktioniert. Eine URL, die &quot;angezeigten&quot; Ausgabenanzeige für Personen, die Website zu verwenden. Sie können auch mit Search Engine Optimization (SEO) für den Standort. ASP.NET-Websites bieten die Möglichkeit, automatisch friendly URLs verwendet.
+Die URLs für die Seiten auf Ihrer Website haben Auswirkungen auf die Website wie gut funktioniert. Eine URL, die &quot;benutzerfreundliche&quot; können sie leichter für Personen, die Website zu verwenden. Sie können auch mit der Such-Engine Optimization (SEO) für den Standort. ASP.NET-Websites umfassen die Möglichkeit, freundlichen URLs automatisch verwenden.
 
-ASP.NET können Sie aussagekräftige URLs erstellen, die Benutzeraktionen, sondern nur in eine Datei auf dem Server zu beschreiben. Betrachten Sie diese URLs für eine fiktive Blog:
+ASP.NET können Sie aussagekräftige URLs zu erstellen, die Aktionen des Benutzers statt nur auf eine Datei auf dem Server Zeigt beschreiben. Betrachten Sie diese URLs für einen fiktiven Blog:
 
 - `http://www.contoso.com/Blog/blog.cshtml?categories=hardware`
 - `http://www.contoso.com//Blog/blog.cshtml?startdate=2009-11-01&enddate=2009-11-30`
 
-Vergleichen Sie diese URLs in den folgenden Vorgängen:
+Vergleichen Sie diese URLs, die unten aufgeführten:
 
 - `http://www.contoso.com/Blog/categories/hardware/`
 - `http://www.contoso.com/Blog/2009/November`
 
-Ein Benutzer müsste in das erste Paar zu wissen, dass im Blog mit angezeigt wird der *blog.cshtml* Seite und dann müssten Sie eine Abfragezeichenfolge erstellt, die die richtige Kategorie oder den Datumsbereich abruft. Der zweite Satz von Beispielen ist viel einfacher zu verstehen und zu erstellen.
+Im ersten Paar ist, muss ein Benutzer wissen, dass das Blog mit angezeigt wird der *blog.cshtml* Seite und müsste dann eine Abfragezeichenfolge erstellt, die die richtige Kategorie oder den Datumsbereich abruft. Die zweite Gruppe der Beispiele ist viel einfacher zu verstehen und zu erstellen.
 
-Zeigen Sie die URLs für das erste Beispiel auch direkt an eine bestimmte Datei (*blog.cshtml*). Wenn aus irgendeinem Grund im Blog in einen anderen Ordner verschoben wurden, auf dem Server oder der Blog so umgeschrieben wurden, dass eine andere Seite verwendet, würde die Links falsch sein. Der zweite Satz von URLs zu einer bestimmten Seite zeigt nicht würden also auch, wenn die Blog-Implementierung oder den Speicherort geändert, die URLs weiterhin gültig sein.
+Zeigen Sie die URLs für das erste Beispiel auch direkt auf eine bestimmte Datei (*blog.cshtml*). Wenn aus irgendeinem Grund im Blog in einen anderen Ordner auf dem Server verschoben wurden, oder im Blog neu geschrieben wurden, um eine andere Seite verwenden, würde die Links auch falsch sein. Der zweite Satz von URLs nicht mit einer bestimmten Seite, zeigen Sie würden also selbst, wenn die Blog-Implementierung oder den Speicherort geändert, die URLs weiterhin gültig sein.
 
-In ASP.NET Web Pages können Sie benutzerfreundlicheren URLs wie in den obigen Beispielen erstellen, da ASP.NET verwendet *routing*. Routing erstellt logische Zuordnung von einer URL zu einem (Seiten), die die Anforderung erfüllt werden kann. Da die Zuordnung der logischen ist (nicht physischen, um eine bestimmte Datei), das routing bietet große Flexibilität beim wie Sie die URLs für Ihre Website definieren.
+In ASP.NET Web Pages, können Sie freundlicher URLs wie in den obigen Beispielen erstellen, da ASP.NET verwendet *routing*. Routing erstellt logische Zuordnung über eine URL zu einer Seite (Seiten), die die Anforderung erfüllen kann. Da die Zuordnung logischer ist (nicht physischen, auf eine bestimmte Datei), routing bietet viel Flexibilität bei, wie Sie die URLs für Ihre Website definieren.
 
-## <a name="how-routing-works"></a>Funktionsweise von Routing
+## <a name="how-routing-works"></a>Funktionsweise des Routing
 
-Wenn ASP.NET eine Anforderung verarbeitet, liest er die URL, um zu bestimmen, wie für die Weiterleitung an. ASP.NET versucht, die einzelne Segmente für die URL zu Dateien auf dem Datenträger für den Wechsel von links nach rechts übereinstimmen. Wenn eine Übereinstimmung vorhanden ist, wird nichts in der URL verbleibende übergeben, auf die Seite als *Pfadinformationen*.
+Wenn ASP.NET eine Anforderung verarbeitet, liest er die URL, um zu bestimmen, wie die Weiterleitung erfolgt. ASP.NET versucht, einzelne Segmente der URL, um Dateien auf dem Datenträger, von links nach rechts. Wenn eine Übereinstimmung vorliegt, wird nichts verbleiben in der URL übergeben, auf die Seite als *Pfadinformationen*.
 
-Stellen Sie sich vor, dass jemand eine Anforderung, die über diese URL sendet:
+Stellen Sie sich, dass jemand eine Anforderung, die über diese URL sendet:
 
 `http://www.contoso.com/a/b/c`
 
-Die Suche ist wie folgt:
+Die Suche läuft folgendermaßen ab:
 
-1. Gibt es eine Datei mit dem Pfad und Name der */a/b/c.cshtml*? Wenn dies der Fall ist, führen Sie diese Seite, und weitergegeben Sie es werden keine Informationen an diesen. Andernfalls...
-2. Gibt es eine Datei mit dem Pfad und Name der */a/b.cshtml*? Wenn deshalb führen Sie diese Seite, und des Werts übergeben `c` darauf. Andernfalls...
-3. Gibt es eine Datei mit dem Pfad und Name der */a.cshtml*? Wenn deshalb führen Sie diese Seite, und des Werts übergeben `b/c` darauf.
+1. Gibt es eine Datei mit den Pfad und Namen der */a/b/c.cshtml*? Wenn dies der Fall ist, führen Sie diese Seite, und weitergeben Sie es sind keine Informationen an die Klasse. Andernfalls...
+2. Gibt es eine Datei mit den Pfad und Namen der */a/b.cshtml*? Falls Ja, führen Sie diese Seite, und übergeben Sie den Wert `c` zuzuweisen. Andernfalls...
+3. Gibt es eine Datei mit den Pfad und Namen der */a.cshtml*? Falls Ja, führen Sie diese Seite, und übergeben Sie den Wert `b/c` zuzuweisen.
 
-Wenn die Suche keine genaue gefunden für eine Übereinstimmung *cshtml* -Dateien im angegebenen Ordner ASP.NET weiterhin wiederum für diese Dateien zu suchen:
+Wenn für die Suche finden Sie nicht genau übereinstimmt *.cshtml* -Dateien in ihre angegebene Ordner ASP.NET bleibt auch weiterhin im Gegenzug für diese Dateien zu suchen:
 
 1. */a/b/c/default.cshtml* (keine Pfadinformationen).
 2. */a/b/c/Index.cshtml* (keine Pfadinformationen).
 
 > [!NOTE]
-> Zu deaktivieren, werden Anforderungen für bestimmte Seiten (also Anforderungen, die implizit enthalten die *cshtml* Dateierweiterung) wie erwartet funktionieren. Eine Anforderung wie `http://www.contoso.com/a/b.cshtml` führen Sie die Seite *b.cshtml* einwandfrei.
+> Zur Anforderungen für bestimmte Seiten (d.h. Anforderungen, die enthalten die *.cshtml* Dateierweiterung) funktionieren nur, wie Sie erwarten. Eine Anforderung wie `http://www.contoso.com/a/b.cshtml` führen Sie die Seite *"b.cshtml"* einwandfrei.
 
 
-Innerhalb einer Seite erhalten Sie Informationen über der Seite für den Pfad `UrlData` Eigenschaft, die ein Wörterbuch darstellt. Angenommen, Sie eine Datei namens haben *ViewCustomers.cshtml* und Ihre Website ruft diese Anforderung:
+Innerhalb einer Seite erhalten Sie die Pfadinformationen, mit der `UrlData` -Eigenschaft, die ein Wörterbuch handelt. Angenommen, Sie haben, dass eine Datei namens *ViewCustomers.cshtml* und Ihre Website ruft diese Anforderung ab:
 
 `http://mysite.com/myWebSite/ViewCustomers/1000`
 
-Wie im obigen Regeln beschrieben, wird die Anforderung zur Ihre Seite wechseln. Auf der Seite können Sie Code wie den folgenden abrufen und Anzeigen von Informationen für den Pfad (in diesem Fall werden die Werte &quot;1000&quot;):
+Wie in der oben genannten Regeln beschrieben, wird die Anforderung zur Ihre Seite wechseln. In der Seite können Sie Code wie den folgenden abrufen und Anzeigen von Informationen über die Pfade (in diesem Fall wird der Wert &quot;1000&quot;):
 
 [!code-html[Main](creating-readable-urls-in-aspnet-web-pages-sites/samples/sample1.html)]
 
 > [!NOTE]
-> Da routing vollständige Dateinamen nicht einschließen, treten möglicherweise Mehrdeutigkeiten bei Seiten, die den gleichen Namen aber unterschiedliche Dateinamenerweiterungen (z. B. *MyPage.cshtml* und *MyPage.html*) . Um Probleme mit routing zu vermeiden, empfiehlt es sich um sicherzustellen, dass Seiten auf Ihrer Website stehen Ihnen nicht nur in ihre Erweiterung, deren Namen zu unterscheiden.
+> Da routing vollständige Dateinamen beinhalten nicht möglich Mehrdeutigkeiten bei Seiten, die den gleichen Namen aber unterschiedliche Dateinamenerweiterungen (z. B. *MyPage.cshtml* und *MyPage.html*) . Um Probleme mit dem routing zu vermeiden, empfiehlt es sich um sicherzustellen, dass Sie Seiten auf Ihrer Website nicht nur in ihrer Erweiterung, deren Namen zu unterscheiden.
 
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-[WebMatrix - URLs, UrlData und Routing für SEO](http://www.mikesdotnetting.com/Article/165/WebMatrix-URLs-UrlData-and-Routing-for-SEO). Dieser Blog von Mike Brind enthält einige weitere Details für das routing funktioniert in ASP.NET Web Pages.
+[WebMatrix - URLs, UrlData und Routing für SEO](http://www.mikesdotnetting.com/Article/165/WebMatrix-URLs-UrlData-and-Routing-for-SEO). In diesem Blogeintrag von Mike Brind enthält einige weitere Details auf der Funktionsweise von routing in ASP.NET Web Pages.

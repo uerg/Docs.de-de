@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/14/2016
 uid: fundamentals/owin
-ms.openlocfilehash: 864580edd62032ad1409c1d3263cb5d464fa59fe
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 04042eedc52b4e6f57685e2d9ec1a75cd130fd8d
+ms.sourcegitcommit: 08f1a9baa97060da5168840b332c9c0805b5f901
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273623"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37144962"
 ---
 # <a name="open-web-interface-for-net-owin-with-aspnet-core"></a>Open Web Interface for .NET (OWIN) mit ASP.NET Core
 
@@ -20,12 +20,14 @@ Von [Steve Smith](https://ardalis.com/) und [Rick Anderson](https://twitter.com/
 ASP.NET Core unterstützt Open Web Interface for .NET (OWIN). Mit OWIN können Web-Apps von Webservern entkoppelt werden. OWIN legt eine Standardmöglichkeit des Einsatzes von Middleware in einer Pipeline zum Verarbeiten von Anforderungen und den entsprechenden Antworten fest. ASP.NET Core-Anwendungen und -Middleware können mit auf OWIN basierten Anwendungen, Servern und OWIN basierter Middleware zusammenarbeiten.
 
 OWIN bietet eine Entkopplungsebene, die das gemeinsame Verwenden zweier Frameworks mit unterschiedlichen Objektmodellen zulässt. Das `Microsoft.AspNetCore.Owin`-Paket bietet zwei Adapterimplementierungen:
-- ASP.NET Core auf OWIN 
-- OWIN auf ASP.NET Core
+
+* ASP.NET Core auf OWIN 
+* OWIN auf ASP.NET Core
 
 So kann ASP.NET Core auf einem mit OWIN kompatiblen Server bzw. Host gehostet werden. Alternativ können andere mit OWIN kompatible Komponenten über ASP.NET Core ausgeführt werden.
 
-Hinweis: Das Verwenden dieser Adapter führt zu Leistungseinbußen. Anwendungen, die nur ASP.NET Core-Komponenten verwenden, dürfen das OWIN-Paket bzw. die -Adapter nicht verwenden.
+> [!NOTE]
+> Das Verwenden dieser Adapter führt zu Leistungseinbußen. Apps, die nur ASP.NET Core-Komponenten verwenden, sollten keine `Microsoft.AspNetCore.Owin`-Pakete oder Adapter verwenden.
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 

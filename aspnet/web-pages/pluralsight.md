@@ -1,25 +1,24 @@
 ---
 uid: web-pages/pluralsight
-title: WebMatrix und Web Pages Lehrvideos von Pluralsight | Microsoft Docs
+title: WebMatrix und Web Pages-Schulungsvideo von Pluralsight | Microsoft-Dokumentation
 author: rick-anderson
-description: WebMatrix &amp; Web Pages-Training von Pluralsight diesen detaillierten Schritten erhalten Sie einsatzbereit mit WebMatrix und ASP.NET Web Pages. Er bedient Everythi...
+description: WebMatrix &amp; Web Pages-Schulungen von Pluralsight diesem ausführlichen Kurs erhalten Sie einsatzbereit mit WebMatrix und ASP.NET Web Pages. Hierin sind Everythi...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/18/2012
 ms.topic: article
 ms.assetid: 79eca52c-e7ad-44ab-a3e4-d8093e9da5a7
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/pluralsight
 msc.type: content
-ms.openlocfilehash: 5b93685a71b7b85bfdbb2ab41950889c4bc6a37f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 43155f278187c193683fb04148b87377f63a9265
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26529819"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37385760"
 ---
-<a name="webmatrix-and-web-pages-video-training-from-pluralsight"></a>WebMatrix und Web Pages Lehrvideos von Pluralsight
+<a name="webmatrix-and-web-pages-video-training-from-pluralsight"></a>WebMatrix und Web Pages-Schulungsvideo von Pluralsight
 ====================
 
 > [!NOTE] 
@@ -28,7 +27,7 @@ ms.locfileid: "26529819"
 ### <a name="videos"></a>Videos
 
 - [Einführung in WebMatrix](https://pluralsight.com/training/Player?author=matt-milner&name=webmatrix-introduction-m1&mode=live&clip=0&course=webmatrix-introduction)
-- [Websites und Arbeitsbereiche Dateien](https://pluralsight.com/training/Player?author=matt-milner&name=webmatrix-introduction-m2&mode=live&clip=0&course=webmatrix-introduction)
+- [Websites und Arbeitsbereiche von Dateien](https://pluralsight.com/training/Player?author=matt-milner&name=webmatrix-introduction-m2&mode=live&clip=0&course=webmatrix-introduction)
 - [Arbeiten mit Datenbanken](https://pluralsight.com/training/Player?author=matt-milner&name=webmatrix-introduction-m3&mode=live&clip=0&course=webmatrix-introduction)
 - [Arbeiten mit Standard-Web-Dokumenten](https://pluralsight.com/training/Player?author=matt-milner&name=webmatrix-introduction-m4&mode=live&clip=0&course=webmatrix-introduction)
 - [ASP.NET-Webseiten 2](https://pluralsight.com/training/Player?author=matt-milner&name=webmatrix-introduction-m5&mode=live&clip=0&course=webmatrix-introduction)
@@ -37,13 +36,13 @@ ms.locfileid: "26529819"
 - [Mobile Websites](https://pluralsight.com/training/Player?author=matt-milner&name=webmatrix-introduction-m10&mode=live&clip=0&course=webmatrix-introduction)
 
 
-"Dieser Kurs von Matt Milner für Pluralsight aufgezeichnet ist eine hervorragende Möglichkeit, alle Details zu erhalten, die Sie dynamische datengesteuerte Anwendungen unterstützt von ASP.NET Web Pages, sondern auch die leistungsstarken neuen Razor-Syntax zu erstellen müssen. Große Dank Pluralsight für diese Quelle kostenlos! Videoplayer, Inhalt und Ablauf ist hervorragend "Fertig" ändert. Überzeugen Sie sich jetzt auschecken! "
+"In diesem Kurs von Matt Milner für Pluralsight aufgezeichnet ist eine hervorragende Möglichkeit, alle Details zu erhalten, die Sie dynamische datengesteuerte Anwendungen unterstützt von ASP.NET Web Pages, sondern auch die leistungsfähige neue Razor-Syntax zu erstellen müssen. Große Dank Pluralsight für diese Quelle kostenlos! Video-Player, Inhalt und Ablauf ist wirklich gut gemacht. Sollten Sie sich nun ansehen!"
 
-Scott Hanselman, Programm-Manager und Azure Tools, Microsoft-Webplattform
+Scott Hanselman, leitender Programm-Manager, Webplattform und Azure-Tools, Microsoft
 
 
 ![Pluralsight-Logo-playbutton](pluralsight/_static/image1.png)
 
-Entsperrt den Zugriff auf 3.000 Entwicklungs-, IT und creative Kurse, die Sie, können Sie jederzeit und überall überwachen können.
+Sperre des Zugriffs auf über 3.000 Entwickler, IT und kreative Kurse, die Sie jederzeit und überall ansehen können.
 
-**Beginnend mit 29 $ / Monate**[kostenlose Testversion starten](https://pluralsight.com/microsoft/olt/subscribe/SubscriptionRedirector.aspx?freetrial=true&amp;utm_source=microsoft&amp;utm_medium=sponsored-page&amp;utm_content=webmatrix&amp;utm_campaign=microsoft-sponsored-course) [abonnieren](https://pluralsight.com/microsoft/OLT/subscriptions.aspx?utm_source=microsoft&amp;utm_medium=sponsored-page&amp;utm_content=webmatrix&amp;utm_campaign=microsoft-sponsored-course)
+**Ab 29 USD/Aktionszeitraums**[kostenlose Testversion](https://pluralsight.com/microsoft/olt/subscribe/SubscriptionRedirector.aspx?freetrial=true&amp;utm_source=microsoft&amp;utm_medium=sponsored-page&amp;utm_content=webmatrix&amp;utm_campaign=microsoft-sponsored-course) [jetzt abonnieren](https://pluralsight.com/microsoft/OLT/subscriptions.aspx?utm_source=microsoft&amp;utm_medium=sponsored-page&amp;utm_content=webmatrix&amp;utm_campaign=microsoft-sponsored-course)

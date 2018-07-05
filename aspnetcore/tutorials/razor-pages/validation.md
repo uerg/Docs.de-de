@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 569c5b977d832aec3657321cad8d0f9520aae031
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: cabf3d955ef2eb17b3bcb40170a9de7b53ffd107
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277773"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077630"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Hinzufügen der Validierung zu einer Razor-Seite in ASP.NET Core
 
@@ -45,7 +45,7 @@ Aktualisieren Sie die `Movie`-Klasse, um die Validierungsattribute `Required`, `
 Validierungsattribute geben das Verhalten an, das für Modelleigenschaften erzwungen wird:
 
 * Die Attribute `Required` und `MinimumLength` geben an, dass eine Eigenschaft über einen Wert verfügen muss. Nichts hindert Benutzer allerdings daran, Leerzeichen einzugeben, um die Validierungseinschränkung für einen Nullable-Typ zu umgehen. [Werttypen](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/value-types), bei denen es sich nicht um Nullable-Typen handelt (wie z.B. `decimal`, `int`, `float` und `DateTime`), sind grundsätzlich erforderlich und benötigen das Attribut `Required` nicht.
-* Das Attribut `RegularExpression` schränkt die Zeichen ein, die ein Benutzer eingeben kann. Im oben stehenden Code sind für `Genre` und `Rating` nur Buchstaben erlaubt (Leerzeichen, Ziffern und Sonderzeichen sind nicht zulässig).
+* Das Attribut `RegularExpression` schränkt die Zeichen ein, die ein Benutzer eingeben kann. Im vorangehenden Code muss `Genre` mit mindestens einem Großbuchstaben beginnen, dem null oder mehr Buchstaben, einfache oder doppelte Anführungszeichen, Leerzeichen oder Bindestriche folgen. `Rating` muss mit mindestens einem Großbuchstaben beginnen, dem null oder mehr Buchstaben, Zahlen, einfache oder doppelte Anführungszeichen, Leerzeichen oder Bindestriche folgen.
 * Das Attribut `Range` schränkt einen Wert auf einen bestimmten Bereich ein.
 * Das Attribut `StringLength` legt die Höchstlänge einer Zeichenfolge und optional die Mindestlänge fest. 
 

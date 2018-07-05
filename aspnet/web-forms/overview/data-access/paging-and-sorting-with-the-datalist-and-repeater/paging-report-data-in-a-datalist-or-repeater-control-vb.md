@@ -1,46 +1,45 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-vb
-title: Paging von Berichtsdaten in einem DataList oder Wiederholungsmodul-Steuerelement (VB) | Microsoft Docs
+title: Auslagern von Berichtsdaten in einem DataList- oder Wiederholungssteuerelement (VB) | Microsoft-Dokumentation
 author: rick-anderson
-description: Beim weder DataList noch Repeater Angebot automatische Paging oder sortierungsunterstützung veranschaulicht dieses Lernprogramms zum Hinzufügen von Unterstützung der Paginierung zur DataList oder Repeater...
+description: Während weder DataList-Steuerelement noch Repeater Angebot automatische Paging und Unterstützung der datenquellensortierung zeigt in diesem Tutorial Hinzufügen von Paging-Unterstützung zu dem DataList- oder Repeater...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/13/2006
 ms.topic: article
 ms.assetid: bbd6b7f7-b98a-48b4-93f3-341d6a4f53c0
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 867f2a0a6de6da2ccda1526ef7c1d0edd97431c6
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: da3c851a8752d4ef5c210a6d8fe552412ecbc9b0
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30887316"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37385391"
 ---
-<a name="paging-report-data-in-a-datalist-or-repeater-control-vb"></a>Paging von Berichtsdaten in einem DataList oder Wiederholungsmodul-Steuerelement (VB)
+<a name="paging-report-data-in-a-datalist-or-repeater-control-vb"></a>Auslagern von Berichtsdaten in einem DataList- oder Wiederholungssteuerelement (VB)
 ====================
 durch [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Beispiel-App herunterladen](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_44_VB.exe) oder [PDF herunterladen](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/datatutorial44vb1.pdf)
+[Beispiel-App herunter](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_44_VB.exe) oder [PDF-Datei herunterladen](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/datatutorial44vb1.pdf)
 
-> Während weder DataList noch Repeater Angebot automatische paging und sortieren die Unterstützung dieses Lernprogramm zeigt, wie Hinzufügen von Unterstützung der Paginierung zum DataList oder Repeater, viel flexibler Paging und Daten anzeigen von Schnittstellen ermöglicht.
+> Obwohl Sie weder die Repeater das DataList-Angebot, die automatische paging oder das Sortieren unterstützt, die in diesem Tutorial wird gezeigt, wie die DataList- oder Repeater, viel flexibler Paging und Daten anzeigen von Schnittstellen ermöglicht Paging-Unterstützung hinzugefügt wird.
 
 
 ## <a name="introduction"></a>Einführung
 
-Paging und Sortieren von sind zwei sehr allgemeine Funktionen zum Anzeigen von Daten in einer online-Anwendung. Beispielsweise bei der Suche nach ASP.NET Bücher Onlinebuchhandel gibt es möglicherweise Hunderte von Büchern, aber der Bericht mit den Suchergebnissen werden nur zehn Übereinstimmungen pro Seite aufgeführt. Darüber hinaus können die Ergebnisse nach Titel, Preis, Seitenanzahl, Name des Autors und So weiter sortiert werden. Wie in erläutert die [Paging und Sortieren von Berichtsdaten](../paging-and-sorting/paging-and-sorting-report-data-vb.md) Lernprogramm, das GridView, DetailsView und FormView-Steuerelemente, die alle bieten integrierte Unterstützung von Paging, die bei der Takt des ein Kontrollkästchen aktiviert werden kann. GridView umfasst auch das Sortieren unterstützt.
+Paginierung und Sortierung sind zwei sehr allgemeine Funktionen zum Anzeigen von Daten in einer online-Anwendung. Z. B. bei der Suche nach ASP.NET Bücher im Onlinebuchhandel gibt es möglicherweise Hunderte von Büchern, aber der Bericht mit den Suchergebnissen werden nur zehn Übereinstimmungen pro Seite aufgeführt. Darüber hinaus können die Ergebnisse nach Titel, Preis, Seitenanzahl, Name des Autors und So weiter sortiert werden. Wie wir unter den [Paging und Sortieren von Berichtsdaten](../paging-and-sorting/paging-and-sorting-report-data-vb.md) Tutorial, das die GridView, DetailsView oder FormView-Steuerelemente bieten integrierte Unterstützung der Paginierung, die auf die Teilstriche eines Kontrollkästchens aktiviert werden kann. GridView umfasst auch das Sortieren unterstützt.
 
-Leider weder DataList noch Repeater bieten automatische paging und Sortieren unterstützt. In diesem Lernprogramm untersuchen wir wie das DataList oder Repeater pagingunterstützung hinzugefügt. Wir müssen manuell die Auslagerungsschnittstelle erstellen, Anzeigen der entsprechenden Seite mit Datensätzen und beachten Sie die Seite, der über Postbacks aufgerufen wird. Während dies mehr Zeit und Code als mit GridView, DetailsView oder FormView akzeptiert, ermöglichen dem DataList und Repeater viel flexibler Paginierung und Daten anzeigen-Schnittstellen.
+Leider weder DataList-Steuerelement noch Repeater bieten automatische paging und Sortieren unterstützt. In diesem Tutorial betrachten wir, wie die DataList- oder Repeater Paging-Unterstützung hinzugefügt. Wir müssen manuell die Paging-Schnittstelle erstellen, Anzeigen der entsprechenden Seite mit Datensätzen und speichern die Seite, die über Postbacks hinweg aufgerufen wird. Während dies mehr Zeit und Code als mit der GridView, DetailsView oder FormView-Steuerelement übernimmt, ermöglichen dem DataList- und Wiederholungssteuerelement viel flexibler Paging und Daten Anzeige-Schnittstellen.
 
 > [!NOTE]
-> Dieses Lernprogramm konzentriert sich ausschließlich auf Paging. In den nächsten Lernprogrammen werden wir uns dem Hinzufügen von Sortierfunktionen aktivieren.
+> Dieses Tutorial konzentriert sich ausschließlich für die Paginierung. Im nächsten Tutorial werden wir uns dem Hinzufügen von Sortierfunktionen aktivieren.
 
 
 ## <a name="step-1-adding-the-paging-and-sorting-tutorial-web-pages"></a>Schritt 1: Hinzufügen von Paging und Sortieren von Tutorial Webseiten
 
-Bevor wir in diesem Lernprogramm beginnen, können Sie s, schalten Sie zuerst einen Moment Zeit, die ASP.NET-Seiten hinzufügen, die wir für dieses Lernprogramm und die nächste benötigen. Starten, indem Sie einen neuen Ordner erstellen, in das Projekt mit dem Namen `PagingSortingDataListRepeater`. Fügen Sie die folgenden fünf ASP.NET-Seiten in diesen Ordner, dass alle von ihnen für die Verwendung die Masterseite konfiguriert `Site.master`:
+Bevor wir in diesem Tutorial beginnen, können Sie zuerst nehmen einen Moment Zeit, um die ASP.NET-Seiten hinzuzufügen, benötigen wir für dieses Lernprogramm und die nächste s ein. Zunächst erstellen Sie einen neuen Ordner im Projekt mit dem Namen `PagingSortingDataListRepeater`. Fügen Sie die folgenden fünf ASP.NET-Seiten in diesen Ordner, wenn all diese Einstellungen zu konfigurieren, um die Masterseite verwenden `Site.master`:
 
 - `Default.aspx`
 - `Paging.aspx`
@@ -49,238 +48,238 @@ Bevor wir in diesem Lernprogramm beginnen, können Sie s, schalten Sie zuerst ei
 - `SortingWithCustomPaging.aspx`
 
 
-![Erstellen Sie einen Ordner PagingSortingDataListRepeater, und fügen Sie dem Tutorial ASP.NET-Seiten hinzu](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image1.png)
+![Erstellen Sie einen Ordner PagingSortingDataListRepeater, und fügen Sie die Tutorial ASP.NET-Seiten](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image1.png)
 
 **Abbildung 1**: Erstellen einer `PagingSortingDataListRepeater` Ordner, und fügen Sie dem Tutorial ASP.NET-Seiten hinzu
 
 
-Öffnen Sie als Nächstes die `Default.aspx` Seite, und ziehen Sie die `SectionLevelTutorialListing.ascx` Benutzersteuerelement aus den `UserControls` Ordner auf die Entwurfsoberfläche. Dieses Benutzersteuerelement, die wir in erstellt die [Masterseiten und Websitenavigation](../introduction/master-pages-and-site-navigation-vb.md) Lernprogramm, zählt die Siteübersicht und diese Lernprogramme im aktuellen Abschnitt in einer Aufzählung angezeigt.
+Öffnen Sie als Nächstes die `Default.aspx` Seite, und ziehen Sie die `SectionLevelTutorialListing.ascx` Benutzersteuerelement aus der `UserControls` Ordner auf die Entwurfsoberfläche. Dieses Benutzersteuerelement, die wir in den erstellt die [Masterseiten und Sitenavigation](../introduction/master-pages-and-site-navigation-vb.md) Tutorial, listet die Sitemap und zeigt diese Tutorials im aktuellen Abschnitt in einer Liste mit Aufzählungszeichen.
 
 
-[![Das Benutzersteuerelement SectionLevelTutorialListing.ascx "default.aspx" hinzufügen](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image3.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image2.png)
+[![Fügen Sie das SectionLevelTutorialListing.ascx-Benutzersteuerelement an "default.aspx"](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image3.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image2.png)
 
-**Abbildung 2**: Hinzufügen der `SectionLevelTutorialListing.ascx` Benutzersteuerelement `Default.aspx` ([klicken Sie hier, um das Bild in voller Größe angezeigt](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image4.png))
+**Abbildung 2**: Hinzufügen der `SectionLevelTutorialListing.ascx` Benutzersteuerelement `Default.aspx` ([klicken Sie, um das Bild in voller Größe anzeigen](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image4.png))
 
 
-Damit haben die Liste mit Aufzählungszeichen angezeigt, das Paging und sortieren die Lernprogramme, die wir erstellen, müssen wir diese Siteübersicht hinzufügen. Öffnen der `Web.sitemap` Datei, und fügen Sie das folgende Markup nach dem Bearbeiten und löschen, mit dem DataList Standort Zuordnung Knoten Markup:
+Um die Liste mit Aufzählungszeichen angezeigt, die Paginierung und Sortierung von Tutorials, die wir erstellen, müssen wir diese Siteübersicht hinzufügen. Öffnen der `Web.sitemap` Datei, und fügen Sie das folgende Markup nach dem Bearbeiten und löschen, mit dem DataList-Steuerelement Site Map-Knoten-Markup:
 
 
 [!code-xml[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample1.xml)]
 
 
-![Aktualisieren Sie die Website-Karte, um die neue ASP.NET-Seiten enthalten](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image5.png)
+![Aktualisieren Sie die Website-Karte, um die neuen ASP.NET-Seiten enthalten](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image5.png)
 
-**Abbildung 3**: Aktualisieren Sie die Website-Karte, um die neue ASP.NET-Seiten enthalten
-
-
-## <a name="a-review-of-paging"></a>Eine Überprüfung des Paging
-
-In vorherigen Lernprogrammen wurde erläutert, wie die Daten in den Steuerelementen GridView, DetailsView und FormView durchblättern. Diese drei Steuerelemente bieten eine einfache Form der Auslagerung aufgerufen *Standardnavigation* , kann implementiert werden, indem Sie einfach die Paging aktivieren Option im Steuerelement s Smarttag. Mit Standardnavigation, jedes Mal eine Seite mit Daten angefordert wird entweder auf der ersten Seite aufrufen oder wenn der Benutzer navigiert zu einer anderen Seite der Daten die GridView, DetailsView, oder FormView Steuerelement erneut anfordert *alle* der Daten aus der ObjectDataSource. Es Ausschnitten dann aus der bestimmten Gruppe von Datensätzen angezeigt anhand der angeforderte Seitenindex und die Anzahl der Datensätze pro Seite angezeigt werden sollen. Standardnavigation ausführlich erörtert die [Paging und Sortieren von Berichtsdaten](../paging-and-sorting/paging-and-sorting-report-data-vb.md) Lernprogramm.
-
-Da die Standardnavigation erneut alle Datensätze für jede Seite anfordert, ist es nicht ratsam, wenn paging durch ausreichend große Mengen von Daten. Nehmen Sie z. B., Paging über 50.000 Datensätze mit einer Seitengröße von 10. Jedes Mal, wenn der Benutzer auf eine neue Seite verschoben müssen alle 50.000 Datensätze aus der Datenbank abgerufen werden, auch wenn nur zehn davon angezeigt werden.
-
-*Benutzerdefiniertes Paging* löst die Leistung Bedenken hinsichtlich der Standardnavigation grabbing nur die präzise Teilmenge von Datensätzen auf die angeforderte Seite angezeigt werden sollen. Wenn benutzerdefiniertes Paging zu implementieren, müssen wir die SQL-Abfrage schreiben, die effizient einfach der richtigen Gruppe von Datensätzen zurückgibt. Wurde erläutert, wie zum Erstellen einer Abfrage, die von mit der neuen SQL Server 2005 s [ `ROW_NUMBER()` Schlüsselwort](http://www.4guysfromrolla.com/webtech/010406-1.shtml) zurück in die [effizient Paging durch große Mengen von Daten](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-vb.md) Lernprogramm.
-
-Um Standardnavigation in den Steuerelementen DataList oder Repeater zu implementieren, können wir die [ `PagedDataSource` Klasse](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.aspx) als Wrapper um die `ProductsDataTable` , deren Inhalt werden ausgelagert wird. Die `PagedDataSource` -Klasse verfügt über eine `DataSource` -Eigenschaft, die auf ein beliebiges aufzählbare Objekt zugewiesen werden kann und [ `PageSize` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.pagesize.aspx) und [ `CurrentPageIndex` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.currentpageindex.aspx) Eigenschaften, die angeben, wie viele Datensätze pro Seite und den Index der aktuellen Seite anzeigen. Sobald diese Eigenschaften festgelegt wurden, die `PagedDataSource` als die Quelle der Daten-Websteuerelement verwendet werden können. Die `PagedDataSource`, wenn aufgelistet, wird nur Rückgabewert der entsprechenden Teilmenge der Datensätze, die die inneren `DataSource` basierend auf den `PageSize` und `CurrentPageIndex` Eigenschaften. Abbildung 4 zeigt die Funktionalität der `PagedDataSource` Klasse.
+**Abbildung 3**: Aktualisieren Sie die Website-Karte, um die neuen ASP.NET-Seiten enthalten
 
 
-![Die PagedDataSource umschließt ein aufzählbares Objekt mit einer auslagerbaren-Schnittstelle](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image6.png)
+## <a name="a-review-of-paging"></a>Eine Beschreibung der Auslagerung
 
-**Abbildung 4**: die `PagedDataSource` dient als Wrapper für ein aufzählbares Objekt mit einer auslagerbaren-Schnittstelle
+In vorherigen Tutorials wurde erläutert, wie durch die Daten in die GridView, DetailsView oder FormView-Steuerelemente der Seite. Diese drei Steuerelemente bieten eine einfache Form der Auslagerung namens *Standardpaging* durch einfaches Aktivieren der Auslagerungsdatei aktivieren-Option in Smarttags des Steuerelements s implementiert werden kann. Mit Standard-auslagerungen, jedes Mal eine Seite mit Daten angefordert wird entweder auf der ersten Seite finden Sie auf oder wenn der Benutzer navigiert zu einer anderen Seite der Daten der GridView, DetailsView oder FormView-Steuerelement erneut anfordert *alle* der Daten aus der "ObjectDataSource". Es Ausschnitten klicken Sie dann, den bestimmten Satz von anzuzeigenden Datensätze anhand der angeforderte Seitenindex und die Anzahl der Datensätze pro Seite angezeigt. Das Standardpaging ausführlich erörtert die [Paging und Sortieren von Berichtsdaten](../paging-and-sorting/paging-and-sorting-report-data-vb.md) Tutorial.
+
+Da Standardpaging erneut alle Datensätze für jede Seite anfordert, ist es nicht praktisch, wenn paging durch ausreichend große Mengen von Daten. Angenommen Sie, Paging durch 50.000 Datensätze mit einer Seitengröße von 10. Jedes Mal, wenn der Benutzer zu einer neuen Seite wechselt müssen alle 50.000 Datensätze aus der Datenbank abgerufen werden, auch wenn nur zehn davon angezeigt werden.
+
+*Benutzerdefiniertes Paging* löst die Bedenken hinsichtlich der Leistung von Standardpaging am einfachsten mit nur die genaue Teilmenge der Datensätze, die auf die angeforderte Seite angezeigt werden sollen. Wenn benutzerdefiniertes Paging zu implementieren, müssen wir die SQL-Abfrage schreiben, die effizient den richtigen Satz von Datensätzen zurückgibt. Erläutert, wie zum Erstellen einer solchen Abfrage mithilfe von SQL Server 2005-s neue [ `ROW_NUMBER()` Schlüsselwort](http://www.4guysfromrolla.com/webtech/010406-1.shtml) zurück in die [effizient Paging durch große Mengen von Daten](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-vb.md) Tutorial.
+
+Um das Standardpaging in den DataList- oder Repeater-Steuerelementen zu implementieren, können wir die [ `PagedDataSource` Klasse](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.aspx) als Wrapper für die `ProductsDataTable` , deren Inhalt werden ausgelagert wird. Die `PagedDataSource` -Klasse verfügt über eine `DataSource` -Eigenschaft, die jedes aufzählbare Objekt zugewiesen werden kann und [ `PageSize` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.pagesize.aspx) und [ `CurrentPageIndex` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.currentpageindex.aspx) Eigenschaften, die angeben, wie viele Datensätze pro Seite und den Index der aktuellen Seite angezeigt. Nachdem Sie diese Eigenschaften festgelegt wurden, die `PagedDataSource` kann als die Quelle der Daten-Websteuerelement verwendet werden. Die `PagedDataSource`, bei der Enumeration ist, wird nur Zurückgeben der entsprechenden Teilmenge der Datensätze der inneren `DataSource` basierend auf den `PageSize` und `CurrentPageIndex` Eigenschaften. Abbildung 4 zeigt die Funktionalität der `PagedDataSource` Klasse.
 
 
-Die `PagedDataSource` Objekt kann erstellt und konfiguriert direkt der Geschäftslogikebene und einem DataList oder Repeater über ein ObjectDataSource gebunden oder können erstellt und konfiguriert werden direkt in der ASP.NET Seite "s" Code-Behind-Klasse. Wenn der zweite Ansatz verwendet wird, müssen wir mithilfe der ObjectDataSource verzichten und stattdessen die ausgelagerten Daten an das DataList oder Repeater programmgesteuert binden.
+![Die PagedDataSource dient als Wrapper für ein aufzählbares Objekt mit einer navigierbaren-Schnittstelle](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image6.png)
 
-Die `PagedDataSource` Objekt verfügt auch über Eigenschaften, die benutzerdefinierte Paginierung unterstützt. Wir können jedoch umgehen, verwenden eine `PagedDataSource` für das benutzerdefinierte paging, da es bereits BLL Methoden, in verfügen der `ProductsBLL` -Klasse für das benutzerdefinierte Paging, die zum Anzeigen der präzise Datensätze zurück.
+**Abbildung 4**: die `PagedDataSource` dient als Wrapper für ein aufzählbares Objekt mit einer navigierbaren-Schnittstelle
 
-In diesem Lernprogramm lernen wir Standardnavigation in einem DataList implementieren, indem Sie eine neue Methode zum Hinzufügen der `ProductsBLL` Klasse, die einem ordnungsgemäß konfigurierten zurückgibt `PagedDataSource` Objekt. In den nächsten Lernprogrammen sehen wir, wie Sie benutzerdefiniertes Paging.
+
+Die `PagedDataSource` Objekt kann es sich erstellt und konfiguriert werden, direkt aus der Geschäftslogikebene und an einem DataList- oder Repeater über ein ObjectDataSource-Steuerelement, gebunden oder können erstellt und konfiguriert werden direkt in der CodeBehind-Klasse in ASP.NET Seite "s". Wenn der zweite Ansatz verwendet wird, müssen wir verzichten, mit dem ObjectDataSource-Steuerelement und stattdessen die ausgelagerten Daten an die DataList- oder Repeater programmgesteuert binden.
+
+Die `PagedDataSource` -Objekt verfügt außerdem über Eigenschaften, die benutzerdefinierte Paginierung unterstützen. Wir können jedoch umgehen, verwenden eine `PagedDataSource` für das benutzerdefinierte paging, da wir bereits BLL Methoden, in verfügen der `ProductsBLL` -Klasse für das benutzerdefinierte Paging, die die präzise anzuzeigenden Datensätze zurückgeben.
+
+In diesem Tutorial betrachten wir Standardpaging in einem DataList-Steuerelement implementieren, indem Sie eine neue Methode zum Hinzufügen der `ProductsBLL` -Klasse, die einer ordnungsgemäß konfigurierten gibt `PagedDataSource` Objekt. Im nächsten Tutorial sehen wir, wie Sie benutzerdefiniertes Paging verwendet wird.
 
 ## <a name="step-2-adding-a-default-paging-method-in-the-business-logic-layer"></a>Schritt 2: Hinzufügen einer Standard-Paging-Methode in der Geschäftslogikebene
 
-Die `ProductsBLL` -Klasse verfügt derzeit über eine Methode zum Zurückgeben von Produktinformationen für alle `GetProducts()` und eine für eine bestimmte Teilmenge von Produkten an einem startIndex zurückgeben `GetProductsPaged(startRowIndex, maximumRows)`. Bei der Standardnavigation, steuert die GridView, DetailsView und FormView alle Verwendung der `GetProducts()` Methode, um alle Produkte abgerufen, jedoch sollten Sie eine `PagedDataSource` intern, um nur die richtige Teilmenge der Datensätze anzuzeigen. Um diese Funktionalität mit den verschiedenen Steuerelementen zu replizieren, können wir eine neue Methode in der BLL erstellen, die dieses Verhalten imitiert.
+Die `ProductsBLL` -Klasse verfügt derzeit über eine Methode zur Rückgabe aller Produktinformationen `GetProducts()` und eine für die Rückgabe einer bestimmten Teilmenge von Produkten auf einem startIndex `GetProductsPaged(startRowIndex, maximumRows)`. Mit Standard-auslagerungen, steuert die GridView, DetailsView und FormView-Steuerelement alle verwenden die `GetProducts()` Methode, um alle Produkte abzurufen, aber verwenden Sie dann eine `PagedDataSource` intern, um nur die richtige Teilmenge der Datensätze anzuzeigen. Um diese Funktionalität mit dem DataList- und Wiederholungssteuerelement-Steuerelementen zu replizieren, können wir eine neue Methode in der BLL erstellen, die dieses Verhalten imitiert.
 
-Hinzufügen einer Methode zur der `ProductsBLL` Klasse mit dem Namen `GetProductsAsPagedDataSource` akzeptiert, die zwei ganzzahlige Eingabeparameter entgegen:
+Fügen Sie eine Methode, die `ProductsBLL` Klasse mit dem Namen `GetProductsAsPagedDataSource` akzeptiert, die zwei ganzzahlige Eingabeparameter entgegen:
 
 - `pageIndex` der Index der Seite, um anzuzeigen, auf 0 (null), indiziert und
-- `pageSize` die Anzahl der Datensätze pro Seite angezeigt werden sollen.
+- `pageSize` die Anzahl der Datensätze pro Seite angezeigt werden soll.
 
-`GetProductsAsPagedDataSource` beginnt mit dem Abrufen von *alle* Datensätze aus `GetProducts()`. Sie erstellt dann eine `PagedDataSource` Objekt, und legen seine `CurrentPageIndex` und `PageSize` Eigenschaften mit den Werten der übergebenen `pageIndex` und `pageSize` Parameter. Die Methode abgeschlossen ist, wird durch diese Konfiguration zurückgeben `PagedDataSource`:
+`GetProductsAsPagedDataSource` beginnt mit dem Abrufen von *alle* Datensätze aus `GetProducts()`. Er erstellt dann eine `PagedDataSource` Objekt, und legen dessen `CurrentPageIndex` und `PageSize` Eigenschaften mit den Werten des übergebenen `pageIndex` und `pageSize` Parameter. Die Methode wird abgeschlossen, indem Sie diese Konfiguration zurückgeben `PagedDataSource`:
 
 
 [!code-vb[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample2.vb)]
 
-## <a name="step-3-displaying-product-information-in-a-datalist-using-default-paging"></a>Schritt 3: Anzeigen von Produktinformationen in einer DataList Standardnavigation verwenden
+## <a name="step-3-displaying-product-information-in-a-datalist-using-default-paging"></a>Schritt 3: Anzeigen von Produktinformationen in einem DataList-Steuerelement verwenden standardmäßig Paging
 
-Mit der `GetProductsAsPagedDataSource` Methode hinzugefügt, um die `ProductsBLL` -Klasse, wir können jetzt einen erstellen DataList oder Repeater, die Standardnavigation bereitstellt. Öffnen Sie zunächst die `Paging.aspx` auf der Seite der `PagingSortingDataListRepeater` Ordner, und ziehen Sie eine DataList aus der Toolbox in den Designer, Festlegen der DataList s `ID` Eigenschaft `ProductsDefaultPaging`. Aus dem Smarttag DataList s, erstellen Sie eine neue ObjectDataSource mit dem Namen `ProductsDefaultPagingDataSource` und ihn so konfigurieren, dass er Daten mithilfe ruft der `GetProductsAsPagedDataSource` Methode.
-
-
-[![Erstellen Sie ein ObjectDataSource und konfigurieren Sie, um die GetProductsAsPagedDataSource ()-Methode zu verwenden](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image8.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image7.png)
-
-**Abbildung 5**: ein ObjectDataSource erstellen und konfigurieren Sie sie verwenden die `GetProductsAsPagedDataSource` `()` Methode ([klicken Sie hier, um das Bild in voller Größe angezeigt](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image9.png))
+Mit der `GetProductsAsPagedDataSource` Methode hinzugefügt, die `ProductsBLL` -Klasse kann jetzt erstellen wir ein DataList- oder Repeater, das das Standardpaging bereitstellt. Öffnen Sie zunächst die `Paging.aspx` auf der Seite die `PagingSortingDataListRepeater` Ordner, und ziehen Sie einem DataList-Steuerelement aus der Toolbox auf den Designer, Festlegen der DataList s `ID` Eigenschaft `ProductsDefaultPaging`. Erstellen Sie eine neue, mit dem Namen "ObjectDataSource" aus dem DataList-s-Smarttag `ProductsDefaultPagingDataSource` er so konfiguriert, dass ihm Daten mithilfe abgerufenen der `GetProductsAsPagedDataSource` Methode.
 
 
-Legen Sie die Dropdownlisten in der Update-, INSERT-, und Löschen von Registerkarten (keine).
+[![Erstellen Sie ein ObjectDataSource-Steuerelement und konfigurieren Sie, um die GetProductsAsPagedDataSource ()-Methode zu verwenden](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image8.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image7.png)
+
+**Abbildung 5**: ein ObjectDataSource-Steuerelement zu erstellen und konfigurieren Sie sie so verwenden die `GetProductsAsPagedDataSource` `()` Methode ([klicken Sie, um das Bild in voller Größe anzeigen](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image9.png))
 
 
-[![Legen Sie das Dropdown-Listen in der Update-, INSERT- und Löschen von Registerkarten (keine)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image11.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image10.png)
-
-**Abbildung 6**: Legen Sie das Dropdown-Listen in der Update-, INSERT- und Löschen von Registerkarten (keine) ([klicken Sie hier, um das Bild in voller Größe angezeigt](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image12.png))
+Legen Sie die Dropdownlisten in der Update-, INSERT-, und löschen Sie die Registerkarten auf (keine).
 
 
-Da die `GetProductsAsPagedDataSource` Methode erwartet zwei Eingabeparameter, die der Assistent fordert Sie uns für die Quelle des diese Parameterwerte.
+[![Legen Sie die Dropdownlisten in der Update-, INSERT- und Löschen von Registerkarten (keine)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image11.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image10.png)
 
-Der Seitenindex und Seitengrößenwert müssen über Postbacks gespeichert. Sie können im Ansichtszustand gespeichert werden, in die Abfragezeichenfolge permanent gespeichert, in Sitzungsvariablen gespeichert oder gespeichert wurde, verwenden ein anderes Verfahren. Für dieses Lernprogramm verwenden wir die Abfragezeichenfolge besitzt den Vorteil, dass eine bestimmte Seite der Daten mit einem Lesezeichen versehen werden.
-
-Verwenden Sie insbesondere den Querystring-Felder PageIndex und PageSize für den `pageIndex` und `pageSize` Parameter bzw. (siehe Abbildung 7). Nehmen Sie einen Moment Zeit, um die Standardwerte für diese Parameter festgelegt, wie die/t gewonnen Querystring-Werte vorhanden sein, wenn ein Benutzer zunächst auf dieser Seite besucht. Für `pageIndex`, legen Sie den Standardwert auf 0 (d. h. die erste Seite der Daten angezeigt werden) und `pageSize` s Standardwert 4.
+**Abbildung 6**: Legen Sie die Dropdownlisten in der Update-, INSERT- und Löschen von Registerkarten (keine) ([klicken Sie, um das Bild in voller Größe anzeigen](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image12.png))
 
 
-[![Verwenden Sie die Abfragezeichenfolge als Quelle für die PageIndex und PageSize-Parameter](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image14.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image13.png)
+Da die `GetProductsAsPagedDataSource` Methode erwartet zwei Parameter, die der Assistent fordert uns für die Quelle des dieser Parameterwerte angegeben.
 
-**Abbildung 7**: Verwenden Sie die Abfragezeichenfolge als Quelle für die `pageIndex` und `pageSize` Parameter ([klicken Sie hier, um das Bild in voller Größe angezeigt](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image15.png))
+Der Seitenindex und Seitengrößenwert müssen postbackübergreifend gespeichert werden. Sie können im Ansichtszustand gespeichert werden, in der Abfragezeichenfolge beibehalten, in der Sitzungsvariablen gespeichert oder gespeichert wird, verwenden ein anderes Verfahren. In diesem Tutorial verwenden wir die Abfragezeichenfolge, die hat den Vorteil, dass eine bestimmte Seite der Daten, die mit einem Lesezeichen versehen werden.
+
+Insbesondere verwenden das Querystring-Felder PageIndex und die Seitengröße für die `pageIndex` und `pageSize` Parameter bzw. (siehe Abbildung 7). Nehmen Sie einen Moment Zeit, um die Standardwerte für diese Parameter können festgelegt, wie die Querystring-Werte, die gewonnen haben t vorhanden sein, wenn ein Benutzer zunächst auf dieser Seite besucht. Für `pageIndex`, standardmäßig ist der Wert auf 0 festgelegt (was die erste Seite der Daten angezeigt werden) und `pageSize` s Standardwert 4.
 
 
-Nach dem Konfigurieren der ObjectDataSource, erstellt Visual Studio automatisch eine `ItemTemplate` für DataList. Anpassen der `ItemTemplate` , sodass nur der Produktname s, Kategorie und Lieferanten angezeigt werden. Legen Sie auch die DataList s `RepeatColumns` -Eigenschaft auf 2, seine `Width` 100 % und die zugehörige `ItemStyle` s `Width` auf 50 %. Diese Einstellungen Breite gebe gleich Abstand der zwei Spalten.
+[![Verwenden Sie für die PageIndex und PageSize-Parameter der Abfragezeichenfolge als Quelle](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image14.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image13.png)
 
-Nachdem diese Änderungen vorgenommen wurden, sollte das DataList und ObjectDataSource s Markup etwa wie folgt aussehen:
+**Abbildung 7**: Verwenden Sie die Abfragezeichenfolge, als Quelle für die `pageIndex` und `pageSize` Parameter ([klicken Sie, um das Bild in voller Größe anzeigen](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image15.png))
+
+
+Nach der Konfiguration dem ObjectDataSource-Steuerelement, Visual Studio erstellt automatisch eine `ItemTemplate` für DataList-Steuerelement. Anpassen der `ItemTemplate` , damit nur die-s-Produktname, Kategorie und Lieferanten angezeigt werden. Außerdem legen Sie die DataList s `RepeatColumns` Eigenschaft auf 2 die `Width` auf 100 % und die zugehörige `ItemStyle` s `Width` auf 50 %. Diese Breite Einstellungen bieten gleichen Abstand der zwei Spalten.
+
+Nach diesen Änderungen sollte das DataList-Steuerelement und "ObjectDataSource"-s-Markup etwa wie folgt aussehen:
 
 
 [!code-aspx[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample3.aspx)]
 
 > [!NOTE]
-> Da wir ein Update nicht ausführen oder Löschen von Funktionen in diesem Lernprogramm, wird möglicherweise das DataList-s-Ansichtszustand zum Reduzieren der Größe der gerenderten Seite deaktiviert.
+> Da wir kein Update durchführen oder Funktionen in diesem Tutorial löschen möchten, können Sie den Ansichtszustand des DataList-s zur Reduzierung der Größe der gerenderten Seite deaktivieren.
 
 
-Beim anfänglich keins dieser Seite über einen Browser Zugriff auf die `pageIndex` noch `pageSize` Querystring-Parameter angegeben werden. Daher werden die Standardwerte 0 und 4 verwendet. Wie in Abbildung 8 gezeigt, führt dies in einem DataList, in dem die ersten vier Produkte angezeigt.
+Wenn zunächst diese Seite über einen Browser, auch Zugriff auf die `pageIndex` noch `pageSize` Querystring-Parameter angegeben werden. Daher werden die Standardwerte 0 und 4 verwendet. Wie in Abbildung 8 gezeigt, führt dies in einem DataList-Steuerelement, das die ersten vier Produkte anzeigt.
 
 
-[![Die ersten vier Produkte aufgeführt sind](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image17.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image16.png)
+[![Es werden die ersten vier Produkte aufgeführt.](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image17.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image16.png)
 
-**Abbildung 8**: die ersten vier Produkte aufgeführt sind ([klicken Sie hier, um das Bild in voller Größe angezeigt](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image18.png))
-
-
-Ohne eine Auslagerungsdatei-Schnittstelle, dort s, die derzeit nicht einfach für einen Benutzer Navigieren auf der zweiten Seite des Data bedeutet. Wir erstellen eine Auslagerungsdatei-Schnittstelle in Schritt 4. Jetzt kann jedoch Paging nur erfolgen durch direktes Angeben der Kriterien Paging in der Abfragezeichenfolge. Beispielsweise um die zweite Seite anzeigen, ändern Sie die URL in die Adressleiste des Browsers s aus `Paging.aspx` auf `Paging.aspx?pageIndex=2` , und drücken Sie die EINGABETASTE. Dies bewirkt, dass die zweite Seite der Daten angezeigt werden (siehe Abbildung 9).
+**Abbildung 8**: die ersten vier Produkte aufgeführt sind ([klicken Sie, um das Bild in voller Größe anzeigen](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image18.png))
 
 
-[![Die zweite Seitendaten wird angezeigt.](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image20.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image19.png)
-
-**Abbildung 9**: der zweiten Seite der Daten wird angezeigt ([klicken Sie hier, um das Bild in voller Größe angezeigt](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image21.png))
+Ohne bedeutet, eine Schnittstelle für Paging, dort s, die derzeit nicht einfach für einen Benutzer dass, zu der zweiten Seite der Daten zu navigieren. Wir erstellen eine Paging-Schnittstelle in Schritt 4. Jetzt kann jedoch Paging nur durch erfolgen direkt die Paging-Kriterien angeben, in der Abfragezeichenfolge. Zum Anzeigen der zweiten Seite ändern Sie z. B. die URL in die Browseradressleiste s aus `Paging.aspx` zu `Paging.aspx?pageIndex=2` , und drücken Sie die EINGABETASTE. Dies bewirkt, dass die zweite Seite der Daten angezeigt werden (siehe Abbildung 9).
 
 
-## <a name="step-4-creating-the-paging-interface"></a>Schritt 4: Erstellen der Auslagerungsdatei-Schnittstelle
+[![Die zweite Seite der Daten wird angezeigt.](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image20.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image19.png)
 
-Es gibt eine Vielzahl von verschiedenen Paging-Schnittstellen, die implementiert werden kann. GridView, DetailsView und FormView enthalten vier unterschiedliche Schnittstellen auszuwählen:
+**Abbildung 9**: der zweiten Seite der Daten wird angezeigt ([klicken Sie, um das Bild in voller Größe anzeigen](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image21.png))
 
-- **Nächsten, vorherigen** Benutzer können eine Seite zu einem Zeitpunkt, an den nächsten oder vorherigen eine verschieben.
-- **Nächsten, vorherigen, ersten, letzten** zusätzlich zu den Schaltflächen Weiter und zurück, diese Schnittstelle erste und letzte Schaltflächen für die Umstellung auf der ersten oder letzten Seite umfasst.
-- **Numerische** Listet die Seitenzahlen in der Auslagerungsdatei-Oberfläche, sodass Benutzer schnell zu einer bestimmten Seite zu wechseln.
-- **Numerisch, ersten, letzten** zusätzlich zu den numerischen Seitenzahlen enthält Schaltflächen zum Verschieben in der ersten oder letzten Seite.
 
-DataList und Repeater sind wir für die Entscheidung über eine Auslagerungsdatei-Schnittstelle und implementieren, verantwortlich. Dies umfasst das Erstellen der erforderlichen Web-Steuerelemente auf der Seite und die angeforderte Seite anzeigen, wenn eine bestimmte Paging Schnittstelle Schaltfläche geklickt wird. Darüber hinaus müssen bestimmte Steuerelemente der Benutzeroberfläche Paging können deaktiviert werden. Beispielsweise wird beim Anzeigen der ersten Seite der Daten mithilfe den nächsten zurück, ersten, letzten-Schnittstelle, würde der erste und die vorherige Schaltflächen deaktiviert werden.
+## <a name="step-4-creating-the-paging-interface"></a>Schritt 4: Erstellen der Paging-Schnittstelle
 
-Für dieses Lernprogramm können s mit der nächsten zurück, zunächst zuletzt Schnittstelle. Die Seite Websteuerelemente vier Schaltfläche hinzu, und legen Sie ihre `ID` s `FirstPage`, `PrevPage`, `NextPage`, und `LastPage`. Legen Sie die `Text` Eigenschaften &lt; &lt; zuerst &lt; Prev, Weiter &gt;, und das letzte &gt; &gt; .
+Es gibt eine Vielzahl von anderen Paging-Schnittstellen, die implementiert werden kann. Die GridView, DetailsView oder FormView-Steuerelemente bieten vier verschiedene Schnittstellen zum auswählen:
+
+- **Nächsten, vorherigen** Benutzer können eine Seite zu einem Zeitpunkt, zu den nächsten oder vorherigen einer verschieben.
+- **Nächsten, vorherigen, ersten, letzten** zusätzlich zu die Schaltflächen Weiter und zurück, diese Schnittstelle, die erste und letzte Schaltflächen für das Verschieben in der ersten oder letzten Seite umfasst.
+- **Numerische** Listet die Seitennummern in den Paging-Schnittstelle, sodass Benutzer schnell zu einer bestimmten Seite zu wechseln.
+- **Numerisch, ersten, letzten** zusätzlich zu den numerischen Seitenzahlen, enthält Sie Schaltflächen für das Verschieben in der ersten oder letzten Seite.
+
+Dem DataList- und Wiederholungssteuerelement sind wir dafür verantwortlich, für die Entscheidung über eine Paging-Schnittstelle und implementieren. Dies umfasst das Erstellen der erforderlichen Web-Steuerelemente auf der Seite und die angeforderte Seite angezeigt, wenn eine bestimmte Paging-Schnittstelle Schaltfläche geklickt wird. Darüber hinaus müssen bestimmte Steuerelemente der Benutzeroberfläche Paging deaktiviert werden soll. Beispielsweise wird beim Anzeigen der ersten Seite der Daten, die mit der nächsten zurück, ersten, letzten Schnittstelle, würde der erste und die zurück-Schaltflächen deaktiviert werden.
+
+In diesem Tutorial können Verwendung nächsten zurück, zunächst zuletzt Schnittstelle. Hinzufügen von vier Websteuerelemente für die Schaltfläche zur Seite, und legen Sie deren `ID` s, um `FirstPage`, `PrevPage`, `NextPage`, und `LastPage`. Legen Sie die `Text` Eigenschaften &lt; &lt; zuerst &lt; zurück, die nächste &gt;, und das letzte &gt; &gt; .
 
 
 [!code-aspx[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample4.aspx)]
 
-Als Nächstes erstellen Sie eine `Click` -Ereignishandler für jede dieser fünf Schaltflächen. Im Anschluss fügen wir den erforderlichen Code für die angeforderte Seite anzuzeigen.
+Als Nächstes erstellen Sie eine `Click` -Ereignishandler für jede dieser fünf Schaltflächen. In Kürze fügen wir den erforderlichen Code für die angeforderte Seite nicht anzeigen.
 
-## <a name="remembering-the-total-number-of-records-being-paged-through"></a>Die Gesamtzahl der Datensätze, die ausgelagerte über merken
+## <a name="remembering-the-total-number-of-records-being-paged-through"></a>Speichern Sie die Gesamtzahl der Datensätze, die ausgelagerte über
 
-Unabhängig von der Auslagerungsdatei-Schnittstelle ausgewählt haben müssen wir berechnen und speichern die Gesamtzahl der Datensätze, die ausgelagerte durch. Die Gesamtzeilenanzahl (in Verbindung mit der Größe der Seite ") wird bestimmt, wie viele Seiten mit Daten insgesamt über diesen Bericht ausgelagert werden die bestimmt, welche Paging von Benutzeroberflächen-Steuerelemente hinzugefügt werden oder aktiviert sind. Im weiter, vorherigen, ersten wird die letzte Schnittstelle, die wir erstellen, Anzahl der Seiten auf zwei Arten verwendet:
+Unabhängig von der Paging-Schnittstelle ausgewählt haben müssen wir berechnen und speichern die Gesamtzahl der Datensätze, die über ausgelagert wird. Die gesamte Zeilenanzahl (in Verbindung mit der Seitengröße) bestimmt, wie viele Seiten mit Daten, die insgesamt über ausgelagert werden die bestimmt, welche Paging von Benutzeroberflächen-Steuerelemente hinzugefügt werden oder aktiviert sind. Im weiter, vorherigen, ersten wird die letzte Schnittstelle, die wir erstellen, Anzahl der Seiten auf zwei Arten verwendet:
 
-- Um festzustellen, ob wir in diesem Fall die letzte Seite eingesehene sind die Schaltflächen Weiter und letzten deaktiviert.
-- Wenn der Benutzer die Schaltfläche klickt, die wir sie bis zum letzten weiter müssen, zu zählen, dessen Index eine ist Seite, die kleiner als die Seite.
+- Um zu bestimmen, ob wir in diesem Fall sind die Schaltflächen Weiter und letzten deaktiviert die letzte Seite anzeigen.
+- Wenn der Benutzer die letzte Schaltfläche klickt, die wir sie mit dem letzten weiter müssen, zählen Seite, deren Index eine ist kleiner als die Seite.
 
-Anzahl der Seiten wird berechnet, wie die Obergrenze für die Gesamtzeilenanzahl durch die Seitengröße geteilt. Wenn wir durch 79 Datensätze mit vier Datensätze pro Seite paging, klicken Sie dann die Seitenanzahl ist beispielsweise 20 (die Höchstwert des 79 / 4). Wenn wir die numerische Paging-Schnittstelle anzuzeigenden diese Informationen werden Sie darüber informiert, wie viele numerische Schaltflächen verwenden; Wenn unsere Schnittstelle Paging weiter oder letzte Schaltflächen enthält, wird die Seitenanzahl verwendet, zu bestimmen, wann Sie die Schaltflächen Weiter oder letzte deaktivieren.
+Anzahl der Seiten wird berechnet, wie die Obergrenze für die Gesamtzeilenanzahl durch die Seitengröße geteilt. Wenn wir die paging durch die vier Datensätze pro Seite 79 Datensätze sind, klicken Sie dann die Seitenanzahl ist beispielsweise 20 (die Obergrenze von 79 / 4). Wenn wir die numerischen Paging-Schnittstelle,, diese Informationen werden Sie darüber informiert, wie viele numerische Seitenschaltflächen verwenden werden angezeigt. Wenn unsere Auslagerungsschnittstelle weiter oder letzte Schaltflächen enthält, wird die Seitenanzahl zum Ermitteln des Zeitpunkts, deaktivieren Sie die Schaltflächen Weiter oder letzte verwendet.
 
-Wenn die Auslagerungsschnittstelle eine letzte Schaltfläche enthält, ist es erforderlich, dass die Gesamtanzahl von Datensätzen, die ausgelagerte über über Postbacks gespeichert werden, damit wir auf die letzte Schaltfläche geklickt wird der Index der letzten Seite ermitteln können. Um dies zu ermöglichen, erstellen Sie eine `TotalRowCount` Eigenschaft in der ASP.NET Seite "s" Code-Behind-Klasse, die den Wert Ansichtszustand beibehält:
+Wenn die Paging-Schnittstelle eine letzte Schaltfläche enthält, ist es zwingend erforderlich, dass die Gesamtzahl der Datensätze, die über ausgelagerte über Postbacks hinweg gespeichert werden, wenn die letzte Schaltfläche geklickt wird können wir den Index der letzten Seite bestimmen. Um dies zu ermöglichen, erstellen Sie eine `TotalRowCount` Eigenschaft in der ASP.NET Seite s Code-Behind-Klasse, die den Wert Ansichtszustand speichert:
 
 
 [!code-vb[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample5.vb)]
 
-Zusätzlich zu `TotalRowCount`, nehmen Sie sich zum Erstellen von nur-Lese Seitenebene-Eigenschaften für den Zugriff auf einfache Weise der Seitenindex, die Seitengröße und Seitenanzahl:
+Zusätzlich zu `TotalRowCount`kurz zum Erstellen von schreibgeschützten auf Seitenebene-Eigenschaften für den Zugriff auf einfache Weise den Seitenindex, die Seitengröße und Seitenanzahl:
 
 
 [!code-vb[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample6.vb)]
 
 ## <a name="determining-the-total-number-of-records-being-paged-through"></a>Bestimmen die Gesamtzahl der Datensätze, die ausgelagerte über
 
-Die `PagedDataSource` Objekt zurückgegeben, von der ObjectDataSource s `Select()` Methode hat darin *alle* der Datensätze, obwohl nur eine Teilmenge davon in DataList angezeigt werden. Die `PagedDataSource` s [ `Count` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.count.aspx) gibt nur die Anzahl der Elemente, die in der DataList; angezeigt werden die [ `DataSourceCount` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.datasourcecount.aspx) gibt die Gesamtanzahl der Elemente in der `PagedDataSource`. Aus diesem Grund müssen wir die Seite "s" ASP.NET zuweisen `TotalRowCount` Eigenschaft den Wert von der `PagedDataSource` s `DataSourceCount` Eigenschaft.
+Die `PagedDataSource` Objekt zurückgegeben wird, von der "ObjectDataSource"-s `Select()` Methode hat darin *alle* der Datensätze, obwohl nur eine Teilmenge davon im DataList-Steuerelement angezeigt werden. Die `PagedDataSource` s [ `Count` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.count.aspx) gibt nur die Anzahl der Elemente, die im DataList-Steuerelement; angezeigt wird der [ `DataSourceCount` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.datasourcecount.aspx) gibt die Gesamtzahl der Elemente in der `PagedDataSource`. Aus diesem Grund müssen wir die ASP.NET-Seite s zuweisen `TotalRowCount` Eigenschaft ist der Wert von der `PagedDataSource` s `DataSourceCount` Eigenschaft.
 
-Um dies zu erreichen, erstellen Sie einen Ereignishandler für das ObjectDataSource-s `Selected` Ereignis. In der `Selected` Ereignishandler, die wir haben Zugriff auf den Rückgabewert der ObjectDataSource s `Select()` Methode in diesem Fall die `PagedDataSource`.
+Um dies zu erreichen, erstellen Sie einen Ereignishandler für das "ObjectDataSource"-s `Selected` Ereignis. In der `Selected` Ereignishandler haben Zugriff auf den Rückgabewert der "ObjectDataSource" Zuordnungsvorgänge `Select()` -Methode in diesem Fall die `PagedDataSource`.
 
 
 [!code-vb[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample7.vb)]
 
 ## <a name="displaying-the-requested-page-of-data"></a>Die angeforderte Seite der Daten anzeigen
 
-Klickt der Benutzer eine der Schaltflächen in der Auslagerungsdatei-Schnittstelle, müssen wir die angeforderte Seite der Daten anzeigen. Da die Auslagerungsparameter über die Abfragezeichenfolge angegeben werden, auf die angeforderte Seite Datenverwendung anzuzeigen `Response.Redirect(url)` haben die Benutzer s Browser erneut anfordern der `Paging.aspx` Seite mit den entsprechenden Parametern für die Auslagerung. Klicken wir z. B. zum Anzeigen von Daten der zweiten Seite umleiten des Benutzers zu `Paging.aspx?pageIndex=1`.
+Klickt der Benutzer eine der Schaltflächen in den Paging-Schnittstelle, müssen wir die angeforderte Seite der Daten anzuzeigen. Da die Paging-Parameter über die Abfragezeichenfolge angegeben werden, um die angeforderte Seite der Datennutzung anzuzeigen `Response.Redirect(url)` haben die Benutzer s Browser erneut anfordern der `Paging.aspx` Seite mit den entsprechenden Parametern für die Auslagerung. Klicken wir z. B. um der zweiten Seite der Daten anzuzeigen, leiten die Benutzer `Paging.aspx?pageIndex=1`.
 
-Um dies zu ermöglichen, erstellen Sie eine `RedirectUser(sendUserToPageIndex)` -Methode, die den Benutzer umgeleitet `Paging.aspx?pageIndex=sendUserToPageIndex`. Rufen Sie dann diese Methode über die Schaltfläche mit den vier `Click` Ereignishandler. In der `FirstPage` `Click` -Ereignishandler, rufen `RedirectUser(0)`, um sie zu senden, zur ersten Seite; in der `PrevPage` `Click` -Ereignishandler `PageIndex - 1` als der Seitenindex; und so weiter.
+Um dies zu ermöglichen, erstellen Sie eine `RedirectUser(sendUserToPageIndex)` -Methode, die den Benutzer leitet `Paging.aspx?pageIndex=sendUserToPageIndex`. Rufen Sie dann die Schaltfläche mit den vier dieser Methode `Click` -Ereignishandler. In der `FirstPage` `Click` -Ereignishandler, rufen `RedirectUser(0)`, um sie zu senden, auf die erste Seite; in der `PrevPage` `Click` -Ereignishandler `PageIndex - 1` als den Seitenindex; und so weiter.
 
 
 [!code-vb[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample8.vb)]
 
-Mit der `Click` Ereignishandler abgeschlossen ist, die Datensätze DataList s über ausgelagert werden können, indem Sie auf die Schaltflächen. Nehmen Sie einen Moment Zeit, zu testen.
+Mit der `Click` Ereignishandler abgeschlossen ist, die DataList-s-Datensätze über ausgelagert werden können, indem Sie auf die Schaltflächen. Nehmen Sie einen Moment Zeit, zu testen!
 
 ## <a name="disabling-paging-interface-controls"></a>Durch Deaktivieren des Paging von Benutzeroberflächen-Steuerelemente
 
-Derzeit sind alle vier Schaltflächen unabhängig von der angezeigten Seite aktiviert. Wir möchten jedoch die Schaltflächen "First" und "zurück" zu deaktivieren, wenn die erste Seite der Daten und die Schaltflächen Weiter und letzten anzeigen, wenn die letzte Seite angezeigt. Die `PagedDataSource` das ObjectDataSource-s zurückgegebenes Objekt `Select()` Methode verfügt über Eigenschaften [ `IsFirstPage` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.isfirstpage.aspx) und [ `IsLastPage` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.islastpage.aspx) , die kann untersucht werden, um festzustellen, ob wir anzeigen die ersten oder letzten Seite der Daten.
+Derzeit sind alle vier Schaltflächen, unabhängig von der angezeigten Seite aktiviert. Allerdings möchten wir die erste ' und ' Vorheriger Schaltflächen zu deaktivieren, wenn es sich bei die erste Seite der Daten und die Schaltflächen Weiter und zuletzt angezeigt, wenn die letzte Seite angezeigt. Die `PagedDataSource` "ObjectDataSource" s zurückgegebenes Objekt `Select()` Methode verfügt über Eigenschaften [ `IsFirstPage` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.isfirstpage.aspx) und [ `IsLastPage` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.islastpage.aspx) , die wir untersuchen können, um festzustellen, ob es angezeigt wird die ersten oder letzten Seite der Daten.
 
-Fügen Sie die folgenden, mit dem ObjectDataSource s `Selected` Ereignishandler:
+Fügen Sie die folgenden in das "ObjectDataSource"-s `Selected` -Ereignishandler:
 
 
 [!code-vb[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample9.vb)]
 
-Mit diese Ergänzung wird die Schaltflächen "First" und "zurück" deaktiviert werden, wenn die erste Seite anzeigen, während die Schaltflächen Weiter und letzten beim Anzeigen der letzten Seite deaktiviert werden.
+Mit folgender Ergänzung werden die erste ' und ' Vorheriger Schaltflächen deaktiviert beim Anzeigen der ersten Seite, während die Schaltflächen Weiter und letzten beim Anzeigen der letzten Seite deaktiviert werden.
 
-Let s abzuschließen, die Paging-Schnittstelle durch den Benutzer darüber informiert Seite sie re derzeit anzeigen und wie viele Seiten insgesamt vorhanden sind. Die Seite ein Label-Websteuerelement hinzu, und legen Sie dessen `ID` Eigenschaft `CurrentPageNumber`. Legen Sie dessen `Text` Eigenschaft im ObjectDataSource s ausgewählte Ereignishandler solche enthält die aktuelle Seite angezeigt wird (`PageIndex + 1`) und die Gesamtanzahl der Seiten (`PageCount`).
+Let s abzuschließen, die Paging-Schnittstelle durch den Benutzer darüber informiert welche Seite sie re gerade angezeigt und wie viele Gesamtanzahl der Seiten vorhanden sind. Die Seite ein Label-Steuerelement hinzu, und legen Sie dessen `ID` Eigenschaft `CurrentPageNumber`. Legen Sie dessen `Text` Eigenschaft im "ObjectDataSource" s ausgewählte Ereignishandler solche, enthalten die aktuelle Seite angezeigt wird (`PageIndex + 1`) und die Gesamtzahl der Seiten (`PageCount`).
 
 
 [!code-vb[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample10.vb)]
 
-Abbildung 10 zeigt `Paging.aspx` beim ersten Mal besucht hat. Da die Abfragezeichenfolge leer ist, standardmäßig zeigt die ersten vier Produkte DataList; die Schaltflächen "First" und "zurück" sind deaktiviert. Klicken Sie weiter auf, wird die nächsten vier Datensätze (siehe Abbildung 11); die Schaltflächen "First" und "zurück" sind jetzt aktiviert.
+Abbildung 10 zeigt `Paging.aspx` beim ersten Mal besucht hat. Da die Abfragezeichenfolge leer ist, erhält standardmäßig den DataList-Steuerelement die ersten vier Produkte angezeigt. die erste ' und ' Vorheriger Schaltflächen sind deaktiviert. Klicken Sie auf Weiter, werden die nächsten vier Datensätze (siehe Abbildung 11) angezeigt; die erste ' und ' Vorheriger Schaltflächen sind nun aktiviert.
 
 
 [![Die erste Seite der Daten wird angezeigt.](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image23.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image22.png)
 
-**Abbildung 10**: die erste Seite der Daten wird angezeigt ([klicken Sie hier, um das Bild in voller Größe angezeigt](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image24.png))
+**Abbildung 10**: die erste Seite der Daten wird angezeigt ([klicken Sie, um das Bild in voller Größe anzeigen](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image24.png))
 
 
-[![Die zweite Seitendaten wird angezeigt.](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image26.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image25.png)
+[![Die zweite Seite der Daten wird angezeigt.](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image26.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image25.png)
 
-**Abbildung 11**: der zweiten Seite der Daten wird angezeigt ([klicken Sie hier, um das Bild in voller Größe angezeigt](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image27.png))
+**Abbildung 11**: der zweiten Seite der Daten wird angezeigt ([klicken Sie, um das Bild in voller Größe anzeigen](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image27.png))
 
 
 > [!NOTE]
-> Die Schnittstelle Paging kann weiter verbessert werden, indem der Benutzer angeben, wie viele Seiten pro Seite anzeigen. Beispielsweise konnte eine DropDownList Optionen für die Auflistung Seitengröße z. B. 5, 10, 25, 50 und alle hinzugefügt werden. Nach Auswahl einer Seitengröße, muss der Benutzer wieder zu umgeleitet werden `Paging.aspx?pageIndex=0&pageSize=selectedPageSize`. Ich lassen, implementieren diese Erweiterung als Übung für den Leser.
+> Die Paging-Schnittstelle kann weiter verbessert werden, indem der Benutzer angeben, wie viele Seiten pro Seite anzeigen kann. Beispielsweise konnte einem DropDownList-Steuerelement die Liste Größenoptionen wie 5, 10, 25, 50 und alle hinzugefügt werden. Nach dem Auswählen einer Seitengröße, muss der Benutzer wird an die zurückgeleitet werden `Paging.aspx?pageIndex=0&pageSize=selectedPageSize`. Ich verlasse, implementieren diese Erweiterung für den Leser als Übung.
 
 
-## <a name="using-custom-paging"></a>Verwenden benutzerdefiniertes Paging
+## <a name="using-custom-paging"></a>Verwendung von benutzerdefiniertem Paging
 
-Über seine Daten mithilfe der ineffizient Paging Standardverfahren DataList-Seiten. Wenn paging über ausreichend große Mengen von Daten ist es obligatorisch, dass das benutzerdefinierte Paging verwendet werden. Obwohl die Implementierungsdetails geringfügig unterscheiden zu können, gelten die Konzepte hinter implementieren benutzerdefiniertes Paging in einem DataList stimmt mit dem Standardpaging. Benutzerdefiniertes Paging anhand der `ProductBLL` Klasse s `GetProductsPaged` Methode (anstelle von `GetProductsAsPagedDataSource`). Entsprechend der Anleitung unter dem [effizient Paging durch große Mengen von Daten](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-vb.md) Lernprogramm `GetProductsPaged` muss übergeben werden, den Start Zeile Index und die maximale Anzahl der zurückzugebenden Zeilen. Diese Parameter verwaltet werden können, über die Abfragezeichenfolge wie die `pageIndex` und `pageSize` im Standardmodus paging verwendeten Parameter.
+Die zugehörigen Daten mithilfe der ineffizienten standardmäßig Paging Technik DataList-Seiten. Beim paging durch ausreichend große Mengen von Daten, ist es zwingend erforderlich, dass das benutzerdefinierte Paging verwendet werden. Obwohl die Details der Implementierung geringfügig unterscheiden, sind die Konzepte für die Implementierung von benutzerdefinierten Paging in einem DataList-Steuerelement stimmt mit dem das Standardpaging an. Verwendung von benutzerdefiniertem Paging die `ProductBLL` s-Klasse `GetProductsPaged` Methode (anstelle von `GetProductsAsPagedDataSource`). Siehe die [effizient Paging durch große Mengen von Daten](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-vb.md) Tutorial `GetProductsPaged` muss der Start Zeile Index und die maximale Anzahl der zurückzugebenden Zeilen übergeben werden. Diese Parameter können verwaltet werden, über die Abfragezeichenfolge wie die `pageIndex` und `pageSize` verwendeten Parameter in der Auslagerungsdatei.
 
-Da es s keine `PagedDataSource` mit benutzerdefiniertes Paging alternative Techniken müssen verwendet werden, um zu bestimmen, die Gesamtzahl der Datensätze, die ausgelagerte durch und gibt an, ob wir re die ersten oder letzte Seite der Daten anzeigen. Die `TotalNumberOfProducts()` Methode in der `ProductsBLL` Klasse gibt die Gesamtzahl der ausgelagerte über Produkte zurück. Um festzustellen, ob die erste Seite der Daten angezeigt wird, überprüfen Sie den Startindex für die Zeile ist er 0 (null), und klicken Sie dann die erste Seite angezeigt wird. Die letzte Seite wird angezeigt wird, wenn die erste Zeilenindex sowie die Max. Anzahl zurückzugebender Zeilen ist größer als oder gleich der Gesamtzahl der Datensätze, die ausgelagerte über.
+Da es s keine `PagedDataSource` mit benutzerdefiniertem Paging, alternative Techniken müssen verwendet werden, um zu bestimmen, die Gesamtzahl der Datensätze, die ausgelagerte durch und gibt an, ob wir erneut die erste oder letzte Seite der Daten anzeigen. Die `TotalNumberOfProducts()` -Methode in der die `ProductsBLL` Klasse gibt die Gesamtanzahl der Produkte, die über ausgelagert wird. Um festzustellen, ob die erste Seite der Daten angezeigt wird, Überprüfen der Startindex für die Zeile ist dies 0 (null), und klicken Sie dann die erste Seite angezeigt wird. Die letzte Seite wird angezeigt wird, wenn der Zeilenindex für den Start sowie die Max. Anzahl zurückzugebender Zeilen ist größer als oder gleich der Gesamtzahl der Datensätze, die ausgelagerte über.
 
-Untersucht werden, implementieren benutzerdefiniertes Paging ausführlicher in den nächsten Lernprogrammen.
+Wir werden untersuchen, Implementieren von benutzerdefiniertem Paging ausführlicher im nächsten Tutorial.
 
 ## <a name="summary"></a>Zusammenfassung
 
-Weder die DataList noch ein Repeater bietet die Out-of Box-Paging-Unterstützung in der GridView, DetailsView, gefunden und FormView steuert, solche Funktionen kann mit minimalem Aufwand hinzugefügt werden. Die einfachste Möglichkeit zum Implementieren von Standardnavigation wird zum Umschließen der Gesamtmenge der Produkte innerhalb einer `PagedDataSource` und dann binden Sie die `PagedDataSource` DataList oder Repeater. In diesem Lernprogramm wurde hinzugefügt der `GetProductsAsPagedDataSource` Methode, um die `ProductsBLL` Klasse die Rückgabe der `PagedDataSource`. Die `ProductsBLL` Klasse enthält bereits die Methoden, die für das benutzerdefinierte Paging benötigt `GetProductsPaged` und `TotalNumberOfProducts`.
+Während weder die Repeater das DataList-Steuerelement bietet die Out-of pagingunterstützung finden Sie in der GridView, DetailsView und FormView-Steuerelemente, mit minimalem Aufwand eine solche Funktionalität hinzugefügt werden kann. Die einfachste Möglichkeit zum Implementieren von Standardpaging besteht darin, den gesamten Satz von Produkten in eine `PagedDataSource` und binden Sie dann die `PagedDataSource` zur DataList oder Repeater. In diesem Tutorial wir hinzugefügt, die `GetProductsAsPagedDataSource` Methode, um die `ProductsBLL` Klasse die Rückgabe der `PagedDataSource`. Die `ProductsBLL` Klasse enthält bereits die Methoden, die erforderlich sind, für das benutzerdefinierte Paging `GetProductsPaged` und `TotalNumberOfProducts`.
 
-Zusammen mit Abrufen von entweder der genaue Satz von Datensätzen, die für das benutzerdefinierte Paging angezeigt oder alle Datensätze in einem `PagedDataSource` für standardmäßige auslagerungen, müssen ebenfalls manuell hinzufügen der Auslagerungsdatei-Schnittstelle. Für dieses Lernprogramm erstellt es eine weiter, Previous, zunächst zuletzt eine Verbindung mit vier Schaltfläche Websteuerelemente. Darüber hinaus wurde ein Bezeichnungsfeld-Steuerelement anzeigen, die aktuelle Seitenzahl und Gesamtseitenzahl hinzugefügt.
+Sowie das Abrufen von entweder der genaue Satz von Datensätzen, die für benutzerdefiniertes Paging angezeigt werden soll oder alle Datensätze in einem `PagedDataSource` für standardmäßige auslagerungen, wir müssen auch die Paging-Schnittstelle manuell hinzufügen. In diesem Tutorial erstellten eine weiter, die zurück zuletzt eine Verbindung mit vier Schaltfläche Websteuerelemente. Darüber hinaus wurde ein Label-Steuerelement anzeigen, die aktuelle Seitenzahl und die Gesamtzahl der Seiten hinzugefügt.
 
-In den nächsten Lernprogrammen sehen wir, wie die DataList und Repeater sortierungsunterstützung hinzugefügt werden. Wir sehen auch wie DataList erstellen, können sowohl per Pager benachrichtigt und werden (mit Beispielen, die mithilfe von Standard- und benutzerdefinierte Paging) sortiert.
+Im nächsten Tutorial sehen wir, wie dem DataList- und Wiederholungssteuerelement sortierungsunterstützung hinzugefügt werden. Wir sehen auch einem DataList-Steuerelement zu erstellen, die können sowohl seitenweise durchlaufen und sortiert werden sollen (einschließlich Beispielen, die standardmäßig mit benutzerdefiniertem Paging).
 
 Viel Spaß beim Programmieren!
 
-## <a name="about-the-author"></a>Informationen zum Autor
+## <a name="about-the-author"></a>Der Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben Büchern zu ASP/ASP.NET und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), arbeitet mit Microsoft-Web-Technologien seit 1998. Er ist als ein unabhängiger Berater, Schulungsleiter und Autor. Sein neueste Buch wird [*Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er ist unter [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
-Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurden Liz Shulok Ken Pespisa und Bernadette Leigh. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Diese tutorialreihe wurde durch viele hilfreiche Reviewer überprüft. Führendes Prüfer für dieses Tutorial wurden Liz Shulok, Ken Pespisa und Bernadette Leigh. Meine zukünftigen MSDN-Artikeln überprüfen möchten? Wenn dies der Fall ist, löschen Sie mir eine Linie an [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Zurück](sorting-data-in-a-datalist-or-repeater-control-cs.md)

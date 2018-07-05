@@ -1,136 +1,135 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
-title: Fehler (Building Real-World Cloud Apps with Azure) Überleben beim Entwurf | Microsoft Docs
+title: Entwurf überstehen von Ausfällen (erstellen realer Cloud-Apps mit Azure) | Microsoft-Dokumentation
 author: MikeWasson
-description: Die Building Real World Cloud Apps with Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können...
+description: Die Building Real World Cloud Apps mit Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt wurde. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 364ce84e-5af8-4e08-afc9-75a512b01f84
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
 msc.type: authoredcontent
-ms.openlocfilehash: 01883cb0be3e7c7b5dc8d32b784ccb3a28652f1e
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: db7398cfd9ed51d716cb595d977b482fd0da131e
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30874108"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37372461"
 ---
-<a name="design-to-survive-failures-building-real-world-cloud-apps-with-azure"></a>Fehler (Building Real-World Cloud Apps with Azure) Überleben entwerfen
+<a name="design-to-survive-failures-building-real-world-cloud-apps-with-azure"></a>Ausrichtung des Entwurfs auf das überstehen von Ausfällen (erstellen realer Cloud-Apps mit Azure)
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
 
-[Download Behebungsskript Projekt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) oder [E-Book herunterladen](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Download korrigieren Projekt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) oder [E-Book herunterladen](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> Die **Building Real World Cloud Apps with Azure** e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt. Es wird erläutert, 13 Muster und Vorgehensweisen, die Ihnen helfen können erfolgreich ausgeführt entwickeln Web-apps für die Cloud. Weitere Informationen zu e-Book herunterladen, finden Sie unter [im Kapitel über das erste](introduction.md).
+> Die **Building Real World Cloud Apps mit Azure** e-Book basiert darauf, dass eine Präsentation von Scott Guthrie entwickelt wurde. Es wird erläutert, 13 Muster und Methoden, die Ihnen helfen können, werden erfolgreiche Entwicklung von Web-apps für die Cloud. Weitere Informationen zu e-Book, finden Sie unter [im ersten Kapitel](introduction.md).
 
 
-Keines der Dinge zu bedenken, bei der Erstellung jeder Art von Anwendung, aber vor allem eine, die in der Cloud ausgeführt werden, in denen viele Leute verwenden, stehen Ihnen handelt es sich um die app entwerfen, damit es ordnungsgemäß Behandeln von Fehlern und weiterhin Wert liefern kann so weit wie möglich ist. Sofern genügend Zeit gegeben, setupbegrüßungsbildschirm Dinge in jeder Umgebung oder eine beliebige Softwaresystem schief geht. Behandlung von Situationen verwendet, in die app bestimmt, wie verärgert Ihre Kunden erhalten soll und wie viel Zeit aufwenden, analysieren und Beheben von Problemen stehen Ihnen.
+Eines der Dinge denken Sie beim Erstellen jeder Art von Anwendung, aber vor allem eine, die in der Cloud ausgeführt wird, in denen viele Leute verwenden, müssen Sie die app entwerfen, damit es ordnungsgemäß Behandeln von Fehlern und auszahlen kann ist wie möglich ist. Wenn genügend Zeit, sind der Stand der Dinge, die in jeder Umgebung oder anderen Softwaresystemen schief gehen. Behandlung von Situationen verwendet, in der app bestimmt, wie verärgert Ihre Kunden erhalten und wie viel Zeit verbringen, analysieren und Beheben von Problemen mit Ihnen.
 
-## <a name="types-of-failures"></a>Fehlertypen
+## <a name="types-of-failures"></a>Arten von Fehlern
 
-Es gibt zwei grundlegende Kategorien von Fehlern, die auf andere Weise behandeln möchten:
+Es gibt zwei grundlegende Kategorien von Fehlern, die Sie anders behandeln möchten:
 
-- Vorübergehend, Selbstkorrektur Ausfällen, z. B. vorübergehende Verbindungsprobleme.
-- Beständig von Fehlern, die einen Eingriff erfordern.
+- Vorübergehende, selbst heilen Fehler wie z. B. vorübergehende Probleme mit der Netzwerkkonnektivität.
+- Diskutierte Fehler, die Eingriffe erfordern.
 
-Für vorübergehende Fehler können Sie implementieren eine wiederholungsrichtlinie, um sicherzustellen, dass die meisten der Zeit, die app schnell und automatisch wiederhergestellt wird. Ihre Kunden möglicherweise geringfügig längere Antwortzeit fest, aber ansonsten sie wirkt sich nicht auf. Wir zeigen einige Möglichkeiten, um diese Fehler im behandelt die [vorübergehender Fehler behandeln Kapitel](transient-fault-handling.md).
+Für vorübergehende Fehler können Sie implementieren eine wiederholungsrichtlinie, um sicherzustellen, dass ein Großteil der Zeit, stellt die app schnell und automatisch wieder her. Ihre Kunden möglicherweise etwas längere Antwortzeit fest, aber andernfalls sie dadurch nicht beeinflusst. Wir zeigen einige Möglichkeiten, um diese Fehler in behandeln die [Kapitel behandeln vorübergehender Fehler](transient-fault-handling.md).
 
-Für beständig Fehlern, können Sie die Überwachung und Protokollierung von Funktionen, die Sie sofort benachrichtigt, wenn Probleme auftreten, und erleichtert, die die Fehlerursachenanalyse implementieren. Wir zeigen einige Möglichkeiten zur Unterstützung von bleiben Sie auf diese Art von Fehlern in der [Kapitel Überwachung und Telemetrie](monitoring-and-telemetry.md).
+Für die Umwelt Fehler, können Sie implementieren, Überwachung und Protokollierung von Funktionen, die Sie sofort benachrichtigt, wenn Probleme auftreten, und das erleichtert die Analyse der Grundursache. Wir zeigen einige Möglichkeiten können Sie den Überblick über diese Arten von Fehlern in zu behalten die [Überwachung und Telemetrie Kapitel](monitoring-and-telemetry.md).
 
 ## <a name="failure-scope"></a>Fehler-Bereich
 
-Außerdem müssen Sie Fehler Bereich – überlegen, ob es sich bei ein einzelnen Computer betroffen ist, einen gesamten Dienst z. B. SQL-Datenbank, Speicher oder einer gesamten Region.
+Sie müssen auch Fehler Bereich – überlegen, ob ein einzelner Computer betroffen ist, einen gesamten Dienst wie Storage, SQL-Datenbank oder einer gesamten Region.
 
 ![Fehler-Bereich](design-to-survive-failures/_static/image1.png)
 
-### <a name="machine-failures"></a>Da Computerfehler
+### <a name="machine-failures"></a>Computerausfälle
 
-In Azure ein fehlerhaften Server wird automatisch durch einen neuen ersetzt, und eine gut entworfene Cloud-app aus dieser Art des Fehlers wiederhergestellt wird, schnell und automatisch. Zuvor wir die Vorteile der eine zustandslose Webebene betont, und Ihnen eine einfache Wiederherstellung von einem ausgefallenen ist ein weiterer Vorteil der zustandsfreiheit. Einfache Wiederherstellung ist auch mit einer der Vorteile von Platform-as-a-Service (PaaS)-Features wie SQL-Datenbank und Azure App Service-Web-Apps. Hardwarefehler sind zwar selten, aber wenn die Zeitpunkte, dass diese Dienste automatisch handhaben; Sie müssen auch Code schreiben, um Computerfehler zu behandeln, wenn Sie einem dieser Dienste verwenden.
+Klicken Sie in Azure ein fehlerhaften Server wird automatisch durch eine neue ersetzt, und eine durchdachte Cloud-app wird über diese Art von Fehler schnell und automatisch wiederhergestellt. Zuvor betont wir die Vorteile der Skalierbarkeit von Ebenen statusfreie Web- und einfache Wiederherstellung nach einem fehlerhaften Server ist ein weiterer Vorteil von statusfreiheit. Einfache Wiederherstellung ist auch mit einer der Vorteile des Platform-as-a-Service (PaaS)-Funktionen wie SQL-Datenbank und Azure App Service-Web-Apps. Hardwareausfälle sind zwar selten, aber wenn die Zeitpunkte, dass diese Dienste werden automatisch behandelt; Sie müssen noch nicht zum Schreiben von Code zum Behandeln von Fehlern der Computer, wenn Sie einen dieser Dienste verwenden.
 
 ### <a name="service-failures"></a>Dienstfehler
 
-Cloud-apps werden normalerweise mehrere Dienste verwenden. Beispielsweise die app zu beheben, verwendet den SQL-Datenbankdienst, der Speicherdienst und die Web-app in Azure App Service bereitgestellt wird. Was wird Ihre app tun, bei einem Ausfall einer der Dienste, richtet sich nach? Für einige Fehler einen aussagekräftigen service "leider, versuchen Sie es später" Nachricht möglicherweise am besten geeignet, die Sie ausführen können. In vielen Szenarien Sie können jedoch eine bessere Leistung. Z. B. bei der Back-End-Datenspeicher ausgefallen ist, können Sie Benutzereingaben akzeptieren, anzeigen "Ihre Anforderung wurde empfangen", und speichern die Eingabe, die an einem beliebigen Ort else vorübergehend; anschließend wieder, funktioniert der Dienst Sie müssen die Eingabe abzurufen und zu verarbeiten.
+Cloud-apps verwenden normalerweise mehrere Dienste. Z. B. die Fix It-app verwendet den SQL-Datenbank-Dienst, den Storage-Dienst, und die Web-app in Azure App Service bereitgestellt wird. Was wird Ihrer app tun, bei einem einer der Dienste, von denen Sie abhängen Ausfall? Für einige Fehler einen aussagekräftigen Dienst "Es tut uns leid, versuchen Sie es später noch Mal" Nachricht möglicherweise die beste möglich. In vielen Fällen können jedoch besser. Z. B. bei Ihrem Back-End-Datenspeicher nicht ausgeführt wird, können Sie Benutzereingaben akzeptieren, anzeigen "Ihre Anforderung wurde empfangen", und speichern die Eingabe, die an einer beliebigen Stelle else vorübergehend; während der Dienst Sie müssen in diesem Fall funktioniert die Eingabe abzurufen und zu verarbeiten.
 
-Die [Warteschlange anwendungsorientierte Arbeit Muster](queue-centric-work-pattern.md) Kapitel zeigt eine Möglichkeit, dieses Szenario zu behandeln. Die app zu beheben Aufgaben in SQL-Datenbank gespeichert, jedoch nicht zu beenden, zu arbeiten, wenn die SQL-Datenbank nicht ausgeführt wird. In diesem Kapitel erfahren wir, wie zum Speichern von Benutzereingaben für eine Aufgabe in einer Warteschlange, und ein Arbeitsprozess mit der die Warteschlange zu lesen und aktualisieren Sie den Vorgang. Wenn SQL nicht ausgeführt wird, ist die Fähigkeit zum Erstellen von Aufgaben korrigieren nicht betroffen; der Arbeitsprozess kann warten, und neue Aufgaben zu verarbeiten, wenn der SQL-Datenbank verfügbar ist.
+Die [Warteschlange-orientierte Arbeit Muster](queue-centric-work-pattern.md) Kapitel zeigt eine Möglichkeit zum Behandeln dieses Szenarios. Die Fix It-app speichert Aufgaben in SQL-Datenbank, aber nicht sein muss, beenden Sie arbeiten, wenn Sie SQL-Datenbank nicht ausgeführt wird. In diesem Kapitel erfahren wir, wie Benutzereingaben für einen Vorgang in einer Warteschlange speichern und diese ein Arbeitsprozess mit die Warteschlange zu lesen und aktualisieren Sie den Vorgang. Wenn SQL nicht verfügbar ist, ist die Fähigkeit zum Erstellen der Fix It-Aufgaben nicht betroffen; der Arbeitsprozess kann warten, und neue Aufgaben zu verarbeiten, wenn der SQL-Datenbank verfügbar ist.
 
-### <a name="region-failures"></a>Fehler bei der Region
+### <a name="region-failures"></a>Ausfälle von schreibregionen
 
-Gesamte Regionen schlägt möglicherweise fehl. Eine Naturkatastrophe könnte ein Rechenzentrum zerstören, es möglicherweise durch eine Meteor vereinfacht erhalten, konnte die Zeile "Trunk" in das Datencenter durch einen durch eine Kuh Tieflöffel usw. Originalvideo ausgeschnitten werden. Was tun Sie, wenn Ihre app im stricken Datencenter gehostet wird? Es ist möglich, richten Sie Ihre app in Azure in mehreren Regionen gleichzeitig ausführen, sodass ein Notfall in einer vorhanden ist, Sie weiter ausgeführt, in einer anderen Region. Solche Fehler sind äußerst selten vorkommen und die meisten apps nicht über die überblicken erforderlich, um sicherzustellen, dass durch Fehler dieser Art eines unterbrechungsfreien Diensts springen. Siehe Abschnitt "Ressourcen" am Ende des Kapitels Informationen dazu, wie Sie Ihre app auch über eine Region Fehler verfügbar bleibt.
+Gesamte Regionen schlägt möglicherweise fehl. Eine Naturkatastrophe könnte ein Rechenzentrum zerstören, es möglicherweise durch eine Meteor vereinfacht zu erhalten, konnte die Zeile "Trunk" in das Datencenter von einem Farmer durch nichts mehr mit einer Tieflöffel usw. ausgeschnitten. Was tun Sie, wenn Ihre app im stricken Rechenzentrum gehostet wird? Es ist möglich, Ihre app in Azure einrichten, auf die in mehreren Regionen gleichzeitig ausgeführt werden, damit bei ein Notfall in einer, Sie weiterhin in einer anderen Region ausführen. Solche Fehler sind äußerst selten auftreten, und die meisten apps nicht über die Aufwand erforderlich, um sicherzustellen, dass durch Fehler dieser Art einen ununterbrochenen Dienst zu springen. Finden Sie im Abschnitt "Ressourcen" am Ende des Kapitels, für die Informationen dazu, wie Sie Ihre Apps auch über einen Fehler für die Region zur Verfügung.
 
-Ein Ziel von Azure ist, um alle dieser Arten von Fehlern, die viel einfacher zu machen, und Sie finden einige Beispiele dafür, wie wir, die in den folgenden Kapiteln tun.
+Ein Ziel von Azure ist es, behandeln alle diese Arten von Fehlern, die viel einfacher, und sehen Sie einige Beispiele für Sie, wie wir, die in den folgenden Kapiteln abschneiden!.
 
 ## <a name="slas"></a>SLAs
 
-Personen hören häufig zu Vereinbarungen zum Servicelevel (SLAs) in der Cloudumgebung. Grundsätzlich handelt es sich Zusagen, die Unternehmen stellen Informationen zu den Zuverlässigkeit ihres Diensts. 99,9 % SLA bedeutet, dass Sie erwarten, dass den Dienst ordnungsgemäß 99,9 % der Zeit. Dies ist ein relativ häufig angegebener Wert für die Vereinbarung zum SERVICELEVEL und hört sich wie eine sehr große Anzahl, aber Sie bemerken möglicherweise nicht wie viel Zeit nach unten. 1 % läuft tatsächlich auf. Hier ist eine Tabelle, wie viel Ausfallzeit verschiedene SLA-Prozentsätze über ein Jahr, Monat und einer Woche beanspruchen.
+Menschen hören oft Service Level Agreements (SLAs) in der Cloud-Umgebung. Dies sind im Grunde Zusagen, die Unternehmen zur wie zuverlässig der Dienst ist. Eine 99,9 % SLA bedeutet, dass Sie erwarten, den Dienst zu 99,9 % der Zeit ordnungsgemäß funktionieren. Dies ist ein recht häufig angegebener Wert für eine Vereinbarung zum SERVICELEVEL und hört sich wie eine sehr hohe Anzahl, aber nicht erzielt werden könnte, wie viel Zeit nach unten. tatsächlich Endergebnis 1 %. Hier ist eine Tabelle mit wie viel Ausfallzeit verschiedene SLA-Prozentsätze über einem Jahr, Monat und einer Woche beanspruchen.
 
 ![SLA-Tabelle](design-to-survive-failures/_static/image2.png)
 
-Daher möglicherweise ein 99,9 % SLA bedeutet, dass Ihr Dienst 8.76 Stunden ein Jahr oder 43,2 Minuten pro Monat ausgeschaltet. Dies ist mehr außer Betrieb genommen, als die meisten Personen bewusst. So, als Entwickler sollten Sie daran denken, dass eine bestimmte Menge an außer Betrieb genommen werden kann und auf ordnungsgemäße Weise zu behandeln. Irgendwann wird von Personen Ihre app verwenden ein Diensts wird inaktiv geschaltet und möchten die negative Auswirkung, die auf den Kunden zu minimieren.
+Daher kann eine 99,9 % SLA bedeutet, dass Ihr Dienst 8,76 Stunden ein Jahr oder 43,2 Minuten pro Monat ausfallen. Das ist mehr außer Betrieb genommen, als die meisten Leute realisieren. So, als Entwickler möchten Sie bedenken, dass eine bestimmte Menge an außer Betrieb genommen werden kann und diese auf eine ordnungsgemäße Weise zu behandeln. An einem bestimmten Punkt wird von Personen Ihre app nutzen, werden, wird ein Dienst nicht verfügbar, und möchten Sie die negative Auswirkungen, die auf den Kunden zu minimieren.
 
-Dabei sollten Sie die Vereinbarung zum SERVICELEVEL kennen ist, welchem Zeitrahmen auf verweist: ist erhalten die Uhr wöchentlich, monatlich oder jährlich zurückgesetzt? In Azure zurückgesetzt wir die Uhr jeden Monats, der besser für Sie als eine jährliche SLA ist, da eine jährliche SLA schlechten Monaten verbergen, könnte versetzen sie mit einer Reihe von gute Monate.
+Eine Sache, die Sie eine SLA kennen sollten ist, welcher Zeitrahmen auf verweist: setzt erhalten die Uhr wöchentlich, monatlich oder jährlich zurück? In Azure zurückgesetzt wir die Uhr handelt es sich besser für Sie eine jährliche SLA, da eine jährliche SLA schlechten Monaten ausblenden kann, indem Sie versetzen sie mit einer Reihe von guten Monaten jeden Monat.
 
-Natürlich gibt es immer eine bessere Leistung als die SLA führen; Sie müssen in der Regel viel kleiner als die ausgeschaltet. Die Zusage ist, dass wir jemals nach unten für die maximal außer Betrieb genommen sind Sie Geld wieder einholen können. Des Geldbetrags, den Sie wieder wahrscheinlich erhalten würde nicht vollständig kompensieren Sie der Auswirkung der die Überschreitung außer Betrieb genommen, aber dieser Aspekt der SLA fungiert als eine Erzwingungsrichtlinie und lässt Sie wissen, dass wir es ernst akzeptieren.
+Natürlich möchten wir immer so eine bessere Leistung als die Vereinbarung zum SERVICELEVEL tun; Sie werden in der Regel viel kleiner als die ausfallen. Die Zusicherung ist, wenn wir je nach unten für überschreitet den maximal zulässigen Wert außer Betrieb genommen können Sie Geld zurück anfordern können. Geldbeträge erhalten Sie wieder wahrscheinlich wäre nicht vollständig kompensiert Sie für die geschäftlichen Auswirkungen von den Überschuss außer Betrieb genommen, aber dieser Teil der Vereinbarung zum SERVICELEVEL fungiert als durchsetzungsrichtlinie und Ihnen mitteilt, dass wir es sehr ernst zu nehmen.
 
 ### <a name="composite-slas"></a>Zusammengesetzte SLAs
 
-Eine wichtige Sache ist zu bedenken, wenn Sie sich SLAs ansehen ist die Auswirkung der Verwendung von mehreren Diensten in einer app mit jedem Dienst müssen eine separate SLA. Beispielsweise verwendet die app zu beheben, Azure App Service-Web-Apps, die Azure-Speicher und SQL-Datenbank. Hier sind die SLA-Nummern ab dem Datum, an das diese e-Book in Dezember 2013 geschrieben wird:
+Wirkt sich kaum für jeden Dienst mit einer separaten SLA mehrere Dienste in einer app mit einer wichtig zu bedenken, wenn Sie sich die SLAs ansehen. Beispielsweise verwendet die Fix It-app an Azure App Service-Web-Apps, Azure Storage und SQL-Datenbank. Hier sind die SLA-Zahlen, ab dem Datum, an das diesem e-Book im Dezember 2013 geschrieben wird:
 
 ![SLA-Website, Speicher, SQL-Datenbank](design-to-survive-failures/_static/image3.png)
 
-Was ist die maximale außer Betrieb genommen, die Sie erwarten würden für die app, die basierend auf diesen Dienst SLAs? Sie können sich vorstellen, dass die Ausfallzeiten in diesem Fall entspricht der schlechtesten SLA-Prozentsatz oder 99,9 % wäre. Das wäre "true", wenn alle drei Dienste, die immer zur selben Zeit fehlgeschlagen ist, das jedoch nicht notwendigerweise was tatsächlich geschieht. Jeder Dienst kann unabhängig zu unterschiedlichen Zeitpunkten fehlschlagen, müssen Sie die zusammengesetzte SLA zu berechnen, indem Sie die einzelnen SLA Zahlen multipliziert.
+Was ist die maximale Ausfallzeit erwarten Sie für die app basierend auf diesen Dienst SLAs? Sie denken möglicherweise, dass es sich bei Ihrem Ausfallzeiten in diesem Fall entspricht der schlechtesten SLA-Prozentsatz oder 99,9 % wäre. Das wäre "true", wenn alle drei Dienste, die immer zur selben Zeit fehlgeschlagen ist, das jedoch nicht notwendigerweise was tatsächlich geschieht. Jeder Dienst kann zu unterschiedlichen Zeitpunkten unabhängig voneinander fehlschlagen, müssen Sie die zusammengesetzte Vereinbarung zum SERVICELEVEL zu berechnen, indem Sie die einzelnen SLA Zahlen multipliziert.
 
-![Zusammengesetzte SLA](design-to-survive-failures/_static/image4.png)
+![Zusammengesetzte Vereinbarung zum SERVICELEVEL](design-to-survive-failures/_static/image4.png)
 
-Damit Ihre app konnte werden Sie nicht nur 43,2 Minuten eines Monats jedoch 3 Mal dieser Menge, 108 Minuten pro Monat – und werden immer noch innerhalb der Grenzen des Azure-SLA.
+Damit Ihre app konnte Sie nicht nur 43,2 Minuten einen Monat, aber 3 Mal Menge, 108 Minuten pro Monat – und werden immer noch innerhalb der Grenzen des Azure-SLA.
 
-Dieses Problem ist nicht in Azure eindeutig. Wir bieten tatsächlich die beste Cloud SLAs für alle Cloud-Dienst verfügbar, und haben ähnliche Probleme zu behandeln, wenn Sie beliebige Anbieter Cloud-Dienste verwenden. Was dies unterstreicht, ist die Bedeutung der überlegt werden, wie Sie Ihrer app die unvermeidliche Dienstfehler sauber entwerfen können, da sie häufig genug passieren können, auf Ihre Kunden oder Benutzer auswirken.
+Dieses Problem ist nicht eindeutig, in Azure. Stellen wir tatsächlich die beste Cloud SLAs alle Cloud-Diensts verfügbar, und müssen Sie ähnliche Probleme behandeln müssen, wenn Sie Cloud-Dienste des Anbieters verwenden. Was dies verdeutlicht, ist die Bedeutung der nachzudenken, wie Sie Ihre app um die unvermeidliche Dienstfehler ordnungsgemäß behandelt entwerfen können, da sie häufig genug Ihrer Kunden oder Nutzern beeinträchtigen können möglicherweise.
 
-### <a name="cloud-slas-compared-to-enterprise-down-time-experience"></a>Cloud-SLAs, die im Vergleich zu Enterprise Ausfallzeit Erfahrung
+### <a name="cloud-slas-compared-to-enterprise-down-time-experience"></a>Cloud-SLAs, die im Vergleich zu Ausfallzeiten Leistungspaket für Unternehmenskunden
 
-Personen z. manchmal b. "In meinem Unternehmen app ich nie diese Probleme haben." Sie bitten, wie viele Ausfallzeiten in einem Monat besitzen sie tatsächlich, es wird argumentiert in der Regel, "Es gelegentlich passiert." Und wenn Sie Häufigkeit aufgefordert, sie geben, die "Manchmal wir zu sichern oder einen neuen Server oder Update-Software installieren müssen." Natürlich zählt, wie außer Betrieb genommen. Die meisten Unternehmens-apps sind, wenn sie vor allem unternehmenswichtige sind tatsächlich heruntergefahren seit mehr als die Zeitspanne, die von unseren Dienst SLAs zulässig. Aber wenn sie Ihren Server und Ihrer Infrastruktur ist und Sie verantwortlich dafür und Kontrolle darüber sind, meist weniger angst Ausfallzeiten festlegt, zu. In einer Cloudumgebung Sie eine andere Person abhängig sind, und nicht kennen, was passiert, sodass Sie sind tendenziell mehr sorgen sie abrufen können.
+Personen sagen manchmal, "In meiner app Enterprise ich nie Probleme haben." Wenn Sie wie viel Ausfallzeit pro Monat Fragen haben sie tatsächlich, sie beispielsweise in der Regel "Passiert nun, es gelegentlich." Und wenn Sie wie oft der Fragen, geben sie, die "Manchmal wir zu sichern oder ein neue Server oder Update-Software installieren müssen." Natürlich zählt, die als außer Betrieb genommen. Die meisten Unternehmens-apps sind, außer sie sind besonders wichtige tatsächlich nach unten für mehr als die Zeitspanne, die durch SLAs Dienst zulässig. Aber wenn es den Server und Ihrer Infrastruktur und Sie verantwortlich dafür und Kontrolle darüber sind, Sie können Sie weniger Enthüllung zu Ausfallzeiten. In einer Cloudumgebung Sie abhängig von einer anderen Person sind, und Sie nicht wissen, was passiert, damit Sie tendenziell mehr sorgen sie erhalten möglicherweise.
 
-Wenn ein Unternehmen erzielt, einen höheren Prozentsatz der Laufzeit wird als Sie aus einer Cloud-SLA erhalten, dazu sie viel Geld für Hardware verbringt. Ein Cloud-Dienst konnte nachholen, jedoch müssen Sie vieles mehr für ihre Dienste in Rechnung zu stellen. Stattdessen eine kostengünstige Service nutzen und Entwerfen Ihrer Software, damit die unvermeidliche Fehler auftreten, minimale Unterbrechung an Ihre Kunden. Ihre Aufgabe als einem Cloud-app-Designer ist nicht so viel zu vermeiden Sie Fehler hinsichtlich einer Katastrophe zu vermeiden, und Sie, die durch die Fokussierung auf Software, die nicht auf Hardware. Während der Unternehmens-apps bemühen, durchschnittliche Zeit zwischen Fehlern zu maximieren, bemühen Cloud-apps, durchschnittliche Zeit bis zur Wiederherstellung zu minimieren.
+Wenn ein Unternehmen erzielt, einen höheren Prozentsatz der Betriebszeit wird als Sie von einer SLA-Cloud erhalten, dazu diese Ausgaben viel Geld für Hardware. Ein Cloud-Dienst kann jedoch noch viel mehr für seine Dienste berechnet werden musste. Stattdessen nutzen Sie kostengünstigen Dienst und Ihre Software so entwerfen, dass die unvermeidliche Fehler lediglich minimalen Unterbrechungen für Ihre Kunden führen. Ihren Job als einen Cloud-app-Designer ist nicht so viele Fehler hinsichtlich der Katastrophe vermeiden zu vermeiden, und Sie dies durch die Konzentration auf Software, die nicht für Hardware. Während der Unternehmens-apps sich bemühen, durchschnittliche Zeit zwischen Ausfällen zu maximieren, sollen minimieren Sie die mittlere Zeit bis zur Wiederherstellung Cloud-apps.
 
 ### <a name="not-all-cloud-services-have-slas"></a>Nicht alle Cloud-Dienste verfügen SLAs
 
-Sein Beachten Sie auch, nicht für jeden Cloud-Dienst selbst eine SLA besitzt. Wenn Ihre app eines Diensts mit keine Garantie Betriebszeit abhängig ist, ist Sie möglicherweise nach unten wesentlich länger, als Sie sich vorstellen können. Beispielsweise, wenn Sie auf Ihrer Website mit einem sozialen Anbieter z. B. Facebook oder Twitter anmelden aktivieren, erkundigen Sie sich der Dienstanbieter, um herauszufinden, ob eine SLA vorhanden ist, und stellen Sie möglicherweise gibt es kein solcher Routenname. Aber wenn der Authentifizierungsdienst ausfällt oder um die Menge der Anfragen zu unterstützen, die Sie es auslösen kann, werden Ihre Kunden aus Ihrer app gesperrt. Sie sind möglicherweise für Tage oder länger ausgeschaltet. Den Ersteller der eine neue app erwartet vieler Hundert Millionen des Downloads und gedauert hat eine Abhängigkeit auf Facebook-Authentifizierung –, aber nicht sprechen Sie mit Facebook gelangen Sie Livedaten und ermittelten zu spät, die es keine SLA für diesen Dienst wurde.
+Denken Sie auch, dass nicht alle Cloud-Dienst sogar eine SLA hat. Wenn Ihre app einen Dienst mit keine Garantie für die Betriebszeit abhängig ist, können Sie ausfallen wesentlich länger, als Sie sich vorstellen können. Z. B. Wenn Sie sich auf Ihrer Website mit dem Anbieter sozialer Netzwerke wie Facebook oder Twitter aktivieren, überprüfen Sie mit dem Dienstanbieter, um herauszufinden, ob es eine SLA gibt und draußen solcher Routenname vorhanden ist dort kann. Aber wenn der Authentifizierungsdienst nicht erreichbar ist oder nicht die Anzahl von Anforderungen unterstützen, die Sie an sie übergeben, werden Ihre Kunden aus Ihrer app gesperrt. Sie können Tage oder länger ausfallen. Die Ersteller von eine neue app erwartet von mehreren hundert Millionen Downloads und hat eine Abhängigkeit auf Facebook-Authentifizierung – jedoch nicht sprechen Sie mit Facebook vor dem Wechsel von Live- und ermittelte zu spät, die gab es keine SLA für diesen Dienst.
 
-### <a name="not-all-downtime-counts-toward-slas"></a>Nicht alle Ausfallzeiten angerechnet SLAs
+### <a name="not-all-downtime-counts-toward-slas"></a>Nicht alle Ausfallzeiten eingerechnet SLAs
 
-Einige Clouddienste können absichtlich Dienst verweigern, wenn Ihre app, die diese stark verwendet. Hierbei spricht *Einschränkung*. Wenn ein Dienst eine SLA verfügt, sollte er die Bedingungen beinhalten, unter dem Sie die eingeschränkt werden können und Entwurfs app sollte vermeiden Sie diese Bedingungen und reagieren entsprechend der Einschränkung, wenn es auftritt. Z. B. sollten Anforderungen an einen Dienst starten fehlschlägt, wenn Sie eine bestimmte Anzahl pro Sekunde überschreitet, Sie sicherstellen, dass automatische Wiederholversuche so schnell passieren nicht, dass sie bewirken, die Einschränkung dass, um den Vorgang fortzusetzen. Lassen wir weitere sagen zur Einschränkung in der [vorübergehender Fehler behandeln Kapitel](transient-fault-handling.md).
+Einige Clouddienste möglicherweise absichtlich als Dienst verweigern, wenn Ihre app, die ihnen übermäßige verwendet. Dies wird als bezeichnet *Drosselung*. Wenn ein Dienst eine SLA verfügt, sollten sie die Bedingungen angeben, unter dem Sie möglicherweise gedrosselt werden, und Ihr app-Design sollte diese Bedingungen zu vermeiden und angemessen zu reagieren, die Drosselung, wenn es auftritt. Z. B. wenn Anforderungen an einen Dienst starten fehlschlägt, wenn Sie eine bestimmte Anzahl pro Sekunde überschreiten, möchten Sie sicherstellen, dass automatische Wiederholungen nicht so schnell weiter ausfallen, dass sie bewirken, die Drosselung dass, um den Vorgang fortzusetzen. Haben wir dann mehr zu sagen zur Drosselung in der [Kapitel behandeln vorübergehender Fehler](transient-fault-handling.md).
 
 ## <a name="summary"></a>Zusammenfassung
 
-In diesem Kapitel hat versucht, können Sie erkennen, warum eine reales Cloud-app wurde so konzipiert, dass Fehler ordnungsgemäß verkraftet. Beginnend mit der [nächsten Kapitels](monitoring-and-telemetry.md), die verbleibenden Muster in dieser Serie gehen ausführlicher erläutert einige Strategien, die Sie dazu verwenden können:
+In diesem Kapitel hat versucht, können Sie feststellen, warum eine reale Cloud-app wurde so konzipiert, dass Fehler ordnungsgemäß zu überstehen. Beginnend mit der [im nächsten Kapitel](monitoring-and-telemetry.md), die übrigen Muster in dieser Serie näher über einige Strategien, Sie dies können:
 
-- Haben Sie gut [Überwachung und Telemetrie](monitoring-and-telemetry.md), sodass Sie feststellen, schnell zu Fehlern, die einen Eingriff erfordern und Sie verfügt über ausreichende Informationen zur Problembehebung.
-- [Behandeln vorübergehender Fehler](transient-fault-handling.md) durch Implementieren von Wiederholungslogik intelligent, damit Ihre app automatisch wiederhergestellt wird, wenn er kann und fragt [Trennschalter](transient-fault-handling.md#circuitbreakers) Logik ist dies nicht möglich.
-- Verwendung [verteiltes caching](distributed-caching.md) um Durchsatz, Latenz und Verbindung Probleme mit Zugriff auf die Datenbank zu minimieren.
-- Lockere Kopplung über implementieren die [Warteschlange anwendungsorientierte Arbeit Muster](queue-centric-work-pattern.md), sodass die front-End-app verwenden, wenn der Back-End wird fortgesetzt werden kann.
+- Haben Sie gut [Überwachung und Telemetrie](monitoring-and-telemetry.md), damit Sie feststellen, schnell zu Fehlern, die Eingreifen erfordern, und Sie verfügen über ausreichend Informationen zur Problembehebung.
+- [Behandeln von vorübergehenden Fehlern](transient-fault-handling.md) durch die Implementierung von Wiederholungslogik intelligent, damit Ihre app automatisch wiederhergestellt wird, wenn er kann und sendet eine Anfrage an [Circuit-Breaker](transient-fault-handling.md#circuitbreakers) Logik ist dies nicht möglich.
+- Verwendung [verteilte Zwischenspeicherung](distributed-caching.md) um Durchsatz, Latenz und Verbindung Probleme mit Zugriff auf die Datenbank zu minimieren.
+- Implementieren, die lose Kopplung, die über die [warteschlangenorientierte Muster](queue-centric-work-pattern.md), sodass Ihr app-Front-End fortgesetzt werden kann, funktioniert, wenn das Back-End ausgefallen ist.
 
 ## <a name="resources"></a>Ressourcen
 
-Weitere Informationen finden Sie weiter unten Kapiteln dieser e-Book "und" den folgenden Ressourcen.
+Weitere Informationen finden Sie in späteren Kapiteln in diesem e-Book und den folgenden Ressourcen.
 
 Dokumentation:
 
-- [Failsafe: Leitfaden zu Resilienten Cloudarchitekturen](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Whitepaper von Marc Mercuri, Ulrich Homann und Andrew Townhill. Version der FailSafe-Videoreihe Webseite.
+- [Failsafe: Leitfaden zu Resilienten Cloudarchitekturen](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Whitepaper von Marc Mercuri, Ulrich Homann und Andrew Townhill. Die FailSafe-Videoreihe Webseite-Version.
 - [Bewährte Methoden für den Entwurf umfangreicher Dienste auf Azure Cloud Services](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Whitepaper von Mark Simms und Michael Thomassy.
 - [Azure technische Dokumentation zur Geschäftskontinuität](https://msdn.microsoft.com/library/windowsazure/hh873027.aspx). Whitepaper von Patrick Wickline, und Jason Roth.
-- [Notfallwiederherstellung und hohe Verfügbarkeit für Azure-Anwendungen](https://msdn.microsoft.com/library/windowsazure/dn251004.aspx). Whitepaper von Michael McKeown Hanu Kommalapati und Jason Roth.
-- [Microsoft Patterns and Practices - Azure-Leitfaden](https://msdn.microsoft.com/library/dn568099.aspx). Bereitstellungsanleitung finden Sie unter mehreren Data Center, einen Trennschalter.
+- [Notfallwiederherstellung und Hochverfügbarkeit für Azure-Anwendungen](https://msdn.microsoft.com/library/windowsazure/dn251004.aspx). Whitepaper von Hanu Kommalapati, Michael McKeown und Jason Roth.
+- [Microsoft Patterns and Practices - Leitfaden zur Azure](https://msdn.microsoft.com/library/dn568099.aspx). Finden Sie unter Data Center-Bereitstellung mit mehreren Anweisungen, Circuit-Breaker-Muster.
 - [Azure-Support - Vereinbarungen zum Servicelevel](https://azure.microsoft.com/support/legal/sla/).
-- [Geschäftskontinuität in der Azure SQL-Datenbank](https://msdn.microsoft.com/library/windowsazure/hh852669.aspx). Dokumentation zu SQL-Datenbank hohe Verfügbarkeit und notfallwiederherstellung Wiederherstellungsfunktionen.
+- [Die Geschäftskontinuität in Azure SQL-Datenbank](https://msdn.microsoft.com/library/windowsazure/hh852669.aspx). Dokumentation zu SQL-Datenbank hohe Verfügbarkeit und notfallwiederherstellung Wiederherstellungsfunktionen.
 - [Hohe Verfügbarkeit und Notfallwiederherstellung für SQLServer auf Azure Virtual Machines](https://msdn.microsoft.com/library/windowsazure/jj870962.aspx).
 
 Videos:
 
-- [FailSafe: Erstellen von skalierbaren, robusten Cloud-Dienste](https://channel9.msdn.com/Series/FailSafe). Neun zweiteilige Reihe Marc Mercuri, Ulrich Homann und Mark Simms. Bietet allgemeine Konzepte und Architekturprinzipien auf eine Weise zugegriffen werden kann, und interessante Storys, die von Microsoft Customer Advisory Team (CAT) anstelle von Erfahrungen mit Kunden gezeichnet. Episoden 1 und 8 ein Wechsel in die Gründe für das Entwerfen von Cloud-apps für die Fehler verkraftet im Detail. Siehe auch die Nachbereitung Erläuterung der Einschränkung in der Folge 2 49:57, die Diskussion von Schwachstellen und Fehlerzuständen in Folge 2 beginnenden 56:05 und die Erläuterung der Trennschalter in Folge 3 beginnenden 40:55 ab.
-- [Erstellen von Big: Erkenntnisse aus Azure-Kunden – Teil II](https://channel9.msdn.com/Events/Build/2012/3-030). Mark Simms dreht Entwerfen für Fehler und Instrumentieren alles ab. Vergleichbar mit dem Failsafe-Serie, aber wechselt in den Gewusst-wie-Informationen.
+- [FailSafe: Erstellen von skalierbaren, robusten Clouddiensten](https://channel9.msdn.com/Series/FailSafe). Teil 9-Reihe von Marc Mercuri, Ulrich Homann und Mark Simms. Bietet allgemeine Konzepte und architektonischen Prinzipien auf eine Weise sehr zugegriffen werden kann und interessante Geschichten, die von Microsoft Customer Advisory Teams (CAT) die Erfahrung für tatsächliche Kunden gezeichnet werden. Episoden 1 und 8 wechsle ausführlich die Gründe für das Entwerfen von Cloud-apps Ausfälle überbrücken. Finden Sie auch zur nachverfolgung der Drosselung in Folge 2 49:57, die Diskussion von Schwachstellen und Fehlerzustände in Folge 2 56:05 ab und die Erläuterung von schutzschaltern in der Folge 3 beginnend 40:55 ab.
+- [Erstellen von Big: Erfahrungen aus dem Azure-Kunden – Teil II](https://channel9.msdn.com/Events/Build/2012/3-030). Mark Simms spricht über Entwerfen für Fehler, und alles instrumentieren. Ähnlich wie die Failsafe-Serie, aber wird auf Weitere Gewusst-wie-Details.
 
 > [!div class="step-by-step"]
 > [Zurück](unstructured-blob-storage.md)

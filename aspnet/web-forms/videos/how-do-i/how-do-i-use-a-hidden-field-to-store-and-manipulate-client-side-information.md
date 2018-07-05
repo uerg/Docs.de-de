@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information
-title: '[Gewusst wie:] Verwenden Sie ein ausgeblendetes Feld zum Speichern und Bearbeiten von Informationen für die clientseitige | Microsoft Docs'
+title: '[Gewusst wie:] Verwenden Sie ein ausgeblendetes Feld clientseitigen Informationen zu Store | Microsoft-Dokumentation'
 author: rick-anderson
-description: In diesem Video wird Chris Pels ein ausgeblendetes Feld als ein Ansatz zum einfachen Zustandsverwaltung auf einer ASP.NET-Seite und für die Kommunikation von Client-Side Funktionsweisen...
+description: In diesem Video zeigen Chris Pels, wie Sie ein ausgeblendetes Feld als ein Ansatz für die einfache Verwaltung auf einer ASP.NET-Seite und für die clientseitige Kommunikation verwenden...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/24/2008
 ms.topic: article
 ms.assetid: 576ede31-e83a-4222-8f82-0aabb1dafe6a
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information
 msc.type: video
-ms.openlocfilehash: 2d20082329859ca1529aa6202244c97271ff9c1d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 83aeef1b7331dfeab727139ca9031cb5b8305e31
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26525079"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37385929"
 ---
-<a name="how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information"></a>[Gewusst wie:] Verwenden Sie ein ausgeblendetes Feld zum Speichern und bearbeiten die clientseitige-Informationen
+<a name="how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information"></a>[Gewusst wie:] Verwenden Sie ein ausgeblendetes Feld clientseitigen Informationen zu Store
 ====================
-durch [Chris PEL-Spareinlagen](https://twitter.com/chrispels)
+durch [Chris Pels](https://twitter.com/chrispels)
 
-In diesem Video wird Chris Pels ein ausgeblendetes Feld als ein Ansatz zum einfachen Zustandsverwaltung auf einer ASP.NET-Seite und für den Client kommunizierende Seite Verarbeitungsinformationen Funktionsweisen. Zunächst erfahren Sie, wie eine Seite mit einem ASP.NET HiddenField-Steuerelement ein ausgeblendetes Feld hinzu, und rufen Sie den Wert des ausgeblendeten Felds in serverseitigen Code ab, nachdem eine nach der Sicherung. Als Nächstes erfahren Sie, wie den Wert des ausgeblendeten Felds in einer clientseitigen Skripts zu bearbeiten, und klicken Sie dann rufen Sie den geänderten Wert in serverseitigen Code ab. Abschließend sehen Sie ein Beispiel zum mehrere verborgene Felder verwenden, zum Speichern von Informationen aus einer clientseitigen Verarbeitung, die für die serververarbeitung zurückgesendet werden können.
+In diesem Video zeigt Chris Pels als ein Ansatz zur einfachen Verwaltung auf einer ASP.NET-Seite und kommuniziert der Client ein ausgeblendetes Feld mit Informationen für die Verarbeitung. Zunächst erfahren Sie, wie eine Seite mit einem ASP.NET HiddenField-Steuerelement ein ausgeblendetes Feld hinzu, und rufen Sie den Wert des ausgeblendeten Felds im serverseitigen Code nach einem Postback. Als Nächstes erfahren Sie, wie Sie den Wert des ausgeblendeten Felds in Client-seitige Skript bearbeiten, und dann rufen Sie den geänderten Wert im serverseitigen Code ab. Schließlich sehen Sie ein Beispiel für mehrere verborgene Felder verwenden, um Informationen aus der clientseitigen Verarbeitung zu speichern, die für die serververarbeitung gesendet werden können.
 
-[&#9654; Sehen Sie sich an (24 in Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information)
+[&#9654;Sehen Sie sich Video (24 Minuten)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information)

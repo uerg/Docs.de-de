@@ -7,12 +7,12 @@ ms.author: rachelap
 ms.custom: mvc
 ms.date: 05/22/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 8762a4be1032d58014dd32dfdd3707197e14c6f9
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: ca9145d9e16c23e34bbc1d84ff01ce02709187ce
+ms.sourcegitcommit: 08f1a9baa97060da5168840b332c9c0805b5f901
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36297199"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37144871"
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>Erste Schritte mit SignalR in ASP.NET Core
 
@@ -29,9 +29,9 @@ In diesem Tutorial werden die folgenden SignalR-Entwicklungsaufgaben veranschaul
 > * Erstellen eines SignalR-Hubs zur Übermittlung von Inhalten per Push an Clients
 > * Anpassen der `Startup`-Klasse und Konfigurieren der App
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/get-started/sample/) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
-# <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Erforderliche Komponenten
 
 Installieren Sie die folgenden Softwarekomponenten:
 
@@ -100,7 +100,7 @@ Ein Hub ist eine Klasse, die als grundlegende Pipeline verwendet wird. Mit einer
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
-1. Klicken Sie zuerst auf **Datei** > **Neu** > **Datei** und anschließend auf **Visual C#-Klasse**, um dem Projekt eine Klasse hinzuzufügen. Geben Sie als Dateiname *ChatHub* ein.
+1. Klicken Sie zuerst auf **Datei** > **Neu** > **Datei** und anschließend auf **Visual C#-Klasse**, um dem Projekt eine Klasse hinzuzufügen. Nennen Sie die Klasse `ChatHub`und die Datei *ChatHub.cs*.
 
 2. Stellen Sie sicher, dass Ihre Klasse von der Klasse `Microsoft.AspNetCore.SignalR.Hub` erbt. Die `Hub`-Klasse enthält Eigenschaften und Ereignisse zur Verwaltung von Verbindungen und Gruppen sowie zum Senden und Empfangen von Daten.
 
@@ -112,13 +112,13 @@ Ein Hub ist eine Klasse, die als grundlegende Pipeline verwendet wird. Mit einer
 
 1. Öffnen Sie in Visual Studio Code den Ordner *SignalRChat*.
 
-2. Klicken Sie im Menü auf **Datei** > **Neue Datei**, um dem Projekt eine Klasse hinzuzufügen.
+2. Klicken Sie im Menü auf **Datei** > **Neue Datei**, um dem Projekt eine Klasse hinzuzufügen. Nennen Sie die Klasse `ChatHub`und die Datei *ChatHub.cs*.
 
 3. Stellen Sie sicher, dass Ihre Klasse von der Klasse `Microsoft.AspNetCore.SignalR.Hub` erbt. Die `Hub`-Klasse enthält Eigenschaften und Ereignisse zur Verwaltung von Verbindungen und Gruppen sowie zum Senden von Daten an Clients und zum Empfangen von Clientdaten.
 
 4. Fügen Sie der Klasse eine `SendMessage`-Method hinzu. Die `SendMessage`-Methode sendet Nachrichten an alle verbundenen Chatclients. Beachten Sie, dass diese ein [Task](/dotnet/api/system.threading.tasks.task)-Objekt zurückgibt, da SignalR asynchron arbeitet. Asynchroner Code erleichtert die Skalierung.
 
-   [!code-csharp[Startup](signalr/sample/Hubs/ChatHub.cs?range=6-12)]
+   [!code-csharp[Startup](signalr/sample/Hubs/ChatHub.cs)]
 
 -----
 
@@ -128,9 +128,9 @@ Der SignalR-Server muss zunächst konfiguriert werden, damit dieser Anforderunge
 
 1. Zum Konfigurieren eines SignalR-Projekts müssen Sie die Methode `Startup.ConfigureServices` des Projekts anpassen.
 
-   Durch `services.AddSignalR` wird SignalR der [Middlewarepipeline](xref:fundamentals/middleware/index) hinzugefügt.
+   `services.AddSignalR` stellt SignalR-Dienste für das [Dependency Injection](xref:fundamentals/dependency-injection)-System zur Verfügung.
 
-2. Mit `UseSignalR` konfigurieren Sie Routen zu Ihren Hubs.
+1. Mit `UseSignalR` in der `Configure`-Methode konfigurieren Sie Routen zu Ihren Hubs. Durch `app.UseSignalR` wird SignalR der [Middlewarepipeline](xref:fundamentals/middleware/index) hinzugefügt.
 
    [!code-csharp[Startup](signalr/sample/Startup.cs?highlight=37,57-60)]
 

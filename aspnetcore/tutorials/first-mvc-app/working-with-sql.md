@@ -1,16 +1,16 @@
 ---
-title: Arbeiten mit SQL Server LocalDB in ASP.NET Core
+title: Arbeiten mit SQL Server LocalDB in einer ASP.NET Core MVC-App
 author: rick-anderson
 description: Erfahren Sie mehr über die Verwendung von SQL Server LocalDB in einer einfachen ASP.NET Core MVC-App.
 ms.author: riande
 ms.date: 03/07/2017
 uid: tutorials/first-mvc-app/working-with-sql
-ms.openlocfilehash: 5b8bbcd3c6590edbe199a0a52494e83fd2aa4dcf
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 05bd76038e5856d2a3e392e3b00e589dbc26fcc6
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273870"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961057"
 ---
 # <a name="work-with-sql-server-localdb-in-aspnet-core"></a>Arbeiten mit SQL Server LocalDB in ASP.NET Core
 
