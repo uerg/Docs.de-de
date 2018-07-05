@@ -4,24 +4,21 @@ title: '[Gewusst wie:] Sichern einer Website mit Mitgliedschaften und Rollen? | 
 author: microsoft
 description: Informationen Sie zum Sichern einer Website mithilfe der neuen Mitgliedschaften und Rollen Funktionen von ASP.NET 2.0. Themen gehören die Registrierung von Benutzern, kennwortwiederherstellung und Restricti...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/09/2006
-ms.topic: article
 ms.assetid: e80c641c-f5e5-42a5-8bcd-5fecb34de198
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-secure-my-site-using-membership-and-roles
 msc.type: video
-ms.openlocfilehash: 7cd8c367ff35f761367b09b03be287a3378b5eab
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 7cec18f7cf71e114d809c69b6fc3c689157e7c81
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37372896"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830214"
 ---
-<a name="how-do-i-secure-my-site-using-membership-and-roles"></a><span data-ttu-id="a30b4-105">[Gewusst wie:] Sichern einer Website mit Mitgliedschaften und Rollen?</span><span class="sxs-lookup"><span data-stu-id="a30b4-105">[How Do I:] Secure my Site using Membership and Roles?</span></span>
+<a name="how-do-i-secure-my-site-using-membership-and-roles"></a><span data-ttu-id="bafaf-105">[Gewusst wie:] Sichern einer Website mit Mitgliedschaften und Rollen?</span><span class="sxs-lookup"><span data-stu-id="bafaf-105">[How Do I:] Secure my Site using Membership and Roles?</span></span>
 ====================
-<span data-ttu-id="a30b4-106">durch [Microsoft](https://github.com/microsoft)</span><span class="sxs-lookup"><span data-stu-id="a30b4-106">by [Microsoft](https://github.com/microsoft)</span></span>
+<span data-ttu-id="bafaf-106">durch [Microsoft](https://github.com/microsoft)</span><span class="sxs-lookup"><span data-stu-id="bafaf-106">by [Microsoft](https://github.com/microsoft)</span></span>
 
-<span data-ttu-id="a30b4-107">Informationen Sie zum Sichern einer Website mithilfe der neuen Mitgliedschaften und Rollen Funktionen von ASP.NET 2.0.</span><span class="sxs-lookup"><span data-stu-id="a30b4-107">Learn how to secure a web site using the new Membership and Roles features of ASP.NET 2.0.</span></span> <span data-ttu-id="a30b4-108">Themen gehören die Registrierung von Benutzern, kennwortwiederherstellung und beschränken des Zugriffs auf Inhalte mit Rollen.</span><span class="sxs-lookup"><span data-stu-id="a30b4-108">Topics include user registration, password recovery, and restricting access to content with roles.</span></span>
+<span data-ttu-id="bafaf-107">Informationen Sie zum Sichern einer Website mithilfe der neuen Mitgliedschaften und Rollen Funktionen von ASP.NET 2.0.</span><span class="sxs-lookup"><span data-stu-id="bafaf-107">Learn how to secure a web site using the new Membership and Roles features of ASP.NET 2.0.</span></span> <span data-ttu-id="bafaf-108">Themen gehören die Registrierung von Benutzern, kennwortwiederherstellung und beschränken des Zugriffs auf Inhalte mit Rollen.</span><span class="sxs-lookup"><span data-stu-id="bafaf-108">Topics include user registration, password recovery, and restricting access to content with roles.</span></span>
 
-[<span data-ttu-id="a30b4-109">&#9654;Sehen Sie sich Video (17 Minuten)</span><span class="sxs-lookup"><span data-stu-id="a30b4-109">&#9654; Watch video (17 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-secure-my-site-using-membership-and-roles)
+[<span data-ttu-id="bafaf-109">&#9654;Sehen Sie sich Video (17 Minuten)</span><span class="sxs-lookup"><span data-stu-id="bafaf-109">&#9654; Watch video (17 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-secure-my-site-using-membership-and-roles)
