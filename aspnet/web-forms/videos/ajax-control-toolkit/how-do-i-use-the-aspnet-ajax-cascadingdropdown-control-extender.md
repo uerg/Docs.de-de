@@ -4,19 +4,16 @@ title: '[Gewusst wie:] Verwenden Sie die ASP.NET AJAX-Extender-Steuerelements "C
 author: JoeStagner
 description: Dieses Video zeigt, wie ASP. Die NET standard DropDownList kann AJAX-aktivierten mithilfe der CascadingDropDown-Extender-Steuerelements, aus der ASP.NET AJAX-hinsichtlich werden...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/24/2007
-ms.topic: article
 ms.assetid: 7dca3704-474b-4b0b-8294-5599279964d9
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-cascadingdropdown-control-extender
 msc.type: video
-ms.openlocfilehash: e4589de3d7db2db27f528f91bf745eebcb33504c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f2160bfc9905adbe5b9c206237fb8066068ad6cc
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37390733"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37806295"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-cascadingdropdown-control-extender"></a>[Gewusst wie:] Verwenden Sie die ASP.NET AJAX-Extender-Steuerelements "CascadingDropDown"?
 ====================

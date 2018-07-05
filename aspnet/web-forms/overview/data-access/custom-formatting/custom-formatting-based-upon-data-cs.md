@@ -4,19 +4,16 @@ title: Benutzerdefinierte Formatierung basierend auf Daten (c#) | Microsoft-Doku
 author: rick-anderson
 description: Anpassen der das Format der GridView, DetailsView oder FormView basierend auf die Daten gebunden ist, kann auf verschiedene Weise erreicht werden. In diesem Tutorial werden wir l...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/31/2010
-ms.topic: article
 ms.assetid: 871a4574-f89c-4214-b786-79253ed3653b
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 505081890ac0eb7a1f248569fda1b14351119275
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 05f83fc178cb3f79a86638d0159e692aef4410ca
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37397983"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37819265"
 ---
 <a name="custom-formatting-based-upon-data-c"></a>Benutzerdefinierte Formatierung basierend auf Daten (c#)
 ====================

@@ -4,19 +4,16 @@ title: Aktivieren von automatisierten Komponententests | Microsoft-Dokumentation
 author: microsoft
 description: Schritt 12 zeigt, wie eine Suite von automatisierten Komponententests entwickeln, zu überprüfen, ob unsere NerdDinner-Funktionen und die wir erhalten der Zuversicht, Änderungen vornehmen...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/27/2010
-ms.topic: article
 ms.assetid: a19ff2ce-3f7e-4358-9a51-a1403da9c63e
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/enable-automated-unit-testing
 msc.type: authoredcontent
-ms.openlocfilehash: 0d7986bcff7a0ddc89d40c3c03eb4ebb26a8b230
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2247dc2e6d22cc0d5ddba97dfe6c7d2d1b0e49be
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37402482"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37819406"
 ---
 <a name="enable-automated-unit-testing"></a>Aktivieren von automatisierten Komponententests
 ====================

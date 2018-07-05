@@ -4,19 +4,16 @@ title: Vorgehensweise nicht in ASP.NET und empfohlene Vorgehensweisen | Microsof
 author: tfitzmac
 description: Dieses Thema beschreibt einige häufige Fehler, die Personen innerhalb von ASP.NET-Webprojekten vornehmen. Hier finden Sie Empfehlungen für was Sie tun sollten, um diese gemeinsame zu vermeiden...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/08/2014
-ms.topic: article
 ms.assetid: c39b9965-545c-4b04-8f55-21be7f28a9e5
-ms.technology: ''
 msc.legacyurl: /aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead
 msc.type: authoredcontent
-ms.openlocfilehash: bf46d0b4997d9816071df20fb1884dd76dce8903
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 9e9b192126995ac8a461b15bce69b60d57ca9ba1
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37371881"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37806017"
 ---
 <a name="what-not-to-do-in-aspnet-and-what-to-do-instead"></a>Elemente, die nicht für die Sie in ASP.NET und empfohlene Vorgehensweisen
 ====================
