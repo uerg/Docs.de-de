@@ -4,19 +4,16 @@ title: Erstellen von Seitenlayouts mit Ansichtsmasterseiten (VB) | Microsoft-Dok
 author: microsoft
 description: In diesem Tutorial erfahren Sie, wie Sie ein gebräuchliches Seitenlayout für mehrere Seiten in Ihrer Anwendung zu erstellen, indem Sie der Ansicht Masterseiten nutzen. Sie können ein...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/16/2008
-ms.topic: article
 ms.assetid: d34f90a1-6de3-482a-a326-f87fdcbaaaff
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-page-layouts-with-view-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: eb3fb0759ac6511b1d60045a653f509df7810255
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 75db98647b9595deedc601905f6a0c0ddc596302
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37375501"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37824689"
 ---
 <a name="creating-page-layouts-with-view-master-pages-vb"></a>Erstellen von Seitenlayouts mit Ansichtsmasterseiten (VB)
 ====================

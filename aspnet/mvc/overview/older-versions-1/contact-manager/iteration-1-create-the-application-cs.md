@@ -4,19 +4,16 @@ title: 'Iteration #1 – Erstellen der Anwendung (c#) | Microsoft-Dokumentation'
 author: microsoft
 description: 'In der ersten Iteration wir der Contact Manager in der einfachsten maximal möglicher Größe erstellen. Wir fügen Unterstützung für grundlegender Datenbankvorgänge: erstellen, lesen, aktualisieren und d...'
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2009
-ms.topic: article
 ms.assetid: db0f160b-901c-46d3-865e-7ab6cd4ed68d
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-1-create-the-application-cs
 msc.type: authoredcontent
-ms.openlocfilehash: aa79379c721456a62ee62e37781e51f61e16d3bc
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0d756541d2dc911154afb427e52eb5cfdd5d59b4
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37403044"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37821361"
 ---
 <a name="iteration-1--create-the-application-c"></a>Iteration #1 – Erstellen der Anwendung (c#)
 ====================

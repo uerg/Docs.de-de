@@ -4,19 +4,16 @@ title: 'Einführung in ASP.NET Web Pages: Aktualisieren von DatenbankenDaten | M
 author: tfitzmac
 description: In diesem Tutorial erfahren Sie, wie (ändern) einer vorhandenen Datenbank-Eintrag aktualisiert, bei der Verwendung von ASP.NET Web Pages (Razor). Es wird vorausgesetzt, Sie haben die Reihe te...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/02/2018
-ms.topic: article
 ms.assetid: ac86ec9c-6b69-485b-b9e0-8b9127b13e6b
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
 msc.type: authoredcontent
-ms.openlocfilehash: 259034a795b9dff7001165a182bc0e84bb690491
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 948f5b5933669a43bf37dc0317ad644660dc67e9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377050"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842901"
 ---
 <a name="introducing-aspnet-web-pages---updating-database-data"></a>Einführung in ASP.NET Web Pages: Aktualisieren von DatenbankenDaten
 ====================

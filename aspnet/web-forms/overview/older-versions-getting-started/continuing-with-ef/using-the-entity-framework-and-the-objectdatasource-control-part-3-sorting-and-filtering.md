@@ -4,19 +4,16 @@ title: 'Verwenden von Entitätsframework 4.0 und ObjectDataSource-Steuerelement,
 author: tdykstra
 description: Dieser tutorialreihe erstellt in der Contoso University-Webanwendung, die von den ersten Schritten mit der Entity Framework 4.0-Tutorial-Reihe erstellt wird. ICH...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/26/2011
-ms.topic: article
 ms.assetid: 2990bd10-590d-43d5-9529-6b503ce5455d
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering
 msc.type: authoredcontent
-ms.openlocfilehash: 48d859191877ba951e233f19873d52625fe180ac
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 15d9a7ecd3119af02576cbcf728828353748a513
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37378909"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37806997"
 ---
 <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-3-sorting-and-filtering"></a>Verwenden von Entitätsframework 4.0 und ObjectDataSource-Steuerelement, Teil 3: Sortieren und Filtern
 ====================

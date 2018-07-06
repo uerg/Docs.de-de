@@ -4,19 +4,16 @@ title: Hinzufügen eines neuen Felds zum Modell "Movie" und zur Tabelle | Micros
 author: Rick-Anderson
 description: 'Hinweis: Eine aktualisierte Version dieses Tutorials ist hier verfügbar, dass das ASP.NET MVC 5 und Visual Studio 2013 verwendet. Es ist eine sicherere, viel einfacher zu folgen und demo...'
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/28/2012
-ms.topic: article
 ms.assetid: 9ef2c4f1-a305-4e0a-9fb8-bfbd9ef331d9
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-new-field-to-the-movie-model-and-table
 msc.type: authoredcontent
-ms.openlocfilehash: 25a29e783f02e66e1713d8120eb526e1a02961a3
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2435bb50bb8124cce3150ba488ad76c012107b27
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37366475"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37840174"
 ---
 <a name="adding-a-new-field-to-the-movie-model-and-table"></a>Hinzufügen eines neuen Felds zum Modell "Movie" und zur Tabelle
 ====================

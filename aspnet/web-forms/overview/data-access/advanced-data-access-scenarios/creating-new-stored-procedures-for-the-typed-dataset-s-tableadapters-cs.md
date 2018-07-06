@@ -4,19 +4,16 @@ title: Erstellen von neuen gespeicherten Prozeduren für das typisierte DataSet 
 author: rick-anderson
 description: In den vorherigen Tutorials haben wir die SQL-Anweisungen in unserem Code erstellt und übergeben die Anweisungen in der Datenbank ausgeführt werden. Ein alternativer Ansatz ist die Verwendung von s...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/18/2007
-ms.topic: article
 ms.assetid: 751282ca-5870-4d66-84e4-6cefae23eb4a
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c17cc0bd6cb97ddf21e2f8d6b177b7f97a28575d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 420c4f33a6df2d7d99daeaac7682ede12adfb122
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368770"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37824769"
 ---
 <a name="creating-new-stored-procedures-for-the-typed-datasets-tableadapters-c"></a>Erstellen von neuen gespeicherten Prozeduren für das typisierte DataSet TableAdapter-Steuerelemente (c#)
 ====================

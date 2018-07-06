@@ -4,19 +4,16 @@ title: Verwenden von parametrisierten Abfragen mit dem SqlDataSource-Steuereleme
 author: rick-anderson
 description: In diesem Tutorial stellen wir weiterhin unsere Betrachtung der SqlDataSource-Steuerelement und erfahren Sie, wie parametrisierte Abfragen zu definieren. Die Parameter können angegeben werden beide deklar...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2007
-ms.topic: article
 ms.assetid: 9128aaac-afe2-449f-84b2-bb1d035083c4
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/using-parameterized-queries-with-the-sqldatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2cafcf0938704a02f163c3d1646b7b4a9f38c3aa
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e4612c48259bfee12a68080ec902c589b2a378b0
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37400754"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37819749"
 ---
 <a name="using-parameterized-queries-with-the-sqldatasource-c"></a>Verwenden von parametrisierten Abfragen mit dem SqlDataSource-Steuerelement (c#)
 ====================

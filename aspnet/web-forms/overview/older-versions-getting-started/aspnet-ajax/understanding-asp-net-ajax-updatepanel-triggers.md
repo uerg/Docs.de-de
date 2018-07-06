@@ -4,19 +4,16 @@ title: Grundlegendes zu UpdatePanel-Triggern in ASP.NET AJAX | Microsoft-Dokumen
 author: scottcate
 description: Bei der Arbeit in den Markup-Editor in Visual Studio können Sie (von IntelliSense) Beachten Sie, dass es zwei untergeordnete Elemente von einem UpdatePanel-Steuerelement gibt. Einer der w-fragewörter...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/12/2008
-ms.topic: article
 ms.assetid: faab8503-2984-48a9-8a40-7728461abc50
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-updatepanel-triggers
 msc.type: authoredcontent
-ms.openlocfilehash: 180491b6aee188a9dca750d6d325217f1ad5212c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1b2e70a2b074d3c0a2fa4b669b3645ae5f7f790e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37363720"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37811930"
 ---
 <a name="understanding-aspnet-ajax-updatepanel-triggers"></a>Grundlegendes zu UpdatePanel-Triggern in ASP.NET AJAX
 ====================

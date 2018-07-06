@@ -4,19 +4,16 @@ title: Ausführen von ASP.NET 1.1 mit IIS 6.0 | Microsoft-Dokumentation
 author: rick-anderson
 description: Während Windows Server 2003, IIS 6.0 und ASP.NET 1.1 enthält, werden diese Komponenten standardmäßig deaktiviert. In diesem Whitepaper wird beschrieben, wie IIS 6.0 ermöglichen eine...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/10/2010
-ms.topic: article
 ms.assetid: 5a5537bf-2aaa-49e7-839f-9e6522b829d8
-ms.technology: ''
 msc.legacyurl: /whitepapers/aspnet-and-iis6
 msc.type: content
-ms.openlocfilehash: 1983ef5b4902acc303ae224d5973eb2644284585
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 338059104f46a6c5517212db6e1a54c12677e133
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37383424"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37839293"
 ---
 <a name="running-aspnet-11-with-iis-60"></a>Ausführen von ASP.NET 1.1 mit IIS 6.0
 ====================

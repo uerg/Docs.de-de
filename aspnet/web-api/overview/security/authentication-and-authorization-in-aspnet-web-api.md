@@ -4,19 +4,16 @@ title: Authentifizierung und Autorisierung in ASP.NET Web-API | Microsoft-Dokume
 author: MikeWasson
 description: Bietet eine allgemeine Übersicht über Authentifizierung und Autorisierung in ASP.NET Web-API.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/27/2012
-ms.topic: article
 ms.assetid: 6dfb51ea-9f4d-4e70-916c-8ef8344a88d6
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/security/authentication-and-authorization-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 981eebeaa1daaf85cb90a52f073c88cb71099edb
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f882a9bb2922d0eb28eee7cdba0896bdc5318c2a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37365619"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37812833"
 ---
 <a name="authentication-and-authorization-in-aspnet-web-api"></a>Authentifizierung und Autorisierung in ASP.NET Web-API
 ====================

@@ -4,19 +4,16 @@ title: Dynamisches Auffüllen eines Steuerelements, die mit JavaScript-Code (c#)
 author: wenz
 description: Das DynamicPopulate-Steuerelement in ASP.NET AJAX Control Toolkit Aufrufe eines Webdiensts (oder eine Seitenmethode) und füllt den resultierenden Wert in ein Zielsteuerelement, auf t...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: cc4c2def-e88c-4456-ae8b-a6ae0ff8cc2d
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-using-javascript-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6999dee71966c4362254d9f601e55fdb75d0b292
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6fa8e0b91481467c7f53e7323b72e4b345833905
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37394073"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37841619"
 ---
 <a name="dynamically-populating-a-control-using-javascript-code-c"></a>Dynamisches Auffüllen eines Steuerelements, die mit JavaScript-Code (c#)
 ====================

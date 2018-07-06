@@ -4,19 +4,16 @@ title: '[Gewusst wie:] Verwenden Sie das Timer-Steuerelement von ASP.NET AJAX? |
 author: JoeStagner
 description: Das AJAX-Timer-Steuerelement ermöglicht einen Teil einer ASP.NET-Webseite in regelmäßigen Abständen, dynamisch aktualisiert werden anstatt der Benutzers zur Ausführung einer ein...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/13/2007
-ms.topic: article
 ms.assetid: 1488f788-54ca-43ce-bf65-8179ebbe2c7c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-use-the-aspnet-ajax-timer-control
 msc.type: video
-ms.openlocfilehash: 9b9e14825b25b9dd17ec47cd92b3fd8933875e5b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: fc212a8e09d305a532010cbc4295d29c85d59395
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362712"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37824950"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-timer-control"></a>[Gewusst wie:] Verwenden Sie das Timer-Steuerelement von ASP.NET AJAX?
 ====================

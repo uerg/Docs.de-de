@@ -4,19 +4,16 @@ title: Webbereitstellung im Unternehmen | Microsoft-Dokumentation
 author: jrjlee
 description: In diesem Tutorial wird beschrieben, wie viele der Herausforderungen beim erfüllen, die Sie begegnen, wenn Sie die Bereitstellung von Webanwendungen für Unternehmen, bei verwalten...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: b8283698-7b82-42a8-8d83-3aeb18ca7fcc
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/web-deployment-in-the-enterprise
 msc.type: authoredcontent
-ms.openlocfilehash: 07c1ea9728c0130b860c0e0a64eb0751245ff840
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2cb8cb12ec5af376b58b672813af8626cb0f95d8
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37371141"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37806552"
 ---
 <a name="web-deployment-in-the-enterprise"></a>Webbereitstellung im Unternehmen
 ====================

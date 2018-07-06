@@ -4,19 +4,16 @@ title: Erstellen einer Datenbank | Microsoft-Dokumentation
 author: shanselman
 description: Dies ist ein Tutorial für Anfänger, die die Grundlagen von ASP.NET MVC eingeführt werden. Erstellen Sie eine einfache Webanwendung, die aus einer Datenbank liest und schreibt.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/14/2010
-ms.topic: article
 ms.assetid: 742df67f-484d-4ef3-af6b-8c791e556b43
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part4
 msc.type: authoredcontent
-ms.openlocfilehash: 0e72359095e4c40ef7e56f1290a45ded257143c9
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: fff974edfaffeb164879c10b8e70bd3482c47554
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362355"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37813759"
 ---
 <a name="creating-a-database"></a>Erstellen einer Datenbank
 ====================

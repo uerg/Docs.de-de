@@ -4,19 +4,16 @@ title: '[Gewusst wie:] Aktivieren Sie die Code Coverage und Profilerstellung in 
 author: rick-anderson
 description: Weitere Informationen zum Einrichten der Instrumentierung für Code Coverage und profilerstellung in einer Anwendung Vi ausgeführt wird, anstatt eine bereitgestellte ASP.NET-Anwendung...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/22/2007
-ms.topic: article
 ms.assetid: a0437314-e310-425a-b67b-0dc06878dbe2
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-enable-code-coverage-and-profiling-in-production-applications
 msc.type: video
-ms.openlocfilehash: 2d07d4d90a64da75dc7720aa99b5e1cb54ad744a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 56f133d2b7be5b611605f203ef7361fa2687d1c3
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37364286"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37806902"
 ---
 <a name="how-do-i-enable-code-coverage-and-profiling-in-production-applications"></a>[Gewusst wie:] Aktivieren Sie die Code Coverage und Profilerstellung in Produktionsanwendungen?
 ====================

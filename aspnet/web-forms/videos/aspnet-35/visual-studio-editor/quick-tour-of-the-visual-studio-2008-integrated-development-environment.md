@@ -4,19 +4,16 @@ title: Überblick über die Visual Studio 2008 integrierte Entwicklungsumgebung 
 author: rick-anderson
 description: Überblick über die neuen Features und Änderungen an der IDE in Visual Studio 2008. Finden Sie in den aktualisierten Webseiteneditor, WPF-Formular-Designer, CSS-Editor und vieles mehr.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/15/2007
-ms.topic: article
 ms.assetid: f20c5f1c-e49c-4909-b18f-8b5a442eafe3
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-35/visual-studio-editor/quick-tour-of-the-visual-studio-2008-integrated-development-environment
 msc.type: video
-ms.openlocfilehash: 1d5565ba33d38bf90282dfd29d76c406b1069082
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f25baf2dac16473be97c3c25d01d8a004ee3759e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37374875"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37822107"
 ---
 <a name="quick-tour-of-the-visual-studio-2008-integrated-development-environment"></a>Kurzer Überblick der integrierten Entwicklungsumgebung von Visual Studio 2008
 ====================

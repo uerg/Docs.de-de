@@ -4,19 +4,16 @@ title: Daten, die Partitionierungsstrategien (erstellen realer Cloud-Apps mit Az
 author: MikeWasson
 description: Die Building Real World Cloud Apps mit Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt wurde. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/12/2014
-ms.topic: article
 ms.assetid: 513837a7-cfea-4568-a4e9-1f5901245d24
-ms.technology: ''
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-partitioning-strategies
 msc.type: authoredcontent
-ms.openlocfilehash: 7c7530301bf17009c9ffcb0ffa2f375b96f694c4
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 89921df4f84b86ef7c222f8e8c871f510856b4f3
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37399515"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37819798"
 ---
 <a name="data-partitioning-strategies-building-real-world-cloud-apps-with-azure"></a>Daten, die Partitionierungsstrategien (erstellen realer Cloud-Apps mit Azure)
 ====================

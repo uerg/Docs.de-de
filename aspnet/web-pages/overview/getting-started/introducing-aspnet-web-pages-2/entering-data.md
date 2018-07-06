@@ -4,19 +4,16 @@ title: Einführung in ASP.NET Web Pages - eingeben von Datenbankdaten mithilfe v
 author: tfitzmac
 description: In diesem Tutorial erfahren Sie, wie ein Anmeldeformular erstellen, und geben die Daten, die aus dem Formular in eine Datenbanktabelle bei Verwendung von ASP.NET Web Pages (...)
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/28/2015
-ms.topic: article
 ms.assetid: d37c93fc-25fd-4e94-8671-0d437beef206
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/entering-data
 msc.type: authoredcontent
-ms.openlocfilehash: 41122b3bca5a3d3162a66be163642610b8349cc5
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 313fd6ff70af540d4dd749734f50e3fc24be0d29
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37386406"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37835760"
 ---
 <a name="introducing-aspnet-web-pages---entering-database-data-by-using-forms"></a>Einführung in ASP.NET Web Pages - eingeben von Datenbankdaten mithilfe von Formularen
 ====================

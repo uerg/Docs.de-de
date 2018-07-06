@@ -4,19 +4,16 @@ title: 'Praxisnahe Übung: Erstellen eine Einzelseitenanwendung (SPA) mit ASP.NE
 author: rick-anderson
 description: In herkömmlichen Webanwendungen initiiert der Client (Browser) die Kommunikation mit dem Server durch Anfordern einer Seite an. Der Server, klicken Sie dann die Anforderung verarbeitet...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/30/2015
-ms.topic: article
 ms.assetid: 719727b7-bef3-45ad-bfe9-ba5bcdb2305f
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
 msc.type: authoredcontent
-ms.openlocfilehash: 174084d6923cf1fa445485b7c0dc639a240720a5
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 8e9cc082d982aec0a4385a3cefecd118c937e641
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37370862"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37811519"
 ---
 <a name="hands-on-lab-build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs"></a>Praxisnahe Übung: Erstellen einer Einzelseitenanwendung (SPA) mit ASP.NET-Web-API und Angular.js
 ====================

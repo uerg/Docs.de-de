@@ -4,19 +4,16 @@ title: Verbinden Ihre Webanwendung in SQL Server 2005 Express Edition | Microsof
 author: microsoft
 description: SQL Server-Anfänge werden Exemplarische Vorgehensweise den gesamten Workflow zum Erstellen einer Webanwendung für die Datenbank gesteuert und verwenden visual Tools, um schnell eine Administrat erstellen...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/20/2006
-ms.topic: article
 ms.assetid: 2ba89851-337e-47dc-a604-82f73a68bc63
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/sql-2005/connecting-your-web-application-to-sql-server-2005-express-edition
 msc.type: video
-ms.openlocfilehash: 1b1e74139c11782a96af8c43474b828b3d9f9a65
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0870c97d3d2a8135621f8934b7e592926f1787a3
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37390581"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37809380"
 ---
 <a name="connecting-your-web-application-to-sql-server-2005-express-edition"></a>Verbinden Ihre Webanwendung in SQL Server 2005 Express Edition
 ====================

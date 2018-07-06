@@ -4,19 +4,16 @@ title: Verwendung der ViewStateMode-Eigenschaft für die Verwaltung von ViewStat
 author: rick-anderson
 description: In diesem video Chris Pels zeigt, wie die ViewStateMode-Eigenschaft verwenden, beim Entwerfen von ViewState für eine Website in ASP.NET.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/17/2010
-ms.topic: article
 ms.assetid: e5b1cc5e-fe11-4ede-9e28-af6477277b0c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/net-4/performance/how-do-i-use-the-viewstatemode-property-for-managing-viewstate
 msc.type: video
-ms.openlocfilehash: 9e31f7826be4905d250b12dc050e1ae2b2d24913
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 73ee00dedc37d6ca7be444e4e1f11b47a295148d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37379205"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37806518"
 ---
 <a name="how-do-i-use-the-viewstatemode-property-for-managing-viewstate"></a>Verwendung der ViewStateMode-Eigenschaft für die Verwaltung von ViewState?
 ====================

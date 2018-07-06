@@ -4,19 +4,16 @@ title: Mithilfe der FormView Vorlagen (VB) | Microsoft-Dokumentation
 author: rick-anderson
 description: Im Gegensatz zu DetailsView besteht das FormView-Steuerelement keine Felder. Stattdessen wird das FormView-Steuerelement gerendert, mithilfe von Vorlagen. In diesem Tutorial untersuchen wir mithilfe der f...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/31/2010
-ms.topic: article
 ms.assetid: 67b25f4c-2823-42b6-b07d-1d650b3fd711
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-the-formview-s-templates-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 66ad79c0c385afed75c1888b81328220ee048d19
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bb613158343e6845e583ed823e2a2c16f958b720
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37389913"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838153"
 ---
 <a name="using-the-formviews-templates-vb"></a>Mithilfe der FormView Vorlagen (VB)
 ====================

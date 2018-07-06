@@ -4,19 +4,16 @@ title: Ausnahmebehandlung auf BLL- und DAL-Ebene (VB) | Microsoft-Dokumentation
 author: rick-anderson
 description: In diesem Tutorial sehen wir, wie Ausnahmen, die während der Workflow für die Aktualisierung einer bearbeitbaren DataList tactfully behandelt werden.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/30/2006
-ms.topic: article
 ms.assetid: ca665073-b379-4239-9404-f597663ca65e
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/handling-bll-and-dal-level-exceptions-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0655f73b63f3eae72a866c912589779a8ccc7664
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1aee5c26bfbbbc46c2151a56fed60057930cba80
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37400563"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37814251"
 ---
 <a name="handling-bll--and-dal-level-exceptions-vb"></a>Ausnahmebehandlung auf BLL- und DAL-Ebene (VB)
 ====================

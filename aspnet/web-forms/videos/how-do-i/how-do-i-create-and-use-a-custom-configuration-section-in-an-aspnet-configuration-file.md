@@ -4,19 +4,16 @@ title: '[Gewusst wie:] Erstellen und verwenden ein benutzerdefinierten Konfigura
 author: rick-anderson
 description: In diesem Video zeigt Chris Pels, wie Sie den Standardsatz von ASP.NET-Konfigurationseinstellungen durch Ihre eigenen XML-Konfigurationselemente zu erweitern. Zunächst sehen wie...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/16/2008
-ms.topic: article
 ms.assetid: fa9ed773-cceb-49d0-a939-5a9e6bbae00f
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-and-use-a-custom-configuration-section-in-an-aspnet-configuration-file
 msc.type: video
-ms.openlocfilehash: 2061a47ffe17b9f637104923bfea962e30f0b537
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 75621262205fae79c09e9a14900e7de6fb53c3e1
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384919"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37810607"
 ---
 <a name="how-do-i-create-and-use-a-custom-configuration-section-in-an-aspnet-configuration-file"></a>[Gewusst wie:] Erstellen und Verwenden eines benutzerdefinierten Konfigurationsabschnitts in einer ASP.NET-Konfigurationsdatei
 ====================
