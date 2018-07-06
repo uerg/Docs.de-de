@@ -4,19 +4,16 @@ title: Erstellen einer Datenzugriffsschicht (VB) | Microsoft-Dokumentation
 author: rick-anderson
 description: In diesem Tutorial wir ganz von vorn beginnen und die Daten Datenzugriffsebene (DAL), verwenden typisierte DataSets, Zugriff auf die Informationen in einer Datenbank zu erstellen.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/05/2010
-ms.topic: article
 ms.assetid: 6227233a-6254-4b6b-9a89-947efef22330
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 34a107eac32f9a6d022612d47aa319b02c190070
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bfd4a1d9e47101594140ad4357bb467128ce26ee
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37402966"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37833088"
 ---
 <a name="creating-a-data-access-layer-vb"></a>Erstellen einer Datenzugriffsschicht (VB)
 ====================

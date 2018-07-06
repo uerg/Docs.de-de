@@ -4,19 +4,16 @@ title: ASP.NET MVC 3 | Microsoft-Dokumentation
 author: rick-anderson
 description: (April 2011 umfasst Tools Update) ASP.NET MVC 3 ist ein Framework zum Erstellen von skalierbaren, auf Standards basierende Webanwendungen, die bewährte Entwurfsmuster mit...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/05/2010
-ms.topic: article
 ms.assetid: dddc8812-a0bc-49f9-aafb-caf2064c2b8c
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/mvc3
 msc.type: content
-ms.openlocfilehash: ed3bf81943ac2ffa143cf169c87b3012269d9e77
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2c2d53734cd62e59ee4f550713b0576a73b0e32b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37375790"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37834769"
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================

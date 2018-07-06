@@ -4,19 +4,16 @@ title: 'Einführung in ASP.NET Web Pages: Anzeigen von Daten | Microsoft-Dokumen
 author: tfitzmac
 description: In diesem Tutorial erfahren Sie, wie Sie eine Datenbank in WebMatrix erstellen "und" Vorgehensweise beim Anzeigen von Daten auf einer Seite, bei der Verwendung von ASP.NET Web Pages (Razor). Es wird davon ausgegangen, y...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/28/2015
-ms.topic: article
 ms.assetid: b3a006a0-3ea2-4d45-b833-e20e3a3c0a1a
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/displaying-data
 msc.type: authoredcontent
-ms.openlocfilehash: de4ed9df2c65a1aaa4548b035c619cfa9bae7a8e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: eeceb08e3aa281c45a2cfe35af4f23b76a5b1d25
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384968"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37834296"
 ---
 <a name="introducing-aspnet-web-pages---displaying-data"></a>Einführung in ASP.NET Web Pages - Anzeige von Daten
 ====================

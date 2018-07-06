@@ -4,19 +4,16 @@ title: Hinzufügen von Validierungssteuerelementen zu DataList-Steuerelement die
 author: rick-anderson
 description: In diesem Tutorial sehen wir, wie einfach es ist, die Steuerelemente zur gültigkeitsprüfung des DataList-Steuerelement EditItemTemplate hinzufügen, um eine weitere narrensicher Bearbeitung Benutzer "int". Geben Sie...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/30/2006
-ms.topic: article
 ms.assetid: 6b073fc6-524d-453d-be7c-0c30986de391
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7b06020128daa01c58b27639ff1db23febc0cba9
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6f7df844462b016ed74430db782005931562fda5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37397589"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37833571"
 ---
 <a name="adding-validation-controls-to-the-datalists-editing-interface-vb"></a>Hinzufügen von Validierungssteuerelementen zu der die Bearbeitung von DataList (VB)
 ====================

@@ -4,19 +4,16 @@ title: Überprüfen mit einer Dienstschicht (VB) | Microsoft-Dokumentation
 author: StephenWalther
 description: Erfahren Sie, wie Sie eine Validierungslogik aus Ihre Controlleraktionen und in einer separaten Dienstschicht zu verschieben. In diesem Tutorial Stephen Walther wird erläutert, wie Sie...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/02/2009
-ms.topic: article
 ms.assetid: 344bb38e-4965-4c47-bda1-f6d29ae5b83a
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validating-with-a-service-layer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a914a7351e0faf6babf144d80512994d513ed12f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 673e9be46e37e9a805f1dae4944f69939b087dda
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393224"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37836564"
 ---
 <a name="validating-with-a-service-layer-vb"></a>Überprüfen mit einer Dienstschicht (VB)
 ====================

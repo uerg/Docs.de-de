@@ -4,19 +4,16 @@ title: Verwenden eines ConfirmButton-Steuerelements In einem Wiederholungssteuer
 author: wenz
 description: Einen ConfirmButton-Extender im AJAX Control Toolkit erstellt eine Ja/kein Popupfenster angezeigt, wenn der Benutzer auf eine Schaltfläche klickt (einschließlich LinkButton-Steuerelement). Es ist Ja nur, wenn...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 18c31709-3f9d-4d93-8b01-f1356bf610b4
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/confirmbutton/using-a-confirmbutton-in-a-repeater-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ce403e84766f586eca36ef6bc513d9fbf7bd1d40
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 72c9493582f7b952d1efcb45d3bc95bc130a38e1
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37396418"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37826944"
 ---
 <a name="using-a-confirmbutton-in-a-repeater-vb"></a>Verwenden eines ConfirmButton-Steuerelements In einem Wiederholungssteuerelement (VB)
 ====================

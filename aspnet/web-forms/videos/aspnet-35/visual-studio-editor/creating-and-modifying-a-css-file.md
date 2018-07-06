@@ -4,19 +4,16 @@ title: Erstellen und Ändern einer CSS-Datei | Microsoft-Dokumentation
 author: tmiranda
 description: In diesem Video wird der cascading Stylesheet (CSS)-Features von Visual Studio 2008 eingeführt. CSS-Features von Visual Studio 2008 erleichtern Ihnen die Erstellung von Stylesheets ein...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/15/2007
-ms.topic: article
 ms.assetid: e7c3b221-87ce-444e-9106-bb0609665009
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-35/visual-studio-editor/creating-and-modifying-a-css-file
 msc.type: video
-ms.openlocfilehash: 51e96671ea4971b28d7e68392049eefdbc72918f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c2f7fe115ed1a88350a7557477a09d6c0ea3c2e9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384263"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838801"
 ---
 <a name="creating-and-modifying-a-css-file"></a>Erstellen und Ändern einer CSS-Datei
 ====================

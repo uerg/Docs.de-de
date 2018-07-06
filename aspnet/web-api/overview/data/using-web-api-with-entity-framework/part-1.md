@@ -4,19 +4,16 @@ title: Mithilfe von Web-API 2 mit Entitätsframework 6 | Microsoft-Dokumentation
 author: MikeWasson
 description: In diesem Tutorial erfahren Sie, dass die Grundlagen der Erstellung einer Web-Anwendung mit einer ASP.NET Web-API-back-End. Das Lernprogramm verwendet Entity Framework 6 für das Layout der Daten...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/28/2015
-ms.topic: article
 ms.assetid: e879487e-dbcd-4b33-b092-d67c37ae768c
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-1
 msc.type: authoredcontent
-ms.openlocfilehash: b4ab0ec8b9ccb652d9f28ab42d9333fcc90abb65
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bc853413e814e6ef1a44841d114853003d7328f9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362420"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37827232"
 ---
 <a name="using-web-api-2-with-entity-framework-6"></a>Mithilfe von Web-API 2 mit Entitätsframework 6
 ====================

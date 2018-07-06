@@ -4,19 +4,16 @@ title: Implementieren von Optimistischer Parallelität (c#) | Microsoft-Dokument
 author: rick-anderson
 description: Für eine Webanwendung, die mehreren Benutzern, Daten bearbeiten kann, besteht das Risiko, dass zwei Benutzer die gleichen Daten zur gleichen Zeit bearbeitet zur Verfügung. In diesem Tutori...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/17/2006
-ms.topic: article
 ms.assetid: 56e15b33-93b8-43ad-8e19-44c6647ea05c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 120fdca43b7e68127277f6889504f173938117e4
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 9013eab1082c27aac3b561f9507842edc77c7da3
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37397771"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37824447"
 ---
 <a name="implementing-optimistic-concurrency-c"></a>Implementieren von Optimistischer Parallelität (c#)
 ====================

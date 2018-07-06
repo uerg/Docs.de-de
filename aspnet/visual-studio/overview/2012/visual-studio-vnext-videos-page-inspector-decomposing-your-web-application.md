@@ -4,19 +4,16 @@ title: 'Visual Studio vNext Videos: Seitenprüfung – Zerlegen der Webanwendung
 author: gabosom
 description: In diesem Video veranschaulicht, wie die Seitenprüfung in Visual Studio vNext zu verwenden, um die Problembehandlung von HTML und Stile in Ihrer ASP.NET-Anwendung Jorge Gabuardi Gonzalez...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/30/2011
-ms.topic: article
 ms.assetid: 527a3d23-2e22-4a79-accd-eda47ab40350
-ms.technology: ''
 msc.legacyurl: /visual-studio/overview/2012/visual-studio-vnext-videos-page-inspector-decomposing-your-web-application
 msc.type: video
-ms.openlocfilehash: e229240b85b815ff56ce5bedf777fd637ea64b1d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2a55a3c1f57f2f51a5cf3cb19c73962d2c627b44
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37396584"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838464"
 ---
 <a name="visual-studio-vnext-videos-page-inspector---decomposing-your-web-application"></a>Visual Studio vNext Videos: Seitenprüfung – Zerlegen der Webanwendung
 ====================

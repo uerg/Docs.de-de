@@ -4,19 +4,16 @@ title: Einführung in die Sicherheit von SignalR (SignalR 1.x) | Microsoft-Dokum
 author: pfletcher
 description: Beschreibt die Sicherheitsprobleme, die Sie berücksichtigen müssen, bei der Entwicklung einer SignalR-Anwendung.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/17/2013
-ms.topic: article
 ms.assetid: 715a4059-d307-4631-abbb-c789c95d6eb4
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/older-versions/introduction-to-security
 msc.type: authoredcontent
-ms.openlocfilehash: b50b96bd4d1bf84c431f53f18747fe26a629d98a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b8d12969344dee9ee933509d15b586e3616bb3bc
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37370509"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37833833"
 ---
 <a name="introduction-to-signalr-security-signalr-1x"></a>Einführung in die Sicherheit von SignalR (SignalR 1.x)
 ====================

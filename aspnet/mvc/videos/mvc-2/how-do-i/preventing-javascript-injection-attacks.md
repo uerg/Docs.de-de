@@ -4,19 +4,16 @@ title: Verhindern von Injection-Angriffen JavaScript | Microsoft-Dokumentation
 author: StephenWalther
 description: Verhindern Sie, dass JavaScript-Injection-Angriffe und Cross-Site Scripting-Angriffe informieren möchten. In diesem Tutorial erläutert Stephen Walther an, wie Sie de auf einfache Weise...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/20/2008
-ms.topic: article
 ms.assetid: 012a91e7-fd88-4d4f-8f95-57a9043c47d9
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/preventing-javascript-injection-attacks
 msc.type: video
-ms.openlocfilehash: 49f9138a4b1c5d17b3e0abf7bfea8f07c0f024b9
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a6c082db671eea7627481bca383c6d1d7e98554c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381902"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37813499"
 ---
 <a name="preventing-javascript-injection-attacks"></a>JavaScript-Injection-Angriffe verhindern
 ====================

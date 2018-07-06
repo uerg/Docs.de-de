@@ -4,19 +4,16 @@ title: Bearbeiten von DropShadow-Eigenschaften über den Clientcode (VB) | Micro
 author: wenz
 description: DropShadow-Steuerelements im AJAX Control Toolkit erweitert, einen Bereich mit einem Schlagschatteneffekt. Eigenschaften dieses Extenders können auch mit JavaScript-Client geändert werden...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 11be4211-2fb9-4e15-b6d4-2aa623d81f3e
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dropshadow/manipulating-dropshadow-properties-from-client-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b2be6964e3f46a007cda7ddba4dda14d03449d34
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b9220eecca224c2b1e0f19c972c6c2a4dc9c7d35
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37378922"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37841408"
 ---
 <a name="manipulating-dropshadow-properties-from-client-code-vb"></a>Bearbeiten von DropShadow-Eigenschaften über den Clientcode (VB)
 ====================

@@ -4,19 +4,16 @@ title: Erstellen einer benutzerdefinierten Routeneinschränkung (VB) | Microsoft
 author: StephenWalther
 description: Stephen Walther wird veranschaulicht, wie Sie eine benutzerdefinierten routeneinschränkung erstellen können. Implementieren wir ein einfaches benutzerdefiniertes Einschränkung, die verhindert, dass eine Route wird abgeglichen, w...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/16/2009
-ms.topic: article
 ms.assetid: 892edb27-1cc2-4eaf-8314-dbc2efc6228a
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-custom-route-constraint-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cc30cfd49402b10274e22eb27abba73329811b7e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 72389d11467cbf7baea4cc9452266edb8ab81125
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37385494"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37840467"
 ---
 <a name="creating-a-custom-route-constraint-vb"></a>Erstellen einer benutzerdefinierten Routeneinschränkung (VB)
 ====================

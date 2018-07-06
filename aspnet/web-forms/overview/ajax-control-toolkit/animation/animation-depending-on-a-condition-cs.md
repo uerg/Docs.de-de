@@ -4,19 +4,16 @@ title: Animation Abhängigkeit einer Bedingung (c#) | Microsoft-Dokumentation
 author: wenz
 description: Die Animation-Steuerelement in ASP.NET AJAX Control Toolkit ist nicht nur ein Steuerelement, aber ein ganzes Framework Animationen an ein Steuerelement hinzufügen. Gibt an, ob eine Animation zu ist...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: b7a28c0d-efb9-443a-80a4-1a5ee54671cd
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animation-depending-on-a-condition-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c28f4583e6f0d1bb5c1438322980a44aa53fbd89
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: cb08c330d6fbc86035a2f21ad382cc009411bcd6
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37391362"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37808423"
 ---
 <a name="animation-depending-on-a-condition-c"></a>Animation Abhängigkeit einer Bedingung (c#)
 ====================

@@ -4,19 +4,16 @@ title: '[Gewusst wie:] Verwenden Sie die ASP.NET AJAX-Steuerelement "nobot"? | M
 author: JoeStagner
 description: Das Steuerelement "nobot" aus dem ASP.NET AJAX Control Toolkit hilft dabei, bestimmte Arten des unerlaubten Zugriffs auf Ihre Webanwendungen zu verhindern. In diesem Video erfahren Sie, wie...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/29/2007
-ms.topic: article
 ms.assetid: 15282963-2ec5-4013-b6bc-f1fcf272818e
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-nobot-control
 msc.type: video
-ms.openlocfilehash: 6b0fb59988b69746514c56bad148da036aedc303
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 56276b427197459c916361c3f5652491e1f175c5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398983"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37811859"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-nobot-control"></a>[Gewusst wie:] Verwenden Sie die ASP.NET AJAX-Steuerelement "nobot"?
 ====================

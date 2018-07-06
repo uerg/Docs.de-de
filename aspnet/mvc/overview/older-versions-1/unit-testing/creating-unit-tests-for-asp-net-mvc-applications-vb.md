@@ -4,19 +4,16 @@ title: Erstellen von Komponententests für ASP.NET MVC-Anwendungen (VB) | Micros
 author: StephenWalther
 description: Erfahren Sie, wie Komponententests für Controlleraktionen zu erstellen. In diesem Tutorial veranschaulicht das Stephen Walther zu prüfen, ob eine Controlleraktion eine geben zurückgegeben...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/19/2008
-ms.topic: article
 ms.assetid: eb35710d-1d99-44ac-b61f-e50af8cb328a
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/unit-testing/creating-unit-tests-for-asp-net-mvc-applications-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8edd134f6534b2a53be7f475cf0cb35ca93d3067
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 3a8f142063a7addc8acca2b1a515295e36b26e29
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384082"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37837181"
 ---
 <a name="creating-unit-tests-for-aspnet-mvc-applications-vb"></a>Erstellen von Komponententests für ASP.NET MVC-Anwendungen (VB)
 ====================
