@@ -4,29 +4,26 @@ title: '[Gewusst wie:] Erstellen Sie eigene Fehlerarbeitsaufgabe? | Microsoft-Do
 author: rick-anderson
 description: Dieses Video zeigt, wie Sie Ihre eigene Fehlerarbeitselement-Definition für die Verwendung in Visual Studio Team System erstellen. Wir sehen, wie eine Arbeitsaufgabe definiert ist, durch ein XML-DAT...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/12/2007
-ms.topic: article
 ms.assetid: ab0805a3-76ff-4557-8750-a24d0f79a4c9
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-create-my-own-bug-work-item
 msc.type: video
-ms.openlocfilehash: 67f40d01bb7dc70e730a8d4604a24f13044d2e40
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0f90d890d19d58875f0d01b794b4331dc4291d12
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37367427"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37811282"
 ---
-<a name="how-do-i-create-my-own-bug-work-item"></a><span data-ttu-id="4d6dd-105">[Gewusst wie:] Erstellen Sie eigene Fehlerarbeitsaufgabe?</span><span class="sxs-lookup"><span data-stu-id="4d6dd-105">[How Do I:] Create My Own Bug Work Item?</span></span>
+<a name="how-do-i-create-my-own-bug-work-item"></a><span data-ttu-id="d33d0-105">[Gewusst wie:] Erstellen Sie eigene Fehlerarbeitsaufgabe?</span><span class="sxs-lookup"><span data-stu-id="d33d0-105">[How Do I:] Create My Own Bug Work Item?</span></span>
 ====================
-<span data-ttu-id="4d6dd-106">durch [Chris Menegay](https://twitter.com/CMenegay)</span><span class="sxs-lookup"><span data-stu-id="4d6dd-106">by [Chris Menegay](https://twitter.com/CMenegay)</span></span>
+<span data-ttu-id="d33d0-106">durch [Chris Menegay](https://twitter.com/CMenegay)</span><span class="sxs-lookup"><span data-stu-id="d33d0-106">by [Chris Menegay](https://twitter.com/CMenegay)</span></span>
 
-<span data-ttu-id="4d6dd-107">Dieses Video zeigt, wie Sie Ihre eigene Fehlerarbeitselement-Definition für die Verwendung in Visual Studio Team System erstellen.</span><span class="sxs-lookup"><span data-stu-id="4d6dd-107">This video demonstrates how to create your own Bug Work Item definition for use in Visual Studio Team System.</span></span> <span data-ttu-id="4d6dd-108">Wir sehen, wie eine Arbeitsaufgabe durch eine XML-Datei definiert wird, die wir manuell bearbeiten können, um das Hinzufügen, entfernen oder ändern Sie die Felder, Workflows und Formularen, die einen bestimmten Typ von Arbeitsaufgabe zugeordnet.</span><span class="sxs-lookup"><span data-stu-id="4d6dd-108">We see how a Work Item is defined by an XML file that we can manually edit in order to add, remove or modify the fields, workflows, and forms associated with a particular type of Work Item.</span></span>
+<span data-ttu-id="d33d0-107">Dieses Video zeigt, wie Sie Ihre eigene Fehlerarbeitselement-Definition für die Verwendung in Visual Studio Team System erstellen.</span><span class="sxs-lookup"><span data-stu-id="d33d0-107">This video demonstrates how to create your own Bug Work Item definition for use in Visual Studio Team System.</span></span> <span data-ttu-id="d33d0-108">Wir sehen, wie eine Arbeitsaufgabe durch eine XML-Datei definiert wird, die wir manuell bearbeiten können, um das Hinzufügen, entfernen oder ändern Sie die Felder, Workflows und Formularen, die einen bestimmten Typ von Arbeitsaufgabe zugeordnet.</span><span class="sxs-lookup"><span data-stu-id="d33d0-108">We see how a Work Item is defined by an XML file that we can manually edit in order to add, remove or modify the fields, workflows, and forms associated with a particular type of Work Item.</span></span>
 
-[<span data-ttu-id="4d6dd-109">&#9654;Sehen Sie sich Video (11 Minuten)</span><span class="sxs-lookup"><span data-stu-id="4d6dd-109">&#9654; Watch video (11 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-my-own-bug-work-item)
+[<span data-ttu-id="d33d0-109">&#9654;Sehen Sie sich Video (11 Minuten)</span><span class="sxs-lookup"><span data-stu-id="d33d0-109">&#9654; Watch video (11 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-my-own-bug-work-item)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="4d6dd-110">[Zurück](how-do-i-integrate-defect-tracking-with-testing.md)
-> [Weiter](how-do-i-write-code-more-quickly-with-unit-tests.md)</span><span class="sxs-lookup"><span data-stu-id="4d6dd-110">[Previous](how-do-i-integrate-defect-tracking-with-testing.md)
+> <span data-ttu-id="d33d0-110">[Zurück](how-do-i-integrate-defect-tracking-with-testing.md)
+> [Weiter](how-do-i-write-code-more-quickly-with-unit-tests.md)</span><span class="sxs-lookup"><span data-stu-id="d33d0-110">[Previous](how-do-i-integrate-defect-tracking-with-testing.md)
 [Next](how-do-i-write-code-more-quickly-with-unit-tests.md)</span></span>
