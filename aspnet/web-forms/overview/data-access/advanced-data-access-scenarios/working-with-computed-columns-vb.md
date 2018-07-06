@@ -1,272 +1,271 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/working-with-computed-columns-vb
-title: Arbeiten mit berechneten Spalten (VB) | Microsoft Docs
+title: Arbeiten mit berechneten Spalten (VB) | Microsoft-Dokumentation
 author: rick-anderson
-description: Beim Erstellen einer Datenbanktabelle, Microsoft SQL Server können Sie eine berechnete Spalte zu definieren, dessen Wert aus einem Ausdruck berechnet wird, der normalerweise verw...
+description: Wenn Sie eine Datenbanktabelle zu erstellen, Microsoft SQL Server ermöglicht es Ihnen, eine berechnete Spalte zu definieren, dessen Wert aus einem Ausdruck berechnet wird, in der Regel verw...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/03/2007
 ms.topic: article
 ms.assetid: 5811b8ff-ed56-40fc-9397-6b69ae09a8f6
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/working-with-computed-columns-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 04b39902aae05d815eb11ec7b7163988d017f78c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
-ms.translationtype: MT
+ms.openlocfilehash: 5837baccb9e378546d26703c99dcddd144ba80de
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30877202"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37386772"
 ---
 <a name="working-with-computed-columns-vb"></a>Arbeiten mit berechneten Spalten (VB)
 ====================
 durch [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Herunterladen von Code](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_71_VB.zip) oder [PDF herunterladen](working-with-computed-columns-vb/_static/datatutorial71vb1.pdf)
+[Code herunterladen](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_71_VB.zip) oder [PDF-Datei herunterladen](working-with-computed-columns-vb/_static/datatutorial71vb1.pdf)
 
-> Wenn Sie eine Datenbanktabelle zu erstellen, können mit Microsoft SQL Server eine berechnete Spalte definieren, deren Wert aus einem Ausdruck berechnet wird, die auf andere Werte in der gleichen Datensatz in der Datenbank in der Regel verweist. Solche Werte sind in der Datenbank, wofür Besonderheiten beim Arbeiten mit TableAdapters schreibgeschützt. In diesem Lernprogramm erfahren wir die Bedrohung durch berechnete Spalten Auflagen erfüllt werden können.
+> Wenn Sie eine Datenbanktabelle zu erstellen, können Microsoft SQL Server Sie eine berechnete Spalte definieren, deren Wert aus einem Ausdruck berechnet wird, die in der Regel andere Werte in denselben Datenbank-Datensatz verweist. Solche Werte sind in der Datenbank, die besondere Überlegungen erforderlich ist, bei der Arbeit mit TableAdapters schreibgeschützt. In diesem Tutorial erfahren wir, wie auf die berechneten Spalten darstellen Herausforderungen zu meistern.
 
 
 ## <a name="introduction"></a>Einführung
 
-Microsoft SQL Server ermöglicht  *[berechnete Spalten](https://msdn.microsoft.com/library/ms191250.aspx)*, die Spalten, deren Werte werden von einem Ausdruck, der in der Regel die Werte aus anderen Spalten in derselben Tabelle verweist auf berechnet, werden. Eine Zeit nachverfolgen Datenmodell möglicherweise als Beispiel eine Tabelle namens `ServiceLog` mit Spalten, einschließlich `ServicePerformed`, `EmployeeID`, `Rate`, und `Duration`, o. ä. Während der Gesamtbetrag pro-Dienst-Element (wird die Rate, multipliziert mit der Dauer) konnte über eine Webseite oder andere programmgesteuerte Schnittstelle berechnet werden, ist es möglicherweise hilfreich, eine Spalte in der `ServiceLog` Tabelle mit dem Namen `AmountDue` , die dies gemeldet Informationen. Diese Spalte kann als normale Spalte erstellt werden, aber er dürfte jederzeit aktualisiert werden die `Rate` oder `Duration` Spaltenwerte geändert. Ein besserer Ansatz wäre, stellen die `AmountDue` Spalte eine berechnete Spalte mit dem Ausdruck `Rate * Duration`. Auf diese Weise würde dazu führen, dass SQL Server für die automatische Berechnung der `AmountDue` Spaltenwert immer in einer Abfrage auf sie verwiesen wurde.
+Microsoft SQL Server ermöglicht  *[berechnete Spalten](https://msdn.microsoft.com/library/ms191250.aspx)*, welche sind die Spalten, die aus einem Ausdruck, der die Werte in der Regel von anderen Spalten in derselben Tabelle verweist, dessen Werte berechnet werden. Beispielsweise gibt es möglicherweise für eine zeitüberwachung Datenmodell eine Tabelle namens `ServiceLog` mit Spalten, einschließlich `ServicePerformed`, `EmployeeID`, `Rate`, und `Duration`, u. a. Während den fällige Betrag pro Dienst Element (wird die Rate, multipliziert mit der Dauer) kann über eine Webseite oder andere programmgesteuerte Schnittstelle berechnet werden, es kann praktisch sein, eine Spalte in enthalten die `ServiceLog` Tabelle mit dem Namen `AmountDue` , die dies gemeldet Informationen. Diese Spalte kann als normale Spalte erstellt werden, aber es jederzeit aktualisiert werden, müssen die `Rate` oder `Duration` Spaltenwerte geändert. Ein besserer Ansatz wäre, stellen die `AmountDue` Spalte eine berechnete Spalte mit dem Ausdruck `Rate * Duration`. Auf diese Weise würde dazu führen, dass SQL Server für die automatische Berechnung der `AmountDue` Spaltenwert immer in einer Abfrage auf sie verwiesen wurde.
 
-Da ein berechnete Spalte s-Wert durch einen Ausdruck bestimmt ist, solche Spalten sind schreibgeschützt und aus diesem Grund können keine Werte zugewiesene auf diese Dateien im `INSERT` oder `UPDATE` Anweisungen. Wenn berechnete Spalten Teil der Hauptabfrage für einen TableAdapter, die Ad-hoc-SQL-Anweisungen verwendet handelt, sie werden jedoch automatisch eingeschlossen in automatisch generierte `INSERT` und `UPDATE` Anweisungen. Folglich die TableAdapter `INSERT` und `UPDATE` Abfragen und `InsertCommand` und `UpdateCommand` Eigenschaften müssen aktualisiert werden, um Verweise auf alle berechneten Spalten zu entfernen.
+Da ein berechnete Spalte s-Wert durch einen Ausdruck bestimmt wird, diese Spalten sind schreibgeschützt und aus diesem Grund können keine Werte zugewiesen haben auf diese Dateien im `INSERT` oder `UPDATE` Anweisungen. Wenn Sie berechnete Spalten Teil der Hauptabfrage für einen TableAdapter handelt, die Ad-hoc-SQL-Anweisungen verwendet, sie sind jedoch automatisch enthalten, in den automatisch generierten `INSERT` und `UPDATE` Anweisungen. Daher die TableAdapter `INSERT` und `UPDATE` Abfragen und `InsertCommand` und `UpdateCommand` Eigenschaften aktualisiert werden müssen, um Verweise auf alle berechneten Spalten entfernen.
 
-Eine Herausforderung der Verwendung von berechneten Spalten mit einem TableAdapter, die Ad-hoc-SQL-Anweisungen verwendet wird, die die TableAdapter `INSERT` und `UPDATE` Abfragen automatisch erneut generiert, einem beliebigen Zeitpunkt der TableAdapter-Konfigurations-Assistent abgeschlossen ist. Aus diesem Grund manuell die berechneten Spalten daraus die `INSERT` und `UPDATE` Abfragen werden erneut angezeigt, wenn der Assistent erneut ausgeführt wird. Obwohl TableAdapters, die gespeicherten Prozeduren verwenden t Verschlüsselungskennwort aus dieser unzulänglichen beeinträchtigt, besitzen ihre eigenen Quirksmodus, die wir in Schritt 3 gerecht werden.
+Eine Schwierigkeit der Verwendung von berechneten Spalten mit einem TableAdapter, die Ad-hoc-SQL-Anweisungen verwendet wird, die die TableAdapter `INSERT` und `UPDATE` Abfragen werden automatisch neu generiert jedes Mal der TableAdapter-Konfigurations-Assistenten abgeschlossen ist. Aus diesem Grund manuell die berechneten Spalten daraus die `INSERT` und `UPDATE` Abfragen werden erneut angezeigt, wenn der Assistent erneut ausgeführt wird. Obwohl die TableAdapters, die gespeicherte Prozeduren verwenden keine Nachteile für Ihr diese Fehleranfälligkeit leiden, besitzen ihre eigenen Eigenarten, die wir in Schritt 3 gerecht werden.
 
-In diesem Lernprogramm werden wir eine berechnete Spalte hinzufügen der `Suppliers` -Tabelle in der Northwind-Datenbank und erstellen Sie einen entsprechenden TableAdapter zum Arbeiten mit dieser Tabelle und einer berechneten Spalte. Wir haben unsere TableAdapter gespeicherte Prozeduren anstelle von Ad-hoc-SQL-Anweisungen verwenden, sodass unsere Anpassungen sind t verloren, wenn der TableAdapter-Konfigurations-Assistent verwendet wird.
+In diesem Tutorial fügen wir eine berechnete Spalte, die `Suppliers` -Tabelle in der Northwind-Datenbank und erstellen Sie einen entsprechenden TableAdapter zum Arbeiten mit dieser Tabelle und die berechnete Spalte. Wir haben unsere TableAdapter gespeicherte Prozeduren anstelle von Ad-hoc-SQL-Anweisungen zu verwenden, damit unsere Anpassungen sind t verloren, wenn der TableAdapter-Konfigurations-Assistent verwendet wird.
 
 Lassen Sie s beginnen!
 
 ## <a name="step-1-adding-a-computed-column-to-thesupplierstable"></a>Schritt 1: Hinzufügen einer berechneten Spalte, die`Suppliers`Tabelle
 
-Die Northwind-Datenbank besitzt keine berechneten Spalten, sodass wir uns ein hinzuzufügende benötigen. Für dieses Lernprogramm s eine berechnete Spalte hinzufügen kann die `Suppliers` Tabelle mit dem Namen `FullContactName` , die der-s-Kontaktname, Titel und das Unternehmen, die sie für funktionieren zurückgibt, im folgenden Format: `ContactName` (`ContactTitle`, `CompanyName`). Diese berechnete Spalte möglicherweise beim Anzeigen von Informationen zu Lieferanten in Berichten verwendet.
+Die Northwind-Datenbank muss keine berechneten Spalten, daher wir ein selbst hinzufügen müssen. Für dieses Tutorial s, die eine berechnete Spalte hinzufügen lassen die `Suppliers` Tabelle mit dem Namen `FullContactName` , der-s-Kontaktname, Titel und das Unternehmen, die sie für funktionieren zurückgibt, das folgende Format: `ContactName` (`ContactTitle`, `CompanyName`). Diese berechnete Spalte an, die in Berichten verwendet werden kann, bei der Anzeige von Informationen zu Lieferanten.
 
-Öffnen Sie zunächst die `Suppliers` Tabellendefinition mit der rechten Maustaste auf die `Suppliers` Tabelle im Server-Explorer und Tabellendefinition öffnen aus dem Kontextmenü auswählen. Dadurch werden die Spalten der Tabelle und ihre Eigenschaften, z. B. ihr Datentyp angezeigt, ob sie zulassen `NULL` s und So weiter. Um eine berechnete Spalte hinzuzufügen, starten Sie dazu den Namen der Spalte in der Tabelle (Definition). Geben Sie anschließend den Ausdruck in das Textfeld (Formel), unter dem Abschnitt Berechnetespaltespezifikation im Fenster Spalteneigenschaften (siehe Abbildung 1). Benennen Sie die berechnete Spalte `FullContactName` und verwenden Sie den folgenden Ausdruck:
+Öffnen Sie zunächst die `Suppliers` Tabellendefinition mit der rechten Maustaste auf die `Suppliers` Tabelle im Server-Explorer und die Tabellendefinition öffnen aus dem Kontextmenü auswählen. Dadurch werden die Spalten der Tabelle und deren Eigenschaften, z.B. dem Datentyp angezeigt werden, ob sie zulassen `NULL` s und So weiter. Um eine berechnete Spalte hinzuzufügen, starten Sie durch den Namen der Spalte in der Tabelle (Definition) eingeben. Geben Sie anschließend den Ausdruck in das Textfeld (Formel) im Abschnitt "Berechnetespaltespezifikation" im Fenster Eigenschaften (siehe Abbildung 1). Benennen Sie die berechnete Spalte `FullContactName` und verwenden Sie den folgenden Ausdruck:
 
 
 [!code-sql[Main](working-with-computed-columns-vb/samples/sample1.sql)]
 
-Beachten Sie, dass Zeichenfolgen können, in SQL verkettet werden mit dem `+` Operator. Die `CASE` -Anweisung kann verwendet werden, wie eine bedingte in einer herkömmlichen Programmiersprache Ihrer Wahl. Im obigen Ausdruck der `CASE` Anweisung als gelesen werden kann: Wenn `ContactTitle` ist nicht `NULL` ausgeben der `ContactTitle` durch ein Komma, andernfalls verketteter Wert ausgeben nichts. Weitere Informationen über die Nützlichkeit der der `CASE` -Anweisung finden Sie unter [der SQL-Power `CASE` Anweisungen](http://www.4guysfromrolla.com/webtech/102704-1.shtml).
+Beachten Sie, dass Zeichenfolgen können, in SQL verkettet werden mit der `+` Operator. Die `CASE` -Anweisung kann verwendet werden, wie eine bedingte in einer traditionellen Programmiersprache. Im obigen Ausdruck die `CASE` Anweisung als gelesen werden kann: Wenn `ContactTitle` ist nicht `NULL` danach die `ContactTitle` emit-Wert verkettet, die durch ein Komma, andernfalls "nothing". Weitere Informationen zu den Nutzen von der `CASE` -Anweisung finden Sie unter [die Leistungsfähigkeit von SQL `CASE` Anweisungen](http://www.4guysfromrolla.com/webtech/102704-1.shtml).
 
 > [!NOTE]
-> Anstatt eine `CASE` Anweisung hier wir Alternativ hätte `ISNULL(ContactTitle, '')`. [`ISNULL(checkExpression, replacementValue)`](https://msdn.microsoft.com/library/ms184325.aspx) Gibt *CheckExpression* , wenn er nicht NULL ist, anderfalls wird *Ersatzwert*. Entweder während `ISNULL` oder `CASE` funktioniert in dieser Instanz stehen mehr komplizierte Szenarien, in denen die Flexibilität der `CASE` Anweisung kann nicht zugeordnet werden, indem `ISNULL`.
+> Anstatt eine `CASE` -Anweisung hier, wir Alternativ hätte `ISNULL(ContactTitle, '')`. [`ISNULL(checkExpression, replacementValue)`](https://msdn.microsoft.com/library/ms184325.aspx) Gibt *CheckExpression* , wenn er nicht NULL ist, andernfalls *"Ersatzwert"*. Entweder während `ISNULL` oder `CASE` funktioniert in diesem Fall stehen die schwierigeren Szenarien, in denen die Flexibilität der `CASE` Anweisung kann nicht zugeordnet werden, indem `ISNULL`.
 
 
-Nach dem Hinzufügen der diese berechnete Spalte sollten Ihren Bildschirm wie im Screenshot in Abbildung 1 aussehen.
+Nach dem Hinzufügen diese berechnete Spalte sollte Ihr Bildschirm wie im Screenshot in Abbildung 1 aussehen.
 
 
-[![Fügen Sie eine berechnete Spalte mit dem Namen FullContactName der Lieferanten-Tabelle](working-with-computed-columns-vb/_static/image2.png)](working-with-computed-columns-vb/_static/image1.png)
+[![Hinzufügen einer berechneten Spalteninhalts, die mit dem Namen FullContactName in die Tabelle ' Suppliers '](working-with-computed-columns-vb/_static/image2.png)](working-with-computed-columns-vb/_static/image1.png)
 
-**Abbildung 1**: Hinzufügen einer berechneten Spalte mit dem Namen `FullContactName` auf die `Suppliers` Tabelle ([klicken Sie hier, um das Bild in voller Größe angezeigt](working-with-computed-columns-vb/_static/image3.png))
+**Abbildung 1**: Hinzufügen einer berechneten Spalte mit dem Namen `FullContactName` auf die `Suppliers` Tabelle ([klicken Sie, um das Bild in voller Größe anzeigen](working-with-computed-columns-vb/_static/image3.png))
 
 
-Nach dem Benennen der berechneten Spalte, und der Ausdruck eingeben, speichern Sie die Änderungen in der Tabelle durch Klicken auf das Symbol "Speichern" in der Symbolleiste, drücken Sie STRG + S oder indem Sie im Menü Datei aufrufen und Auswählen von Speichern `Suppliers`.
+Nachdem die berechnete Spalte benennen und Ausdruck eingeben, speichern Sie die Änderungen in der Tabelle durch Klicken auf das Symbol "Speichern" in der Symbolleiste, durch Drücken von STRG + S oder indem Sie auf das Menü "Datei" und Auswählen von Speichern `Suppliers`.
 
-Speichern der Tabelle einschließlich der gerade hinzugefügten Spalte im Server-Explorer aktualisieren sollten die `Suppliers` Spaltenliste s'-Tabelle. Der Ausdruck in das Textfeld (Formel) eingegeben werden darüber hinaus automatisch angepasst, um einen entsprechenden Ausdruck aus, die Spaltennamen in Klammern umgeben unnötige Leerzeichen entfernt (`[]`), sowie Klammern, um mehr explizit anzeigen die Reihenfolge der Vorgänge:
+Speichern der Tabelle sollten aktualisieren, einschließlich der gerade hinzugefügten Spalte im Server-Explorer die `Suppliers` Spaltenliste s'-Tabelle. Der Ausdruck in das Textfeld (Formel) eingegeben werden darüber hinaus automatisch angepasst, um einen entsprechenden Ausdruck aus, die Spaltennamen in Klammern umgeben unnötigen Leerraum entfernt (`[]`), sowie Klammern, um genauere anzeigen die Reihenfolge der Vorgänge:
 
 
 [!code-sql[Main](working-with-computed-columns-vb/samples/sample2.sql)]
 
-Weitere Informationen zu berechneten Spalten in der Microsoft SQL Server, finden Sie in der [technische Dokumentation](https://msdn.microsoft.com/library/ms191250.aspx). Außerdem sehen Sie sich die [How to: Specify Computed Columns](https://msdn.microsoft.com/library/ms188300.aspx) eine schrittweise Anleitung zum Erstellen von berechneten Spalten.
+Weitere Informationen zu berechneten Spalten in der Microsoft SQL Server, finden Sie in der [technische Dokumentation](https://msdn.microsoft.com/library/ms191250.aspx). Sehen Sie sich auch die [Vorgehensweise: Specify Computed Columns](https://msdn.microsoft.com/library/ms188300.aspx) für schrittweise Anleitungen zum Erstellen von berechneten Spalten.
 
 > [!NOTE]
-> Standardmäßig werden berechnete Spalten nicht physisch in der Tabelle gespeichert sind jedoch jedes Mal, wenn diese in einer Abfrage verwiesen wird, werden stattdessen neu berechnet. Überprüfen Sie das Kontrollkästchen wird beibehalten, jedoch können Sie SQL Server, um die berechnete Spalte in der Tabelle physisch gespeichert anweisen. Auf diese Weise kann ein Index für die berechnete Spalte erstellt werden, die die Leistung von Abfragen verbessern können, mit denen der Wert der berechneten Spalte in ihren `WHERE` Klauseln. Finden Sie unter [Erstellen von Indizes für berechnete Spalten](https://msdn.microsoft.com/library/ms189292.aspx) für Weitere Informationen.
+> Standardmäßig berechnete Spalten nicht physisch in der Tabelle gespeichert sind, aber jedes Mal, wenn sie in einer Abfrage verwiesen werden, werden stattdessen neu berechnet. Allerdings können Sie SQL Server, um die berechnete Spalte physisch in der Tabelle zu speichern, indem Sie das Kontrollkästchen wird beibehalten, anweisen. Auf diese Weise kann ein Index für die berechnete Spalte erstellt werden, die die Leistung von Abfragen verbessern können, mit denen der Wert der berechneten Spalte in ihrer `WHERE` Klauseln. Finden Sie unter [Erstellen von Indizes für berechnete Spalten](https://msdn.microsoft.com/library/ms189292.aspx) für Weitere Informationen.
 
 
 ## <a name="step-2-viewing-the-computed-column-s-values"></a>Schritt 2: Anzeigen der Werte für berechnete Spalten s
 
-Bevor wir die Arbeit auf der Datenzugriffsebene beginnen, Let s nehmen Sie sich an den `FullContactName` Werte. Im Server-Explorer mit der Maustaste auf die `Suppliers` Tabellennamen ein, und wählen Sie die neue Abfrage aus dem Kontextmenü. Hierdurch wird ein Abfragefenster angezeigt, die uns, welche Tabellen in der Abfrage wählen aufgefordert werden. Hinzufügen der `Suppliers` Tabelle, und klicken Sie auf Schließen. Überprüfen Sie anschließend die `CompanyName`, `ContactName`, `ContactTitle`, und `FullContactName` Spalten aus der Tabelle "Suppliers". Klicken Sie abschließend auf das Symbol "rotes Ausrufezeichen" in der Symbolleiste, um die Abfrage auszuführen und die Ergebnisse anzuzeigen.
+Bevor wir die Arbeit auf der Datenzugriffsebene beginnen, können Sie s eine Minute dauern, an die `FullContactName` Werte. Im Server-Explorer mit der Maustaste auf die `Suppliers` Tabellennamen ein, und wählen Sie die neue Abfrage aus dem Kontextmenü. Dadurch wird ein Abfragefenster angezeigt, die fordert, wählen Sie die zu Tabellen in der Abfrage eingeschlossen werden sollen. Hinzufügen der `Suppliers` Tabelle, und klicken Sie auf Schließen. Als Nächstes überprüfen Sie die `CompanyName`, `ContactName`, `ContactTitle`, und `FullContactName` Spalten aus der Tabelle "Suppliers". Klicken Sie abschließend auf das rote Ausrufezeichen-Symbol in der Symbolleiste, um die Abfrage auszuführen und die Ergebnisse anzuzeigen.
 
-Wie in Abbildung 2 gezeigt, enthalten die Ergebnisse `FullContactName`, die Listen der `CompanyName`, `ContactName`, und `ContactTitle` Spalten unter Verwendung des Formats `ContactName` (`ContactTitle`, `CompanyName`).
-
-
-[![Die FullContactName verwendet das Format ContactName (ContactTitle, CompanyName)](working-with-computed-columns-vb/_static/image5.png)](working-with-computed-columns-vb/_static/image4.png)
-
-**Abbildung 2**: die `FullContactName` verwendet das Format `ContactName` (`ContactTitle`, `CompanyName`) ([klicken Sie hier, um das Bild in voller Größe angezeigt](working-with-computed-columns-vb/_static/image6.png))
+Wie in Abbildung 2 gezeigt, enthalten die Ergebnisse `FullContactName`, die Listen der `CompanyName`, `ContactName`, und `ContactTitle` Spalten, die mit dem Format `ContactName` (`ContactTitle`, `CompanyName`).
 
 
-## <a name="step-3-adding-thesupplierstableadapterto-the-data-access-layer"></a>Schritt 3: Hinzufügen der`SuppliersTableAdapter`auf der Datenzugriffsebene
+[![Die FullContactName verwendet Format ContactName (ContactTitle, CompanyName)](working-with-computed-columns-vb/_static/image5.png)](working-with-computed-columns-vb/_static/image4.png)
 
-Um mit den Lieferanten in der vorliegenden Anwendung arbeiten muss zunächst ein TableAdapter und einer Datentabelle in unserer DAL erstellt werden. Im Idealfall würde dies erfolgen mithilfe der gleichen einfache Schritte, die in früheren Lernprogramme untersucht. Arbeiten mit berechneten Spalten stellt jedoch einige Falten, die Erläuterung bedürfen.
+**Abbildung 2**: die `FullContactName` verwendet das Format `ContactName` (`ContactTitle`, `CompanyName`) ([klicken Sie, um das Bild in voller Größe anzeigen](working-with-computed-columns-vb/_static/image6.png))
 
-Wenn Sie einen TableAdapter, die Ad-hoc-SQL-Anweisungen verwendet verwenden, können Sie einfach die berechnete Spalte in der TableAdapter Hauptabfrage s über den TableAdapter-Konfigurations-Assistenten einschließen. Hierzu jedoch automatisch generiert `INSERT` und `UPDATE` Anweisungen, die die berechnete Spalte enthalten. Wenn Sie versuchen, eine dieser Methoden Ausführen einer `SqlException` mit der Meldung der Spalte *ColumnName* kann nicht geändert werden, da sie entweder eine berechnete Spalte ist oder das Ergebnis eines UNION-Operators wird ausgelöst. Während der `INSERT` und `UPDATE` Anweisung angepasst werden, manuell über die TableAdapter `InsertCommand` und `UpdateCommand` Eigenschaften, diese Anpassungen gehen verloren, sobald der TableAdapter-Konfigurations-Assistent erneut ausgeführt wird.
 
-Aufgrund der unzulänglichen TableAdapters, die Ad-hoc-SQL-Anweisungen verwenden, wird empfohlen, dass wir bei der Arbeit mit berechneten Spalten gespeicherte Prozeduren verwenden. Wenn Sie vorhandene gespeicherte Prozeduren verwenden, Konfigurieren des TableAdapter einfach wie beschrieben in der [vorhandene gespeicherte Prozeduren verwenden, für die typisierte DataSet s TableAdapters](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md) Lernprogramm. Wenn Sie den TableAdapter-Assistenten, die die gespeicherten Prozeduren erstellt haben, ist es allerdings wichtig, zunächst alle berechneten Spalten aus der Hauptabfrage weglassen. Wenn Sie eine berechnete Spalte in der Hauptabfrage enthalten, informiert der TableAdapter-Konfigurations-Assistent, nach Abschluss des Vorgangs Sie, dass die entsprechenden gespeicherten Prozeduren erstellt werden kann. Kurz gesagt, müssen wir den TableAdapter eine berechnete Spalte frei hauptspeicherpool für Abfragen mit Beginn zu konfigurieren und dann manuell aktualisieren, die entsprechende gespeicherte Prozedur und die TableAdapter `SelectCommand` die berechnete Spalte eingeschlossen werden soll. Dieser Ansatz gleicht die Abfrage verwendet die [Aktualisieren des TableAdapters zu verwendenden](updating-the-tableadapter-to-use-joins-vb.md)`JOIN`*s* Lernprogramm.
+## <a name="step-3-adding-thesupplierstableadapterto-the-data-access-layer"></a>Schritt 3: Hinzufügen der`SuppliersTableAdapter`an die Datenzugriffsebene
 
-Können Sie für dieses Lernprogramm s fügen Sie einen neuen TableAdapter und sorgen sie die gespeicherten Prozeduren automatisch für uns erstellt. Folglich müssen wir zunächst weglassen der `FullContactName` berechnete Spalte aus der Hauptabfrage.
+Für die Arbeit mit den Lieferanteninformationen in unserer Anwendung müssen wir zuerst einen TableAdapter und einer Datentabelle in DAL erstellen. Im Idealfall würde dies erreicht werden mithilfe der gleichen einfache Schritte, die in den vorherigen Tutorials untersucht. Arbeiten mit berechneten Spalten führt jedoch einige Falten, die Erläuterung bedürfen.
 
-Öffnen Sie zunächst die `NorthwindWithSprocs` DataSet in den `~/App_Code/DAL` Ordner. Mit der rechten Maustaste im Designer, und wählen Sie aus dem Kontextmenü, um einen neuen TableAdapter hinzuzufügen. Hierdurch wird der TableAdapter-Konfigurations-Assistent gestartet. Geben Sie zum Abfragen von Daten aus der Datenbank (`NORTHWNDConnectionString` aus `Web.config`), und klicken Sie auf Weiter. Da alle gespeicherten Prozeduren zum Abfragen oder Ändern von noch nicht erstellt haben die `Suppliers` table, aktivieren Sie das Erstellen neue gespeicherte Prozeduren aus, damit der Assistent für uns zu erstellen, und klicken Sie auf Weiter.
+Wenn Sie einen TableAdapter, die Ad-hoc-SQL-Anweisungen verwendet verwenden, können Sie einfach die berechnete Spalte in der TableAdapter der Hauptabfrage s, über den TableAdapter-Konfigurations-Assistenten einschließen. Dies allerdings generiert automatisch `INSERT` und `UPDATE` Anweisungen, die die berechnete Spalte enthalten. Wenn Sie versuchen, eine der folgenden Methoden verwenden, führen Sie eine `SqlException` mit der Nachricht aus der Spalte *ColumnName* kann nicht geändert werden, da sie entweder eine berechnete Spalte oder ist das Ergebnis eines UNION-Operators wird ausgelöst. Während der `INSERT` und `UPDATE` Anweisung angepasst werden, manuell über die TableAdapter `InsertCommand` und `UpdateCommand` Eigenschaften diese Anpassungen gehen verloren, wenn der TableAdapter-Konfigurations-Assistent erneut ausgeführt wird.
+
+Aufgrund der Fehleranfälligkeit des TableAdapters, die Ad-hoc-SQL-Anweisungen verwenden, empfiehlt es sich, dass wir die gespeicherte Prozeduren verwenden, bei der Arbeit mit berechneten Spalten. Wenn Sie vorhandene gespeicherte Prozeduren verwenden, konfigurieren den TableAdapter einfach wie unter der [vorhandene gespeicherte Prozeduren verwenden, für die typisierte DataSet-s TableAdapters](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md) Tutorial. Wenn Sie den TableAdapter-Assistenten, die die gespeicherten Prozeduren für Sie erstellt haben, ist es jedoch wichtig, zunächst alle berechneten Spalten aus der Hauptabfrage auszulassen. Wenn Sie eine berechnete Spalte in der Hauptabfrage enthalten, informiert der TableAdapter-Konfigurations-Assistent, nach Abschluss des Vorgangs Sie, dass die entsprechenden gespeicherten Prozeduren erstellt werden kann. Kurz gesagt, müssen wir den TableAdapter, die mit einer berechneten Spalte kostenfreie Hauptabfrage Beginn zu konfigurieren und aktualisieren Sie anschließend manuell die entsprechende gespeicherte Prozedur und die TableAdapter `SelectCommand` auf die berechnete Spalte enthalten. Dieser Ansatz ist ähnlich wie mit der [aktualisieren für die Verwendung des TableAdapters](updating-the-tableadapter-to-use-joins-vb.md)`JOIN`*s* Tutorial.
+
+In diesem Tutorial können Sie s fügen Sie einen neuen TableAdapter und automatisch die gespeicherten Prozeduren für uns erstellen. Daher müssen wir zunächst lassen Sie die `FullContactName` berechnete Spalte aus der Hauptabfrage.
+
+Öffnen Sie zunächst die `NorthwindWithSprocs` DataSet in den `~/App_Code/DAL` Ordner. Mit der rechten Maustaste im Designer, und wählen Sie aus dem Kontextmenü, um einen neuen TableAdapter hinzuzufügen. Hierdurch wird der TableAdapter-Konfigurations-Assistenten. Geben Sie die Datenbank zum Abfragen von Daten aus (`NORTHWNDConnectionString` aus `Web.config`), und klicken Sie auf Weiter. Da wir alle gespeicherten Prozeduren für Abfragen oder Ändern der noch nicht erstellt haben die `Suppliers` Tabelle, aktivieren Sie das Erstellen, die neue gespeicherte Prozeduren option, damit der Assistent für uns erstellen und klicken Sie auf Weiter.
 
 
 [![Wählen Sie die neuen gespeicherten Prozeduren Option für das Erstellen](working-with-computed-columns-vb/_static/image8.png)](working-with-computed-columns-vb/_static/image7.png)
 
-**Abbildung 3**: Wählen Sie die neuen gespeicherten Prozeduren Option für das Erstellen ([klicken Sie hier, um das Bild in voller Größe angezeigt](working-with-computed-columns-vb/_static/image9.png))
+**Abbildung 3**: Wählen Sie die neuen gespeicherten Prozeduren Option für das Erstellen ([klicken Sie, um das Bild in voller Größe anzeigen](working-with-computed-columns-vb/_static/image9.png))
 
 
-Die nachfolgende Schritt werden uns der Hauptabfrage aufgefordert. Geben Sie die folgende Abfrage gibt die `SupplierID`, `CompanyName`, `ContactName`, und `ContactTitle` Spalten für jeden Lieferanten. Beachten Sie, dass diese Abfrage die berechnete Spalte absichtlich ausgelassen (`FullContactName`); Wir aktualisieren die entsprechende gespeicherte Prozedur, dass diese Spalte in Schritt 4 enthalten.
+Der nachfolgende Schritt verlangt für die Hauptabfrage. Geben Sie die folgende Abfrage aus, wodurch die `SupplierID`, `CompanyName`, `ContactName`, und `ContactTitle` Spalten für jeden Lieferanten. Beachten Sie, dass diese Abfrage absichtlich die berechnete Spalte lässt (`FullContactName`); aktualisieren wir die entsprechende gespeicherte Prozedur aus, dass diese Spalte in Schritt 4 enthalten.
 
 
 [!code-sql[Main](working-with-computed-columns-vb/samples/sample3.sql)]
 
-Nach dem Eingeben der Hauptabfrage und wenn Sie auf Weiter, kann der Assistent Wir nennen Sie die vier gespeicherten Prozeduren aus die es generiert werden. Nennen Sie diese gespeicherten Prozeduren `Suppliers_Select`, `Suppliers_Insert`, `Suppliers_Update`, und `Suppliers_Delete`, wie in Abbildung 4 dargestellt.
+Nach dem Eingeben der Hauptabfrage und anschließend auf klicken, kann der Assistenten wir vier gespeicherten Prozeduren, die er generiert einen Namen. Nennen Sie diese gespeicherten Prozeduren `Suppliers_Select`, `Suppliers_Insert`, `Suppliers_Update`, und `Suppliers_Delete`, wie in Abbildung 4 gezeigt.
 
 
-[![Passen Sie die Namen der automatisch generierten gespeicherten Prozeduren](working-with-computed-columns-vb/_static/image11.png)](working-with-computed-columns-vb/_static/image10.png)
+[![Die Namen der automatisch generierten gespeicherten Prozeduren](working-with-computed-columns-vb/_static/image11.png)](working-with-computed-columns-vb/_static/image10.png)
 
-**Abbildung 4**: die Namen von Auto-Generated gespeicherte Prozeduren ([klicken Sie hier, um das Bild in voller Größe angezeigt](working-with-computed-columns-vb/_static/image12.png))
+**Abbildung 4**: die Namen von Auto-Generated gespeicherte Prozeduren ([klicken Sie, um das Bild in voller Größe anzeigen](working-with-computed-columns-vb/_static/image12.png))
 
 
-Der nächste Assistentenschritt kann wir ein TableAdapter-s-Methoden, und geben die Muster, die zum Zugreifen auf und Aktualisieren von Daten. Belassen Sie alle drei Kontrollkästchen aktiviert, aber Umbenennen der `GetData` aufzurufende Methode `GetSuppliers`. Klicken Sie auf ' Fertig stellen ', um den Assistenten abzuschließen.
+Der nächste Assistentenschritt kann Wir nennen Sie die TableAdapter-s-Methoden, und geben Sie die Muster verwendet, um Daten von und zu aktualisieren. Lassen Sie alle drei Kontrollkästchen aktiviert, aber Umbenennen der `GetData` Methode, um `GetSuppliers`. Klicken Sie auf "Fertig stellen", um den Assistenten abzuschließen.
 
 
 [![Benennen Sie die GetData-Methode in GetSuppliers](working-with-computed-columns-vb/_static/image14.png)](working-with-computed-columns-vb/_static/image13.png)
 
-**Abbildung 5**: Benennen der `GetData` aufzurufende Methode `GetSuppliers` ([klicken Sie hier, um das Bild in voller Größe angezeigt](working-with-computed-columns-vb/_static/image15.png))
+**Abbildung 5**: Benennen der `GetData` Methode, um `GetSuppliers` ([klicken Sie, um das Bild in voller Größe anzeigen](working-with-computed-columns-vb/_static/image15.png))
 
 
-Beim Klicken auf "Fertig stellen" wird der Assistent vier gespeicherte Prozeduren erstellen und Hinzufügen des TableAdapter und die entsprechenden DataTable zu das typisierte DataSet.
+Nach dem Klicken auf "Fertig stellen", wird der Assistent vier gespeicherte Prozeduren erstellen und das typisierte DataSet die TableAdapter und die entsprechende DataTable hinzufügen.
 
-## <a name="step-4-including-the-computed-column-in-the-tableadapter-s-main-query"></a>Schritt 4: Die berechnete Spalte in der Hauptabfrage des TableAdapter s einschließen
+## <a name="step-4-including-the-computed-column-in-the-tableadapter-s-main-query"></a>Schritt 4: Einschließlich der berechneten Spalte in der Hauptabfrage des TableAdapter s
 
-Jetzt müssen wir den TableAdapter aktualisieren und DataTable erstellt in Schritt 3 enthalten die `FullContactName` berechnete Spalte. Dies umfasst zwei Schritte:
+Wir müssen jetzt den TableAdapter zu aktualisieren und DataTable erstellt in Schritt 3 sollen die `FullContactName` berechnete Spalte. Dies umfasst zwei Schritte:
 
-1. Aktualisieren der `Suppliers_Select` gespeicherten Prozedur zurückgeben der `FullContactName` berechnete Spalte ist, und
-2. Aktualisieren von DataTable, um ein entsprechendes enthalten `FullContactName` Spalte.
+1. Aktualisieren der `Suppliers_Select` gespeicherten Prozedur zurückgeben der `FullContactName` berechnete Spalte, und
+2. Aktualisieren die DataTable aus, um die entsprechende include `FullContactName` Spalte.
 
-Starten Sie, indem Sie auf den Server-Explorer navigieren und Drilldowns in den Ordner "Stored Procedures". Öffnen der `Suppliers_Select` gespeicherte Prozedur und ein Update der `SELECT` Abfrage der `FullContactName` berechnete Spalte:
+Starten Sie, indem Sie den Server-Explorer navigieren und einen Drilldown in den Ordner gespeicherte Prozeduren. Öffnen der `Suppliers_Select` gespeicherte Prozedur und ein Update der `SELECT` Abfrage durch Hinzufügen der `FullContactName` berechnete Spalte:
 
 
 [!code-sql[Main](working-with-computed-columns-vb/samples/sample4.sql)]
 
-Speichern Sie die Änderungen an die gespeicherte Prozedur, indem Sie auf das Symbol "Speichern" in der Symbolleiste, durch Drücken von STRG + S oder durch Auswählen von Speichern `Suppliers_Select` Option über das Menü Datei.
+Speichern Sie die Änderungen an die gespeicherte Prozedur, indem Sie auf das Symbol "Speichern" in der Symbolleiste, durch Drücken von STRG + S oder durch Auswählen des Speichervorgangs `Suppliers_Select` Option über das Menü Datei.
 
-Als Nächstes auf der DataSet-Designer zurück, mit der rechten Maustaste auf die `SuppliersTableAdapter`, und wählen Sie aus dem Kontextmenü konfigurieren. Beachten Sie, dass die `Suppliers_Select` Spalte enthält jetzt die `FullContactName` Spalte in der Data Columns-Auflistung.
-
-
-[![Führen Sie den TableAdapter-s-Konfigurations-Assistenten zum Aktualisieren von DataTable-s-Spalten](working-with-computed-columns-vb/_static/image17.png)](working-with-computed-columns-vb/_static/image16.png)
-
-**Abbildung 6**: Führen Sie die TableAdapter-Konfigurations-Assistenten zum Aktualisieren der DataTable-s-Spalten ([klicken Sie hier, um das Bild in voller Größe angezeigt](working-with-computed-columns-vb/_static/image18.png))
+Als Nächstes kehren Sie zur DataSet-Designer zurück, mit der rechten Maustaste auf die `SuppliersTableAdapter`, und wählen Sie aus dem Kontextmenü konfigurieren. Beachten Sie, dass die `Suppliers_Select` Spalte enthält jetzt die `FullContactName` Spalte in der Data Columns-Auflistung.
 
 
-Klicken Sie auf ' Fertig stellen ', um den Assistenten abzuschließen. Dadurch wird automatisch hinzugefügt, eine entsprechende Spalte der `SuppliersDataTable`. TableAdapter-Assistenten ist intelligent genug, um zu erkennen, die die `FullContactName` Spalte ist eine berechnete Spalte und daher schreibgeschützt. Folglich wird die Spalte s `ReadOnly` Eigenschaft `true`. Um dies zu überprüfen, wählen Sie die Spalte aus der `SuppliersDataTable` und fahren Sie mit dem Eigenschaftenfenster (siehe Abbildung 7). Beachten Sie, dass die `FullContactName` Spalte s `DataType` und `MaxLength` Eigenschaften werden auch entsprechend festgelegt.
+[![Führen Sie den TableAdapter-s-Konfigurations-Assistenten zum Aktualisieren der DataTable-s-Spalten](working-with-computed-columns-vb/_static/image17.png)](working-with-computed-columns-vb/_static/image16.png)
+
+**Abbildung 6**: Führen Sie die TableAdapter-Konfigurations-Assistenten zum Aktualisieren der DataTable-s-Spalten ([klicken Sie, um das Bild in voller Größe anzeigen](working-with-computed-columns-vb/_static/image18.png))
+
+
+Klicken Sie auf "Fertig stellen", um den Assistenten abzuschließen. Hiermit wird automatisch eine entsprechende Spalte der `SuppliersDataTable`. Der TableAdapter-Assistent ist intelligent genug, um zu ermitteln, die `FullContactName` Spalte ist eine berechnete Spalte und daher schreibgeschützt. Daher wird die Spalte s `ReadOnly` Eigenschaft `true`. Um dies zu überprüfen, wählen Sie die Spalte in der `SuppliersDataTable` und fahren Sie mit dem Fenster "Eigenschaften" (siehe Abbildung 7). Beachten Sie, dass die `FullContactName` s'-Spalte `DataType` und `MaxLength` Eigenschaften werden auch entsprechend festgelegt.
 
 
 [![Die FullContactName-Spalte ist als schreibgeschützt gekennzeichnet.](working-with-computed-columns-vb/_static/image20.png)](working-with-computed-columns-vb/_static/image19.png)
 
-**Abbildung 7**: die `FullContactName` Spalte ist als schreibgeschützt gekennzeichnet ([klicken Sie hier, um das Bild in voller Größe angezeigt](working-with-computed-columns-vb/_static/image21.png))
+**Abbildung 7**: die `FullContactName` Spalte ist als schreibgeschützt gekennzeichnet ([klicken Sie, um das Bild in voller Größe anzeigen](working-with-computed-columns-vb/_static/image21.png))
 
 
-## <a name="step-5-adding-agetsupplierbysupplieridmethod-to-the-tableadapter"></a>Schritt 5: Hinzufügen einer`GetSupplierBySupplierID`aufzurufende Methode des TableAdapter
+## <a name="step-5-adding-agetsupplierbysupplieridmethod-to-the-tableadapter"></a>Schritt 5: Hinzufügen einer`GetSupplierBySupplierID`Methode dem TableAdapter
 
-Für dieses Lernprogramm erstellen wir eine ASP.NET-Seite auf, die die Lieferanten in einer aktualisierbaren Tabelle anzeigt. In wurden hinter Lernprogramme wir aktualisiert einen einzelnen Datensatz aus der Business Logic Layer durch Abrufen, DAL zum Weitergeben von Änderungen an bestimmten Datensatz von der DAL als stark typisierte DataTable, aktualisieren die Eigenschaften und anschließendes Senden der aktualisierten DataTable zurück die Datenbank. Im ersten Schritt – Abrufen der den aktualisierten Datensatz gelesen von der DAL - Durchführung wir müssen zunächst eine `GetSupplierBySupplierID(supplierID)` Methode, um der DAL.
+In diesem Tutorial erstellen wir eine ASP.NET-Seite, die die Lieferanten in einer aktualisierbaren Tabelle anzeigt. In wurden nach Tutorials wir aktualisiert ein einzelnes Datensatzes aus der Geschäftslogikebene von bestimmten Datensatz von der DAL als stark typisierte DataTable, aktualisieren die Eigenschaften und anschließendes Senden der aktualisierten DataTable an die DAL senden, um die Änderungen weiterzugeben sichern wird abgerufen die Datenbank. Zum Durchführen dieses ersten Schritts – Abrufen des Datensatzes aktualisiert wird, von der DAL - müssen wir zuerst eine `GetSupplierBySupplierID(supplierID)` Methode, um die DAL.
 
-Mit der rechten Maustaste auf die `SuppliersTableAdapter` DataSet entwerfen, und wählen Sie aus dem Kontextmenü die Option der Abfrage hinzufügen. Wie in Schritt 3, können Sie den Assistenten eine neue gespeicherte Prozedur für uns zu generieren, indem Sie die Option erstellen neue gespeicherte Prozedur (siehe Abbildung 3 für einen Screenshot der dieser Schritt des Assistenten). Da diese Methode einen Datensatz mit mehreren Spalten zurückgibt, geben Sie an, dass wir verwenden möchten, verwenden Sie eine SQL-Abfrage, die eine SELECT-Anweisung ist die Zeilen zurückgibt, und klicken Sie auf Weiter.
-
-
-[![Wählen Sie wählen die Option-Zeilen zurückgibt](working-with-computed-columns-vb/_static/image23.png)](working-with-computed-columns-vb/_static/image22.png)
-
-**Abbildung 8**: Wählen Sie die wählen Sie die Zeilen Option zurückgibt ([klicken Sie hier, um das Bild in voller Größe angezeigt](working-with-computed-columns-vb/_static/image24.png))
+Mit der rechten Maustaste auf die `SuppliersTableAdapter` DataSet entwerfen, und wählen Sie aus dem Kontextmenü die Option "hinzufügen". Wie in Schritt 3 können Sie den Assistenten eine neue gespeicherte Prozedur für uns zu generieren, indem die Erstellungsoption neue gespeicherte Prozedur (siehe Abbildung 3 einen Screenshot der dieser Schritt des Assistenten). Da diese Methode einen Datensatz mit mehreren Spalten zurückgibt, anzugeben Sie, dass wir verwenden möchten, verwenden Sie eine SQL-Abfrage, die eine SELECT-Anweisung ist die Zeilen zurückgibt, und klicken Sie auf Weiter.
 
 
-Die nachfolgende Schritt fordert "us" für die Abfrage für diese Methode verwendet. Geben Sie Folgendes ein, die die gleichen Datenfelder wie der Hauptabfrage jedoch für einen bestimmten Lieferanten zurückgibt.
+[![Wählen Sie die wählen die Option-Zeilen zurückgibt](working-with-computed-columns-vb/_static/image23.png)](working-with-computed-columns-vb/_static/image22.png)
+
+**Abbildung 8**: Wählen Sie die Auswahl, welche die Zeilen Option zurückgibt ([klicken Sie, um das Bild in voller Größe anzeigen](working-with-computed-columns-vb/_static/image24.png))
+
+
+Der nachfolgende Schritt fordert uns für die Abfrage, die für diese Methode verwendet. Geben Sie Folgendes, die die gleichen Datenfelder wie die Hauptabfrage jedoch für einen bestimmten Lieferanten zurückgibt.
 
 
 [!code-sql[Main](working-with-computed-columns-vb/samples/sample5.sql)]
 
-Der nächste Bildschirm fordert uns auf den Namen der gespeicherten Prozedur, die automatisch generiert werden. Nennen Sie diese gespeicherte Prozedur `Suppliers_SelectBySupplierID` , und klicken Sie auf Weiter.
+Im nächste Bildschirm fordert uns, die Namen der gespeicherten Prozedur, die automatisch generiert werden. Nennen Sie diese gespeicherte Prozedur `Suppliers_SelectBySupplierID` , und klicken Sie auf Weiter.
 
 
 [![Name der gespeicherten Prozedur Suppliers_SelectBySupplierID](working-with-computed-columns-vb/_static/image26.png)](working-with-computed-columns-vb/_static/image25.png)
 
-**Abbildung 9**: Benennen Sie die gespeicherte Prozedur `Suppliers_SelectBySupplierID` ([klicken Sie hier, um das Bild in voller Größe angezeigt](working-with-computed-columns-vb/_static/image27.png))
+**Abbildung 9**: Benennen Sie die gespeicherte Prozedur `Suppliers_SelectBySupplierID` ([klicken Sie, um das Bild in voller Größe anzeigen](working-with-computed-columns-vb/_static/image27.png))
 
 
-Schließlich der Assistent fordert "us" für die Daten Muster und Methodennamen, verwenden Sie für den TableAdapter zugreifen. Lassen Sie beide Kontrollkästchen aktiviert, aber Umbenennen der `FillBy` und `GetDataBy` Methoden `FillBySupplierID` und `GetSupplierBySupplierID`bzw.
+Abschließend Anweisungen des Assistenten "us" für die Daten Zugriff auf Muster und Methodennamen, der für den TableAdapter verwendet. Lassen Sie beide Kontrollkästchen aktiviert, aber Umbenennen der `FillBy` und `GetDataBy` Methoden `FillBySupplierID` und `GetSupplierBySupplierID`bzw.
 
 
-[![Name der TableAdapter-Methoden FillBySupplierID und GetSupplierBySupplierID](working-with-computed-columns-vb/_static/image29.png)](working-with-computed-columns-vb/_static/image28.png)
+[![Name der TableAdapter-Methoden-FillBySupplierID und GetSupplierBySupplierID](working-with-computed-columns-vb/_static/image29.png)](working-with-computed-columns-vb/_static/image28.png)
 
-**Abbildung 10**: Benennen Sie die TableAdapter-Methoden `FillBySupplierID` und `GetSupplierBySupplierID` ([klicken Sie hier, um das Bild in voller Größe angezeigt](working-with-computed-columns-vb/_static/image30.png))
+**Abbildung 10**: Benennen Sie den TableAdapter-Methoden `FillBySupplierID` und `GetSupplierBySupplierID` ([klicken Sie, um das Bild in voller Größe anzeigen](working-with-computed-columns-vb/_static/image30.png))
 
 
-Klicken Sie auf ' Fertig stellen ', um den Assistenten abzuschließen.
+Klicken Sie auf "Fertig stellen", um den Assistenten abzuschließen.
 
 ## <a name="step-6-creating-the-business-logic-layer"></a>Schritt 6: Erstellen der Geschäftslogikebene
 
-Bevor wir eine ASP.NET-Seite erstellen, die berechnete Spalte, die in Schritt 1 erstellten verwendet, müssen wir zunächst die entsprechenden Methoden in der BLL hinzufügen. Unsere ASP.NET-Seite, die wir in Schritt 7 erstellt werden, ermöglicht Benutzern das Anzeigen und Bearbeiten von Lieferanten. Deshalb benötigen wir unsere BLL um mindestens eine Methode zum Abrufen aller Lieferanten und ein anderes zum Aktualisieren eines bestimmten Lieferanten bereitzustellen.
+Bevor wir eine ASP.NET-Seite, die die berechnete Spalte, die in Schritt 1 erstellte verwendet erstellen, müssen wir zunächst die entsprechenden Methoden der Geschäftslogikschicht hinzu. Unsere ASP.NET-Seite, dadurch wird es in Schritt 7 erstellt werden, können Benutzer anzeigen und Bearbeiten von Lieferanten. Daher benötigen wir unsere BLL, mindestens eine Methode zum Abrufen aller Lieferanten und eine weitere zum Aktualisieren eines bestimmten Lieferanten zu bieten.
 
-Erstellen Sie eine neue Klassendatei mit dem Namen `SuppliersBLLWithSprocs` in den `~/App_Code/BLL` Ordner, und fügen Sie den folgenden Code hinzu:
+Erstellen Sie eine neue Klassendatei mit dem Namen `SuppliersBLLWithSprocs` in die `~/App_Code/BLL` Ordner, und fügen Sie den folgenden Code hinzu:
 
 
 [!code-vb[Main](working-with-computed-columns-vb/samples/sample6.vb)]
 
-Wie die anderen Klassen BLL, `SuppliersBLLWithSprocs` verfügt über eine `Protected` `Adapter` -Eigenschaft, die eine Instanz zurückgegeben der `SuppliersTableAdapter` Klasse zusammen mit zwei `Public` Methoden: `GetSuppliers` und `UpdateSupplier`. Die `GetSuppliers` Methode aufruft, und gibt die `SuppliersDataTable` zurückgegeben, die mit den entsprechenden `GetSupplier` Methode in der Datenzugriffsebene. Die `UpdateSupplier` Methode ruft Informationen zu den bestimmten Lieferanten, die über einen Aufruf an die DAL s aktualisiert `GetSupplierBySupplierID(supplierID)` Methode. Anschließend aktualisiert der `CategoryName`, `ContactName`, und `ContactTitle` Eigenschaften und führt einen Commit dieser Änderungen auf die Datenbank durch Aufrufen der Datenzugriffsebene s `Update` -Methode auf und übergibt den geänderten `SuppliersRow` Objekt.
+Wie die anderen Klassen BLL, `SuppliersBLLWithSprocs` verfügt über eine `Protected` `Adapter` -Eigenschaft, die eine Instanz der zurückgibt der `SuppliersTableAdapter` Klasse zusammen mit zwei `Public` Methoden: `GetSuppliers` und `UpdateSupplier`. Die `GetSuppliers` Methode aufruft, und gibt die `SuppliersDataTable` zurückgegeben, die mit den entsprechenden `GetSupplier` -Methode in der Datenzugriffsebene. Die `UpdateSupplier` Methode ruft Informationen zu den bestimmten Lieferanten, die über einen Aufruf an die DAL s aktualisiert `GetSupplierBySupplierID(supplierID)` Methode. Klicken Sie dann aktualisiert die `CategoryName`, `ContactName`, und `ContactTitle` Eigenschaften und übernimmt diese Änderungen in der Datenbank durch Aufrufen der Datenzugriffsebene s `Update` Methode und übergeben die geänderte `SuppliersRow` Objekt.
 
 > [!NOTE]
-> Mit Ausnahme von `SupplierID` und `CompanyName`, können Sie alle Spalten in der Tabelle "Suppliers" `NULL` Werte. Aus diesem Grund Wenn übergebenen `contactName` oder `contactTitle` Parameter sind `Nothing` wir müssen die entsprechenden festlegen `ContactName` und `ContactTitle` Eigenschaften einer `NULL` Datenbank Wert mithilfe der `SetContactNameNull` und `SetContactTitleNull`Methoden bzw.
+> Mit Ausnahme von `SupplierID` und `CompanyName`, können Sie alle Spalten in der Tabelle "Suppliers" `NULL` Werte. Aus diesem Grund Wenn der übergegebenen `contactName` oder `contactTitle` Parameter sind `Nothing` müssen wir legen Sie die entsprechende `ContactName` und `ContactTitle` Eigenschaften, die eine `NULL` Datenbank mithilfe der `SetContactNameNull` und `SetContactTitleNull`Methoden bzw.
 
 
-## <a name="step-7-working-with-the-computed-column-from-the-presentation-layer"></a>Schritt 7: Arbeiten mit der berechneten Spalte aus der Darstellungsschicht
+## <a name="step-7-working-with-the-computed-column-from-the-presentation-layer"></a>Schritt 7: Arbeiten mit der berechneten Spalte auf der Darstellungsschicht
 
-Mit der berechneten Spalte hinzugefügt, die `Suppliers` Tabelle, die DAL und BLL entsprechend aktualisiert, wir können zu eine ASP.NET-Seite zu erstellen, die mit der `FullContactName` berechnete Spalte. Öffnen Sie zunächst die `ComputedColumns.aspx` auf der Seite der `AdvancedDAL` Ordner, und ziehen Sie eine GridView aus der Toolbox in den Designer. Legen Sie die GridView s `ID` Eigenschaft `Suppliers` und aus seinem Smarttag binden Sie es an eine neue ObjectDataSource mit dem Namen `SuppliersDataSource`. Konfigurieren der ObjectDataSource verwenden die `SuppliersBLLWithSprocs` Klasse, die wir hinzugefügt, in Schritt 6 sichern, und klicken Sie auf Weiter.
-
-
-[![Konfigurieren der ObjectDataSource zur Verwendung der SuppliersBLLWithSprocs-Klasse](working-with-computed-columns-vb/_static/image32.png)](working-with-computed-columns-vb/_static/image31.png)
-
-**Abbildung 11**: Konfigurieren der ObjectDataSource verwenden die `SuppliersBLLWithSprocs` Klasse ([klicken Sie hier, um das Bild in voller Größe angezeigt](working-with-computed-columns-vb/_static/image33.png))
+Mit der berechneten Spalte hinzugefügt, die `Suppliers` Tabelle und der DAL und BLL entsprechend aktualisiert, wir können eine ASP.NET-Seite erstellen, die mit der `FullContactName` berechnete Spalte. Öffnen Sie zunächst die `ComputedColumns.aspx` auf der Seite die `AdvancedDAL` Ordner, und ziehen Sie einer GridView-Ansicht aus der Toolbox in den Designer. Legen Sie die GridView s `ID` Eigenschaft `Suppliers` und von sein Smarttag, binden Sie es an eine neue, mit dem Namen "ObjectDataSource" `SuppliersDataSource`. Konfigurieren Sie mit dem ObjectDataSource-Steuerelement die `SuppliersBLLWithSprocs` Klasse, die wir hinzugefügt, in Schritt 6 zurück, und klicken Sie auf Weiter.
 
 
-Es gibt nur zwei Methoden definiert, der `SuppliersBLLWithSprocs` Klasse: `GetSuppliers` und `UpdateSupplier`. Stellen Sie sicher, dass diese beiden Methoden werden in die SELECT-Anweisung angegeben bzw. Aktualisieren der Registerkarten, und klicken Sie auf "Fertig stellen", um die Konfiguration der ObjectDataSource abzuschließen.
+[![Konfigurieren von dem ObjectDataSource-Steuerelement zur Verwendung der SuppliersBLLWithSprocs-Klasse](working-with-computed-columns-vb/_static/image32.png)](working-with-computed-columns-vb/_static/image31.png)
 
-Nach Abschluss des Assistenten zum Konfigurieren von Datenquellen wird Visual Studio ein BoundField für jede der Datenfelder zurückgegeben hinzufügen. Entfernen der `SupplierID` BoundField und ändern Sie die `HeaderText` Eigenschaften der `CompanyName`, `ContactName`, `ContactTitle`, und `FullContactName` BoundFields Unternehmen, Contact Name, Titel und vollständige Contact Name bzw. Aktivieren Sie das Kontrollkästchen Bearbeiten aktivieren, um die GridView s integrierten Bearbeitungsfunktionen zu aktivieren, aus dem Smarttag.
+**Abbildung 11**: Konfigurieren von dem ObjectDataSource-Steuerelement verwenden die `SuppliersBLLWithSprocs` Klasse ([klicken Sie, um das Bild in voller Größe anzeigen](working-with-computed-columns-vb/_static/image33.png))
 
-Zusätzlich zum Hinzufügen von BoundFields an die GridView, Abschluss des Datenquellen-Assistenten auch bewirkt, dass Visual Studio, um das ObjectDataSource-s `OldValuesParameterFormatString` Eigenschaft ursprünglichen\_{0}. Diese Einstellung wieder auf den Standardwert {0} zurückgesetzt werden.
 
-Nach dieser Änderungen an die GridView und ObjectDataSource vorgenommen werden, sollte ihre deklarative Markup etwa wie folgt aussehen:
+Es gibt nur zwei Methoden, die definiert, der `SuppliersBLLWithSprocs` Klasse: `GetSuppliers` und `UpdateSupplier`. Stellen Sie sicher, dass diese beiden Methoden werden in die SELECT-Anweisung angegeben bzw. Aktualisieren von Registerkarten, und klicken Sie auf "Fertig stellen", um die Konfiguration von dem ObjectDataSource-Steuerelement abzuschließen.
+
+Nach Abschluss des Assistenten zum Konfigurieren von Datenquellen wird Visual Studio eine BoundField für jede der die zurückgegebenen Datenfelder hinzugefügt. Entfernen der `SupplierID` BoundField, und ändern Sie die `HeaderText` Eigenschaften der `CompanyName`, `ContactName`, `ContactTitle`, und `FullContactName` BoundFields zu Unternehmen, Contact Name, Titel und vollständiger Name sein wenden Sie sich an, bzw. Überprüfen Sie aus dem Smarttag das Kontrollkästchen Bearbeiten aktivieren, um den integrierten Bearbeitungsfunktionen für s GridView zu aktivieren.
+
+Zusätzlich zum Hinzufügen von BoundFields an die GridView, Abschluss des Datenquellen-Assistenten auch bewirkt, dass Visual Studio, um das "ObjectDataSource"-s festgelegt `OldValuesParameterFormatString` Eigenschaft, um die ursprüngliche\_{0}. Wiederherstellen, diese Einstellung wieder auf den Standardwert {0} .
+
+Nachdem Sie diese Änderungen an die GridView und "ObjectDataSource" vornehmen, sollte ihre deklarative Markup etwa wie folgt aussehen:
 
 
 [!code-aspx[Main](working-with-computed-columns-vb/samples/sample7.aspx)]
 
-Als Nächstes finden Sie auf dieser Seite über einen Browser. Wie Abbildung 12 zeigt, wird der einzelnen Lieferanten aufgeführt, in ein Raster mit den enthält die `FullContactName` Spalte, deren Wert einfach die Verkettung von den anderen drei Spalten ist als formatierte `ContactName` (`ContactTitle`, `CompanyName`).
+Dann besuchen Sie diese Seite über einen Browser ein. Wie in Abbildung 12 gezeigt, enthält der einzelnen Lieferanten in einem Raster an, die enthält die `FullContactName` Spalte, deren Wert einfach die Verkettung von den anderen drei Spalten ist formatiert als `ContactName` (`ContactTitle`, `CompanyName`).
 
 
-[![Jeder Lieferant wird im Raster aufgeführt.](working-with-computed-columns-vb/_static/image35.png)](working-with-computed-columns-vb/_static/image34.png)
+[![Jeder Anbieter wird im Raster aufgeführt.](working-with-computed-columns-vb/_static/image35.png)](working-with-computed-columns-vb/_static/image34.png)
 
-**Abbildung 12**: jede Lieferanten wird im Raster aufgeführt ([klicken Sie hier, um das Bild in voller Größe angezeigt](working-with-computed-columns-vb/_static/image36.png))
-
-
-Klicken auf die Schaltfläche "Bearbeiten" für ein bestimmter Lieferanten einen Postback verursacht, und diese Zeile im gerenderten dessen Bearbeitung Schnittstelle (siehe Abbildung 13). Die ersten drei Spalten, wie in der Standardeinstellung Schnittstelle Bearbeiten gerendert – ein TextBox-Steuerelement, dessen `Text` Eigenschaft auf den Wert des Feld "Daten" festgelegt ist. Die `FullContactName` Spalte bleibt jedoch als Text. Bei der BoundFields an die GridView nach dem Abschluss des Assistenten Datenquellenkonfiguration hinzugefügt wurden die `FullContactName` BoundField-s `ReadOnly` -Eigenschaft wurde festgelegt, um `True` da das entsprechende `FullContactName` Spalte in der `SuppliersDataTable` hat ihre `ReadOnly` -Eigenschaftensatz auf `True`. Wie in Schritt 4 notiert die `FullContactName` s `ReadOnly` -Eigenschaft wurde festgelegt, um `True` TableAdapter erkannt, dass die Spalte eine berechnete Spalte war.
+**Abbildung 12**: jede Lieferanten finden Sie im Raster ([klicken Sie, um das Bild in voller Größe anzeigen](working-with-computed-columns-vb/_static/image36.png))
 
 
-[![Die FullContactName-Spalte kann nicht bearbeitet werden](working-with-computed-columns-vb/_static/image38.png)](working-with-computed-columns-vb/_static/image37.png)
-
-**Abbildung 13**: die `FullContactName` Spalte kann nicht bearbeitet werden ([klicken Sie hier, um das Bild in voller Größe angezeigt](working-with-computed-columns-vb/_static/image39.png))
+Auf die Schaltfläche "Bearbeiten", für die ein bestimmter Lieferant ein Postback auslöst und diese Zeile wurde gerendert werden, dessen Bearbeitung Schnittstelle (siehe Abbildung 13). Die ersten drei Spalten in den Standardwert bearbeiten-Schnittstelle zu rendern: ein TextBox-Steuerelement, dessen `Text` -Eigenschaftensatz auf den Wert des Felds. Die `FullContactName` Spalte bleibt jedoch als Text. Bei der BoundFields an die GridView nach dem Abschluss des Assistenten zum Konfigurieren von Datenquellen hinzugefügt wurden die `FullContactName` BoundField-s `ReadOnly` -Eigenschaft wurde festgelegt, um `True` da das entsprechende `FullContactName` -Spalte in der `SuppliersDataTable` verfügt über seine `ReadOnly` -Eigenschaftensatz auf `True`. Wie in Schritt 4 erwähnt die `FullContactName` s `ReadOnly` -Eigenschaft wurde festgelegt, um `True` da TableAdapter erkannt, dass die Spalte eine berechnete Spalte ist.
 
 
-Fahren Sie fort, und aktualisieren Sie den Wert aus einem oder mehreren Spalten bearbeitet werden, und klicken Sie auf aktualisieren. Hinweis wie die `FullContactName` s-Wert wird automatisch aktualisiert, um die Änderung widerzuspiegeln.
+[![Die FullContactName-Spalte kann nicht bearbeitet werden.](working-with-computed-columns-vb/_static/image38.png)](working-with-computed-columns-vb/_static/image37.png)
+
+**Abbildung 13**: die `FullContactName` Spalte kann nicht bearbeitet werden ([klicken Sie, um das Bild in voller Größe anzeigen](working-with-computed-columns-vb/_static/image39.png))
+
+
+Fahren Sie fort, und aktualisieren Sie den Wert von einem oder mehreren Spalten bearbeitet werden, und klicken Sie auf aktualisieren. Beachten Sie die `FullContactName` s-Wert wird automatisch aktualisiert, um die Änderung zu übernehmen.
 
 > [!NOTE]
-> Die GridView verwendet derzeit BoundFields für die Elemente bearbeitet, wodurch der Standardbereich Schnittstelle bearbeiten. Da die `CompanyName` Feld ist erforderlich, sie sollten in ein, die einen RequiredFieldValidator enthält TemplateField konvertiert werden. Ich lassen Sie dieses als Übung für die gewünschten Reader. Wenden Sie sich an den [Validierungssteuerelemente hinzufügen, bearbeiten und Einfügen von Schnittstellen](../editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md) Tutorial schrittweise Anleitung zum Hinzufügen von Steuerelementen für die Validierung und ein BoundField in ein TemplateField konvertiert.
+> Das GridView verwendet derzeit BoundFields für die Felder bearbeitet werden, wodurch der Standardbereich bearbeiten-Schnittstelle. Da die `CompanyName` Feld ist erforderlich, es in ein TemplateField, die einen RequiredFieldValidator enthält konvertiert werden sollen. Ich lassen Sie dieses als Übung für den interessierten Leser. Wenden Sie sich an den [Hinzufügen von Steuerelementen zur gültigkeitsprüfung zum Bearbeiten und Einfügen von Schnittstellen](../editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md) Tutorial für-Schritt-Anweisungen eine BoundField in ein TemplateField konvertieren und Hinzufügen von Validierungssteuerelementen.
 
 
 ## <a name="summary"></a>Zusammenfassung
 
-Wenn Sie das Schema für eine Tabelle definieren, können Microsoft SQL Server die Einbindung von berechneten Spalten. Dies sind die Spalten, deren Werte aus einem Ausdruck berechnet werden, die die Werte aus anderen Spalten in den gleichen Datensatz in der Regel verweist. Da die Werte, für berechnete Spalten in einem Ausdruck basieren sie sind schreibgeschützt und kann einen Wert in zugewiesen werden ein `INSERT` oder `UPDATE` Anweisung. Dies stellt die Herausforderung dar, wenn eine berechnete Spalte in der Hauptabfrage des TableAdapter verwenden, die zum automatischen Generieren von entsprechenden versucht `INSERT`, `UPDATE`, und `DELETE` Anweisungen.
+Wenn Sie das Schema für eine Tabelle zu definieren, können Microsoft SQL Server die Einbeziehung von berechneten Spalten. Hierbei handelt es sich um Spalten, deren Werte aus einem Ausdruck berechnet werden, die die Werte in der Regel von anderen Spalten in den gleichen Datensatz verweist. Da die Werte, für berechnete Spalten in einem Ausdruck basieren sie sind schreibgeschützt und kann nicht zugewiesen werden einen Wert in eine `INSERT` oder `UPDATE` Anweisung. Dies führt Herausforderungen, wenn eine berechnete Spalte in der Hauptabfrage des TableAdapter zu verwenden, die versucht, die zum automatischen Generieren von entsprechenden `INSERT`, `UPDATE`, und `DELETE` Anweisungen.
 
-In diesem Lernprogramm erläutert Techniken für die Herausforderungen, die Bedrohung durch berechnete Spalten umgehen. Insbesondere verwendet es gespeicherte Prozeduren in unserer TableAdapter, um die TableAdapters innewohnende unzulänglichen überwunden werden, die Ad-hoc-SQL-Anweisungen verwenden. Wenn Sie Prozeduren mit dem TableAdapter-Assistenten neu erstellen gespeicherte, ist es wichtig, wir haben die Hauptabfrage anfänglich alle berechneten Spalten auslassen, da deren Vorhandensein verhindert, dass die Datenänderung gespeicherte Prozeduren generiert wird. Nachdem der TableAdapter ursprünglich konfiguriert wurde, dessen `SelectCommand` gespeicherte Prozedur retooled werden kann, um berechnete Spalten enthalten.
+In diesem Tutorial erläutert die Verfahren zum Umgehen der Herausforderungen, berechneten Spalten darstellen. Insbesondere verwendet wir gespeicherte Prozeduren in unserer TableAdapter, um der inhärenten TableAdapters Fehleranfälligkeit zu umgehen, die Ad-hoc-SQL-Anweisungen verwenden. Wenn Sie Prozeduren mit den TableAdapter-Assistenten neu erstellen gespeicherte, ist es wichtig, wir haben die Hauptabfrage anfänglich alle berechneten Spalten auslassen, da ihre Anwesenheit verhindert, dass die gespeicherten Änderungsprozeduren Daten generiert wird. Nachdem der TableAdapter ursprünglich konfiguriert wurde, dessen `SelectCommand` gespeicherte Prozedur retooled werden kann, um eine berechnete Spalte enthalten.
 
 Viel Spaß beim Programmieren!
 
-## <a name="about-the-author"></a>Informationen zum Autor
+## <a name="about-the-author"></a>Der Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben Büchern zu ASP/ASP.NET und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), arbeitet mit Microsoft-Web-Technologien seit 1998. Er ist als ein unabhängiger Berater, Schulungsleiter und Autor. Sein neueste Buch wird [*Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er ist unter [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
-Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurden Hilton Geisenow und Teresa Murphy. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Diese tutorialreihe wurde durch viele hilfreiche Reviewer überprüft. Führendes Prüfer für dieses Tutorial wurden Hilton Geisenow und Teresa Murphy. Meine zukünftigen MSDN-Artikeln überprüfen möchten? Wenn dies der Fall ist, löschen Sie mir eine Linie an [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Zurück](adding-additional-datatable-columns-vb.md)

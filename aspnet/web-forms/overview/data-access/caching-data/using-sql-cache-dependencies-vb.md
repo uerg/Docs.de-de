@@ -1,324 +1,323 @@
 ---
 uid: web-forms/overview/data-access/caching-data/using-sql-cache-dependencies-vb
-title: Mithilfe von SQL-Cache-Abhängigkeiten (VB) | Microsoft Docs
+title: Verwenden von SQL-Cacheabhängigkeiten (VB) | Microsoft-Dokumentation
 author: rick-anderson
-description: Die einfachste zwischenspeicherstrategie werden zwischengespeicherte Daten nach einer festgelegten Zeitspanne ablaufen zu lassen. Aber diese einfache Ansatz bedeutet, dass die zwischengespeicherten Daten Maintai...
+description: Die einfachste zwischenspeicherstrategie werden zwischengespeicherte Daten nach einer angegebenen Zeitspanne ablaufen können. Aber diese einfache Vorgehensweise bedeutet, dass die zwischengespeicherten Daten Maintai...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/30/2007
 ms.topic: article
 ms.assetid: bd347d93-4251-4532-801c-a36f2dfa7f96
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/using-sql-cache-dependencies-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 452d856fe352ef2eb7dfcc3f3acd6aa5bcb5ae41
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
-ms.translationtype: MT
+ms.openlocfilehash: 74692fb7018cd75e29afc6d5852caddfdac1ed06
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30878372"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37379844"
 ---
-<a name="using-sql-cache-dependencies-vb"></a>Mithilfe von SQL-Cache-Abhängigkeiten (VB)
+<a name="using-sql-cache-dependencies-vb"></a>Verwenden von SQL-Cacheabhängigkeiten (VB)
 ====================
 durch [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Herunterladen von Code](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_61_VB.zip) oder [PDF herunterladen](using-sql-cache-dependencies-vb/_static/datatutorial61vb1.pdf)
+[Code herunterladen](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_61_VB.zip) oder [PDF-Datei herunterladen](using-sql-cache-dependencies-vb/_static/datatutorial61vb1.pdf)
 
-> Die einfachste zwischenspeicherstrategie werden zwischengespeicherte Daten nach einer festgelegten Zeitspanne ablaufen zu lassen. Aber diese einfache Ansatz bedeutet, dass die zwischengespeicherten Daten verwaltet, mit der zugrunde liegenden Datenquelle, was veraltete Daten, die zu lang gehalten werden oder die aktuellen Daten, die zu früh abgelaufen ist. Ein besserer Ansatz ist die Verwendung von SqlCacheDependency-Klasse, sodass Daten zwischengespeichert bleiben, bis die zugrunde liegenden Daten in der SQL-Datenbank geändert wurde. In diesem Lernprogramm erfahren Sie, wie.
+> Die einfachste zwischenspeicherstrategie werden zwischengespeicherte Daten nach einer angegebenen Zeitspanne ablaufen können. Dieser einfache Ansatz bedeutet jedoch, dass die zwischengespeicherten Daten verwaltet, mit der zugrunde liegenden Datenquelle, sodass sich die veraltete Daten zu lang oder aktuelle Daten, die zu früh abgelaufen ist. Ein besserer Ansatz ist die Verwendung die SqlCacheDependency-Klasse, damit Daten zwischengespeichert bleiben, bis die zugrunde liegenden Daten in der SQL-Datenbank geändert wurde. In diesem Tutorial erfahren Sie, wie.
 
 
 ## <a name="introduction"></a>Einführung
 
-Das zwischenspeichernden Techniken in untersucht die [Zwischenspeichern von Daten mit der ObjectDataSource](caching-data-with-the-objectdatasource-vb.md) und [Zwischenspeichern von Daten in der Architektur](caching-data-in-the-architecture-vb.md) Lernprogramme verwendet eine zeitbasierte Ablauf So entfernen Sie die Daten aus dem Cache nach einem angegebenen Zeitraum. Dieser Ansatz ist die einfachste Möglichkeit, um die Leistungsvorteile des Zwischenspeicherns für Daten Überalterung auszugleichen. Durch Auswahl einer Zeit Ablauf *x* Sekunden, der Entwickler einer Seite concedes genießen Sie die Leistungsvorteile von caching für nur *x* Sekunden, aber können einfach halten, dass ihre Daten nie länger als maximal veraltet sein werden der *x* Sekunden. Natürlich für statische Daten *x* können auf die Lebensdauer der Webanwendung erweitert werden, wie in überprüft wurde die [Zwischenspeichern von Daten beim Anwendungsstart](caching-data-at-application-startup-vb.md) Lernprogramm.
+Die Zwischenspeicherung Techniken untersucht, der [Zwischenspeichern von Daten mit dem ObjectDataSource-Steuerelement](caching-data-with-the-objectdatasource-vb.md) und [Zwischenspeichern von Daten in der Architektur](caching-data-in-the-architecture-vb.md) Tutorials verwendet eine zeitbasierte Ablauf So entfernen Sie die Daten aus dem Cache nach einem angegebenen Zeitraum. Dieser Ansatz ist die einfachste Möglichkeit, die leistungsverbesserungen von Zwischenspeichern für Daten "begrenzte Veraltung" auszugleichen. Durch Auswahl einer Zeit-Ablauf der *x* Sekunden, Seitenentwickler concedes genießen Sie die Leistungsvorteile des caching für nur *x* in Sekunden, aber können verlassen Sie sich, dass ihre Daten nie länger als maximal veraltet sein werden der *x* Sekunden. Natürlich für statische Daten die *x* kann erweitert werden und die Lebensdauer der Webanwendung, wie in untersucht wurde die [Zwischenspeichern von Daten beim Anwendungsstart](caching-data-at-application-startup-vb.md) Tutorial.
 
-Beim Zwischenspeichern von Datenbankdaten eine zeitbasierte Ablauf häufig der einfachen Verwendung ausgewählt ist, jedoch ist häufig eine Lösung für unzureichend. Im Idealfall würden Daten in der Datenbank zwischengespeicherte bleiben, bis die zugrunde liegenden Daten in der Datenbank geändert wurde; nur dann würde der Cache entfernt werden. Dieser Ansatz maximiert die Leistungsvorteile von caching und die Dauer der veraltete Daten minimiert. Allerdings müssen um es diese Vorteile einige System vorhanden sein, die bekannt, wenn Daten in der zugrunde liegenden Datenbank geändert wurde, und die entsprechenden Elemente aus dem Cache entfernt. Vor dem ASP.NET 2.0 wurden Entwickler von Seiten für die Implementierung dieses Systems verantwortlich.
+Beim Zwischenspeichern von Daten wird eine zeitbasierte Ablauf wird häufig für die einfache Verwendung ausgewählt, jedoch ist häufig eine unzureichende Lösung. Im Idealfall würde Daten in der Datenbank zwischengespeicherte bleiben, bis die zugrunde liegenden Daten in der Datenbank geändert wurde; erst dann würde der Cache entfernt werden. Dieser Ansatz maximiert die Leistungsvorteile des caching und die Dauer der veraltete Daten minimiert. Allerdings müssen um diese Vorteile gibt es einige System vorhanden sein, die bekannt sind, wenn die zugrunde liegenden Datenbankdaten geändert wurde, und die entsprechenden Werte aus dem Cache entfernt. Vor ASP.NET 2.0 waren Seitenentwickler, die für die Implementierung dieses Systems verantwortlich.
 
-ASP.NET 2.0 verfügt über eine [ `SqlCacheDependency` Klasse](https://msdn.microsoft.com/library/system.web.caching.sqlcachedependency.aspx) und die erforderliche Infrastruktur, um zu bestimmen, wenn eine Änderung in der Datenbank aufgetreten ist, damit die entsprechenden Elemente zwischengespeichert werden, kann entfernt werden. Es gibt zwei Techniken, um zu bestimmen, wenn die zugrunde liegenden Daten geändert haben: Benachrichtigung und abrufen. Nach der Abstimmung der Unterschiede zwischen Benachrichtigung und Abruf, wir erstellen die Infrastruktur zum Abruf unterstützen und untersuchen Sie zum Verwenden der `SqlCacheDependency` Klasse in deklarativen und programmgesteuert Szenarien.
+ASP.NET 2.0 bietet eine [ `SqlCacheDependency` Klasse](https://msdn.microsoft.com/library/system.web.caching.sqlcachedependency.aspx) und entfernt, die notwendige Infrastruktur, um zu bestimmen, wenn eine Änderung in der Datenbank aufgetreten ist, damit die entsprechenden Elemente zwischengespeichert werden kann. Es gibt zwei Verfahren, um zu bestimmen, wenn die zugrunde liegenden Daten geändert haben: Benachrichtigung und abrufen. Nach der Erläuterung der Unterschiede zwischen Benachrichtigung und abrufen, erstellen wir die Infrastruktur zum Abruf zu unterstützen, und klicken Sie dann die Informationen zur Verwendung der `SqlCacheDependency` Klasse in deklarativen und die programmgesteuerte Szenarien.
 
 ## <a name="understanding-notification-and-polling"></a>Grundlegendes zur Benachrichtigung und Abrufen
 
-Es gibt zwei Techniken, die verwendet werden können, um zu bestimmen, wann die Daten in einer Datenbank geändert wurde: Benachrichtigung und abrufen. Mit der Benachrichtigung die Datenbank wird automatisch die ASP.NET-Laufzeit benachrichtigt, wenn die Ergebnisse einer bestimmten Abfrage geändert wurden, seit der letzten der Abfrage Ausführung, an welchem Punkt die zwischengespeicherte Elemente, die der Abfrage zugeordnet werden entfernt. Mit der Abruf behält der Datenbankserver Informationen, wenn bestimmte Tabellen zuletzt aktualisiert wurden. Die ASP.NET-Laufzeit ruft regelmäßig die Datenbank, um zu überprüfen, welche Tabellen geändert haben, da sie in den Cache eingegeben wurden. Diese Tabellen, deren Daten geändert wurden, haben ihre zugehörigen Cacheelemente entfernt.
+Es gibt zwei Techniken, die verwendet werden können, um zu bestimmen, wann die Daten in einer Datenbank geändert wurde: Benachrichtigung und abrufen. Benachrichtigung die Datenbank wird automatisch die ASP.NET-Laufzeit benachrichtigt, wenn die Ergebnisse einer bestimmten Abfrage geändert wurden, seit der letzten der Abfrage Ausführung aus, an diesem Punkt werden die zwischengespeicherten Elemente, die der Abfrage zugeordnet werden entfernt. Mit der Abruf behält die Datenbank-Server Informationen, wenn bestimmte Tabellen zuletzt aktualisiert wurden. Die ASP.NET-Laufzeit ruft regelmäßig die Datenbank aus, um zu überprüfen, welche Tabellen geändert haben, da sie in den Cache eingegeben wurden. Diese Tabellen, deren Daten geändert wurden, haben, ihre zugehörigen Cache-Elemente, die entfernt wird.
 
-Die Benachrichtigungsoption erfordert weniger Setup als Abruf und genauere ist, da Änderungen auf Abfrageebene statt auf Tabellenebene verfolgt. Leider werden Benachrichtigungen nur in den vollständigen Editionen von Microsoft SQL Server 2005 (d. h., der nicht-Express-Editionen) verfügbar. Allerdings kann die Abruf-Option für alle Versionen von Microsoft SQL Server 7.0 auf 2005 verwendet werden. Da diese Lernprogramme die Express Edition von SQL Server 2005 verwenden, konzentrieren wir uns auf einrichten und verwenden die Option abrufen. Finden Sie am Ende dieses Lernprogramms für weitere Ressourcen für SQL Server 2005-s-Benachrichtigungsfunktionen in Abschnitt weiter lesen.
+Die Benachrichtigungsoption erfordert weniger Einrichtung als abrufen und eine feiner abgestimmte ist, da es sich um die Änderungen nicht auf Tabellenebene, sondern auch auf Abfrageebene verfolgt. Leider sind Benachrichtigungen nur in den vollständigen Editionen von Microsoft SQL Server 2005 (d. h., der nicht-Express-Editionen) zur Verfügung. Allerdings kann die Abrufoption für alle Versionen von Microsoft SQL Server von 7.0 auf 2005 verwendet werden. Da diese Tutorials die Express-Edition von SQL Server 2005 verwenden, konzentrieren wir uns auf das Einrichten und verwenden die Abrufoption. Prüfen Sie im Abschnitt weiter lesen am Ende dieses Tutorials Weitere Ressourcen für SQL Server 2005-s-Benachrichtigungsfunktionen aus.
 
-Mit Abruf, die Datenbank konfiguriert werden, damit eine Tabelle mit dem Namen `AspNet_SqlCacheTablesForChangeNotification` , die drei Spalten - hat `tableName`, `notificationCreated`, und `changeId`. Diese Tabelle enthält eine Zeile für jede Tabelle, die Daten enthält, die eventuell in einer SQL-Cacheabhängigkeit in der Webanwendung verwendet werden. Die `tableName` Spalte gibt den Namen der Tabelle beim `notificationCreated` gibt an, Datum und Uhrzeit, die die Zeile der Tabelle hinzugefügt wurde. Die `changeId` Spalte ist vom Typ `int` und hat einen Anfangswert von 0. Der Wert wird mit jeder Änderung an der Tabelle erhöht.
+Mit abrufen, die Datenbank konfiguriert werden muss, um eine Tabelle mit dem Namen einzuschließen `AspNet_SqlCacheTablesForChangeNotification` Listenfeldsteuerelement mit drei Spalten - `tableName`, `notificationCreated`, und `changeId`. Diese Tabelle enthält eine Zeile für jede Tabelle, die Daten enthält, die möglicherweise in einer SQL-Cacheabhängigkeit in der Webanwendung verwendet werden. Die `tableName` Spalte gibt den Namen der Tabelle beim `notificationCreated` gibt an, das Datum und Uhrzeit, die die Zeile der Tabelle hinzugefügt wurde. Die `changeId` Spalte ist vom Typ `int` und einen Anfangswert von 0 hat. Der Wert wird mit jeder Änderung an der Tabelle erhöht.
 
-Zusätzlich zu den `AspNet_SqlCacheTablesForChangeNotification` Tabelle, die Datenbank muss auch Trigger für jede der Tabellen, die angezeigt werden, möglicherweise in einer SQL-Cacheabhängigkeit eingeschlossen werden sollen. Diese Trigger werden ausgeführt, wenn eine Zeile eingefügt, aktualisiert oder gelöscht wird, und erhöhen Sie die Tabelle s `changeId` Wert in `AspNet_SqlCacheTablesForChangeNotification`.
+Zusätzlich zu den `AspNet_SqlCacheTablesForChangeNotification` Tabelle muss die Datenbank auch Trigger für jede der Tabellen, die angezeigt werden, möglicherweise in einer SQL-Cacheabhängigkeit einschließen. Diese Trigger werden ausgeführt, wenn eine Zeile eingefügt, aktualisiert oder gelöscht wird, und erhöhen Sie die Tabelle s `changeId` Wert `AspNet_SqlCacheTablesForChangeNotification`.
 
-Die ASP.NET-Laufzeit verfolgt den aktuellen `changeId` für eine Tabelle, die beim Zwischenspeichern von Daten mithilfe einer `SqlCacheDependency` Objekt. Die Datenbank in regelmäßigen Abständen aktiviert ist und ein beliebiger `SqlCacheDependency` -Objekte, deren `changeId` unterscheidet sich von dem Wert in der Datenbank entfernt werden, da eine abweichende `changeId` Wert gibt an, da die Daten zwischengespeichert wurde eine Änderung an der Tabelle stattgefunden hat.
+Die ASP.NET-Laufzeit verfolgt die aktuelle `changeId` für eine Tabelle, die beim Zwischenspeichern von Daten mithilfe einer `SqlCacheDependency` Objekt. Die Datenbank in regelmäßigen Abständen aktiviert ist und ein beliebiger `SqlCacheDependency` Objekte, deren `changeId` unterscheidet sich von dem Wert in der Datenbank entfernt werden, da eine abweichende `changeId` Wert gibt an, es wurde eine Änderung an der Tabelle, da die Daten zwischengespeichert wurde.
 
-## <a name="step-1-exploring-theaspnetregsqlexecommand-line-program"></a>Schritt 1: Untersuchen der`aspnet_regsql.exe`Programm über die Befehlszeile
+## <a name="step-1-exploring-theaspnetregsqlexecommand-line-program"></a>Schritt 1: Untersuchen der`aspnet_regsql.exe`Befehlszeilenprogramm
 
-Die Datenbank muss mit dem Ansatz der Abruf die Infrastruktur, die oben beschriebenen enthalten sein: einer vordefinierten-Tabelle (`AspNet_SqlCacheTablesForChangeNotification`), eine Handvoll von gespeicherten Prozeduren und Trigger für jede der Tabellen, die in SQL-Cache-Abhängigkeiten im Web verwendet werden können die Anwendung. Diese Tabellen, gespeicherte Prozeduren und Trigger können mithilfe des Programms über die Befehlszeile erstellt werden `aspnet_regsql.exe`, befindet sich der `$WINDOWS$\Microsoft.NET\Framework\version` Ordner. Zum Erstellen der `AspNet_SqlCacheTablesForChangeNotification` Tabelle und der zugehörigen gespeicherten Prozeduren, führen Sie Folgendes über die Befehlszeile:
+Die Datenbank muss mit dem Abruf Ansatz Setup, um die Infrastruktur, die oben beschriebenen enthalten sein: einer vordefinierten-Tabelle (`AspNet_SqlCacheTablesForChangeNotification`), eine Reihe von gespeicherten Prozeduren und Trigger für jede der Tabellen, die in SQL-cacheabhängigkeiten im Web verwendet werden können die Anwendung. Diese Tabellen, gespeicherten Prozeduren und Trigger können über das Programm über die Befehlszeile erstellt werden `aspnet_regsql.exe`, befindet sich der `$WINDOWS$\Microsoft.NET\Framework\version` Ordner. Zum Erstellen der `AspNet_SqlCacheTablesForChangeNotification` Tabelle und der zugehörigen gespeicherten Prozeduren, führen Sie den folgenden von der Befehlszeile aus:
 
 
 [!code-console[Main](using-sql-cache-dependencies-vb/samples/sample1.cmd)]
 
 > [!NOTE]
-> Diese Befehle ausführen, der angegebenen Datenbank-Benutzername in muss, der [ `db_securityadmin` ](https://msdn.microsoft.com/library/ms188685.aspx) und [ `db_ddladmin` ](https://msdn.microsoft.com/library/ms190667.aspx) Rollen. Die T-SQL-gesendet, um die Datenbank durch Untersuchen der `aspnet_regsql.exe` command-Line-Programm, beziehen sich auf [Blogeintrag](http://scottonwriting.net/sowblog/posts/10709.aspx).
+> Um diese Befehle auszuführen, der angegebenen Datenbank-Anmeldename in muss, der [ `db_securityadmin` ](https://msdn.microsoft.com/library/ms188685.aspx) und [ `db_ddladmin` ](https://msdn.microsoft.com/library/ms190667.aspx) Rollen. Untersuchen Sie das T-SQL-gesendet, um die Datenbank, indem die `aspnet_regsql.exe` Befehl Zeile Programm, beziehen sich auf [in diesem Blogeintrag](http://scottonwriting.net/sowblog/posts/10709.aspx).
 
 
-Z. B. zum Hinzufügen der Infrastruktur für den Abruf mit einer Microsoft SQL Server-Datenbank mit dem Namen `pubs` auf einem Datenbankserver mit dem Namen `ScottsServer` mithilfe der Windows-Authentifizierung, navigieren Sie in das entsprechende Verzeichnis und, über die Befehlszeile eingeben:
+Beispielsweise fügen die Infrastruktur für den Abruf mit einer Microsoft SQL Server-Datenbank mit dem Namen `pubs` auf einem Datenbankserver mit dem Namen `ScottsServer` mithilfe der Windows-Authentifizierung, navigieren Sie in das entsprechende Verzeichnis und, über die Befehlszeile eingeben:
 
 
 [!code-console[Main](using-sql-cache-dependencies-vb/samples/sample2.cmd)]
 
-Nachdem die Infrastruktur auf Datenbankebene hinzugefügt wurde, muss der Trigger auf diese Tabellen hinzufügen, die in SQL-Cache-Abhängigkeiten verwendet wird. Verwenden Sie die `aspnet_regsql.exe` Befehlszeile erneut, aber geben Sie die Tabelle mit der `-t` wechseln und statt der `-ed` verwenden `-et`, wie folgt:
+Nachdem die Datenbankebene-Infrastruktur hinzugefügt wurde, müssen wir den Trigger auf diese Tabellen hinzufügen, die in SQL-cacheabhängigkeiten verwendet werden. Verwenden der `aspnet_regsql.exe` über die Befehlszeile erneut programmieren, aber geben Sie den Tabellennamen mit der `-t` wechseln und anstatt der `-ed` wechseln verwenden `-et`, wie folgt:
 
 
 [!code-html[Main](using-sql-cache-dependencies-vb/samples/sample3.html)]
 
-Die Trigger zum Hinzufügen der `authors` und `titles` Tabellen in der `pubs` Datenbank auf `ScottsServer`, verwenden:
+Die Trigger Hinzufügen der `authors` und `titles` Tabellen auf die `pubs` Datenbank auf `ScottsServer`, verwenden Sie:
 
 
 [!code-console[Main](using-sql-cache-dependencies-vb/samples/sample4.cmd)]
 
-Für dieses Lernprogramm fügen Sie den Trigger, um die `Products`, `Categories`, und `Suppliers` Tabellen. Sehen wir uns die bestimmten Befehlszeilensyntax in Schritt 3.
+In diesem Tutorial fügen Sie die Trigger die `Products`, `Categories`, und `Suppliers` Tabellen. Wir werden die bestimmten Befehlszeilensyntax in Schritt 3 betrachten.
 
 ## <a name="step-2-referencing-a-microsoft-sql-server-2005-express-edition-database-inappdata"></a>Schritt 2: Verweisen auf in einer Microsoft SQL Server 2005 Express Edition-Datenbank`App_Data`
 
-Die `aspnet_regsql.exe` Befehlszeilenprogramm muss die Datenbank und den Servernamen zum Hinzufügen der erforderlichen Abruf-Infrastruktur. Neuerungen der Datenbank und den Servernamen für eine Microsoft SQL Server 2005 Express-Datenbank, in dem sich befindet, aber die `App_Data` Ordner? Ermitteln, welche die Namen der Datenbank und Server sind, anstatt ich Ve wurde erkannt, dass die einfachste Methode zum Anfügen der Datenbank, die `localhost\SQLExpress` -Datenbankinstanz und benennen Sie die Daten mit [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). Wenn Sie eine Vollversion von SQL Server 2005 auf Ihrem Computer installiert haben, müssen Sie wahrscheinlich bereits SQL Server Management Studio auf Ihrem Computer installiert. Wenn Sie nur die Express Edition verfügen, können Sie die kostenlose Herunterladen [Microsoft SQL Server Management Studio Express Edition](https://www.microsoft.com/downloads/details.aspx?displaylang=en&amp;FamilyID=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796).
+Die `aspnet_regsql.exe` Befehlszeilenprogramm erforderlich, dass die Datenbank- und Servername, fügen die erforderlichen Abruf-Infrastruktur. Aber was die Datenbank- und Servername, für eine Microsoft SQL Server 2005 Express-Datenbank ist, die in befinden die `App_Data` Ordner? Anstatt zu ermitteln, was die Datenbank und Server-Namen sind, ich Ve gefunden wird, dass der einfachste Ansatz zum Anfügen der Datenbank, ist die `localhost\SQLExpress` Instanz der Datenbank, und benennen Sie die Daten mithilfe [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). Wenn Sie eine Vollversion von SQL Server 2005 auf Ihrem Computer installiert haben, müssen Sie wahrscheinlich bereits SQL Server Management Studio auf Ihrem Computer installiert. Wenn Sie nur die Express Edition haben, können Sie die kostenlose Herunterladen [Microsoft SQL Server Management Studio Express Edition](https://www.microsoft.com/downloads/details.aspx?displaylang=en&amp;FamilyID=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796).
 
-Starten Sie Visual Studio schließen. Als Nächstes öffnen Sie SQL Server Management Studio, und wählen Sie für die Verbindung der `localhost\SQLExpress` Server mithilfe der Windows-Authentifizierung.
+Schließen Sie Visual Studio starten. Öffnen Sie SQL Server Management Studio, und wählen Sie zum Herstellen einer Verbindung mit der `localhost\SQLExpress` Server mithilfe der Windows-Authentifizierung.
 
 
-![Fügen Sie an der Localhost\SQLExpress Server](using-sql-cache-dependencies-vb/_static/image1.gif)
+![Fügen Sie an den Server Localhost\SQLExpress an](using-sql-cache-dependencies-vb/_static/image1.gif)
 
 **Abbildung 1**: Anfügen an die `localhost\SQLExpress` Server
 
 
-Nach dem Herstellen einer Verbindung mit dem Server, wird die Management Studio zeigt den Server und Unterordnern für Datenbanken, Sicherheit usw. haben. Mit der rechten Maustaste auf den Ordner "Datenbanken", und wählen Sie die Attach-Option. Hierdurch wird das Dialogfeld "Datenbanken anfügen" angezeigt (siehe Abbildung 2). Klicken Sie auf die Schaltfläche "hinzufügen", und wählen Sie die `NORTHWND.MDF` Datenbankordner in Ihrer Web-Anwendung s `App_Data` Ordner.
+Nach dem Herstellen einer Verbindung mit dem Server, Management Studio zeigt den Server und Unterordner für die Datenbanken, Sicherheit und So weiter. Mit der rechten Maustaste auf den Ordner "Datenbanken", und wählen Sie die Attach-Option. Hierdurch wird das Dialogfeld "Datenbanken anfügen" (siehe Abbildung 2). Klicken Sie auf die Schaltfläche "hinzufügen", und wählen Sie die `NORTHWND.MDF` Datenbankordner in Ihrem Web-Anwendung s. `App_Data` Ordner.
 
 
-[![Fügen Sie die NORTHWND. MDF-Datenbank aus dem Ordner "App_Data"](using-sql-cache-dependencies-vb/_static/image2.gif)](using-sql-cache-dependencies-vb/_static/image1.png)
+[![Fügen Sie die NORTHWND an. MDF-Datenbank aus dem Ordner "App_Data"](using-sql-cache-dependencies-vb/_static/image2.gif)](using-sql-cache-dependencies-vb/_static/image1.png)
 
-**Abbildung 2**: Fügen Sie der `NORTHWND.MDF` Datenbank aus der `App_Data` Ordner ([klicken Sie hier, um das Bild in voller Größe angezeigt](using-sql-cache-dependencies-vb/_static/image2.png))
-
-
-Dadurch wird der Ordner "Datenbanken" die Datenbank hinzugefügt. Der Datenbankname ist möglicherweise den vollständigen Pfad zur Datenbankdatei oder der vollständige Pfad mit vorangestelltem eine [GUID](http://en.wikipedia.org/wiki/Globally_Unique_Identifier). Um zu vermeiden, dass in diesem langwierige Datenbanknamen eingeben, bei Verwendung der Aspnet\_regsql.exe-Befehlszeilentool, umbenennen, die die Datenbank in einen mehr Human benutzerfreundliche Namen mit der rechten Maustaste auf die Datenbank gerade angefügt und der Auswahl umbenennen. Ich Ve Meine Datenbank in DataTutorials umbenannt.
+**Abbildung 2**: Fügen Sie der `NORTHWND.MDF` -Datenbank von der `App_Data` Ordner ([klicken Sie, um das Bild in voller Größe anzeigen](using-sql-cache-dependencies-vb/_static/image2.png))
 
 
-![Benennen Sie die angefügte Datenbank in einen mehr Human benutzerfreundliche Namen](using-sql-cache-dependencies-vb/_static/image3.gif)
-
-**Abbildung 3**: Benennen Sie die angefügte Datenbank in einen mehr Human benutzerfreundliche Namen
+Dadurch wird die Datenbank auf den Ordner "Datenbanken" hinzugefügt. Der Name der Datenbank ist möglicherweise den vollständigen Pfad zur Datei oder der vollständige Pfad mit vorangestelltem eine [GUID](http://en.wikipedia.org/wiki/Globally_Unique_Identifier). Zu vermeiden, geben Sie in diesen lange Datenbanknamen Verwendung das Aspnet\_regsql.exe-Befehlszeilentool, benennen Sie die Datenbank in einen mehr Benutzerfreundlicher Namen mit der rechten Maustaste auf die Datenbank gerade angefügt und Auswahl umbenennen. Ich Ve DataTutorials Meine Datenbank umbenannt.
 
 
-## <a name="step-3-adding-the-polling-infrastructure-to-the-northwind-database"></a>Schritt 3: Hinzufügen der Abruf-Infrastruktur zur Northwind-Datenbank
+![Benennen Sie die angefügte Datenbank in einer mehr Benutzerfreundlicher Namen](using-sql-cache-dependencies-vb/_static/image3.gif)
 
-Nun, dass wir angefügt haben die `NORTHWND.MDF` Datenbank aus der `App_Data` Ordner wir re kann jetzt die Abruf-Infrastruktur hinzugefügt werden. Angenommen, Sie haben die Datenbank DataTutorials umbenannt haben, führen Sie die folgenden vier Befehle ein:
+**Abbildung 3**: die angefügte Datenbank in einen mehr Benutzerfreundlicher Namen umbenennen
+
+
+## <a name="step-3-adding-the-polling-infrastructure-to-the-northwind-database"></a>Schritt 3: Hinzufügen der Abruf-Infrastruktur mit der Datenbank Northwind
+
+Nun, wir angefügt haben die `NORTHWND.MDF` -Datenbank von der `App_Data` Ordner wir erneut kann jetzt die Abruf-Infrastruktur hinzugefügt werden. Angenommen, Sie haben die Datenbank zu DataTutorials umbenannt werden, führen Sie die folgenden vier Befehle aus:
 
 
 [!code-console[Main](using-sql-cache-dependencies-vb/samples/sample5.cmd)]
 
 Klicken Sie nach dem Ausführen dieser vier Befehle, mit der rechten Maustaste auf den Datenbanknamen in Management Studio, wechseln Sie zu dem Untermenü Tasks, und wählen Sie trennen. Klicken Sie dann schließen Sie Management Studio, und öffnen Sie Visual Studio erneut.
 
-Nachdem Sie Visual Studio geöffnet wurde, einen Drilldown in die Datenbank über den Server-Explorer. Beachten Sie die neue Tabelle (`AspNet_SqlCacheTablesForChangeNotification`), die neue gespeicherte Prozeduren und Trigger auf die `Products`, `Categories`, und `Suppliers` Tabellen.
+Sobald Visual Studio erneut geöffnet wurde, einen Drilldown in die Datenbank über den Server-Explorer. Beachten Sie die neue Tabelle (`AspNet_SqlCacheTablesForChangeNotification`), die neue gespeicherte Prozeduren und Trigger auf die `Products`, `Categories`, und `Suppliers` Tabellen.
 
 
-![Die Datenbank enthält jetzt die notwendigen Abruf-Infrastruktur](using-sql-cache-dependencies-vb/_static/image4.gif)
+![Die Datenbank enthält jetzt die erforderlichen Abruf-Infrastruktur](using-sql-cache-dependencies-vb/_static/image4.gif)
 
-**Abbildung 4**: die Datenbank enthält jetzt die notwendigen Abruf-Infrastruktur
+**Abbildung 4**: die Datenbank enthält jetzt die erforderlichen Abruf-Infrastruktur
 
 
-## <a name="step-4-configuring-the-polling-service"></a>Schritt 4: Konfigurieren des Abrufvorgangs-Diensts
+## <a name="step-4-configuring-the-polling-service"></a>Schritt 4: Konfigurieren des Diensts abrufen
 
-Nach dem Erstellen der erforderlichen Tabellen, Trigger und gespeicherte Prozeduren in der Datenbank, ist der letzte Schritt den Abruf-Dienst konfiguriert werden, die über erfolgt `Web.config` durch Angeben der Datenbanken verwenden und das Abrufintervall in Millisekunden. Das folgende Markup fragt den Northwind-Datenbank einmal pro Sekunde ab.
+Nach dem Erstellen der erforderlichen Tabellen, Trigger und gespeicherte Prozeduren in der Datenbank an, der der letzte Schritt ist so konfigurieren Sie den Dienst abrufen, das erfolgt über `Web.config` durch Angeben der Datenbanken verwenden und das Abrufintervall in Millisekunden. Das folgende Markup fragt den Northwind-Datenbank einmal pro Sekunde.
 
 
 [!code-xml[Main](using-sql-cache-dependencies-vb/samples/sample6.xml)]
 
-Die `name` Wert in der `<add>` Element (NorthwindDB) ordnet einen menschenlesbaren Namen mit einer bestimmten Datenbank. Bei der Arbeit mit SQL-Cache-Abhängigkeiten müssen wir verweisen auf den Namen der hier definierten sowie die Tabelle, der die zwischengespeicherten Daten basiert. Wir sehen, wie die `SqlCacheDependency` Klasse programmgesteuert Zuordnen von SQL-Cache-Abhängigkeiten mit zwischengespeicherten Daten in Schritt 6.
+Die `name` Wert in der `<add>` Element (NorthwindDB) ordnet einen lesbaren Namen mit einer bestimmten Datenbank. Bei der Arbeit mit SQL-cacheabhängigkeiten müssen wir verweisen auf den Namen der hier definierten sowie die Tabelle, der die zwischengespeicherten Daten basiert. Wir sehen, wie Sie mit der `SqlCacheDependency` Klasse Programmgesteuertes Verbinden von SQL-cacheabhängigkeiten mit zwischengespeicherten Daten in Schritt 6.
 
-Sobald eine SQL-Cacheabhängigkeit eingerichtet wurde, wird der Abruf-System mit definierten Datenbanken verbinden der `<databases>` Elemente jedes `pollTime` Millisekunden und führen Sie die `AspNet_SqlCachePollingStoredProcedure` gespeicherte Prozedur. Diese gespeicherte Prozedur - hinzugefügten Sichern in Schritt 3 mithilfe der `aspnet_regsql.exe` Befehlszeilentool - gibt die `tableName` und `changeId` Werte für jeden Datensatz in `AspNet_SqlCacheTablesForChangeNotification`. Veraltete SQL-Cache-Abhängigkeiten, die aus dem Cache entfernt werden.
+Nach eine SQL-Cacheabhängigkeit eingerichtet wurde, den Abruf-System eine Verbindung mit der Datenbanken, die definiert, der `<databases>` Elemente jeder `pollTime` Millisekunden und führen Sie die `AspNet_SqlCachePollingStoredProcedure` gespeicherte Prozedur. Diese gespeicherte Prozedur - hinzugefügten zurück, in Schritt 3: Verwenden der `aspnet_regsql.exe` Befehlszeilentool - gibt die `tableName` und `changeId` Werte für jeden Datensatz in `AspNet_SqlCacheTablesForChangeNotification`. Veraltete SQL-cacheabhängigkeiten, die aus dem Cache entfernt werden.
 
-Die `pollTime` Einstellung führt einen Kompromiss zwischen Leistung und Überalterung der Daten. Ein kleines `pollTime` Wert erhöht die Anzahl der Anforderungen an die Datenbank, jedoch mehr schnell veraltete Daten aus dem Cache entfernt. Eine größere `pollTime` Wert verringert die Anzahl von datenbankanforderungen, erhöht aber die Verzögerung zwischen den Back-End-bei datenänderungen und wann die zugehörigen Cacheelemente entfernt werden. Glücklicherweise wird die Anforderung einer einfachen gespeicherten Prozedur zurückgeben nur wenige Zeilen aus der eine einfache, kleine Tabelle s ausgeführt. Aber führen Sie experimentieren Sie mit verschiedenen `pollTime` Werte, um eine optimale Balance zwischen finden-Datenbank Zugriff und Daten Überalterung für Ihre Anwendung. Die kleinste `pollTime` zulässige Wert ist 500.
+Die `pollTime` Einstellung führt einen Kompromiss zwischen Leistung und Daten "begrenzte Veraltung". Eine kleine `pollTime` Wert erhöht die Anzahl der Anforderungen an die Datenbank, aber mehr schnell veraltete Daten aus dem Cache entfernt. Eine größere `pollTime` Wert verringert die Anzahl der Anforderungen, erhöht aber die Verzögerung zwischen den Back-End-bei datenänderungen und wenn die zugehörigen Elementen entfernt werden. Glücklicherweise wird die datenbankanforderung einer einfachen gespeicherten Prozedur, s, die nur wenige Zeilen zurückgeben, aus einer Tabelle einfacher, ausgeführt. Jedoch Experimentieren mit verschiedenen `pollTime` Werten, um einen optimalen Kompromiss zwischen zwischen ermitteln Datenbank zugreifen und Daten "begrenzte Veraltung" für Ihre Anwendung. Die kleinste `pollTime` zulässige Wert ist 500.
 
 > [!NOTE]
-> Im obigen Beispiel stellt eine einzelne `pollTime` Wert in der `<sqlCacheDependency>` -Element, aber Sie können optional angeben, die `pollTime` Wert in der `<add>` Element. Dies ist hilfreich, wenn Sie mehrere Datenbanken angegeben haben und das Abrufintervall für jede Datenbank, die angepasst werden soll.
+> Das obige Beispiel enthält eine einzelne `pollTime` Wert in der `<sqlCacheDependency>` -Element, aber Sie können optional angeben, die `pollTime` Wert in der `<add>` Element. Dies ist nützlich, wenn Sie mehrere Datenbanken angegeben haben, und der abrufhäufigkeit pro Datenbank angepasst werden soll.
 
 
-## <a name="step-5-declaratively-working-with-sql-cache-dependencies"></a>Schritt 5: Deklarativ arbeiten, mit der SQL-Cache-Abhängigkeiten
+## <a name="step-5-declaratively-working-with-sql-cache-dependencies"></a>Schritt 5: Deklarativ arbeiten, mit der SQL-Cacheabhängigkeiten
 
-In Schritt 1 bis 4 wurde die notwendige Infrastruktur einrichten und konfigurieren die Abruf-System. Mit dieser Infrastruktur können wir nun Elemente für den Datencache mit einer zugeordneten SQL-Cacheabhängigkeit mit programmgesteuerten oder deklarative Verfahren hinzufügen. In diesem Schritt untersuchen wir deklarativ arbeiten mit SQL-Cache-Abhängigkeiten. In Schritt 6 sehen wir uns die programmgesteuerter Ansatz.
+In Schritt 1 bis 4 erläutert, wie die notwendige Infrastruktur einrichten und Konfigurieren des Systems abrufen. Mit dieser Infrastruktur vorhanden ist können wir nun, das dem Datencache Elemente mit einer zugeordneten SQL-Cacheabhängigkeit mithilfe von deklarativen oder programmtechnischen Techniken hinzufügen. In diesem Schritt untersuchen wir deklarativ arbeiten mit SQL-cacheabhängigkeiten. In Schritt 6 betrachten wir der programmgesteuerte Ansatz.
 
-Die [Zwischenspeichern von Daten mit der ObjectDataSource](caching-data-with-the-objectdatasource-vb.md) Lernprogramm untersucht die zwischenspeichernden deklarationsfunktionen von "ObjectDataSource". Durch Festlegen von einfach die `EnableCaching` Eigenschaft `True` und `CacheDuration` Eigenschaft einige Zeitintervall, das ObjectDataSource werden die Daten aus der zugrunde liegenden Objekt zurückgegeben, für das angegebene Intervall automatisch zwischengespeichert. Das ObjectDataSource können auch eine oder mehrere SQL-Cache-Abhängigkeiten.
+Die [Zwischenspeichern von Daten mit dem ObjectDataSource-Steuerelement](caching-data-with-the-objectdatasource-vb.md) Tutorial untersucht die deklarative Zwischenspeichern Funktionen von dem ObjectDataSource-Steuerelement. Legen Sie ganz einfach die `EnableCaching` Eigenschaft `True` und `CacheDuration` Eigenschaft einige Zeitintervall, das "ObjectDataSource" werden die Daten, die von des zugrunde liegenden Objekts zurückgegeben wird, für das angegebene Intervall automatisch zwischengespeichert. Dem ObjectDataSource-Steuerelement können auch eine oder mehrere SQL-cacheabhängigkeiten.
 
-Öffnen Sie zur Veranschaulichung der SQL-Cache-Abhängigkeiten deklarativ mithilfe der `SqlCacheDependencies.aspx` auf der Seite der `Caching` Ordner, und ziehen Sie eine GridView aus der Toolbox in den Designer. Legen Sie die GridView s `ID` auf `ProductsDeclarative` , und wählen Sie das Smarttag, um die Bindung an eine neue, mit dem Namen ObjectDataSource `ProductsDataSourceDeclarative`.
-
-
-[![Erstellen Sie eine neue, mit dem Namen ProductsDataSourceDeclarative ObjectDataSource](using-sql-cache-dependencies-vb/_static/image5.gif)](using-sql-cache-dependencies-vb/_static/image3.png)
-
-**Abbildung 5**: Erstellen einer neuen ObjectDataSource namens `ProductsDataSourceDeclarative` ([klicken Sie hier, um das Bild in voller Größe angezeigt](using-sql-cache-dependencies-vb/_static/image4.png))
+Um deklarativ mithilfe von SQL-cacheabhängigkeiten zu demonstrieren, öffnen Sie die `SqlCacheDependencies.aspx` auf der Seite die `Caching` Ordner, und ziehen Sie einer GridView-Ansicht aus der Toolbox in den Designer. Legen Sie die GridView s `ID` zu `ProductsDeclarative` und sein Smarttag, auswählen, um die Bindung an eine neue, mit dem Namen "ObjectDataSource" `ProductsDataSourceDeclarative`.
 
 
-Konfigurieren der ObjectDataSource verwenden die `ProductsBLL` Klasse, und legen Sie die Dropdownliste in der Registerkarte "SELECT" `GetProducts()`. Wählen Sie in der Registerkarte "UPDATE" die `UpdateProduct` -Überladung mit drei Eingabeparameter - `productName`, `unitPrice`, und `productID`. Legen Sie die Dropdown-Listen zu (keine) auf den Registerkarten INSERT- und DELETE.
+[![Erstellen Sie eine neue, mit dem Namen ProductsDataSourceDeclarative "ObjectDataSource"](using-sql-cache-dependencies-vb/_static/image5.gif)](using-sql-cache-dependencies-vb/_static/image3.png)
+
+**Abbildung 5**: Erstellen einer neuen "ObjectDataSource" mit dem Namen `ProductsDataSourceDeclarative` ([klicken Sie, um das Bild in voller Größe anzeigen](using-sql-cache-dependencies-vb/_static/image4.png))
 
 
-[![Verwenden Sie die Überladung UpdateProduct mit drei Eingabeparameter](using-sql-cache-dependencies-vb/_static/image6.gif)](using-sql-cache-dependencies-vb/_static/image5.png)
-
-**Abbildung 6**: Verwenden Sie die UpdateProduct überladen mit drei Eingabeparameter ([klicken Sie hier, um das Bild in voller Größe angezeigt](using-sql-cache-dependencies-vb/_static/image6.png))
+Konfigurieren Sie mit dem ObjectDataSource-Steuerelement die `ProductsBLL` Klasse, und legen Sie die Dropdownliste in der Registerkarte "SELECT" `GetProducts()`. Wählen Sie in der Registerkarte "Updates" der `UpdateProduct` -Überladung mit drei Eingabeparameter - `productName`, `unitPrice`, und `productID`. Legen Sie die Dropdownlisten auf (keine), auf den Registerkarten INSERT- und DELETE.
 
 
-[![Legen Sie das Dropdown-Liste (keine) für die INSERT- und DELETE-Registerkarten](using-sql-cache-dependencies-vb/_static/image7.gif)](using-sql-cache-dependencies-vb/_static/image7.png)
+[![Verwenden Sie die UpdateProduct-Überladung mit drei Eingabeparameter](using-sql-cache-dependencies-vb/_static/image6.gif)](using-sql-cache-dependencies-vb/_static/image5.png)
 
-**Abbildung 7**: Legen Sie das Dropdown-Liste (keine) für die einfügen und Löschen von Registerkarten ([klicken Sie hier, um das Bild in voller Größe angezeigt](using-sql-cache-dependencies-vb/_static/image8.png))
+**Abbildung 6**: Verwenden der UpdateProduct-Überladung, mit drei Eingabeparameter ([klicken Sie, um das Bild in voller Größe anzeigen](using-sql-cache-dependencies-vb/_static/image6.png))
 
 
-Nach Abschluss des Assistenten für die Datenquelle konfigurieren erstellt Visual Studio BoundFields und CheckBoxFields in die GridView für die einzelnen Datenfelder. Entfernen Sie alle Felder jedoch `ProductName`, `CategoryName`, und `UnitPrice`, und formatieren Sie diese Felder nach Bedarf. Aus den GridView s smart Tag die Kontrollkästchen der Paging aktivieren, aktivieren Sie sortieren und Bearbeiten aktivieren. Visual Studio wird festgelegt, dass das ObjectDataSource-s `OldValuesParameterFormatString` Eigenschaft `original_{0}`. Damit die Funktion GridView s bearbeiten, ordnungsgemäß funktioniert, entfernen Sie entweder diese Eigenschaft vollständig aus der deklarative Syntax oder wieder auf den Standardwert `{0}`.
+[![Legen Sie die Dropdown-Liste auf (keine) für die INSERT- und DELETE-Registerkarten](using-sql-cache-dependencies-vb/_static/image7.gif)](using-sql-cache-dependencies-vb/_static/image7.png)
 
-Schließlich fügen ein Bezeichnung-Websteuerelement über die GridView, und legen seine `ID` Eigenschaft, um `ODSEvents` und seine `EnableViewState` Eigenschaft, um `False`. Nachdem diese Änderungen vorgenommen wurden, sollte Ihre deklarative s-Seitenmarkup etwa wie folgt aussehen. Beachten Sie, dass Ve versucht, eine Anzahl von Layoutgründen Anpassungen an die GridView-Felder, die nicht zur Veranschaulichung der Funktion der SQL-Cache Abhängigkeit Funktionalität erforderlich sind.
+**Abbildung 7**: Legen Sie die Dropdown-Liste (keine) für die einfügen und Löschen von Registerkarten ([klicken Sie, um das Bild in voller Größe anzeigen](using-sql-cache-dependencies-vb/_static/image8.png))
+
+
+Nach Abschluss der Konfigurieren von Datenquellen-Assistenten werden Visual Studio BoundFields und CheckBoxFields in den GridView-Ansicht für die einzelnen Datenfelder erstellt. Entfernen Sie alle Felder jedoch `ProductName`, `CategoryName`, und `UnitPrice`, und formatieren Sie diese Felder nach Bedarf. GridView s Smarttags überprüfen Sie die Kontrollkästchen Paging aktivieren, aktivieren Sie sortieren und Bearbeiten aktivieren. Visual Studio wird festgelegt, das "ObjectDataSource"-s `OldValuesParameterFormatString` Eigenschaft `original_{0}`. In der Reihenfolge für die GridView s bearbeiten-Funktion ordnungsgemäß funktioniert, entweder entfernen Sie diese Eigenschaft vollständig aus die deklarative Syntax oder wieder auf den Standardwert `{0}`.
+
+Fügen Sie schließlich ein Label-Steuerelement über das GridView und seine `ID` Eigenschaft `ODSEvents` und die zugehörige `EnableViewState` Eigenschaft `False`. Nach diesen Änderungen sollte im deklarativen Markup Ihrer Seite s etwa wie folgt aussehen. Beachten Sie, dass haben eine Reihe von ästhetischen angepasst werden, um die GridView-Felder, die nicht zur Veranschaulichung der Abhängigkeit-Funktionalität in SQL-Cache erforderlich sind vorgenommen.
 
 
 [!code-aspx[Main](using-sql-cache-dependencies-vb/samples/sample7.aspx)]
 
-Als Nächstes erstellen Sie einen Ereignishandler für das ObjectDataSource-s `Selecting` Ereignis und in fügen sie den folgenden Code:
+Als Nächstes erstellen Sie einen Ereignishandler für das "ObjectDataSource"-s `Selecting` Ereignis und in fügen sie den folgenden Code:
 
 
 [!code-vb[Main](using-sql-cache-dependencies-vb/samples/sample8.vb)]
 
-Bedenken Sie, dass das ObjectDataSource-s `Selecting` Ereignis ausgelöst wird, nur, wenn Daten aus der zugrunde liegenden Objekts abgerufen. Wenn das ObjectDataSource über einen eigenen Cache auf die Daten zugreift, wird dieses Ereignis nicht ausgelöst.
+Bedenken Sie, dass das "ObjectDataSource"-s `Selecting` Ereignis ausgelöst wird, nur beim Abrufen von Daten aus der zugrunde liegende Objekt. Wenn es sich bei dem ObjectDataSource-Steuerelement, der von seinen eigenen Cache auf die Daten zugreift, wird dieses Ereignis nicht ausgelöst.
 
-Besuchen Sie diese Seite über einen Browser. Seit wir sollte Ve noch zu implementieren, jeglichen Zwischenspeicherns, jedes Mal Sie Seite, sortieren oder bearbeiten das Raster der Seite "wie in Abbildung 8 gezeigt anzeigen, die für Text, auswählen-Ereignis ausgelöst werden.
-
-
-[![Das ObjectDataSource-s auswählen-Ereignis ausgelöst wird, jedes Mal, die die GridView bearbeitet, ausgelagert wird, oder die Sorted](using-sql-cache-dependencies-vb/_static/image8.gif)](using-sql-cache-dependencies-vb/_static/image9.png)
-
-**Abbildung 8**: das ObjectDataSource s `Selecting` ausgelöst wird jede Ereigniszeit GridView ausgelagert wird, bearbeitet oder Sorted ([klicken Sie hier, um das Bild in voller Größe angezeigt](using-sql-cache-dependencies-vb/_static/image10.png))
+Besuchen Sie diese Seite über einen Browser. Seit es sollte noch in der Implementierung der Zwischenspeicherung, jedes Mal, Sie Seite, zu sortieren oder bearbeiten das Raster der Seite, speichern wie in Abbildung 8 dargestellt anzeigen, der Text, die auswählen-Ereignis ausgelöst wird.
 
 
-Wie wir gesehen, in haben der [Zwischenspeichern von Daten mit der ObjectDataSource](caching-data-with-the-objectdatasource-vb.md) Lernprogramm Festlegen der `EnableCaching` Eigenschaft `True` bewirkt, dass das ObjectDataSource zum Zwischenspeichern der Daten für die Dauer von angegebenen seine `CacheDuration` Eigenschaft. Das ObjectDataSource verfügt auch über eine [ `SqlCacheDependency` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.sqlcachedependency.aspx), die eine oder mehrere Abhängigkeiten von SQL-Cache auf die zwischengespeicherten Daten unter Verwendung des Musters hinzufügt:
+[![Das "ObjectDataSource"-s-Auswahl-Ereignis ausgelöst wird, jedes Mal, die die GridView bearbeitet, ausgelagert wird, oder die sortiert](using-sql-cache-dependencies-vb/_static/image8.gif)](using-sql-cache-dependencies-vb/_static/image9.png)
+
+**Abbildung 8**: das "ObjectDataSource" s `Selecting` löst jede Ereigniszeit GridView werden ausgelagert, bearbeiteter oder sortiert ([klicken Sie, um das Bild in voller Größe anzeigen](using-sql-cache-dependencies-vb/_static/image10.png))
+
+
+Wie in beschrieben der [Zwischenspeichern von Daten mit dem ObjectDataSource-Steuerelement](caching-data-with-the-objectdatasource-vb.md) Tutorial Festlegen der `EnableCaching` Eigenschaft `True` bewirkt, dass dem ObjectDataSource-Steuerelement zum Zwischenspeichern von Daten für die Dauer angegeben, die von der `CacheDuration` Eigenschaft. Dem ObjectDataSource-Steuerelement verfügt auch über eine [ `SqlCacheDependency` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.sqlcachedependency.aspx), die eine oder mehrere SQL-cacheabhängigkeiten hinzufügt, auf die zwischengespeicherten Daten, die mit dem Muster:
 
 
 [!code-css[Main](using-sql-cache-dependencies-vb/samples/sample9.css)]
 
-Auf dem *DatabaseName* ist der Name der Datenbank gemäß der `name` Attribut von der `<add>` Element im `Web.config`, und *TableName* ist der Name der Datenbanktabelle. Z. B. ein ObjectDataSource erstellen, der Daten auf unbestimmte Zeit zwischenspeichert, basierend auf einer SQL-Cacheabhängigkeit für die Northwind-s `Products` Tabelle, legen Sie das ObjectDataSource-s `EnableCaching` Eigenschaft `True` und dessen `SqlCacheDependency` Eigenschaft NorthwindDB:Products.
+In denen *DatabaseName* ist der Name der Datenbank gemäß der `name` Attribut der `<add>` Element im `Web.config`, und *TableName* ist der Name der Datenbanktabelle. Z. B. ein ObjectDataSource-Steuerelement zu erstellen, die auf unbestimmte Zeit zwischenspeichert, die basierend auf einer SQL-Cacheabhängigkeit für die Northwind-s `Products` Tabelle, legen Sie das "ObjectDataSource"-s `EnableCaching` Eigenschaft `True` und die zugehörige `SqlCacheDependency` Eigenschaft NorthwindDB:Products.
 
 > [!NOTE]
-> Können Sie eine SQL-Cacheabhängigkeit *und* eine zeitbasierte Ablauf durch Festlegen von `EnableCaching` zu `True`, `CacheDuration` um das Zeitintervall und `SqlCacheDependency` an den / die die Datenbank und die Tabelle. Das ObjectDataSource wird seine Daten entfernen, wenn die zeitbasierte Ablaufzeit erreicht ist oder wenn der Abruf-System fest, dass die Daten in der zugrunde liegenden Datenbank geändert wurde, je nachdem, was zuerst eintritt.
+> Können Sie eine SQL-Cacheabhängigkeit *und* eine zeitbasierte Ablauf durch Festlegen von `EnableCaching` zu `True`, `CacheDuration` auf das Zeitintervall und `SqlCacheDependency` zu den Datenbank- und Namen. Dem ObjectDataSource-Steuerelement entfernen seine Daten, wenn die zeitbasierte Ablaufzeit erreicht ist oder die Abruf-System fest, dass die zugrunde liegenden Datenbankdaten geändert wurde, je nachdem, was zuerst eintritt.
 
 
-Die GridView in `SqlCacheDependencies.aspx` zeigt Daten aus zwei Tabellen - `Products` und `Categories` (das Produkt s `CategoryName` Feld abgerufen wird, über eine `JOIN` auf `Categories`). Daher wir zwei SQL-Cache-Abhängigkeiten angeben möchten: NorthwindDB:Products; NorthwindDB:Categories.
+GridView in `SqlCacheDependencies.aspx` zeigt Daten aus zwei Tabellen – `Products` und `Categories` (das Produkt s `CategoryName` Feld abgerufen wird, über eine `JOIN` auf `Categories`). Aus diesem Grund soll an zwei SQL-cacheabhängigkeiten: NorthwindDB:Products; NorthwindDB:Categories.
 
 
-[![Konfigurieren der ObjectDataSource zur Unterstützung von Caching mithilfe von SQL-Cache-Abhängigkeiten für die Kategorien und Produkte](using-sql-cache-dependencies-vb/_static/image9.gif)](using-sql-cache-dependencies-vb/_static/image11.png)
+[![Konfigurieren Sie das "ObjectDataSource", um Unterstützung für das Zwischenspeichern mithilfe von SQL-Cacheabhängigkeiten für die Kategorien und Produkte](using-sql-cache-dependencies-vb/_static/image9.gif)](using-sql-cache-dependencies-vb/_static/image11.png)
 
-**Abbildung 9**: Konfigurieren der ObjectDataSource Unterstützung Zwischenspeichern mithilfe von SQL-Cache Abhängigkeiten auf `Products` und `Categories` ([klicken Sie hier, um das Bild in voller Größe angezeigt](using-sql-cache-dependencies-vb/_static/image12.png))
-
-
-Nach dem Konfigurieren der ObjectDataSource zur Unterstützung von caching, rufen Sie die Seite über einen Browser. Erneut, das Text auswählen-Ereignis ausgelöst wird, sollte auf der ersten Besuch der Seite angezeigt werden, aber erledigt beim paging, sortieren oder durch Klicken auf die Schaltfläche Bearbeiten oder "Abbrechen". Dies ist, da die Daten in den ObjectDataSource-s-Cache geladen werden, gibt es erst er bleibt die `Products` oder `Categories` Tabellen geändert werden, oder die Daten über die GridView aktualisiert werden.
-
-After-paging durch das Raster, und beachten Sie das Fehlen des Ereignisses auswählen angegeben Text, öffnen Sie ein neues Browserfenster und navigieren Sie zu den Grundlagen-Lernprogramm in bearbeiten, einfügen und Löschen im Abschnitt (`~/EditInsertDelete/Basics.aspx`). Aktualisieren Sie den Namen oder den Preis eines Produkts. Prüfen Sie dann aus, das erste Browserfenster eine andere Seite der Daten, Sortieren Sie das Raster zu, oder klicken Sie auf eine Zeile s-Schaltfläche "Bearbeiten". Dieses Mal die auswählen-Ereignis ausgelöst wird, sollte erneut angezeigt, wie die zugrunde liegenden Datenbank, die Daten wurden (siehe Abbildung 10) geändert. Wenn der Text nicht angezeigt wird, warten Sie einige Minuten, und wiederholen Sie den Vorgang. Denken Sie daran, dass Änderungen an der Dienst Abruf überprüft werden die `Products` Tabelle jedes `pollTime` Millisekunden, daher ist es eine Verzögerung zwischen, wenn die zugrunde liegenden Daten aktualisiert wird und wenn die zwischengespeicherten Daten entfernt wird.
+**Abbildung 9**: Konfigurieren Sie auf dem ObjectDataSource-Steuerelement, unterstützen das Zwischenspeichern mithilfe von SQL-Cacheabhängigkeiten `Products` und `Categories` ([klicken Sie, um das Bild in voller Größe anzeigen](using-sql-cache-dependencies-vb/_static/image12.png))
 
 
-[![Ändern der Products-Tabelle entfernt die zwischengespeicherten Produktdaten](using-sql-cache-dependencies-vb/_static/image10.gif)](using-sql-cache-dependencies-vb/_static/image13.png)
+Rufen Sie nach dem Konfigurieren der "ObjectDataSource", um Unterstützung für das Zwischenspeichern wird die Seite über einen Browser ein. In diesem Fall das Text-Auswahl-Ereignis wird ausgelöst, sollte auf der ersten Besuch der Seite angezeigt werden, jedoch sollte verschwinden beim paging, sortieren oder durch Klicken auf die bearbeiten "oder" Abbrechen ". Dies ist, da die Daten in den "ObjectDataSource"-s-Cache geladen werden, gibt es erst er bleibt die `Products` oder `Categories` Tabellen geändert werden, oder die Daten über die GridView aktualisiert werden.
 
-**Abbildung 10**: Ändern der Products-Tabelle die Produktdaten zwischengespeichert entfernt ([klicken Sie hier, um das Bild in voller Größe angezeigt](using-sql-cache-dependencies-vb/_static/image14.png))
+Nach dem Auslösen von paging für das Raster, und beachten Sie den Mangel an das Ereignis auswählen Text, öffnen Sie ein neues Browserfenster, und navigieren Sie zu den Grundlagen-Lernprogramm, in der bearbeiten, einfügen und Löschen im Abschnitt (`~/EditInsertDelete/Basics.aspx`). Aktualisieren Sie den Namen oder den Preis eines Produkts. Klicken Sie dann auf den ersten Browserfenster anzeigen einer anderen Seite der Daten, Sortieren des Rasters, oder klicken Sie auf eine Zeile s-Schaltfläche "Bearbeiten". Dieses Mal die auswählen-Ereignis ausgelöst wird, sollte erneut angezeigt, als die zugrunde liegenden Datenbank, die Daten wurden (siehe Abbildung 10) geändert. Wenn der Text nicht angezeigt wird, warten Sie einige Minuten, und versuchen Sie es noch mal. Beachten Sie, dass Änderungen an der Dienst abrufen Prüfungen der `Products` Tabelle alle `pollTime` Millisekunden, daher besteht eine Verzögerung zwischen Wenn die zugrunde liegenden Daten aktualisiert wird und wenn die zwischengespeicherten Daten entfernt wird.
 
 
-## <a name="step-6-programmatically-working-with-thesqlcachedependencyclass"></a>Schritt 6: Programmgesteuertes Arbeiten mit der`SqlCacheDependency`Klasse
+[![Ändern die Products-Tabelle entfernt die zwischengespeicherten Produktdaten](using-sql-cache-dependencies-vb/_static/image10.gif)](using-sql-cache-dependencies-vb/_static/image13.png)
 
-Die [Zwischenspeichern von Daten in der Architektur](caching-data-in-the-architecture-vb.md) Lernprogramm erläutert, die Vorteile der Verwendung einer separaten Schicht für Caching in der im Gegensatz zu enge verbinden das Zwischenspeichern, wenn das ObjectDataSource-Architektur. In diesem Lernprogramm erstellten eine `ProductsCL` Klasse veranschaulicht, mit dem Datencache programmgesteuert arbeiten. Um SQL-Cache-Abhängigkeiten in der Caching-Ebene nutzen zu können, verwenden die `SqlCacheDependency` Klasse.
+**Abbildung 10**: Ändern der Products-Tabelle entfernt die Produktdaten an zwischengespeichert ([klicken Sie, um das Bild in voller Größe anzeigen](using-sql-cache-dependencies-vb/_static/image14.png))
 
-Mit dem Abruf-System eine `SqlCacheDependency` Objekt muss eine bestimmte Datenbank und Tabelle-Paar zugeordnet werden. Der folgende Code erstellt z. B. eine `SqlCacheDependency` -Objekts basierend auf der Northwind-Datenbank s `Products` Tabelle:
+
+## <a name="step-6-programmatically-working-with-thesqlcachedependencyclass"></a>Schritt 6: Programmgesteuert arbeiten, mit der`SqlCacheDependency`Klasse
+
+Die [Zwischenspeichern von Daten in der Architektur](caching-data-in-the-architecture-vb.md) Tutorial erläutert die Vorteile der Verwendung einer separaten Caching-Schicht in der Architektur im Gegensatz zu eng gekoppelt, das Zwischenspeichern mit dem ObjectDataSource-Steuerelement. In diesem Lernprogramm erstellt es einen `ProductsCL` Klasse, um zu veranschaulichen, mit dem Datencache programmgesteuert arbeiten. Um SQL-cacheabhängigkeiten in der Caching-Schicht zu nutzen, verwenden Sie die `SqlCacheDependency` Klasse.
+
+Mit dem Abruf-System eine `SqlCacheDependency` Objekt muss ein bestimmtes Paar aus Datenbank und Tabelle zugeordnet sein. Der folgende Code erstellt z.B. eine `SqlCacheDependency` -Objekt auf Grundlage der Northwind-Datenbank s `Products` Tabelle:
 
 
 [!code-vb[Main](using-sql-cache-dependencies-vb/samples/sample10.vb)]
 
-Die beiden Eingabeparameter an die `SqlCacheDependency` Konstruktor für s werden die Datenbank- und Tabellennamen bzw. LIKE mit dem ObjectDataSource s `SqlCacheDependency` -Eigenschaft, der Datenbanknamen verwendet, ist identisch mit dem im angegebenen Wert der `name` Attribut des der `<add>` Element im `Web.config`. Der Tabellenname ist der tatsächliche Name der Datenbanktabelle.
+Die beiden Eingabeparameter der `SqlCacheDependency` s Konstruktor sind bzw. den Datenbank- und Tabellennamen. Wie Sie mit der "ObjectDataSource"-s `SqlCacheDependency` -Eigenschaft, der Datenbanknamen verwendet, ist identisch mit dem im angegebenen Wert der `name` Attribut des der `<add>` Element im `Web.config`. Der Tabellenname ist der tatsächliche Name der Datenbanktabelle.
 
-Zuordnen einer `SqlCacheDependency` mit einem Element für den Datencache hinzugefügt wird, gehen Sie die `Insert` methodenüberladungen, die eine Abhängigkeit akzeptiert. Der folgende Code fügt *Wert* für den Datencache auf unbestimmte Zeit, ordnet jedoch mit einem `SqlCacheDependency` auf die `Products` Tabelle. Kurz gesagt, *Wert* im Cache verbleiben, bis er aufgrund von arbeitsspeicherbeschränkungen entfernt wird oder die Abruf-System erkannt, die die `Products` Tabelle wurde geändert, da er zwischengespeichert wurde.
+Zuordnen einer `SqlCacheDependency` mit einem Element, das dem Datencache hinzugefügt wird, gehen Sie die `Insert` methodenüberladungen, die eine Abhängigkeit akzeptiert. Der folgende Code fügt *Wert* , das dem Datencache für eine unbestimmte Dauer, ordnet jedoch mit einem `SqlCacheDependency` auf die `Products` Tabelle. Kurz gesagt, *Wert* wird im Cache verbleiben, bis es aufgrund von arbeitsspeicherbeschränkungen entfernt wird, oder da, die der Abruf-System erkannt hat die `Products` Tabelle wurde geändert, da er zwischengespeichert wurde.
 
 
 [!code-vb[Main](using-sql-cache-dependencies-vb/samples/sample11.vb)]
 
-Das Caching Ebene s `ProductsCL` Klasse speichert zurzeit Daten aus der `Products` -Tabelle und verwendet dabei eine zeitbasierte Ablauf von 60 Sekunden. Lassen Sie s, die diese Klasse zu aktualisieren, sodass sie stattdessen SQL-Cache-Abhängigkeiten verwendet. Die `ProductsCL` Klasse s `AddCacheItem` Methode, die für das Hinzufügen von Daten in den Cache verantwortlich ist, enthält zurzeit den folgenden Code:
+Die Caching-Schicht s `ProductsCL` Klasse speichert derzeit Daten aus der `Products` Tabelle über eine zeitbasierte Ablauf von 60 Sekunden. Lassen Sie s, die dieser Klasse zu aktualisieren, sodass sie stattdessen SQL-cacheabhängigkeiten verwendet. Die `ProductsCL` Klasse s `AddCacheItem` -Methode, die für das Hinzufügen von Daten in den Cache verantwortlich ist, enthält derzeit den folgenden Code:
 
 
 [!code-vb[Main](using-sql-cache-dependencies-vb/samples/sample12.vb)]
 
-Aktualisieren Sie diesen Code verwenden eine `SqlCacheDependency` -Objekt anstelle der `MasterCacheKeyArray` cache-Abhängigkeit:
+Aktualisieren Sie diesen Code mit einer `SqlCacheDependency` Objekt, sondern mit der `MasterCacheKeyArray` Zwischenspeichern Abhängigkeit:
 
 
 [!code-vb[Main](using-sql-cache-dependencies-vb/samples/sample13.vb)]
 
-Um diese Funktionalität zu testen, fügen Sie eine GridView zur Seite unterhalb der vorhandenen `ProductsDeclarative` GridView. Legen Sie diese neue GridView s `ID` auf `ProductsProgrammatic` und über seine Smarttag binden Sie es an eine neue ObjectDataSource mit dem Namen `ProductsDataSourceProgrammatic`. Konfigurieren der ObjectDataSource verwenden die `ProductsCL` Klasse, indem die Dropdownlisten in der SELECT und UPDATE-Registerkarten, um `GetProducts` und `UpdateProduct`zugeordnet.
+Um diese Funktionalität zu testen, fügen Sie einer GridView-Ansicht auf der Seite unterhalb der vorhandenen `ProductsDeclarative` GridView. Legen Sie diese neuen GridView s `ID` zu `ProductsProgrammatic` und durch sein Smarttag, binden Sie es an eine neue, mit dem Namen "ObjectDataSource" `ProductsDataSourceProgrammatic`. Konfigurieren Sie mit dem ObjectDataSource-Steuerelement die `ProductsCL` Klasse. dabei wird die Dropdownlisten in der SELECT und UPDATE-Registerkarten, um `GetProducts` und `UpdateProduct`bzw.
 
 
-[![Konfigurieren der ObjectDataSource zur Verwendung der ProductsCL-Klasse](using-sql-cache-dependencies-vb/_static/image11.gif)](using-sql-cache-dependencies-vb/_static/image15.png)
+[![Konfigurieren von dem ObjectDataSource-Steuerelement zur Verwendung der ProductsCL-Klasse](using-sql-cache-dependencies-vb/_static/image11.gif)](using-sql-cache-dependencies-vb/_static/image15.png)
 
-**Abbildung 11**: Konfigurieren der ObjectDataSource verwenden die `ProductsCL` Klasse ([klicken Sie hier, um das Bild in voller Größe angezeigt](using-sql-cache-dependencies-vb/_static/image16.png))
-
-
-[![Wählen Sie aus der Registerkarte "SELECT" s Dropdown-Liste die GetProducts-Methode](using-sql-cache-dependencies-vb/_static/image12.gif)](using-sql-cache-dependencies-vb/_static/image17.png)
-
-**Abbildung 12**: Wählen Sie die `GetProducts` Methode aus der Registerkarte "Wählen Sie" s Dropdown-Liste ([klicken Sie hier, um das Bild in voller Größe angezeigt](using-sql-cache-dependencies-vb/_static/image18.png))
+**Abbildung 11**: Konfigurieren von dem ObjectDataSource-Steuerelement verwenden die `ProductsCL` Klasse ([klicken Sie, um das Bild in voller Größe anzeigen](using-sql-cache-dependencies-vb/_static/image16.png))
 
 
-[![Wählen Sie die UpdateProduct-Methode aus der Registerkarte s Dropdownelement Updateliste](using-sql-cache-dependencies-vb/_static/image13.gif)](using-sql-cache-dependencies-vb/_static/image19.png)
+[![Wählen Sie die GetProducts-Methode aus der Registerkarte "SELECT" s Dropdown-Liste](using-sql-cache-dependencies-vb/_static/image12.gif)](using-sql-cache-dependencies-vb/_static/image17.png)
 
-**Abbildung 13**: Wählen Sie die UpdateProduct-Methode aus der Registerkarte "UPDATE"-s-Dropdown-Liste ([klicken Sie hier, um das Bild in voller Größe angezeigt](using-sql-cache-dependencies-vb/_static/image20.png))
+**Abbildung 12**: Wählen Sie die `GetProducts` Methode aus der Registerkarte "Wählen Sie" s Dropdown-Liste ([klicken Sie, um das Bild in voller Größe anzeigen](using-sql-cache-dependencies-vb/_static/image18.png))
 
 
-Nach Abschluss des Assistenten für die Datenquelle konfigurieren erstellt Visual Studio BoundFields und CheckBoxFields in die GridView für die einzelnen Datenfelder. Wie Sie mit der ersten GridView dieser Seite hinzugefügt wird, entfernen Sie alle Felder jedoch `ProductName`, `CategoryName`, und `UnitPrice`, und formatieren Sie diese Felder nach Bedarf. Aus den GridView s smart Tag die Kontrollkästchen der Paging aktivieren, aktivieren Sie sortieren und Bearbeiten aktivieren. Wie bei der `ProductsDataSourceDeclarative` ObjectDataSource, Visual Studio festgelegt werden die `ProductsDataSourceProgrammatic` ObjectDataSource s `OldValuesParameterFormatString` Eigenschaft `original_{0}`. Damit die Funktion ordnungsgemäß funktioniert, legen Sie diese Eigenschaft für die GridView s bearbeiten zurück zum `{0}` (oder die Eigenschaft die Zuweisung von deklarativer Syntax vollständig entfernen).
+[![Wählen Sie aus der Updateliste Registerkarte s Dropdown-Liste der UpdateProduct-Methode](using-sql-cache-dependencies-vb/_static/image13.gif)](using-sql-cache-dependencies-vb/_static/image19.png)
 
-Die resultierende GridView und ObjectDataSource deklarative Markup sollte nach Abschluss dieser Aufgaben können wie folgt aussehen:
+**Abbildung 13**: Wählen Sie aus der Registerkarte "UPDATE"-s-Dropdown-Liste der UpdateProduct-Methode ([klicken Sie, um das Bild in voller Größe anzeigen](using-sql-cache-dependencies-vb/_static/image20.png))
+
+
+Nach Abschluss der Konfigurieren von Datenquellen-Assistenten werden Visual Studio BoundFields und CheckBoxFields in den GridView-Ansicht für die einzelnen Datenfelder erstellt. Wie Sie mit der ersten GridView, die auf dieser Seite hinzugefügt, entfernen Sie alle Felder jedoch `ProductName`, `CategoryName`, und `UnitPrice`, und formatieren Sie diese Felder nach Bedarf. GridView s Smarttags überprüfen Sie die Kontrollkästchen Paging aktivieren, aktivieren Sie sortieren und Bearbeiten aktivieren. Wie bei der `ProductsDataSourceDeclarative` "ObjectDataSource", Visual Studio wird festgelegt. die `ProductsDataSourceProgrammatic` "ObjectDataSource" s `OldValuesParameterFormatString` Eigenschaft `original_{0}`. In der Reihenfolge für die GridView s bearbeiten-Funktion ordnungsgemäß funktioniert, legen Sie diese Eigenschaft zurück, in `{0}` (oder entfernen Sie die eigenschaftenzuweisung vollständig aus der deklarativen Syntax).
+
+Nach Abschluss dieser Aufgaben, sollte das daraus resultierende GridView und "ObjectDataSource" deklarative Markup wie folgt aussehen:
 
 
 [!code-aspx[Main](using-sql-cache-dependencies-vb/samples/sample14.aspx)]
 
-So testen Sie die SQL-Cacheabhängigkeit in der Ebene zwischenspeichern, legen Sie einen Haltepunkt der `ProductCL` Klasse s `AddCacheItem` -Methode, und klicken Sie dann dem Debuggen beginnen. Wenn Sie zum ersten Mal besuchen `SqlCacheDependencies.aspx`, sollte der Haltepunkt erreicht werden, wie die Daten zum ersten Mal angefordert und im Cache platziert wurden. Als Nächstes zu einer anderen Seite in der GridView verschieben oder eine der Spalten zu sortieren. Dies bewirkt, dass die GridView, um die Daten erneut abzufragen, aber die Daten im Cache seit gefunden werden sollte die `Products` Datenbanktabelle wurde nicht verändert. Wenn die Daten wiederholt nicht im Cache gefunden werden, stellen Sie sicher, dass auf Ihrem Computer über ausreichend Arbeitsspeicher verfügbar ist, und wiederholen Sie den Vorgang.
+So testen Sie die SQL-Cacheabhängigkeit in der Caching-Schicht, legen Sie einen Haltepunkt der `ProductCL` Klasse s `AddCacheItem` -Methode, und klicken Sie dann dem Debuggen beginnen. Wenn Sie zum ersten Mal besuchen `SqlCacheDependencies.aspx`, sollte der Haltepunkt erreicht werden, wie die Daten zum ersten Mal angefordert und im Cache platziert wurden. Klicken Sie anschließend auf eine andere Seite der GridView zu verschieben, oder eine der Spalten zu sortieren. Dies bewirkt, dass der GridView, die Daten erneut abzufragen, aber die Daten gefunden werden sollte, im Cache seit dem `Products` Datenbanktabelle wurde nicht geändert. Wenn die Daten wiederholt nicht im Cache gefunden werden, stellen Sie sicher, dass auf Ihrem Computer über ausreichend Arbeitsspeicher verfügbar ist, und versuchen Sie es erneut.
 
-Nach Paging durch einige Seiten eines GridView, öffnen Sie ein zweites Browserfenster, und navigieren Sie zu den Grundlagen-Lernprogramm in bearbeiten, einfügen und Löschen im Abschnitt (`~/EditInsertDelete/Basics.aspx`). Aktualisiert einen Datensatz aus der Tabelle Products und dann aus dem ersten Browserfenster anzeigen einer neuen Seite, oder klicken Sie auf eine der angegebenen Sortierung.
+Öffnen Sie nach dem Paging durch ein paar Seiten der GridView, ein zweites Browserfenster, und navigieren Sie zu den Grundlagen-Lernprogramm, in der bearbeiten, einfügen und Löschen im Abschnitt (`~/EditInsertDelete/Basics.aspx`). Aktualisieren eines Datensatzes aus der Tabelle Products und zeigen Sie anschließend aus dem ersten Browserfenster, eine neue Seite, oder klicken Sie auf einen der Sortierung-Header.
 
-In diesem Szenario finden Sie zwei Dinge: entweder der Haltepunkt erreicht, gibt an, dass die zwischengespeicherten Daten aufgrund der Änderung in der Datenbank entfernt wurde oder der Haltepunkt wird nicht erreicht, was bedeutet, dass `SqlCacheDependencies.aspx` keine veraltete Daten wird jetzt angezeigt. Wenn der Breakpoint nicht erreicht wird, ist es wahrscheinlich, da der Abruf-Dienst noch nicht ausgelöst wurde, da die Daten geändert wurden. Denken Sie daran, dass Änderungen an der Dienst Abruf überprüft werden die `Products` Tabelle jedes `pollTime` Millisekunden, daher ist es eine Verzögerung zwischen, wenn die zugrunde liegenden Daten aktualisiert wird und wenn die zwischengespeicherten Daten entfernt wird.
+In diesem Szenario sehen Sie zwei Möglichkeiten: entweder der Haltepunkt wird erreicht, gibt an, dass die zwischengespeicherten Daten aufgrund der Änderung in der Datenbank entfernt wurde oder der Haltepunkt wird nicht erreicht, was bedeutet, dass `SqlCacheDependencies.aspx` ist nun veraltete Daten angezeigt. Wenn der Haltepunkt nicht getroffen wird, ist es wahrscheinlich, da der Abruf-Dienst noch nicht ausgelöst wurde, da die Daten geändert wurden. Beachten Sie, dass Änderungen an der Dienst abrufen Prüfungen der `Products` Tabelle alle `pollTime` Millisekunden, daher besteht eine Verzögerung zwischen Wenn die zugrunde liegenden Daten aktualisiert wird und wenn die zwischengespeicherten Daten entfernt wird.
 
 > [!NOTE]
-> Diese Verzögerung ist wahrscheinlicher angezeigt, wenn eines der Produkte über die GridView in Bearbeitung `SqlCacheDependencies.aspx`. In der [Zwischenspeichern von Daten in der Architektur](caching-data-in-the-architecture-vb.md) Lernprogramm, die wir hinzugefügt der `MasterCacheKeyArray` Zwischenspeichern Abhängigkeit, um sicherzustellen, dass die Daten, die bearbeitet wird, über die `ProductsCL` Klasse s `UpdateProduct` Methode aus dem Cache entfernt wurde. Allerdings ersetzten wir diese Cacheabhängigkeit beim Ändern der `AddCacheItem` Methode weiter oben in diesem Schritt und daher die `ProductsCL` Klasse weiterhin die zwischengespeicherten Daten angezeigt, solange die Abruf-System die Änderung Hinweise der `Products` Tabelle. Wir sehen, wie Sie erneut auf die `MasterCacheKeyArray` Zwischenspeichern Abhängigkeit in Schritt 7.
+> Diese Verzögerung ist eher angezeigt werden, wenn eines der Produkte über die GridView in Bearbeitung `SqlCacheDependencies.aspx`. In der [Zwischenspeichern von Daten in der Architektur](caching-data-in-the-architecture-vb.md) Tutorial, die wir hinzugefügt, die `MasterCacheKeyArray` Zwischenspeichern Abhängigkeit, um sicherzustellen, dass die Daten, die bearbeitet wird, über die `ProductsCL` s-Klasse `UpdateProduct` Methode aus dem Cache entfernt wurde. Allerdings ersetzt diese Cacheabhängigkeit beim Ändern der `AddCacheItem` Methode weiter oben in diesem Schritt und somit die `ProductsCL` Klasse werden weiterhin die zwischengespeicherten Daten angezeigt, bis die Abruf-System die Änderung fest der `Products` Tabelle. Erfahren Sie, wie auf die Rückmeldung der `MasterCacheKeyArray` Zwischenspeichern Abhängigkeit in Schritt 7.
 
 
-## <a name="step-7-associating-multiple-dependencies-with-a-cached-item"></a>Schritt 7: Zuordnen eines zwischengespeicherten Elements mehrere Abhängigkeiten
+## <a name="step-7-associating-multiple-dependencies-with-a-cached-item"></a>Schritt 7: Ein zwischengespeichertes Element mehrere Abhängigkeiten zugeordnet
 
-Bedenken Sie, dass die `MasterCacheKeyArray` Cacheabhängigkeit wird verwendet, um sicherzustellen, dass *alle* produktbezogene Daten aus dem Cache entfernt werden, wenn ein Element verknüpft sind, darin aktualisiert wird. Z. B. die `GetProductsByCategoryID(categoryID)` Methode Caches `ProductsDataTables` Instanzen für jeden eindeutigen *CategoryID* Wert. Wenn eines dieser Objekte entfernt wird, die `MasterCacheKeyArray` Cacheabhängigkeit wird sichergestellt, dass die anderen auch entfernt werden. Ohne diese Cacheabhängigkeit die zwischengespeicherten Daten geändert werden besteht die Möglichkeit, dass andere zwischengespeicherte Produktdaten möglicherweise nicht mehr aktuell. Folglich es wichtig, dass wir verwalten die `MasterCacheKeyArray` Abhängigkeit den Zwischenspeicher bei Verwendung von SQL-Cache-Abhängigkeiten. Die Daten zwischenspeichern jedoch s `Insert` Methode lässt nur für eine einzelnes Dependency-Objekt.
+Bedenken Sie, dass die `MasterCacheKeyArray` Cacheabhängigkeit wird verwendet, um sicherzustellen, dass *alle* produktbezogene Daten aus dem Cache entfernt werden, wenn ein Element in diesem Zusammenhang aktualisiert wird. Z. B. die `GetProductsByCategoryID(categoryID)` Methode Caches `ProductsDataTables` Instanzen für jeden eindeutigen *CategoryID* Wert. Wenn eines dieser Objekte entfernt wird, die `MasterCacheKeyArray` Cacheabhängigkeit wird sichergestellt, dass die anderen auch entfernt werden. Wenn die zwischengespeicherten Daten geändert werden, besteht die Möglichkeit ohne diese Cacheabhängigkeit, dass andere zwischengespeicherte Produktdaten möglicherweise veraltet. Daher es wichtig, dass wir verwalten die `MasterCacheKeyArray` Abhängigkeit den Zwischenspeicher bei Verwendung von SQL-cacheabhängigkeiten. Allerdings speichern die Daten s `Insert` Methode kann nur ein einzelnes Abhängigkeitsobjekt.
 
-Bei der Arbeit mit SQL-Cache-Abhängigkeiten müssen wir darüber hinaus Verknüpfen mehrerer Datenbanktabellen als Abhängigkeiten. Z. B. die `ProductsDataTable` zwischengespeicherte in der `ProductsCL` Klasse enthält die Kategorie und Lieferanten Namen für jedes Produkt, aber die `AddCacheItem` Methode verwendet nur eine Abhängigkeit auf `Products`. In diesem Fall, wenn der Benutzer den Namen einer Kategorie oder Lieferanten, aktualisiert die zwischengespeicherten Produktdaten bleibt im Cache und veraltet sein. Wir möchten daher den zwischengespeicherten Produktdaten abhängig machen nicht nur die `Products` -Tabelle jedoch in der `Categories` und `Suppliers` sowie Tabellen.
+Bei der Arbeit mit SQL-cacheabhängigkeiten müssen wir darüber hinaus mehreren Datenbanktabellen als Abhängigkeiten zuzuordnen. Z. B. die `ProductsDataTable` zwischengespeicherte in die `ProductsCL` -Klasse enthält die Kategorie und Lieferanten Namen für jedes Produkt, aber die `AddCacheItem` Methode verwendet nur eine Abhängigkeit auf `Products`. In diesem Fall, wenn der Benutzer den Namen der Kategorie oder Lieferant, aktualisiert die zwischengespeicherten Produktdaten werden im Cache verbleiben und veraltet sein. Aus diesem Grund werden wir die Produktdaten an zwischengespeicherte Objekt abhängig machen soll nicht nur die `Products` -Tabelle jedoch in der `Categories` und `Suppliers` auch Tabellen.
 
-Die [ `AggregateCacheDependency` Klasse](https://msdn.microsoft.com/library/system.web.caching.aggregatecachedependency.aspx) bietet eine Möglichkeit für ein Element im Cache mehrere Abhängigkeiten zuordnen. Erstellen Sie zunächst eine `AggregateCacheDependency` Instanz. Als Nächstes fügen Sie die Gruppe der Abhängigkeiten, die mithilfe der `AggregateCacheDependency` s `Add` Methode. Wenn Sie das Element anschließend in der Datencache einfügen, übergeben die `AggregateCacheDependency` Instanz. Wenn *alle* von der `AggregateCacheDependency` Abhängigkeiten s-Instanz zu ändern, wird das zwischengespeicherte Element entfernt werden.
+Die [ `AggregateCacheDependency` Klasse](https://msdn.microsoft.com/library/system.web.caching.aggregatecachedependency.aspx) bietet eine Möglichkeit für ein Element im Cache mehrere Abhängigkeiten zugeordnet. Erstellen Sie zunächst eine `AggregateCacheDependency` Instanz. Fügen Sie den Satz von Abhängigkeiten mithilfe der `AggregateCacheDependency` s `Add` Methode. Wenn das Element in Datencache danach einfügen möchten, übergeben die `AggregateCacheDependency` Instanz. Wenn *alle* von der `AggregateCacheDependency` s-Instanz Abhängigkeiten ändern, wird das zwischengespeicherte Element entfernt werden.
 
-Nachstehend sehen Sie den aktualisierten Code für die `ProductsCL` Klasse s `AddCacheItem` Methode. Erstellt die Methode die `MasterCacheKeyArray` Zwischenspeichern Abhängigkeit zusammen mit `SqlCacheDependency` von Objekten für die `Products`, `Categories`, und `Suppliers` Tabellen. Diese werden alle in einem kombiniert `AggregateCacheDependency` Objekt mit dem Namen `aggregateDependencies`, der übergeben wird dann in der `Insert` Methode.
+Das folgende Beispiel zeigt den aktualisierten Code für die `ProductsCL` Klasse s `AddCacheItem` Methode. Die Methode erstellt die `MasterCacheKeyArray` Zwischenspeichern Abhängigkeit zusammen mit `SqlCacheDependency` von Objekten für die die `Products`, `Categories`, und `Suppliers` Tabellen. Diese werden alle in einer kombiniert `AggregateCacheDependency` Objekt mit dem Namen `aggregateDependencies`, die übergeben wird dann in der `Insert` Methode.
 
 
 [!code-vb[Main](using-sql-cache-dependencies-vb/samples/sample15.vb)]
 
-Diese neuen Code zu testen. Nun Änderungen an der `Products`, `Categories`, oder `Suppliers` Tabellen bewirken, dass die zwischengespeicherten Daten entfernt werden. Darüber hinaus die `ProductsCL` Klasse s `UpdateProduct` -Methode, die aufgerufen wird, wenn ein Produkt nicht über die GridView zu bearbeiten, entfernt die `MasterCacheKeyArray` Zwischenspeichern Abhängigkeit, wodurch die zwischengespeicherten `ProductsDataTable` zur Entfernung und die Daten erneut auf das nächste abgerufen werden sollen Anforderung.
+Testen Sie diesen neuen Code heraus. Jetzt wird nun die `Products`, `Categories`, oder `Suppliers` Tabellen dazu führen, dass die zwischengespeicherten Daten entfernt werden. Darüber hinaus die `ProductsCL` s-Klasse `UpdateProduct` -Methode, die aufgerufen wird, beim Bearbeiten eines Produkts über GridView, entfernt der `MasterCacheKeyArray` Zwischenspeichern Abhängigkeit, wodurch die zwischengespeicherten `ProductsDataTable` entfernt werden und die Daten erneut auf dem nächsten abgerufen werden sollen Anforderung.
 
 > [!NOTE]
-> SQL-Cache-Abhängigkeiten können auch verwendet werden, mit [ausgabezwischenspeicherung](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/caching/output.aspx). Eine Demonstration der dieser Funktionalität, finden Sie unter: [mithilfe von ASP.NET Zwischenspeichern der Ausgabe mit SQL Server](https://msdn.microsoft.com/library/e3w8402y(VS.80).aspx).
+> SQL-cacheabhängigkeiten können auch verwendet werden, mit [ausgabezwischenspeicherung](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/caching/output.aspx). Eine Demonstration dieser Funktion finden Sie unter: [mithilfe ASP.NET-Ausgabecache mit SQL Server](https://msdn.microsoft.com/library/e3w8402y(VS.80).aspx).
 
 
 ## <a name="summary"></a>Zusammenfassung
 
-Beim Zwischenspeichern von Datenbankdaten, verbleiben die Daten im Idealfall im Cache, bis sie in der Datenbank geändert wurden. Mit ASP.NET 2.0 können SQL-Cache-Abhängigkeiten erstellt und in deklarativen und programmgesteuerten Szenarien verwendet werden. Eine der Herausforderungen besteht bei diesem Ansatz wird ermittelt, wenn die Daten geändert wurden. Die Vollversion von Microsoft SQL Server 2005 bieten Benachrichtigungsfunktionen, die eine Anwendung Warnungen erhalten können, wenn sich ein Ergebnis der Abfrage geändert hat. Für die Express Edition von SQL Server 2005 und früheren Versionen von SQL Server muss stattdessen einen Abruf-System verwendet werden. Glücklicherweise ist das Einrichten der erforderlichen Abruf Infrastruktur recht einfach.
+Beim Zwischenspeichern von Daten werden im Idealfall die Daten im Cache verbleiben, bis er in der Datenbank geändert wird. Mit ASP.NET 2.0 können SQL-cacheabhängigkeiten erstellt und in deklarativ und programmatisch Szenarien verwendet werden. Eine der Herausforderungen bei diesem Ansatz wird ermittelt, wenn Sie die Daten geändert wurde. Die Vollversionen von Microsoft SQL Server 2005 bieten Notification-Funktionen, die eine Anwendung warnen können, wenn ein Ergebnis der Abfrage geändert hat. Für die Express Edition von SQL Server 2005 und älteren Versionen von SQL Server muss stattdessen ein Abruf-System verwendet werden. Einrichten der erforderlichen Abruf-Infrastruktur ist recht einfach.
 
 Viel Spaß beim Programmieren!
 
 ## <a name="further-reading"></a>Weiterführende Themen
 
-Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
+Weitere Informationen zu den Themen in diesem Tutorial erläutert finden Sie in den folgenden Ressourcen:
 
 - [Verwenden von Abfragebenachrichtigungen in Microsoft SQL Server 2005](https://msdn.microsoft.com/library/ms175110.aspx)
-- [Erstellen einer Abfragebenachrichtigung](https://msdn.microsoft.com/library/ms188669.aspx)
-- [Caching in ASP.NET mit der `SqlCacheDependency` Klasse](https://msdn.microsoft.com/library/ms178604(VS.80).aspx)
-- [Registrierungstool für ASP.NET SQL-Server (`aspnet_regsql.exe`)](https://msdn.microsoft.com/library/ms229862(vs.80).aspx)
-- [Übersicht über `SqlCacheDependency`](http://www.aspnetresources.com/blog/sql_cache_depedency_overview.aspx)
+- [Erstellen eine Abfragebenachrichtigung](https://msdn.microsoft.com/library/ms188669.aspx)
+- [Ausgabezwischenspeicherung in ASP.NET mit der `SqlCacheDependency` Klasse](https://msdn.microsoft.com/library/ms178604(VS.80).aspx)
+- [ASP.NET SQL Server-Registrierungstool (`aspnet_regsql.exe`)](https://msdn.microsoft.com/library/ms229862(vs.80).aspx)
+- [Übersicht über die `SqlCacheDependency`](http://www.aspnetresources.com/blog/sql_cache_depedency_overview.aspx)
 
-## <a name="about-the-author"></a>Informationen zum Autor
+## <a name="about-the-author"></a>Der Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben Büchern zu ASP/ASP.NET und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), arbeitet mit Microsoft-Web-Technologien seit 1998. Er ist als ein unabhängiger Berater, Schulungsleiter und Autor. Sein neueste Buch wird [*Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er ist unter [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Besonderen Dank an
 
-Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurden Marko Rangel Teresa Murphy und Hilton Giesenow. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Diese tutorialreihe wurde durch viele hilfreiche Reviewer überprüft. Führendes Prüfer für dieses Tutorial wurden Marko Rangel Teresa Murphy und Hilton Giesenow. Meine zukünftigen MSDN-Artikeln überprüfen möchten? Wenn dies der Fall ist, löschen Sie mir eine Linie an [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Vorherige](caching-data-at-application-startup-vb.md)

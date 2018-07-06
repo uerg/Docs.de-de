@@ -3,20 +3,24 @@ title: 'Razor-Seiten mit Entity Framework Core in ASP.NET Core: Tutorial 1 von 8
 author: rick-anderson
 description: Informationen zum Erstellen einer Razor Pages-App mit Entity Framework Core
 ms.author: riande
-ms.date: 11/15/2017
+ms.date: 6/31/2017
 uid: data/ef-rp/intro
-ms.openlocfilehash: cadf36f4e1ff3776ad4139e1d7c4e9b73687bc5c
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: a31b3e0ad72964a0c01c0b855a70d2f3e8966ab9
+ms.sourcegitcommit: 7003d27b607e529642ded0400aa48ae692a0e666
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36279229"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37033289"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Razor-Seiten mit Entity Framework Core in ASP.NET Core: Tutorial 1 von 8
 
+[!INCLUDE[2.0 version](~/includes/RP-EF/20-pdf.md)]
+
+::: moniker range=">= aspnetcore-2.1"
+
 Von [Tom Dykstra](https://github.com/tdykstra) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Die Beispiel-Web-App der Contoso University veranschaulicht, wie mit Entity Framework Core 2.0 und Visual Studio 2017 ASP.NET Core 2.0 MVC-Webanwendungen erstellt werden.
+Die Beispiel-Web-App der Contoso University veranschaulicht, wie mit Entity Framework Core (EF Core) eine ASP.NET Core-App mit Razor Pages erstellt werden kann.
 
 Bei der Beispiel-App handelt es sich um eine Website für die fiktive Contoso University. Sie enthält Funktionen wie die Zulassung von Studenten, die Erstellung von Kursen und Aufgaben von Dozenten. Dies ist die erste Seite eines mehrseitigen Tutorials, in dem die Erstellung der Beispiel-App der Contoso University erläutert wird.
 
@@ -24,16 +28,21 @@ Bei der Beispiel-App handelt es sich um eine Website für die fiktive Contoso Un
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
-[!INCLUDE [](~/includes/net-core-prereqs.md)]
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+[!INCLUDE [](~/includes/net-core-prereqs-windows.md) [](~/includes/net-core-prereqs-windows.md)]
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core-CLI](#tab/netcore-cli)
+
+[!INCLUDE [](~/includes/2.1-SDK.md) [](~/includes/2.1-SDK.md)]
+
+------
 
 Kenntnisse über [Razor Pages](xref:razor-pages/index). Anfänger sollten den Artikel [Erste Schritte mit Razor Pages in ASP.NET Core](xref:tutorials/razor-pages/razor-pages-start) lesen, bevor sie mit diesem Tutorial beginnen.
 
 ## <a name="troubleshooting"></a>Problembehandlung
 
-Wenn Sie auf ein Problem stoßen, das Sie nicht lösen können, sollten Sie Ihren Code mit der [abgeschlossenen Phase](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots) vergleichen. Eine Liste mit häufig auftretenden Fehlern und den jeweiligen Lösungen finden Sie im Abschnitt [zur Fehlerbehebung auf im letzten Tutorial dieser Tutorialreihe](xref:data/ef-mvc/advanced#common-errors). Wenn Sie dort nicht die gewünschten Informationen finden, können Sie unter [StackOverflow.com](https://stackoverflow.com/questions/tagged/asp.net-core) für [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) oder [Entity Framework Core](https://stackoverflow.com/questions/tagged/entity-framework-core) eine Frage posten.
-
-> [!TIP]
-> Dieses Tutorial basiert auf anderen älteren Tutorials. Sie sollten jedes Mal, wenn Sie erfolgreich ein Tutorial abgeschlossen haben, eine Kopie des Projekts erstellen. Wenn Sie dann auf Probleme stoßen, können Sie zurück zum vorherigen Tutorial gehen und müssen nicht wieder ganz von vorne beginnen. Stattdessen können Sie aber auch eine [abgeschlossene Phase](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots) herunterladen und diese zum Starten verwenden.
+Wenn Sie auf ein Problem stoßen, das Sie nicht lösen können, sollten Sie versuchen, Ihren Code mit dem [abgeschlossenen Projekt](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) zu vergleichen. Sie können auch Hilfe erhalten, indem Sie eine Frage zu [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) oder [EF Core](https://stackoverflow.com/questions/tagged/entity-framework-core) auf [stackoverflow.com](https://stackoverflow.com/questions/tagged/asp.net-core) stellen.
 
 ## <a name="the-contoso-university-web-app"></a>Die Web-App der Contoso University
 
@@ -47,21 +56,30 @@ Benutzer können Informationen zu den Studenten, Kursen und Dozenten abrufen. Im
 
 Der Benutzeroberflächenstil dieser Website ähnelt den durch die integrierten Vorlagen generierten Seiten. In diesem Tutorial wird Entity Framework Core mit Razor Pages thematisiert. Die Benutzeroberfläche wird nicht erläutert.
 
-## <a name="create-a-razor-pages-web-app"></a>Erstellen einer Razor Pages-Web-App
+## <a name="create-the-contosouniversity-razor-pages-web-app"></a>Erstellen der Razor Pages-Web-App „ContosoUniversity“
 
-* Klicken Sie in Visual Studio im Menü **Datei** auf **Neu** > **Projekt**.
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+* Wählen Sie in Visual Studio im Menü **Datei** die Option **Neu** > **Projekt** aus.
 * Erstellen Sie eine neue ASP.NET Core-Webanwendung. Geben Sie dem Projekt den Namen **ContosoUniversity**. Es ist wichtig, dass Sie dem Projekt exakt diesen Namen geben, sodass die Namespaces übereinstimmen, wenn der Code kopiert und eingefügt wird.
- ![neue ASP.NET Core-Webanwendung](intro/_static/np.png)
-* Wählen Sie in der Dropdownliste **ASP.NET Core 2.0** aus, und klicken Sie anschließend auf **Webanwendung**.
- ![Webanwendung (Razor Pages)](../../razor-pages/index/_static/np2.png)
+* Wählen Sie in der Dropdownliste **ASP.NET Core 2.1** und anschließend **Webanwendung** aus.
 
-Drücken Sie **F5**, um die App im Debugmodus auszuführen, oder **STRG+F5** zur Ausführung ohne Anfügen des Debuggers.
+Bilder zu den vorherigen Schritten finden Sie unter [Erstellen einer Razor-Web-App](xref:tutorials/razor-pages/razor-pages-start#create-a-razor-web-app).
+Führen Sie die App aus.
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core-CLI](#tab/netcore-cli)
+
+```CLI
+dotnet new webapp -o ContosoUniversity
+cd ContosoUniversity
+dotnet run
+```
+
+------
 
 ## <a name="set-up-the-site-style"></a>Einrichten des Websitestils
 
-Sie können das Websitemenü, das Layout und die Startseite über einige Änderungen einrichten.
-
-Öffnen Sie *Pages/_Layout.cshtml*, und nehmen Sie die folgenden Änderungen vor:
+Sie können das Websitemenü, das Layout und die Startseite über einige Änderungen einrichten. Aktualisieren Sie *Pages/Shared/_Layout.cshtml* mit folgenden Änderungen:
 
 * Ändern Sie jedes „ContosoUniversity“ in „Contoso University“. Diese Begriffskombination kommt dreimal vor.
 
@@ -69,15 +87,11 @@ Sie können das Websitemenü, das Layout und die Startseite über einige Änderu
 
 Die Änderungen werden hervorgehoben. (Es wird *nicht* das gesamte Markup angezeigt.)
 
-[!code-html[](intro/samples/cu/Pages/_Layout.cshtml?highlight=6,29,35-38,47&range=1-50)]
+[!code-html[](intro/samples/cu21/Pages/Shared/_Layout.cshtml?highlight=6,29,35-38,50&name=snippet)]
 
 Ersetzen Sie in *Pages/Index.cshtml* die Inhalte der Datei durch den folgenden Code. Dadurch ersetzen Sie den Text zu ASP.NET und MVC durch Text zu dieser App:
 
-[!code-html[](intro/samples/cu/Pages/Index.cshtml)]
-
-Drücken Sie STRG+F5, um das Projekt auszuführen. Im Folgenden wird die Startseite mit den Registerkarten angezeigt, die in den folgenden Tutorials erstellt wurden:
-
-![Contoso University-Startseite](intro/_static/home-page.png)
+[!code-html[](intro/samples/cu21/Pages/Index.cshtml)]
 
 ## <a name="create-the-data-model"></a>Erstellen des Datenmodells
 
@@ -95,9 +109,9 @@ In den folgenden Abschnitten wird für jede dieser Entitäten eine Klasse erstel
 
 Erstellen Sie einen Ordner *Models* (Modelle). Erstellen Sie mit dem folgenden Code im Ordner *Models* (Modelle) eine Klassendatei mit dem Namen *Student.cs*:
 
-[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_Intro)]
+[!code-csharp[](intro/samples/cu21/Models/Student.cs?name=snippet_Intro)]
 
-Die `ID`-Eigenschaft fungiert als Primärschlüsselspalte der Datenbanktabelle, die dieser Klasse entspricht. Standardmäßig interpretiert Entity Framework Core eine Eigenschaft mit dem Namen `ID` oder `classnameID` als Primärschlüssel. In `classnameID` ist `classname` der Name der Klasse, im vorherigen Beispiel z.B. `Student`.
+Die `ID`-Eigenschaft fungiert als Primärschlüsselspalte der Datenbanktabelle, die dieser Klasse entspricht. Standardmäßig interpretiert Entity Framework Core eine Eigenschaft mit dem Namen `ID` oder `classnameID` als Primärschlüssel. In `classnameID` ist `classname` der Name der Klasse. Der Primärschlüssel, der alternativ automatisch erkannt wurde, ist im vorherigen Beispiel `StudentID`.
 
 Die `Enrollments`-Eigenschaft ist eine Navigationseigenschaft. Navigationseigenschaften werden mit anderen Entitäten verknüpft, die dieser Entität zugehörig sind. In diesem Fall enthält die `Enrollments`-Eigenschaft einer `Student entity` all diese `Enrollment`-Entitäten, die mit diesem `Student` in Zusammenhang stehen. Wenn es z.B. für eine „Student“-Zeile in der Datenbank zwei zugehörige „Enrollment“-Zeilen gibt, enthält die Navigationseigenschaft `Enrollments` zwei `Enrollment`-Entitäten. Bei einer zugehörigen `Enrollment`-Zeile handelt es sich um eine Zeile, die den Wert des Primärschlüssels des Studenten in der `StudentID`-Spalte enthält. Nehmen Sie z.B. an, dass es für den Studenten mit ID=1 zwei Zeilen in der `Enrollment`-Tabelle gibt. Die `Enrollment`-Tabelle verfügt über zwei Zeilen mit `StudentID`=1. Bei `StudentID` handelt es sich um einen Fremdschlüssel in der `Enrollment`-Tabelle, der den Studenten in der `Student`-Tabelle angibt.
 
@@ -109,7 +123,7 @@ Wenn in einer Navigationseigenschaft mehrere Entitäten gespeichert werden könn
 
 Erstellen Sie mit dem folgenden Code im Ordner *Models* (Modelle) eine *Enrollment.cs*-Datei:
 
-[!code-csharp[](intro/samples/cu/Models/Enrollment.cs?name=snippet_Intro)]
+[!code-csharp[](intro/samples/cu21/Models/Enrollment.cs?name=snippet_Intro)]
 
 Bei der `EnrollmentID`-Eigenschaft handelt es sich um den Primärschlüssel. Diese Entität verwendet genau wie die `Student`-Entität das `classnameID`-Muster anstelle von `ID`. In der Regel wählen Entwickler ein Muster aus und verwenden dieses im gesamten Datenmodell. In einem der nächsten Tutorials wird erläutert, wie Sie eine ID ohne Klassennamen verwenden, um die Vererbung einfacher in das Datenmodell zu implementieren.
 
@@ -127,145 +141,137 @@ Entity Framework Core interpretiert Eigenschaften als Fremdschlüssel, wenn dies
 
 Erstellen Sie mit dem folgenden Code im Ordner *Models* (Modelle) eine *Course.cs*-Datei:
 
-[!code-csharp[](intro/samples/cu/Models/Course.cs?name=snippet_Intro)]
+[!code-csharp[](intro/samples/cu21/Models/Course.cs?name=snippet_Intro)]
 
 Die `Enrollments`-Eigenschaft ist eine Navigationseigenschaft. `Course`-Entitäten können sich auf jede beliebige Anzahl von `Enrollment`-Entitäten beziehen.
 
 Das `DatabaseGenerated`-Attribut lässt es zu, dass die App den Primärschlüssel angibt, sodass die Datenbank diesen nicht generieren muss.
 
-## <a name="create-the-schoolcontext-db-context"></a>Erstellen des Datenbankkontexts „SchoolContext“
+## <a name="scaffold-the-student-model"></a>Erstellen des Gerüsts für das Studentenmodell
 
-Bei der Datenbankkontextklasse handelt es sich um die Hauptklasse, die die Entity Framework Core-Funktionen für ein angegebenes Datenmodell koordiniert. Der Datenkontext wird von `Microsoft.EntityFrameworkCore.DbContext` abgeleitet. Der Datenkontext gibt an, welche Entitäten im Datenmodell enthalten sind. In diesem Projekt heißt die Klasse `SchoolContext`.
+In diesem Abschnitt wird das Gerüst für das Studentenmodell erstellt. Mit dem Tool für den Gerüstbau werden Seiten für die Vorgänge „Create“ (Erstellen), „Read“ (Lesen), „Update“ (Aktualisieren) und „Delete“ (Löschen), kurz CRUD-Vorgänge, für das Studentenmodell erstellt.
 
-Erstellen Sie im Projektordner einen Ordner mit dem Namen *Data* (Daten).
+* Erstellen Sie das Projekt.
+* Erstellen Sie den Ordner *Pages/Students*.
 
-Erstellen Sie im Ordner *Data* (Daten) mit dem folgenden Code die *SchoolContext.cs*-Datei:
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-[!code-csharp[](intro/samples/cu/Data/SchoolContext.cs?name=snippet_Intro)]
+* Klicken Sie im **Projektmappen-Explorer** mit der rechten Maustaste auf den Ordner *Pages/Students*, und wählen Sie **Hinzufügen** > **Neues Gerüstelement** aus.
+* Wählen Sie im Dialogfeld **Gerüst hinzufügen** den Eintrag **Razor Pages mit Entity Framework (CRUD)** > **HINZUFÜGEN** aus.
 
-Dieser Code erstellt eine `DbSet`-Eigenschaft für jede Entitätenmenge. Das heißt für Entity Framework Core:
+Vervollständigen Sie das Dialogfeld **Razor Pages mit Entity Framework (CRUD) hinzufügen**:
+
+* Wählen Sie im Dropdownmenü **Modellklasse** **Student (ContosoUniversity.Models)** aus.
+* Wählen Sie in der Zeile **Datenkontextklasse** das Pluszeichen (**+**) aus, und ändern Sie den generierten Namen in **ContosoUniversity.Models.SchoolContext**.
+* Wählen Sie im Dropdownmenü **Datenkontextklasse** **ContosoUniversity.Models.SchoolContext** aus.
+* Wählen Sie **Hinzufügen** aus.
+
+![CRUD-Dialogfeld](intro/_static/s1.png)
+
+Wenn Sie Probleme mit dem vorherigen Schritt haben, finden Sie weitere Informationen unter [Erstellen des Gerüsts für das Filmmodell](xref:tutorials/razor-pages/model#scaffold-the-movie-model).
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core-CLI](#tab/netcore-cli)
+
+Führen Sie folgende Befehle aus, um das Gerüst für das Studentenmodell zu erstellen.
+
+```console
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 2.1.0
+dotnet aspnet-codegenerator razorpage -m Student -dc ContosoUniversity.Models.SchoolContext -udl -outDir Pages\Students --referenceScriptLibraries
+```
+------
+
+Der Gerüstprozess hat folgende Dateien erstellt und geändert:
+
+### <a name="files-created"></a>Erstellte Dateien
+
+* *Pages/Students/Create.cshtml.cs* ( bzw. /Delete, /Details, /Edit, /Index).
+* *Data/ContosoUniversityContext.cs*
+
+### <a name="files-updates"></a>Aktualisierte Dateien
+
+* *Startup.cs*: Die Änderungen an dieser Datei werden im nächsten Abschnitt ausführlich erläutert.
+* *appsettings.json*: Die Verbindungszeichenfolge, die zum Herstellen einer Verbindung mit einer lokalen Datenbank verwendet wird, wurde hinzugefügt.
+
+## <a name="examine-the-context-registered-with-dependency-injection"></a>Überprüfen des mit Dependency Injection registrierten Kontexts
+
+ASP.NET Core wird mit [Dependency Injection](xref:fundamentals/dependency-injection) erstellt. Dienste (z.B. der Datenbankkontext Entity Framework Core) werden über Dependency Injection beim Anwendungsstart registriert. Komponenten, die diese Dienste erfordern (z.B. Razor Pages), werden von diesen Diensten über Konstruktorparameter bereitgestellt. Der Konstruktorcode, der eine Datenbankkontextinstanz abruft, wird später in diesem Tutorial erläutert.
+
+Das Gerüstbautool hat automatisch einen Datenbankkontext erstellt und diesen mit dem Dependency Injection-Container registriert.
+
+Untersuchen Sie die Methode `ConfigureServices` in *Startup.cs*. Die hervorgehobene Zeile wurde vom Gerüst hinzugefügt:
+
+[!code-csharp[](intro/samples/cu21/Startup.cs?name=snippet_SchoolContext&highlight=13-14)]
+
+Der Name der Verbindungszeichenfolge wird an den Kontext übergeben, indem Sie eine Methode auf einem [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions)-Objekt aufrufen. Für die lokale Entwicklung liest das [ASP.NET Core-Konfigurationssystem](xref:fundamentals/configuration/index) die Verbindungszeichenfolge aus der *appsettings.json*-Datei.
+
+## <a name="update-main"></a>Aktualisieren der Main-Methode
+
+Ändern Sie in der *Program.cs*-Datei die `Main`-Methode, um die folgenden Vorgänge auszuführen:
+
+* Rufen Sie eine Datenbankkontextinstanz aus dem Dependency Injection-Container ab.
+* Rufen Sie [EnsureCreated](/dotnet/api/microsoft.entityframeworkcore.infrastructure.databasefacade.ensurecreated#Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_EnsureCreated) auf.
+* Löschen Sie den Kontext, wenn die `EnsureCreated`-Methode abgeschlossen ist.
+
+Der folgende Code zeigt die aktualisierte *Program.cs*-Datei.
+
+[!code-csharp[](intro/samples/cu21/Program.cs?name=snippet)]
+
+`EnsureCreated` stellt sicher, dass die Datenbank für den Kontext vorhanden ist. Wenn sie vorhanden ist, werden keine Aktionen durchgeführt. Wenn sie nicht vorhanden ist, werden die Datenbank und alle Schemas erstellt. `EnsureCreated` verwendet keine Migrationen, um die Datenbank zu erstellen. Eine Datenbank, die mit `EnsureCreated` erstellt wird, kann später nicht mithilfe von Migrationen aktualisiert werden.
+
+`EnsureCreated` wird beim Starten der App aufgerufen, wodurch der folgende Workflow ermöglicht wird:
+
+* Löschen Sie die Datenbank.
+* Ändern Sie das Datenbankschema, also fügen Sie z.B. ein `EmailAddress`-Feld hinzu.
+* Führen Sie die App aus.
+* Über `EnsureCreated` wird eine Datenbank mit der `EmailAddress`-Spalte erstellt.
+
+`EnsureCreated` eignet sich am Anfang der Entwicklung, wenn das Schema schnell weiterentwickelt wird. Im Verlauf des Tutorials wird die Datenbank gelöscht, und Migrationen werden verwendet.
+
+### <a name="test-the-app"></a>Testen der App
+
+Führen Sie die App aus, und akzeptieren Sie die Cookierichtlinie. Diese App bewahrt keine personenbezogenen Informationen auf. Weitere Informationen zur Cookierichtlinie finden Sie auf der Seite [EU General Data Protection Regulation (GDPR) support (Unterstützung für die Datenschutz-Grundverordnung (DSGVO) der EU)](xref:security/gdpr).
+
+* Klicken Sie auf den Link **Students** (Studenten) und anschließend auf **Neu erstellen**.
+* Testen Sie die Links „Edit“ (Bearbeiten), „Details“ und „Delete“ (Löschen).
+
+## <a name="examine-the-schoolcontext-db-context"></a>Untersuchen des Datenbankkontexts „SchoolContext“
+
+Bei der Datenbankkontextklasse handelt es sich um die Hauptklasse, die die Entity Framework Core-Funktionen für ein angegebenes Datenmodell koordiniert. Der Datenkontext wird von [Microsoft.EntityFrameworkCore.DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext) abgeleitet. Der Datenkontext gibt an, welche Entitäten im Datenmodell enthalten sind. In diesem Projekt heißt die Klasse `SchoolContext`.
+
+Aktualisieren Sie *SchoolContext.cs* mit folgendem Code:
+
+[!code-csharp[](intro/samples/cu21/Data/SchoolContext.cs?name=snippet_Intro&highlight=12-14)]
+
+Der hervorgehobene Code erstellt eine [DbSet\<TEntity>](/dotnet/api/microsoft.entityframeworkcore.dbset-1)-Eigenschaft für jede Entitätenmenge. Das heißt für Entity Framework Core:
 
 * Entitätenmengen entsprechen in der Regel einer Datenbanktabelle.
 * Entitäten entsprechen Zeilen in Tabellen.
 
 `DbSet<Enrollment>` und `DbSet<Course>` können ausgelassen werden. Diese sind implizit in Entity Framework Core enthalten, da die `Student`-Entität auf die `Enrollment`-Entität verweist, und die `Enrollment`-Entität auf die `Course`-Entität verweist. Behalten Sie für dieses Tutorial `DbSet<Enrollment>` und `DbSet<Course>` im `SchoolContext`-Kontext.
 
-Wenn die Datenbank erstellt wird, erstellt Entity Framework Core Tabellen mit Namen, die den `DbSet`-Eigenschaftennamen entsprechen. Eigenschaftennamen für Auflistungen stehen in der Regel im Plural (Students anstelle von Student). Entwickler sind sich uneinig darüber, ob Tabellennamen im Plural stehen sollten. In diesen Tutorials wird das Standardverhalten außer Kraft gesetzt, indem im DbContext Tabellennamen im Singular angegeben werden. Fügen Sie den folgenden hervorgehobenen Code hinzu, um Tabellennamen im Singular anzugeben:
-
-[!code-csharp[](intro/samples/cu/Data/SchoolContext.cs?name=snippet_TableNames&highlight=16-21)]
-
-## <a name="register-the-context-with-dependency-injection"></a>Registrieren des Kontexts durch Dependency Injection
-
-[Dependency Injection](xref:fundamentals/dependency-injection) ist in ASP.NET Core enthalten. Dienste (z.B. der Datenbankkontext Entity Framework Core) werden über Dependency Injection beim Anwendungsstart registriert. Komponenten, die diese Dienste erfordern (z.B. Razor Pages), werden von diesen Diensten über Konstruktorparameter bereitgestellt. Der Konstruktorcode, der eine Datenbankkontextinstanz abruft, wird später in diesem Tutorial erläutert.
-
-Öffnen Sie die *Startup.cs-Datei*, und fügen Sie der `ConfigureServices`-Methode die hervorgehobenen Zeilen hinzu, um `SchoolContext` als Dienst zu registrieren.
-
-[!code-csharp[](intro/samples/cu/Startup.cs?name=snippet_SchoolContext&highlight=3-4)]
-
-Der Name der Verbindungszeichenfolge wird an den Kontext übergeben, indem Sie eine Methode auf einem `DbContextOptionsBuilder`-Objekt aufrufen. Für die lokale Entwicklung liest das [ASP.NET Core-Konfigurationssystem](xref:fundamentals/configuration/index) die Verbindungszeichenfolge aus der *appsettings.json*-Datei.
-
-Fügen Sie für die Namespaces `ContosoUniversity.Data` und `Microsoft.EntityFrameworkCore` die `using`-Anweisungen hinzu. Erstellen Sie das Projekt.
-
-[!code-csharp[](intro/samples/cu/Startup.cs?name=snippet_Usings)]
-
-Öffnen Sie die *appsettings.json*-Datei, und fügen Sie wie im folgenden Code dargestellt eine Verbindungszeichenfolge hinzu:
-
-[!code-json[](./intro/samples/cu/appsettings1.json?highlight=2-4)]
-
-Die darauf folgende Verbindungszeichenfolge verwendet `ConnectRetryCount=0`, um zu vermeiden, dass [SQLClient](/dotnet/framework/data/adonet/ef/sqlclient-for-the-entity-framework) nicht mehr reagiert.
-
 ### <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-Die Verbindungszeichenfolge gibt eine SQL Server-LocalDB-Datenbank an. LocalDB ist eine Basisversion der SQL Server Express-Datenbank-Engine, die zwar für die Anwendungsentwicklung, aber nicht für den Produktionseinsatz bestimmt ist. LocalDB wird bedarfsgesteuert gestartet und im Benutzermodus ausgeführt, sodass keine komplexe Konfiguration anfällt. Standardmäßig erstellt LocalDB *.mdf*-Datenbankdateien im `C:/Users/<user>`-Verzeichnis.
+Die Verbindungszeichenfolge gibt [SQL Server LocalDB](/sql/database-engine/configure-windows/sql-server-2016-express-localdb) an. LocalDB ist eine Basisversion der SQL Server Express-Datenbank-Engine, die zwar für die Anwendungsentwicklung, aber nicht für den Produktionseinsatz bestimmt ist. LocalDB wird bedarfsgesteuert gestartet und im Benutzermodus ausgeführt, sodass keine komplexe Konfiguration anfällt. Standardmäßig erstellt LocalDB *.mdf*-Datenbankdateien im `C:/Users/<user>`-Verzeichnis.
 
 ## <a name="add-code-to-initialize-the-db-with-test-data"></a>Hinzufügen von Code zum Initialisieren der Datenbank mithilfe von Testdaten
 
-Entity Framework Core erstellt eine leere Datenbank. In diesem Abschnitt wird eine *Seed*-Methode geschrieben, um diese mit Testdaten aufzufüllen.
+Entity Framework Core erstellt eine leere Datenbank. In diesem Abschnitt wird eine `Initialize`-Methode geschrieben, um diese mit Testdaten aufzufüllen.
 
 Erstellen Sie im Ordner *Data* eine neuen Klassendatei mit dem Namen *DbInitializer.cs*, und fügen Sie den folgenden Code hinzu:
 
-[!code-csharp[](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Intro)]
+[!code-csharp[](intro/samples/cu21/Data/DbInitializer.cs?name=snippet_Intro)]
 
-Der Code überprüft, ob Studenten in der Datenbank enthalten sind. Wenn keine Studenten in der Datenbank enthalten sind, wird für diese ein Seeding mit Testdaten ausgeführt. Testdaten werden in Arrays anstelle von `List<T>`-Auflistungen geladen, um die Leistung zu optimieren.
+Der Code überprüft, ob Studenten in der Datenbank enthalten sind. Wenn keine Studenten in der Datenbank enthalten sind, wird diese mit Testdaten initialisiert. Testdaten werden in Arrays anstelle von `List<T>`-Auflistungen geladen, um die Leistung zu optimieren.
 
 Die `EnsureCreated`-Methode erstellt automatisch die Datenbank für den Datenbankkontext. Wenn die Datenbank vorhanden ist, wird `EnsureCreated` zurückgegeben, ohne Änderungen an der Datenbank vorzunehmen.
 
-Ändern Sie in der *Program.cs*-Datei die `Main`-Methode, um die folgenden Vorgänge auszuführen:
+Ändern Sie in *Program.cs* die `Main`-Methode, um `Initialize` aufzurufen:
 
-* Rufen Sie eine Datenbankkontextinstanz aus dem Dependency Injection-Container ab.
-* Rufen Sie die Seedmethode auf, indem Sie den Kontext an diese übergeben.
-* Löschen Sie den Kontext, wenn die Seedmethode abgeschlossen ist.
+[!code-csharp[](intro/samples/cu21/Program.cs?name=snippet2&highlight=14-15)]
 
-Der folgende Code zeigt die aktualisierte *Program.cs*-Datei.
-
-[!code-csharp[](intro/samples/cu/ProgramOriginal.cs?name=snippet)]
-
-Wenn die App das erste Mal ausgeführt wird, wird die Datenbank erstellt, und es wird ein Seeding mit Testdaten ausgeführt. Gehen Sie wie folgt vor, wenn ein Update für das Datenmodell ausgeführt wird:
-* Löschen Sie die Datenbank.
-* Führen Sie ein Update für die Seedmethode aus.
-* Führen Sie die App aus. Dann wird eine neue Datenbank erstellt, für die ein Seeding ausgeführt wurde. 
-
-In späteren Tutorials wird ein Update für die Datenbank ausgeführt, wenn das Datenmodell geändert wird, ohne die Datenbank zu löschen und neu zu erstellen.
-
-<a name="pmc"></a>
-## <a name="add-scaffold-tooling"></a>Hinzufügen von Gerüsttools
-
-In diesem Abschnitt wird die Paket-Manager-Konsole verwendet, um das Visual Studio-Paket zur Webcodegenerierung hinzuzufügen. Dieses Paket ist für die Ausführung der Gerüstbau-Engine erforderlich.
-
-Öffnen Sie das Menü **Extras**, und wählen Sie **NuGet-Paket-Manager** > **Paket-Manager-Konsole** aus.
-
-Geben Sie die folgenden Befehle in die Paket-Manager-Konsole ein:
-
-```powershell
-Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Design
-Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Utils
-```
-
-Über den obenstehenden Befehl werden die NuGet-Pakete zu der *.csproj-Datei hinzugefügt:
-
-[!code-xml[](intro/samples/cu/ContosoUniversity1_csproj.txt?highlight=7-8)]
-
-<a name="scaffold"></a>
-## <a name="scaffold-the-model"></a>Aufbauen des Modells
-
-* Öffnen Sie ein Befehlsfenster im Projektverzeichnis (das Verzeichnis mit den Dateien *Program.cs*, *Startup.cs*, und *CSPROJ*).
-* Führen Sie die folgenden Befehle aus:
-
-
- ```console
-dotnet restore
-dotnet tool install --global dotnet-aspnet-codegenerator --version 2.1.0
-dotnet aspnet-codegenerator razorpage -m Student -dc SchoolContext -udl -outDir Pages\Students --referenceScriptLibraries
- ```
-
-Wenn Sie eine Fehlermeldung erhalten, müssen Sie Folgendes tun:
-  ```
-No executable found matching command "dotnet-aspnet-codegenerator"
-  ```
-
-Öffnen Sie ein Befehlsfenster im Projektverzeichnis (das Verzeichnis mit den Dateien *Program.cs*, *Startup.cs*, und *CSPROJ*).
-
-
-Erstellen Sie das Projekt. Der Build generiert z.B. die folgenden Fehler:
-
- `1>Pages\Students\Index.cshtml.cs(26,38,26,45): error CS1061: 'SchoolContext' does not contain a definition for 'Student'`
-
- Ändern Sie `_context.Student` allgemein in `_context.Students` (d.h., fügen Sie ein „s“ zu `Student` hinzu). Der Begriff wurde siebenmal gefunden und aktualisiert. [Dieser Fehler](https://github.com/aspnet/Scaffolding/issues/633) sollte im nächsten Release behoben werden.
-
-[!INCLUDE [model4tbl](../../includes/RP/model4tbl.md)]
-
- <a name="test"></a>
-### <a name="test-the-app"></a>Testen der App
-
-Führen Sie die App aus, und klicken Sie auf den Link **Students**. Abhängig von der Breite Ihres Browsers wird der Link **Students** im oberen Bereich der Seite angezeigt. Wenn der Link **Students** nicht angezeigt wird, klicken Sie auf das Navigationssymbol in der oberen rechten Ecke.
-
-![Contoso University-Startseite verkleinert](intro/_static/home-page-narrow.png)
-
-Testen Sie die Links **Erstellen**, **Bearbeiten** und **Details**.
+Löschen Sie alle Datensätze für Studenten, und starten Sie die App neu. Wenn die Datenbank nicht initialisiert wird, legen Sie einen Breakpoint in `Initialize` fest, um das Problem zu diagnostizieren.
 
 ## <a name="view-the-db"></a>Abrufen der Datenbank
-
-Wenn die App gestartet wird, ruft `DbInitializer.Initialize` `EnsureCreated` auf. `EnsureCreated` ermittelt, ob die Datenbank vorhanden ist, und erstellt ggf. eine. Wenn keine Studenten in der Datenbank enthalten sind, werden über die `Initialize`-Methode Studenten hinzugefügt.
 
 Öffnen Sie über das Menü **Ansicht** im Visual Studio **SQL Server-Objekt-Explorer** (SSOX).
 Klicken Sie im SSOX auf **(localdb)\MSSQLLocalDB > Databases > ContosoUniversity1**.
@@ -273,30 +279,6 @@ Klicken Sie im SSOX auf **(localdb)\MSSQLLocalDB > Databases > ContosoUniversity
 Erweitern Sie den Knoten **Tabellen**.
 
 Klicken Sie mit der rechten Maustaste auf die Tabelle **Student**, und klicken Sie auf **Daten anzeigen**, um die erstellten Spalten und die in die Tabelle eingefügten Zeilen aufzurufen.
-
-Die Datenbankdateien <em>.mdf</em> und <em>.ldf</em> befinden sich im Ordner <em>C:\Users\\<yourusername></em>.
-
-`EnsureCreated` wird beim Starten der App aufgerufen, wodurch der folgende Workflow ermöglicht wird:
-
-* Löschen Sie die Datenbank.
-* Ändern Sie das Datenbankschema, also fügen Sie z.B. ein `EmailAddress`-Feld hinzu.
-* Führen Sie die App aus.
-
-Über `EnsureCreated` wird eine Datenbank mit der `EmailAddress`-Spalte erstellt.
-
-## <a name="conventions"></a>Konventionen
-
-Es wurde nur wenig Code in die Reihenfolge für Entity Framework Core geschrieben, um eine vollständige Datenbank zu erstellen, da Konventionen oder Annahmen von Entity Framework verwendet wurden.
-
-* Die Namen der `DbSet`-Eigenschaften werden als Tabellennamen verwendet. Für Entitäten, auf die nicht über eine `DbSet`-Eigenschaft verwiesen wird, werden Entitätsklassennamen als Tabellennamen verwendet.
-
-* Eigenschaftennamen von Entitäten werden als Spaltennamen verwendet.
-
-* Entitätseigenschaften mit dem Namen „ID“ oder „classnameID“ werden als Primärschlüsseleigenschaften erkannt.
-
-* Eigenschaften werden als Fremdschlüsseleigenschaften interpretiert, wenn Sie den Namen *<navigation property name><primary key property name>* haben – z.B. `StudentID` für die `Student`-Navigationseigenschaft, da der Primärschlüssel der `Student`-Entität `ID` lautet. Fremdschlüsseleigenschaften können den Namen *<primary key property name>* haben – z.B. `EnrollmentID`, da der Primärschlüssel der `Enrollment`-Entität `EnrollmentID` lautet.
-
-Konventionelles Verhalten kann überschrieben werden. Beispielsweise können die Tabellennamen wie bereits in diesem Tutorial gezeigt explizit angegeben werden. Die Spaltennamen können explizit angegeben werden. Primärschlüssel und Fremdschlüssel können explizit festgelegt werden.
 
 ## <a name="asynchronous-code"></a>Asynchroner Code
 
@@ -306,32 +288,28 @@ Der Webserver verfügt nur über eine begrenzte Anzahl von Threads. Daher werden
 
 Zur Laufzeit bedeutet die Verwendung von asynchronem Code allerdings, dass ein wenig mehr Aufwand entsteht. Für Situationen mit wenig Datenverkehr haben diese Leistungseinbußen keine negativen Folgen. Wenn es jedoch eine große Menge an Datenverkehr gibt, ist eine potentielle Verbesserung der Leistung von Bedeutung.
 
-Im folgenden Code haben das `async`-Schlüsselwort, der `Task<T>`-Rückgabewert, das `await`-Schlüsselwort und die `ToListAsync`-Methode zur Folge, dass der Code auf asynchrone Weise ausgeführt wird.
+Im folgenden Code führen das [async](/dotnet/csharp/language-reference/keywords/async)-Schlüsselwort, der `Task<T>`-Rückgabewert, das `await`-Schlüsselwort und die `ToListAsync`-Methode dazu, dass der Code asynchron ausgeführt wird.
 
-[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_ScaffoldedIndex)]
+[!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_ScaffoldedIndex)]
 
 * Das `async`-Schlüsselwort gibt dem Compiler folgende Anweisungen:
-
   * Er soll Rückrufe für Teile des Methodentexts generieren.
-  * Er soll automatisch das [Task](/dotnet/api/system.threading.tasks.task?view=netframework-4.7)-Objekt erstellen, das zurückgegeben wird. Weitere Informationen finden Sie unter [Aufgabenrückgabetyp](/dotnet/csharp/programming-guide/concepts/async/async-return-types#BKMK_TaskReturnType).
+  * Er soll automatisch das [Task](/dotnet/api/system.threading.tasks.task)-Objekt erstellen, das zurückgegeben wird. Weitere Informationen finden Sie unter [Aufgabenrückgabetyp](/dotnet/csharp/programming-guide/concepts/async/async-return-types#BKMK_TaskReturnType).
 
 * Der implizite Rückgabetyp `Task` steht für die derzeit ausgeführte Arbeit.
-
 * Das `await`-Schlüsselwort hat zur Folge, dass der Compiler die Methode in zwei Teile unterteilt. Der erste Teil endet mit dem Vorgang, der auf asynchrone Weise gestartet wird. Der zweite Teil wird in eine Rückrufmethode übertragen, die aufgerufen wird, wenn der Vorgang abgeschlossen wird.
-
 * Bei `ToListAsync` handelt es sich um die asynchrone Version der `ToList`-Erweiterungsmethode.
 
 Behalten Sie Folgendes im Hinterkopf, wenn Sie asynchronen Code schreiben, der Entity Framework Core verwendet:
 
 * Es werden nur Anweisungen auf asynchrone Weise ausgeführt, die Abfragen oder Befehle auslösen, die an die Datenbank gesendet werden sollen. Dazu gehören `ToListAsync`, `SingleOrDefaultAsync`, `FirstOrDefaultAsync` und `SaveChangesAsync`. Anweisungen wie `var students = context.Students.Where(s => s.LastName == "Davolio")`, die nur eine `IQueryable`-Instanz ändern, sind davon ausgeschlossen.
-
-* Entity Framework Core-Kontexte sind nicht threadsicher. Versuchen Sie daher nicht, mehrere Vorgänge gleichzeitig auszuführen. 
-
+* Entity Framework Core-Kontexte sind nicht threadsicher. Versuchen Sie daher nicht, mehrere Vorgänge gleichzeitig auszuführen.
 * Wenn Sie von den Leistungsvorteilen durch asynchronen Code profitieren möchten, überprüfen Sie, ob Bibliothekspakete (z.B. zum Paging) asynchronen Code verwenden, wenn sie Entity Framework Core-Methoden aufrufen, die Abfragen an die Datenbank senden.
 
-Weitere Informationen zur asynchronen Programmierung in .NET finden Sie unter [Async (Übersicht)](/dotnet/articles/standard/async).
+Weitere Informationen zur asynchronen Programmierung in .NET finden Sie unter [Async (Übersicht)](/dotnet/articles/standard/async) und [Asynchrone Programmierung mit Async und Await (C#)](/dotnet/csharp/programming-guide/concepts/async/).
 
 Im nächsten Tutorial erfahren Sie mehr über die CRUD-Vorgänge (Create, Read, Update, Delete = Erstellen, Lesen, Aktualisieren, Löschen).
+::: moniker-end
 
 > [!div class="step-by-step"]
 > [Nächste](xref:data/ef-rp/crud)

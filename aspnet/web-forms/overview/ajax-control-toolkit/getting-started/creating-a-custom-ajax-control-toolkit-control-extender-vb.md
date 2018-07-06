@@ -1,97 +1,96 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/getting-started/creating-a-custom-ajax-control-toolkit-control-extender-vb
-title: Erstellen einen benutzerdefinierte AJAX steuern Toolkit Extendersteuerelement (VB) | Microsoft Docs
+title: Erstellen einen benutzerdefinierten AJAX Toolkit-Steuerelement-Extenders (VB) des Steuerelements für | Microsoft-Dokumentation
 author: microsoft
-description: Benutzerdefinierte Extender ermöglichen es Ihnen, anpassen und erweitern die Funktionen der ASP.NET-Steuerelementen, ohne neue Klassen erstellen zu müssen.
+description: Benutzerdefiniertes Extender können Sie anpassen und erweitern die Funktionen von ASP.NET-Steuerelementen, ohne neue Klassen zu erstellen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
 ms.topic: article
 ms.assetid: 18b29834-c991-4e0c-b533-44d358fbfc9c
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started/creating-a-custom-ajax-control-toolkit-control-extender-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 06950770bf788fff4a03e9d41fd448ea675a8bce
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
-ms.translationtype: MT
+ms.openlocfilehash: a996409e8e9d37806fcbee8b7cc1c509dd9700fa
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30875135"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37394546"
 ---
-<a name="creating-a-custom-ajax-control-toolkit-control-extender-vb"></a>Erstellen eine benutzerdefinierte AJAX-Steuerelement-Toolkit Extendersteuerelement (VB)
+<a name="creating-a-custom-ajax-control-toolkit-control-extender-vb"></a>Erstellen einer benutzerdefinierten AJAX Control Toolkit-Steuerelement-Extenders (VB)
 ====================
 durch [Microsoft](https://github.com/microsoft)
 
-> Benutzerdefinierte Extender ermöglichen es Ihnen, anpassen und erweitern die Funktionen der ASP.NET-Steuerelementen, ohne neue Klassen erstellen zu müssen.
+> Benutzerdefiniertes Extender können Sie anpassen und erweitern die Funktionen von ASP.NET-Steuerelementen, ohne neue Klassen zu erstellen.
 
 
-In diesem Lernprogramm erfahren Sie, wie eine benutzerdefinierte AJAX Control Toolkit Extendersteuerelement erstellen. Erstellen wir eine einfache, aber hilfreich, neue Extender, die deaktiviert bzw. aktiviert, wenn Sie Text in ein Textfeld eingeben, wird der Status einer Schaltfläche geändert. Nach dem Lesen dieses Lernprogramms, werden Sie können das ASP.NET AJAX-Toolkit mit Ihren eigenen-Extender erweitert.
+In diesem Tutorial erfahren Sie, wie Sie einen benutzerdefinierten AJAX Control Toolkit-Steuerelement-Extenders zu erstellen. Wir erstellen eine einfache, aber hilfreich, neue Extender, der den Zustand einer Schaltfläche, deaktiviert ändert bzw. aktiviert wird, wenn Sie Text in ein Textfeld eingeben. Nach diesem Tutorial werden Sie dem ASP.NET AJAX-Toolkit, mit Ihren eigenen-Extender erweitern können.
 
-Sie können benutzerdefinierte Steuerelement Extender mit Visual Studio oder Visual Web Developer erstellen (Stellen Sie sicher, dass Sie die neueste Version von Visual Web Developer).
+Sie können benutzerdefinierte Steuerelement-Extendern, die mit Visual Studio oder Visual Web Developer erstellen (Stellen Sie sicher, dass Sie die neueste Version von Visual Web Developer).
 
-## <a name="overview-of-the-disabledbutton-extender"></a>Übersicht über den DisabledButton Extender
+## <a name="overview-of-the-disabledbutton-extender"></a>Übersicht über die der Extender DisabledButton
 
-Unsere neue Extendersteuerelement heißt den DisabledButton Extender. Diesen Extender müssen drei Eigenschaften:
+Unsere neuen Steuerelement-Extender wird den Extender DisabledButton benannt. Dieses Extenders müssen drei Eigenschaften:
 
 - TargetControlID - Textfeld, das das Steuerelement erweitert.
-- TargetButtonIID - Schaltfläche, mit der aktiviert oder deaktiviert ist.
-- DisabledText - der Text, der ursprünglich in der Schaltfläche angezeigt wird. Wenn Sie mit der Eingabe beginnen, zeigt die Schaltfläche den Wert der Eigenschaft Schaltflächentext.
+- TargetButtonIID - Schaltfläche mit den, der aktiviert oder deaktiviert ist.
+- DisabledText - der Text, der ursprünglich in der Schaltfläche angezeigt wird. Wenn Sie mit der Eingabe beginnen, zeigt die Schaltfläche den Wert der Schaltflächentext-Eigenschaft.
 
-Sie verknüpfen die DisabledButton Extender an ein Textfeld und Schaltfläche-Steuerelement. Bevor Sie einen beschreibenden Text eingeben, die Schaltfläche ist deaktiviert, und das Textfeld und einer Schaltfläche wie folgt aussehen:
+Sie verknüpfen die DisabledButton Extender an ein TextBox- und Button-Steuerelement. Bevor Sie einen beliebigen Text eingeben, die Schaltfläche ist deaktiviert, und das Textfeld und die Schaltfläche wie folgt aussehen:
 
 
 [![](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image2.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image1.png)
 
-([Klicken Sie hier, um das Bild in voller Größe angezeigt](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image3.png))
+([Klicken Sie, um das Bild in voller Größe anzeigen](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image3.png))
 
 
-Nach dem Text eingeben starten, wird die Schaltfläche aktiviert ist, und das Textfeld und einer Schaltfläche wie folgt aussehen:
+Eingeben von Text an, wenn die Schaltfläche ist aktiviert und die Textfeld- und Schaltflächen wie folgt aussehen:
 
 
 [![](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image5.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image4.png)
 
-([Klicken Sie hier, um das Bild in voller Größe angezeigt](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image6.png))
+([Klicken Sie, um das Bild in voller Größe anzeigen](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image6.png))
 
 
-Um unseren Extendersteuerelement erstellen zu können, müssen wir die folgenden drei Dateien zu erstellen:
+Um unsere Extender-Steuerelements erstellen zu können, müssen wir die folgenden drei Dateien zu erstellen:
 
-- DisabledButtonExtender.vb – diese Datei ist der serverseitigen Control-Klasse, die Erstellen des Extenders verwalten und ermöglichen es Ihnen, die Eigenschaften zur Entwurfszeit festgelegt. Außerdem definiert die Eigenschaften, die für Ihre Extender festgelegt werden können. Diese Eigenschaften über den Code auch zur Entwurfszeit zugegriffen werden kann und in der Datei DisableButtonBehavior.js definierte Eigenschaften übereinstimmen.
-- DisabledButtonBehavior.js – Diese Datei befindet, in dem Sie alle Ihre Client-Skript-Logik hinzugefügt werden.
-- DisabledButtonDesigner.vb - kann diese Klasse Entwurfszeitfunktionen. Benötigen Sie diese Klasse, wenn das Extendersteuerelement ordnungsgemäß mit dem Visual Studio/Visual Web Developer-Designer ausgeführt werden soll.
+- DisabledButtonExtender.vb – diese Datei ist das serverseitige Steuerelement-Klasse, die verwalten, erstellen den Extender und ermöglichen es Ihnen, die die Eigenschaften zur Entwurfszeit festgelegt. Sie definiert auch die Eigenschaften, die für den Extender festgelegt werden können. Diese Eigenschaften über den Code auch zur Entwurfszeit zugegriffen werden kann und in der Datei DisableButtonBehavior.js definierte Eigenschaften übereinstimmen.
+- DisabledButtonBehavior.js – Diese Datei ist, in dem Sie alle Ihre Client-Skriptlogik hinzufügen.
+- DisabledButtonDesigner.vb - ermöglicht diese Klasse während der Entwurfszeit-Funktionalität. Wenn die Extender-Steuerelements mit dem Visual Studio/Visual Web Developer-Designer ordnungsgemäß ausgeführt werden sollen, benötigen Sie diese Klasse.
 
-Daher besteht ein Extendersteuerelement ein serverseitiges Steuerelement, ein Client-Side-Verhalten und einer serverseitigen Designerklasse. Erfahren Sie, wie Sie alle drei Dateien in den folgenden Abschnitten zu erstellen.
+Daher besteht aus ein Steuerelement-Extender ein serverseitiges Steuerelement, ein clientseitiges Verhalten und einer serverseitigen-Designer-Klasse. Erfahren Sie, wie Sie alle drei dieser Dateien in den folgenden Abschnitten erstellen.
 
-## <a name="creating-the-custom-extender-website-and-project"></a>Erstellen der benutzerdefinierten Extender Website und das Projekt
+## <a name="creating-the-custom-extender-website-and-project"></a>Erstellen der benutzerdefinierten Extender-Website und das Projekt
 
-Der erste Schritt besteht im Visual Studio/Visual Web Developer eine Klassenbibliotheksprojekt und die Website erstellen. Wir ll benutzerdefinierte Extender in das Klassenbibliotheksprojekt erstellen und testen den benutzerdefinierten Extender auf der Website.
+Der erste Schritt ist die Erstellung von einem Klassenbibliotheksprojekt und die Website in Visual Studio/Visual Web Developer. Wir ll den benutzerdefinierten Extender in das Klassenbibliotheksprojekt zu erstellen und Testen Sie auf der Website den benutzerdefinierten Extender.
 
-Lassen Sie s mit der Website zu starten. Führen Sie diese Schritte aus, um die Website zu erstellen:
+Lassen Sie s, die mit der Website zu starten. Um die Website erstellt haben, gehen Sie wie folgt vor:
 
-1. Wählen Sie die Menüoption **Datei, die neue Website**.
+1. Wählen Sie die Menüoption **-Datei, die neue Website**.
 2. Wählen Sie die **ASP.NET-Website** Vorlage.
 3. Benennen Sie die neue Website *Website1*.
 4. Klicken Sie auf die **OK** Schaltfläche.
 
-Als Nächstes müssen wir das Klassenbibliotheksprojekt zu erstellen, das den Code für das Extendersteuerelement enthält:
+Als Nächstes müssen wir das Klassenbibliotheksprojekt zu erstellen, das den Code für den Steuerelement-Extender enthält:
 
-1. Wählen Sie die Menüoption **Datei hinzufügen, neues Projekt**.
-2. Wählen Sie die **-Klassenbibliothek** Vorlage.
+1. Wählen Sie die Menüoption **Datei hinzufügen "," Neues Projekt**.
+2. Wählen Sie die **Klassenbibliothek** Vorlage.
 3. Benennen Sie die neue Klassenbibliothek mit dem Namen **CustomExtenders**.
 4. Klicken Sie auf die **OK** Schaltfläche.
 
-Nachdem Sie diese Schritte abgeschlossen haben, sieht das Fenster Projektmappen-Explorer wie in Abbildung 1.
+Nachdem Sie diese Schritte abgeschlossen haben, sieht das Fenster des Projektmappen-Explorer wie in Abbildung 1.
 
 
-[![Lösung mit der Website und die Klasse Library-Projekts](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image8.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image7.png)
+[![Lösung mit Website "und"-Klasse-Steuerelementbibliothek-Projekt](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image8.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image7.png)
 
-**Abbildung 01**: Projektmappe mit der Website und die Klasse Bibliotheksprojekt ([klicken Sie hier, um das Bild in voller Größe angezeigt](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image9.png))
+**Abbildung 01**: Projektmappe mit der Website und Klasse-Bibliotheksprojekt ([klicken Sie, um das Bild in voller Größe anzeigen](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image9.png))
 
 
-Als Nächstes müssen Sie alle auf das Klassenbibliotheksprojekt die notwendigen Assemblyverweise hinzugefügt werden:
+Als Nächstes müssen Sie die notwendigen Assemblyverweise, um das Klassenbibliotheksprojekt hinzugefügt:
 
-1. Mit der rechten Maustaste des CustomExtenders-Projekts, und wählen Sie die Menüoption **Verweis hinzufügen**.
-2. Wählen Sie die Registerkarte ".NET".
+1. Mit der rechten Maustaste in des CustomExtenders-Projekts, und wählen Sie die Menüoption **Verweis hinzufügen**.
+2. Wählen Sie die Registerkarte für .NET.
 3. Fügen Sie Verweise auf die folgenden Assemblys hinzu:
 
     1. System.Web.dll
@@ -99,145 +98,145 @@ Als Nächstes müssen Sie alle auf das Klassenbibliotheksprojekt die notwendigen
     3. System.Design.dll
     4. System.Web.Extensions.Design.dll
 4. Wählen Sie die Registerkarte "Durchsuchen".
-5. Fügen Sie einen Verweis auf die AjaxControlToolkit.dll-Assembly. Diese Assembly befindet sich im Ordner, in dem Sie das AJAX-Steuerelement-Toolkit heruntergeladen haben.
+5. Fügen Sie einen Verweis auf die AjaxControlToolkit.dll-Assembly hinzu. Diese Assembly befindet sich im Ordner, in dem Sie das AJAX Control Toolkit heruntergeladen haben.
 
-Sie können überprüfen, ob Sie alle richtigen Verweise hinzugefügt haben, indem mit der rechten Maustaste des Projekts, Eigenschaften, und klicken Sie auf der Registerkarte "Verweise" (siehe Abbildung 2).
+Sie können überprüfen, ob Sie alle richtigen Verweise hinzugefügt haben, indem Sie mit der rechten Maustaste in des Projekts, wählen Sie Eigenschaften und klicken Sie auf der Registerkarte "Verweise" (siehe Abbildung 2).
 
 
 [![Ordner "Verweise" mit der erforderlichen Verweise](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image11.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image10.png)
 
-**Abbildung 02**: Ordner "Verweise" mit der erforderlichen Verweise ([klicken Sie hier, um das Bild in voller Größe angezeigt](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image12.png))
+**Abbildung 02**: Ordner "Verweise" mit allen erforderlichen Referenzen ([klicken Sie, um das Bild in voller Größe anzeigen](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image12.png))
 
 
-## <a name="creating-the-custom-control-extender"></a>Erstellen die benutzerdefinierte Extendersteuerelement
+## <a name="creating-the-custom-control-extender"></a>Erstellen den benutzerdefinierte Steuerelement-Extender
 
-Nun, da wir unsere Klassenbibliothek haben, beginnen wir unsere Extendersteuerelement erstellen. Lassen Sie s mit der Texten ein benutzerdefiniertes Extender-Steuerelementklasse (Siehe Programmbeispiel 1) beginnen.
+Nun, da wir unsere Klassenbibliothek haben, können wir beginnen, unsere Extender-Steuerelement zu erstellen. Lassen Sie s, die mit den Texten, der eine benutzerdefinierte extendersteuerelementklasse (siehe Codebeispiel 1) beginnen.
 
 **1 – MyCustomExtender.vb auflisten**
 
 [!code-vb[Main](creating-a-custom-ajax-control-toolkit-control-extender-vb/samples/sample1.vb)]
 
-Es gibt mehrere Dinge, die Sie zu der Extender Steuerelementklasse in Codebeispiel 1 fest. Erstens ist zu beachten, dass die Klasse von der Basisklasse ExtenderControlBase erbt. Alle AJAX Control Toolkit Extendersteuerelementen werden von dieser Basisklasse abgeleitet. Beispielsweise enthält die Basisklasse der TargetID-Eigenschaft, die eine erforderliche Eigenschaft des Extenders wird jedes Steuerelement ist.
+Es gibt mehrere Dinge, die Sie über die Steuerelement-Extender-Klasse in Codebeispiel 1 zu sehen. Erstens ist zu beachten, dass die Klasse von der ExtenderControlBase Basisklasse erbt. Alle AJAX Control Toolkit-Extender-Steuerelemente, die von dieser Basisklasse abgeleitet werden. Beispielsweise enthält die Basisklasse der TargetID-Eigenschaft, die eine erforderliche Eigenschaft von jedem Steuerelement-Extender ist.
 
-Als Nächstes Beachten Sie, dass die Klasse die folgenden zwei Attribute, die im Zusammenhang mit Clientskripts umfasst:
+Als Nächstes, beachten Sie, dass die Klasse die folgenden beiden Attribute, die im Zusammenhang mit dem Clientskript enthält:
 
-- WebResource - bewirkt, dass eine Datei als eingebettete Ressource in einer Assembly enthalten sein.
-- ClientScriptResource - bewirkt, dass eine Ressource "Script" aus einer Assembly abgerufen werden sollen.
+- WebResource - bewirkt, dass eine Datei als eingebettete Ressource in einer Assembly eingeschlossen werden sollen.
+- ClientScriptResource - bewirkt, dass eine Skriptressource aus einer Assembly abgerufen werden sollen.
 
-Das WebResource-Attribut wird verwendet, um die MyControlBehavior.js JavaScript-Datei in die Assembly eingebettet, wenn der benutzerdefinierte Extender kompiliert wird. Das ClientScriptResource-Attribut wird verwendet, um das MyControlBehavior.js-Skript aus der Assembly abgerufen werden, wenn der benutzerdefinierte Extender in einer Webseite verwendet wird.
-
-
-In der Reihenfolge für die Attribute WebResource und ClientScriptResource arbeiten müssen Sie die JavaScript-Datei als eingebettete Ressource kompilieren. Wählen Sie im Fenster Projektmappen-Explorer die Datei, öffnen Sie die Eigenschaftenseite, und weisen Sie den Wert *eingebettete Ressource* auf die **Buildvorgang** Eigenschaft.
+Das WebResource-Attribut wird verwendet, um MyControlBehavior.js JavaScript-Datei in die Assembly eingebettet werden, wenn die benutzerdefinierten Extenders kompiliert wird. Das ClientScriptResource-Attribut wird verwendet, um das Skript MyControlBehavior.js aus der Assembly abzurufen, wenn es sich bei der benutzerdefinierte Extender auf einer Webseite verwendet wird.
 
 
-Beachten Sie, dass der Steuerelement-Extender auch ein TargetControlType-Attribut enthält. Dieses Attribut wird verwendet, um den Typ des Steuerelements anzugeben, die durch das Extendersteuerelement erweitert wird. Bei einem Codebeispiel 1 ist das Extendersteuerelement verwendet, um ein Textfeld zu erweitern.
+In der Reihenfolge für die Attribute WebResource- und ClientScriptResource funktioniert müssen Sie die JavaScript-Datei als eingebettete Ressource kompilieren. Wählen Sie die Datei im Projektmappen-Explorer-Fenster, öffnen Sie das Eigenschaftenblatt, und weisen Sie den Wert *eingebettete Ressource* auf die **Buildvorgang** Eigenschaft.
 
-Beachten Sie, dass der benutzerdefinierte Extender eine Eigenschaft "MyProperty" enthält. Die Eigenschaft ist mit dem ExtenderControlProperty-Attribut markiert. Die Methoden GetPropertyValue() und SetPropertyValue() werden verwendet, den Wert der Eigenschaft aus der Extender serverseitiges Steuerelement an das Verhalten des clientseitigen übergeben.
 
-Lassen Sie s, fahren Sie fort, und implementieren Sie den Code für unsere DisabledButton Extender. Der Code für diesen Extender finden Sie im Codebeispiel 2.
+Beachten Sie, dass der Steuerelement-Extender auch ein TargetControlType-Attribut enthält. Dieses Attribut wird verwendet, um den Typ des Steuerelements anzugeben, die vom Steuerelement-Extender erweitert wird. Im Fall von Codebeispiel 1 wird die Extender-Steuerelements verwendet, um ein Textfeld zu erweitern.
 
-**Auflisten von 2 – DisabledButtonExtender.vb**
+Beachten Sie, dass es sich bei der benutzerdefinierte Extender eine Eigenschaft, die mit dem Namen MyProperty enthält. Die Eigenschaft wird mit dem ExtenderControlProperty-Attribut markiert. Die GetPropertyValue() und SetPropertyValue()-Methoden werden verwendet, um den Wert der Eigenschaft aus der serverseitiges Steuerelement-Extender für das clientseitige Verhalten zu übergeben.
+
+Lassen Sie s, fahren Sie fort, und implementieren Sie den Code für unsere DisabledButton-Extender. Der Code für diesen Extender finden Sie im Codebeispiel 2.
+
+**Codebeispiel 2 - DisabledButtonExtender.vb**
 
 [!code-vb[Main](creating-a-custom-ajax-control-toolkit-control-extender-vb/samples/sample2.vb)]
 
-Der Extender DisabledButton auflisten 2 verfügt über zwei Eigenschaften, die mit dem Namen TargetButtonID und DisabledText. Die IDReferenceProperty auf die Eigenschaft TargetButtonID angewendet verhindert, dass Sie etwas anderes als die ID des einem Schaltflächen-Steuerelement diese Eigenschaft zuweisen.
+Der Extender DisabledButton Programmausdruck 2 verfügt über zwei Eigenschaften namens TargetButtonID und DisabledText. Die IDReferenceProperty angewendet auf die TargetButtonID-Eigenschaft verhindert, dass Sie diese Eigenschaft nichts anderes als die ID eines Schaltflächen-Steuerelements zugewiesen.
 
-Die Attribute WebResource und ClientScriptResource zuordnen ein clientseitigen Verhaltens befindet sich in einer Datei namens DisabledButtonBehavior.js mit diesen Extender. Dieser JavaScript-Datei im nächsten Abschnitt erörtert.
+Die Attribute WebResource- und ClientScriptResource ordnen Sie ein clientseitiges Verhalten befindet sich in einer Datei namens DisabledButtonBehavior.js mit diesen Extender. Diese JavaScript-Datei im nächsten Abschnitt erläutert.
 
-## <a name="creating-the-custom-extender-behavior"></a>Erstellen das benutzerdefinierte Extender-Verhalten
+## <a name="creating-the-custom-extender-behavior"></a>Erstellen das Verhalten des benutzerdefinierten Extenders
 
-Die Client-Side-Komponente des ein Extendersteuerelement ist ein Verhalten wird aufgerufen. Die eigentliche Logik zum Deaktivieren und aktivieren die Schaltfläche befindet sich im DisabledButton Verhalten. Der JavaScript-Code für das Verhalten ist im Codebeispiel 3 enthalten.
+Die clientseitige Komponente von einem Steuerelement-Extender wird ein Verhalten aufgerufen werden. Die eigentliche Logik zum Deaktivieren und aktivieren die Schaltfläche befindet sich im DisabledButton Verhalten. Der JavaScript-Code für das Verhalten ist in Programmausdruck 3 enthalten.
 
-**3 – DisabledButton.js auflisten**
+**Codebeispiel 3 - DisabledButton.js**
 
 [!code-javascript[Main](creating-a-custom-ajax-control-toolkit-control-extender-vb/samples/sample3.js)]
 
-Die JavaScript-Datei Auflisten von 3 enthält eine Client-Side-Klasse, die mit dem Namen DisabledButtonBehavior. Diese Klasse wird wie die serverseitige und enthält zwei Eigenschaften, die mit dem Namen TargetButtonID und DisabledText, die Sie zugreifen können, mithilfe von get\_TargetButtonID/Set\_TargetButtonID und\_DisabledText/Set\_ DisabledText.
+Die JavaScript-Datei in Programmausdruck 3 enthält eine Client-Side-Klasse, die mit dem Namen DisabledButtonBehavior. Diese Klasse wird wie seinem zwilling serverseitige enthält zwei Eigenschaften, die mit dem Namen TargetButtonID, und erhalten Sie DisabledText, die Sie zugreifen können, mit\_TargetButtonID/Set-\_TargetButtonID und\_DisabledText/Set-\_ DisabledText.
 
-Die Initialize()-Methode ordnet einen Keyup-Ereignis-Handler für das Verhalten der Target-Element. Jedes Mal, Sie geben Sie einen Buchstaben in das Textfeld ein, die mit diesem Verhalten verbundenen, führt das Keyup-Handler. Der Handler Keyup entweder aktiviert oder deaktiviert die Schaltfläche abhängig davon, ob das Textfeld mit dem Verhalten verknüpft einen beschreibenden Text enthält.
+Die Initialize()-Methode Target-Elements für das Verhalten einen Keyup-Ereignis-Handler zugeordnet. Jedes Mal, Sie geben Sie einen Buchstaben in das Textfeld ein, die dieses Verhalten zugeordnet, führt der Keyup-Handler aus. Der Keyup-Handler entweder aktiviert oder deaktiviert die Schaltfläche ", je nachdem, ob das Textfeld ein, die mit diesem Verhalten verbundenen Text enthält.
 
-Denken Sie daran, dass Sie die JavaScript-Datei auflisten 3 als eingebettete Ressource kompilieren müssen. Wählen Sie im Fenster Projektmappen-Explorer die Datei, öffnen Sie die Eigenschaftenseite, und weisen Sie den Wert *eingebettete Ressource* auf die **Buildvorgang** -Eigenschaft (siehe Abbildung 3). Diese Option ist in Visual Studio und Visual Web Developer verfügbar.
+Denken Sie daran, dass Sie die JavaScript-Datei in Programmausdruck 3 als eingebettete Ressource kompilieren müssen. Wählen Sie die Datei im Projektmappen-Explorer-Fenster, öffnen Sie das Eigenschaftenblatt, und weisen Sie den Wert *eingebettete Ressource* auf die **Buildvorgang** Eigenschaft (siehe Abbildung 3). Diese Option ist in Visual Studio und Visual Web Developer verfügbar.
 
 
 [![Hinzufügen einer JavaScript-Datei als eingebettete Ressource](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image14.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image13.png)
 
-**Abbildung 03**: Hinzufügen einer JavaScript-Datei als eingebettete Ressource ([klicken Sie hier, um das Bild in voller Größe angezeigt](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image15.png))
+**Abbildung 03**: Hinzufügen einer JavaScript-Datei als eingebettete Ressource ([klicken Sie, um das Bild in voller Größe anzeigen](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image15.png))
 
 
-## <a name="creating-the-custom-extender-designer"></a>Erstellen des benutzerdefinierten Extender-Designers
+## <a name="creating-the-custom-extender-designer"></a>Erstellen von benutzerdefinierten Extender-Designer
 
-Es wird eine letzte-Klasse, die wir erstellen, um unsere Extender abschließen müssen. Wir müssen die Designerklasse auflisten 4 erstellen. Diese Klasse ist erforderlich, um den Extender verhält sich ordnungsgemäß mit dem Visual Studio/Visual Web Developer-Designer.
+Es gibt eine letzte-Klasse, die wir erstellen, um unsere Extender abschließen müssen. Wir müssen die Designerklasse in Listing 4 zu erstellen. Diese Klasse wird benötigt, zu der Extender, der mit dem Visual Studio/Visual Web Developer-Designer ordnungsgemäß verhält.
 
-**4 – DisabledButtonDesigner.vb auflisten**
+**Programmausdruck 4 - DisabledButtonDesigner.vb**
 
 [!code-vb[Main](creating-a-custom-ajax-control-toolkit-control-extender-vb/samples/sample4.vb)]
 
-Ordnen Sie den Designer in 4 Auflisten der DisabledButton Extender mit dem Designer-Attribut. Sie müssen das Designer-Attribut auf die Klasse DisabledButtonExtender wie folgt anwenden:
+Ordnen Sie den Designer in Listing 4 der DisabledButton Extender mit dem Designer-Attribut. Sie müssen das Designer-Attribut auf die DisabledButtonExtender-Klasse wie folgt angewendet:
 
 [!code-vb[Main](creating-a-custom-ajax-control-toolkit-control-extender-vb/samples/sample5.vb)]
 
-## <a name="using-the-custom-extender"></a>Mithilfe des benutzerdefinierten Extenders
+## <a name="using-the-custom-extender"></a>Verwendung des benutzerdefinierten Extenders
 
-Nun, dass wir das Extendersteuerelement DisabledButton erstellt haben, ist es Zeit für die Verwendung in unserer ASP.NET-Website. Zunächst müssen wir die benutzerdefinierte Extender zur Toolbox hinzu. Führen Sie folgende Schritte aus:
+Nun, dass wir mit dem Erstellen des DisabledButton-Extenders-Steuerelements abgeschlossen haben, ist es Zeit für die Verwendung in unserem ASP.NET-Website. Zunächst müssen wir den benutzerdefinierten Extender zur Toolbox hinzufügen. Führen Sie folgende Schritte aus:
 
 1. Öffnen Sie eine ASP.NET-Seite durch Doppelklicken auf die Seite im Projektmappen-Explorer-Fenster.
 2. Mit der rechten Maustaste in der Toolbox, und wählen Sie die Menüoption **Elemente auswählen**.
-3. Navigieren Sie zu der Assembly CustomExtenders.dll, klicken Sie im Dialogfeld "Toolboxelemente auswählen".
+3. Navigieren Sie in das Dialogfeld "Toolboxelemente auswählen" auf die Assembly CustomExtenders.dll.
 4. Klicken Sie auf die **OK** Schaltfläche, um das Dialogfeld zu schließen.
 
-Nachdem Sie diese Schritte abgeschlossen haben, sollte die DisabledButton Extendersteuerelement in der Toolbox angezeigt (siehe Abbildung 4).
+Nachdem Sie diese Schritte abgeschlossen haben, sollte die DisabledButton-Extender-Steuerelements in der Toolbox angezeigt (siehe Abbildung 4).
 
 
 [![DisabledButton in der toolbox](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image17.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image16.png)
 
-**Abbildung 04**: DisabledButton in der Toolbox ([klicken Sie hier, um das Bild in voller Größe angezeigt](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image18.png))
+**Abbildung 04**: DisabledButton in der Toolbox ([klicken Sie, um das Bild in voller Größe anzeigen](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image18.png))
 
 
-Als Nächstes müssen wir eine neue ASP.NET-Seite zu erstellen. Führen Sie folgende Schritte aus:
+Als Nächstes müssen wir eine neue ASP.NET-Seite erstellen. Führen Sie folgende Schritte aus:
 
-1. Erstellen Sie eine neue, mit dem Namen ShowDisabledButton.aspx ASP.NET-Seite.
-2. Ziehen Sie ein ScriptManager auf der Seite "ein.
-3. Ziehen Sie ein TextBox-Steuerelement auf der Seite "ein.
-4. Ziehen Sie ein Button-Steuerelement auf der Seite "ein.
-5. Ändern Sie im Fenster Eigenschaften die Schaltfläche ID-Eigenschaft auf den Wert <em>hinzu</em> und der Text-Eigenschaft auf den Wert *speichern\**.
+1. Erstellen Sie eine neue ASP.NET-Seite mit dem Namen ShowDisabledButton.aspx.
+2. Ziehen Sie ein ScriptManager-Steuerelement auf der Seite ein.
+3. Ziehen Sie ein TextBox-Steuerelement auf der Seite ein.
+4. Ziehen Sie ein Schaltflächen-Steuerelement auf der Seite ein.
+5. Ändern Sie im Fenster Eigenschaften die Schaltflächen-ID-Eigenschaft auf den Wert <em>BtnSave</em> und die Text-Eigenschaft auf den Wert *speichern\**.
   
 
-Wir haben eine Seite mit einem Standardsteuerelement ASP.NET Textfeld und Schaltfläche erstellt.
+Wir haben eine Seite mit einem standardmäßigen ASP.NET TextBox- und Button-Steuerelement erstellt.
 
-Als Nächstes müssen wir das TextBox-Steuerelement mit dem DisabledButton Extender erweitern:
+Als Nächstes müssen wir das TextBox-Steuerelement mit dem DisabledButton-Extender erweitern:
 
-1. Wählen Sie die **Extender hinzufügen** Aufgabe Option, um das Dialogfeld Extender-Assistenten zu öffnen (siehe Abbildung 5). Beachten Sie, dass das Dialogfeld "unsere benutzerdefinierte DisabledButton Extender enthält.
-2. Wählen Sie den DisabledButton Extender, und klicken Sie auf die **OK** Schaltfläche.
-
-
-[![Das Dialogfeld Extender-Assistenten](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image20.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image19.png)
-
-**Abbildung 05**: der Extender-Assistent-Dialogfeld ([klicken Sie hier, um das Bild in voller Größe angezeigt](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image21.png))
+1. Wählen Sie die **Extender hinzufügen** aufgabenoption, um die Extender-Assistent-Dialogfeld zu öffnen (siehe Abbildung 5). Beachten Sie, dass das Dialogfeld unserer benutzerdefinierten DisabledButton Extenders enthält.
+2. Wählen Sie den Extender DisabledButton aus, und klicken Sie auf die **OK** Schaltfläche.
 
 
-Schließlich können wir die Eigenschaften des Extenders DisabledButton festlegen. Sie können die Eigenschaften des Extenders DisabledButton durch Ändern der Eigenschaften des Textfeld-Steuerelements ändern:
+[![Die Extender-Assistent-Dialogfeld](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image20.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image19.png)
+
+**Abbildung 05**: die Extender-Assistent-Dialogfeld ([klicken Sie, um das Bild in voller Größe anzeigen](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image21.png))
+
+
+Schließlich können wir die Eigenschaften des Extenders DisabledButton festlegen. Sie können die Eigenschaften des Extenders DisabledButton ändern, durch Ändern der Eigenschaften der TextBox-Steuerelement:
 
 1. Wählen Sie im Designer das Textfeld ein.
 2. Erweitern Sie im Fenster Eigenschaften die Extender-Knoten (siehe Abbildung 6).
-3. Weisen Sie den Wert *speichern* DisabledText-Eigenschaft und der Wert *hinzu* der TargetButtonID-Eigenschaft.
+3. Weisen Sie den Wert *speichern* die DisabledText-Eigenschaft und der Wert *BtnSave* der TargetButtonID-Eigenschaft.
 
 
-[![Einstellungseigenschaften für extender](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image23.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image22.png)
+[![Festlegen von Eigenschaften des Extenders](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image23.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image22.png)
 
-**Abbildung 06**: Extendereigenschaften festlegen ([klicken Sie hier, um das Bild in voller Größe angezeigt](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image24.png))
-
-
-Wenn Sie die Seite "(durch Drücken von F5) ausführen, ist anfangs das Schaltflächen-Steuerelement deaktiviert. Sobald Sie Text in das Textfeld eingeben starten, aktiviert die Schaltfläche mit dem Steuerelement befindet (siehe Abbildung 7).
+**Abbildung 06**: Festlegen von Eigenschaften des Extenders ([klicken Sie, um das Bild in voller Größe anzeigen](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image24.png))
 
 
-[![Der Extender DisabledButton in Aktion](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image26.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image25.png)
+Wenn Sie die Seite (durch Drücken von F5) ausführen, ist das Schaltflächen-Steuerelement ursprünglich deaktiviert. Sobald Sie beginnen das Eingeben von Text in das Textfeld ein, aktiviert die Schaltfläche "Steuerelement" (siehe Abbildung 7).
 
-**Abbildung 07**: die DisabledButton Extender in Aktion ([klicken Sie hier, um das Bild in voller Größe angezeigt](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image27.png))
+
+[![Die DisabledButton-Extender in Aktion](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image26.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image25.png)
+
+**Abbildung 07**: die DisabledButton-Extender in Aktion ([klicken Sie, um das Bild in voller Größe anzeigen](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image27.png))
 
 
 ## <a name="summary"></a>Zusammenfassung
 
-Das Ziel dieses Lernprogramms wurde zur Erläuterung, wie Sie das AJAX-Steuerelement-Toolkit mit benutzerdefinierten Extendersteuerelementen erweitern können. In diesem Lernprogramm haben wir eine einfache DisabledButton Extendersteuerelement erstellt. Wir implementiert diesen Extender durch Erstellen einer DisabledButtonExtender-Klasse, ein DisabledButtonBehavior JavaScript-Verhalten und einer DisabledButtonDesigner-Klasse. Sie führen Sie eine ähnliche Reihe von Schritten, wenn Sie einen benutzerdefiniertes Steuerelement Extender erstellen.
+Das Ziel in diesem Tutorial wurde erläutert, wie Sie das AJAX Control Toolkit mit benutzerdefinierten Extender-Steuerelemente erweitern können. In diesem Tutorial haben wir einen einfache DisabledButton-Extender-Steuerelements erstellt. Wir haben dieses Extenders durch Erstellen einer DisabledButtonExtender-Klasse, ein DisabledButtonBehavior JavaScript-Verhalten und einer DisabledButtonDesigner-Klasse implementiert. Sie führen Sie eine ähnliche Reihe von Schritten, wenn Sie einen benutzerdefiniertes Steuerelement-Extender erstellen.
 
 > [!div class="step-by-step"]
 > [Vorherige](using-ajax-control-toolkit-controls-and-control-extenders-vb.md)

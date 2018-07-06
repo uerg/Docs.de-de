@@ -1,66 +1,65 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-cs
-title: Debuggen von gespeicherten Prozeduren (c#) | Microsoft Docs
+title: Debuggen von gespeicherten Prozeduren (c#) | Microsoft-Dokumentation
 author: rick-anderson
-description: Editionen von Visual Studio Professional und Team System ermöglichen es Ihnen, Haltepunkte setzen und Schritt gespeicherten Prozeduren in SQL Server, wodurch das Debuggen von gespeicherten...
+description: Visual Studio Professional und Team System-Editionen können Sie Haltepunkte setzen und springen, um gespeicherte Prozeduren in SQL Server, zu debuggen gespeichert...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/03/2007
 ms.topic: article
 ms.assetid: c655c324-2ffa-4c21-8265-a254d79a693d
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 52bb409798dae550c664b78521f0fb4793464833
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
-ms.translationtype: MT
+ms.openlocfilehash: 988de3cfea16eb623351288ab103e77230625a17
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30876500"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37380732"
 ---
 <a name="debugging-stored-procedures-c"></a>Debuggen von gespeicherten Prozeduren (c#)
 ====================
 durch [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Herunterladen von Code](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_74_CS.zip) oder [PDF herunterladen](debugging-stored-procedures-cs/_static/datatutorial74cs1.pdf)
+[Code herunterladen](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_74_CS.zip) oder [PDF-Datei herunterladen](debugging-stored-procedures-cs/_static/datatutorial74cs1.pdf)
 
-> Visual Studio Professional und Team System Edition können Sie Haltepunkte setzen und Schritt gespeicherten Prozeduren in SQL Server, Debuggen gespeicherter Prozeduren genauso einfach wie das Debuggen von Anwendungscode vornehmen. Dieses Lernprogramm veranschaulicht direkten Datenbankdebuggen und die Anwendungsdebuggen von gespeicherten Prozeduren.
+> Visual Studio Professional und Team System-Editionen können Sie Haltepunkte setzen und springen, um zu gespeicherten Prozeduren in SQL Server, wodurch das Debuggen von gespeicherter Prozeduren, die so einfach wie das Debuggen von Anwendungscode. Dieses Tutorial veranschaulicht das direkte datenbankdebugging und Debuggen der Anwendung von gespeicherten Prozeduren.
 
 
 ## <a name="introduction"></a>Einführung
 
-Visual Studio bietet eine umfassende Debugleistung. Mit wenigen Tastaturanschlägen oder Mausklicks es s Haltepunkte zum Beenden der Ausführung eines Programms, und untersuchen und Fluss verwendet. Zusammen mit Debuggen Anwendungscode, bietet Visual Studio unterstützt das Debuggen von gespeicherter Prozeduren von SQL Server. Wie alle Haltepunkte im Code eines ASP.NET Code-Behind-Klasse oder Business Logic Layer-Klasse festgelegt werden, können damit zu sie platziert werden innerhalb von gespeicherten Prozeduren.
+Visual Studio bietet eine umfassende Debugleistung. Mit wenigen Tastaturanschlägen oder Mausklicks es möglich, verwenden Sie zum Beenden der Ausführung eines Programms, und überprüfen die Übertragung und Haltepunkte. Zusammen mit Debuggen von Anwendungscode, bietet Visual Studio unterstützt das Debuggen von gespeicherter Prozeduren von SQL Server. Genau wie Haltepunkte können, im Code eines ASP.NET Code-Behind-Klasse oder Business Logic Layer-Klasse festgelegt werden, damit auch sie platziert werden können, innerhalb von gespeicherten Prozeduren.
 
-In diesem Lernprogramm betrachten wir schrittweise Ausführung von gespeicherten Prozeduren im Server-Explorer in Visual Studio ebenfalls wie Festlegen von Haltepunkten, die erreicht werden, wenn die gespeicherte Prozedur von der ausgeführten ASP.NET-Anwendung aufgerufen wird.
+In diesem Tutorial betrachten wir Einzelschritt in gespeicherte Prozeduren im Server-Explorer in Visual Studio auch zum Festlegen von Haltepunkten, die erreicht werden, wenn die gespeicherte Prozedur von der ausgeführten ASP.NET-Anwendung aufgerufen wird.
 
 > [!NOTE]
-> Leider können gespeicherte Prozeduren nur werden in Einzelschritten und über die Professional und Team-Systeme Versionen von Visual Studio debuggen. Wenn Sie Visual Web Developer oder die standard-Version von Visual Studio verwenden, können Sie Willkommen entlang zu lesen, wie wir die erforderlichen Schritte zum Debuggen von gespeicherter Prozeduren durchlaufen verwendet, aber Sie werden nicht in der Lage, diese Schritte auf dem Computer zu replizieren.
+> Leider gespeicherte Prozeduren können nur werden in das gesprungen und über die Professional und Team-Systeme Versionen von Visual Studio debuggt. Wenn Sie Visual Web Developer oder die standard-Version von Visual Studio verwenden, können Sie Willkommen zusammen zu lesen, durchlaufen wir die erforderlichen Schritte zum Debuggen von gespeicherter Prozeduren, aber Sie werden nicht in der Lage, diese Schritte auf Ihrem Computer replizieren.
 
 
-## <a name="sql-server-debugging-concepts"></a>Konzepte von SQL Server-Debuggen
+## <a name="sql-server-debugging-concepts"></a>Debuggen von SQL Server-Konzepte
 
-Microsoft SQL Server 2005 wurde entworfen, um die Integration mit Bereitstellen der [Common Language Runtime (CLR)](https://msdn.microsoft.com/netframework/aa497266.aspx), also die Laufzeit verwendet, die von allen .NET Assemblys. Daher unterstützt SQL Server 2005 verwalteten Datenbankobjekte. Sie können also Datenbankobjekte wie gespeicherte Prozeduren und benutzerdefinierte Funktionen (UDFs) als Methoden in einer C#-Klasse erstellen. Dadurch werden diese gespeicherten Prozeduren und benutzerdefinierten Funktionen aus, die die Funktionalität in .NET Framework und eigene benutzerdefinierte Klassen. Natürlich müssen bietet SQL Server 2005 auch Unterstützung für T-SQL-Datenbankobjekte.
+Microsoft SQL Server 2005 wurde entworfen, um die Integration in die [Common Language Runtime (CLR)](https://msdn.microsoft.com/netframework/aa497266.aspx), die Laufzeit, die von allen Assemblys für .NET verwendet wird. Daher unterstützt SQL Server 2005 verwalteten Datenbankobjekte. Das heißt, können Sie Datenbankobjekte wie gespeicherte Prozeduren und benutzerdefinierten Funktionen (UDFs) als Methoden in einer C#-Klasse erstellen. Dadurch können diese gespeicherten Prozeduren und benutzerdefinierte Funktionen, Funktionen, die in .NET Framework und von Ihren eigenen benutzerdefinierten Klassen nutzen können. Natürlich ist es möglich, bietet SQL Server 2005 auch Unterstützung für T-SQL-Datenbankobjekte.
 
-SQL Server 2005 bietet Unterstützung für T-SQL und verwalteter Datenbankobjekte debugging. Diese Objekte können jedoch nur über Visual Studio 2005 Professional und Systeme Team Edition gedebuggt werden. In diesem Lernprogramm werden Debuggen T-SQL-Datenbankobjekte untersucht. Prüft, dass das nachfolgende Lernprogramm Debuggen verwalteter Datenbankobjekte.
+SQL Server 2005 bietet Unterstützung für Remotedebuggen für T-SQL und verwalteter Datenbankobjekte. Allerdings können diese Objekte über die Editionen Visual Studio 2005 Professional und Team-Systeme nur gedebuggt werden. In diesem Tutorial untersuchen wir Debuggen T-SQL-Datenbankobjekte. Das nachfolgende Lernprogramm untersucht Debuggen verwalteter Datenbankobjekte.
 
-Die [Übersicht über die von T-SQL und CLR-Debuggen in SQL Server 2005](https://blogs.msdn.com/sqlclr/archive/2006/06/29/651644.aspx) Blogeintrag aus der [CLR-Integration von SQL Server 2005-Team](https://blogs.msdn.com/sqlclr/default.aspx) werden die drei Möglichkeiten zum Debuggen von SQL Server 2005-Objekte aus Visual Studio hervorgehoben:
+Die [Übersicht über die von T-SQL und CLR-Debuggen in SQL Server 2005](https://blogs.msdn.com/sqlclr/archive/2006/06/29/651644.aspx) Blogeintrag aus der [CLR-Integration für SQL Server 2005-Team](https://blogs.msdn.com/sqlclr/default.aspx) werden die drei Möglichkeiten zum Debuggen von SQL Server 2005-Objekte aus Visual Studio:
 
-- **Leiten Sie Datenbank-Debuggen (DDD)** – klicken Sie in Server-Explorer, die wir einen in eine beliebige T-SQL-Datenbankobjekt, z. B. gespeicherte Prozeduren und benutzerdefinierte Funktionen Einzelschritt. Untersuchen wir DDD in Schritt 1.
-- **Das Debuggen der Anwendung** -wir können Haltepunkte innerhalb eines Datenbankobjekts und führen Sie anschließend unsere ASP.NET-Anwendung. Wenn das Datenbankobjekt ausgeführt wird, wird der Haltepunkt erreicht und Steuerelement Supportgruppen für den Debugger. Beachten Sie, dass beim Anwendungsdebuggen wird in ein Datenbankobjekt aus Anwendungscode wechseln können. Wir müssen explizit legen Sie Haltepunkte in diese gespeicherten Prozeduren oder benutzerdefinierten Funktionen, möchten wir den Debugger zu beenden. Anwendungsdebuggen ab, die in Schritt2 untersucht.
-- **Aus einem SQL Server-Projekt Debuggen** -Editionen von Visual Studio Professional und Team-Systeme sind einen SQL Server-Projekt-Typ, der häufig verwendet wird, um Datenbankobjekte zu erstellen. Wir untersuchen mithilfe von SQL Server-Projekte und ihre Inhalte in den nächsten Lernprogrammen Debuggen.
+- **Leiten Sie die Datenbank-Debuggen (DDD)** : Klicken Sie in Server-Explorer, die wir einen in T-SQL-Datenbankobjekte wie gespeicherte Prozeduren und benutzerdefinierte Funktionen Einzelschritt. Untersuchen wir DDD in Schritt 1.
+- **Debuggen der Anwendung** – wir Festlegen von Haltepunkten in einem Datenbankobjekt und führen Sie dann auf unsere ASP.NET-Anwendung. Wenn das Datenbankobjekt, das ausgeführt wird, wird der Haltepunkt erreicht, und an den Debugger umgedreht Steuerelement. Beachten Sie, dass beim Anwendungsdebuggen wir in ein Datenbankobjekt aus dem Anwendungscode wechseln können. Wir müssen explizit legen Sie Haltepunkte in diesen gespeicherten Prozeduren oder benutzerdefinierte Funktionen möchten wir, in denen den Debugger anhält. Anwendungsdebuggen wird untersucht, in Schritt2 ab.
+- **Aus einem SQL Server-Projekt Debuggen** -Editionen von Visual Studio Professional und Team-Systeme sind einen SQL Server-Projekt-Typ, der häufig verwendet wird, um Datenbankobjekte zu erstellen. Wir werden untersuchen, verwenden SQL Server-Projekte und Debuggen ihre Inhalte im nächsten Tutorial.
 
-Visual Studio debuggen kann gespeicherte Prozeduren auf lokalen und remote-SQL Server-Instanzen. Eine lokale SQL Server-Instanz ist eine, die auf demselben Computer wie Visual Studio installiert ist. Wenn Ihnen verwendeten SQL Server-Datenbank nicht auf dem Entwicklungscomputer befindet, wird es eine Remoteinstanz angesehen. Für diesen Lernprogrammen haben wir lokale SQL Server-Instanzen verwendet. Debuggen gespeicherter Prozeduren auf einer Remoteinstanz des SQL Server erfordert mehrere Konfigurationsschritte als beim Debuggen von gespeicherten Prozeduren auf einer lokalen Instanz.
+Visual Studio kann gespeicherte Prozeduren für SQL Server-Instanzen für lokale und remote Debuggen. Eine lokale SQL Server-Instanz ist eine, die auf dem gleichen Computer wie Visual Studio installiert ist. Wenn SQL Server-Datenbank, die Sie verwenden nicht auf dem Entwicklungscomputer befindet, wird er eine remote-Instanz behandelt. Für diese Tutorials haben wir lokale SQL Server-Instanzen verwendet wurden. Debuggen von gespeicherten Prozeduren in SQL Server-Remoteinstanz erfordert weitere Konfigurationsschritte erforderlich als beim Debuggen von gespeicherten Prozeduren in einer lokalen Instanz.
 
-Wenn Sie eine lokale SQL Server-Instanz verwenden, können Sie mit Schritt 1 beginnen und Durcharbeiten dieses Lernprogramms bis zum Ende. Bei Verwendung eine Remoteinstanz von SQL Server werden jedoch, Sie müssen zunächst, um sicherzustellen, dass während des Debuggens werden protokolliert, auf dem Entwicklungscomputer mit einem Windows-Benutzerkonto, das SQL Server-Anmeldung auf der Remoteinstanz verfügt. Moveover, diese datenbankanmeldung und die Datenbank-Anmeldenamen, die von der ausgeführten ASP.NET-Anwendung eine Verbindung mit der Datenbank verwendet, muss Mitglied der `sysadmin` Rolle. Finden Sie das Debuggen von T-SQL-Datenbankobjekte auf Remoteinstanzen im Abschnitt am Ende dieses Lernprogramms für Weitere Informationen zum Konfigurieren von Visual Studio und SQL Server, um eine Remoteinstanz zu debuggen.
+Wenn Sie eine lokale SQL Server-Instanz verwenden, können Sie beginnen Sie mit Schritt 1 und am Ende dieses Tutorials durcharbeiten. Bei Verwendung eine Remoteinstanz von SQL Server werden jedoch, Sie müssen zunächst, um sicherzustellen, dass beim Debuggen auf Ihren Entwicklungscomputer mit einem Windows-Benutzerkonto an, die eine SQL Server-Anmeldung auf der Remoteinstanz angemeldet sind. Moveover, sowohl für diese datenbankanmeldung als auch für die datenbankanmeldung, die von der ausgeführten ASP.NET-Anwendung eine Verbindung mit der Datenbank verwendet, muss Mitglied der `sysadmin` Rolle. Finden Sie das Debuggen von T-SQL-Datenbankobjekte auf Remoteinstanzen im Abschnitt am Ende dieses Tutorials für Weitere Informationen zum Konfigurieren von Visual Studio und SQL Server, um eine remote-Instanz zu debuggen.
 
-Schließlich verstehen Sie, dass die debugging-Unterstützung für T-SQL-Datenbankobjekte nicht als Funktion als debugging-Unterstützung für .NET-Anwendungen umfangreiche ist. Beispielsweise breakpointbedingungen und Filter werden nicht unterstützt, nur ein Teil der Debugfenster verfügbar sind, können keine bearbeiten und fortfahren, das "Direktfenster" nutzlos usw. gerendert wird. Finden Sie unter [Einschränkungen Debuggerbefehle und den Funktionen](https://msdn.microsoft.com/library/ms165035(VS.80).aspx) für Weitere Informationen.
+Verstehen Sie schließlich, dass debugging-Unterstützung für T-SQL-Datenbankobjekte nicht als Features wie debugging-Unterstützung für .NET-Anwendungen bietet. Z. B. haltepunktbedingungen und-Filter werden nicht unterstützt, nur eine Teilmenge der Debugfenster verfügbar, Sie können nicht verwenden, bearbeiten und fortfahren, das "Direktfenster" nutzlos usw. gerendert wird. Finden Sie unter [Einschränkungen von Debuggerbefehlen und Funktionen](https://msdn.microsoft.com/library/ms165035(VS.80).aspx) für Weitere Informationen.
 
-## <a name="step-1-directly-stepping-into-a-stored-procedure"></a>Schritt 1: Direkt einem Einzelschritt, in einer gespeicherten Prozedur
+## <a name="step-1-directly-stepping-into-a-stored-procedure"></a>Schritt 1: Direkte Schrittweises Ausführen einer gespeicherten Prozedur
 
-Visual Studio erleichtert das direkt Debuggen eines Datenbankobjekts. Können s betrachten, wie die direkte Datenbank Debuggen (DDD)-Funktion verwenden, um einen Einzelschritt in die `Products_SelectByCategoryID` gespeicherte Prozedur in der Northwind-Datenbank. Wie der Name schon sagt, `Products_SelectByCategoryID` gibt Produktinformationen für eine bestimmte Kategorie; es erstellt wurde, der [vorhandene gespeicherte Prozeduren verwenden, für die typisierte DataSet s TableAdapters](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md) Lernprogramm. Navigieren Sie zu dem Server-Explorer starten Sie, und erweitern Sie den Knoten der Northwind-Datenbank. Als Nächstes Drilldown in den Ordner gespeicherte Prozeduren, mit der rechten Maustaste auf die `Products_SelectByCategoryID` gespeicherte Prozedur, und wählen Sie die Option Schritt in gespeicherte Prozedur aus dem Kontextmenü. Dadurch wird den Debugger gestartet.
+Visual Studio erleichtert das direkte Debuggen eines Datenbankobjekts. S betrachten, wie Sie mit der direkten Datenbank Debuggen (DDD)-Funktion in Einzelschritten können die `Products_SelectByCategoryID` gespeicherten Prozedur in der Northwind-Datenbank. Wie der Name schon sagt, `Products_SelectByCategoryID` gibt Produktinformationen für eine bestimmte Kategorie; es erstellt wurde die [vorhandene gespeicherte Prozeduren verwenden, für die typisierte DataSet-s TableAdapters](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md) Tutorial. Navigieren Sie zum Server-Explorer, und erweitern Sie den Knoten der Northwind-Datenbank. Als Nächstes Drilldown in den Ordner gespeicherte Prozeduren, mit der rechten Maustaste auf die `Products_SelectByCategoryID` gespeicherte Prozedur aus, und wählen Sie die Option Schritt in gespeicherte Prozedur aus dem Kontextmenü. Dadurch wird den Debugger gestartet.
 
-Da die `Products_SelectByCategoryID` gespeicherte Prozedur erwartet eine `@CategoryID` Eingabeparameter, wir werden aufgefordert, diesen Wert anzugeben. Geben Sie 1, die Informationen zu den Getränke zurückgegeben wird.
+Da die `Products_SelectByCategoryID` gespeicherte Prozedur erwartet, dass eine `@CategoryID` Eingabeparameter, wir werden aufgefordert, diesen Wert anzugeben. Geben Sie 1 an, die Informationen zu den Getränke zurückgegeben wird.
 
 
 ![Verwenden Sie den Wert 1 für die @CategoryID Parameter](debugging-stored-procedures-cs/_static/image1.png)
@@ -68,56 +67,56 @@ Da die `Products_SelectByCategoryID` gespeicherte Prozedur erwartet eine `@Categ
 **Abbildung 1**: Verwenden Sie den Wert 1 für die `@CategoryID` Parameter
 
 
-Nach der Angabe des Werts für die `@CategoryID` Parameter, die gespeicherte Prozedur ausgeführt wird. Anstatt bis zum Abschluss ausgeführt, jedoch hält der Debugger die Ausführung bei der ersten Anweisung. Beachten Sie, den gelben Pfeil auf den Rand, der angibt, der aktuellen Position in der gespeicherten Prozedur. Sie können anzeigen und Bearbeiten von Parameterwerten, die über das Fenster "überwachen" oder der Name des Parameters in der gespeicherten Prozedur mit der Maus.
+Nach dem Bereitstellen des Werts für die `@CategoryID` Parameter der gespeicherten Prozedur ausgeführt wird. Anstatt bis zum Abschluss ausgeführt, jedoch hält der Debugger die Ausführung bei der ersten Anweisung. Beachten Sie den gelben Pfeil in den Rand, der angibt, der aktuellen Position in der gespeicherten Prozedur. Sie können anzeigen und Bearbeiten von Parameterwerten, die über das Fenster "überwachen" oder mit dem Mauszeiger auf den Parameternamen in der gespeicherten Prozedur.
 
 
-[![Der Debugger wurde auf die erste Anweisung der gespeicherten Prozedur angehalten.](debugging-stored-procedures-cs/_static/image3.png)](debugging-stored-procedures-cs/_static/image2.png)
+[![Der Debugger wurde für die erste Anweisung der gespeicherten Prozedur angehalten.](debugging-stored-procedures-cs/_static/image3.png)](debugging-stored-procedures-cs/_static/image2.png)
 
-**Abbildung 2**: der Debugger wurde angehalten, auf die erste Anweisung der gespeicherten Prozedur ([klicken Sie hier, um das Bild in voller Größe angezeigt](debugging-stored-procedures-cs/_static/image4.png))
+**Abbildung 2**: der Debugger wurde angehalten, für die erste Anweisung der gespeicherten Prozedur ([klicken Sie, um das Bild in voller Größe anzeigen](debugging-stored-procedures-cs/_static/image4.png))
 
 
-Um einen über die gespeicherte Prozedur eine Anweisung zu einem Zeitpunkt durchzuführen, klicken Sie auf die Schaltfläche "Prozedurschritt" in der Symbolleiste, oder drücken Sie die F10-TASTE. Die `Products_SelectByCategoryID` gespeicherte Prozedur enthält ein einziges `SELECT` Anweisung, damit für die einzelne Anweisung drücken F10 einen Prozedurschritt wird und schließen Sie die Ausführung der gespeicherten Prozedur. Nachdem die gespeicherte Prozedur abgeschlossen wurde, wird seine Ausgabe im Ausgabefenster angezeigt, und der Debugger wird beendet.
+Um einen über die gespeicherte Prozedur eine Anweisung zu einem Zeitpunkt durchzuführen, klicken Sie auf die Schaltfläche "Step Over" in der Symbolleiste, oder drücken Sie die F10-TASTE. Die `Products_SelectByCategoryID` gespeicherte Prozedur enthält ein einzelnes `SELECT` Anweisung, daher Drücken von F10 die einzige Anweisung überspringen wird und schließen Sie die Ausführung der gespeicherten Prozedur. Nachdem die gespeicherte Prozedur abgeschlossen wurde, wird die Ausgabe im Ausgabefenster angezeigt, und der Debugger wird beendet.
 
 > [!NOTE]
-> T-SQL-Debuggen auftritt auf der Anweisungsebene; Sie können nicht in einem Einzelschritt einer `SELECT` Anweisung.
+> T-SQL-debugging erfolgt auf der Anweisungsebene Sie können nicht schrittweise ein `SELECT` Anweisung.
 
 
 ## <a name="step-2-configuring-the-website-for-application-debugging"></a>Schritt 2: Konfigurieren der Website für das Debuggen der Anwendung
 
-Beim Debuggen einer gespeicherten Prozedur direkt über den Server-Explorer praktisch ist, sind in vielen Szenarien wir mehr interessiert die gespeicherte Prozedur Debuggen, wenn sie von unserem ASP.NET-Anwendung aufgerufen wird. Wir können Haltepunkte hinzufügen, um eine gespeicherte Prozedur in Visual Studio, und starten Sie die ASP.NET-Anwendung debuggen. Wenn eine gespeicherte Prozedur mit Haltepunkten aus der Anwendung aufgerufen wird, wird die Ausführung am Haltepunkt angehalten, und wir sehen und ändern Sie die Parameterwerte der gespeicherten Prozedur s und die Anweisungen schrittweise, wie in Schritt 1 Wir haben können.
+Beim Debuggen einer gespeicherten Prozedur direkt über den Server-Explorer ist, sind in vielen Szenarien wir weitere Informationen über die gespeicherte Prozedur Debuggen, wenn sie von unserem ASP.NET-Anwendung aufgerufen wird. Wir können Haltepunkte hinzufügen, um eine gespeicherte Prozedur in Visual Studio, und starten Sie die ASP.NET-Anwendung debuggen. Wenn eine gespeicherte Prozedur mit Haltepunkten aus der Anwendung aufgerufen wird, wird die Ausführung am Haltepunkt angehalten, und wir können anzeigen und ändern Sie die Parameterwerte der gespeicherten Prozedur s und durchlaufen Sie die Anweisungen, wie wir in Schritt 1.
 
-Bevor wir mit dem Debuggen von gespeicherter Prozeduren, die von der Anwendung aufgerufen beginnen können, müssen wir weisen Sie die ASP.NET-Webanwendung für die Integration von SQL Server-Debugger an. Starten, indem Sie mit der rechten Maustaste auf den Namen der Website im Projektmappen-Explorer (`ASPNET_Data_Tutorial_74_CS`). Wählen Sie die Eigenschaftenseiten-Option im Kontextmenü, wählen Sie das Element "Startoptionen" auf der linken Seite, und aktivieren Sie das SQL Server-Kontrollkästchen im Abschnitt Debugger (siehe Abbildung 3).
+Bevor wir mit dem Debuggen von gespeicherten Prozeduren, die aufgerufen wird, von der Anwendung beginnen können, müssen wir die ASP.NET-Webanwendung für die Integration von SQL Server-Debugger anweisen. Starten, indem Sie mit der rechten Maustaste auf den Namen der Website im Projektmappen-Explorer (`ASPNET_Data_Tutorial_74_CS`). Wählen Sie die Eigenschaftenseiten-Option im Kontextmenü, wählen Sie das Element "Startoptionen" auf der linken Seite und aktivieren Sie das SQL Server-Kontrollkästchen im Abschnitt Debugger (siehe Abbildung 3).
 
 
 [![Aktivieren Sie das SQL Server-Kontrollkästchen in der Anwendung s-Eigenschaftenseiten](debugging-stored-procedures-cs/_static/image6.png)](debugging-stored-procedures-cs/_static/image5.png)
 
-**Abbildung 3**: Aktivieren Sie das SQL Server-Kontrollkästchen in der Anwendung-s-Eigenschaftenseiten ([klicken Sie hier, um das Bild in voller Größe angezeigt](debugging-stored-procedures-cs/_static/image7.png))
+**Abbildung 3**: Aktivieren Sie das SQL Server-Kontrollkästchen in der Anwendung-s-Eigenschaftenseiten ([klicken Sie, um das Bild in voller Größe anzeigen](debugging-stored-procedures-cs/_static/image7.png))
 
 
-Darüber hinaus müssen Sie aktualisieren die Datenbank-Verbindungszeichenfolge, die von der Anwendung verwendet werden, sodass das Verbindungspooling deaktiviert ist. Wenn eine Verbindung mit einer Datenbank geschlossen wird, den entsprechenden `SqlConnection` Objekt befindet sich in einem Pool verfügbarer Verbindungen. Beim Herstellen einer Verbindungs mit einer Datenbank, einem verfügbaren Verbindungsobjekt aus diesem Pool abgerufen werden können statt erstellen und eine neue Verbindung herstellen müssen. Diese pooling von Verbindungsobjekten ist eine leistungsverbesserung und ist standardmäßig aktiviert. Allerdings beim Debuggen möchten, dass wir deaktivieren Verbindungspooling, da der Debuginfrastruktur nicht ordnungsgemäß wiederhergestellt ist, bei der Arbeit mit einer Verbindung, die aus dem Pool erstellt wurde.
+Darüber hinaus müssen wir zum Aktualisieren der Datenbank-Verbindungszeichenfolge, die von der Anwendung verwendet wird, so dass Verbindungspooling deaktiviert ist. Um ein T-SQL-Database-Objekt direkt zu debuggen, suchen Sie das Objekt über den Server-Explorer und dann mit der rechten Maustaste darauf, und Einzelschritt auswählen. Dadurch wird der Debugger gestartet und hält bei der ersten Anweisung des Datenbankobjekts, das an diesem Punkt können Sie durchlaufen die Objekt-s-Anweisungen und anzeigen und ändern die Parameterwerte. In Schritt 1 dieser Ansatz in Einzelschritten wird die  gespeicherte Prozedur. Anwendungsdebuggen können Haltepunkte direkt in die Datenbankobjekte festgelegt werden.
 
-Deaktiviertes Verbindungspooling, aktualisieren Sie die `NORTHWNDConnectionString` in `Web.config` , damit sie die Einstellung enthält `Pooling=false` .
+Wenn ein Datenbankobjekt mit Haltepunkten aus einer Clientanwendung (z. B. eine ASP.NET-Webanwendung) aufgerufen wird, stoppt das Programm, wie der Debugger übernimmt.
 
 
 [!code-xml[Main](debugging-stored-procedures-cs/samples/sample1.xml)]
 
 > [!NOTE]
-> Wenn Sie fertig sind Debuggen von SQL Server über die ASP.NET-Anwendung unbedingt reinstate Verbindungspooling durch das Entfernen der `Pooling` aus der Verbindungszeichenfolge festlegen (oder durch Festlegen auf `Pooling=true` ).
+> Anwendungsdebuggen ist nützlich, weil es deutlicher zeigt, welche Anwendungsaktion führt dazu, dass ein bestimmtes Datenbankobjekt aufgerufen werden.
 
 
-An diesem Punkt wurde die ASP.NET-Anwendung konfiguriert, um Visual Studio zum Debuggen von SQL Server-Datenbankobjekte, die beim Aufrufen durch die Webanwendung zu ermöglichen. Jetzt bleibt lediglich um eine gespeicherte Prozedur einen Haltepunkt hinzu, und mit dem Debuggen beginnen!
+Es erfordert jedoch ein wenig mehr Konfigurations- und Setupprobleme als direktes Datenbankdebugging. Datenbankobjekte können auch über SQL Server-Projekte gedebuggt werden.
 
-## <a name="step-3-adding-a-breakpoint-and-debugging"></a>Schritt 3: Hinzufügen eines Haltepunkts und Debuggen
+## <a name="step-3-adding-a-breakpoint-and-debugging"></a>Betrachten wir mithilfe von SQL Server-Projekte, und verwenden sie zum Erstellen und Debuggen von verwalteten Datenbankobjekten im nächsten Tutorial.
 
-Öffnen der `Products_SelectByCategoryID` gespeicherte Prozedur, und legen Sie einen Haltepunkt am Anfang der `SELECT` Anweisung, indem Sie in den Rand bei der entsprechenden Stelle oder platzieren Sie den Cursor am Anfang der `SELECT` -Anweisung und drücken F9. Abbildung 4 zeigt, wird der Haltepunkt als ein roter Kreis auf den Rand angezeigt.
-
-
-[![Legen Sie einen Haltepunkt in der Products_SelectByCategoryID gespeicherte Prozedur](debugging-stored-procedures-cs/_static/image9.png)](debugging-stored-procedures-cs/_static/image8.png)
-
-**Abbildung 4**: Festlegen eines Haltepunkts in der `Products_SelectByCategoryID` gespeicherte Prozedur ([klicken Sie hier, um das Bild in voller Größe angezeigt](debugging-stored-procedures-cs/_static/image10.png))
+Viel Spaß beim Programmieren! Wie in Abbildung 4 dargestellt, wird der Haltepunkt als roter Kreis im Rand angezeigt.
 
 
-Damit ein SQL-Datenbankobjekt, das über eine Clientanwendung gedebuggt werden kann ist es unabdinglich, die zum Unterstützen von Anwendungsdebuggen konfiguriert werden. Wenn Sie zuerst einen Haltepunkt festlegen, sollten diese Einstellung automatisch aktiviert werden, aber es ist unerlässlich, doppelklicken Sie auf. Mit der rechten Maustaste auf die `NORTHWND.MDF` Knoten im Server-Explorer. Im Kontextmenü den Befehl sollte eine aktivierte Menüelement Anwendungsdebugging enthalten.
+[![Festlegen eines Haltepunkts in der Products_SelectByCategoryID gespeicherten Prozedur](debugging-stored-procedures-cs/_static/image9.png)](debugging-stored-procedures-cs/_static/image8.png)
+
+**Abbildung 4**: Festlegen eines Haltepunkts in der `Products_SelectByCategoryID` Stored Procedure ([klicken Sie, um das Bild in voller Größe anzeigen](debugging-stored-procedures-cs/_static/image10.png))
+
+
+In der Reihenfolge für eine SQL-Datenbank zu debuggenden Objekts, durch eine Clientanwendung ist es zwingend erforderlich, dass die Datenbank für die Unterstützung des Debuggens der Anwendung konfiguriert werden. Wenn Sie zuerst einen Haltepunkt festlegen, sollten diese Einstellung automatisch aktiviert werden, aber es ist ratsam, überprüfen Sie noch einmal. Mit der rechten Maustaste auf die `NORTHWND.MDF` Knoten im Server-Explorer. Das Kontextmenü sollte aktiviert Menüelement Anwendungsdebugging enthalten.
 
 
 ![Stellen Sie sicher, dass die Anwendung debuggen-Option aktiviert ist](debugging-stored-procedures-cs/_static/image11.png)
@@ -125,73 +124,73 @@ Damit ein SQL-Datenbankobjekt, das über eine Clientanwendung gedebuggt werden k
 **Abbildung 5**: Stellen Sie sicher, dass die Anwendung debuggen-Option aktiviert ist
 
 
-Mit der Haltepunkt festgelegt und die Anwendungsdebuggen-Option aktiviert können die gespeicherte Prozedur, die beim Aufrufen durch die ASP.NET-Anwendung debuggen. Starten Sie den Debugger, navigieren Sie zu dem Debugmenü den Ausnahmebefehl und Symbol auf der Symbolleiste auswählen Debuggen starten, drücken Sie F5, oder indem Sie auf die grüne "wiedergeben". Der Debugger zu starten, wird und starten Sie die Website.
+Mit dem gesetzten Haltepunkt und die Anwendungsdebuggen-Option aktiviert sind wir bereit für die gespeicherte Prozedur, die beim Aufruf von der ASP.NET-Anwendung zu debuggen. Starten Sie den Debugger, indem Sie im Menü Debuggen, und Sie Debuggen starten auswählen, durch Drücken von F5 oder durch Klicken auf die grüne play-Symbol auf der Symbolleiste. Den Debugger zu starten wird und die Website zu starten.
 
-Die `Products_SelectByCategoryID` gespeicherte Prozedur erstellt wurde, der [vorhandene gespeicherte Prozeduren verwenden, für die typisierte DataSet s TableAdapters](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md) Lernprogramm. Die entsprechenden Webseite (`~/AdvancedDAL/ExistingSprocs.aspx`) enthält eine GridView, die von dieser gespeicherten Prozedur zurückgegebenen Ergebnisse werden angezeigt. Besuchen Sie diese Seite über den Browser. Beim Erreichen der Seite ", der den Haltepunkt in der `Products_SelectByCategoryID` gespeicherte Prozedur erreicht, Visual Studio die Kontrolle zurück. Genau wie in Schritt 1, können Sie schrittweise Ausführen der gespeicherten Prozedur s-Anweisungen, und überprüfen und ändern die Parameterwerte.
-
-
-[![Die Seite "ExistingSprocs.aspx" zeigt zunächst die Getränke](debugging-stored-procedures-cs/_static/image13.png)](debugging-stored-procedures-cs/_static/image12.png)
-
-**Abbildung 6**: die `ExistingSprocs.aspx` Seite zeigt zunächst die Getränke ([klicken Sie hier, um das Bild in voller Größe angezeigt](debugging-stored-procedures-cs/_static/image14.png))
+Die `Products_SelectByCategoryID` gespeicherte Prozedur wurde erstellt, der [vorhandene gespeicherte Prozeduren verwenden, für die typisierte DataSet-s TableAdapters](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md) Tutorial. Die entsprechende Webseite (`~/AdvancedDAL/ExistingSprocs.aspx`) enthält eine GridView, die von dieser gespeicherten Prozedur zurückgegebenen Ergebnisse werden angezeigt. Besuchen Sie diese Seite über den Browser aus. Beim Erreichen der Seite, die den Haltepunkt in der `Products_SelectByCategoryID` gespeicherte Prozedur wird erreicht, und Visual Studio die Steuerung zurückgegeben. Genau wie in Schritt 1, können Sie schrittweise Durchlaufen der gespeicherten Prozedur s-Anweisungen und die Ansicht und die Parameterwerte ändern.
 
 
-[![Die gespeicherte Prozedur s Haltepunkt erreicht](debugging-stored-procedures-cs/_static/image16.png)](debugging-stored-procedures-cs/_static/image15.png)
+[![Die Seite ExistingSprocs.aspx werden zuerst die Getränke angezeigt.](debugging-stored-procedures-cs/_static/image13.png)](debugging-stored-procedures-cs/_static/image12.png)
 
-**Abbildung 7**: die gespeicherte Prozedur s Haltepunkt erreicht wurde ([klicken Sie hier, um das Bild in voller Größe angezeigt](debugging-stored-procedures-cs/_static/image17.png))
+**Abbildung 6**: die `ExistingSprocs.aspx` Seite zeigt zu Beginn der Getränke ([klicken Sie, um das Bild in voller Größe anzeigen](debugging-stored-procedures-cs/_static/image14.png))
 
 
-Als das Überwachungsfenster in Abbildung 7 zeigt, der Wert, der die `@CategoryID` Parameter ist 1. Grund hierfür ist die `ExistingSprocs.aspx` Seite zeigt anfänglich Produkte in der Kategorie "Getränke", besitzt eine `CategoryID` Wert 1. Wählen Sie eine andere Kategorie aus der Dropdownliste aus. Auf diese Weise einen Postback verursacht und führt erneut die `Products_SelectByCategoryID` gespeicherte Prozedur. Der Haltepunkt erreicht wird, erneut, diesmal jedoch die `@CategoryID` s-Parameterwert wiedergibt der ausgewählten Dropdown-Listenelement s `CategoryID`.
+[![Die gespeicherte Prozedur s Haltepunkt wurde erreicht](debugging-stored-procedures-cs/_static/image16.png)](debugging-stored-procedures-cs/_static/image15.png)
+
+**Abbildung 7**: die gespeicherte Prozedur s Haltepunkt erreicht wurde ([klicken Sie, um das Bild in voller Größe anzeigen](debugging-stored-procedures-cs/_static/image17.png))
+
+
+Als das Fenster "überwachen" in Abbildung 7 zeigt, der Wert des der `@CategoryID` -Parameter ist 1. Grund hierfür ist die `ExistingSprocs.aspx` Seite zeigt anfänglich Produkte in der Kategorie "Getränke", die eine `CategoryID` Wert 1. Wählen Sie eine andere Kategorie aus der Dropdown Liste ein. Dies führt dazu, dass einen Postback und führt erneut die `Products_SelectByCategoryID` gespeicherte Prozedur. Der Haltepunkt erreicht wird, erneut aus, aber dieses Mal die `@CategoryID` s-Parameterwert entspricht dem ausgewählten Dropdown-Listenfeld-Element s `CategoryID`.
 
 
 [![Wählen Sie eine andere Kategorie aus der Dropdown Liste](debugging-stored-procedures-cs/_static/image19.png)](debugging-stored-procedures-cs/_static/image18.png)
 
-**Abbildung 8**: Wählen Sie eine andere Kategorie aus der Dropdown Liste ([klicken Sie hier, um das Bild in voller Größe angezeigt](debugging-stored-procedures-cs/_static/image20.png))
+**Abbildung 8**: Wählen Sie eine andere Kategorie aus der Dropdown Liste ([klicken Sie, um das Bild in voller Größe anzeigen](debugging-stored-procedures-cs/_static/image20.png))
 
 
-[![Die @CategoryID Parameter gibt die Kategorie auf der Webseite ausgewählt](debugging-stored-procedures-cs/_static/image22.png)](debugging-stored-procedures-cs/_static/image21.png)
+[![Die @CategoryID Parameter gibt die Kategorie, die von der Webseite ausgewählt](debugging-stored-procedures-cs/_static/image22.png)](debugging-stored-procedures-cs/_static/image21.png)
 
-**Abbildung 9**: die `@CategoryID` Parameter gibt die Kategorie, die von der Webseite ausgewählt ([klicken Sie hier, um das Bild in voller Größe angezeigt](debugging-stored-procedures-cs/_static/image23.png))
+**Abbildung 9**: die `@CategoryID` Parameter gibt die Kategorie, die von der Webseite ausgewählt ([klicken Sie, um das Bild in voller Größe anzeigen](debugging-stored-procedures-cs/_static/image23.png))
 
 
 > [!NOTE]
-> Wenn der Breakpoint in der `Products_SelectByCategoryID` gespeicherte Prozedur wird nicht erreicht, beim Zugriff auf die `ExistingSprocs.aspx` Seite, stellen Sie sicher, dass das SQL Server-Kontrollkästchen im Abschnitt Debugger der ASP.NET-Anwendung s Eigenschaftenseite geprüft wurde, dass Verbindungspooling wurde deaktiviert, und dass die Datenbank s Anwendungsdebugging-Option aktiviert ist. Wenn Sie immer noch Probleme auftreten, starten Sie Visual Studio und versuchen Sie es erneut.
+> Wenn der Breakpoint im der `Products_SelectByCategoryID` gespeicherte Prozedur wird nicht erreicht werden, wenn das Unternehmen Besuchen der `ExistingSprocs.aspx` Seite, stellen Sie sicher, dass das Kontrollkästchen für die SQL Server im Abschnitt "Debugger" der ASP.NET-Anwendung s-Seite "Eigenschaften" markiert ist, wurde der Verbindungs-pooling deaktiviert, und dass die Datenbank s Anwendungsdebugging-Option aktiviert ist. Sollten Sie erneut immer noch Probleme auftreten, starten Sie Visual Studio, und versuchen Sie es erneut.
 
 
-## <a name="debugging-t-sql-database-objects-on-remote-instances"></a>Debuggen von T-SQL-Datenbankobjekte auf Remote-Instanzen
+## <a name="debugging-t-sql-database-objects-on-remote-instances"></a>Debuggen von T-SQL-Datenbankobjekte auf Remoteinstanzen
 
-Debuggen von Datenbankobjekten über Visual Studio ist recht einfach, wenn die SQL Server-Datenbankinstanz auf dem gleichen Computer wie Visual Studio ist. Jedoch wenn SQL Server und Visual Studio auf unterschiedlichen Computern befinden wird dann einige eine sorgfältige Konfiguration erforderlich, um alles ordnungsgemäß funktioniert. Es gibt zwei Kernaufgaben, denen es ausgesetzt sind:
+Debuggen von Datenbankobjekten über Visual Studio ist recht einfach, wenn die SQL Server-Datenbankinstanz auf dem gleichen Computer wie Visual Studio ist. Jedoch SQL Server und Visual Studio, die auf verschiedenen Computern befinden sich ist eine sorgfältige Konfiguration erforderlich, alles ordnungsgemäß funktioniert. Es gibt zwei Hauptaufgaben, die, denen wir mit konfrontiert sind:
 
-- Stellen Sie sicher, dass der Anmeldename zum Verbinden mit der Datenbank über ADO.NET gehört die `sysadmin` Rolle.
-- Stellen Sie sicher, dass die Windows-Benutzerkonto, das von Visual Studio auf dem Entwicklungscomputer verwendet eine gültige SQL Server-Anmeldekonto ist, zu der gehört die `sysadmin` Rolle.
+- Stellen Sie sicher, dass die Anmeldung bei der Herstellung einer Verbindung mit der Datenbank über ADO.NET verwendet, gehört die `sysadmin` Rolle.
+- Stellen Sie sicher, dass das Windows-Benutzerkonto von Visual Studio verwendet werden, auf dem Entwicklungscomputer ein gültiger SQL Server-Anmeldekonto ist, zu dem gehört die `sysadmin` Rolle.
 
-Der erste Schritt ist relativ unkompliziert. Zunächst Identifizieren des Benutzerkontos, das zum Verbinden mit der Datenbank von der ASP.NET-Anwendung aus, und fügen Sie dann in SQL Server Management Studio, Anmeldekonto an, die `sysadmin` Rolle.
+Der erste Schritt ist relativ unkompliziert. Ermitteln Sie zuerst das Benutzerkonto zum Verbinden mit der Datenbank von der ASP.NET-Anwendung ein, und fügen Sie in SQL Server Management Studio, Anmeldekonto an, die `sysadmin` Rolle.
 
-Die zweite Aufgabe erfordert, dass die Windows-Benutzerkonto, mit dem Debuggen der Anwendung, eine gültige Anmeldung auf die Remotedatenbank. Allerdings sind die Chancen, dass die Windows-Konto, das auf Ihre Arbeitsstation mit dem Sie angemeldet, auf, eine gültige Anmeldung auf SQL Server ist. Statt SQL Server die bestimmten Anmeldekonto hinzugefügt, wäre eine bessere Wahl, einige Windows-Benutzerkonto als das debugging SQL Server-Dienstkonto festlegen. Um die Datenbankobjekte von einer SQL Server-Remoteinstanz zu debuggen, würden Sie dann Visual Studio unter Verwendung dieser Windows-Konto s Anmeldeinformationen ausführen.
+Der zweite Task erfordert, dass die Windows-Benutzerkonto, das Sie verwenden, um das Debuggen der Anwendung eine gültige Anmeldung auf der Remotedatenbank. Allerdings ist es wahrscheinlich an, dass das Windows-Konto, das Sie auf Ihrer Arbeitsstation mit angemeldet nicht um eine gültige Anmeldung auf SQL Server ist. Anstelle von SQL Server Ihr bestimmtes Anmeldekonto hinzugefügt haben, würde eine bessere Wahl sein, einige Windows-Benutzerkonto als das debugging SQL Server-Dienstkonto festgelegt werden soll. Um die Datenbankobjekte einer SQL Server-Remoteinstanz zu debuggen, ausführen Sie anschließend Visual Studio, die mit dieser Windows-Anmeldeinformationen Konto s.
 
-Ein Beispiel sollte Dinge verdeutlichen. Angenommen, es ein Windows-Konto mit dem Namen ist `SQLDebug` innerhalb der Windows-Domäne. Dieses Konto auf die SQL Server-Remoteinstanz als eine gültige Anmeldung und als Mitglied hinzugefügt werden müssten die `sysadmin` Rolle. Klicken Sie dann müssten wir um remote SQL Server-Instanz von Visual Studio zu debuggen, Ausführen von Visual Studio als die `SQLDebug` Benutzer. Dies könnte durch Protokollierung aus unserem Arbeitsstation wieder anmelden, als `SQLDebug`, und starten Sie dann Visual Studio, jedoch ein einfacherer Ansatz wäre, sich unsere Arbeitsstation mit eigenen Anmeldeinformationen anmelden, und verwenden Sie dann `runas.exe` zum Starten von Visual Studio als die `SQLDebug` Benutzer. `runas.exe` ermöglicht es eine bestimmte Anwendung unter dem Deckmantel von einem anderen Benutzerkonto ausgeführt werden. Zum Starten von Visual Studio als `SQLDebug`, könnten Sie die folgende Anweisung in der Befehlszeile eingeben:
+Ein Beispiel sollte Ihnen Dinge. Angenommen, es ein Windows-Konto, das mit dem Namen ist `SQLDebug` innerhalb der Windows-Domäne. Dieses Konto mit der SQL Server-Remoteinstanz als gültigen Anmeldenamen und ein Mitglied hinzugefügt werden müssten die `sysadmin` Rolle. Klicken Sie dann, um die SQL Server-Remoteinstanz in Visual Studio zu debuggen, müssen wir zum Ausführen von Visual Studio als die `SQLDebug` Benutzer. Dies kann durch Abmelden eigenen Arbeitsstation, wieder anmelden, als `SQLDebug`, und klicken Sie dann starten von Visual Studio, jedoch ein einfacherer Ansatz wäre, die Anmeldung bei den eigenen Arbeitsstation mit eigenen Anmeldeinformationen und verwenden Sie dann `runas.exe` zum Starten von Visual Studio als die `SQLDebug` Benutzer. `runas.exe` können eine bestimmte Anwendung unter dem Deckmantel von einem anderen Benutzerkonto ausgeführt werden. Zum Starten von Visual Studio als `SQLDebug`, könnten Sie die folgende Anweisung in der Befehlszeile eingeben:
 
 
 [!code-console[Main](debugging-stored-procedures-cs/samples/sample2.cmd)]
 
-Eine ausführlichere Erklärung zu diesem Vorgang finden Sie unter [William R. Vaughn](http://betav.com/BLOG/billva/) s *Hitchhiker s Leitfaden zu Visual Studio und SQL Server, siebten Edition* sowie [Vorgehensweise: Festlegen von SQL Server-Berechtigungen für das Debuggen](https://msdn.microsoft.com/library/w1bhybwz(VS.80).aspx).
+Eine ausführlichere Erläuterung zu diesem Prozess werden soll, finden Sie unter [William R. Vaughn](http://betav.com/BLOG/billva/) s *Hitchhiker s Leitfaden für Visual Studio und SQL Server, die siebte Ausgabe* sowie [so wird's gemacht: SQL Server-Berechtigungen festlegen für das Debuggen](https://msdn.microsoft.com/library/w1bhybwz(VS.80).aspx).
 
 > [!NOTE]
-> Wenn der Entwicklungscomputer mit Windows XP Service Pack 2 ausgeführt wird, müssen Sie konfigurieren Sie die Windows-Firewall, um Remotedebugging zu ermöglichen. [Die Art und Weise an: SQL Server 2005-Debuggen aktivieren](https://msdn.microsoft.com/library/s0fk6z6e(VS.80).aspx) Artikel Hinweise, dass diese beiden Schritte umfasst: (a) auf dem Visual Studio-Hostcomputer müssen hinzufügen `Devenv.exe` zur Liste der Ausnahmen und öffnen Sie die TCP-Anschluss 135; und (b) auf dem Remotecomputer (SQL), müssen Sie öffnen die 135 TCP-port und fügen `sqlservr.exe` der Ausnahmenliste. Wenn die Domänenrichtlinie eine Netzwerkkommunikation über IPSec erfordert, müssen Sie die Ports UDP 4500 und UDP 500 öffnen.
+> Wenn Ihrem Entwicklungscomputer Windows XP Service Pack 2 ausgeführt wird, Sie die Windows-Firewall zum Remotedebuggen konfigurieren müssen. [Wie zu: SQL Server 2005-Debuggen aktivieren](https://msdn.microsoft.com/library/s0fk6z6e(VS.80).aspx) Artikel – Anmerkungen zu dieser, dass diese zwei Schritten besteht: (a) auf dem Visual Studio-Hostcomputer, müssen Sie hinzufügen `Devenv.exe` auf die Liste mit Ausnahmen und öffnen Sie die TCP-Anschluss 135; und (b) auf einem Remotecomputer (SQL), müssen Sie öffnen die 135 TCP-port, und fügen `sqlservr.exe` zur Liste Ausnahmen. Wenn die Domänenrichtlinie die Netzwerkkommunikation über IPSec erfordert, müssen Sie die Ports UDP 4500 und UDP 500 öffnen.
 
 
 ## <a name="summary"></a>Zusammenfassung
 
-Zusätzlich zur Bereitstellung von debugging-Unterstützung für .NET-Anwendungscode, bietet Visual Studio auch eine Vielzahl von Debugoptionen für SQL Server 2005. In diesem Lernprogramm erläutert, zwei Optionen: direkten Datenbankdebuggen und die zu Anwendungsdebuggen. Um ein T-SQL-Datenbankobjekt direkt Debuggen zu können, suchen Sie das Objekt über den Server-Explorer mit der rechten Maustaste darauf, und Einzelschritt auswählen. Dadurch wird der Debugger gestartet und hält bei der ersten Anweisung in das Datenbankobjekt, das an diesem, das Punkt können Sie schrittweise Durchlaufen der Objekt-s-Anweisungen, und überprüfen und Ändern von Parameterwerten an. In Schritt 1 wird dieser Ansatz mit den Einzelschritten der `Products_SelectByCategoryID` gespeicherten Prozedur.
+Zusätzlich zur Bereitstellung von debugging-Unterstützung für .NET-Anwendungscode, bietet Visual Studio auch eine Vielzahl von Debugoptionen für SQL Server 2005. In diesem Tutorial erläutert, zwei dieser Optionen: Direktes Datenbankdebugging und Anwendungsdebuggen. Um ein T-SQL-Database-Objekt direkt zu debuggen, suchen Sie das Objekt über den Server-Explorer und dann mit der rechten Maustaste darauf, und Einzelschritt auswählen. Dadurch wird der Debugger gestartet und hält bei der ersten Anweisung des Datenbankobjekts, das an diesem Punkt können Sie durchlaufen die Objekt-s-Anweisungen und anzeigen und ändern die Parameterwerte. In Schritt 1 dieser Ansatz in Einzelschritten wird die `Products_SelectByCategoryID` gespeicherte Prozedur.
 
-Anwendungsdebuggen kann Haltepunkte direkt innerhalb der Datenbankobjekte festgelegt werden. Wenn ein Datenbankobjekt mit Haltepunkten aus einer Clientanwendung (z. B. eine ASP.NET-Webanwendung) aufgerufen wird, hält das Programm an, wie der Debugger übernimmt. Anwendungsdebugging ist nützlich, da deutlicher angezeigt Maßnahme Anwendung bewirkt, dass ein bestimmtes Datenbankobjekt aufgerufen werden. Dies erfordert allerdings mehr Konfiguration und Installation als direkten Datenbankdebuggen.
+Anwendungsdebuggen können Haltepunkte direkt in die Datenbankobjekte festgelegt werden. Wenn ein Datenbankobjekt mit Haltepunkten aus einer Clientanwendung (z. B. eine ASP.NET-Webanwendung) aufgerufen wird, stoppt das Programm, wie der Debugger übernimmt. Anwendungsdebuggen ist nützlich, weil es deutlicher zeigt, welche Anwendungsaktion führt dazu, dass ein bestimmtes Datenbankobjekt aufgerufen werden. Es erfordert jedoch ein wenig mehr Konfigurations- und Setupprobleme als direktes Datenbankdebugging.
 
-Datenbankobjekte können auch über SQL Server-Projekte gedebuggt werden. Betrachten wir mithilfe von SQL Server-Projekte, und verwenden diese zum Erstellen und Debuggen verwalteter Datenbankobjekte in den nächsten Lernprogrammen.
+Datenbankobjekte können auch über SQL Server-Projekte gedebuggt werden. Betrachten wir mithilfe von SQL Server-Projekte, und verwenden sie zum Erstellen und Debuggen von verwalteten Datenbankobjekten im nächsten Tutorial.
 
 Viel Spaß beim Programmieren!
 
-## <a name="about-the-author"></a>Informationen zum Autor
+## <a name="about-the-author"></a>Der Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben Büchern zu ASP/ASP.NET und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), arbeitet mit Microsoft-Web-Technologien seit 1998. Er ist als ein unabhängiger Berater, Schulungsleiter und Autor. Sein neueste Buch wird [*Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er ist unter [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 > [!div class="step-by-step"]
 > [Zurück](protecting-connection-strings-and-other-configuration-information-cs.md)

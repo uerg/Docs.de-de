@@ -1,184 +1,183 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/specifying-the-master-page-programmatically-cs
-title: Programmgesteuertes Festlegen der Gestaltungsvorlage (c#) | Microsoft Docs
+title: Programmgesteuertes Festlegen der Masterseite (c#) | Microsoft-Dokumentation
 author: rick-anderson
-description: Untersucht die Masterseite der Inhaltsseite, programmgesteuert über den Ereignishandler PreInit festlegen.
+description: Festlegen der Masterseite der Inhaltsseite, programmgesteuert über den PreInit-Ereignishandler überprüft.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/28/2008
 ms.topic: article
 ms.assetid: 7c4a3445-2440-4aee-b9fd-779c05e6abb2
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-master-page-programmatically-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2294ee2e58e55901d77958e7cf45dd74fc2a1187
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
-ms.translationtype: MT
+ms.openlocfilehash: 2b3fbd95a8088e20382c426fcdcc6a4b6e67d44b
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30891151"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37370389"
 ---
-<a name="specifying-the-master-page-programmatically-c"></a>Programmgesteuertes Festlegen der Gestaltungsvorlage (c#)
+<a name="specifying-the-master-page-programmatically-c"></a>Programmgesteuertes Festlegen der Masterseite (c#)
 ====================
 durch [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Herunterladen von Code](http://download.microsoft.com/download/d/6/6/d66ad554-afdd-409e-a5c3-201b774fbb31/ASPNET_MasterPages_Tutorial_09_CS.zip) oder [PDF herunterladen](http://download.microsoft.com/download/d/6/6/d66ad554-afdd-409e-a5c3-201b774fbb31/ASPNET_MasterPages_Tutorial_09_CS.pdf)
+[Code herunterladen](http://download.microsoft.com/download/d/6/6/d66ad554-afdd-409e-a5c3-201b774fbb31/ASPNET_MasterPages_Tutorial_09_CS.zip) oder [PDF-Datei herunterladen](http://download.microsoft.com/download/d/6/6/d66ad554-afdd-409e-a5c3-201b774fbb31/ASPNET_MasterPages_Tutorial_09_CS.pdf)
 
-> Untersucht die Masterseite der Inhaltsseite, programmgesteuert über den Ereignishandler PreInit festlegen.
+> Festlegen der Masterseite der Inhaltsseite, programmgesteuert über den PreInit-Ereignishandler überprüft.
 
 
 ## <a name="introduction"></a>Einführung
 
-Seit dem ersten Beispiel in [ *erstellen eine standortweite Layout mithilfe von Master Pages*](creating-a-site-wide-layout-using-master-pages-cs.md), werden alle Inhalte Seiten ihre Masterseite deklarativ über verwiesen haben die `MasterPageFile` -Attribut in der `@Page`Richtlinie. Beispielsweise die folgenden `@Page` Richtlinie links die Seite Inhalte der Masterseite `Site.master`:
+Seit dem ersten Beispiel in [ *erstellen eine standortweite Layout mithilfe von Master Pages*](creating-a-site-wide-layout-using-master-pages-cs.md)werden alle Inhaltsdateien Seiten auf ihrer Masterseite deklarativ über verwiesen die `MasterPageFile` -Attribut in der `@Page`Richtlinie. Beispielsweise die folgenden `@Page` Richtlinie links die Seite Inhalte auf die Masterseite `Site.master`:
 
 
 [!code-aspx[Main](specifying-the-master-page-programmatically-cs/samples/sample1.aspx)]
 
-Die [ `Page` Klasse](https://msdn.microsoft.com/library/system.web.ui.page.aspx) in der `System.Web.UI` Namespace beinhaltet eine [ `MasterPageFile` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.page.masterpagefile.aspx) , die gibt den Pfad zur Masterseite der Inhaltsseite; es ist diese Eigenschaft, die von der festgelegtist`@Page` Richtlinie. Diese Eigenschaft kann auch verwendet werden, Masterseite der Inhaltsseite programmgesteuert angegeben. Dieser Ansatz ist hilfreich, wenn Sie die Gestaltungsvorlage basierend auf externe Faktoren wie der Benutzer Zugriff auf die Seite dynamisch zuweisen möchten.
+Die [ `Page` Klasse](https://msdn.microsoft.com/library/system.web.ui.page.aspx) in die `System.Web.UI` -Namespace umfasst einen [ `MasterPageFile` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.page.masterpagefile.aspx) , die den Pfad auf die Masterseite der Inhaltsseite zurückgibt; es ist diese Eigenschaft, die von der festgelegtist`@Page` Richtlinie. Diese Eigenschaft kann auch verwendet werden, können Sie die Masterseite der Inhaltsseite programmgesteuert angeben. Dieser Ansatz ist hilfreich, wenn Sie die Masterseite, die basierend auf externe Faktoren wie der Benutzer Zugriff auf die Seite dynamisch zuweisen möchten.
 
-In diesem Lernprogramm werden eine zweite Masterseite auf unserer Website hinzufügen und die Masterseite zur Laufzeit dynamisch zu entscheiden.
+In diesem Tutorial stellen wir unsere Website, eine zweite Masterseite hinzugefügt und die Masterseite für die Verwendung zur Laufzeit dynamisch zu entscheiden.
 
-## <a name="step-1-a-look-at-the-page-lifecycle"></a>Schritt 1: Einen Blick auf der Seite "-Lebenszyklus
+## <a name="step-1-a-look-at-the-page-lifecycle"></a>Schritt 1: Einen Blick auf den Lebenszyklus der Seite
 
-Wenn eine Anforderung an den Webserver für eine ASP.NET-Seite, die eine Seite ist eingeht, muss das Modul für ASP.NET den Anzeigezustand der Seite Sicherung Content-Steuerelemente in der master-Seite des entsprechenden ContentPlaceHolder-Steuerelemente. Diese Fusion erstellt eine einziges Steuerelement-Hierarchie, die dann über den Seitenlebenszyklus typische fortgesetzt werden kann.
+Wenn eine Anforderung auf dem Webserver für eine ASP.NET-Seite, die eine Inhaltsseite ist eingeht, muss das ASP.NET-Modul fuse der Seite Inhalt von Steuerelementen in die Masterseite die entsprechende ContentPlaceHolder-Steuerelemente. Diese Fusion erstellt eine einzelnes Steuerelement-Hierarchie, die dann durch den Lebenszyklus der Seite "typischen" fortgesetzt werden kann.
 
-Abbildung 1 zeigt diese Fusion. Schritt 1 in Abbildung 1 zeigt die anfänglichen Inhalte und die Masterseite Steuerelement Hierarchien. Steuerelemente auf der Seite werden am Ende des Protokollfragments der PreInit-Phase der Inhalt der entsprechenden ContentPlaceHolders in die Masterseite (Schritt2) hinzugefügt. Nach dieser Fusion dient die Gestaltungsvorlage als Stamm der Steuerelementhierarchie mit Sicherung aus. Dieses Steuerelement fused Hierarchie wird dann zum Erzeugen der abgeschlossene Steuerelementhierarchie (Schritt 3) auf der Seite hinzugefügt. Das Ergebnis ist, dass die Hierarchie der Seite mit Sicherung Steuerelementhierarchie enthält.
+Abbildung 1 zeigt diese Fusion. Schritt 1 in Abbildung 1 zeigt die ursprünglichen Inhalt und die Hierarchien der Masterseite-Steuerelement. Steuerelemente auf der Seite werden am Ende des Protokollfragments der PreInit-Phase der Inhalt der entsprechenden ContentPlaceHolder-Steuerelemente auf der Masterseite (Schritt2) hinzugefügt. Nach diesem Fusion dient die Masterseite als Stamm der Steuerelementhierarchie fused. Dieses Steuerelement fused Hierarchie wird dann hinzugefügt, um die Seite, um die abgeschlossene Steuerelementhierarchie (Schritt 3) zu erstellen. Das Ergebnis ist die Steuerelementhierarchie der Seite die fused Steuerelementhierarchie enthält.
 
 
-[![Der Gestaltungsvorlage und Inhaltsseites Steuerelement Hierarchien sind in der Phase PreInit Fused zusammen](specifying-the-master-page-programmatically-cs/_static/image2.png)](specifying-the-master-page-programmatically-cs/_static/image1.png)
+[![Der Masterseite und der Inhaltsseite Steuerelement Hierarchien werden zusammen mit Sicherung während der PreInit-Phase](specifying-the-master-page-programmatically-cs/_static/image2.png)](specifying-the-master-page-programmatically-cs/_static/image1.png)
 
-**Abbildung 01**: der Gestaltungsvorlage und des Inhaltsseite Steuerelement Hierarchien werden zusammen Fused-Phase der PreInit ([klicken Sie hier, um das Bild in voller Größe angezeigt](specifying-the-master-page-programmatically-cs/_static/image3.png))
+**Abbildung 01**: der Masterseite und der Inhaltsseite Steuerelement Hierarchien werden zusammen mit Sicherung während der PreInit-Phase ([klicken Sie, um das Bild in voller Größe anzeigen](specifying-the-master-page-programmatically-cs/_static/image3.png))
 
 
 ## <a name="step-2-setting-themasterpagefileproperty-from-code"></a>Schritt 2: Festlegen der`MasterPageFile`-Eigenschaft im Code
 
-Welche Gestaltungsvorlage in diese Fusion partakes hängt vom Wert von der `Page` des Objekts `MasterPageFile` Eigenschaft. Festlegen der `MasterPageFile` Attribut in der `@Page` Richtlinie wurde im Endeffekt Zuweisen der `Page`des `MasterPageFile` Eigenschaft während der Initialisierungsphase, die die erste Phase des Lebenszyklus der Seite ist. Wir können diese Eigenschaft auch programmgesteuert festlegen. Allerdings ist es obligatorisch, dass diese Eigenschaft festgelegt werden, bevor die Fusion in Abbildung 1 stattfindet.
+Welche Masterseite in dieser Fusion partakes, hängt davon ab, der Wert für die `Page` des Objekts `MasterPageFile` Eigenschaft. Festlegen der `MasterPageFile` -Attribut in der `@Page` -Anweisung hat das Ergebnis der Zuweisung der `Page`des `MasterPageFile` -Eigenschaft während der Initialisierungsphase, die die erste Phase des Lebenszyklus der Seite ist. Wir können diese Eigenschaft auch programmgesteuert festlegen. Allerdings ist es zwingend erforderlich, dass diese Eigenschaft festgelegt werden, bevor die Fusion in Abbildung 1 durchgeführt wird.
 
-Am Anfang der PreInit-Phase der `Page` -Objekt löst die [ `PreInit` Ereignis](https://msdn.microsoft.com/library/system.web.ui.page.preinit.aspx) und ruft seine [ `OnPreInit` Methode](https://msdn.microsoft.com/library/system.web.ui.page.onpreinit.aspx). Um die Gestaltungsvorlage programmgesteuert festzulegen, erstellen Sie dann wir können entweder einen Ereignishandler für das `PreInit` Ereignis oder Überschreibung der `OnPreInit` Methode. Betrachten Sie beide Ansätze aus.
+Am Anfang der PreInit-Phase der `Page` -Objekt löst die [ `PreInit` Ereignis](https://msdn.microsoft.com/library/system.web.ui.page.preinit.aspx) und ruft seine [ `OnPreInit` Methode](https://msdn.microsoft.com/library/system.web.ui.page.onpreinit.aspx). Um die Masterseite programmgesteuert festzulegen, klicken Sie dann, wir können entweder erstellen einen Ereignishandler für die `PreInit` Ereignis- oder außer Kraft setzen der `OnPreInit` Methode. Sehen wir uns auf beide Ansätze.
 
-Öffnen Sie zunächst `Default.aspx.cs`, die Code-Behind-Klassendatei für unsere Website-Homepage. Fügen Sie einen Ereignishandler für der Seite `PreInit` Ereignis, indem Sie in den folgenden Code eingeben:
+Öffnen Sie zunächst `Default.aspx.cs`, die CodeBehind-Klassendatei für unsere Website-Homepage. Hinzufügen eines ereignishandlers für der Seite des `PreInit` Ereignis, indem Sie in den folgenden Code eingeben:
 
 
 [!code-csharp[Main](specifying-the-master-page-programmatically-cs/samples/sample2.cs)]
 
-Hier legen wir den `MasterPageFile` Eigenschaft. Aktualisieren Sie den Code, sodass den Wert weist "~ / Site.master" auf die `MasterPageFile` Eigenschaft.
+Von hier aus können wir Festlegen der `MasterPageFile` Eigenschaft. Aktualisieren Sie den Code, sodass den Wert weist "~ / Site.master" auf die `MasterPageFile` Eigenschaft.
 
 
 [!code-csharp[Main](specifying-the-master-page-programmatically-cs/samples/sample3.cs)]
 
-Wenn Sie einen Haltepunkt festlegen und das Starten mit Debuggen Sie, dass sehen immer die `Default.aspx` besuchte Webseite oder bei jedem besteht ein Postback auf dieser Seite die `Page_PreInit` -Ereignishandler ausgeführt wird und die `MasterPageFile` Eigenschaft zugewiesen ist "~ / Site.master".
+Wenn Sie einen Haltepunkt festlegen und starten mit Debuggen Sie, dass sehen immer die `Default.aspx` Seite wird besucht, oder wird jedes Mal, wenn ein Postback auf dieser Seite die `Page_PreInit` -Ereignishandler ausgeführt wird und die `MasterPageFile` Eigenschaft zugewiesen ist "~ / Site.master".
 
-Alternativ können Sie überschreiben die `Page` Klasse `OnPreInit` -Methode, und legen die `MasterPageFile` Eigenschaft vorhanden. In diesem Beispiel nehmen wir nicht festgelegt die Gestaltungsvorlage in einer bestimmten Seite, sondern aus `BasePage`. Beachten Sie, dass wir eine benutzerdefinierte Basisseite-Klasse erstellt (`BasePage`) zurück in die [ *Titel, Meta-Tags und andere HTML-Header angeben, der Gestaltungsvorlage* ](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md) Lernprogramm. Derzeit `BasePage` überschreibt die `Page` Klasse `OnLoadComplete` -Methode, in denen der Seite wird `Title` -Eigenschaft basierend auf der Siteübersichtsdaten. Wir aktualisieren `BasePage` auch überschreiben die `OnPreInit` Methode, um die Gestaltungsvorlage programmgesteuert anzugeben.
+Alternativ können Sie überschreiben die `Page` Klasse `OnPreInit` Methode, und legen die `MasterPageFile` Eigenschaft vorhanden. In diesem Beispiel nicht legen wir die Masterseite in eine bestimmte Seite, sondern von `BasePage`. Denken Sie daran, dass wir eine benutzerdefinierte Basisseite-Klasse erstellt (`BasePage`) zurück in die [ *Titel, Meta-Tags und anderer HTML-Header angeben, auf der Masterseite* ](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md) Tutorial. Derzeit `BasePage` überschreibt die `Page` Klasse `OnLoadComplete` -Methode, in dem der Seite wird `Title` -Eigenschaft basierend auf der Sitemap-Daten. Aktualisieren wir `BasePage` überschreiben auch die `OnPreInit` Methode, um die Masterseite programmgesteuert anzugeben.
 
 
 [!code-csharp[Main](specifying-the-master-page-programmatically-cs/samples/sample4.cs)]
 
-Da unsere Inhaltsseiten Ableitung `BasePage`, alle von ihnen jetzt ihre Masterseite programmgesteuert zugewiesen haben. An diesem Punkt der `PreInit` -Ereignishandler in `Default.aspx.cs` überflüssig; wünschen, um ihn zu entfernen.
+Da alle unsere Inhaltsseiten abgeleitet `BasePage`, alle haben jetzt die Masterseite programmgesteuert zugewiesen. An diesem Punkt die `PreInit` -Ereignishandler in `Default.aspx.cs` überflüssig ist, können Sie ihn zu entfernen.
 
 ### <a name="what-about-thepagedirective"></a>Wie sieht die`@Page`Richtlinie?
 
-Was etwas verwirrend sein kann, die die Inhaltsseiten ist `MasterPageFile` Eigenschaften sind jetzt an zwei Stellen angegeben: programmgesteuert in die `BasePage` -Klasse `OnPreInit` Methode sowie über die `MasterPageFile` Attribut in jeder Inhaltsseite `@Page` Richtlinie.
+Ein wenig verwirrend erscheinen möglicherweise ist, die der Inhaltsseiten `MasterPageFile` Eigenschaften sind jetzt an zwei Orten angegeben werden: programmgesteuert in die `BasePage` Klasse `OnPreInit` Methode sowie die `MasterPageFile` -Attribut in jeder Inhaltsseite `@Page` Richtlinie.
 
-Die erste Phase im Lebenszyklus Seite ist die Initialisierungsphase. In dieser Phase der `Page` des Objekts `MasterPageFile` der Wert der Eigenschaft zugewiesen der `MasterPageFile` Attribut in der `@Page` Richtlinie (Wenn diese Option angegeben wird). Die PreInit-Phase folgt der Initialisierungsphase und es ist hier, in denen es programmgesteuert festgelegt die `Page` des Objekts `MasterPageFile` -Eigenschaft, und überschreiben den Wert zugewiesen wird, aus der `@Page` Richtlinie. Da wir Festlegen der `Page` des Objekts `MasterPageFile` Eigenschaft programmgesteuert wir konnte Entfernen der `MasterPageFile` -Attribut aus der `@Page` ohne Auswirkung auf die Benutzeroberfläche zur Richtlinie. Um sich davon überzeugen möchten, fahren Sie fort, und entfernen Sie die `MasterPageFile` -Attribut aus der `@Page` -Direktive in `Default.aspx` und besuchen dann die Seite über einen Browser. Wie zu erwarten, ist die Ausgabe identisch, bevor Sie das Attribut entfernt wurde.
+Die erste Phase im Lebenszyklus Seite ist der Initialisierungsphase. In dieser Phase der `Page` des Objekts `MasterPageFile` der Wert der Eigenschaft zugewiesen der `MasterPageFile` -Attribut in der `@Page` Richtlinie (falls es vorhanden ist). Die PreInit-Phase folgt der Initialisierungsphase, und es ist soweit, in dem wir programmgesteuert festlegen der `Page` des Objekts `MasterPageFile` und überschrieb den Wert im Bereich von-Eigenschaft der `@Page` Richtlinie. Da festlegt sind die `Page` des Objekts `MasterPageFile` Eigenschaft programmgesteuert, wir könnten Entfernen der `MasterPageFile` -Attribut aus der `@Page` -Anweisung ohne Auswirkungen auf die End-benutzererfahrung. Um sich selbst davon überzeugen möchten, fahren Sie fort, und entfernen Sie die `MasterPageFile` -Attribut aus der `@Page` -Direktive in `Default.aspx` und besuchen Sie dann auf die Seite über einen Browser. Wie zu erwarten ist, ist die Ausgabe identisch, bevor Sie das Attribut entfernt wurde.
 
-Ob die `MasterPageFile` Eigenschaftensatz wird über die `@Page` Richtlinie oder programmgesteuert wird der Endbenutzer-Erfahrung nicht relevant. Allerdings die `MasterPageFile` Attribut in der `@Page` Richtlinie wird während der Entwurfszeit von Visual Studio verwendet, um die WYSIWYG erzeugen Ansicht im Designer. Wenn Sie zum zurückkehren `Default.aspx` in Visual Studio, und navigieren Sie in den Designer sehen Sie die Meldung "Gestaltungsvorlage Fehler: die Seite verfügt über Steuerelemente, die einen Verweis für die Gestaltungsvorlage erfordern, jedoch keine angegeben" (siehe Abbildung 2).
+Ob die `MasterPageFile` Eigenschaft wird festgelegt, über die `@Page` Richtlinie oder programmgesteuert an das Ende der Benutzeroberfläche nicht relevant ist. Allerdings die `MasterPageFile` -Attribut in der `@Page` Richtlinie wird von Visual Studio zur Entwurfszeit verwendet, um der WYSIWYG erzeugen Ansicht im Designer. Wenn Sie zum zurückkehren `Default.aspx` in Visual Studio, und navigieren Sie in den Designer sehen Sie die Meldung "Masterseite-Fehler: die Seite verfügt über Steuerelemente, eine Masterseite erfordern, aber keine angegeben" (siehe Abbildung 2).
 
-Kurz gesagt, müssen Sie lassen die `MasterPageFile` Attribut in der `@Page` Richtlinie eine komfortable zur Entwurfszeit in Visual Studio nutzen.
-
-
-[![Visual Studio nutzt das @Page Richtlinie MasterPageFile-Attribut zum Rendern der Entwurfsansicht](specifying-the-master-page-programmatically-cs/_static/image5.png)](specifying-the-master-page-programmatically-cs/_static/image4.png)
-
-**Abbildung 02**: Visual Studio verwendet die `@Page` Richtlinie `MasterPageFile` -Attribut zum Rendern der Ansicht Entwurf ([klicken Sie hier, um das Bild in voller Größe angezeigt](specifying-the-master-page-programmatically-cs/_static/image6.png))
+Kurz gesagt, Sie behalten möchten die `MasterPageFile` -Attribut in der `@Page` Richtlinie, um eine umfassende während der Entwurfszeit-Funktionen in Visual Studio nutzen zu können.
 
 
-## <a name="step-3-creating-an-alternative-master-page"></a>Schritt 3: Erstellen einer alternativen Masterseite
+[![Visual Studio nutzt die @Page MasterPageFile-Attribut für die Richtlinie zum Rendern der Entwurfsansicht](specifying-the-master-page-programmatically-cs/_static/image5.png)](specifying-the-master-page-programmatically-cs/_static/image4.png)
 
-Da eine Inhaltsseite Masterseite programmgesteuert zur Laufzeit festgelegt werden kann, es möglich ist, die eine bestimmte Masterseite basierend auf bestimmte externe Kriterien dynamisch geladen wird. Diese Funktionalität kann in Situationen nützlich sein, in denen die Website-Layout basierend auf den Benutzer variieren muss. Z. B. können eine Blog-Engine-Webanwendung ihre Benutzer zum Wählen ein Layout für ihre Blog, in dem jedes Layout, die eine andere master-Seite zugeordnet ist. Zur Laufzeit beim ein Besucher eines Benutzers Blog verwenden, anzeigen, wird müssen die Webanwendung im Blog Layout bestimmen, und ordnen Sie die entsprechenden Gestaltungsvorlage dynamisch Inhaltsseite.
-
-Sehen wir uns wie eine Masterseite zur Laufzeit basierend auf bestimmte externe Kriterien dynamisch geladen. Unsere Website enthält derzeit nur eine Gestaltungsvorlage (`Site.master`). Wir benötigen eine andere Masterseite auswählen einer Masterseite zur Laufzeit veranschaulicht. Dieser Schritt konzentriert sich auf erstellen und konfigurieren die neue Masterseite. Schritt 4 prüft welche Masterseite zur Laufzeit zu bestimmen.
-
-Erstellen eine neue Masterseite in den Stammordner, der mit dem Namen `Alternate.master`. Fügen Sie ein neues Stylesheet auch auf der Website mit dem Namen `AlternateStyles.css`.
+**Abbildung 02**: Visual Studio verwendet die `@Page` -Direktive `MasterPageFile` Attribut zum Rendern der Entwurfsansicht ([klicken Sie, um das Bild in voller Größe anzeigen](specifying-the-master-page-programmatically-cs/_static/image6.png))
 
 
-[![Fügen Sie eine andere Gestaltungsvorlage und CSS-Datei wird in der Website](specifying-the-master-page-programmatically-cs/_static/image8.png)](specifying-the-master-page-programmatically-cs/_static/image7.png)
+## <a name="step-3-creating-an-alternative-master-page"></a>Schritt 3: Erstellen eine Alternative-Masterseite
 
-**Abbildung 03**: Hinzufügen einer anderen Gestaltungsvorlage und CSS-Datei auf der Website ([klicken Sie hier, um das Bild in voller Größe angezeigt](specifying-the-master-page-programmatically-cs/_static/image9.png))
+Da es sich bei einer Inhaltsseite Masterseite programmgesteuert zur Laufzeit festgelegt werden kann ist es möglich, eine bestimmte Masterseite, die externe kriterienbasierten dynamisch zu laden. Diese Funktionalität kann in Situationen nützlich sein, in dem der Website-Layout basierend auf den Benutzer variieren muss. Z. B. können eine Blog-Engine-Webanwendung Benutzer wählen ein Layout für ihren Blog, wobei jedes Layout, die mit einer anderen Masterseite zugeordnet ist. Zur Laufzeit beim ein Besucher eines Benutzers Blog anzeigen, wird müssten die Webanwendung bestimmen den Blog-Layout und die entsprechenden Masterseite dynamisch verknüpft wird, mit der Inhaltsseite.
+
+Betrachten wir eine Gestaltungsvorlage zur Laufzeit basierend auf einigen externen Kriterien dynamisch zu laden. Unsere Website enthält derzeit nur eine Masterseite (`Site.master`). Wir benötigen einen anderen Masterseite zur Veranschaulichung eine Gestaltungsvorlage zur Laufzeit auswählen. Dieser Schritt im erstellen und konfigurieren die neue Masterseite Mittelpunkt. Schritt 4 sucht bestimmt werden, welche Masterseite für die Verwendung zur Laufzeit.
+
+Erstellen Sie eine neue Masterseite in den Stammordner, der mit dem Namen `Alternate.master`. Fügen Sie ein neues Stylesheet auch auf der Website mit dem Namen `AlternateStyles.css`.
 
 
-Ich entworfen haben die `Alternate.master` Masterseite den am oberen Rand der Seite zentriert und in einem Hintergrundthread dunkelblaue angezeigten Titel haben. Ich habe Schiffsteil abgesehen von der linken Spalte und verschoben, dass der Inhalt unter der `MainContent` ContentPlaceHolder-Steuerelement, das sich jetzt die gesamte Breite der Seite. Darüber hinaus ich nixed ungeordnete Lektionen-Liste und ersetzt es mit einer horizontalen Liste oben `MainContent`. Ich habe aktualisiert auch die Schriftarten und Farben, die von der Gestaltungsvorlage (und durch Erweiterung auch dessen Inhaltsseiten) verwendet. Abbildung 4 zeigt `Default.aspx` bei Verwendung der `Alternate.master` Masterseite.
+[![Fügen Sie ein weiteres Masterseite und CSS-Datei in der Website](specifying-the-master-page-programmatically-cs/_static/image8.png)](specifying-the-master-page-programmatically-cs/_static/image7.png)
+
+**Abbildung 03**: Hinzufügen einer anderen Masterseite und CSS-Datei auf der Website ([klicken Sie, um das Bild in voller Größe anzeigen](specifying-the-master-page-programmatically-cs/_static/image9.png))
+
+
+Ich entwarf haben die `Alternate.master` Masterseite haben den Titel oben auf der Seite zentriert und auf einem dunkelblaue Hintergrund angezeigt. Ich habe Schiffsteil abgesehen von der linken Spalte und verschoben, dass der Inhalt unterhalb der `MainContent` ContentPlaceHolder-Steuerelement, das erstreckt sich jetzt die gesamte Breite der Seite über. Darüber hinaus ich nixed die unsortierte Liste der Lektionen und ersetzt es durch eine horizontale Liste oben `MainContent`. Ich habe auch aktualisiert Schriftarten und Farben verwendet werden, von der Masterseite (und somit die Inhaltsseiten). Abbildung 4 zeigt `Default.aspx` bei Verwendung der `Alternate.master` Masterseite.
 
 > [!NOTE]
-> ASP.NET bietet die Möglichkeit zum Definieren *Designs*. Ein Design ist eine Auflistung der Bilder, CSS-Dateien und Formatvorlagen bezogenen Web Control eigenschaftseinstellungen, die auf einer Seite zur Laufzeit angewendet werden können. Designs sind die Möglichkeit, aufzurufen, wenn Ihre Website Layouts nur im angezeigten Bilder und durch ihre CSS-Regeln unterscheiden sich. Wenn Layouts mehr erheblich unterscheiden, z. B. unterschiedliche Websteuerelemente verwenden oder ein radikal anderes Layout müssen, müssen Sie separate Masterseiten verwenden. Erhalten Sie im Abschnitt Weitere Themen am Ende dieses Lernprogramms für Weitere Informationen zu Designs.
+> ASP.NET bietet die Möglichkeit, definieren Sie *Designs*. Ein Design ist eine Sammlung von Bildern, CSS-Dateien und Formatvorlagen bezogenen Web Control eigenschaftseinstellungen, die auf einer Seite zur Laufzeit angewendet werden können. Designs sind die beste Wahl, wenn Ihre Website Layouts nur im angezeigten Bilder und durch ihre CSS-Regeln unterscheiden. Wenn die Layouts unterscheiden sich mehr erheblich an, wie die Verwendung von anderen Websteuerelemente oder müssen ein völlig anderes Layout, Sie separate Masterseiten verwenden müssen. Prüfen Sie im Abschnitt Weitere nützliche Informationen am Ende dieses Tutorials für Weitere Informationen zu Designs.
 
 
 [![Unsere Inhaltsseiten können jetzt ein neues Aussehen und Verhalten verwenden.](specifying-the-master-page-programmatically-cs/_static/image11.png)](specifying-the-master-page-programmatically-cs/_static/image10.png)
 
-**Abbildung 04**: unsere Inhaltsseiten können jetzt ein neues Aussehen und Verhalten ([klicken Sie hier, um das Bild in voller Größe angezeigt](specifying-the-master-page-programmatically-cs/_static/image12.png))
+**Abbildung 04**: unsere Inhaltsseiten können Sie jetzt ein neues Aussehen und Verhalten ([klicken Sie, um das Bild in voller Größe anzeigen](specifying-the-master-page-programmatically-cs/_static/image12.png))
 
 
-Wenn der Master "und" Inhaltsseiten Markup abgesichert werden, die `MasterPage` -Klasse überprüft, um sicherzustellen, dass alle Inhalte Steuerelement auf der Inhaltsseite verweist auf eine ContentPlaceHolder auf der Masterseite. Eine Ausnahme wird ausgelöst, wenn ein Inhaltssteuerelement, das eine nicht existierende ContentPlaceHolder verweist gefunden wird. Anders ausgedrückt, ist es imperative darin, dass die Masterseite der Inhaltsseite zugewiesen wird eine ContentPlaceHolder für jede Inhaltssteuerelement in der Seite Inhalt.
+Wenn die Master- und Inhaltsseiten Markup abgesichert werden, die `MasterPage` Klasse sicher, dass alle Inhalte-Steuerelement in der Seite Inhalt auf ein ContentPlaceHolder-Objekt in die Masterseite verweist. Eine Ausnahme wird ausgelöst, wenn ein Inhaltssteuerelement, das eine nicht existierende ContentPlaceHolder verweist auf gefunden wird. Das heißt, es ist zwingend erforderlich, dass die Masterseite der Inhaltsseite zugewiesen wird, ein ContentPlaceHolder-Objekt für jedes haben Inhaltssteuerelement in der Seite Inhalt.
 
-Die `Site.master` Masterseite umfasst vier ContentPlaceHolder-Steuerelemente:
+Die `Site.master` Masterseite enthält vier ContentPlaceHolder-Steuerelemente:
 
 - `head`
 - `MainContent`
 - `QuickLoginUI`
 - `LeftColumnContent`
 
-Inhaltsseiten auf unserer Website gehören nur ein oder zwei Inhaltssteuerelemente; ein Inhaltssteuerelement sind für jede der ContentPlaceHolders verfügbar. Wenn unsere neue Gestaltungsvorlage (`Alternate.master`) diese Inhaltsseiten, die für alle von der ContentPlaceHolders in Content-Steuerelemente verfügen je zugewiesen sein `Site.master` ist es wichtig, `Alternate.master` umfassen auch die gleichen Steuerelemente verwenden ContentPlaceHolder als `Site.master`.
+Einige der Inhaltsseiten in unserer Website sind nur ein oder zwei ContentControl-Elemente: andere enthalten ein ContentControl-Element für jede der verfügbaren ContentPlaceHolder-Steuerelemente. Wenn unsere neue Masterseite (`Alternate.master`) kann diese Inhaltsseiten, die Inhaltssteuerelemente für alle von der ContentPlaceHolder-Steuerelemente in Werte zugewiesen werden `Site.master` ist es wichtig, `Alternate.master` auch enthalten die gleichen ContentPlaceHolder-Steuerelemente als `Site.master`.
 
-Zum Abrufen Ihrer `Alternate.master` Masterseite erschließen (siehe Abbildung 4), starten, indem Sie definieren die Gestaltungsvorlage Formatvorlagen auf ähnelt der `AlternateStyles.css` Stylesheet. Fügen Sie die folgenden Regeln in `AlternateStyles.css`:
+Zum Abrufen Ihrer `Alternate.master` Masterseite aussehen wie in Data Mining (siehe Abbildung 4) starten, indem Sie definieren die Masterseite Stile in die `AlternateStyles.css` Stylesheet. Fügen Sie die folgenden Regeln in `AlternateStyles.css`:
 
 
 [!code-css[Main](specifying-the-master-page-programmatically-cs/samples/sample5.css)]
 
-Als Nächstes fügen Sie das folgende deklarative Markup zum `Alternate.master`. Wie Sie sehen können, `Alternate.master` enthält vier ContentPlaceHolder-Steuerelemente mit dem gleichen `ID` Werte wie die ContentPlaceHolder-Steuerelemente in `Site.master`. Darüber hinaus enthält es ein ScriptManager-Steuerelement, der für die Seiten auf unserer Website erforderlich ist, die ASP.NET AJAX-Framework verwenden.
+Fügen Sie das folgende deklarative Markup zu `Alternate.master`. Wie Sie sehen können, `Alternate.master` enthält vier ContentPlaceHolder-Steuerelemente, mit dem gleichen `ID` Werte wie die ContentPlaceHolder-Steuerelemente in `Site.master`. Außerdem enthält es ein ScriptManager-Steuerelement, der für die Seiten auf unserer Website erforderlich ist, die ASP.NET AJAX-Framework verwenden.
 
 
 [!code-aspx[Main](specifying-the-master-page-programmatically-cs/samples/sample6.aspx)]
 
-### <a name="testing-the-new-master-page"></a>Testen die neue Gestaltungsvorlage
+### <a name="testing-the-new-master-page"></a>Testen der neuen Master-Seite
 
-So testen Sie dieses neue Masterseite Update der `BasePage` Klasse `OnPreInit` Methode, damit die `MasterPageFile` Eigenschaft der Wert zugewiesen "~ / Alternate.master", und klicken Sie dann besuchen Sie die Website. Jeder Seite sollte ohne Fehler mit Ausnahme von zwei funktionsfähig sind: `~/Admin/AddProduct.aspx` und `~/Admin/Products.aspx`. Hinzufügen eines Produkts, DetailsView in `~/Admin/AddProduct.aspx` führt zu einem `NullReferenceException` aus der Zeile des Codes, der versucht, die Gestaltungsvorlage festgelegt `GridMessageText` Eigenschaft. Beim Zugriff auf `~/Admin/Products.aspx` ein `InvalidCastException` wird beim Laden der Seite mit der folgenden Meldung ausgelöst: "Cast-Objekt des Typs kann nicht ' ASP.alternate\_master" in den Typ "ASP.site\_master". "
+Zum Testen von diesem neuen Updates für die Masterseite der `BasePage` -Klasse `OnPreInit` Methode, damit die `MasterPageFile` Eigenschaft wird der Wert zugewiesen "~ / Alternate.master", und klicken Sie dann die Website besuchen. Jede Seite sollte ohne Fehler mit Ausnahme von zwei funktionieren: `~/Admin/AddProduct.aspx` und `~/Admin/Products.aspx`. Hinzufügen eines Produkts zum DetailsView in `~/Admin/AddProduct.aspx` führt zu einer `NullReferenceException` aus der Zeile des Codes, der versucht, die Gestaltungsvorlage festgelegt `GridMessageText` Eigenschaft. Beim Zugriff auf `~/Admin/Products.aspx` ein `InvalidCastException` wird beim Laden der Seite mit der folgenden Meldung ausgelöst: "wandelt ein Objekt vom Typ kann nicht ' ASP.alternate\_master" in den Typ "ASP.site\_master". "
 
-Diese Fehler auftreten, da die `Site.master` Code-Behind-Klasse enthält öffentlichen Ereignisse, Eigenschaften und Methoden, die nicht in definiert sind `Alternate.master`. Der Teil von Markup für diese beiden Seiten haben eine `@MasterType` -Direktive, verweist der `Site.master` Masterseite.
+Diese Fehler auftreten, da die `Site.master` Code-Behind-Klasse enthält öffentliche Ereignisse, Eigenschaften und Methoden, die nicht in definiert sind `Alternate.master`. Der Teil von Markup für diese beiden Seiten haben eine `@MasterType` -Direktive, verweist der `Site.master` Masterseite.
 
 
 [!code-aspx[Main](specifying-the-master-page-programmatically-cs/samples/sample7.aspx)]
 
-Auch, DetailsViews `ItemInserted` -Ereignishandler in `~/Admin/AddProduct.aspx` enthält Code, der die lose typisierten wandelt `Page.Master` Eigenschaft, um ein Objekt vom Typ `Site`. Die `@MasterType` -Direktive (auf diese Weise verwendet) und die Umwandlung in die `ItemInserted` Ereignishandler eng verbindet die `~/Admin/AddProduct.aspx` und `~/Admin/Products.aspx` Seiten der `Site.master` Masterseite.
+Darüber hinaus DetailsView `ItemInserted` -Ereignishandler in `~/Admin/AddProduct.aspx` enthält Code, der die lose typisierte wandelt `Page.Master` Eigenschaft, um ein Objekt des Typs `Site`. Die `@MasterType` -Direktive (auf diese Weise verwendet) und die Umwandlung in die `ItemInserted` Ereignishandler eng koppelt die `~/Admin/AddProduct.aspx` und `~/Admin/Products.aspx` auf Seiten der `Site.master` Masterseite.
 
-Diese enge Kopplung unterbrochen wir haben `Site.master` und `Alternate.master` Ableiten von einer gemeinsamen Basisklasse, die Definitionen für die öffentlichen Member enthält. Danach können wir aktualisieren das `@MasterType` Direktive, um diese allgemeinen Basistyp verweisen.
+Diese enge Kopplung unterbrechen können `Site.master` und `Alternate.master` leiten Sie von einer gemeinsamen Basisklasse, die Definitionen für die öffentlichen Member enthält. Danach können wir aktualisieren den `@MasterType` Direktive, um diese allgemeinen Basistyp zu verweisen.
 
-### <a name="creating-a-custom-base-master-page-class"></a>Erstellen eine benutzerdefinierte Base Master Page-Klasse
+### <a name="creating-a-custom-base-master-page-class"></a>Erstellen eine benutzerdefinierte Base Master-Page-Klasse
 
-Fügen Sie eine neue Klassendatei zu den `App_Code` Ordner mit dem Namen `BaseMasterPage.cs` und mit ihr abgeleitet sein `System.Web.UI.MasterPage`. Müssen wir definieren die `RefreshRecentProductsGrid` Methode und die `GridMessageText` Eigenschaft im `BaseMasterPage`, aber wir können nicht einfach verschieben sie es aus `Site.master` , da diese Member mit Websteuerelementen arbeiten, die für spezifisch sind die `Site.master` Gestaltungsvorlage (die `RecentProducts` GridView und `GridMessage` Bezeichnung).
+Fügen Sie eine neue Klassendatei mit dem `App_Code` Ordner mit dem Namen `BaseMasterPage.cs` und abgeleitet `System.Web.UI.MasterPage`. Müssen wir definieren die `RefreshRecentProductsGrid` Methode und die `GridMessageText` -Eigenschaft in `BaseMasterPage`, aber wir können nicht einfach verschieben sie es aus `Site.master` , da diese Member mit Websteuerelementen arbeiten, die für spezifisch sind die `Site.master` Masterseite (die `RecentProducts` GridView und `GridMessage` Bezeichnung).
 
-Wir müssen werden konfiguriert, `BaseMasterPage` so, dass diese Member, es definiert sind sind jedoch tatsächlich von implementiert `BaseMasterPage`des abgeleiteten Klassen (`Site.master` und `Alternate.master`). Diese Art der Vererbung ist möglich, durch die Markierung der Klasse und ihre Member als `abstract`. Kurz gesagt, Hinzufügen der `abstract` Schlüsselwort, um diese beiden Elemente kündigt, die `BaseMasterPage` wurde nicht implementiert `RefreshRecentProductsGrid` und `GridMessageText`, allerdings werden von abgeleiteten Klassen.
+Was wir tun müssen werden konfiguriert, `BaseMasterPage` so, dass diese Member werden es definiert, aber eigentlich, indem implementiert sind `BaseMasterPage`abgeleiteten Klassen (`Site.master` und `Alternate.master`). Diese Art der Vererbung ist möglich, durch Markieren der Klasse und ihre Member als `abstract`. Kurz gesagt: Hinzufügen der `abstract` kündigt von Schlüsselwort, um diese zwei Elemente, die `BaseMasterPage` wurde nicht implementiert `RefreshRecentProductsGrid` und `GridMessageText`, allerdings werden von abgeleiteten Klassen.
 
-Wir müssen zudem definieren die `PricesDoubled` Ereignis in `BaseMasterPage` und bieten eine Möglichkeit, durch die abgeleiteten Klassen zum Auslösen des Ereignisses. Das Muster, die in .NET Framework verwendet, um dieses Verhalten zu ermöglichen ist, erstellen ein öffentliches Ereignis in der Basisklasse und Hinzufügen einer geschützten `virtual` Methode mit dem Namen `OnEventName`. Abgeleitete Klassen können anschließend rufen Sie diese Methode zum Auslösen des Ereignisses oder können überschrieben werden, um Code auszuführen, unmittelbar bevor oder nachdem das Ereignis ausgelöst wird.
+Wir müssen auch zum Definieren der `PricesDoubled` Ereignis in `BaseMasterPage` und bieten eine Möglichkeit, von den abgeleiteten Klassen zum Auslösen des Ereignisses. Das Muster, die in .NET Framework verwendet, um dieses Verhalten zu vereinfachen ist, erstellen ein öffentliches Ereignis in der Basisklasse aus, und fügen eine geschützte, `virtual` Methode mit dem Namen `OnEventName`. Abgeleitete Klassen können anschließend rufen Sie diese Methode zum Auslösen des Ereignisses oder können überschrieben werden, um Code auszuführen, unmittelbar vor oder nach der das Ereignis ausgelöst wird.
 
-Update der `BaseMasterPage` Klasse, damit sie den folgenden Code enthält:
+Aktualisieren Ihrer `BaseMasterPage` Klasse, sodass sie den folgenden Code enthält:
 
 
 [!code-csharp[Main](specifying-the-master-page-programmatically-cs/samples/sample8.cs)]
 
-Öffnen Sie als Nächstes die `Site.master` Code-Behind-Klasse, und Ihr abgeleitet sein `BaseMasterPage`. Da `BaseMasterPage` ist `abstract` müssen wir die überschreiben `abstract` Member in `Site.master`. Hinzufügen der `override` Schlüsselwort, um die Methoden- und Eigenschaftendefinitionen. Außerdem aktualisieren Sie den Code, der auslöst, die `PricesDoubled` Ereignis in der `DoublePrice` Schaltfläche `Click` Ereignishandler mit einem Aufruf von der Basisklasse `OnPricesDoubled` Methode.
+Navigieren Sie anschließend auf die `Site.master` CodeBehind-Klasse und deren abgeleitet `BaseMasterPage`. Da `BaseMasterPage` ist `abstract` müssen wir außer Kraft `abstract` Elemente hier in `Site.master`. Hinzufügen der `override` Schlüsselwort, um die Methoden- und Eigenschaftendefinitionen. Außerdem aktualisieren Sie den Code, der auslöst, die `PricesDoubled` Ereignis in der `DoublePrice` Schaltfläche `Click` -Ereignishandler durch einen Aufruf der Basisklasse `OnPricesDoubled` Methode.
 
 Nachdem diese Änderungen die `Site.master` Code-Behind-Klasse sollte den folgenden Code enthalten:
 
 
 [!code-csharp[Main](specifying-the-master-page-programmatically-cs/samples/sample9.cs)]
 
-Wir müssen auch aktualisieren `Alternate.master`des Code-Behind-Klasse ableiten `BaseMasterPage` und überschreiben Sie die beiden `abstract` Elemente. Da jedoch `Alternate.master` enthält eine GridView, Listen die neuesten Produkte noch eine Bezeichnung, die eine Meldung, nachdem ein neues Produkt angezeigt mit der Datenbank hinzugefügt wird werden, diese Methoden nicht benötigen nichts zu tun.
+Wir müssen auch aktualisieren `Alternate.master`des Code-Behind-Klasse für die Ableitung `BaseMasterPage` und überschreiben Sie die beiden `abstract` Member. Aber da `Alternate.master` enthält keiner GridView-Ansicht, dass Listen, die die neuesten Produkte noch eine Bezeichnung, die eine Meldung, nachdem ein neues Produkt angezeigt in der Datenbank hinzugefügt wird, diese Methoden nicht nichts weiter tun müssen.
 
 
 [!code-csharp[Main](specifying-the-master-page-programmatically-cs/samples/sample10.cs)]
 
-### <a name="referencing-the-base-master-page-class"></a>Verweisen auf der Basis Master Page-Klasse
+### <a name="referencing-the-base-master-page-class"></a>Verweisen Sie auf der Basis-Master-Page-Klasse
 
-Wir Anschluss an die `BaseMasterPage` Klasse und unsere zwei Masterseiten erweitert haben, der letzte Schritt ist zum Aktualisieren der `~/Admin/AddProduct.aspx` und `~/Admin/Products.aspx` Seiten, um auf diese gemeinsamen Typ zu verweisen. Ändern Sie zunächst die `@MasterType` -Direktive auf beiden Seiten aus:
+Nun, wir haben die `BaseMasterPage` Klasse und unsere zwei Masterseiten erweitern, der letzte Schritt ist zum Aktualisieren der `~/Admin/AddProduct.aspx` und `~/Admin/Products.aspx` Seiten, um auf diesen gemeinsamen Typ zu verweisen. Ändern Sie zunächst die `@MasterType` -Direktive auf beiden Seiten aus:
 
 
 [!code-aspx[Main](specifying-the-master-page-programmatically-cs/samples/sample11.aspx)]
@@ -188,106 +187,106 @@ Nach:
 
 [!code-aspx[Main](specifying-the-master-page-programmatically-cs/samples/sample12.aspx)]
 
-Anstatt das Verweisen auf einen Dateipfad mit der `@MasterType` Eigenschaft verweist auf den Basistyp (`BaseMasterPage`). Folglich die stark typisierte `Master` Eigenschaft, die in beiden Seiten Code-Behind-Klassen verwendet wird jetzt vom Typ `BaseMasterPage` (anstelle von Typ `Site`). Durch diese Änderung festliegen beschäftigt sich erneut `~/Admin/Products.aspx`. Zuvor dies eine Umwandlung hat einen Fehler verursacht, da die Seite für die Verwendung konfiguriert ist die `Alternate.master` Masterseite, aber die `@MasterType` Richtlinie, die auf die verwiesen wird die `Site.master` Datei. Aber jetzt die Seite ohne Fehler gerendert wird. Grund hierfür ist die `Alternate.master` Masterseite umgewandelt werden kann, um ein Objekt des Typs `BaseMasterPage` (da er es erweitert wird).
+Anstatt das Verweisen auf einen Dateipfad der `@MasterType` Eigenschaft verweist jetzt auf den Basistyp (`BaseMasterPage`). Daher die stark typisierte `Master` -Eigenschaft, die in beide Seiten einer CodeBehind-Klassen verwendet, ist jetzt vom Typ `BaseMasterPage` (anstelle des Typs `Site`). Durch diese Änderung an Stelle noch einmal `~/Admin/Products.aspx`. Zuvor, Dies führte zu einem Fehler umwandeln, da die Seite für die Verwendung konfiguriert ist die `Alternate.master` Masterseite, aber die `@MasterType` Richtlinie, die auf die verwiesen wird die `Site.master` Datei. Aber jetzt die Seite ohne Fehler gerendert. Grund hierfür ist die `Alternate.master` Masterseite umgewandelt werden kann, um ein Objekt des Typs `BaseMasterPage` (da es erweitert).
 
-Es wird eine kleine Änderung, die vorgenommen werden muss `~/Admin/AddProduct.aspx`. Des DetailsView-Steuerelements `ItemInserted` -Ereignishandler wird sowohl die stark typisierte `Master` -Eigenschaft und die lose typisierten `Page.Master` Eigenschaft. Wir die stark typisierte Referenz behoben, wenn wir aktualisiert die `@MasterType` Richtlinie, es wird jedoch weiterhin die lose typisierten Verweis aktualisieren müssen. Ersetzen Sie die folgende Codezeile ein:
+Es ist eine kleine Änderung, die vorgenommen werden muss `~/Admin/AddProduct.aspx`. Des DetailsView-Steuerelements `ItemInserted` -Ereignishandler wird sowohl die stark typisierte `Master` Eigenschaft und die lose typisierte `Page.Master` Eigenschaft. Wir haben den stark typisierten Verweis behoben, wenn wir aktualisiert die `@MasterType` Richtlinie, aber wir benötigen den lose typisierten Verweis aktualisieren. Ersetzen Sie die folgende Codezeile ein:
 
 
 [!code-csharp[Main](specifying-the-master-page-programmatically-cs/samples/sample13.cs)]
 
-Mit den folgenden wandelt die `Page.Master` auf den Basistyp:
+Durch Folgendes, wandelt die `Page.Master` , die dem Basistyp entspricht:
 
 
 [!code-csharp[Main](specifying-the-master-page-programmatically-cs/samples/sample14.cs)]
 
-## <a name="step-4-determining-what-master-page-to-bind-to-the-content-pages"></a>Schritt 4: Bestimmen, welche Gestaltungsvorlage Bindung an die Inhaltsseiten
+## <a name="step-4-determining-what-master-page-to-bind-to-the-content-pages"></a>Schritt 4: Bestimmen, welche Seite "Master" an das Bindung hergestellt, auf die Inhaltsseiten
 
-Unsere `BasePage` -Klasse legt derzeit alle Inhaltsseiten `MasterPageFile` Eigenschaften auf einen hartcodierten Wert in der PreInit-Phase des Lebenszyklus der Seite. Wir können diesen Code aus, um die Gestaltungsvorlage nach externen Faktoren basieren aktualisieren. Möglicherweise hängt die Gestaltungsvorlage laden die Voreinstellungen des aktuell angemeldeten Benutzers. In diesem Fall müssen wir Schreiben von Code in der `OnPreInit` Methode in `BasePage` sucht, die die derzeit über Einstellungen des Benutzers Masterseite.
+Unsere `BasePage` -Klasse legt derzeit alle Inhaltsseiten `MasterPageFile` Eigenschaften, die einen hartcodierten Wert in der PreInit-Phase des Lebenszyklus der Seite. Wir können diesen Code, um die Masterseite als Grundlage für einige externe Faktor aktualisieren. Die Masterseite laden hängt möglicherweise die Einstellungen des aktuell angemeldeten Benutzers. In diesem Fall müssten wir Code schreiben, der `OnPreInit` -Methode in der `BasePage` sucht, die derzeit das Besuchen Masterseite benutzereinstellungen.
 
-Erstellen wir eine Webseite, die dem Benutzer ermöglicht, wählen die Gestaltungsvorlage verwendet - `Site.master` oder `Alternate.master` - und speichern Sie diese Auswahl in einer Sitzungsvariablen. Starten, indem Sie eine neue Webseite erstellen, in das Stammverzeichnis, das mit dem Namen `ChooseMasterPage.aspx`. Beim Erstellen dieser Seite (oder eine beliebige andere Inhaltsseiten künftig) müssen Sie nicht auf einer Masterseite gebunden werden, da die Gestaltungsvorlage programmgesteuert, in festgelegt wird `BasePage`. Wenn Sie nicht die neue Seite zu einer Masterseite binden enthält jedoch dann deklarative Standardmarkup für die neue Seite ein Web Form und anderen Inhalten, die von der Masterseite bereitgestellt. Sie müssen dieses Markup manuell durch die entsprechenden Inhaltssteuerelemente zu ersetzen. Aus diesem Grund einfacher ich die neue ASP.NET-Seite auf einer Masterseite zu binden.
+Erstellen Sie eine Webseite, die dem Benutzer ermöglicht, wählen Sie die Masterseite zu verwenden – wir `Site.master` oder `Alternate.master` –, und speichern Sie diese Option in einer Sitzungsvariablen. Zunächst erstellen Sie eine neue Webseite in das Stammverzeichnis, das mit dem Namen `ChooseMasterPage.aspx`. Beim Erstellen von dieser Seite (oder jeder anderen Inhaltsseiten ab sofort) müssen Sie nicht auf eine Gestaltungsvorlage gebunden werden, da die Masterseite programmgesteuert, in festgelegt wird `BasePage`. Wenn Sie keine neue Seite auf eine Gestaltungsvorlage Bindung durchführen enthält jedoch dann deklarativen Markup für die neue Seite standardmäßig ein Webformular und anderen Inhalten, die von der Masterseite angegeben. Sie müssen dieses Markup manuell mit den entsprechenden Inhaltssteuerelementen zu ersetzen. Aus diesem Grund finde ich es einfacher, die neue Seite mit ASP.NET auf eine Gestaltungsvorlage zu binden.
 
 > [!NOTE]
-> Da `Site.master` und `Alternate.master` identisch festgelegt haben ContentPlaceHolder Steuerelemente es spielt keine welche Masterseite Rolle Sie beim Erstellen der neuen Inhaltsseite auswählen. Aus Gründen der Konsistenz ich würde Sie nach Möglichkeit `Site.master`.
+> Da `Site.master` und `Alternate.master` haben den gleichen Satz ContentPlaceHolder-Steuerelemente es spielt keine welche Masterseite Rolle Sie auswählen, wenn die neue Seite zu erstellen. Aus Gründen der Konsistenz würde ich empfehlen, mit `Site.master`.
 
 
-[![Der Website eine neue Seite hinzufügen](specifying-the-master-page-programmatically-cs/_static/image14.png)](specifying-the-master-page-programmatically-cs/_static/image13.png)
+[![Fügen Sie auf der Website eine neue Seite hinzu](specifying-the-master-page-programmatically-cs/_static/image14.png)](specifying-the-master-page-programmatically-cs/_static/image13.png)
 
-**Abbildung 05**: Fügen Sie eine neue Seite auf der Website ([klicken Sie hier, um das Bild in voller Größe angezeigt](specifying-the-master-page-programmatically-cs/_static/image15.png))
+**Abbildung 05**: Fügen Sie auf der Website eine neue Seite hinzu ([klicken Sie, um das Bild in voller Größe anzeigen](specifying-the-master-page-programmatically-cs/_static/image15.png))
 
 
-Update der `Web.sitemap` Datei, die einen Eintrag in dieser Lektion hinzugefügt. Fügen Sie das folgende Markup unterhalb der `<siteMapNode>` für die Master-Seiten und ASP.NET AJAX-Lektion:
+Update der `Web.sitemap` hinzu, um einen Eintrag in dieser Lektion einzubeziehen. Fügen Sie das folgende Markup unterhalb der `<siteMapNode>` für die Masterseiten und ASP.NET AJAX-Lektion:
 
 
 [!code-xml[Main](specifying-the-master-page-programmatically-cs/samples/sample15.xml)]
 
-Vor dem Hinzufügen von Inhalt an die `ChooseMasterPage.aspx` Seite nehmen einen Moment Zeit, zu der Seite Code-Behind-Klasse zu aktualisieren, sodass es abgeleitet `BasePage` (statt `System.Web.UI.Page`). Als Nächstes die Seite ein DropDownList-Steuerelement hinzugefügt haben, legen Sie dessen `ID` Eigenschaft `MasterPageChoice`, und fügen Sie zwei ListItems mit der `Text` Werte von "~ / Site.master" und "~ / Alternate.master".
+Vor dem Hinzufügen von Inhalt, der `ChooseMasterPage.aspx` Seite können Sie die CodeBehind-Klasse der Seite zu aktualisieren, sodass es abgeleitet `BasePage` (statt `System.Web.UI.Page`). Als Nächstes fügen Sie einem DropDownList-Steuerelement auf der Seite hinzu, legen Sie dessen `ID` Eigenschaft `MasterPageChoice`, und fügen Sie zwei ListItems mit der `Text` Werte von "~ / Site.master" und "~ / Alternate.master".
 
-Die Seite ein Websteuerelement Schaltfläche hinzu, und legen Sie dessen `ID` und `Text` Eigenschaften `SaveLayout` und "Layout-Auswahl speichern", bzw. An diesem Punkt sollte deklarativem Markup Ihrer Seite etwa wie folgt aussehen:
+Fügen Sie ein Steuerelement Schaltfläche auf der Seite, und legen Sie dessen `ID` und `Text` Eigenschaften `SaveLayout` und "Layout-Auswahl speichern", bzw. An diesem Punkt sollte deklaratives Markup Ihrer Seite etwa wie folgt aussehen:
 
 
 [!code-aspx[Main](specifying-the-master-page-programmatically-cs/samples/sample16.aspx)]
 
-Zuerst besucht die Seite müssen wir die Auswahl des Benutzers aktuell ausgewählten Gestaltungsvorlage anzeigen. Erstellen einer `Page_Load` -Ereignishandler folgenden Code hinzu:
+Wenn Sie zuerst die Seite besucht wird müssen wir die Auswahl des Benutzers aktuell ausgewählten Masterseite angezeigt. Erstellen Sie eine `Page_Load` -Ereignishandler, und fügen Sie den folgenden Code hinzu:
 
 
 [!code-csharp[Main](specifying-the-master-page-programmatically-cs/samples/sample17.cs)]
 
-Der obige Code ausgeführt wird, nur auf der ersten Besuch der Seite "(und nicht bei nachfolgenden Postbacks). Er zuerst überprüft, ob der Sitzungsvariablen `MyMasterPage` vorhanden ist. Wenn dies der Fall ist, versucht es, die übereinstimmende "ListItem" im finden die `MasterPageChoice` DropDownList. Wenn eine übereinstimmende "ListItem" gefunden wird, dessen `Selected` -Eigenschaftensatz auf `true`.
+Der obige Code führt nur auf den ersten Besuch der Seite (und nicht bei nachfolgenden Postbacks). Es zuerst überprüft, wenn die Sitzungsvariable `MyMasterPage` vorhanden ist. Wenn dies der Fall ist, versucht wird, finden Sie in das entsprechende ListItem der `MasterPageChoice` DropDownList. Wenn eine übereinstimmende ListItem gefunden wird, dessen `Selected` -Eigenschaftensatz auf `true`.
 
-Wir benötigen außerdem Code, der die Auswahl des Benutzers in speichert die `MyMasterPage` Sitzungsvariablen. Erstellen Sie einen Ereignishandler für das `SaveLayout` Schaltfläche `Click` Ereignis und fügen Sie den folgenden Code hinzu:
+Wir benötigen außerdem Code, der die Auswahl des Benutzers in speichert die `MyMasterPage` Sitzungsvariablen. Erstellen Sie einen Ereignishandler für die `SaveLayout` Schaltfläche `Click` Ereignis und fügen Sie den folgenden Code hinzu:
 
 
 [!code-csharp[Main](specifying-the-master-page-programmatically-cs/samples/sample18.cs)]
 
 > [!NOTE]
-> Nach der Dauer der `Click` -Ereignishandler auf Postback ausführt, die Gestaltungsvorlage bereits ausgewählt wurde. Aus diesem Grund wird nicht die Auswahl des Benutzers Dropdown-Liste wirksam sein, bis die nächste Seite besuchen. Die `Response.Redirect` erzwingt, dass den Browser erneut anfordern `ChooseMasterPage.aspx`.
+> Mit der Zeit die `Click` Ereignishandler beim Postback ausführt, wird die Masterseite wurde bereits ausgewählt. Aus diesem Grund nicht die Auswahl des Benutzers Dropdown-Listenfeld in Kraft, bis die nächste Seite finden Sie unter. Die `Response.Redirect` erzwingt, dass den Browser erneut anfordern `ChooseMasterPage.aspx`.
 
 
-Mit der `ChooseMasterPage.aspx` Seite abgeschlossen werden, dass unsere letzte Aufgabe haben `BasePage` Zuweisen der `MasterPageFile` Eigenschaft basierend auf den Wert der `MyMasterPage` Sitzungsvariablen. Wenn die Sitzungsvariable nicht festgelegt ist, haben `BasePage` standardmäßig `Site.master`.
+Mit der `ChooseMasterPage.aspx` Seite vollständige unsere letzte Aufgabe ist, damit `BasePage` weisen die `MasterPageFile` -Eigenschaft basierend auf den Wert des der `MyMasterPage` Sitzungsvariablen. Wenn die Sitzung-Variable nicht festgelegt ist, haben `BasePage` standardmäßig `Site.master`.
 
 
 [!code-csharp[Main](specifying-the-master-page-programmatically-cs/samples/sample19.cs)]
 
 > [!NOTE]
-> Ich den Code, der weist verschoben der `Page` des Objekts `MasterPageFile` Eigenschaft von der `OnPreInit` -Ereignishandler und in zwei separate Methoden. Diese erste Methode `SetMasterPageFile`, weist der `MasterPageFile` -Eigenschaft auf den Wert der zweiten Methode zurückgegebenes `GetMasterPageFileFromSession`. Ich habe vorgenommen der `SetMasterPageFile` Methode `virtual` , damit zukünftige Klassen erweitern, die `BasePage` können optional außer Kraft setzen, um benutzerdefinierte Logik implementieren, wenn erforderlich. Wir sehen ein Beispiel zum Überschreiben `BasePage`des `SetMasterPageFile` Eigenschaft in den nächsten Lernprogrammen.
+> Ich habe den Code, der weist verschoben der `Page` des Objekts `MasterPageFile` Eigenschaft von der `OnPreInit` -Ereignishandler und in zwei separate Methoden. Dieser erste Methode `SetMasterPageFile`, weist der `MasterPageFile` Eigenschaft, um den Rückgabewert von der zweiten Methode `GetMasterPageFileFromSession`. Mir die `SetMasterPageFile` Methode `virtual` , damit zukünftige Klassen erweitern `BasePage` kann optional außer Kraft setzen, um die benutzerdefinierte Logik implementieren, falls erforderlich. Wir sehen uns ein Beispiel zum Überschreiben `BasePage`des `SetMasterPageFile` Eigenschaft im nächsten Tutorial.
 
 
-Mit diesem Code werden, finden Sie auf der `ChooseMasterPage.aspx` Seite. Zu Beginn der `Site.master` Gestaltungsvorlage ist ausgewählt (siehe Abbildung 6), aber der Benutzer kann eine andere Gestaltungsvorlage aus der Dropdown-Liste auswählen.
+Mit diesem Code werden, finden Sie auf die `ChooseMasterPage.aspx` Seite. Zunächst die `Site.master` master Seite ausgewählt ist (siehe Abbildung 6), aber der Benutzer kann eine andere Masterseite aus der Dropdown-Liste auswählen.
 
 
-[![Inhaltsseiten werden mit der Site.master Masterseite angezeigt.](specifying-the-master-page-programmatically-cs/_static/image17.png)](specifying-the-master-page-programmatically-cs/_static/image16.png)
+[![Inhaltsseiten werden mithilfe der Site.master-Masterseite angezeigt.](specifying-the-master-page-programmatically-cs/_static/image17.png)](specifying-the-master-page-programmatically-cs/_static/image16.png)
 
-**Abbildung 06**: Inhaltsseiten sind angezeigt, mit der `Site.master` Gestaltungsvorlage ([klicken Sie hier, um das Bild in voller Größe angezeigt](specifying-the-master-page-programmatically-cs/_static/image18.png))
+**Abbildung 06**: Inhaltsseiten werden angezeigt, unter Verwendung der `Site.master` Masterseite ([klicken Sie, um das Bild in voller Größe anzeigen](specifying-the-master-page-programmatically-cs/_static/image18.png))
 
 
-[![Inhaltsseiten werden nun angezeigt mit der Alternate.master Gestaltungsvorlage](specifying-the-master-page-programmatically-cs/_static/image20.png)](specifying-the-master-page-programmatically-cs/_static/image19.png)
+[![Inhaltsseiten werden mithilfe der Alternate.master Masterseite jetzt angezeigt.](specifying-the-master-page-programmatically-cs/_static/image20.png)](specifying-the-master-page-programmatically-cs/_static/image19.png)
 
-**Abbildung 07**: Inhaltsseiten werden angezeigt, jetzt unter Verwendung der `Alternate.master` Gestaltungsvorlage ([klicken Sie hier, um das Bild in voller Größe angezeigt](specifying-the-master-page-programmatically-cs/_static/image21.png))
+**Abbildung 07**: Inhaltsseiten werden angezeigt, jetzt unter Verwendung der `Alternate.master` Masterseite ([klicken Sie, um das Bild in voller Größe anzeigen](specifying-the-master-page-programmatically-cs/_static/image21.png))
 
 
 ## <a name="summary"></a>Zusammenfassung
 
-Besucht Inhaltsseite sind die Content-Steuerelemente mit seiner Masterseite ContentPlaceHolder Steuerelementen fused. Masterseite der Inhaltsseite ist gekennzeichnet durch die `Page` Klasse `MasterPageFile` -Eigenschaft, die zugewiesen wird die `@Page` Richtlinie `MasterPageFile` Attribut während der Initialisierungsphase. Wie in diesem Lernprogramm wurde gezeigt, können wir einen Wert zuweisen der `MasterPageFile` Eigenschaft so lange wie wir dies vor dem Ende der Phase PreInit durchführen. Wird die Gestaltungsvorlage programmgesteuert angeben, wird die Tür für erweiterte Szenarien, z. B. Dynamisches Binden von einer Inhaltsseite auf einer Masterseite basierend auf externen Faktoren geöffnet.
+Wenn eine Inhaltsseite aufgerufen wird, werden die Inhaltssteuerelemente mit der Masterseite ContentPlaceHolder-Steuerelemente mit Sicherung. Masterseite der Inhaltsseite ist gekennzeichnet durch die `Page` Klasse `MasterPageFile` -Eigenschaft, die zugewiesen ist die `@Page` -Direktive `MasterPageFile` Attribut während der Initialisierungsphase. Wie in diesem Tutorial wurde gezeigt, können wir einen Wert zuweisen der `MasterPageFile` Eigenschaft solange wir dazu vor dem Ende der PreInit-Phase. Können programmgesteuert auf die Masterseite angegeben wird, öffnet die Tür für einige erweiterte Szenarien, z. B. Dynamisches Binden von einer Inhaltsseite auf eine Gestaltungsvorlage basierend auf externen Faktoren.
 
 Viel Spaß beim Programmieren!
 
 ### <a name="further-reading"></a>Weiterführende Themen
 
-Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
+Weitere Informationen zu den Themen in diesem Tutorial erläutert finden Sie in den folgenden Ressourcen:
 
-- [Lebenszyklusdiagramm für ASP.NET die Seite "](http://emanish.googlepages.com/Asp.Net2.0Lifecycle.PNG)
+- [Lebenszyklusdiagramm für ASP.NET die Seite](http://emanish.googlepages.com/Asp.Net2.0Lifecycle.PNG)
 - [Übersicht über ASP.NET Seite-Lebenszyklus](https://msdn.microsoft.com/library/ms178472.aspx)
 - [ASP.NET-Designs und Skins (Übersicht)](https://msdn.microsoft.com/library/ykzx33wh.aspx)
 - [Masterseiten: Tipps, Tricks und Traps](http://www.odetocode.com/articles/450.aspx)
 - [Designs in ASP.NET](http://www.odetocode.com/articles/423.aspx)
 
-### <a name="about-the-author"></a>Informationen zum Autor
+### <a name="about-the-author"></a>Der Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor mehrerer ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com arbeitet mit Microsoft-Web-Technologien seit 1998. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 3.5 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott erreicht werden kann, zur [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog unter [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor mehrerer Büchern zu ASP/ASP.NET und Gründer von 4GuysFromRolla.com, arbeitet mit Microsoft-Web-Technologien seit 1998. Er ist als ein unabhängiger Berater, Schulungsleiter und Autor. Sein neuestes Buch heißt [ *Sams Teach selbst ASP.NET 3.5 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott erreicht werden kann, zur [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog unter [http://ScottOnWriting.NET](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Besonderen Dank an
 
-Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurde Suchi Banerjee. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Diese tutorialreihe wurde durch viele hilfreiche Reviewer überprüft. Führendes Prüfer für dieses Tutorial wurde Suchi Banerjee. Meine zukünftigen MSDN-Artikeln überprüfen möchten? Wenn dies der Fall ist, löschen Sie mir eine Linie an [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Zurück](master-pages-and-asp-net-ajax-cs.md)

@@ -1,268 +1,267 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-cs
-title: Interaktion mit der Seite Inhalt aus der Gestaltungsvorlage (c#) | Microsoft Docs
+title: Interaktion mit der Inhaltsseite von der Masterseite (c#) | Microsoft-Dokumentation
 author: rick-anderson
-description: Untersucht, wie Methoden aufrufen, legen Sie Eigenschaften usw. der Inhaltsseite aus Code in der Masterseite.
+description: Untersucht, wie Sie rufen Methoden, Eigenschaften usw. von der Seite Inhalt im Code auf der Masterseite festgelegt.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/11/2008
 ms.topic: article
 ms.assetid: 3282df5e-516c-4972-8666-313828b90fb5
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7c845c7b0077e6d3fb5ce770029b4f9f48609b17
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
-ms.translationtype: MT
+ms.openlocfilehash: bb6785cd3fd462e651441d303c464064739723f9
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30891086"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37382594"
 ---
-<a name="interacting-with-the-content-page-from-the-master-page-c"></a>Interaktion mit der Seite Inhalt aus der Gestaltungsvorlage (c#)
+<a name="interacting-with-the-content-page-from-the-master-page-c"></a>Interaktion mit der Inhaltsseite von der Masterseite (c#)
 ====================
 durch [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Herunterladen von Code](http://download.microsoft.com/download/1/8/4/184e24fa-fcc8-47fa-ac99-4b6a52d41e97/ASPNET_MasterPages_Tutorial_07_CS.zip) oder [PDF herunterladen](http://download.microsoft.com/download/e/b/4/eb4abb10-c416-4ba4-9899-32577715b1bd/ASPNET_MasterPages_Tutorial_07_CS.pdf)
+[Code herunterladen](http://download.microsoft.com/download/1/8/4/184e24fa-fcc8-47fa-ac99-4b6a52d41e97/ASPNET_MasterPages_Tutorial_07_CS.zip) oder [PDF-Datei herunterladen](http://download.microsoft.com/download/e/b/4/eb4abb10-c416-4ba4-9899-32577715b1bd/ASPNET_MasterPages_Tutorial_07_CS.pdf)
 
-> Untersucht, wie Methoden aufrufen, legen Sie Eigenschaften usw. der Inhaltsseite aus Code in der Masterseite.
+> Untersucht, wie Sie rufen Methoden, Eigenschaften usw. von der Seite Inhalt im Code auf der Masterseite festgelegt.
 
 
 ## <a name="introduction"></a>Einführung
 
-Das vorherigen Lernprogramm untersucht, wie programmgesteuerte Interaktion mit Gestaltungsvorlage Inhaltsseite haben. Wie bereits erwähnt, wurden die Gestaltungsvorlage Einbeziehung ein GridView-Steuerelements, das die fünf zuletzt aufgeführt hinzugefügt Produkte. Danach haben wir eine Inhaltsseite, in der der Benutzer ein neues Produkt hinzufügen konnte, erstellt. Inhaltsseite musste beim Hinzufügen eines neuen Produkts, weisen Sie die Gestaltungsvorlage an die GridView zu aktualisieren, damit, dass das Produkt gerade hinzugefügten enthalten würde. Diese Funktionalität wurde erreicht, indem die Gestaltungsvorlage, aktualisiert die Daten an die GridView gebunden eine öffentliche Methode hinzugefügt, und dann Aufrufen dieser Methode aus der Seite Inhalt.
+Im vorherige Tutorial untersucht, wie programmgesteuerte Interaktion mit der Masterseite der Inhaltsseite. Beachten Sie, dass wir die Masterseite ein GridView-Steuerelement enthält, die die fünf zuletzt aufgeführt aktualisiert hinzugefügt Produkte. Wir erstellt dann eine Inhaltsseite, in der der Benutzer ein neues Produkt hinzufügen kann. Die Seite Inhalte musste beim Hinzufügen eines neuen Produkts, weisen Sie die Masterseite an die GridView zu aktualisieren, sodass sie das gerade hinzugefügte Produkt enthält. Diese Funktion wurde durch Hinzufügen einer öffentlichen Methode der Masterseite, aktualisiert die Daten an die GridView gebunden, und klicken Sie dann Aufrufen dieser Methode auf der Seite Inhalt erreicht.
 
-Die am häufigsten verwendete Form des Inhalts und der Gestaltungsvorlage Interaktion stammt aus der Seite Inhalt. Allerdings es ist möglich, für die Gestaltungsvorlage auf die Seite für den aktuellen Inhalte in Aktion Rouse verwaltet, und solche Funktionen notwendig sein, wenn die Gestaltungsvorlage Elemente der Benutzeroberfläche enthält, mit denen Benutzer Daten ändern, die auch auf der Seite Inhalt angezeigt wird. Nehmen wir eine Inhaltsseite, zeigt der Produkte in einer GridView steuern und eine Masterseite, die eine Schaltfläche enthält steuern, die beim Klicken auf, verdoppelt die Preise aller Produkte. Ähnlich wie das Beispiel in dem vorherigen Lernprogramm gilt die GridView muss nach der doppelten Preis aktualisiert werden, auf die Schaltfläche geklickt wird, damit die neuen Preise angezeigt, aber in diesem Szenario ist es die Gestaltungsvorlage, die auf die Seite Inhalte in Aktion Rouse verwaltet muss.
+Die häufigste Form des Inhalts und der Masterseite Interaktion stammt von der Seite Inhalt ab. Allerdings es ist möglich, für die Gestaltungsvorlage auf die Seite für den aktuelle Inhalte in Aktion Rouse verwaltet, und solche Funktionen notwendig sein, wenn die Masterseite Elemente der Benutzeroberfläche enthält, mit denen Benutzer Daten ändern, die auch auf der Seite Inhalt angezeigt wird. Erwägen Sie eine Inhaltsseite, zeigt die Informationen zu Produkten in einer GridView-Ansicht steuern und eine Masterseite, die eine Schaltfläche enthält steuern, die beim Klicken auf, verdoppelt die Preise für alle Produkte. Ähnlich wie im Beispiel im vorherigen Tutorial GridView muss nach der doppelten Preis aktualisiert werden, auf die Schaltfläche geklickt wird, damit die neuen Preise angezeigt, aber in diesem Szenario ist es die Masterseite, die auf die Seite Inhalte in Aktion Rouse verwaltet.
 
-In diesem Lernprogramm wird untersucht, wie die Gestaltungsvorlage in der Inhaltsseite definierte Funktion aufgerufen haben.
+In diesem Tutorial erfahren Sie, wie die Masterseite, die in der Seite Inhalt definierte Funktion aufgerufen haben.
 
-### <a name="instigating-programmatic-interaction-via-an-event-and-event-handlers"></a>Betreffende programmgesteuerte Interaktion über ein Ereignis und Ereignishandler
+### <a name="instigating-programmatic-interaction-via-an-event-and-event-handlers"></a>Clientabfragen das Programminteraktion über ein Ereignis und Ereignishandler zurückzugeben
 
-Aufrufen der Inhaltsseite Funktionen von einer Masterseite ist schwieriger als umgekehrt. Da eine Inhaltsseite eine Masterseite hat, wenn die programmgesteuerte Interaktion von Inhaltsseite Clientabfragen zurückzugeben kennen wir öffentliche Methoden und Eigenschaften zur Verfügung. Eine Masterseite kann jedoch vielen verschiedenen Inhaltsseiten, jeweils über einen eigenen Satz von Eigenschaften und Methoden verfügen. Wie kann, wir schreiben dann Code in die Masterseite führen Sie eine Aktion in der Inhaltsseite, wenn es nicht wissen, welche Inhaltsseite bis zur Laufzeit aufgerufen wird?
+Aufrufen von Funktionen der Seite "Inhalt" von einer Masterseite ist schwieriger als anders herum. Da eine Inhaltsseite eine einzige masterdseite hat, wenn die Programminteraktion auf der Seite Inhalt Clientabfragen zurückzugeben kennen wir öffentliche Methoden und Eigenschaften zur Verfügung. Eine Masterseite, haben jedoch viele verschiedene Inhaltsseiten, jeweils einen eigenen Satz von Eigenschaften und Methoden. Wie können Sie dann wir Code Schreiben in die Masterseite, führen Sie eine Aktion in ihre Inhaltsseite, wenn wir nicht wissen, welche Seite bis zur Laufzeit aufgerufen wird?
 
-Erwägen Sie eine ASP.NET Web-Steuerelement, z. B. das Schaltflächen-Steuerelement aus. Ein Button-Steuerelement kann auf eine beliebige Anzahl von ASP.NET-Seiten angezeigt werden und benötigt einen Mechanismus, mit dem sie der Seite Warnungen erhalten kann, dass er auf den geklickt wurde. Dies erfolgt mit *Ereignisse*. Insbesondere das Schaltflächen-Steuerelement löst die `Click` Ereignis wenn darauf geklickt wird; die ASP.NET-Seite mit der Schaltfläche optional auf reagieren kann diese Benachrichtigung über eine *Ereignishandler*.
+Erwägen Sie ein ASP.NET Web-Steuerelement, z. B. das Schaltflächen-Steuerelement. Ein Schaltflächen-Steuerelement kann auf eine beliebige Anzahl von ASP.NET-Seiten angezeigt werden und benötigt einen Mechanismus, mit dem der Seite Hinweisen zu können, dass sie bereits geklickt wurde. Dies erfolgt mit *Ereignisse*. Insbesondere das Schaltflächen-Steuerelement löst die `Click` Ereignis wenn darauf geklickt wird; die ASP.NET-Seite mit der Schaltfläche kann optional reagieren auf diese Benachrichtigung über eine *Ereignishandler*.
 
-Dieses gleiche Muster kann verwendet werden, eine Masterseite Trigger-Funktionalität in seiner Inhaltsseiten haben:
+Dieses Muster kann verwendet werden, um eine Masterseite Trigger-Funktion auf die Inhaltsseiten zu erhalten:
 
-1. Fügen Sie ein Ereignis der Masterseite.
-2. Lösen Sie das Ereignis, wenn die Gestaltungsvorlage für die Kommunikation mit der Seite Inhalt muss. Z. B. wenn die Gestaltungsvorlage muss seine Inhaltsseite ein Hinweis, dass der Benutzer die Preise verdoppelt hat, würde seine Ereignis ausgelöst werden unmittelbar nach dem verdoppelt die Preise aufweisen.
-3. Erstellen Sie einen Ereignishandler in diese Inhaltsseiten, die Maßnahmen ergreifen müssen.
+1. Fügen Sie ein Ereignis, auf die Masterseite.
+2. Auslösen des Ereignisses, wenn die Masterseite für die Kommunikation mit der Inhaltsseite benötigt. Z. B., wenn die Masterseite muss ihre Inhaltsseite aufmerksam zu machen, die der Benutzer die Preise verdoppelt hat, würde das Ereignis ausgelöst werden unmittelbar nach dem verdoppelt die Preise haben.
+3. Erstellen Sie einen Ereignishandler auf diese Inhaltsseiten, die Maßnahmen ergreifen müssen.
 
-Diese Rest dieses Lernprogramms implementiert das Beispiel beschrieben, die in der Einführung. steuern, nämlich Inhaltsseite, die die Produkte in der Datenbank aufgeführt sind und einer Masterseite, die eine Schaltfläche enthält, um die Preise doppelklicken.
+Diese weiteren Verlauf dieses Tutorials implementiert das Beispiel in der Einführung beschrieben ist. Steuern eine Inhaltsseite, die die Produkte in der Datenbank aufgelistet werden und eine Masterseite, die eine Schaltfläche enthält, nämlich um die Preise doppelklicken.
 
-## <a name="step-1-displaying-products-in-a-content-page"></a>Schritt 1: Anzeigen von Produkten in einer Inhaltsseite
+## <a name="step-1-displaying-products-in-a-content-page"></a>Schritt 1: Darstellen von Produkten in einer Inhaltsseite
 
-Erste Order Of Geschäftsverkehr ist auf eine Inhaltsseite zu erstellen, die die Produkte aus der Northwind-Datenbank aufgeführt sind. (Wir dem Projekt die Northwind-Datenbank hinzugefügt, in dem vorherigen Lernprogramm [ *Interaktion mit der Masterseite von der Inhaltsseite*](interacting-with-the-master-page-from-the-content-page-cs.md).) Starten, indem Sie eine neue ASP.NET-Seite, um die `~/Admin` Ordner mit dem Namen `Products.aspx`, sodass Sie sicher, dass so binden Sie es der `Site.master` Masterseite. Abbildung 1 zeigt im Projektmappen-Explorer aus, nachdem dieser Seite auf der Website hinzugefügt wurde.
+Unsere erste Tagesordnung ist eine Inhaltsseite erstellen, die die Produkte aus der Northwind-Datenbank aufgeführt sind. (Wir die Northwind-Datenbank zum Projekt hinzugefügt haben, im vorherigen Tutorial [ *Interaktion mit der Masterseite der Inhaltsseite*](interacting-with-the-master-page-from-the-content-page-cs.md).) Starten, indem Sie eine neue ASP.NET-Seite zum Hinzufügen der `~/Admin` Ordner mit dem Namen `Products.aspx`, und bindet, bindet es an der `Site.master` Masterseite. Abbildung 1 zeigt den Projektmappen-Explorer, nachdem dieser Seite auf der Website hinzugefügt wurde.
 
 
 [![Fügen Sie eine neue ASP.NET-Seite, um den Ordner Admin](interacting-with-the-content-page-from-the-master-page-cs/_static/image2.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image1.png)
 
-**Abbildung 01**: Fügen Sie eine neue ASP.NET-Seite, um die `Admin` Ordner ([klicken Sie hier, um das Bild in voller Größe angezeigt](interacting-with-the-content-page-from-the-master-page-cs/_static/image3.png))
+**Abbildung 01**: Hinzufügen einer neuen ASP.NET-Seite zu den `Admin` Ordner ([klicken Sie, um das Bild in voller Größe anzeigen](interacting-with-the-content-page-from-the-master-page-cs/_static/image3.png))
 
 
-Denken Sie daran, dass in der [ *Titel, Meta-Tags und andere HTML-Header angeben, der Gestaltungsvorlage* ](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md) Lernprogramm wir eine benutzerdefinierte Basisseite-Klasse, die mit dem Namen erstellt `BasePage` , die den Titel der Seite generiert wird, ist er nicht Festlegen Sie explizit. Wechseln Sie zu der `Products.aspx` Seite des Code-Behind-Klasse, und Ihr abgeleitet sein `BasePage` (anstelle von aus `System.Web.UI.Page`).
+Denken Sie daran, dass in der [ *Titel, Meta-Tags und anderer HTML-Header angeben, auf der Masterseite* ](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md) Lernprogramm eine benutzerdefinierten Basisseite-Klasse, die mit dem Namen erstellten `BasePage` , der den Titel der Seite generiert, wenn er nicht ist Festlegen Sie explizit. Wechseln Sie zu der `Products.aspx` Seite des Code-Behind-Klasse und deren abgeleitet `BasePage` (anstelle von aus `System.Web.UI.Page`).
 
-Aktualisieren Sie schließlich die `Web.sitemap` Datei, die einen Eintrag in dieser Lektion hinzugefügt. Fügen Sie das folgende Markup unterhalb der `<siteMapNode>` für den Inhalt zur Interaktion der Master-Seite Lektion:
+Aktualisieren Sie abschließend die `Web.sitemap` hinzu, um einen Eintrag in dieser Lektion einzubeziehen. Fügen Sie das folgende Markup unterhalb der `<siteMapNode>` für den Inhalt zur Interaktion der Master-Seite Lektion:
 
 
 [!code-xml[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample1.xml)]
 
 Das Hinzufügen dieses `<siteMapNode>` Elements in den Lektionen wiedergegeben wird (siehe Abbildung 5).
 
-Zurück zu `Products.aspx`. Im Inhaltssteuerelement für `MainContent`, fügen Sie eine GridView-Steuerelement hinzu, und nennen Sie sie `ProductsGrid`. Die GridView zu binden, um ein neues SqlDataSource-Steuerelement mit dem Namen `ProductsDataSource`.
+Wechseln Sie zurück zur `Products.aspx`. Im Inhaltssteuerelement für `MainContent`, fügen Sie ein GridView-Steuerelement hinzu, und nennen Sie sie `ProductsGrid`. Die GridView zu binden, um ein neues SqlDataSource-Steuerelement, das mit dem Namen `ProductsDataSource`.
 
 
-[![Die GridView zu binden, zu einem neuen SqlDataSource-Steuerelement](interacting-with-the-content-page-from-the-master-page-cs/_static/image5.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image4.png)
+[![GridView zu binden, um ein neues SqlDataSource-Steuerelement](interacting-with-the-content-page-from-the-master-page-cs/_static/image5.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image4.png)
 
-**Abbildung 02**: GridView zu binden, um ein neues SqlDataSource-Steuerelement ([klicken Sie hier, um das Bild in voller Größe angezeigt](interacting-with-the-content-page-from-the-master-page-cs/_static/image6.png))
-
-
-Konfigurieren Sie den Assistenten so, dass sie die Northwind-Datenbank verwendet. Wenn Sie das vorherige Lernprogramm durchgearbeitet haben Sie bereits eine Verbindungszeichenfolge mit dem Namen `NorthwindConnectionString` in `Web.config`. Wählen Sie diese Verbindungszeichenfolge aus der Dropdown-Liste, wie in Abbildung 3 gezeigt.
+**Abbildung 02**: GridView zu binden, um ein neues SqlDataSource-Steuerelement ([klicken Sie, um das Bild in voller Größe anzeigen](interacting-with-the-content-page-from-the-master-page-cs/_static/image6.png))
 
 
-[![Konfigurieren Sie die SqlDataSource Verwendung der Northwind-Datenbank](interacting-with-the-content-page-from-the-master-page-cs/_static/image8.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image7.png)
-
-**Abbildung 03**: Konfigurieren der SqlDataSource Verwendung der Northwind-Datenbank ([klicken Sie hier, um das Bild in voller Größe angezeigt](interacting-with-the-content-page-from-the-master-page-cs/_static/image9.png))
+Konfigurieren Sie den Assistenten aus, sodass sie die Northwind-Datenbank verwendet. Wenn Sie das vorherige Tutorial durchgearbeitet haben Sie sollten bereits eine Verbindungszeichenfolge, die mit dem Namen `NorthwindConnectionString` in `Web.config`. Wählen Sie diese Verbindungszeichenfolge aus der Dropdown-Liste ein, wie in Abbildung 3 dargestellt.
 
 
-Geben Sie anschließend des Datenquellensteuerelements `SELECT` Erklärung die Products-Tabelle aus der Dropdown-Liste auswählen und die Rückgabe der `ProductName` und `UnitPrice` Spalten (siehe Abbildung 4). Klicken Sie auf Weiter, und beenden Sie dann zum Abschließen des Assistenten für die Datenquelle konfigurieren.
+[![Konfigurieren Sie die Verwendung der Northwind-Datenbank dem SqlDataSource-Steuerelement](interacting-with-the-content-page-from-the-master-page-cs/_static/image8.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image7.png)
+
+**Abbildung 03**: Konfigurieren der Verwendung der Northwind-Datenbank dem SqlDataSource-Steuerelement ([klicken Sie, um das Bild in voller Größe anzeigen](interacting-with-the-content-page-from-the-master-page-cs/_static/image9.png))
 
 
-[![ProductName und UnitPrice Felder aus der Tabelle Products zurückgegeben.](interacting-with-the-content-page-from-the-master-page-cs/_static/image11.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image10.png)
-
-**Abbildung 04**: Zurückgeben der `ProductName` und `UnitPrice` Felder aus der `Products` Tabelle ([klicken Sie hier, um das Bild in voller Größe angezeigt](interacting-with-the-content-page-from-the-master-page-cs/_static/image12.png))
+Geben Sie als Nächstes des Datenquellensteuerelements `SELECT` Anweisung durch die Products-Tabelle aus der Dropdown-Liste auswählen und Zurückgeben der `ProductName` und `UnitPrice` Spalten (siehe Abbildung 4). Klicken Sie auf Weiter, und schließen Sie zum Abschließen des Assistenten für die Datenquelle konfigurieren.
 
 
-Das ist alles vorhanden ist! Nach Abschluss des Assistenten fügt Visual Studio zwei BoundFields an die GridView, die zwei Felder zurückgegebenes SqlDataSource-Steuerelement zu spiegeln. Die GridView und SqlDataSource-Steuerelemente Markup folgt. Abbildung 5 zeigt die Ergebnisse, wenn Sie über einen Browser angezeigt.
+[![Zurückzugeben Sie die UnitPrice-Felder "und" ProductName, in der Tabelle Products](interacting-with-the-content-page-from-the-master-page-cs/_static/image11.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image10.png)
+
+**Abbildung 04**: Zurückgeben der `ProductName` und `UnitPrice` Felder aus der `Products` Tabelle ([klicken Sie, um das Bild in voller Größe anzeigen](interacting-with-the-content-page-from-the-master-page-cs/_static/image12.png))
+
+
+Das ist alles schon! Nach Abschluss des Assistenten fügt Visual Studio zwei BoundFields an die GridView, spiegeln die beiden Felder, die von dem SqlDataSource-Steuerelement zurückgegeben. Die GridView- und SqlDataSource-Steuerelemente Markup folgt. Abbildung 5 zeigt die Ergebnisse, wenn Sie über einen Browser angezeigt.
 
 
 [!code-aspx[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample2.aspx)]
 
 
-[![Jedes Produkt ihren Preis aufgeführt, die GridView](interacting-with-the-content-page-from-the-master-page-cs/_static/image14.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image13.png)
+[![Jedes Produkt und seinem Preis finden Sie in den GridView-Ansicht](interacting-with-the-content-page-from-the-master-page-cs/_static/image14.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image13.png)
 
-**Abbildung 05**: jedes Produkt ihren Preis aufgeführt, die GridView ([klicken Sie hier, um das Bild in voller Größe angezeigt](interacting-with-the-content-page-from-the-master-page-cs/_static/image15.png))
+**Abbildung 05**: jedes Produkt und seinem Preis finden Sie in den GridView-Ansicht ([klicken Sie, um das Bild in voller Größe anzeigen](interacting-with-the-content-page-from-the-master-page-cs/_static/image15.png))
 
 
 > [!NOTE]
-> Wahlweise können die Darstellung der GridView bereinigen. Einige Vorschläge enthalten die Formatierung des angezeigten UnitPrice-Wertes als Währung und mithilfe von Hintergrundfarben und Schriftarten zum Optimieren der Darstellung des Datenblatts. Weitere Informationen zum Anzeigen und Formatieren von Daten in ASP.NET finden Sie in meinem [arbeiten mit Tutorial Datenreihe](../../data-access/index.md).
+> Können Sie, um die Darstellung der GridView zu bereinigen. Einige Vorschläge enthalten die Formatierung des angezeigten UnitPrice-Wertes als Währung und mithilfe von Hintergrundfarben und Schriftarten zum Optimieren der Darstellung von des Rasters. Weitere Informationen zum Anzeigen und zum Formatieren von Daten in ASP.NET finden Sie in meinem [arbeiten mit Daten tutorialreihe](../../data-access/index.md).
 
 
-## <a name="step-2-adding-a-double-prices-button-to-the-master-page"></a>Schritt 2: Hinzufügen einer doppelten Preise-Schaltfläche auf der Seite "Master"
+## <a name="step-2-adding-a-double-prices-button-to-the-master-page"></a>Schritt 2: Hinzufügen einer doppelten Preise-Schaltfläche auf der Masterseite
 
-Unsere nächste Aufgabe ist das Hinzufügen einer Schaltfläche Websteuerelement mit dem übergeordneten Seite, die beim Klicken auf doppelt auf den Preis aller Produkte in der Datenbank wird. Öffnen der `Site.master` Seite "master", und ziehen Sie eine Schaltfläche aus der Toolbox in den Designer, und platzieren es unterhalb der `RecentProductsDataSource` SqlDataSource-Steuerelement, die wir im vorherigen Lernprogramm hinzugefügt. Legen Sie der Schaltfläche `ID` Eigenschaft `DoublePrice` und seine `Text` -Eigenschaft auf "Doppelte Produktpreise".
+Unsere nächste Aufgabe ist, hinzufügen ein Websteuerelements der Schaltfläche mit dem übergeordneten Seite, die beim Klicken auf doppelt auf den Preis aller Produkte in der Datenbank wird. Öffnen der `Site.master` Masterseite, und ziehen Sie eine Schaltfläche aus der Toolbox auf den Designer, und platzieren es unter der `RecentProductsDataSource` SqlDataSource-Steuerelement, die wir im vorherigen Tutorial hinzugefügt. Legen Sie die `ID` Eigenschaft `DoublePrice` und die zugehörige `Text` Eigenschaft auf "Doppelte Produkt-Preise".
 
-Fügen Sie ein SqlDataSource-Steuerelement auf der Masterseite benennen `DoublePricesDataSource`. Diesen SqlDataSource wird zum Ausführen der `UPDATE` Anweisung alle Preise verdoppeln. Insbesondere müssen wir Festlegen seiner `ConnectionString` und `UpdateCommand` Eigenschaften der entsprechenden Verbindungszeichenfolge und `UPDATE` Anweisung. Wir müssen Sie diesen SqlDataSource-Steuerelement aufrufen `Update` Methode bei der `DoublePrice` Schaltfläche geklickt wird. Festlegen der `ConnectionString` und `UpdateCommand` Eigenschaften, wählen Sie das SqlDataSource-Steuerelement, und fahren Sie mit dem Eigenschaftenfenster. Die `ConnectionString` Eigenschaft aufgeführt, die bereits in gespeicherten Verbindungszeichenfolgen `Web.config` in einer Dropdownliste; wählen Sie die `NorthwindConnectionString` option wie in Abbildung 6 veranschaulicht.
-
-
-[![Konfigurieren Sie die SqlDataSource Verwendung der NorthwindConnectionString](interacting-with-the-content-page-from-the-master-page-cs/_static/image17.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image16.png)
-
-**Abbildung 06**: Konfigurieren der SqlDataSource verwenden die `NorthwindConnectionString` ([klicken Sie hier, um das Bild in voller Größe angezeigt](interacting-with-the-content-page-from-the-master-page-cs/_static/image18.png))
+Fügen Sie ein SqlDataSource-Steuerelement auf die Masterseite, nennen Sie es `DoublePricesDataSource`. Diese SqlDataSource-Steuerelement wird verwendet, um das Ausführen der `UPDATE` Anweisung, um alle Preise doppelklicken. Insbesondere müssen wir legen Sie dessen `ConnectionString` und `UpdateCommand` Eigenschaften auf die entsprechende Verbindungszeichenfolge und `UPDATE` Anweisung. Dann wir diese SqlDataSource-Steuerelement aufrufen müssen `Update` Methode bei der `DoublePrice` geklickt wird. Festlegen der `ConnectionString` und `UpdateCommand` Eigenschaften, wählen Sie das SqlDataSource-Steuerelement, und fahren Sie mit dem Fenster "Eigenschaften". Die `ConnectionString` Eigenschaftenlisten diese Verbindungszeichenfolgen, die bereits im gespeicherten `Web.config` wählen Sie in einem Dropdown-Liste; die `NorthwindConnectionString` wie in Abbildung 6 gezeigt.
 
 
-Festlegen der `UpdateCommand` -Eigenschaft, suchen Sie im Fenster Eigenschaften die UpdateQuery-Option. Diese Eigenschaft bei Auswahl dieser Option wird eine Schaltfläche mit Auslassungszeichen angezeigt; Klicken Sie auf diese Schaltfläche, um das Dialogfeld Befehls- und Parameter-Editor, siehe Abbildung 7 anzuzeigen. Geben Sie Folgendes `UPDATE` Anweisung in das Dialogfeld Textfeld ein:
+[![Konfigurieren Sie die Verwendung der NorthwindConnectionString SqlDataSource-Steuerelement](interacting-with-the-content-page-from-the-master-page-cs/_static/image17.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image16.png)
+
+**Abbildung 06**: dem SqlDataSource-Steuerelement zu verwendenden konfigurieren die `NorthwindConnectionString` ([klicken Sie, um das Bild in voller Größe anzeigen](interacting-with-the-content-page-from-the-master-page-cs/_static/image18.png))
+
+
+Festlegen der `UpdateCommand` -Eigenschaft finden Sie im Fenster Eigenschaften die UpdateQuery-Option. Diese Eigenschaft bei Auswahl dieser Option wird eine Schaltfläche mit Auslassungszeichen angezeigt; Klicken Sie auf diese Schaltfläche, um das Dialogfeld Befehls- und Parameter-Editor dargestellt in Abbildung 7 angezeigt. Geben Sie die folgenden `UPDATE` -Anweisung in das Dialogfeld Textfeld:
 
 
 [!code-sql[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample3.sql)]
 
-Bei der Ausführung dieser Anweisung Doppelklicken wird die `UnitPrice` Wert für jeden Datensatz in der `Products` Tabelle.
+Diese Anweisung ausgeführt wird, verdoppelt sich die `UnitPrice` Wert für jeden Datensatz in die `Products` Tabelle.
 
 
-[![Festlegen des SqlDataSource UpdateCommand-Eigenschaft](interacting-with-the-content-page-from-the-master-page-cs/_static/image20.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image19.png)
+[![Legen Sie die UpdateCommand-Eigenschaft des SqlDataSource-Steuerelement](interacting-with-the-content-page-from-the-master-page-cs/_static/image20.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image19.png)
 
-**Abbildung 07**: Legen Sie SqlDataSource `UpdateCommand` Eigenschaft ([klicken Sie hier, um das Bild in voller Größe angezeigt](interacting-with-the-content-page-from-the-master-page-cs/_static/image21.png))
+**Abbildung 07**: Legen Sie SqlDataSource `UpdateCommand` Eigenschaft ([klicken Sie, um das Bild in voller Größe anzeigen](interacting-with-the-content-page-from-the-master-page-cs/_static/image21.png))
 
 
-Nach dem Festlegen dieser Eigenschaften, sollte die Schaltfläche und SqlDataSource-Steuerelemente deklarativem Markup ähnlich der folgenden aussehen:
+Nach dem Festlegen dieser Eigenschaften können sollte die Schaltfläche "und" SqlDataSource-Steuerelemente deklaratives Markup ähnelt dem folgenden aussehen:
 
 
 [!code-aspx[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample4.aspx)]
 
-Alle bleibt besteht im Aufrufen seiner `Update` Methode bei der `DoublePrice` Schaltfläche geklickt wird. Erstellen einer `Click` -Ereignishandler für die `DoublePrice` Schaltfläche und fügen Sie den folgenden Code hinzu:
+Übrig bleibt, rufen Sie die `Update` Methode bei der `DoublePrice` geklickt wird. Erstellen Sie eine `Click` -Ereignishandler für die `DoublePrice` Schaltfläche, und fügen Sie den folgenden Code hinzu:
 
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample5.cs)]
 
-Um diese Funktion testen möchten, besuchen Sie die `~/Admin/Products.aspx` Seite, die wir in Schritt 1 erstellt haben, und klicken Sie auf die Schaltfläche "Doppelte Produktpreise". Auf die Schaltfläche einen Postback verursacht und führt die `DoublePrice` Schaltfläche `Click` Ereignishandler, d. h. verdoppelt die Preise aller Produkte. Klicken Sie dann die Seite erneut gerendert wird, und das Markup zurückgegeben und erneut im Browser angezeigt. Die GridView auf der Inhaltsseite aufgeführt jedoch die gleichen Preise vor "Doppelte Produktpreise" geklickt wurde. Dies ist, da die Daten in die GridView anfänglich geladenen den Zustand im Ansichtszustand gespeichert wird hatte, sodass es nicht bei Postbacks neu geladen wird, wenn andernfalls aufgefordert. Wenn Sie eine andere Seite besuchen und wieder die `~/Admin/Products.aspx` Seite sehen Sie die aktualisierte Preise.
+Um diese Funktionalität testen zu können, finden Sie auf die `~/Admin/Products.aspx` Seite, die wir in Schritt 1 erstellt haben, und klicken Sie auf die Schaltfläche "Doppelte Produktpreisen". Auf die Schaltfläche ein Postback auslöst und führt die `DoublePrice` Schaltfläche `Click` -Ereignishandler verdoppelt die Preise für alle Produkte. Klicken Sie dann die Seite erneut gerendert wird, und das Markup zurückgegeben wird, und erneut im Browser angezeigt. GridView auf der Inhaltsseite, führt jedoch die gleichen Preisen wie vor die "doppelte Produktpreise" Schaltfläche geklickt wurde. Dies ist, weil die Daten zunächst in den GridView-Ansicht geladen, den Zustand im Ansichtszustand gespeichert werden haben, sodass sie nicht bei Postbacks geladen wird, anders. Wenn Sie finden Sie auf eine andere Seite, und fahren Sie dann mit der `~/Admin/Products.aspx` Seite sehen Sie die aktualisierten Preise.
 
 ## <a name="step-3-raising-an-event-when-the-prices-are-doubled"></a>Schritt 3: Wenn die Preise ein Ereignis auslösen werden verdoppelt.
 
-Da die GridView in die `~/Admin/Products.aspx` Seite nicht sofort reflektiert der Preis verdoppelt, ein Benutzer eventuell verständlicherweise der Meinung, dass sie nicht auf die Schaltfläche "Doppelte Produktpreise" geklickt haben oder nicht erfolgreich war. Sie können versuchen, auf die Schaltfläche weitere Male verdoppelt die Preise wieder. Zum Beheben dieses wir das Raster im Inhalt müssen für die Seitenanzeige der neuen Preise sofort, nachdem sie verdoppelt werden.
+Da die GridView in die `~/Admin/Products.aspx` Seite sofort spiegelt nicht die Verdoppelung der Preis, ein Benutzer eventuell verständlicherweise der Meinung, dass sie nicht auf die Schaltfläche "Doppelte Produktpreisen" geklickt haben, oder es hat nicht funktioniert. Sie können versuchen, auf die Schaltfläche einige weitere Male verdoppelt die Preise immer wieder neu. Zum Korrigieren wir benötigen das Raster in den Inhalt für die Seitenanzeige die neuen Preise unmittelbar nach dem sie verdoppelt werden.
 
-Wie weiter oben in diesem Lernprogramm erläutert wird, müssen wir ein Ereignis in die Masterseite auslösen, wenn der Benutzer klickt auf die `DoublePrice` Schaltfläche. Ein Ereignis ist eine Möglichkeit für eine Klasse (ein Ereignisherausgeber), ein anderes eine Reihe von anderen Klassen (Ereignisabonnenten) benachrichtigt wird, die etwas Interessantes aufgetreten ist. In diesem Beispiel wird die Gestaltungsvorlage der Ereignisherausgeber; Diese Inhaltsseiten für, wenn interessieren die `DoublePrice` geklickt wird als Abonnenten.
+Wie weiter oben in diesem Tutorial erläutert wird, müssen wir ein Ereignis in die Masterseite auslösen, wenn der Benutzer klickt auf die `DoublePrice` Schaltfläche. Ein Ereignis ist eine Möglichkeit für eine Klasse (ein Ereignisherausgeber), um einen anderen eine Reihe von anderen Klassen (die Ereignisabonnenten) informieren, die etwas Interessantes aufgetreten ist. In diesem Beispiel ist die Masterseite vom Herausgeber des Ereignisses; Diese Inhaltsseiten, die interessieren, wenn die `DoublePrice` geklickt wird als Abonnenten.
 
-Eine Klasse abonniert ein Ereignis durch das Erstellen einer *Ereignishandler*, dies ist eine Methode, die als Antwort auf ausgelösten Ereignisses ausgeführt wird. Der Verleger definiert die Ereignisse, die er durch definieren löst einer *Ereignisdelegaten*. Der Ereignisdelegat gibt an, welche Eingabeparameter der Ereignishandler zustimmen muss. In .NET Framework Ereignisdelegaten keinen Wert zurückgeben und akzeptieren zwei Eingabeparameter:
+Eine Klasse abonniert ein Ereignis durch das Erstellen einer *Ereignishandler*, dies ist eine Methode, die als Reaktion auf das ausgelöste Ereignis ausgeführt wird. Der Herausgeber definiert die Ereignisse, die er löst aus, indem Sie definieren eine *Ereignisdelegaten*. Der Ereignisdelegat gibt an, welche Eingabeparameter, der der Ereignishandler akzeptieren muss. In .NET Framework Ereignisdelegaten nicht gibt keinen Wert zurück und akzeptiert zwei Parameter:
 
 - Ein `Object`, identifiziert die Ereignisquelle und
 - Eine abgeleitete Klasse `System.EventArgs`
 
-Der zweite Parameter, die an einen Ereignishandler übergeben kann zusätzliche Informationen zum Ereignis enthalten. Während die Base `EventArgs` Klasse übergibt nicht auf alle Informationen, die .NET Framework enthält eine Reihe von Klassen, mit denen erweitert `EventArgs` und umfasst zusätzliche Eigenschaften. Z. B. eine `CommandEventArgs` Instanz an, auf die reagiert Ereignishandler übergeben wird die `Command` Ereignis, und enthält zwei informative Eigenschaften: `CommandArgument` und `CommandName`.
+Der zweite Parameter an einen Ereignishandler übergeben kann zusätzliche Informationen zum Ereignis enthalten. Während die Base `EventArgs` Klasse übergibt die nicht über alle Informationen, die .NET Framework umfasst eine Reihe von Klassen, die erweitern `EventArgs` und zusätzliche Eigenschaften umfassen. Z. B. eine `CommandEventArgs` Instanz wird übergeben, Ereignis-Handlern, die auf Antworten der `Command` -Ereignis, und enthält zwei informative Eigenschaften: `CommandArgument` und `CommandName`.
 
 > [!NOTE]
-> Weitere Informationen zum Erstellen, durch das Auslösen und Behandeln von Ereignissen finden Sie unter [Ereignissen und Delegaten](https://msdn.microsoft.com/library/17sde2xt.aspx) und [Ereignisdelegaten in einfachen englische](http://www.codeproject.com/KB/cs/eventdelegates.aspx).
+> Weitere Informationen zum Erstellen, das Auslösen und Behandeln von Ereignissen, finden Sie unter [Ereignisse und Delegaten](https://msdn.microsoft.com/library/17sde2xt.aspx) und [Ereignisdelegaten in einfachen englische](http://www.codeproject.com/KB/cs/eventdelegates.aspx).
 
 
-Zum definieren ein Ereignisses, verwenden die folgende Syntax:
+Zum definieren ein Ereignisses verwenden die folgende Syntax:
 
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample6.cs)]
 
-Da wir brauchen nur auf die Seite Inhalte warnen, wenn der Benutzer geklickt hat die `DoublePrice` Schaltfläche und müssen nicht auf zusätzliche Informationen zu übergeben, können wir den Ereignisdelegaten `EventHandler`, definiert einen Ereignishandler, die akzeptiert, als die zweite der Parameter ein Objekt des Typs `System.EventArgs`. Um das Ereignis in die Masterseite zu erstellen, fügen Sie auf der Masterseite Code-Behind-Klasse die folgende Codezeile hinzu:
+Da wir brauchen nur auf die Seite Inhalte warnen, wenn der Benutzer geklickt hat die `DoublePrice` Schaltfläche und müssen keine zusätzliche Informationen übergeben, verwenden wir den Ereignisdelegaten `EventHandler`, die definiert einen Ereignishandler, die akzeptiert, wie die zweite der Parameter ein Objekt des Typs `System.EventArgs`. Um das Ereignis auf der Masterseite zu erstellen, fügen Sie auf der Masterseite CodeBehind-Klasse die folgende Codezeile hinzu:
 
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample7.cs)]
 
-Der obige Code Fügt ein öffentliches Ereignis auf der Masterseite mit dem Namen `PricesDoubled`. Jetzt müssen wir lösen Sie dieses Ereignis nach dem verdoppelt die Preise aufweisen. Verwenden zum Auslösen ein Ereignisses die folgende Syntax:
+Der obige Code Fügt ein öffentliches Ereignis auf der Masterseite, die mit dem Namen `PricesDoubled`. Nun müssen wir lösen Sie dieses Ereignis nach dem verdoppelt die Preise haben. Zum Auslösen ein Ereignisses verwenden die folgende Syntax:
 
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample8.cs)]
 
-Wobei *Absender* und *EventArgs* sind die Werte, die an den Abonnenten-Ereignishandler übergeben werden sollen.
+Wo *Absender* und *EventArgs* sind die Werte des Abonnenten-Ereignishandler übergeben werden sollen.
 
 Update der `DoublePrice` `Click` -Ereignishandler durch den folgenden Code:
 
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample9.cs)]
 
-Wie zuvor die `Click` Ereignishandler startet durch Aufrufen der `DoublePricesDataSource` SqlDataSource-Steuerelement `Update` Methode, um die Preise aller Produkte doppelklicken. Im Anschluss an, dass zwei Ergänzungen an den Ereignishandler vorhanden sind. Zunächst wird die `RecentProducts` GridView Daten werden aktualisiert. Diese GridView Masterseite hinzugefügt wurde, in dem vorherigen Lernprogramm und zeigt die fünf zuletzt hinzugefügten Produkte. Wir müssen dieses Raster zu aktualisieren, sodass sie die gerade verdoppelt Preise für diese fünf Produkte angezeigt wird. Nach, dass die `PricesDoubled` Ereignis wird ausgelöst. Ein Verweis auf die master-Seite selbst (`this`) wird an den Ereignishandler gesendet, die Ereignisquelle sowie ein leeres `EventArgs` Objekt gesendet wird, als die Ereignisargumente.
+Wie zuvor die `Click` Ereignishandler startet, durch den Aufruf der `DoublePricesDataSource` SqlDataSource-Steuerelement `Update` Methode, um die Preise für alle Produkte doppelklicken. Danach hat es gibt zwei Hinzufügungen an den Ereignishandler. Zunächst wird die `RecentProducts` GridView Daten werden aktualisiert. Diese GridView Masterseite, die im vorherigen Tutorial hinzugefügt wurde, und zeigt die fünf am häufigsten kürzlich hinzugefügte Produkte. Wir müssen Sie dieses Raster zu aktualisieren, damit, dass die Just-in-verdoppelt Preise für die folgenden fünf Produkte angezeigt. Danach die `PricesDoubled` Ereignis wird ausgelöst. Ein Verweis auf die Masterseite selbst (`this`) wird an den Ereignishandler als die Ereignisquelle und einen leeren übermittelt `EventArgs` Objekt wird als Ereignisargumente gesendet.
 
-## <a name="step-4-handling-the-event-in-the-content-page"></a>Schritt 4: Behandlung des Ereignisses in der Inhaltsseite
+## <a name="step-4-handling-the-event-in-the-content-page"></a>Schritt 4: Behandeln des Ereignisses auf der Inhaltsseite
 
-Zu diesem Zeitpunkt die Gestaltungsvorlage löst die `PricesDoubled` Ereignis immer die `DoublePrice` Button-Steuerelement geklickt wird. Allerdings Dies ist nur die Hälfte der Kampf – wir benötigen Sie für die Ereignisbehandlung in den Abonnenten. Dies umfasst zwei Schritte: Erstellen den Ereignishandler und Ereignis Verkabelungscode hinzufügen, sodass der Ereignishandler ausgeführt wird, wenn das Ereignis ausgelöst wird.
+An diesem Punkt die Masterseite löst die `PricesDoubled` Ereignis immer die `DoublePrice` Schaltflächen-Steuerelement geklickt wird. Allerdings Dies ist nur die halbe Miete – wir benötigen zum Behandeln des Ereignisses auf dem Abonnenten. Dies umfasst zwei Schritte: Erstellen den Ereignishandler und Hinzufügen von Ereigniscode-verknüpfen, damit der Ereignishandler ausgeführt wird, wenn das Ereignis ausgelöst wird.
 
-Erstellen einen Ereignishandler namens zunächst `Master_PricesDoubled`. Aufgrund wie wir definiert die `PricesDoubled` Ereignis in die Masterseite muss der Ereignishandler zwei Eingabeparameter Typen `Object` und `EventArgs`zugeordnet. Im Aufruf Ereignis-Handler die `ProductsGrid` GridView `DataBind` Methode, um die Daten in den Entwurfsbereich zu binden.
+Zunächst erstellen Sie einen Ereignishandler namens `Master_PricesDoubled`. Aufgrund der wir definiert haben wie die `PricesDoubled` Ereignis in die Masterseite muss zwei Eingabeparameter für den Ereignishandler der Typen `Object` und `EventArgs`bzw. In der Ereignis-Handler-Aufruf die `ProductsGrid` GridView `DataBind` Methode, um die Daten in das Raster binden.
 
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample10.cs)]
 
-Der Code für den Ereignishandler ist abgeschlossen, aber wir noch auf der Masterseite von Netzwerkdaten `PricesDoubled` Ereignis an diesen Ereignishandler. Der Abonnent verbindet ein Ereignis mit einem Ereignishandler, über die folgende Syntax:
+Der Code für den Ereignishandler ist abgeschlossen, aber wir aber erst verknüpfen Sie der Masterseite `PricesDoubled` Ereignis an diesen Ereignishandler. Der Abonnent verbindet ein Ereignis an einem Ereignishandler über die folgende Syntax:
 
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample11.cs)]
 
-*Publisher* ist ein Verweis auf das Objekt, das das Ereignis bietet *EventName*, und *MethodName* ist der Name des ereignishandlers definiert, in dem Abonnenten, die über eine Signatur entspricht verfügt die *EventDelegate*. Das heißt, wenn das Ereignis Delegieren ist `EventHandler`, klicken Sie dann *MethodName* muss der Namen einer Methode auf dem Abonnenten, die keinen Wert zurückgibt und nimmt zwei Eingabeparameter Typen `Object` und `EventArgs`, bzw.
+*Publisher* ist ein Verweis auf das Objekt, das das Ereignis bietet *EventName*, und *MethodName* ist der Name des ereignishandlers definiert, auf dem Abonnenten, die eine Signatur, entspricht die *EventDelegate*. Das heißt, wenn das Ereignis Delegieren ist `EventHandler`, klicken Sie dann *MethodName* muss der Name einer Methode auf dem Abonnenten, die keinen Wert zurück und nimmt zwei Eingabeparameter Typen sein `Object` und `EventArgs`, bzw.
 
-Diese Verkabelung der Ereigniscode muss auf dem ersten Besuch der Seite und die nachfolgenden Postbacks ausgeführt werden und sollte auftreten, zu einem Zeitpunkt im Lebenszyklus Seite, die vor, wenn das Ereignis ausgelöst werden kann. Ein guter Zeitpunkt hinzuzufügende Verkabelung der Ereigniscode ist in der Phase PreInit sehr frühen Zeitpunkt im Lebenszyklus Seite angezeigt.
+Dieses Ereignis verknüpfen Code muss ausgeführt werden, auf der Seite zum ersten Mal besuchen und die nachfolgenden Postbacks und erfolgen soll, zu einem Zeitpunkt im Lebenszyklus Seite, der vorangestellt ist, wenn das Ereignis ausgelöst werden kann. Ein guter Zeitpunkt zum Hinzufügen von Ereignis verknüpfen Code ist in der PreInit-Phase, die sehr früh im Lebenszyklus Seite auftritt.
 
-Open `~/Admin/Products.aspx` , und erstellen Sie eine `Page_PreInit` Ereignishandler:
+Open `~/Admin/Products.aspx` , und erstellen Sie eine `Page_PreInit` -Ereignishandler:
 
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample12.cs)]
 
-Um diesen Verkabelungscode abzuschließen benötigen wir einen programmgesteuerte Verweis auf die Gestaltungsvorlage aus der Seite Inhalt. Wie im vorherigen Lernprogramm erwähnt, gibt es zwei Möglichkeiten:
+Zur Durchführung dieser verknüpfen Code benötigen wir einen programmgesteuerten Verweis auf die Masterseite der Inhaltsseite. Wie im vorherigen Tutorial erwähnt, gibt es zwei Möglichkeiten zur Verfügung:
 
-- Durch die lose typisierten Umwandlung `Page.Master` Eigenschaft in den entsprechenden Masterseite-Typ oder
-- Durch Hinzufügen einer `@MasterType` -Direktive in der `.aspx` Seite, und klicken Sie dann mit der stark typisierten `Master` Eigenschaft.
+- Durch das umwandeln, die lose typisierte `Page.Master` Eigenschaft in den Typ entsprechende Masterseite oder
+- Durch das Hinzufügen einer `@MasterType` -Direktive in der `.aspx` Seite und dann die stark typisierte `Master` Eigenschaft.
 
-Ermöglicht die Verwendung des zweiten Ansatzes. Fügen Sie die folgenden `@MasterType` -Direktive am Anfang der deklarativen Seitenmarkup:
+Wir verwenden den zweiten Ansatz. Fügen Sie die folgenden `@MasterType` -Direktive am Anfang der deklarativen Markup der Seite:
 
 
 [!code-aspx[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample13.aspx)]
 
-Fügen Sie den folgenden Ereignis Verkabelungscode in die `Page_PreInit` Ereignishandler:
+Fügen Sie den folgenden Ereignis verknüpfen Code in die `Page_PreInit` -Ereignishandler:
 
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample14.cs)]
 
-Mit diesem Code werden die GridView auf der Inhaltsseite aktualisiert wird immer die `DoublePrice` Schaltfläche geklickt wird.
+Mit diesem Code werden, auf der Inhaltsseite GridView aktualisiert wird immer die `DoublePrice` geklickt wird.
 
-Abbildung 8 und 9 veranschaulichen dieses Verhalten. Abbildung 8 zeigt die Seite beim ersten Mal besucht hat. Beachten Sie, die Werte in den beiden Preis der `RecentProducts` GridView (in der linken Spalte der Masterseite) und die `ProductsGrid` GridView (auf der Inhaltsseite). Abbildung 9 zeigt die gleiche Seite unmittelbar nach der `DoublePrice` Schaltfläche geklickt wurde. Wie Sie sehen können, werden die neuen Preise sofort in beide GridViews wiedergegeben.
+Abbildungen 8 und 9 veranschaulichen dieses Verhalten auf. Abbildung 8 zeigt die Seite beim ersten Mal besucht hat. Beachten Sie, die Werte in beiden Preis der `RecentProducts` GridView (in der linken Spalte der Masterseite) und die `ProductsGrid` GridView (in der Seite Inhalt). Abbildung 9 zeigt die gleiche Seite unmittelbar nach der `DoublePrice` Schaltfläche geklickt wurde. Wie Sie sehen können, werden die neuen Preise sofort in beiden GridViews wiedergegeben.
 
 
-[![Die anfängliche preiswerten](interacting-with-the-content-page-from-the-master-page-cs/_static/image23.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image22.png)
+[![Die erste preiswerten](interacting-with-the-content-page-from-the-master-page-cs/_static/image23.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image22.png)
 
-**Abbildung 08**: die anfänglichen preiswerten ([klicken Sie hier, um das Bild in voller Größe angezeigt](interacting-with-the-content-page-from-the-master-page-cs/_static/image24.png))
+**Abbildung 08**: der Preis Anfangswerte ([klicken Sie, um das Bild in voller Größe anzeigen](interacting-with-the-content-page-from-the-master-page-cs/_static/image24.png))
 
 
 [![Die Just-Doubled Preise werden in der GridViews angezeigt.](interacting-with-the-content-page-from-the-master-page-cs/_static/image26.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image25.png)
 
-**Abbildung 09**: The Just-Doubled Preise werden in der GridViews angezeigt ([klicken Sie hier, um das Bild in voller Größe angezeigt](interacting-with-the-content-page-from-the-master-page-cs/_static/image27.png))
+**Abbildung 09**: The Just-Doubled Preise werden in der GridViews angezeigt ([klicken Sie, um das Bild in voller Größe anzeigen](interacting-with-the-content-page-from-the-master-page-cs/_static/image27.png))
 
 
 ## <a name="summary"></a>Zusammenfassung
 
-Im Idealfall einer Masterseite und die Inhaltsseiten vollständig voneinander getrennt sind, und Sie erfordern keine Ebene Interaktion. Jedoch, wenn Sie eine Gestaltungsvorlage oder Inhaltsseite, das Daten anzeigt, die über die Gestaltungsvorlage oder Inhaltsseite geändert werden können, müssen Sie möglicherweise die Masterseite der Inhaltsseite (oder umgekehrt a) Warnung haben Wenn Daten geändert werden, damit die Anzeige aktualisiert werden kann. In dem vorherigen Lernprogramm wurde erläutert, wie eine programmgesteuerte Interaktion mit Gestaltungsvorlage Inhaltsseite verfügen; In diesem Lernprogramm erläutert wir, wie eine Masterseite initiieren die Interaktion.
+Im Idealfall eine Masterseite und die Inhaltsseiten sind vollständig voneinander getrennt, und Sie benötigen keine Interaktion. Aber wenn Sie haben eine Gestaltungsvorlage oder eine Inhaltsseite, das Daten anzeigt, die aus der Masterseite oder die Seite "Inhalt" geändert werden kann, dann müssen Sie möglicherweise haben Sie die Masterseite der Inhaltsseite (oder a-umgekehrt) zu warnen Wenn Daten geändert werden, sodass die Anzeige aktualisiert werden kann. Im vorherigen Tutorial wurde erläutert, wie eine Inhaltsseite, die programmgesteuerte Interaktion mit der Masterseite verfügen; In diesem Tutorial erläutert, wie Sie eine Masterseite initiieren die Interaktion.
 
-Während Sie den Inhalt oder die Masterseite programmgesteuerte Interaktion zwischen einem Inhalt und die Masterseite stammen kann, hängt verwendete Interaktionsmuster der Ursprung ab. Die Unterschiede werden in den Umstand zurückzuführen, dass eine Inhaltsseite eine einzelne Masterseite enthält, aber einer Masterseite kann viele verschiedene Inhaltsseiten. Anstatt eine direkte Interaktion mit einer Inhaltsseite Gestaltungsvorlage ist ein besserer Ansatz die Masterseite Auslösen eines Ereignisses, um zu signalisieren, dass eine Aktion stattgefunden hat. Diese Inhaltsseiten, dass die Aktion von Bedeutung sind Ereignishandler erstellen kann.
+Während das Programminteraktion zwischen einem Inhalt und die Masterseite der Inhalte oder Masterseite stammen kann, hängt das Interaktionsmuster verwendet den Ursprung. Die Unterschiede sind darauf zurückzuführen, eine Inhaltsseite eine einzige masterdseite, jedoch wurde eine Masterseite kann viele verschiedene Inhaltsseiten. Ein besserer Ansatz werden anstatt einer Masterseite, die direkte Interaktion mit einer Inhaltsseite zu verwenden, müssen die Masterseite lösen eine Ereignis, um zu signalisieren, dass eine Aktion stattgefunden hat. Diese Inhaltsseiten, die die Aktion interessieren, können Ereignishandler erstellen.
 
 Viel Spaß beim Programmieren!
 
 ### <a name="further-reading"></a>Weiterführende Themen
 
-Weitere Informationen zu den Themen in diesem Lernprogramm erläutert finden Sie in den folgenden Ressourcen:
+Weitere Informationen zu den Themen in diesem Tutorial erläutert finden Sie in den folgenden Ressourcen:
 
 - [Zugreifen auf und Aktualisieren von Daten in ASP.NET](http://aspnet.4guysfromrolla.com/articles/011106-1.aspx)
 - [Ereignisse und Delegaten](https://msdn.microsoft.com/library/17sde2xt.aspx)
-- [Übergeben von Informationen zwischen dem Inhalt und Masterseiten](http://aspnet.4guysfromrolla.com/articles/013107-1.aspx)
-- [Arbeiten mit Daten in ASP.NET-Lernprogramme](../../data-access/index.md)
+- [Übergeben von Informationen zwischen Inhalt und Masterseiten](http://aspnet.4guysfromrolla.com/articles/013107-1.aspx)
+- [Arbeiten mit Daten in den ASP.NET-Tutorials](../../data-access/index.md)
 
-### <a name="about-the-author"></a>Informationen zum Autor
+### <a name="about-the-author"></a>Der Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor mehrerer ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com arbeitet mit Microsoft-Web-Technologien seit 1998. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 3.5 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott erreicht werden kann, zur [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog unter [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor mehrerer Büchern zu ASP/ASP.NET und Gründer von 4GuysFromRolla.com, arbeitet mit Microsoft-Web-Technologien seit 1998. Er ist als ein unabhängiger Berater, Schulungsleiter und Autor. Sein neuestes Buch heißt [ *Sams Teach selbst ASP.NET 3.5 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott erreicht werden kann, zur [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog unter [http://ScottOnWriting.NET](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Besonderen Dank an
 
-Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Lead Prüfer für dieses Lernprogramm wurde Suchi Banerjee. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Diese tutorialreihe wurde durch viele hilfreiche Reviewer überprüft. Führendes Prüfer für dieses Tutorial wurde Suchi Banerjee. Meine zukünftigen MSDN-Artikeln überprüfen möchten? Wenn dies der Fall ist, löschen Sie mir eine Linie an [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Zurück](interacting-with-the-master-page-from-the-content-page-cs.md)

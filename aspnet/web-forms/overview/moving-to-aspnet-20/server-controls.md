@@ -1,70 +1,69 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/server-controls
-title: Serversteuerelemente | Microsoft Docs
+title: -Steuerelemente | Microsoft-Dokumentation
 author: microsoft
-description: ASP.NET 2.0 verbessert Serversteuerelemente in vielerlei Hinsicht. In diesem Modul müssen wir einige der Änderungen an der Architektur auf ASP.NET 2.0 und das Visual Studio-200 abdecken...
+description: ASP.NET 2.0 wird die Serversteuerelemente in vielerlei Hinsicht verbessert. In diesem Modul wird über die architektonischen Änderungen auf die Möglichkeit, ASP.NET 2.0 und Visual Studio-200 behandelt...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
 ms.topic: article
 ms.assetid: 43f6ac47-76fc-4cf7-8e9f-c18ce673dfd8
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/server-controls
 msc.type: authoredcontent
-ms.openlocfilehash: 72e9cac7cf9a01791c30783fa56ad7ea205a5a11
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
-ms.translationtype: MT
+ms.openlocfilehash: 989986c45e76a65582f35172c7d837a78484d09a
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2018
-ms.locfileid: "28885192"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37374223"
 ---
 <a name="server-controls"></a>Serversteuerelemente
 ====================
 durch [Microsoft](https://github.com/microsoft)
 
-> ASP.NET 2.0 verbessert Serversteuerelemente in vielerlei Hinsicht. In diesem Modul wir behandeln einige der Änderungen an der Architektur auf die Möglichkeit, die ASP.NET 2.0 und Visual Studio 2005 befasst sich mit Serversteuerelemente.
+> ASP.NET 2.0 wird die Serversteuerelemente in vielerlei Hinsicht verbessert. Klicken Sie in diesem Modul erläutert einige der architektonischen Änderungen wie ASP.NET 2.0, und Visual Studio 2005-Steuerelemente behandelt.
 
 
-ASP.NET 2.0 verbessert Serversteuerelemente in vielerlei Hinsicht. In diesem Modul wir behandeln einige der Änderungen an der Architektur auf die Möglichkeit, die ASP.NET 2.0 und Visual Studio 2005 befasst sich mit Serversteuerelemente.
+ASP.NET 2.0 wird die Serversteuerelemente in vielerlei Hinsicht verbessert. Klicken Sie in diesem Modul erläutert einige der architektonischen Änderungen wie ASP.NET 2.0, und Visual Studio 2005-Steuerelemente behandelt.
 
 ## <a name="view-state"></a>Ansichtszustand
 
-Die wichtigste Änderung im Ansichtszustand in ASP.NET 2.0 ist eine erhebliche Verringerung der Größe. Erwägen Sie eine Seite mit nur einem Kalendersteuerelement darauf aus. Hier ist der Ansichtszustand in ASP.NET 1.1.
+Die wichtigste Änderung im Ansichtszustand in ASP.NET 2.0 ist eine erhebliche Verringerung der Größe. Erwägen Sie eine Seite mit nur einem Kalendersteuerelement auf. Hier ist der Ansichtszustand in ASP.NET 1.1.
 
 [!code-css[Main](server-controls/samples/sample1.css)]
 
-Jetzt sieht der Ansichtszustand für eine identische Seite in ASP.NET 2.0.
+Jetzt ist hier der Ansichtszustand für eine identische Seite in ASP.NET 2.0.
 
 [!code-css[Main](server-controls/samples/sample2.css)]
 
-Dies ist eine bedeutende Änderung, und erwägen, dass Ansichtszustand unverschlüsselt hin und her übergeben werden, diese Änderung kann bieten Entwicklern eine erhebliche Leistungssteigerung. Die Reduzierung der Größe der Ansichtszustand ist aufgrund der Möglichkeit, die wir intern behandelt. Denken Sie daran, dass die Ansicht, dass der Status einer Base64 ist Zeichenfolge codiert. Um die Änderung im Anzeigezustand auf ASP.NET 2.0 besser zu verstehen, lassen Sie uns einen Blick auf die entschlüsselte Werte aus der obigen Beispiele.
+Dies ist eine bedeutende Änderung, und in Betracht ziehen, dass der Ansichtszustand hin-und über das Netzwerk übertragen wird, diese Änderung erhalten Entwickler eine erhebliche Leistungssteigerung. Die Verringerung der Größe des Ansichtstatus ist größtenteils aufgrund der Art, die wir es intern verarbeiten. Denken Sie daran, dass die Ansicht, dass sich befindet ein Base64-codierten Zeichenfolge. Um die Änderung im Ansichtszustand in ASP.NET 2.0 besser zu verstehen, werfen wir einen Blick auf die entschlüsselte Werte aus den obigen Beispielen.
 
-So sieht die 1.1 Ansichtszustand decodiert aus:
+Hier ist der 1.1 Ansichtszustand decodiert:
 
 [!code-css[Main](server-controls/samples/sample3.css)]
 
-Sieht dies möglicherweise etwas wie sinnlosen, aber es ist ein Muster hier. In ASP.NET 1.x, wir einzelne Zeichen verwendet, um Datentypen zu identifizieren und als Trennzeichen für Werte, die mit der &lt; &gt; Zeichen. Im obigen Beispiel Status "t" stellt eine Dreiergruppe dar. Die Dreiergruppe enthält ein Paar von Arraylisten (die "l" steht für ArrayList.) Eine dieser Arraylisten enthält ein Int32-Wert ("i") mit einem Wert von 1 und die andere enthält eine andere Informationen. Die Dreiergruppe enthält ein Paar von Arraylisten usw. an. Wichtig, daran zu denken Sie daran ist, verwenden wir Dreiergruppen, die Paare enthalten, wir die Datentypen über ein Buchstabe ermitteln und wir verwenden die &lt; und &gt; Zeichen als Trennzeichen.
+Sieht dies möglicherweise ein wenig wie Schritte unverständlich sind, aber es gibt hier ein Muster. In ASP.NET 1.x, wir mit dem einzigen Zeichen-Datentypen und getrennte Werte, die mit der &lt; &gt; Zeichen. Das "t" im obigen Ansicht Zustand Beispiel stellt eine Dreiergruppe dar. Die Dreiergruppe enthält ein Paar von Arraylisten (die "l" steht eine ArrayList.) Eine dieser Arraylisten enthält ein Int32-Wert ("i") mit einem Wert von 1 und die andere enthält eine andere Dreiergruppe. Die Dreiergruppe enthält ein Paar von Arraylisten usw. an. Wichtig zu beachten ist, dass wir Dreiergruppen, die Paare enthalten, wir die Datentypen über ein Buchstabe identifizieren, und wir verwenden die &lt; und &gt; Zeichen als Trennzeichen.
 
-In ASP.NET 2.0 sieht die decodierte Ansichtszustand etwas anders.
+In ASP.NET 2.0 aussieht ein wenig anders der decodierte Ansichtszustand.
 
 [!code-powershell[Main](server-controls/samples/sample4.ps1)]
 
-Sie sollten eine enorme Änderung an der Darstellung des Ansichtszustands decodierte feststellen. Diese Änderung hat mehrere Architekturprinzipien. Den Ansichtszustand in ASP.NET 1.x der LosFormatter zum Serialisieren von Daten verwendet. In 2.0 verwenden wir die neue ObjectStateFormatter-Klasse. Diese Klasse wurde speziell für die Serialisierung und Deserialisierung der Ansichtszustand und Steuerelementzustand verwendet. (Steuerelementzustand wird im nächsten Abschnitt erläutert.) Es gibt viele Vorteile durch Ändern der Methode, die durch die Serialisierung und Deserialisierung stattfinden. Keines der deutlichste handelt es sich um die Tatsache, dass im Gegensatz zu den LosFormatter der TextWriter verwendet, die ObjectStateFormatter eine BinaryWriter verwendet. Dadurch können ASP.NET 2.0 zum Anzeigen des Status einer Reihe von Bytes anstatt Zeichenfolgen zu speichern. Nehmen Sie z. B. eine ganze Zahl. In ASP.NET 1.1 erforderlich, eine ganze Zahl 4 Bytes der Ansichtszustand. In ASP.NET 2.0 ist die gleiche Ganzzahl nur 1 Byte erforderlich. Weitere Verbesserungen wurden vorgenommen, um den Ansichtszustand zu verringern, der gespeichert werden. DateTime-Werte werden nun z. B. gespeichert mithilfe einer TickCount anstelle einer Zeichenfolge.
+Sie sollten eine enorme Änderung an der Darstellung des decodierten Ansichtszustands feststellen. Diese Änderung hat mehrere Architekturprinzipien. Den Ansichtszustand in ASP.NET 1.x die LosFormatter zum Serialisieren von Daten verwendet. In 2.0 verwenden wir die neue ObjectStateFormatter-Klasse. Diese Klasse wurde speziell entwickelt, um die Serialisierung und Deserialisierung von Ansichts- und Steuerelementzustand zu erleichtern. (Steuerelementzustand wird im nächsten Abschnitt behandelt werden.) Es gibt viele Vorteile durch Ändern der Methode, die durch die Serialisierung und Deserialisierung durchgeführt werden. Eines der wichtigste ist die Tatsache, dass im Gegensatz zu den LosFormatter der TextWriter verwendet, die ObjectStateFormatter ein BinaryWriter verwendet. Dadurch wird ein ASP.NET 2.0 zum Anzeigen des Status einer Reihe von Bytes anstelle von Zeichenfolgen zu speichern. Nehmen Sie z. B. eine ganze Zahl. In ASP.NET 1.1 erforderlich, eine ganze Zahl 4 Bytes der Ansichtszustand. In ASP.NET 2.0 erfordert, dieselbe ganze Zahl nur 1 Byte. Weitere Verbesserungen wurden vorgenommen, um die Menge des Ansichtszustands zu verringern, die gespeichert werden. Mithilfe einer TickCount anstelle einer Zeichenfolge werden DateTime-Werte, z. B. jetzt gespeichert.
 
-Wie bei allen, die nicht genug wäre, wurde besondere Aufmerksamkeit auf die Tatsache bezahlt, dass eine der größten Consumer des Anzeigestatus in 1.x das DataGrid und die Steuerelemente ähnlichen wurde. Ein Haupt-Nachteil der Steuerelemente, z. B. das DataGrid-Steuerelement, in dem Ansichtszustand geht, ist, dass sie häufig große Mengen von wiederholten Informationen enthält. In ASP.NET 1.x, die wiederholt Informationen wurde gegenüber und erneut in einem sehr großer Ansichtszustand resultierende einfach gespeichert. In ASP.NET 2.0 verwenden wir neue IndexedString-Klasse, um solche Daten speichern. Tritt wiederholt auf eine Zeichenfolge, speichern wir einfach das Token für die IndexedString und der Index in eine Tabelle der ausgeführten Objekte IndexedString an.
+Wie bei allen, die nicht genug wäre, besondere Aufmerksamkeit auf die Tatsache bezahlt, dass eine der größten Consumer des Ansichtszustands im 1.x das Datenraster und die Steuerelemente mit ähnlichen wurde. Steuerelemente wie DataGrid, in dem Ansichtszustand betrifft, ein großen Nachteil ist, dass sie häufig große Mengen von wiederholten Informationen enthält. In ASP.NET 1.x, die wiederholt Informationen einfach über und was in einem sehr groß Ansichtszustand gespeichert wurde. In ASP.NET 2.0 verwenden wir die neue IndexedString-Klasse, um solche Daten zu speichern. Tritt wiederholt auf eine Zeichenfolge, speichern wir nur das Token für die IndexedString und den Index in eine Tabelle der ausgeführten IndexedString Objekte an.
 
 ## <a name="control-state"></a>Steuerelementzustand
 
-Eines der wichtigsten Gripes, die Entwickler mit Ansichtszustand mussten wurde die Größe, die sie die HTTP-Nutzlast hinzugefügt. Wie bereits erwähnt, eine der größten Consumer des Ansichtszustands des DataGrid-Steuerelements ist. Um die großen Datenmengen Ansichtszustand generiert, die für ein DataGrid-Steuerelement zu vermeiden, deaktiviert viele Entwickler einfach Ansichtszustand für das Steuerelement. Leider war die Projektmappe immer eine gute nicht. Den Ansichtszustand in ASP.NET 1.x enthält nicht nur Daten für die richtige Funktionalität des Steuerelements erforderlich sind. Es enthält auch Informationen über den Zustand der Benutzeroberfläche des Steuerelements. Dies bedeutet, dass wenn für die Paginierung auf ein DataGrid-Steuerelement zu ermöglichen, müssen Sie Anzeigezustand aktivieren, auch wenn Sie nicht alle UI-Informationen, die angezeigt werden sollen Zustand enthält. Es ist ein Szenario nichts.
+Eines der wichtigsten nörgeleien zu, denen Entwickler mit Ansichtszustand hatten wurde die Größe, die sie an die HTTP-Nutzlast hinzugefügt. Wie bereits erwähnt, eine der größten Consumer des Ansichtszustands ist dem DataGrid-Steuerelement. Um die großen Mengen des Ansichtszustands durch ein DataGrid-Steuerelement generiert zu vermeiden, deaktiviert viele Entwickler einfach Ansichtszustand für dieses Steuerelement. Leider nicht die Lösung immer eine gute raus. Den Ansichtszustand in ASP.NET 1.x nicht nur Daten für die korrekte Funktion des Steuerelements enthält. Sie enthält auch Informationen über den Zustand der Benutzeroberfläche des Steuerelements. Dies bedeutet, dass wenn Sie zulassen möchten, für die Paginierung auf ein DataGrid, müssen Sie Ansichtszustand aktivieren, auch wenn Sie nicht benötigen alle UI-Informationen, die anzeigen Zustand enthält. Es wird nichts.
 
-In ASP.NET 2.0 löst Steuerelementzustand dieses Problem gleichmäßig über die Einführung der Steuerelementzustand. Steuerelementzustand enthält die Daten, die für die ordnungsgemäße Funktionalität eines Steuerelements unbedingt notwendig ist. Im Gegensatz zu den Ansichtszustand kann der Steuerelementzustand deaktiviert werden. Aus diesem Grund ist es wichtig, dass die Daten gespeichert werden, in der Steuerelementzustand sorgfältig kontrolliert werden.
+In ASP.NET 2.0 Problem problemlos über die Einführung des Steuerelementzustands ist Steuerelementzustand gelöst. Steuerelementzustand enthält die Daten, die für die ordnungsgemäße Funktionalität eines Steuerelements absolut notwendig ist. Steuerelementzustand kann nicht deaktiviert werden, im Gegensatz zu den Ansichtszustand. Aus diesem Grund ist es wichtig, dass die Daten im Steuerelementzustand dennoch sorgfältig kontrolliert werden.
 
 > [!NOTE]
-> Steuerelementzustand wird beibehalten, zusammen mit den Ansichtszustand in der \_ \_ausgeblendetes Formularfeld "ViewState" speichern.
+> Steuerelementzustand wird beibehalten, zusammen mit den Ansichtszustand in das \_ \_VIEWSTATE ausgeblendeten Formularfelds.
 
 
-In diesem Video wird eine exemplarische Vorgehensweise Ansichtszustand und Steuerelementzustand.
+Dieses Video ist eine exemplarische Vorgehensweise für die Ansichts- und Steuerelementzustand.
 
 
 ![](server-controls/_static/image1.png)
@@ -73,73 +72,73 @@ In diesem Video wird eine exemplarische Vorgehensweise Ansichtszustand und Steue
 [Open Vollbild-Video](server-controls/_static/state1.wmv)
 
 
-In der Reihenfolge nach einem Serversteuerelement, Lese- und Schreibberechtigungen für den Status zu steuern müssen Sie drei Schritte ausführen.
+In der Reihenfolge nach einem Serversteuerelement zu lesen und Schreiben in den Status zu steuern müssen Sie drei Schritte ausführen.
 
 ## <a name="step-1-call-the-registerrequirescontrolstate-method"></a>Schritt 1: Rufen Sie die RegisterRequiresControlState-Methode
 
-Die Methode RegisterRequiresControlState informiert ASP.NET, dass ein Steuerelement Steuerelementzustand beibehalten werden muss. Es akzeptiert ein Argument des Typs steuern, welche dem Steuerelement befindet, das registriert wird.
+Die RegisterRequiresControlState-Methode informiert ASP.NET ein Steuerelement muss Steuerelementzustand beibehalten werden. Es dauert ein Argument des Typs steuern, welche das Steuerelement ist, das registriert wird.
 
-Es ist wichtig zu beachten, dass die Registrierung nicht aus einer Anforderung auf Anforderung beibehalten wird. Diese Methode muss daher bei jeder Anforderung aufgerufen werden, ist ein Steuerelement Steuerelementzustand beibehalten werden. Es wird empfohlen, dass die Methode in OnInit aufgerufen werden.
+Es ist wichtig zu beachten, dass die Registrierung von Anforderung zu Anforderung nicht beibehalten wird. Diese Methode muss daher bei jeder Anforderung aufgerufen werden, wenn ein Steuerelement ist Steuerelementzustand beibehalten werden. Es wird empfohlen, dass die Methode OnInit aufgerufen werden.
 
 [!code-csharp[Main](server-controls/samples/sample5.cs)]
 
-## <a name="step-2-override-savecontrolstate"></a>Schritt 2: Außerkraftsetzung SaveControlState
+## <a name="step-2-override-savecontrolstate"></a>Schritt 2: Überschreiben Sie SaveControlState
 
-Die Methode SaveControlState speichert Steuerelement statusänderungen für ein Steuerelement seit der letzten Postback. Es gibt ein Objekt, das den Zustand des Steuerelements darstellt.
+Die Methode SaveControlState speichert Steuerelement Änderungen am Ansichtszustand für ein Steuerelement seit dem letzten Postback-Ereignis. Es gibt ein Objekt, das den Zustand des Steuerelements darstellt.
 
-## <a name="step-3-override-loadcontrolstate"></a>Schritt 3: Außerkraftsetzung LoadControlState
+## <a name="step-3-override-loadcontrolstate"></a>Schritt 3: Außer Kraft setzen Sie LoadControlState
 
-Die Methode LoadControlState lädt gespeicherten Zustand in ein Steuerelement. Die Methode akzeptiert ein Argument vom Typ Objekt, das den gespeicherten Zustand für das Steuerelement enthält.
+Die Methode LoadControlState lädt den gespeicherten Zustand in ein Steuerelement. Die Methode akzeptiert ein Argument vom Typ Objekt, das den gespeicherten Zustand für das Steuerelement enthält.
 
 ## <a name="full-xhtml-compliance"></a>Vollständige XHTML-Kompatibilität
 
-Jeder Webentwickler kennt die Wichtigkeit von Standards in Webanwendungen. Um eine Standards basierende Entwicklungsumgebung zu wahren, ist ASP.NET 2.0 vollständig XHTML-kompatibel. Daher sind alle Tags gerenderten entsprechend XHTML-Standards in Browsern, die mit Unterstützung für HTML 4.0 oder höher.
+Jeder Webentwickler weiß die Wichtigkeit der Standards in Webanwendungen. Um eine auf Standards basierende Entwicklungsumgebung zu gewährleisten, ist die ASP.NET 2.0 vollständig XHTML-kompatibles. Daher sind alle Tags gerenderten gemäß den Standards XHTML in Browsern, die mit Unterstützung für HTML 4.0 oder höher.
 
-Die DOCTYPE-Definition in ASP.NET, Version 1.1, lautet wie folgt:
+Die DOCTYPE-Definition in ASP.NET 1.1 war wie folgt aus:
 
 [!code-html[Main](server-controls/samples/sample6.html)]
 
-In ASP.NET 2.0 weist die DOCTYPE-Standarddefinition Folgendes:
+In ASP.NET 2.0 lautet die DOCTYPE-Default-Definition:
 
 [!code-html[Main](server-controls/samples/sample7.html)]
 
-Falls gewünscht, können Sie die standardmäßige XHML Kompatibilität über den XhtmlConformance Knoten in der Konfigurationsdatei ändern. Beispielsweise werden die folgenden Knoten in der Datei "Web.config" XHTML-Kompatibilität in XHTML 1.0 strikte ändern:
+Wenn Sie auswählen, können Sie die standardmäßige XHML Kompatibilität über den XhtmlConformance-Knoten in der Konfigurationsdatei ändern. Beispielsweise ändert der folgende Knoten in der Datei "Web.config" XHTML-Kompatibilität in XHTML 1.0 Strict:
 
 [!code-xml[Main](server-controls/samples/sample8.xml)]
 
-Falls gewünscht, können Sie auch konfigurieren, auf ASP.NET verwenden, die ältere Konfiguration in ASP.NET verwendeten 1.x wie folgt:
+Falls gewünscht, können Sie auch konfigurieren, ASP.NET, um verwenden Sie die ältere Konfiguration in ASP.NET verwendet 1.x wie folgt:
 
 [!code-xml[Main](server-controls/samples/sample9.xml)]
 
-## <a name="adaptive-rendering-using-adapters"></a>Adaptive mithilfe von Adaptern Rendern
+## <a name="adaptive-rendering-using-adapters"></a>Adaptive Rendern mithilfe von Adaptern
 
-In ASP.NET 1.x, die Konfigurationsdatei enthaltenen eine &lt;BrowserCaps&gt; Abschnitt, der ein Objekt HttpBrowserCapabilities aufgefüllt. Dieses Objekt zulässig, ein Entwickler zu bestimmen, welches Gerät eine bestimmte Anforderung stammt und Code entsprechend zu rendern. In ASP.NET 2.0 wird das Modell wurde verbessert und verwendet jetzt die neue ControlAdapter-Klasse. Die ControlAdapter-Klasse überschreibt Ereignisse im Lebenszyklus des Steuerelements und steuert das Rendern von Steuerelementen, die auf Grundlage der Benutzer-Agent-Funktionen. Die Funktionen eines bestimmten Benutzer-Agents werden durch eine Browserdefinitionsdatei (eine Datei mit der Erweiterung Browser) in die c:\windows\microsoft.net\framework\v2.0 gespeicherten definiert. \* \* \* \*\CONFIG\Browsers-Ordner.
+In ASP.NET 1.x, die Konfigurationsdatei enthalten eine &lt;BrowserCaps&gt; -Abschnitt, der einem HttpBrowserCapabilities-Objekt aufgefüllt. Dieses Objekt zulässig, ein Entwickler zu bestimmen, welche Geräte eine bestimmte Anforderung stammt und Code entsprechend rendern. In ASP.NET 2.0 wird das Modell wurde verbessert und verwendet jetzt die neue ControlAdapter-Klasse. Die ControlAdapter-Klasse überschreibt die Ereignisse im Lebenszyklus von des Steuerelements und steuert das Rendering von Steuerelementen auf Grundlage der Benutzer-Agent-Funktionen. Die Funktionen eines bestimmten Benutzer-Agents werden durch eine Browser-Definitionsdatei (eine Datei mit einer .browser-Dateierweiterung) gespeichert, in der c:\windows\microsoft.net\framework\v2.0 definiert. \* \* \* \*\CONFIG\Browsers-Ordner.
 
 > [!NOTE]
 > Die ControlAdapter-Klasse ist eine abstrakte Klasse.
 
 
-Ähnlich wie die &lt;BrowserCaps&gt; Abschnitt in der Browserdefinitionsdatei 1.x verwendet einen regulären Ausdruck, um die Benutzer-Agent-Zeichenfolge zu analysieren, um den Browser zu identifizieren. Er bestimmte Funktionen für diesen Benutzeragent definiert. Die ControlAdapter rendert das Steuerelement über die Render-Methode. Daher, wenn Sie die Render-Methode überschreiben, sollten Sie nicht Rendern in der Basisklasse aufrufen. Auf diese Weise kann dazu führen, dass Rendern einmal für den Adapter und einmal für das Steuerelement selbst zweimal ausgeführt.
+Ähnlich wie die &lt;BrowserCaps&gt; Abschnitt in der Browserdefinitionsdatei 1.x verwendet einen regulären Ausdruck, um die Benutzeragentzeichenfolge zu analysieren, um den anfordernden Browser zu identifizieren. Es werden bestimmte Funktionen für diesen Benutzeragent definiert. Die ControlAdapter rendert das Steuerelement über die Render-Methode. Aus diesem Grund, wenn Sie die Render-Methode überschreiben, dürfen Sie nicht Rendern in der Basisklasse aufrufen. Auf diese Weise kann dazu führen, dass Rendern und einmal für den Adapter und einmal für das Steuerelement selbst erfolgen.
 
 ## <a name="developing-a-custom-adapter"></a>Entwickeln eines benutzerdefinierten Adapters
 
-Sie können einen eigenen benutzerdefinierten Adapter entwickeln, durch Vererben von ControlAdapter. Darüber hinaus können Sie von der abstrakten Klasse PageAdapter in Fällen erben, in dem ein Adapter für eine Seite erforderlich ist. Zuordnung von Steuerelementen zu Ihren benutzerdefinierten Adapter erfolgt über die &lt;ControlAdapters&gt; Element in der Browserdefinitionsdatei ab. Die folgenden XML-Code aus einer Browserdefinitionsdatei ordnet z. B. das Menüsteuerelement MenuAdapter-Klasse:
+Sie können einen eigenen benutzerdefinierten Adapter entwickeln, durch Erben von ControlAdapter. Darüber hinaus können Sie von der abstrakten Klasse PageAdapter in Fällen erben, wo ein Adapter für eine Seite erforderlich ist. Zuordnung der Steuerelemente an Ihren benutzerdefinierten Adapter erfolgt über die &lt;ControlAdapters&gt; Element in der Browserdefinitionsdatei. Das folgende XML aus einer Definitionsdatei für den Browser ordnet z. B. das Menüsteuerelement der MenuAdapter-Klasse:
 
 [!code-html[Main](server-controls/samples/sample10.html)]
 
-Dieses Modell verwenden, wird er lässt sich ganz einfach für einen Entwickler von Steuerelementen an ein bestimmtes Gerät oder einen Browser. Es ist auch ganz einfach für Entwickler haben vollständige Kontrolle über die Seiten auf jedem Gerät wie gerendert.
+Dieses Modell verwenden, wird es ganz einfach für einen Steuerelemententwickler, die ein bestimmtes Gerät oder einen Browser. Es ist auch ziemlich einfach, ein Entwickler hat vollständige Kontrolle über die Seiten wie auf jedem Gerät zu rendern.
 
-## <a name="per-device-rendering"></a>Pro Gerät-Rendering
+## <a name="per-device-rendering"></a>Pro-Gerät-Rendering
 
-Server-Steuerelementeigenschaften in ASP.NET 2.0 können angegebenen pro Gerät mit einem Browser-spezifische Präfix sein. Beispielsweise ändert der folgende Code den Text einer Bezeichnung, je nachdem welches Gerät verwendet wird, um die Seite zu navigieren.
+Eigenschaften des Server-Steuerelemente in ASP.NET 2.0 können angegebenen pro Gerät mit einem Präfix browserspezifischen sein. Der folgende Code ändert beispielsweise den Text einer Bezeichnung, je nachdem welches Gerät verwendet wird, um die Seite zu navigieren.
 
 [!code-aspx[Main](server-controls/samples/sample11.aspx)]
 
-Wenn die Seite mit dieser Bezeichnung von Internet Explorer angezeigt wird, wird die Bezeichnung Anzeigetext besagt "Von InternetExplorer durchsuchen." Wenn die Seite von Firefox durchsucht wird, die Bezeichnung der Text wird angezeigt "Sie sind von Firefox durchsuchen." Wenn die Seite von einem beliebigen anderen Gerät durchsucht wird, werden angezeigt "Sie sind von einem unbekannten Gerät durchsuchen." Eine Eigenschaft kann mithilfe dieser speziellen Syntax angegeben werden.
+Wenn die Seite, die mit dieser Bezeichnung von Internet Explorer angezeigt wird, wird die Bezeichnung Anzeigetext sagen "Sie in InternetExplorer durchsuchen." Wenn die Seite aus einer Firefox durchsucht wird, wird die Bezeichnung der Text angezeigt "Sie aus einer Firefox durchsuchen." Wenn die Seiten von jedem anderen Gerät aus aufgerufen werden, werden angezeigt "Sie sind über ein unbekanntes Gerät durchsuchen." Eine beliebige Eigenschaft kann mit dieser speziellen Syntax angegeben werden.
 
 ## <a name="setting-focus"></a>Festlegen des Fokus
 
-Häufig gestellte 1.x ASP.NET-Entwickler über wie Anfangsfokus für ein bestimmtes Steuerelement festgelegt. Auf einer Anmeldeseite ist es beispielsweise sinnvoll, die Benutzer-ID-Textfeld den Fokus erhalten beim ersten die Seite laden zu verwenden. In ASP.NET erforderlich 1.x, die auf diese Weise einige clientseitigem Skript schreiben. Obwohl solche ein Skript eine einfache Aufgabe ist, ist es nicht mehr erforderlich in ASP.NET 2.0 Dank der SetFocus-Methode. Die SetFocus-Methode akzeptiert ein Argument, der angibt, des Steuerelements, das Fokus erhalten soll. Dieses Argument kann es sich entweder um die Client-ID des Steuerelements als Zeichenfolge oder den Namen des Serversteuerelements als ein Control-Objekt sein. Fügen Sie z. B. zum Festlegen der Anfangsfokus auf ein TextBox-Steuerelement namens TxtUserID beim ersten Laden der Seite "den folgenden Code zur Seite\_laden:
+Häufig gestellte ASP.NET 1.x-Entwickler zu Vorgehensweise anfänglich auf den für ein bestimmtes Steuerelement festgelegt. Klicken Sie auf eine Anmeldeseite ist es beispielsweise sinnvoll, die Benutzer-ID-Textfeld den Fokus erhalten beim ersten der Seite laden. Erforderlich, in ASP.NET 1.x, dadurch einige Client-seitige Skript schreiben. Obwohl solche ein Skript eine einfache Aufgabe ist, ist es nicht mehr in ASP.NET 2.0 Dank der SetFocus-Methode erforderlich. Die SetFocus-Methode akzeptiert ein Argument, der angibt, des Steuerelements, das Fokus erhalten soll. Dieses Argument kann es sich entweder um die Client-ID des Steuerelements als Zeichenfolge oder den Namen des Steuerelements als ein Steuerelementobjekt sein. Um den Anfangsfokus auf einem TextBox-Steuerelement namens TxtUserID, beim ersten der Seite laden festzulegen, fügen Sie z. B. den folgenden Code zur Seite\_laden:
 
 [!code-csharp[Main](server-controls/samples/sample12.cs)]
 
@@ -147,19 +146,19 @@ Häufig gestellte 1.x ASP.NET-Entwickler über wie Anfangsfokus für ein bestimm
 
 [!code-csharp[Main](server-controls/samples/sample13.cs)]
 
-ASP.NET 2.0 verwendet "WebResource.axd" Handler (zuvor erläutert), um eine Client-Side-Funktion zu rendern, die den Fokus festlegt. Der Name der clientseitigen-Funktion ist WebForm\_AutoFocus wie hier gezeigt:
+ASP.NET 2.0 wird den Webresource.axd-Handler (wie zuvor erläutert) verwendet, um eine Client-Side-Funktion zu rendern, die den Fokus festlegt. Der Name der Funktion der clientseitigen ist WebForm\_AutoFocus wie hier gezeigt:
 
 [!code-html[Main](server-controls/samples/sample14.html)]
 
-Der Fokus-Methode für ein Steuerelement können Sie alternativ auf das entsprechende Steuerelement Anfangsfokus. Die Methode den Fokus leitet sich von der Control-Klasse und für alle Steuerelemente von ASP.NET 2.0 verfügbar ist. Es ist auch möglich, den Fokus zu einem bestimmten Steuerelement festgelegt, wenn ein Validierungsfehler auftritt. Die in einem späteren Modul abgedeckt werden.
+Alternativ können Sie die Focus-Methode für ein Steuerelement, auf dieses Steuerelement den Anfangsfokus. Die Focus-Methode wird von der Control-Klasse abgeleitet und ist für alle Steuerelemente von ASP.NET 2.0 verfügbar. Es ist auch möglich, den Fokus zu einem bestimmten Steuerelement festlegen, wenn ein Validierungsfehler auftritt. Wird in einem Modul weiter unten erläutert.
 
 ## <a name="new-server-controls-in-aspnet-20"></a>Neue Serversteuerelemente in ASP.NET 2.0
 
-Im folgenden werden neue Serversteuerelemente in ASP.NET 2.0. Es wird auf einigen von ihnen in späteren Modulen befassen.
+Es folgen neue Steuerelemente in ASP.NET 2.0. Wir werden die ausführlicher auf einige der in späteren Module.
 
 ## <a name="imagemap-control"></a>ImageMap-Steuerelement
 
-Die ImageMap-Steuerelement können Sie Hotspots zu einem Bild hinzufügen, die ein Postback initiieren oder zu einer URL navigieren können. Es gibt drei Arten von Hotspots verfügbar; CircleHotSpot RectangleHotSpot und polygonförmigen. Hotspots werden über eine auflistungs-Editor in Visual Studio oder programmgesteuert in Code hinzugefügt. Es gibt keine Benutzeroberfläche für das Zeichnen von Hotspots auf ein Bild zur Verfügung. Die Koordinaten und die Größe oder den Radius der Hotspot muss deklarativ angegeben werden. Es ist auch keine visuelle Darstellung der ein Hotspot im Designer. Wenn ein Hotspot für die Navigation zu einer URL konfiguriert ist, wird die URL über die NavigateUrl-Eigenschaft des Hotspots angegeben. Sichern Sie bei einer POST-Anforderung Hotspot, die PostBackValue-Eigenschaft können Sie serverseitigen Code übergeben Sie eine Zeichenfolge im Beitrag zurück, die abgerufen werden kann.
+Die ImageMap-Steuerelement ermöglicht es Ihnen um Hotspots zu einem Bild hinzuzufügen, die ein Postback-Ereignis zu initiieren oder zu einer URL navigieren können. Es gibt drei Arten von Hotspots verfügbar; CircleHotSpot RectangleHotSpot und polygonförmigen. Hotspots werden über ein auflistungs-Editor in Visual Studio oder programmgesteuert in Code hinzugefügt. Steht keine Benutzeroberfläche für das Zeichnen von Hotspots in einem Bild zur Verfügung. Die Koordinaten und Größe oder RADIUS-des-Hotspots muss deklarativ angegeben werden. Es ist auch keine visuelle Darstellung eines Hotspots im Designer. Wenn Sie ein Hotspot für die Navigation zu einer URL konfiguriert ist, wird die URL über die NavigateUrl-Eigenschaft des Hotspots angegeben. Sichern Sie bei einer Post-Hotspot, der PostBackValue Eigenschaft können Sie serverseitigen Code übergeben eine Zeichenfolge in der POST-Anforderung zurück, die abgerufen werden kann.
 
 
 ![HotSpot-Auflistungs-Editor in Visual Studio](server-controls/_static/image1.jpg)
@@ -167,9 +166,9 @@ Die ImageMap-Steuerelement können Sie Hotspots zu einem Bild hinzufügen, die e
 **Abbildung 1**: HotSpot-Auflistungs-Editor in Visual Studio
 
 
-## <a name="bulletedlist-control"></a>BulletedList Control
+## <a name="bulletedlist-control"></a>BulletedList-Steuerelement
 
-Der BulletedList-Steuerelement ist eine Aufzählung, die einfach Daten gebunden werden können. Die Liste (nummerierte) sortiert werden kann oder nicht über die BulletStyle-Eigenschaft sortiert. Jedes Element in der Liste wird von einem "ListItem"-Objekt dargestellt.
+Der BulletedList-Steuerelement ist eine Aufzählung, die ganz einfach Daten gebunden werden können. Die Liste (nummerierte) sortiert werden kann oder nicht über die BulletStyle-Eigenschaft sortiert. Jedes Element in der Liste wird durch ein ListItem-Objekt dargestellt.
 
 
 ![BulletedList-Steuerelement in Visual Studio](server-controls/_static/image1.gif)
@@ -177,39 +176,39 @@ Der BulletedList-Steuerelement ist eine Aufzählung, die einfach Daten gebunden 
 **Abbildung 2**: BulletedList-Steuerelement in Visual Studio
 
 
-## <a name="hiddenfield-control"></a>HiddenField Control
+## <a name="hiddenfield-control"></a>HiddenField-Steuerelement
 
-HiddenField-Steuerelement wird ein ausgeblendetes Formularfeld hinzugefügt, auf die Seite, deren, die Wert in serverseitigen Code verfügbar ist. Der Wert, der ein ausgeblendetes Formularfeld muss in der Regel zwischen Postbacks unverändert bleiben. Es ist jedoch möglich, dass ein böswilliger Benutzer so ändern Sie den Wert vor, um zurückgesendet wird. In diesem Fall wird das HiddenField-Steuerelement das ValueChanged-Ereignis ausgelöst. Wenn Sie vertraulichen Informationen in das HiddenField-Steuerelement und sicherzustellen, dass es unverändert bleiben sollen, sollten Sie das ValueChanged-Ereignis im Code behandeln.
+Das HiddenField-Steuerelement fügt ein ausgeblendetes Formularfeld auf die Seite, deren, die Wert in serverseitigem Code verfügbar ist. Der Wert des einem ausgeblendeten Formularfeld muss in der Regel zwischen Postbacks unverändert bleiben. Allerdings ist es möglich, dass ein böswilliger Benutzer den Wert vor, um zurückgesendet wird, zu ändern. In diesem Fall wird das HiddenField-Steuerelement, das ValueChanged-Ereignis ausgelöst. Wenn Sie vertrauliche Informationen, im HiddenField-Steuerelement haben und Sie möchten sicherstellen, dass es unverändert bleibt, sollten Sie das ValueChanged-Ereignis in Ihrem Code behandeln.
 
-## <a name="fileupload-control"></a>FileUpload-Steuerelement
+## <a name="fileupload-control"></a>"FileUpload"-Steuerelement
 
-Das FileUpload-Steuerelement in ASP.NET 2.0 ermöglicht das Hochladen von Dateien auf einem Webserver über eine ASP.NET-Seite. Dieses Steuerelement ist sehr ähnlich, die ASP.NET 1.x HtmlInputFile-Klasse, mit wenigen Ausnahmen. In ASP.NET 1.x wurde empfohlen, dass die PostedFile-Eigenschaft auf Null überprüft werden, um festzustellen, ob Sie eine gute Datei hatten. Das FileUpload-Steuerelement in ASP.NET 2.0 fügt eine neue HasFile-Eigenschaft, Sie für denselben Zweck können und es etwas effizienter ist.
+Der FileUpload-Steuerelement in ASP.NET 2.0 ermöglicht das Hochladen von Dateien auf einem Webserver über eine ASP.NET-Seite. Dieses Steuerelement ist sehr ähnlich ist, auf die ASP.NET 1.x HtmlInputFile-Klasse mit wenigen Ausnahmen. In ASP.NET 1.x war es empfohlen, dass die PostedFile-Eigenschaft auf Null überprüft werden, um zu bestimmen, ob Sie eine gute Datei hatten. Der FileUpload-Steuerelement in ASP.NET 2.0 fügt eine neue HasFile-Eigenschaft, Sie für denselben Zweck können und es etwas effizienter ist.
 
-Die PostedFile-Eigenschaft ist für den Zugriff auf ein Objekt HttpPostedFile weiterhin verfügbar, aber einige der Funktionen von der HttpPostedFile steht jetzt systemintern mit dem FileUpload-Steuerelement. Z. B. speichern eine hochgeladene Datei in ASP.NET 1.x, rufen Sie die SaveAs-Methode für das Objekt HttpPostedFile. Verwenden das FileUpload-Steuerelement in ASP.NET 2.0, würden Sie SaveAs-Methode auf dem FileUpload-Steuerelement selbst aufrufen.
+Die PostedFile-Eigenschaft ist für den Zugriff auf ein Objekt HttpPostedFile weiterhin verfügbar, aber einige Funktionen des die HttpPostedFile ist jetzt systemintern mit dem "FileUpload"-Steuerelement verfügbar. Z. B. speichern eine hochgeladenen Datei in ASP.NET 1.x, rufen Sie die SaveAs-Methode für das HttpPostedFile-Objekt. Mithilfe des Steuerelements "FileUpload" in ASP.NET 2.0 würden Sie die SaveAs-Methode für das "FileUpload"-Steuerelement selbst aufrufen.
 
-Weitere signifikante Änderung in der 2.0-Verhalten (und wahrscheinlich die wichtigste Änderung) ist, dass es nicht mehr notwendig, eine gesamte hochgeladene Datei in den Arbeitsspeicher geladen, bevor Sie Sie speichern. In 1.x, jede Datei, die hochgeladen wurde vollständig in den Arbeitsspeicher vor geschriebenen gespeichert wird auf den Datenträger. Diese Architektur wird verhindert, dass das Hochladen großer Dateien.
+Eine weitere wichtige Änderung in der 2.0-Verhalten (und wahrscheinlich die wichtigste Neuerung) ist, dass es nicht mehr erforderlich, um eine gesamte hochgeladene Datei in den Arbeitsspeicher geladen werden, bevor die Änderungen gespeichert ist. In 1.x, wird jede Datei, die hochgeladen wurde vollständig in den Arbeitsspeicher vor der geschriebenen gespeichert auf dem Datenträger. Diese Architektur wird verhindert, dass das Hochladen großer Dateien.
 
-In ASP.NET 2.0 das RequestLengthDiskThreshold-Attribut des HttpRuntime-Elements können Sie konfigurieren, wie viele Kilobyte werden in einem Puffer im Arbeitsspeicher vor geschriebenen aufrechterhalten auf den Datenträger.
+In ASP.NET 2.0 das RequestLengthDiskThreshold-Attribut des HttpRuntime-Elements können Sie konfigurieren, wie viele Kilobyte befinden sich in einem Puffer im Arbeitsspeicher geschrieben werden, bevor Sie auf dem Datenträger.
 
-**WICHTIGE**: MSDN-Dokumentation (und Dokumentation an anderer Stelle) gibt an, dass dieser Wert in Bytes (nicht in Kilobyte) und der Standardwert 256 ist. Der Wert tatsächlich in Kilobyte angegeben wird, und der Standardwert ist 80. Da einen Standardwert von 80 KB, stellen wir sicher, dass der Puffer nicht auf einen großen Objektheap einrichten endet.
+**WICHTIGE**: MSDN-Dokumentation (und Dokumentation an anderer Stelle) gibt an, dass dieser Wert in Bytes (nicht "KB") ist standardmäßig 256 lautet. Der Wert tatsächlich in Kilobyte angegeben wird, und der Standardwert ist 80. Wenn Sie einen Standardwert von 80 KB, stellen wir sicher, dass der Puffer nicht auf den großen Objektheap erhalten wird.
 
 ## <a name="wizard-control"></a>Assistenten-Steuerelement
 
-Es ist häufig mit der ASP.NET-Entwickler Versuch zum Sammeln von Informationen in einer Reihe von "Seiten" Verwenden von Bereichen oder durch die Übertragung von einer Seite zu kämpfen auftreten. Mehr häufig als nicht der Vorgang ist eine frustrierend und zeitaufwändig. Das neue Assistenten Steuerelement löst die Probleme bei linear und nichtlineare Schritte in einem Assistentenschnittstelle, der Benutzer mit vertraut sind. Das Assistenten-Steuerelement zeigt als Eingabeformulare in eine Reihe von Schritten an Jeder Schritt ist eines bestimmten Typs von der StepType-Eigenschaft des Steuerelements angegeben. Die verfügbaren Schritttypen lauten folgendermaßen:
+Es ist recht häufig Probleme mit der beim Abrufen von Informationen in einer Reihe von "Seiten" Verwenden von Bereichen oder durch die Übertragung von Seite zu Seite ASP.NET-Entwickler auftreten. Meistens, die Unterfangen ist ein frustrierend und Zeit in Anspruch nehmen. Das neue Assistenten-Steuerelement löst die Probleme durch die Funktionen für lineare und nicht linearen Schritte in eine Assistentenschnittstelle, der Benutzer mit vertraut sind. Die Assistenten-Steuerelement bietet Eingabeformulare in eine Reihe von Schritten an. Jeder Schritt ist eines bestimmten Typs, die von der StepType-Eigenschaft des Steuerelements angegeben. Die verfügbaren Typen lauten wie folgt aus:
 
 | **Schritttyp** | **Erläuterung** |
 | --- | --- |
-| Auto | Der Assistent bestimmt automatisch den Typ des Schritts basierend auf seiner Position innerhalb der Hierarchie Schritt. |
+| Auto | Der Assistent bestimmt automatisch den Typ des Schritts auf Grundlage seiner Position innerhalb der Hierarchie Schritt. |
 | Starten | Der erste Schritt, häufig verwendet, um eine einführende Anweisung darzustellen. |
 | Schritt | Ein normaler Schritt. |
-| Fertig stellen | Der letzte Schritt in der Regel verwendet, um eine Schaltfläche zum Beenden des Assistenten zu präsentieren. |
-| Abgeschlossen | Stellt eine Nachricht, die Kommunikation erfolgreich oder fehlerhaft war. |
+| Fertig stellen | Der letzte Schritt, in der Regel verwendet, um eine Schaltfläche zum Beenden des Assistenten zu präsentieren. |
+| Abgeschlossen | Stellt eine Nachricht, die Kommunikation von Erfolg oder Fehler. |
 
 > [!NOTE]
-> Das Assistenten-Steuerelement der nachverfolgt Datenbankzustands Steuerelementzustand ASP.NET verwenden. Aus diesem Grund kann die EnableViewState-Eigenschaft auf "false", ohne alle Nachteil festgelegt werden.
+> Die Assistenten-Steuerelement verfolgt des seinen Zustand mithilfe von ASP.NET Steuerelementzustand. Aus diesem Grund kann die EnableViewState-Eigenschaft auf "false", ohne alle Nachteil festgelegt werden.
 
 
-In diesem Video wird eine exemplarische Vorgehensweise des Assistenten-Steuerelements.
+Dieses Video ist eine exemplarische Vorgehensweise für die Assistenten-Steuerelement.
 
 
 ![](server-controls/_static/image2.png)
@@ -218,43 +217,43 @@ In diesem Video wird eine exemplarische Vorgehensweise des Assistenten-Steuerele
 [Open Vollbild-Video](server-controls/_static/wizard1.wmv)
 
 
-## <a name="localize-control"></a>Lokalisieren von Steuerelement
+## <a name="localize-control"></a>Localize-Steuerelement
 
-Localize-Steuerelement ist ein Literal Steuerelement ähnlich. Allerdings Localize-Steuerelement verfügt über eine **Modus** , steuert das Rendern Markup, das dem Plan hinzugefügt wird. Die Mode-Eigenschaft unterstützt die folgenden Werte:
+Das Localize-Steuerelement ist ein literales Steuerelement ähnelt. Das Localize-Steuerelement hat jedoch einen **Modus** Eigenschaft, die steuert, wie das Markup, das hinzugefügt wird gerendert wird. Die Mode-Eigenschaft unterstützt die folgenden Werte:
 
 | **Modus** | **Erläuterung** |
 | --- | --- |
-| Transformation | Markup wird nach dem Protokoll des Browsers die Anforderung transformiert. |
-| PassThrough | Als Markup gerendert-ist. |
-| Codieren | Markup, das dem Steuerelement hinzugefügt wird mit HtmlEncode codiert. |
+| Transformation | Markup wird nach dem Protokoll des Browsers die Anforderung umgewandelt. |
+| PassThrough | Als Markup gerendert – ist. |
+| Codieren | Mit der HtmlEncode-Markup, das dem Steuerelement hinzugefügt wird codiert. |
 
-## <a name="multiview-and-view-controls"></a>MultiView und -Steuerelemente
+## <a name="multiview-and-view-controls"></a>MultiView und Anzeigesteuerelemente
 
-Das MultiView Steuerelement fungiert als Container für Steuerelemente, und das Steuerelement fungiert als Container für andere Steuerelemente (ähnlich wie ein Panel-Steuerelement). Jede Ansicht in einem MultiView-Steuerelement wird von einem einzelnen Steuerelement dargestellt. Beim erste Steuerelement Ansicht der MultiView ist 0, die zweite Ansicht 1, usw. Sie können durch Angabe des Steuerelements MultiView ActiveViewIndex wechseln.
+Das MultiView-Steuerelement fungiert als Container für Steuerelemente und das Steuerelement fungiert als Container für andere Steuerelemente (ähnlich einem Auswahlbereich-Steuerelement). Jede Sicht in ein MultiView-Steuerelement wird von einem einzelnen Steuerelement dargestellt. Die erste Ansicht-Steuerelement in der MultiView ist die Ansicht 0, die zweite Ansicht 1, usw. Sie können zwischen Sichten wechseln, durch Angabe der ActiveViewIndex von MultiView-Steuerelement.
 
-## <a name="substitution-control"></a>Substitution-Steuerelement
+## <a name="substitution-control"></a>Ersetzungssteuerelement
 
-Das Steuerelement für die Ersetzung wird in Verbindung mit der Zwischenspeicherung in ASP.NET verwendet. In Fällen, in denen Sie caching nutzen möchten, aber die Teile einer Seite, die für jede Anforderung (das heißt, Teile einer Seite, die von der Zwischenspeicherung ausgenommen sind) müssen aktualisiert werden, stehen Ihnen, bietet die Ersetzung-Komponente eine großartige Lösung. Keine Ausgabe selbst rendern nicht tatsächlich des Steuerelements. Stattdessen wird sie an eine Methode in serverseitigen Code gebunden. Wenn die Seite angefordert wird, die Methode wird aufgerufen, und das zurückgegebene Markup wird anstelle der Ersetzungssteuerelement gerendert.
+Das Steuerelement für die Ersetzung wird in Verbindung mit der Zwischenspeicherung in ASP.NET verwendet. In Fällen, in denen Sie Zwischenspeichern nutzen möchten, aber Sie Teile einer Seite, die bei jeder Anforderung (das heißt, Teile einer Seite, die von der Zwischenspeicherung ausgenommen sind) müssen aktualisiert werden, haben, enthält die Ersetzung-Komponente eine hervorragende Lösung. Das Steuerelement rendern nicht tatsächlich keine Ausgabe selbst. Stattdessen ist es für eine Methode im serverseitigen Code gebunden. Wenn die Seite angefordert wird, wird die Methode wird aufgerufen, und das zurückgegebene Markup wird anstelle der Ersetzung-Steuerelements gerendert.
 
-Die Methode, die an die das Ersatz-Steuerelement gebunden ist wird angegeben, über die **MethodName** Eigenschaft. Diese Methode muss die folgenden Kriterien erfüllen:
+Die Methode, die an die das Ersatz-Steuerelement gebunden ist angegeben ist, über die **MethodName** Eigenschaft. Diese Methode muss die folgenden Kriterien erfüllen:
 
-- Es muss eine statische (freigegebene in VB) Methode.
-- Er akzeptiert einen Parameter des Typs HttpContext.
-- Es gibt eine Zeichenfolge, die das Markup, das das Steuerelement auf der Seite "ersetzt werden soll.
+- Es muss eine statische (shared in VB) Methode sein.
+- Es akzeptiert einen Parameter vom Typ "HttpContext".
+- Es gibt eine Zeichenfolge, die das Markup, das das Steuerelement auf der Seite ersetzen soll.
 
-Das Ersatz-Steuerelement besitzt nicht die Berechtigung zum Ändern von jedem anderen Steuerelement auf der Seite, aber sie verfügt über Zugriff auf die aktuelle HttpContext über seine Parameter.
+Das Steuerelement für die Ersetzung besitzt nicht die Berechtigung zum Ändern anderer Steuerelemente auf der Seite, aber er besitzt Zugriff auf den aktuellen HttpContext über als Parameter.
 
-## <a name="gridview-control"></a>GridView-Steuerelements
+## <a name="gridview-control"></a>GridView-Steuerelement
 
-GridView-Steuerelements ist der Ersatz für das DataGrid-Steuerelement. Dieses Steuerelement wird in einem Modul später ausführlicher erläutert.
+Das GridView-Steuerelement ist der Ersatz für das DataGrid-Steuerelement. Dieses Steuerelement wird in einem Modul später ausführlicher behandelt werden.
 
 ## <a name="detailsview-control"></a>DetailsView-Steuerelement
 
-DetailsView-Steuerelement können Sie auf die Anzeige eines einzelnen Datensatzes aus einer Datenquelle und zu bearbeiten oder zu löschen. Es wird in einem Modul später ausführlicher behandelt.
+DetailsView-Steuerelement können Sie einen einzelnen Datensatz aus einer Datenquelle anzeigen und bearbeiten oder löschen. Es wird in einem Modul später ausführlicher behandelt.
 
 ## <a name="formview-control"></a>FormView-Steuerelement
 
-Die FormView-Steuerelement wird verwendet, um einen einzelnen Datensatz aus einer Datenquelle in einer konfigurierbaren Oberfläche anzuzeigen. Es wird in einem Modul später ausführlicher behandelt.
+Das FormView-Steuerelement wird zum Anzeigen eines einzelnen Datensatzes aus einer Datenquelle in einer konfigurierbaren-Schnittstelle. Es wird in einem Modul später ausführlicher behandelt.
 
 ## <a name="accessdatasource-control"></a>AccessDataSource-Steuerelement
 
@@ -262,56 +261,56 @@ AccessDataSource-Steuerelement wird verwendet, um Daten zu binden eine Access-Da
 
 ## <a name="objectdatasource-control"></a>ObjectDataSource-Steuerelement
 
-Das ObjectDataSource-Steuerelement wird verwendet, eine drei-Ebenen-Architektur unterstützt, sodass Steuerelemente Daten-gebunden werden können, um ein Geschäftsobjekt der mittleren Ebene im Gegensatz zu einem Modell mit zwei Ebenen, in denen Steuerelemente direkt an die Datenquelle gebunden. Sie wird in einem Modul später ausführlicher besprochen.
+Das ObjectDataSource-Steuerelement wird verwendet, um eine Architektur mit drei Ebenen zu unterstützen, sodass Steuerelemente Daten-gebunden werden können, um ein Geschäftsobjekt der mittleren Ebene im Gegensatz zu einem Modell mit zwei Ebenen, in denen Steuerelemente direkt an die Datenquelle gebunden. Sie werden in einem Modul weiter unten ausführlicher erläutert.
 
 ## <a name="xmldatasource-control"></a>XmlDataSource-Steuerelement
 
-XmlDataSource-Steuerelement wird zur Datenbindung an eine XML-Datenquelle verwendet. Es wird in einem Modul später ausführlicher behandelt.
+XmlDataSource-Steuerelement wird für die Datenbindung an eine XML-Datenquelle verwendet. Es wird in einem Modul später ausführlicher behandelt.
 
 ## <a name="sitemapdatasource-control"></a>SiteMapDataSource-Steuerelement
 
-Die Datenbindung für die Website Navigationssteuerelemente basierend auf einer Siteübersicht des SiteMapDataSource gesteuert. Sie wird in einem Modul später ausführlicher besprochen.
+Das Steuerelement SiteMapDataSource bietet es sich um die Datenbindung für Website-Navigationssteuerelemente, die basierend auf einer Siteübersicht. Sie werden in einem Modul weiter unten ausführlicher erläutert.
 
-## <a name="sitemappath-control"></a>SiteMapPath Control
+## <a name="sitemappath-control"></a>SiteMapPath-Steuerelement
 
-Das SiteMapPath-Steuerelement zeigt eine Reihe von Navigationslinks gemeinhin als Breadcrumbs bezeichnet. Es wird in einem Modul später ausführlicher behandelt.
+Das Steuerelement SiteMapPath zeigt eine Reihe von Navigationslinks, die gemeinhin als der Breadcrumb-Leiste. Es wird in einem Modul später ausführlicher behandelt.
 
 ## <a name="menu-control"></a>Menu-Steuerelement
 
-Das Menüsteuerelement Zeigt dynamische Menüs mit DHTML-Codes angezeigt. Es wird in einem Modul später ausführlicher behandelt.
+Das Steuerelement zeigt dynamische Menüs, die mithilfe von DHTML an. Es wird in einem Modul später ausführlicher behandelt.
 
 ## <a name="treeview-control"></a>TreeView-Steuerelement
 
-TreeView-Steuerelement wird verwendet, um eine hierarchische Ansicht der Daten anzuzeigen. Es wird in einem Modul später ausführlicher behandelt.
+Das TreeView-Steuerelement wird verwendet, um eine hierarchische Ansicht der Daten anzuzeigen. Es wird in einem Modul später ausführlicher behandelt.
 
-## <a name="login-control"></a>Steuerelement für die Anmeldung
+## <a name="login-control"></a>Login-Steuerelement
 
-Das Steuerelement für die Anmeldung stellt für einen Mechanismus zum Anmelden an einer Websites bereit. Es wird in einem Modul später ausführlicher behandelt.
+Die Login-Steuerelement stellt für einen Mechanismus zum Anmelden an einer Websites bereit. Es wird in einem Modul später ausführlicher behandelt.
 
 ## <a name="loginview-control"></a>LoginView-Steuerelement
 
-LoginView-Steuerelement ermöglicht die Anzeige von Vorlagen basierend auf den Anmeldestatus eines Benutzers. Es wird in einem Modul später ausführlicher behandelt.
+Das LoginView-Steuerelement ermöglicht die Anzeige von unterschiedliche Vorlagen, die basierend auf den Anmeldestatus eines Benutzers. Es wird in einem Modul später ausführlicher behandelt.
 
 ## <a name="passwordrecovery-control"></a>PasswordRecovery-Steuerelement
 
-Das PasswordRecovery-Steuerelement ist vergessene Kennwörter abrufen von Benutzern einer ASP.NET-Anwendung verwendet. Es wird in einem Modul später ausführlicher behandelt.
+Das Steuerelement PasswordRecovery wird vergessene Kennwörter abrufen, die Benutzer von einer ASP.NET-Anwendung verwendet. Es wird in einem Modul später ausführlicher behandelt.
 
 ## <a name="loginstatus"></a>LoginStatus
 
-Das LoginStatus-Steuerelement zeigt Anmeldestatus eines Benutzers. Es wird in einem Modul später ausführlicher behandelt.
+Das LoginStatus-Steuerelement zeigt den Status eines Benutzers Anmeldung. Es wird in einem Modul später ausführlicher behandelt.
 
 ## <a name="loginname"></a>LoginName
 
-Die LoginName-Steuerelement zeigt den Benutzernamen von Benutzern nach einer ASP.NET-Anwendung angemeldet wird. Es wird in einem Modul später ausführlicher behandelt.
+Das LoginName-Steuerelement zeigt den Benutzernamen von Benutzern nach der Anmeldung bei einer ASP.NET-Anwendung. Es wird in einem Modul später ausführlicher behandelt.
 
 ## <a name="createuserwizard"></a>CreateUserWizard
 
-Die CreateUserWizard ist eine konfigurierbare-Assistent die Benutzer die Berechtigung zum Erstellen einer ASP.NET Mitgliedskonto für die Verwendung in einer ASP.NET-Anwendung gewährt. Es wird in einem Modul später ausführlicher behandelt.
+Die CreateUserWizard ist ein Assistent konfiguriert die Benutzern die Möglichkeit zum Erstellen eines ASP.NET Membership-Kontos zur Verwendung in einer ASP.NET-Anwendung bietet. Es wird in einem Modul später ausführlicher behandelt.
 
 ## <a name="changepassword"></a>ChangePassword
 
-Das Steuerelement ChangePassword ermöglicht Benutzern das Ändern seines Kennworts für eine ASP.NET-Anwendung. Es wird in einem Modul später ausführlicher behandelt.
+ChangePassword-Steuerelement ermöglicht das Ändern seines Kennworts für eine ASP.NET-Anwendung. Es wird in einem Modul später ausführlicher behandelt.
 
 ## <a name="various-webparts"></a>Verschiedene WebParts
 
-Im Lieferumfang von ASP.NET 2.0 sind verschiedene Webparts. Diese werden in einer späteren Modul ausführlich beschrieben.
+Im Lieferumfang von ASP.NET 2.0 sind verschiedene Webparts. Diese werden in einem Modul weiter unten ausführlich behandelt.

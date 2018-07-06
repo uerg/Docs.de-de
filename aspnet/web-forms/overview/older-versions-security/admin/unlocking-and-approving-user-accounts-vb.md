@@ -1,219 +1,218 @@
 ---
 uid: web-forms/overview/older-versions-security/admin/unlocking-and-approving-user-accounts-vb
-title: Entsperren und Genehmigen von Benutzerkonten (VB) | Microsoft Docs
+title: Entsperren und Genehmigen von Benutzerkonten (VB) | Microsoft-Dokumentation
 author: rick-anderson
-description: In diesem Lernprogramm wird gezeigt, wie zum Erstellen einer Webseite für Administratoren zur Verwaltung des Benutzers gesperrt, und Status genehmigt. Wir sehen auch neue Benutzer o genehmigen...
+description: In diesem Tutorial wird gezeigt, wie eine Webseite für Administratoren zur Verwaltung der Benutzer gesperrt, und Status genehmigt. Wir sehen auch o für neue Benutzer genehmigen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2008
 ms.topic: article
 ms.assetid: 041854a5-ea8c-4de0-82f1-121ba6cb2893
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/unlocking-and-approving-user-accounts-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 977ed9d1e68e635eadd7aa8339670f5a5d209a7b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
-ms.translationtype: MT
+ms.openlocfilehash: 64d1f465eb96863478facc54dc6734b0f903a143
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30891853"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37384393"
 ---
 <a name="unlocking-and-approving-user-accounts-vb"></a>Entsperren und Genehmigen von Benutzerkonten (VB)
 ====================
 durch [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Herunterladen von Code](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/VB.14.zip) oder [PDF herunterladen](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/aspnet_tutorial14_UnlockAndApprove_vb.pdf)
+[Code herunterladen](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/VB.14.zip) oder [PDF-Datei herunterladen](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/aspnet_tutorial14_UnlockAndApprove_vb.pdf)
 
-> In diesem Lernprogramm wird gezeigt, wie zum Erstellen einer Webseite für Administratoren zur Verwaltung des Benutzers gesperrt, und Status genehmigt. Wir sehen auch neue Benutzer zu genehmigen, nachdem sie ihre e-Mail-Adresse überprüft haben.
+> In diesem Tutorial wird gezeigt, wie eine Webseite für Administratoren zur Verwaltung der Benutzer gesperrt, und Status genehmigt. Wir sehen auch die neue Benutzer genehmigen wird nur verwendet werden, nachdem sie ihre e-Mail-Adresse überprüft haben.
 
 
 ## <a name="introduction"></a>Einführung
 
-Zusammen mit einem Benutzernamen, Kennwort und eine e-Mail, hat jedes Benutzerkonto zwei Statusfelder, die vorgeben, ob der Benutzer bei der Website anmelden kann: gesperrt und genehmigt. Ein Benutzer wird automatisch gesperrt, wenn sie ungültigen Anmeldeinformationen angeben (die Standardeinstellungen ausgesperrt ein Benutzers nach 5 ungültigen Anmeldeversuchen innerhalb von 10 Minuten) eine angegebene Anzahl von Malen innerhalb einer angegebenen Anzahl von Minuten. Der Status "genehmigt" ist nützlich in Szenarien, in denen eine Aktion Zeitspanne für ein neuer Benutzer der Website anmelden kann. Benutzer müssen möglicherweise zuerst Überprüfen ihrer e-Mail-Adresse oder von einem Administrator genehmigt werden, bevor er anmelden können.
+Zusammen mit einem Benutzernamen, Kennwort und e-Mail-Adresse, enthält jedes Benutzerkonto zwei Statusfelder, die darüber entscheiden, ob der Benutzer an der Website anmelden kann: gesperrt und genehmigt. Ein Benutzer wird automatisch gesperrt, wenn sie ungültige Anmeldeinformationen für eine angegebene Anzahl von Malen innerhalb einer angegebenen Anzahl von Minuten bereitstellen (die Standardeinstellungen ein Benutzers Sperre nach 5 ungültigen Anmeldeversuchen innerhalb von 10 Minuten). Der Status "genehmigt" ist nützlich in Szenarien, in dem eine Aktion anzeigen, bevor ein neuer Benutzer der Website anmelden kann. Beispielsweise kann ein Benutzer müssen zuerst überprüfen ihre e-Mail-Adresse oder von einem Administrator genehmigt werden, bevor Sie anmelden können.
 
-Da eine gesperrte oder nicht genehmigte Benutzer anmelden kann nicht, ist es nur natürlichen weiß, wie die von diesen Statuswerten zurückgesetzt werden können. ASP.NET enthält keine integrierten Funktionen oder Websteuerelemente zum Verwalten von Benutzern gesperrt und Statusangaben, teilweise genehmigt, da diese Entscheidungen auf Basis von Standorten verarbeitet werden müssen. Einige Websites können alle neuen Benutzerkonten (das Standardverhalten) automatisch genehmigt werden. Andere besitzen von einem Administrator neue Konten zu genehmigen oder Benutzer nicht genehmigt, bis sie einen Link, um die e-Mail-Adresse bereitgestellt, wenn sie sich registriert gesendet besuchen. Ebenso einige Websites können Benutzer sperren, bis ihr Status von einem Administrator zurückgesetzt, während andere Standorte eine e-Mail an die Sperre auch Benutzer mit einer URL senden sie um ihr Konto zu entsperren besuchen können.
+Da ein gesperrter oder nicht genehmigte Benutzer nicht anmelden, ist es nur natürlich, Fragen Sie sich, wie diesen Status zurückgesetzt werden können. ASP.NET umfasst keine keine integrierte Funktionalität oder Web-Steuerelemente für die Verwaltung der Benutzer gesperrt, und Status, teilweise genehmigt, da diese Entscheidungen auf Grundlage von Standorten behandelt werden müssen. Einige Websites möglicherweise automatisch genehmigen Sie alle neuen Benutzerkonten (das Standardverhalten). Andere müssen ein Administrator genehmigen Sie neue Konten oder Benutzer nicht genehmigt, bis sie finden Sie auf einen Link, um die e-Mail-Adresse bereitgestellt, wenn sie sich registriert gesendet. Ebenso einige Websites können Benutzer sperren, bis ein Administrator ihren Status zurückgesetzt, während andere Standorte eine e-Mail an die Sperre auch Benutzer mit einer URL senden sie zum Entsperren ihres Kontos besuchen können.
 
-In diesem Lernprogramm wird gezeigt, wie zum Erstellen einer Webseite für Administratoren zur Verwaltung des Benutzers gesperrt, und Status genehmigt. Wir sehen auch neue Benutzer zu genehmigen, nachdem sie ihre e-Mail-Adresse überprüft haben.
+In diesem Tutorial wird gezeigt, wie eine Webseite für Administratoren zur Verwaltung der Benutzer gesperrt, und Status genehmigt. Wir sehen auch die neue Benutzer genehmigen wird nur verwendet werden, nachdem sie ihre e-Mail-Adresse überprüft haben.
 
 ## <a name="step-1-managing-users-locked-out-and-approved-statuses"></a>Schritt 1: Verwalten von Benutzern gesperrt, und Status genehmigt
 
-In der <a id="Tutorial12"> </a> [ *erstellen eine Schnittstelle, wählen Sie ein Benutzerkonto an, über viele* ](building-an-interface-to-select-one-user-account-from-many-vb.md) es erstellt eine Seite, die jedem Benutzerkonto in einem ausgelagerten aufgeführten Lernprogramm gefiltert GridView. Die Raster werden die Namen des Benutzers und e-Mail-, deren Status genehmigte und gesperrt, ob sie zurzeit online sind und Kommentare zu dem Benutzer aufgeführt. Zum Verwalten von Benutzern genehmigt und gesperrt, Status, wir können dieses Raster bearbeitet werden. Um einen Benutzer Status "genehmigt" zu ändern, würde der Administrator zunächst suchen Sie das Benutzerkonto und bearbeiten Sie dann die entsprechende GridView Zeile aus, aktivieren oder deaktivieren das Kontrollkästchen genehmigte. Alternativ kann es der genehmigten und gesperrten Status über eine separate ASP.NET-Seite verwalten.
+In der <a id="Tutorial12"> </a> [ *erstellen eine Schnittstelle zum Auswählen eines Benutzerkontos aus vielen* ](building-an-interface-to-select-one-user-account-from-many-vb.md) GridView gefiltert, Tutorial, die wir erstellt eine Seite, die jedem Benutzerkonto in einem ausgelagerten, aufgeführt. Im Raster sind die Namen des Benutzers und e-Mail-Adresse, deren Status genehmigt und gesperrt, gibt an, ob sie derzeit online sind und alle Kommentare über den Benutzer aufgeführt. Zum Verwalten von Benutzern genehmigt und Status werden gesperrt, wir konnten dieses Raster bearbeitet werden. Um den Status "genehmigt" (eines Benutzers zu ändern, würde der Administrator zuerst suchen Sie das Benutzerkonto und bearbeiten Sie dann die entsprechende GridView-Zeile aus, aktivieren oder deaktivieren das Kontrollkästchen genehmigte. Alternativ können wir der genehmigten und gesperrt Status über eine separate ASP.NET-Seite verwalten.
 
-Für dieses Lernprogramm nutzen wir zwei ASP.NET-Seiten: `ManageUsers.aspx` und `UserInformation.aspx`. Der Grundgedanke besteht, die `ManageUsers.aspx` Listet die Benutzerkonten im System, während `UserInformation.aspx` ermöglicht dem Administrator der genehmigten und gesperrten Status für einen bestimmten Benutzer zu verwalten. Erste Order Of Geschäftsverkehr wird erweitern, die GridView in `ManageUsers.aspx` um eine HyperLinkField einzuschließen, die als eine Spalte von Links gerendert wird. Jeder Link auf Being `UserInformation.aspx?user=UserName`, wobei *Benutzername* ist der Name des Benutzers zu bearbeiten.
+In diesem Tutorial verwenden wir zwei ASP.NET-Seiten: `ManageUsers.aspx` und `UserInformation.aspx`. Die Idee dabei ist, die `ManageUsers.aspx` Listet die Benutzerkonten im System, während `UserInformation.aspx` ermöglicht dem Administrator der genehmigten und gesperrt Status für einen bestimmten Benutzer zu verwalten. Unsere erste Tagesordnung ist zum Verbessern der GridView in `ManageUsers.aspx` sollen eine HyperLinkField, das als eine Spalte von Links gerendert wird. Sollten auf jeden Link, um zu zeigen `UserInformation.aspx?user=UserName`, wobei *Benutzername* ist der Name des Benutzers zu bearbeiten.
 
 > [!NOTE]
-> Wenn Sie den Code heruntergeladen haben die <a id="Tutorial13"> </a> [ *Recovering und Ändern von Kennwörtern* ](recovering-and-changing-passwords-vb.md) Lernprogramm Ihnen möglicherweise aufgefallen, die die `ManageUsers.aspx` Seite enthält bereits eine Reihe von " Verwalten von"Links und die `UserInformation.aspx` Seite stellt eine Schnittstelle für das Kennwort des ausgewählten Benutzers ändern. Ich möchte nicht replizieren diese Funktion in der Code in diesem Lernprogramm zugeordnet, da der Vorgang erfolgreich war, von der Mitgliedschaft-API zu umgehen und direkt mit der SQL Server-Datenbank so ändern Sie das Kennwort eines Benutzers ausgeführt. In diesem Lernprogramm beginnt von Grund auf neu, mit der `UserInformation.aspx` Seite.
+> Wenn Sie den Code für heruntergeladen haben die <a id="Tutorial13"> </a> [ *wiederherstellen und Ändern von Kennwörtern* ](recovering-and-changing-passwords-vb.md) Tutorial haben Sie vielleicht bemerkt, die die `ManageUsers.aspx` Seite enthält bereits einen Satz von " Verwalten von"Links und die `UserInformation.aspx` Seite stellt eine Schnittstelle bereit, für das Kennwort des ausgewählten Benutzers ändern. Ich entschied mich nicht um diese Funktionalität in den Code in diesem Tutorial verknüpft ist, da es hat funktioniert durch umgehen der Membership-API und den Betrieb von direkt mit der SQL Server-Datenbank so ändern Sie das Kennwort eines Benutzers zu replizieren. Dieses Tutorial beginnt von Grund auf neu, mit der `UserInformation.aspx` Seite.
 
 
 ### <a name="adding-manage-links-to-theuseraccountsgridview"></a>Hinzufügen von Links zu "verwalten" die`UserAccounts`GridView
 
-Öffnen der `ManageUsers.aspx` Seite, und fügen Sie eine HyperLinkField auf die `UserAccounts` GridView. Legen Sie die HyperLinkField `Text` -Eigenschaft auf "Verwalten" und die zugehörige `DataNavigateUrlFields` und `DataNavigateUrlFormatString` Eigenschaften `UserName` und "UserInformation.aspx?user={0}", bzw. Diese Einstellungen der HyperLinkField so konfigurieren, dass alle der folgenden Hyperlinks Option wird der Text "Manage", wobei jedoch jeder Link, in der entsprechenden weiterleitet *Benutzername* Wert in die Abfragezeichenfolge.
+Öffnen der `ManageUsers.aspx` Seite, und fügen Sie eine HyperLinkField auf die `UserAccounts` GridView. Legen Sie die HyperLinkField des `Text` Eigenschaft auf "Verwalten" und die zugehörige `DataNavigateUrlFields` und `DataNavigateUrlFormatString` Eigenschaften `UserName` und "UserInformation.aspx?user={0}" bzw. Diese Einstellungen die HyperLinkField so konfigurieren, dass alle der Links anzuzeigen, dass des Texts "Verwalten", aber jeder Link in den entsprechenden übergibt *Benutzername* Wert in der Abfragezeichenfolge.
 
-Nehmen Sie nach dem Hinzufügen der HyperLinkField an die GridView, einen Moment Zeit zum Anzeigen der `ManageUsers.aspx` Seite über einen Browser. Wie in Abbildung 1 gezeigt, enthält jede Zeile GridView nun einen Link "Verwalten". Der Link "Verwalten" für Bruce verweist auf `UserInformation.aspx?user=Bruce`, während auf der Link "Verwalten" für Dave zeigt `UserInformation.aspx?user=Dave`.
+Nehmen Sie nach dem Hinzufügen der HyperLinkField an die GridView, einen Moment Zeit, an die `ManageUsers.aspx` Seite über einen Browser. Wie in Abbildung 1 gezeigt, enthält jede GridView-Zeile jetzt einen Link "Verwalten" aus. Der Link "Verwalten" für Bruce verweist auf `UserInformation.aspx?user=Bruce`, während auf der Link "Verwalten" Dave zeigt `UserInformation.aspx?user=Dave`.
 
 
 [![Fügt der HyperLinkField ein](unlocking-and-approving-user-accounts-vb/_static/image2.png)](unlocking-and-approving-user-accounts-vb/_static/image1.png)
 
-**Abbildung 1**: die HyperLinkField Fügt einen Link "Verwalten" für jedes Benutzerkonto ([klicken Sie hier, um das Bild in voller Größe angezeigt](unlocking-and-approving-user-accounts-vb/_static/image3.png))
+**Abbildung 1**: die HyperLinkField Fügt einen Link "Verwalten" für jedes Benutzerkonto ([klicken Sie, um das Bild in voller Größe anzeigen](unlocking-and-approving-user-accounts-vb/_static/image3.png))
 
 
-Wir erstellen der Benutzeroberfläche und code für die `UserInformation.aspx` auf der Seite einen Moment Zeit, doch zunächst sehen wir reden über so ändern Sie einen Benutzer programmgesteuert gesperrt und Status genehmigt. Die [ `MembershipUser` Klasse](https://msdn.microsoft.com/library/system.web.security.membershipuser.aspx) hat [ `IsLockedOut` ](https://msdn.microsoft.com/library/system.web.security.membershipuser.islockedout.aspx) und [ `IsApproved` Eigenschaften](https://msdn.microsoft.com/library/system.web.security.membershipuser.isapproved.aspx). Die `IsLockedOut` Eigenschaft ist schreibgeschützt. Es gibt keinen Mechanismus zum programmgesteuert zu sperren, bis ein Benutzer; Verwenden Sie zum Entsperren eines Benutzers die `MembershipUser` Klasse [ `UnlockUser` Methode](https://msdn.microsoft.com/library/system.web.security.membershipuser.unlockuser.aspx). Die `IsApproved` Eigenschaft ist lesbar und schreibbar. Zum Speichern von Änderungen an dieser Eigenschaft müssen wir rufen die `Membership` Klasse [ `UpdateUser` Methode](https://msdn.microsoft.com/library/system.web.security.membership.updateuser.aspx), und übergeben Sie das geänderte `MembershipUser` Objekt.
+Erstellen Sie die Benutzeroberfläche und code für die `UserInformation.aspx` auf der Seite einen Moment, aber zunächst sehen wir reden über programmgesteuert einen Benutzer ändern gesperrt, und Status genehmigt. Die [ `MembershipUser` Klasse](https://msdn.microsoft.com/library/system.web.security.membershipuser.aspx) hat [ `IsLockedOut` ](https://msdn.microsoft.com/library/system.web.security.membershipuser.islockedout.aspx) und [ `IsApproved` Eigenschaften](https://msdn.microsoft.com/library/system.web.security.membershipuser.isapproved.aspx). Die `IsLockedOut` Eigenschaft ist schreibgeschützt. Es gibt keinen Mechanismus, um programmgesteuert zu sperren, bis ein Benutzer ein. Verwenden Sie zum Entsperren eines Benutzers die `MembershipUser` Klasse [ `UnlockUser` Methode](https://msdn.microsoft.com/library/system.web.security.membershipuser.unlockuser.aspx). Die `IsApproved` -Eigenschaft ist lesbar und schreibbar. Um Änderungen an dieser Eigenschaft zu speichern, müssen wir rufen die `Membership` Klasse [ `UpdateUser` Methode](https://msdn.microsoft.com/library/system.web.security.membership.updateuser.aspx), und übergeben Sie das geänderte `MembershipUser` Objekt.
 
-Da die `IsApproved` Eigenschaft lesbar und beschreibbar ist, ein CheckBox-Steuerelement ist wahrscheinlich die beste Element der Benutzeroberfläche für das Konfigurieren dieser Eigenschaft. Allerdings ein Kontrollkästchen funktionieren nicht bei der `IsLockedOut` Eigenschaft, da ein Administrator ein Benutzer gesperrt werden kann, kann sie nur einen Benutzer freigeben. Eine geeignete Benutzeroberfläche für die `IsLockedOut` Eigenschaft ist eine Schaltfläche, die beim Klicken auf Entsperren Sie das Benutzerkonto ein. Diese Schaltfläche sollte nur aktiviert werden, wenn der Benutzer gesperrt ist.
+Da die `IsApproved` Eigenschaft lesbar und schreibbar, ein CheckBox-Steuerelement wahrscheinlich beste Element der Benutzeroberfläche zum Konfigurieren dieser Eigenschaft. Allerdings ein Kontrollkästchen funktionieren nicht für die `IsLockedOut` Eigenschaft, da ein Benutzer ein Administrator Sperren nicht möglich, kann sie nur einen Benutzer freigeben. Eine geeignete Benutzeroberfläche für die `IsLockedOut` -Eigenschaft ist eine Schaltfläche, entsperrt Sie beim Klicken auf das Benutzerkonto an. Diese Schaltfläche, sollte nur aktiviert werden, wenn der Benutzer gesperrt ist.
 
 ### <a name="creating-theuserinformationaspxpage"></a>Erstellen der`UserInformation.aspx`Seite
 
-Wir können jetzt in die Benutzeroberfläche implementieren `UserInformation.aspx`. Öffnen Sie die Seite, und fügen Sie die folgenden Web-Steuerelemente hinzu:
+Wir können nun zum Implementieren der Benutzeroberfläche in `UserInformation.aspx`. Öffnen Sie diese Seite, und fügen Sie die folgenden Web-Steuerelemente hinzu:
 
 - Ein Link zu steuern, die, wenn angeklickt, gibt den Administrator die `ManageUsers.aspx` Seite.
-- Ein Websteuerelement Bezeichnung für die Anzeige von den ausgewählten Benutzernamen an. Legen Sie diese Bezeichnung `ID` auf `UserNameLabel` und seine Texteigenschaft zu löschen.
-- Ein CheckBox-Steuerelement mit dem Namen `IsApproved`. Legen Sie dessen `AutoPostBack` Eigenschaft `True`.
-- Label-Steuerelement für die Anzeige des Benutzers des letzten gesperrt, bis Datum. Benennen Sie diese Bezeichnung `LastLockedOutDateLabel` und löschen, dessen `Text` Eigenschaft.
-- Eine Schaltfläche zum Entsperren des Benutzers. Nennen Sie diese Schaltfläche `UnlockUserButton` und legen Sie dessen `Text` Eigenschaft "Entsperren von Benutzer".
-- Label-Steuerelement zum Anzeigen von statusmeldungen, z. B. "Status" genehmigt "(der Benutzer aktualisiert wurde." Nennen Sie dieses Steuerelement `StatusMessage`deaktivieren, dessen `Text` Eigenschaft, und legen seine `CssClass` Eigenschaft `Important`. (Die `Important` CSS-Klasse definiert ist, der `Styles.css` Stylesheet-Datei den entsprechenden Text in einer Schriftart große, rot angezeigt.)
+- Ein Label-Websteuerelement für die Anzeige des ausgewählten Benutzers ein. Legen Sie diese Bezeichnung `ID` zu `UserNameLabel` und lösche die Text-Eigenschaft.
+- Ein Kontrollkästchen-Steuerelement, das mit dem Namen `IsApproved`. Legen Sie dessen `AutoPostBack` Eigenschaft `True`.
+- Ein Bezeichnungssteuerelement zum Anzeigen des Benutzers die zuletzt gesperrt, bis Datum. Benennen Sie diese Bezeichnung `LastLockedOutDateLabel` und lösche die `Text` Eigenschaft.
+- Eine Schaltfläche für das Entsperren des Benutzers. Benennen Sie diese Schaltfläche `UnlockUserButton` und legen Sie dessen `Text` Eigenschaft "Entsperren von Benutzer".
+- Ein Bezeichnungssteuerelement zum Anzeigen von statusmeldungen, z. B. "Status" genehmigt "(des Benutzers aktualisiert wurde." Nennen Sie dieses Steuerelement `StatusMessage`, deaktivieren Sie die `Text` -Eigenschaft, und legen dessen `CssClass` Eigenschaft `Important`. (Die `Important` CSS-Klasse wird definiert, der `Styles.css` Stylesheet-Datei den entsprechenden Text in einer großen, Rote Schrift angezeigt.)
 
-Nach dem Hinzufügen der folgenden Steuerelemente, sollte die Entwurfsansicht in Visual Studio ähnlich wie im Screenshot in Abbildung 2 aussehen.
+Nach dem Hinzufügen dieser Steuerelemente, sollte die Entwurfsansicht in Visual Studio ähnlich wie im Screenshot in Abbildung 2 aussehen.
 
 
 [![Erstellen der Benutzeroberfläche für UserInformation.aspx](unlocking-and-approving-user-accounts-vb/_static/image5.png)](unlocking-and-approving-user-accounts-vb/_static/image4.png)
 
-**Abbildung 2**: Erstellen der Benutzeroberfläche für `UserInformation.aspx` ([klicken Sie hier, um das Bild in voller Größe angezeigt](unlocking-and-approving-user-accounts-vb/_static/image6.png))
+**Abbildung 2**: Erstellen der Benutzeroberfläche für `UserInformation.aspx` ([klicken Sie, um das Bild in voller Größe anzeigen](unlocking-and-approving-user-accounts-vb/_static/image6.png))
 
 
-Mit der vollständigen Benutzeroberfläche unsere nächste Aufgabe besteht, Festlegen der `IsApproved` Kontrollkästchen und anderen Steuerelementen auf Basis des ausgewählten Benutzers Informationen. Erstellen Sie einen Ereignishandler für der Seite `Load` Ereignis und fügen Sie den folgenden Code hinzu:
+Mit der Benutzeroberfläche abgeschlossen ist, ist unser Nächstes Festlegen der `IsApproved` Kontrollkästchen und andere Steuerelemente basierend auf Informationen des ausgewählten Benutzers. Erstellen Sie einen Ereignishandler für die Seite `Load` Ereignis und fügen Sie den folgenden Code hinzu:
 
 [!code-vb[Main](unlocking-and-approving-user-accounts-vb/samples/sample1.vb)]
 
-Der obige Code wird gestartet, indem Sie sicherstellen, dass dies die ersten Besuch der Seite und keiner nachfolgenden Postbacks ist. Er liest dann den Benutzernamen durch Übergeben der `user` Querystring-Feld und ruft Informationen über das Benutzerkonto über die `Membership.GetUser(username)` Methode. Wenn kein Benutzername, über die Abfragezeichenfolge angegeben wurde oder wenn der angegebene Benutzer nicht gefunden werden kann, wird der Administrator gesendet, an die `ManageUsers.aspx` Seite.
+Der obige Code zunächst sicherstellen, dass diese ersten Besuch der Seite und nicht auf ein nachfolgendes Postback handelt. Es liest dann den Benutzernamen durch Übergeben der `user` Querystring-Feld und ruft Informationen über dieses Benutzerkonto über die `Membership.GetUser(username)` Methode. Wenn kein Benutzername wurde über die Abfragezeichenfolge bereitgestellt werden soll, oder wenn der angegebene Benutzer nicht gefunden werden konnte, erhält des Administrators an der `ManageUsers.aspx` Seite.
 
-Die `MembershipUser` des Objekts `UserName` Wert wird dann angezeigt, der `UserNameLabel` und `IsApproved` aktiviert ist auf der Grundlage der `IsApproved` Eigenschaftswert.
+Die `MembershipUser` des Objekts `UserName` Wert wird dann angezeigt, der `UserNameLabel` und `IsApproved` aktiviert ist basierend auf den `IsApproved` -Eigenschaftswert.
 
-Die `MembershipUser` des Objekts [ `LastLockoutDate` Eigenschaft](https://msdn.microsoft.com/library/system.web.security.membershipuser.lastlockoutdate.aspx) gibt eine `DateTime` Wert, der angibt, wenn der Benutzer zuletzt wurde gesperrt. Wenn der Benutzer nicht gesperrt wurde, hängt der zurückgegebene Wert den Mitgliedschaftsanbieter ab. Wenn ein neues Konto erstellt wird, die `SqlMembershipProvider` legt die `aspnet_Membership` tabellenspezifischen `LastLockoutDate` Feld `1754-01-01 12:00:00 AM`. Der obige Code zeigt eine leere Zeichenfolge in der `LastLockoutDateLabel` Wenn die `LastLockoutDate` -Eigenschaft tritt vor dem Jahr 2000 ist, andernfalls der Date-Teil der `LastLockoutDate` Eigenschaft wird in der Bezeichnung angezeigt. Die `UnlockUserButton`des `Enabled` Eigenschaft ist gesperrt, Status, was bedeutet, dass diese Schaltfläche nur aktiviert werden, wird Wenn der Benutzer gesperrt wird, für des Benutzers festgelegt.
+Die `MembershipUser` des Objekts [ `LastLockoutDate` Eigenschaft](https://msdn.microsoft.com/library/system.web.security.membershipuser.lastlockoutdate.aspx) gibt eine `DateTime` Wert, der angibt, wenn der Benutzer entsprechend seiner letzten gesperrt. Wenn der Benutzer nicht gesperrt wurde, hängt der zurückgegebene Wert den Mitgliedschaftsanbieter ab. Wenn ein neues Konto erstellt wird, die `SqlMembershipProvider` legt die `aspnet_Membership` tabellenspezifischen `LastLockoutDate` Feld `1754-01-01 12:00:00 AM`. Der obige Code zeigt eine leere Zeichenfolge in die `LastLockoutDateLabel` Wenn die `LastLockoutDate` wird vor dem Jahr 2000 ist, andernfalls die Date-Teil der `LastLockoutDate` Eigenschaft wird in der Bezeichnung angezeigt. Die `UnlockUserButton`des `Enabled` -Eigenschaftensatz auf des Benutzers gesperrt, Status, was bedeutet, dass diese Schaltfläche wird nur aktiviert werden, wenn der Benutzer gesperrt ist.
 
-Erkundet zum Testen der `UserInformation.aspx` Seite über einen Browser. Natürlich müssen Sie am start `ManageUsers.aspx` , und wählen Sie ein Benutzerkonto zu verwalten. Beim Eintreffen an `UserInformation.aspx`, beachten Sie, dass die `IsApproved` Kontrollkästchen ist nur aktiviert, wenn der Benutzer genehmigt wird. Wenn der Benutzer jemals gesperrt wurde, wird ihre letzte Datum gesperrt angezeigt. Die Schaltfläche "Benutzer entsperren" nur aktiviert, wenn der Benutzer aktuell gesperrt ist. Aktivieren oder Deaktivieren der `IsApproved` Kontrollkästchen oder durch Klicken auf die Schaltfläche "Benutzer entsperren" bewirkt, dass einen Postback, jedoch werden mit dem Benutzerkonto keine Änderungen vorgenommen, da wir noch, haben die Ereignishandler für diese Ereignisse erstellen.
+Testen in Ruhe die `UserInformation.aspx` Seite über einen Browser. Natürlich, dass gestartet `ManageUsers.aspx` , und wählen Sie ein Benutzerkonto verwalten. Beim Eintreffen `UserInformation.aspx`, beachten Sie, dass die `IsApproved` Kontrollkästchen ist nur aktiviert, wenn der Benutzer genehmigt wird. Wenn der Benutzer immer gesperrt wurde, wird ihrem letzten gesperrt, Datum angezeigt. Die Schaltfläche "Benutzer entsperren" nur aktiviert, wenn der Benutzer zurzeit gesperrt ist. Aktivieren oder Deaktivieren der `IsApproved` Kontrollkästchen oder indem Sie auf die Schaltfläche "Benutzer entsperren" bewirkt, dass einen Postback, aber keine Änderungen an das Benutzerkonto, das vorgenommen werden, da wir noch um haben Ereignishandler für diese Ereignisse erstellen.
 
-Zurück zu Visual Studio und Erstellen von Ereignishandlern für die `IsApproved` Kontrollkästchens `CheckedChanged` Ereignis und die `UnlockUser` Schaltfläche `Click` Ereignis. In der `CheckedChanged` Ereignishandler, d. h. Festlegen des Benutzers `IsApproved` Eigenschaft, um die `Checked` Eigenschaft des Kontrollkästchens und speichern Sie die Änderungen über einen Aufruf an `Membership.UpdateUser`. In der `Click` Ereignishandler, d. h. einfach Aufruf der `MembershipUser` des Objekts `UnlockUser` Methode. In beiden Ereignishandler anzeigen eine geeignete Nachricht in die `StatusMessage` Bezeichnung.
+Zurück zu Visual Studio, und Erstellen von Ereignishandlern für die `IsApproved` Kontrollkästchens `CheckedChanged` Ereignis und die `UnlockUser` Schaltfläche `Click` Ereignis. In der `CheckedChanged` Ereignishandler, Festlegen des Benutzers `IsApproved` Eigenschaft, um die `Checked` -Eigenschaft des Kontrollkästchens, und klicken Sie dann speichern Sie die Änderungen über einen Aufruf an `Membership.UpdateUser`. In der `Click` -Ereignishandler rufen einfach die `MembershipUser` des Objekts `UnlockUser` Methode. In beiden Ereignishandler, zeigen Sie eine entsprechende Meldung in die `StatusMessage` Bezeichnung.
 
 [!code-vb[Main](unlocking-and-approving-user-accounts-vb/samples/sample2.vb)]
 
 ### <a name="testing-theuserinformationaspxpage"></a>Testen der`UserInformation.aspx`Seite
 
-Rufen Sie die Seite mit diesen Ereignishandler vorhanden, und nicht genehmigte Benutzer. Wie in Abbildung 3 gezeigt, sehen Sie eine kurze, die auf der Seite zeigt an, dass des Benutzers Nachrichten `IsApproved` Eigenschaft wurde erfolgreich geändert.
+Bei diesen Ereignishandlern vorhanden, noch einmal auf die Seite und nicht genehmigte Benutzer. Wie in Abbildung 3 gezeigt wird, sollte eine kurze, die auf der Seite zeigt an, dass des Benutzers die Meldung `IsApproved` Eigenschaft wurde erfolgreich geändert.
 
 
-[![Chris wurde nicht genehmigt wurden.](unlocking-and-approving-user-accounts-vb/_static/image8.png)](unlocking-and-approving-user-accounts-vb/_static/image7.png)
+[![Chris hat nicht genehmigt wurde.](unlocking-and-approving-user-accounts-vb/_static/image8.png)](unlocking-and-approving-user-accounts-vb/_static/image7.png)
 
-**Abbildung 3**: Chris wurde der nicht genehmigten ([klicken Sie hier, um das Bild in voller Größe angezeigt](unlocking-and-approving-user-accounts-vb/_static/image9.png))
-
-
-Abmelden und versuchen Sie es als der Benutzer, dessen Konto anmelden, wurde als Nächstes einfach nicht genehmigt. Da der Benutzer nicht genehmigt wird, kann nicht bei der Anmeldung. Standardmäßig werden das Steuerelement für die Anmeldung dieselbe Nachricht angezeigt, wenn der Benutzer, müssen Sie unabhängig von der Ursache anmelden kann. Aber in der <a id="Tutorial6"> </a> [ *überprüfen Benutzer Anmeldeinformationen für die Mitgliedschaft Benutzerspeicher* ](../membership/validating-user-credentials-against-the-membership-user-store-vb.md) Lernprogramm erläutert, erweitern das Anmelde-Steuerelement, um eine besser geeignete Meldung anzeigen. Wie in Abbildung 4 gezeigt, wird Chris dargestellt, eine Meldung angezeigt, dass er sich anmelden kann, da sein Konto noch nicht genehmigt ist.
+**Abbildung 3**: Chris wurde nicht genehmigt ([klicken Sie, um das Bild in voller Größe anzeigen](unlocking-and-approving-user-accounts-vb/_static/image9.png))
 
 
-[![Torsten kann nicht da His Anmeldekonto ist nicht genehmigt](unlocking-and-approving-user-accounts-vb/_static/image11.png)](unlocking-and-approving-user-accounts-vb/_static/image10.png)
-
-**Abbildung 4**: Chris kann nicht da His Anmeldekonto ist der nicht genehmigten ([klicken Sie hier, um das Bild in voller Größe angezeigt](unlocking-and-approving-user-accounts-vb/_static/image12.png))
+Abmelden und versuchen Sie es, als der Benutzer, dessen Konto anmelden, wurde als Nächstes einfach nicht genehmigt. Da der Benutzer nicht genehmigt wird, kann nicht bei der Anmeldung. Standardmäßig zeigt das Login-Steuerelement dieselbe Nachricht, wenn der Benutzer, unabhängig von der Ursache für die Anmeldung kann nicht. Aber in der <a id="Tutorial6"> </a> [ *Überprüfen von Benutzer-Anmeldeinformationen für die Mitgliedschaft Benutzer Store* ](../membership/validating-user-credentials-against-the-membership-user-store-vb.md) Tutorial erläutert, auf die Verbesserung der Login-Steuerelement, um einen besser geeigneten Nachricht anzuzeigen. Wie in Abbildung 4 gezeigt, wird Chris eine Meldung darüber informiert, dass er anmelden kann nicht, da es sich bei seinem Konto noch nicht genehmigt wird angezeigt.
 
 
-Um die Sperre auch Funktionalität zu testen, versuchen Sie, eine genehmigte Benutzer angemeldet, aber verwenden ein falsches Kennwort. Wiederholen Sie diesen Prozess die erforderliche Anzahl an, wie oft, bis das Konto des Benutzers gesperrt wurde. Das Steuerelement für die Anmeldung wurde ebenfalls aktualisiert, um das Anzeigen einer benutzerdefiniertes Meldung beim Versuch, auf die von einem gesperrten Konto anzumelden. Sie wissen, dass ein Konto gesperrt wurde, nachdem Sie die folgende Meldung auf der Anmeldeseite bandbreitenvorlagen: "Ihr Konto wurde gesperrt, da zu viele ungültige Anmeldeversuche. Wenden Sie sich an den Administrator, um Ihr Konto entsperrt haben."
+[![Chris kann nicht da His Anmeldekonto ist nicht genehmigt](unlocking-and-approving-user-accounts-vb/_static/image11.png)](unlocking-and-approving-user-accounts-vb/_static/image10.png)
 
-Zurück zu den `ManageUsers.aspx` Seite, und klicken Sie auf den Link "verwalten" für den Benutzer gesperrt. Wie in Abbildung 5 gezeigt wird, sehen Sie einen Wert in der `LastLockedOutDateLabel` die Schaltfläche "Benutzer entsperren" aktiviert werden soll. Klicken Sie auf die Schaltfläche mit den Benutzer entsperren, um das Benutzerkonto zu entsperren. Nachdem Sie die Benutzer freigegeben haben, werden sie sich erneut anmelden.
+**Abbildung 4**: Chris kann nicht da His Anmeldekonto ist nicht genehmigt ([klicken Sie, um das Bild in voller Größe anzeigen](unlocking-and-approving-user-accounts-vb/_static/image12.png))
+
+
+Versuch der um die Sperre auch Funktionalität zu testen, melden Sie sich als eines genehmigten Benutzers, aber verwenden ein falsches Kennwort. Wiederholen Sie diesen Prozess die erforderlichen Anzahl von Wiederholungen, bis das Konto des Benutzers gesperrt wurde. Die Login-Steuerelement wurde ebenfalls aktualisiert, zum Anzeigen einer benutzerdefiniertes Meldung, wenn versucht wird, über ein gesperrtes Konto anmelden. Sie wissen, dass ein Konto gesperrt wurde, nachdem Sie gestartet haben die folgende Meldung auf der Anmeldeseite wird angezeigt: "Ihr Konto wurde gesperrt, da zu viele ungültige Anmeldeversuche. Wenden Sie sich an den Administrator, um Ihr Konto entsperrt hat."
+
+Wechseln Sie zurück zur der `ManageUsers.aspx` Seite, und klicken Sie auf den Link "verwalten" für den Benutzer gesperrt. Wie in Abbildung 5 gezeigt, sehen Sie einen Wert in der `LastLockedOutDateLabel` die Schaltfläche "Benutzer entsperren" aktiviert werden soll. Klicken Sie auf die Schaltfläche "Benutzer entsperren", um das Benutzerkonto zu entsperren. Nachdem Sie die Benutzer nicht entsperrt haben, werden sie sich erneut anmelden.
 
 
 [![Dave wurde aus dem System gebunden.](unlocking-and-approving-user-accounts-vb/_static/image14.png)](unlocking-and-approving-user-accounts-vb/_static/image13.png)
 
-**Abbildung 5**: winformsexampleupdates von Dave hat wurde gesperrt, des Systems ([klicken Sie hier, um das Bild in voller Größe angezeigt](unlocking-and-approving-user-accounts-vb/_static/image15.png))
+**Abbildung 5**: Dave hat wurde gesperrt, des Systems ([klicken Sie, um das Bild in voller Größe anzeigen](unlocking-and-approving-user-accounts-vb/_static/image15.png))
 
 
-## <a name="step-2-specifying-new-users-approved-status"></a>Schritt 2: Angeben von neuer Benutzers Status genehmigt
+## <a name="step-2-specifying-new-users-approved-status"></a>Schritt 2: Angeben von neuen Benutzer Status genehmigt
 
-Der Status "genehmigt" ist nützlich in Szenarien, in dem Sie eine Aktion ausgeführt werden, bevor ein neuer Benutzer kann sich anmelden und auf die benutzerspezifischen-Funktionen des Standorts. Beispielsweise können Sie eine private Website ausgeführt werden, in dem alle Seiten, mit Ausnahme der Seiten Anmeldung und Registrierung nur für authentifizierte Benutzer zugegriffen werden kann. Aber was geschieht, wenn Sie ein fremden Ihrer Website erreicht wird die Anmeldeseite und erstellt ein Konto? Um dies zu vermeiden, die Sie auf die Anmeldeseite verschieben konnte ein `Administration` Ordner und erfordern, dass ein Administrator jedes Konto manuell erstellen. Alternativ können Sie zulassen des Zugriffs auf Registrierung jedoch Zugriff auf die Website verhindert werden soll, bis der Administrator das Benutzerkonto bestätigt.
+Der Status "genehmigt" ist nützlich in Szenarien, in dem eine Aktion ausgeführt werden, bevor ein neuer Benutzer kann die Anmeldung und die benutzerdefinierte Funktionen der Website zugreifen sollen. Beispielsweise können Sie eine private Website ausgeführt werden, in dem alle Seiten, mit Ausnahme der Seiten Anmeldung und Registrierung nur für authentifizierte Benutzer zugegriffen werden kann. Aber was geschieht, wenn eine unbekannte Ihre Website erreicht wird von der Seite für die Registrierung und erstellt ein Konto? Um dies zu verhindern, die Sie auf der Seite für die Registrierung verschieben konnte ein `Administration` Ordner erforderlich, dass ein Administrator manuell jedes Konto erstellen. Alternativ könnten Sie für die Registrierung zulassen, während verbieten Zugriff auf die Website aus, bis der Administrator das Benutzerkonto bestätigt.
 
-Standardmäßig genehmigt Steuerelement CreateUserWizard neue Konten. Sie können dieses Verhalten mithilfe des Steuerelements konfigurieren [ `DisableCreatedUser` Eigenschaft](https://msdn.microsoft.com/en-gb/library/system.web.ui.webcontrols.createuserwizard.disablecreateduser.aspx). Legen Sie diese Eigenschaft auf `True` neue Benutzerkonten nicht genehmigen.
-
-> [!NOTE]
-> Standardmäßig protokolliert das Steuerelement CreateUserWizard automatisch auf das neue Benutzerkonto an. Dieses Verhalten wird durch des Steuerelements vorgegeben [ `LoginCreatedUser` Eigenschaft](https://msdn.microsoft.com/en-gb/library/system.web.ui.webcontrols.createuserwizard.logincreateduser.aspx). Da die Site nicht genehmigte Benutzer anmelden können beim `DisableCreatedUser` ist `True` das neue Benutzerkonto wird nicht in der Website, unabhängig vom Wert der protokolliert die `LoginCreatedUser` Eigenschaft.
-
-
-Wenn Sie neue Benutzerkonten mit programmgesteuert erstellen, werden die `Membership.CreateUser` -Methode zum Erstellen eines Benutzerkontos nicht genehmigte verwenden eine der Überladungen, die des neuen Benutzers akzeptieren `IsApproved` Eigenschaftswert als Eingabeparameter.
-
-## <a name="step-3-approving-users-by-verifying-their-email-address"></a>Schritt 3: Genehmigen von Benutzern durch Überprüfen der e-Mail-Adresse
-
-Viele Websites, die Benutzerkonten unterstützen neue Benutzer genehmigen, bis sie die e-Mail-Adresse, die sie überprüfen bei der Registrierung angegeben. Diese Überprüfung wird häufig verwendet, um Bots, Spammern und andere Ne'er-do-wells vereiteln erfordert eine eindeutige, bestätigte e-Mail-Adresse und einen zusätzlichen Schritt in den Registrierungsvorgang hinzugefügt. Mit diesem Modell Wenn ein neuer Benutzer registriert werden diese eine e-Mail-Nachricht gesendet, die einen Link zu einer Seite "Überprüfung" enthält. Besuchen Sie den Link hat der Benutzer sich als, dass sie die e-Mail-Adresse empfangen und daher, dass die e-Mail-Adresse, sofern gültig ist. Die Seite "Überprüfung" dient zum Genehmigen des Benutzers zur Verfügung. Dies kann vorkommen, automatisch zu genehmigen und jeder Benutzer, die auf dieser Seite erreicht oder erst, nachdem der Benutzer zusätzliche Informationen, wie z. B. bietet eine [CAPTCHA](http://en.wikipedia.org/wiki/Captcha).
-
-Um dieses Workflows zu berücksichtigen, müssen wir zunächst die Seite "Konto erstellen" zu aktualisieren, sodass neue Benutzer nicht genehmigt sind. Öffnen der `EnhancedCreateUserWizard.aspx` auf der Seite der `Membership` Ordner und Set-Steuerelement CreateUserWizard `DisableCreatedUser` Eigenschaft `True`.
-
-Als Nächstes müssen wir das CreateUserWizard-Steuerelement, um eine e-Mail an den neuen Benutzer mit Anweisungen zum Überprüfen von ihrem Konto senden zu konfigurieren. Insbesondere enthalten wir einen Link in der e-Mail, um die `Verification.aspx` Seite (der noch zu wir erstellen), und übergeben Sie des neuen Benutzers `UserId` über die Abfragezeichenfolge. Die `Verification.aspx` Seite für den angegebenen Benutzer zu suchen und markieren sie die genehmigt werden.
-
-### <a name="sending-a-verification-email-to-new-users"></a>Eine Überprüfung der E-Mail an neue Benutzer zu senden.
-
-Um eine e-Mail-Nachricht aus dem Steuerelement CreateUserWizard senden möchten, konfigurieren die `MailDefinition` Eigenschaft entsprechend. Wie in beschrieben die <a id="Tutorial13"> </a> [vorherigen Lernprogramm](recovering-and-changing-passwords-vb.md), die ChangePassword und PasswordRecovery Steuerelemente umfassen eine [ `MailDefinition` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.maildefinition.aspx) , funktioniert in gleicher Weise wie CreateUserWizard des Steuerelements.
+In der Standardeinstellung genehmigt Steuerelement CreateUserWizard neue Konten. Sie können konfigurieren, dass dieses Verhalten des Steuerelements mit [ `DisableCreatedUser` Eigenschaft](https://msdn.microsoft.com/en-gb/library/system.web.ui.webcontrols.createuserwizard.disablecreateduser.aspx). Legen Sie diese Eigenschaft auf `True` So genehmigen Sie neue Benutzerkonten nicht.
 
 > [!NOTE]
-> Verwenden der `MailDefinition` Eigenschaft müssen Sie die e-Mail-Übermittlung an pipelineoptionen `Web.config`. Weitere Informationen finden Sie unter [Senden von E-Mails in ASP.NET](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx).
+> Standardmäßig protokolliert das Steuerelement CreateUserWizard automatisch auf das neue Benutzerkonto. Dieses Verhalten hängt von des Steuerelements [ `LoginCreatedUser` Eigenschaft](https://msdn.microsoft.com/en-gb/library/system.web.ui.webcontrols.createuserwizard.logincreateduser.aspx). Da nicht genehmigte Benutzer der Website anmelden darf nicht bei `DisableCreatedUser` ist `True` das neue Benutzerkonto wird nicht protokolliert, auf der Website, unabhängig vom Wert von der `LoginCreatedUser` Eigenschaft.
 
 
-Starten, indem Sie die Erstellung einer neuen e-Mail-Vorlage, die mit dem Namen `CreateUserWizard.txt` in den `EmailTemplates` Ordner. Verwenden Sie den folgenden Text für die Vorlage an:
+Wenn Sie programmgesteuert über neue Benutzerkonten erstellen die `Membership.CreateUser` Methode zum Erstellen eines Benutzerkontos nicht genehmigte verwenden eine der Überladungen, die des neuen Benutzers akzeptieren `IsApproved` Eigenschaftswert als Eingabeparameter.
+
+## <a name="step-3-approving-users-by-verifying-their-email-address"></a>Schritt 3: Benutzer genehmigen, indem Sie ihre e-Mail-Adresse überprüfen
+
+Viele Websites, die die Benutzerkonten zu unterstützen sind neue Benutzer nicht genehmigt, bis sie die e-Mail-Adresse überprüft werden, die sie bereitgestellt werden, bei der Registrierung. Diese Überprüfung wird häufig verwendet, um Bots, Spammern und andere Ne'er-do-wells entgegenzuwirken, muss eine eindeutige, überprüften e-Mail-Adresse und einen zusätzlichen Schritt in den Registrierungsvorgang hinzugefügt. Bei diesem Modell Wenn ein neuer Benutzer registriert werden diese eine e-Mail-Nachricht gesendet, die einen Link zu einer Überprüfungsseite enthält. Besuchen Sie den Link hat sich der Benutzer herausgestellt, dass sie die e-Mail-Adresse empfangen, und daher, dass die e-Mail-bereitgestellte Adresse gültig ist. Die Seite "Überprüfung" ist verantwortlich für die Genehmigung des Benutzers. Dies kann vorkommen, automatisch zu genehmigen und jeder Benutzer, die auf dieser Seite erreicht oder, wenn der Benutzer die zusätzliche Informationen, wie z. B. gibt einen [CAPTCHA](http://en.wikipedia.org/wiki/Captcha).
+
+Um diesen Workflow zu unterstützen, müssen wir die kontoerstellungsseite zuerst ein update, damit neue Benutzer nicht genehmigt sind. Öffnen der `EnhancedCreateUserWizard.aspx` auf der Seite die `Membership` Ordner "und" Set-Steuerelement CreateUserWizard `DisableCreatedUser` Eigenschaft `True`.
+
+Als Nächstes müssen wir das Steuerelement CreateUserWizard zum Senden einer e-Mail an den neuen Benutzer mit Anweisungen zum Überprüfen ihres Kontos konfigurieren. Insbesondere werden wir enthalten einen Link in der e-Mail, um die `Verification.aspx` Seite (die haben wir noch zu erstellen), und übergeben Sie des neuen Benutzers `UserId` über die Abfragezeichenfolge. Die `Verification.aspx` Seite den angegebenen Benutzer zu suchen und markieren sie genehmigt.
+
+### <a name="sending-a-verification-email-to-new-users"></a>Senden eine E-Mail zur Verifizierung an neue Benutzer
+
+Konfigurieren Sie zum Senden einer e-Mail aus dem Steuerelement CreateUserWizard, dessen `MailDefinition` Eigenschaft entsprechend. Siehe die <a id="Tutorial13"> </a> [vorherigen Tutorial](recovering-and-changing-passwords-vb.md), ChangePassword und PasswordRecovery Steuerelementen gehören eine [ `MailDefinition` Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.maildefinition.aspx) , funktioniert in gleicher Weise wie CreateUserWizard des Steuerelements.
+
+> [!NOTE]
+> Verwenden der `MailDefinition` Eigenschaft, um e-Mail-Übermittlung anzugeben Sie müssen, die Optionen auf `Web.config`. Weitere Informationen finden Sie unter [Senden von e-Mail-Adresse in ASP.NET](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx).
+
+
+Zunächst erstellen Sie eine neue e-Mail-Vorlage, die mit dem Namen `CreateUserWizard.txt` in die `EmailTemplates` Ordner. Verwenden Sie den folgenden Text, für die Vorlage:
 
 [!code-aspx[Main](unlocking-and-approving-user-accounts-vb/samples/sample3.aspx)]
 
-Legen Sie die `MailDefinition`des `BodyFileName` -Eigenschaft auf "~ / EmailTemplates/CreateUserWizard.txt" und die zugehörige `Subject` -Eigenschaft auf "Meine Website Willkommen! Aktivieren Sie Ihr Konto."
+Legen Sie die `MailDefinition`des `BodyFileName` Eigenschaft, um "~ / EmailTemplates/CreateUserWizard.txt" und die zugehörige `Subject` Eigenschaft auf "Willkommen in meiner Website! Aktivieren Sie Ihr Konto."
 
-Beachten Sie, dass die `CreateUserWizard.txt` e-Mail-Vorlage enthält einen `<%VerificationUrl%>` Platzhalter. Dies ist, wenn die URL für die `Verification.aspx` Seite gespeichert werden sollen. Die CreateUserWizard automatisch ersetzt die `<%UserName%>` und `<%Password%>` -Platzhalter durch des neuen Kontos Benutzername und Kennwort, aber es keine integrierte ist `<%VerificationUrl%>` Platzhalter. Wir müssen manuell mit der entsprechenden überprüfungs-URL zu ersetzen.
+Beachten Sie, dass die `CreateUserWizard.txt` -e-Mail-Vorlage enthält einen `<%VerificationUrl%>` Platzhalter. Dies ist, wenn die URL für die `Verification.aspx` Seite platziert werden. Die CreateUserWizard automatisch ersetzt die `<%UserName%>` und `<%Password%>` Platzhalter mit Benutzername und Kennwort, des neuen Kontos, aber es keine integrierten gibt `<%VerificationUrl%>` Platzhalter. Wir müssen manuell durch die entsprechenden überprüfungs-URL ersetzen.
 
-Um dies zu erreichen, erstellen Sie einen Ereignishandler für die CreateUserWizard [ `SendingMail` Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.sendingmail.aspx) und fügen Sie den folgenden Code hinzu:
+Um dies zu erreichen, erstellen Sie einen Ereignishandler für die CreateUserWizard des [ `SendingMail` Ereignis](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.sendingmail.aspx) und fügen Sie den folgenden Code hinzu:
 
 [!code-vb[Main](unlocking-and-approving-user-accounts-vb/samples/sample4.vb)]
 
-Die `SendingMail` Ereignis wird ausgelöst, nachdem die `CreatedUser` Ereignis, was bedeutet, dass nach der Zeit, die oben genannten-Ereignishandler ausgeführt, den neuen Benutzer wird, Konto bereits erstellt wurde. Wir können des neuen Benutzers zugreifen `UserId` -Wert durch Aufrufen der `Membership.GetUser` -Methode auf und übergibt die `UserName` in das Steuerelement CreateUserWizard eingegeben. Als Nächstes wird die überprüfungs-URL gebildet wird. Die Anweisung `Request.Url.GetLeftPart(UriPartial.Authority)` gibt die `http://yourserver.com` Teil der URL; `Request.ApplicationPath` gibt Pfad, in dem die Anwendung als Stammelement. Überprüfung der URL wird dann als definiert `Verification.aspx?ID=userId`. Diese zwei Zeichenfolgen werden dann verkettet, um die vollständige URL zu bilden. Zum Schluss die e-Mail-Nachrichtentext (`e.Message.Body`) verfügt über alle Vorkommen von `<%VerificationUrl%>` mit der vollständigen URL ersetzt.
+Die `SendingMail` Ereignis wird ausgelöst, nachdem die `CreatedUser` -Ereignis, was bedeutet, dass mit der Zeit, die der oben genannten-Ereignishandler ausgeführt, den neuen Benutzer wird Konto bereits erstellt wurde. Können wir auf des neuen Benutzers zugreifen `UserId` -Wert durch Aufrufen der `Membership.GetUser` Methode und übergeben die `UserName` in das Steuerelement CreateUserWizard eingegeben. Als Nächstes wird die überprüfungs-URL gebildet wird. Die Anweisung `Request.Url.GetLeftPart(UriPartial.Authority)` gibt die `http://yourserver.com` Teil der URL; `Request.ApplicationPath` gibt den Pfad, in dem die Anwendung wurden die nutzungsbeschränkungen entfernt. Die Überprüfung der URL wird dann als definiert `Verification.aspx?ID=userId`. Klicken Sie dann werden diese zwei Zeichenfolgen verkettet, um die vollständige URL zu bilden. Zum Schluss die e-Mail-Texts (`e.Message.Body`) verfügt über alle Vorkommen von `<%VerificationUrl%>` mit der vollständigen URL ersetzt.
 
-Im Endeffekt ist, dass neue Benutzer sind nicht genehmigt, was bedeutet, dass sie bei der Website anmelden können. Darüber hinaus sind sie automatisch eine e-Mail mit einem Link gesendet, um die überprüfungs-URL (siehe Abbildung 6).
+Das Endergebnis ist, dass neue Benutzer nicht genehmigt, was bedeutet, dass sie an der Website anmelden darf nicht. Darüber hinaus werden sie automatisch eine e-Mail mit einem Link gesendet, um die überprüfungs-URL (siehe Abbildung 6).
 
 
-[![Der neue Benutzer erhält eine E-Mail mit einem Link, um die Überprüfungs-URL](unlocking-and-approving-user-accounts-vb/_static/image17.png)](unlocking-and-approving-user-accounts-vb/_static/image16.png)
+[![Der neue Benutzer erhält eine E-Mail mit einem Link zu die Überprüfungs-URL](unlocking-and-approving-user-accounts-vb/_static/image17.png)](unlocking-and-approving-user-accounts-vb/_static/image16.png)
 
-**Abbildung 6**: der neue Benutzer erhält eine E-Mail mit einem Link, um die Überprüfungs-URL ([klicken Sie hier, um das Bild in voller Größe angezeigt](unlocking-and-approving-user-accounts-vb/_static/image18.png))
+**Abbildung 6**: der neue Benutzer erhält eine E-Mail mit einem Link zu die Überprüfungs-URL ([klicken Sie, um das Bild in voller Größe anzeigen](unlocking-and-approving-user-accounts-vb/_static/image18.png))
 
 
 > [!NOTE]
-> Den CreateUserWizard Standard CreateUserWizard Schritt zeigt eine Meldung, die der Benutzers, die ihrem Konto erstellt wurde, und zeigt eine Schaltfläche "Weiter". Dadurch wird der Benutzer an der URL des Steuerelements gemäß `ContinueDestinationPageUrl` Eigenschaft. Die CreateUserWizard in `EnhancedCreateUserWizard.aspx` wird konfiguriert, um neue Benutzer zu senden, die `~/Membership/AdditionalUserInfo.aspx`, die Bestätigung des Benutzers ihre Hometown, die URL der Homepage und die Signatur. Da diese Informationen nur durch hinzugefügt werden kann Benutzer angemeldet sind, wird es ist sinnvoll, aktualisieren Sie diese Eigenschaft, um Benutzer zu senden, an der Website-Homepage (`~/Default.aspx`). Darüber hinaus die `EnhancedCreateUserWizard.aspx` Seite oder den Schritt CreateUserWizard um den Benutzer zu informieren, dass sie eine Überprüfung der e-Mail-Adresse gesendet wurden und ihrem Konto nicht aktiviert, bis sie die Anweisungen in dieser e-Mail entsprechen verbessert werden. Ich lassen diese Änderungen als Übung für den Leser.
+> CreateUserWizard des Steuerelements CreateUserWizard Standardschritten in einer Meldung darüber informiert den Benutzer, den Ihrem Konto erstellt wurde, und zeigt eine Schaltfläche "Weiter". Durch Klicken gelangt der Benutzer an der URL des Steuerelements gemäß `ContinueDestinationPageUrl` Eigenschaft. Die CreateUserWizard in `EnhancedCreateUserWizard.aspx` ist konfiguriert, um neue Benutzer zum Senden der `~/Membership/AdditionalUserInfo.aspx`, für ihre Heimatstadt Homepage-URL und Signatur der Benutzer wird aufgefordert. Da diese Informationen nur durch kann angemeldete Benutzer hinzugefügt werden, ist es sinnvoll, diese Eigenschaft, um Benutzer zu senden, an der Website-Homepage aktualisieren (`~/Default.aspx`). Darüber hinaus die `EnhancedCreateUserWizard.aspx` Seite oder der CreateUserWizard Schritt sollte dem Benutzer informieren, dass sie eine e-Mail zur Verifizierung gesendet wurden, und ihr Konto wird nicht aktiviert werden, bis sie die Anweisungen in dieser e-Mail folgen verbessert werden. Ich lassen Sie diese Änderungen als Übung für den Leser.
 
 
 ### <a name="creating-the-verification-page"></a>Erstellen die Seite "Überprüfung"
 
-Unsere letzte Aufgabe ist die Erstellung der `Verification.aspx` Seite. Fügen Sie diese Seite in den Stammordner, und verknüpfen es mit der `Site.master` Masterseite. Wie es bei den meisten, von den vorherigen Inhalt Seiten der Website hinzugefügt haben, entfernen Sie das Inhaltssteuerelement, das verweist auf die `LoginContent` ContentPlaceHolder so, dass die Seite Inhalte der Masterseite verwendet standardmäßigen Inhalt.
+Unsere letzte Aufgabe ist die Erstellung der `Verification.aspx` Seite. Fügen Sie diese Seite in den Stammordner, ordnet ihm dabei die `Site.master` Masterseite. Wie bei den meisten von den vorherigen Inhalt Seiten der Website hinzugefügt haben, entfernen Sie das Inhaltssteuerelement, das verweist auf die `LoginContent` ContentPlaceHolder so, dass die Seite Inhalte der Masterseite verwendet Standardinhaltstyp.
 
-Fügen Sie eine Bezeichnung Websteuerelement auf die `Verification.aspx` Seite seine `ID` auf `StatusMessage` und löschen Sie seine Texteigenschaft. Als Nächstes erstellen Sie die `Page_Load` -Ereignishandler folgenden Code hinzu:
+Fügen Sie ein Label-Steuerelement auf der `Verification.aspx` Seite die `ID` zu `StatusMessage` und lösche die Text-Eigenschaft. Erstellen Sie als Nächstes die `Page_Load` -Ereignishandler, und fügen Sie den folgenden Code hinzu:
 
 [!code-vb[Main](unlocking-and-approving-user-accounts-vb/samples/sample5.vb)]
 
-Der Großteil der obige Code stellt sicher, dass die Benutzer-ID angegeben, über die Abfragezeichenfolge vorhanden ist, dass es ungültig ist `Guid` Wert und ein vorhandenen Benutzerkonto verweist. Wenn alle Prüfungen übergeben, ist das Benutzerkonto genehmigt. Andernfalls wird eine geeignete Statusmeldung angezeigt.
+Der größte Teil der obige Code stellt sicher, dass die Benutzer-ID angegeben wird, über die Abfragezeichenfolge vorhanden ist, dass es gültig ist `Guid` -Wert, und verweist, ein bestehendes Benutzerkonto an. Wenn alle diese Überprüfungen übergeben, ist das Benutzerkonto, das genehmigt. Andernfalls wird eine geeignete Statusmeldung angezeigt.
 
-Abbildung 7 zeigt ein Beispiel der `Verification.aspx` Startseite bei der über einen Browser besucht hat.
+Abbildung 7 zeigt die `Verification.aspx` Seite, wenn über einen Browser aufgerufen.
 
 
 [![Das neue Benutzerkonto wird nun genehmigt](unlocking-and-approving-user-accounts-vb/_static/image20.png)](unlocking-and-approving-user-accounts-vb/_static/image19.png)
 
-**Abbildung 7**: das neue Benutzerkonto wird nun genehmigt ([klicken Sie hier, um das Bild in voller Größe angezeigt](unlocking-and-approving-user-accounts-vb/_static/image21.png))
+**Abbildung 7**: das neue Benutzerkonto wird nun genehmigt ([klicken Sie, um das Bild in voller Größe anzeigen](unlocking-and-approving-user-accounts-vb/_static/image21.png))
 
 
 ## <a name="summary"></a>Zusammenfassung
 
-Alle Benutzerkonten für die Mitgliedschaft haben zwei Status, die bestimmen, ob der Benutzer bei der Website anmelden kann: `IsLockedOut` und `IsApproved`. Beide Eigenschaften muss `True` für den Benutzer, die Anmeldung.
+Alle Benutzer eines Mitgliedskonten weisen zwei Status, die bestimmen, ob der Benutzer an der Website anmelden kann: `IsLockedOut` und `IsApproved`. Diese beiden Eigenschaften muss `True` für den Benutzer, die Anmeldung.
 
-Der Benutzer gesperrt der Status wird als Sicherheitsmaßnahme verwendet, um die Wahrscheinlichkeit, dass ein Hacker wichtige zu einem Standort, über Brute-Force-Methoden zu reduzieren. Insbesondere ist ein Benutzer gesperrt, wenn eine bestimmte Anzahl von ungültigen Anmeldeversuchen innerhalb eines bestimmten Fensters Zeit vorhanden sind. Diese Grenzen sind nicht konfigurierbar über die Mitgliedschaft anbietereinstellungen in `Web.config`.
+Der Benutzer gesperrt der Status wird als Sicherheitsmaßnahme verwendet, um die Wahrscheinlichkeit, dass ein Hacker wichtige zu einem Standort, über brute-Force-Methoden zu reduzieren. Insbesondere ist ein Benutzer gesperrt, wenn eine bestimmte Anzahl von ungültigen Anmeldeversuchen innerhalb eines bestimmten Zeitfensters vorhanden sind. Diese Grenzen sind konfigurierbar, über die Membership-Provider-Einstellungen in `Web.config`.
 
-Der Status "genehmigt" wird häufig als Mittel verwendet, um zu verhindern, dass neue Benutzer anmelden, bis eine Aktion vergangen ist. Vielleicht die Site erforderlich ist, dass neue Konten zuerst vom Administrator genehmigt werden oder wie in Schritt 3 veranschaulichte Filtermenü durch ihre e-Mail-Adresse überprüfen.
+Der Status "genehmigt" wird häufig als Mittel verwendet, um zu verhindern, dass neue Benutzer anmelden, bis eine Aktion wiederholt wurde. Vielleicht die Site erforderlich ist, dass neue Konten, zunächst vom Administrator genehmigt werden und wie wir in Schritt 3 gesehen haben, indem Sie ihre e-Mail-Adresse zu überprüfen.
 
 Viel Spaß beim Programmieren!
 
-### <a name="about-the-author"></a>Informationen zum Autor
+### <a name="about-the-author"></a>Der Autor
 
-Scott Mitchell, Autor von mehreren ASP/ASP.NET-Büchern und Gründer von 4GuysFromRolla.com, bereits seit 1998 mit Microsoft-Web-Technologien gearbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird  *[Sams Schulen selbst ASP.NET 2.0 in 24 Stunden](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott erreicht werden kann, zur [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) oder über seinen Blog unter [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
+Scott Mitchell, Autor von mehreren Büchern zu ASP/ASP.NET und Gründer von 4GuysFromRolla.com, ist seit 1998 mit Microsoft-Web-Technologien gearbeitet. Er ist als ein unabhängiger Berater, Schulungsleiter und Autor. Sein neueste Buch wird *[Sams Schulen selbst ASP.NET 2.0 in 24 Stunden](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott erreicht werden kann, zur [mitchell@4guysfromrolla.com](mailto:mitchell@4guysfromrolla.com) oder über seinen Blog unter [http://ScottOnWriting.NET](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Besonderen Dank an...
 
-Diese Reihe von Lernprogrammen wurde durch viele nützliche Bearbeiter überprüft. Meine bevorstehende MSDN-Artikel Überprüfen von Interesse? Wenn dies der Fall ist, löschen Sie mich zeilenweise [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Diese tutorialreihe wurde durch viele hilfreiche Reviewer überprüft. Meine zukünftigen MSDN-Artikeln überprüfen möchten? Wenn dies der Fall ist, löschen Sie mir eine Linie an [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Vorherige](recovering-and-changing-passwords-vb.md)

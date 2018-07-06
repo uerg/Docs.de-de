@@ -1,52 +1,51 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs
-title: Eine Übersicht über einfügen, aktualisieren und Löschen von Daten (c#) | Microsoft Docs
+title: Eine Übersicht über einfügen, aktualisieren und Löschen von Daten (c#) | Microsoft-Dokumentation
 author: rick-anderson
-description: In diesem Lernprogramm sehen wir, wie ein ObjectDataSource Insert(), Update(), zugeordnet und Delete()-Methoden, um die Methoden der BLL Klassen sowie zur Configu...
+description: In diesem Tutorial erfahren Sie, wie ein "ObjectDataSource" Insert(), Update(), zuordnen und Delete()-Methoden, um die Methoden der Geschäftslogikschicht-Klassen sowie wie Sie konfigu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
 ms.topic: article
 ms.assetid: b651dc58-93c7-4f83-a74e-3b99f6d60848
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: dbd111f79eda6006cb9aed59d8fd0b0342415833
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
-ms.translationtype: MT
+ms.openlocfilehash: 4e1b47782bd24824707266d1ed61e24789cc7a49
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30891229"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37369837"
 ---
 <a name="an-overview-of-inserting-updating-and-deleting-data-c"></a>Eine Übersicht über einfügen, aktualisieren und Löschen von Daten (c#)
 ====================
 durch [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Beispiel-App herunterladen](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_16_CS.exe) oder [PDF herunterladen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/datatutorial16cs1.pdf)
+[Beispiel-App herunter](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_16_CS.exe) oder [PDF-Datei herunterladen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/datatutorial16cs1.pdf)
 
-> In diesem Lernprogramm sehen wir ein ObjectDataSource Insert(), Update(), zuordnen und Delete()-Methoden, um die Methoden der BLL-Klassen sowie zum Konfigurieren der GridView, DetailsView und FormView-Steuerelemente zum Bereitstellen von Möglichkeiten zur Datenänderung.
+> In diesem Tutorial erfahren Sie, wie ein "ObjectDataSource" Insert(), Update(), zuordnen und Delete()-Methoden, um die Methoden der Geschäftslogikschicht-Klassen sowie die GridView, DetailsView oder FormView-Steuerelemente, um die Möglichkeiten zur Datenänderung bereitstellen zu konfigurieren.
 
 
 ## <a name="introduction"></a>Einführung
 
-Über die letzten mehrere Lernprogramme haben wir die Vorgehensweise beim Anzeigen von Daten auf einer ASP.NET-Seite mit den Steuerelementen GridView, DetailsView und FormView untersucht. Diese Steuerelemente arbeiten einfach mit Daten, die bereitgestellt werden. In der Regel auf diese Steuerelemente Daten durch die Verwendung von ein Datenquellen-Steuerelement, z. B. das ObjectDataSource zugreifen. Wir haben gesehen, wie das ObjectDataSource als Proxy zwischen der ASP.NET-Seite und der zugrunde liegende Verfahren werden soll. Wenn eine GridView zum Anzeigen von Daten muss, ruft seine ObjectDataSource `Select()` -Methode, die wiederum eine Methode aus unserer Business Logic Layer (BLL) aufruft, der eine Methode aufgerufen wird, in der entsprechenden Data Access Layer (DAL) TableAdapter, die wiederum sendet eine `SELECT` Abfrage mit der Datenbank Northwind.
+Über die letzten mehrere Tutorials haben wir Gewusst wie: Anzeigen von Daten in eine ASP.NET-Seite mithilfe von GridView, DetailsView und FormView untersucht. Diese Steuerelemente funktionieren einfach mit Daten, die bereitgestellt werden. Diese Steuerelemente zugreifen häufig, Daten durch die Verwendung einer Datenquellen-Steuerelement, z. B. dem ObjectDataSource-Steuerelement. Wir haben gesehen, wie dem ObjectDataSource-Steuerelement als Proxy zwischen der ASP.NET-Seite und den zugrunde liegenden Daten fungiert. Wenn einer GridView-Ansicht zum Anzeigen von Daten benötigt, ruft es die "ObjectDataSource" `Select()` -Methode, die wiederum eine Methode aus unseren Business Logic Layer (BLL) aufruft, das eine Methode in der entsprechenden der Datenzugriffsschicht (DAL) Ruft TableAdapter, die wiederum sendet eine `SELECT` Abfrage mit der Datenbank Northwind.
 
-Bedenken Sie, dass, wenn wir die TableAdapters in der DAL in erstellt [unseren ersten Lernprogramm](../introduction/creating-a-data-access-layer-cs.md), Visual Studio automatisch hinzugefügt, Methoden zum Einfügen, aktualisieren und Löschen von Daten aus der zugrunde liegenden Datenbanktabelle. Darüber hinaus in [erstellen eine Geschäftslogikschicht](../introduction/creating-a-business-logic-layer-cs.md) wir Methoden in der BLL, die aufgerufen wird, nach unten in dieser Änderung DAL Datenmethoden entworfen.
+Bedenken Sie, dass beim Erstellen der TableAdapter-Steuerelemente in der Datenzugriffsschicht in [unserer ersten Tutorial](../introduction/creating-a-data-access-layer-cs.md), Visual Studio automatisch hinzugefügt, die Methoden zum Einfügen, aktualisieren und Löschen von Daten aus der zugrunde liegenden Datenbanktabelle. Darüber hinaus in [Erstellen einer Geschäftslogikebene](../introduction/creating-a-business-logic-layer-cs.md) wir Methoden in der BLL, die aufgerufen wird, nach unten in dieser datenänderungsmethoden DAL entworfen.
 
-Zusätzlich zu seiner `Select()` -Methode, die ObjectDataSource verfügt auch über `Insert()`, `Update()`, und `Delete()` Methoden. Wie die `Select()` -Methode, diese drei Methoden, die an Methoden in ein zugrunde liegendes Objekt zugeordnet werden können. Wenn einfügen, aktualisieren oder Löschen von Daten konfiguriert, wird eine Benutzeroberfläche GridView, DetailsView und FormView zum Ändern der zugrunde liegenden Daten bereitstellen. Diese Benutzeroberfläche ruft die `Insert()`, `Update()`, und `Delete()` das ObjectDataSource-Methoden, die Sie dann das zugrunde liegende Objekt aufrufen zugeordnete Methoden (siehe Abbildung 1).
-
-
-[![Das ObjectDataSource Insert() Update() und Delete() Methoden dienen als Proxy in der BLL](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image2.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image1.png)
-
-**Abbildung 1**: das ObjectDataSource `Insert()`, `Update()`, und `Delete()` Methoden dienen als Proxy in der BLL ([klicken Sie hier, um das Bild in voller Größe angezeigt](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image3.png))
+Zusätzlich zu seiner `Select()` -Methode, dem ObjectDataSource-Steuerelement verfügt auch über `Insert()`, `Update()`, und `Delete()` Methoden. Wie die `Select()` -Methode, diese drei Methoden auf Methoden in einem zugrunde liegenden Objekt zugeordnet werden können. Wenn einfügen, aktualisieren oder Löschen von Daten konfiguriert haben, bieten die GridView, DetailsView oder FormView-Steuerelemente eine Benutzeroberfläche für die zugrunde liegenden Daten ändern. Diese Benutzeroberfläche ruft die `Insert()`, `Update()`, und `Delete()` Methoden dem ObjectDataSource-Steuerelement, das das zugrunde liegende Objekt rufen Sie dann die zugehörigen Methoden, die (siehe Abbildung 1).
 
 
-In diesem Lernprogramm sehen wir, wie das ObjectDataSource zugeordnet `Insert()`, `Update()`, und `Delete()` -Methoden den Methoden der Klassen in der BLL sowie zum Konfigurieren der GridView, DetailsView und FormView-Steuerelemente zum Bereitstellen der Änderung von Daten Funktionen.
+[![Das "ObjectDataSource" Insert() Update() und Delete() Methoden dienen als Proxy, in die BLL](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image2.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image1.png)
 
-## <a name="step-1-creating-the-insert-update-and-delete-tutorials-web-pages"></a>Schritt 1: Erstellen der INSERT-, Update- und Delete-Lernprogramme Webseiten
+**Abbildung 1**: der ObjectDataSource `Insert()`, `Update()`, und `Delete()` Methoden dienen als Proxy in der BLL ([klicken Sie, um das Bild in voller Größe anzeigen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image3.png))
 
-Bevor wir beginnen, wie einfügen, aktualisieren und Löschen von Daten zu untersuchen, zunächst werfen wir einen Moment Zeit, die ASP.NET-Seiten in unserer Websiteprojekt zu erstellen, die wir für dieses Lernprogramm und weiter mehrere diejenigen benötigen. Starten, indem Sie einen neuen Ordner namens `EditInsertDelete`. Fügen Sie die folgenden ASP.NET-Seiten in diesen Ordner, und dabei sicherstellen, ordnen Sie jede Seite mit den `Site.master` Gestaltungsvorlage:
+
+In diesem Tutorial erfahren Sie, wie dem ObjectDataSource-Steuerelement zuordnen `Insert()`, `Update()`, und `Delete()` -Methoden den Methoden der Klassen in die BLL sowie die GridView, DetailsView oder FormView-Steuerelemente, um die Änderung von Daten bieten konfigurieren Funktionen.
+
+## <a name="step-1-creating-the-insert-update-and-delete-tutorials-web-pages"></a>Schritt 1: Erstellen der INSERT-, Update- und Delete Lernprogramme von Webseiten
+
+Bevor wir beginnen, wie Sie einfügen, aktualisieren und Löschen von Daten zu untersuchen, zuerst werfen wir einen Moment Zeit, die ASP.NET-Seiten in unserem Websiteprojekt zu erstellen, die wir für dieses Lernprogramm sowie die nächsten mehrere Explorer benötigen. Starten, indem Sie einen neuen Ordner namens hinzufügen `EditInsertDelete`. Fügen Sie die folgenden ASP.NET-Seiten in diesen Ordner, um sicherzustellen, ordnen Sie jeder Seite mit den `Site.master` Masterseite:
 
 - `Default.aspx`
 - `Basics.aspx`
@@ -64,131 +63,131 @@ Bevor wir beginnen, wie einfügen, aktualisieren und Löschen von Daten zu unter
 **Abbildung 2**: Fügen Sie die ASP.NET-Seiten für die Änderung bezogenen Daten-Lernprogramme
 
 
-Wie in den anderen Ordnern `Default.aspx` in den `EditInsertDelete` Ordner werden die Lernprogramme in einem Abschnitt aufgelistet. Bedenken Sie, dass die `SectionLevelTutorialListing.ascx` Benutzersteuerelement stellt diese Funktionalität bereit. Aus diesem Grund Hinzufügen dieses Benutzersteuerelement zu `Default.aspx` durch Ziehen aus dem Projektmappen-Explorer auf der Seite Entwurfsansicht.
+Wie in den anderen Ordnern `Default.aspx` in die `EditInsertDelete` Ordner werden in den Tutorials im Abschnitt aufgelistet. Bedenken Sie, dass die `SectionLevelTutorialListing.ascx` Benutzersteuerelement stellt diese Funktionalität bereit. Aus diesem Grund fügen dieses Benutzersteuerelement zu `Default.aspx` durch Ziehen aus dem Projektmappen-Explorer auf der Seite Entwurfsansicht.
 
 
-[![Das Benutzersteuerelement SectionLevelTutorialListing.ascx "default.aspx" hinzufügen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image6.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image5.png)
+[![Fügen Sie das SectionLevelTutorialListing.ascx-Benutzersteuerelement an "default.aspx"](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image6.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image5.png)
 
-**Abbildung 3**: Hinzufügen der `SectionLevelTutorialListing.ascx` Benutzersteuerelement `Default.aspx` ([klicken Sie hier, um das Bild in voller Größe angezeigt](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image7.png))
+**Abbildung 3**: Hinzufügen der `SectionLevelTutorialListing.ascx` Benutzersteuerelement `Default.aspx` ([klicken Sie, um das Bild in voller Größe anzeigen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image7.png))
 
 
-Fügen Sie abschließend die Seiten hinzu, als Einträge an die `Web.sitemap` Datei. Fügen Sie das folgende Markup insbesondere nach der Formatierung angepasst `<siteMapNode>`:
+Abschließend fügen Sie die Seiten als Einträge der `Web.sitemap` Datei. Fügen Sie das folgende Markup insbesondere nach der Formatierung angepasst `<siteMapNode>`:
 
 
 [!code-xml[Main](an-overview-of-inserting-updating-and-deleting-data-cs/samples/sample1.xml)]
 
-Nach der Aktualisierung `Web.sitemap`, nehmen einen Moment Zeit, um die Lernprogramme-Website über einen Browser anzuzeigen. Klicken Sie im Menü auf der linken Seite enthält nun Elemente für die Bearbeitung, einfügen und Löschen von Lernprogramme.
+Nach der Aktualisierung `Web.sitemap`, können Sie die Lernprogramme-Website über einen Browser anzeigen. Klicken Sie im Menü auf der linken Seite enthält jetzt Elemente für das Bearbeiten, einfügen und löschen die Lernprogramme.
 
 
-![Die Siteübersicht enthält nun die Einträge für die Bearbeitung, einfügen und Löschen von Lernprogrammen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image8.png)
+![Die Sitemap enthält jetzt die Einträge für das Bearbeiten, einfügen und löschen die Lernprogramme](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image8.png)
 
-**Abbildung 4**: die Siteübersicht enthält jetzt die Einträge für die Bearbeitung, einfügen und Löschen von Lernprogrammen
+**Abbildung 4**: die Sitemap enthält nun Einträge für das Bearbeiten, einfügen und löschen die Lernprogramme
 
 
 ## <a name="step-2-adding-and-configuring-the-objectdatasource-control"></a>Schritt 2: Hinzufügen und konfigurieren das ObjectDataSource-Steuerelement
 
-Seit der GridView, DetailsView und FormView jedes unterscheiden sich in ihre Möglichkeiten zur Datenänderung und das Layout, sehen wir uns jeweils einzeln. Anstatt jedes Steuerelement, das über einen eigenen ObjectDataSource nutzen zu können, jedoch nur erstellen wir einen einzelnen ObjectDataSource, die alle drei Beispiele für freigeben können.
+Da die GridView, DetailsView und FormView jedes unterscheiden sich durch ihre Möglichkeiten zur Datenänderung und das Layout, betrachten wir jeweils einzeln. Anstatt jedes Steuerelement mittels der eigenen "ObjectDataSource" zu lassen, jedoch nur erstellen wir einen einzelnen "ObjectDataSource", die alle drei Beispiele für freigeben können.
 
-Öffnen der `Basics.aspx` Seite, ein ObjectDataSource aus der Toolbox in den Designer ziehen und klicken Sie auf die Datenquelle konfigurieren-Verknüpfung zwischen der Smarttag. Da die `ProductsBLL` ist die einzige BLL-Klasse, die bereitstellt, bearbeiten, einfügen und Löschen von Methoden, konfigurieren das ObjectDataSource zur Verwendung dieser Klasse.
-
-
-[![Konfigurieren der ObjectDataSource zur Verwendung der ProductsBLL-Klasse](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image10.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image9.png)
-
-**Abbildung 5**: Konfigurieren der ObjectDataSource verwenden die `ProductsBLL` Klasse ([klicken Sie hier, um das Bild in voller Größe angezeigt](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image11.png))
+Öffnen der `Basics.aspx` Seite, ein ObjectDataSource-Steuerelement aus der Toolbox in den Designer ziehen, und klicken Sie auf die Datenquelle konfigurieren-Link aus der Smarttag. Da die `ProductsBLL` ist die einzige BLL-Klasse, die bereitstellt, bearbeiten, einfügen und Löschen von Methoden, konfigurieren das "ObjectDataSource" zur Verwendung dieser Klasse.
 
 
-Im nächsten Bildschirm können wir angeben, welche Methoden der der `ProductsBLL` Klasse zugeordnet sind, um das ObjectDataSource `Select()`, `Insert()`, `Update()`, und `Delete()` durch die entsprechende Registerkarte auswählen und die Methode aus der Dropdown-Liste. Abbildung 6: der sollte jetzt vertraut aussehen, ordnet das ObjectDataSource `Select()` Methode, um die `ProductsBLL` Klasse `GetProducts()` Methode. Die `Insert()`, `Update()`, und `Delete()` Methoden können konfiguriert werden, indem Sie die entsprechende Registerkarte aus der Liste am oberen Rand auswählen.
+[![Konfigurieren von dem ObjectDataSource-Steuerelement zur Verwendung der ProductsBLL-Klasse](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image10.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image9.png)
+
+**Abbildung 5**: Konfigurieren von dem ObjectDataSource-Steuerelement verwenden die `ProductsBLL` Klasse ([klicken Sie, um das Bild in voller Größe anzeigen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image11.png))
 
 
-[![Haben die ObjectDataSource Zurückgeben aller Produkte](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image13.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image12.png)
-
-**Abbildung 6**: das ObjectDataSource Zurückgeben aller Produkte haben ([klicken Sie hier, um das Bild in voller Größe angezeigt](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image14.png))
+Im nächsten Bildschirm können wir angeben, welche Methoden die `ProductsBLL` Klasse dem ObjectDataSource-Steuerelement zugeordnet sind `Select()`, `Insert()`, `Update()`, und `Delete()` durch Auswahl der entsprechenden Registerkarte und die Methode aus der Dropdown-Liste. Abbildung 6: die sollte jetzt vertraut aussehen, ordnet dem ObjectDataSource-Steuerelement `Select()` Methode, um die `ProductsBLL` Klasse `GetProducts()` Methode. Die `Insert()`, `Update()`, und `Delete()` Methoden können konfiguriert werden, indem Sie die entsprechende Registerkarte aus der Liste oben auswählen.
 
 
-Abbildung 7, 8 und 9 die ObjectDataSource Update-, INSERT- und DELETE anzeigen Registerkarten. Konfigurieren Sie auf diesen Registerkarten, damit die `Insert()`, `Update()`, und `Delete()` Methoden aufrufen, die `ProductsBLL` Klasse `UpdateProduct`, `AddProduct`, und `DeleteProduct` Methoden, bzw.
+[![Müssen dem ObjectDataSource-Steuerelement zurückgegeben wird, alle Produkte](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image13.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image12.png)
+
+**Abbildung 6**: das "ObjectDataSource" Zurückgeben aller Produkte haben ([klicken Sie, um das Bild in voller Größe anzeigen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image14.png))
 
 
-[![Die ProductBLL Klassenmethode UpdateProduct Zuordnen der ObjectDataSource Update()-Methode](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image16.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image15.png)
-
-**Abbildung 7**: Zuordnen der ObjectDataSource `Update()` Methode, um die `ProductBLL` Klasse `UpdateProduct` Methode ([klicken Sie hier, um das Bild in voller Größe angezeigt](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image17.png))
+Abbildung 7, 8 und 9, die dem ObjectDataSource-Steuerelement UPDATE, INSERT und DELETE Anzeigen von Registerkarten. Konfigurieren Sie die folgenden Registerkarten, damit die `Insert()`, `Update()`, und `Delete()` Aufrufen von Methoden der `ProductsBLL` Klasse `UpdateProduct`, `AddProduct`, und `DeleteProduct` Methoden bzw.
 
 
-[![Die ProductBLL Klassenmethode AddProduct Zuordnen der ObjectDataSource Insert()-Methode](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image19.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image18.png)
+[![Map-dem ObjectDataSource-Steuerelement Update()-Methode der Klasse ProductBLL UpdateProduct-Methode](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image16.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image15.png)
 
-**Abbildung 8**: Zuordnen der ObjectDataSource `Insert()` Methode, um die `ProductBLL` Klasse hinzufügen `Product` Methode ([klicken Sie hier, um das Bild in voller Größe angezeigt](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image20.png))
-
-
-[![Die ProductBLL Klassenmethode DeleteProduct Zuordnen der ObjectDataSource Delete()-Methode](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image22.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image21.png)
-
-**Abbildung 9**: Zuordnen der ObjectDataSource `Delete()` Methode, um die `ProductBLL` Klasse `DeleteProduct` Methode ([klicken Sie hier, um das Bild in voller Größe angezeigt](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image23.png))
+**Abbildung 7**: Ordnen Sie dem ObjectDataSource-Steuerelement `Update()` Methode, um die `ProductBLL` Klasse `UpdateProduct` Methode ([klicken Sie, um das Bild in voller Größe anzeigen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image17.png))
 
 
-Möglicherweise haben Sie bemerkt, dass die Dropdownlisten auf den Registerkarten Update-, INSERT- und DELETE diese Methoden ausgewählt bereits. Dies ist aufgrund der Verwendung von der `DataObjectMethodAttribute` , die die Methoden der ergänzt `ProducstBLL`. Die Methode DeleteProduct hat z. B. die folgende Signatur:
+[![Map-dem ObjectDataSource-Steuerelement Insert()-Methode der Klasse ProductBLL AddProduct-Methode](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image19.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image18.png)
+
+**Abbildung 8**: Ordnen Sie dem ObjectDataSource-Steuerelement `Insert()` Methode, um die `ProductBLL` -Klasse hinzufügen `Product` Methode ([klicken Sie, um das Bild in voller Größe anzeigen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image20.png))
+
+
+[![Map-dem ObjectDataSource-Steuerelement Delete()-Methode der Klasse ProductBLL DeleteProduct-Methode](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image22.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image21.png)
+
+**Abbildung 9**: Ordnen Sie dem ObjectDataSource-Steuerelement `Delete()` Methode, um die `ProductBLL` Klasse `DeleteProduct` Methode ([klicken Sie, um das Bild in voller Größe anzeigen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image23.png))
+
+
+Möglicherweise haben Sie bemerkt, dass der Dropdown-Listen in den Update-, INSERT- und DELETE-Registerkarten diese Methoden ausgewählt bereits. Dies ist dank der Verwendung von der `DataObjectMethodAttribute` , die die Methoden der ergänzt `ProducstBLL`. Beispielsweise weist die DeleteProduct-Methode die folgende Signatur:
 
 
 [!code-csharp[Main](an-overview-of-inserting-updating-and-deleting-data-cs/samples/sample2.cs)]
 
-Die `DataObjectMethodAttribute` Attribut überprüfen, ob den Zweck der einzelnen Methoden ist für auswählen, einfügen, aktualisieren oder löschen und davon, ob es der Standardwert ist. Wenn Sie diese Attribute ausgelassen, wenn Sie BLL Klassen erstellen, müssen Sie das UPDATE manuell die Methoden aus einfügen, und Registerkarten löschen.
+Die `DataObjectMethodAttribute` Attribut gibt an den Zweck der einzelnen Methoden, ob es für das auswählen, einfügen, aktualisieren oder löschen und davon, ob sie der Standardwert ist. Wenn Sie diese Attribute ausgelassen, wenn Sie BLL Klassen erstellen, werden Sie müssen, wählen Sie die Methoden aus dem UPDATE manuell einfügen und löschen Registerkarten.
 
-Nachdem sichergestellt wurde, dass die entsprechenden `ProductsBLL` Methoden werden zugeordnet, das ObjectDataSource `Insert()`, `Update()`, und `Delete()` Methoden, klicken Sie auf ' Fertig stellen ', um den Assistenten abzuschließen.
+Nachdem Sie sichergestellt haben, die die entsprechende `ProductsBLL` Methoden dem ObjectDataSource-Steuerelement zugeordnet sind `Insert()`, `Update()`, und `Delete()` Methoden, klicken Sie auf "Fertig stellen", um den Assistenten abzuschließen.
 
-## <a name="examining-the-objectdatasources-markup"></a>Untersuchen das ObjectDataSource-Markup
+## <a name="examining-the-objectdatasources-markup"></a>Untersuchen Markup mit dem ObjectDataSource-Steuerelement
 
-Nach dem Konfigurieren der ObjectDataSource über den Assistenten an, wechseln Sie zur Quellansicht der generierten deklarative Markup zu untersuchen. Die `<asp:ObjectDataSource>` -Tag gibt an, das zugrunde liegende Objekt und die Methoden zum Aufrufen. Darüber hinaus stehen `DeleteParameters`, `UpdateParameters`, und `InsertParameters` zuordnen, die die Eingabeparameter für das `ProductsBLL` Klasse `AddProduct`, `UpdateProduct`, und `DeleteProduct` Methoden:
+Nachdem dem ObjectDataSource-Steuerelement mithilfe der Assistenten konfiguriert haben, wechseln Sie zur Quellansicht deklarative generierte Markup zu untersuchen. Die `<asp:ObjectDataSource>` -Tag gibt das zugrunde liegende Objekt und die Methoden aufrufen. Darüber hinaus stehen `DeleteParameters`, `UpdateParameters`, und `InsertParameters` , zuordnen, um die Eingabeparameter für die `ProductsBLL` Klasse `AddProduct`, `UpdateProduct`, und `DeleteProduct` Methoden:
 
 
 [!code-aspx[Main](an-overview-of-inserting-updating-and-deleting-data-cs/samples/sample3.aspx)]
 
-Das ObjectDataSource enthält einen Parameter für jede der Eingabeparameter für die zugeordneten Methoden, wie eine Liste der `SelectParameter` s ist vorhanden, wenn eine select-Methode aufrufen, die einen Eingabeparameter erwartet das ObjectDataSource konfiguriert ist (z. B. `GetProductsByCategoryID(categoryID)`). Eingehendem in Kürze, Werte für diese `DeleteParameters`, `UpdateParameters`, und `InsertParameters` werden automatisch durch die GridView, DetailsView und FormView festgelegt, vor dem Aufrufen der ObjectDataSource `Insert()`, `Update()`, oder `Delete()` Methode. Diese Werte können auch bei Bedarf programmgesteuert festgelegt werden, wie in einem späteren Lernprogramm erläutert.
+Dem ObjectDataSource-Steuerelement enthält einen Parameter für jede der Eingabeparameter für die zugeordneten Methoden, wie eine Liste der `SelectParameter` s ist vorhanden, wenn eine select-Methode aufrufen, die einen Eingabeparameter erwartet, dass dem ObjectDataSource-Steuerelement konfiguriert ist (z. B. `GetProductsByCategoryID(categoryID)`). Wie wir in Kürze, Werte für diese sehen `DeleteParameters`, `UpdateParameters`, und `InsertParameters` werden automatisch von GridView, DetailsView und FormView-Steuerelement festgelegt, vor dem Aufrufen der "ObjectDataSource" `Insert()`, `Update()`, oder `Delete()` -Methode. Diese Werte können auch bei Bedarf programmgesteuert festgelegt werden, wie in einem späteren Lernprogramm besprochen.
 
-Der mithilfe des Assistenten zum Konfigurieren von ObjectDataSource Nebeneffekt ist, Visual Studio legt die [OldValuesParameterFormatString Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.oldvaluesparameterformatstring(VS.80).aspx) auf `original_{0}`. Dieser Eigenschaftswert wird verwendet, um die ursprünglichen Werte eines bearbeiteten Daten enthalten und ist in zwei Szenarien hilfreich:
+Ein Nebeneffekt der Verwendung des Assistenten zum Konfigurieren von "ObjectDataSource" ist, dass es sich bei Visual Studio legt die [OldValuesParameterFormatString-Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.oldvaluesparameterformatstring(VS.80).aspx) zu `original_{0}`. Wert dieser Eigenschaft wird verwendet, um die ursprünglichen Werte der bearbeiteten Daten enthalten und wird in zwei Szenarien hilfreich:
 
-- Wenn bei der Bearbeitung eines Datensatzes Benutzer den Primärschlüsselwert ändern können. In diesem Fall müssen dem neuen Primärschlüsselwert und den ursprünglichen primären Schlüsselwert angegeben werden, damit der Datensatz mit dem ursprünglichen primären Schlüsselwert gefunden werden und deren Wert entsprechend aktualisiert werden kann.
-- Wenn die vollständigen Parallelität verwenden. Optimistische Parallelität eine Technik, um sicherzustellen, dass zwei ist gleichzeitige Benutzern nicht die jeweiligen Änderungen überschreiben und ist das Thema für einen späteren Lernprogramm.
+- Wenn Sie beim Bearbeiten eines Datensatzes Benutzer den Wert des Primärschlüssels ändern können. In diesem Fall müssen sowohl auf dem neuen Wert des Primärschlüssels als auch auf dem ursprünglichen Wert des Primärschlüssels angegeben werden, damit der Datensatz mit dem ursprünglichen Wert des Primärschlüssels gefunden werden und deren Wert entsprechend aktualisiert werden kann.
+- Wenn Sie vollständigen Parallelität verwenden zu können. Die optimistische Parallelität ein Verfahren, um sicherzustellen, dass zwei ist Benutzer gleichzeitig überschreiben Sie die Änderungen nicht und ist das Thema für einen zukünftigen Tutorial.
 
-Die `OldValuesParameterFormatString` Eigenschaft gibt den Namen der Eingabeparameter in das zugrunde liegende Objekt Update und Delete-Methoden für die ursprünglichen Werte. Erläutert diese Eigenschaft und ihren Zweck ausführlicher beim untersucht, vollständigen Parallelität. Ich schalten Sie ihn sich jetzt jedoch daran, dass unsere BLL Methoden nicht, die ursprünglichen Werten erwarten und daher es wichtig ist, dass wir diese Eigenschaft entfernen. Verlassen der `OldValuesParameterFormatString` -Eigenschaft auf einen anderen als den Standardwert festgelegt (`{0}`) verursacht einen Fehler, wenn ein Daten-Websteuerelement versucht das ObjectDataSource aufzurufenden `Update()` oder `Delete()` Methoden, da das ObjectDataSource wird Um beide zu übergeben versuchen die `UpdateParameters` oder `DeleteParameters` sowie den ursprünglichen Werteparameter angegeben.
+Die `OldValuesParameterFormatString` Eigenschaft gibt den Namen der Eingabeparameter in das zugrunde liegende Objekt-Update und Delete-Methoden für die ursprünglichen Werte. Wird besprochen, diese Eigenschaft und ihren Zweck ausführlicher beim untersucht, optimistischen Parallelität. Ich machen sie Sie jetzt jedoch daran, dass unsere BLL Methoden Sie nicht die ursprünglichen Werte erwarten nur, und daher es wichtig ist, dass wir diese Eigenschaft entfernen. Verlassen der `OldValuesParameterFormatString` -Eigenschaft auf einen anderen als den Standardwert festgelegt (`{0}`) verursacht einen Fehler, wenn ein Daten-Websteuerelement versucht wird, auf dem ObjectDataSource-Steuerelement aufrufen `Update()` oder `Delete()` Methoden da wird dem ObjectDataSource-Steuerelement versucht, die in beiden übergeben die `UpdateParameters` oder `DeleteParameters` sowie den ursprünglichen Wertparametern angegeben.
 
-Wenn dies in diesem Zusammenhang sehr klare enthalten ist, wird keine Sorge, untersucht, diese Eigenschaft und Nützlichkeit in einem späteren Lernprogramm. Vorerst nur sichergestellt sein, entfernen diese Eigenschaftendeklaration vollständig von deklarativer Syntax oder legen Sie den Wert auf den Standardwert ({0}).
+Sollte dies nicht allzu löschen an diesem Punkt keine Sorge, untersucht, diese Eigenschaft und dessen Dienstprogramm in einem späteren Tutorial. Jetzt, seien Sie sicher, dass diese Eigenschaftsdeklaration vollständig aus der deklarativen Syntax entfernen, oder legen Sie den Wert auf den Standardwert ({0}).
 
 > [!NOTE]
-> Wenn Sie einfach löschen, die `OldValuesParameterFormatString` Eigenschaftswert im Eigenschaftenfenster in der Entwurfsansicht die Eigenschaft in der deklarativen Syntax auch weiterhin vorhanden, jedoch auf eine leere Zeichenfolge festgelegt werden. Hierzu leider führt weiterhin das gleiche Problem weiter oben erläuterten. Daher entfernen Sie entweder die Eigenschaft vollständig vom deklarative Syntax oder über das Eigenschaftenfenster, legen Sie den Wert auf den Standardwert `{0}`.
+> Wenn Sie einfach löschen, die `OldValuesParameterFormatString` Eigenschaftswert im Eigenschaftenfenster in der Entwurfsansicht, die Eigenschaft in der deklarativen Syntax auch weiterhin vorhanden, aber auf eine leere Zeichenfolge festgelegt werden. Dies leider führt immer noch das gleiche Problem, das weiter oben erläuterten. Daher entfernen Sie entweder die Eigenschaft vollständig aus der deklarativen Syntax oder, im Eigenschaftenfenster, legen Sie den Wert mit dem Standard `{0}`.
 
 
-## <a name="step-3-adding-a-data-web-control-and-configuring-it-for-data-modification"></a>Schritt 3: Hinzufügen eines Daten-Web-Steuerelements und seiner Konfiguration für die Änderung von Daten
+## <a name="step-3-adding-a-data-web-control-and-configuring-it-for-data-modification"></a>Schritt 3: Hinzufügen eines Daten-Web-Steuerelements und seiner Konfiguration für die Datenänderung
 
-Nachdem das ObjectDataSource zur Seite hinzugefügt und konfiguriert wurde, können wir fügen Sie Daten Websteuerelemente zur Seite, um sowohl die Daten anzuzeigen, und bieten eine Möglichkeit für den Endbenutzer, diese zu ändern. Sehen wir uns die GridView, DetailsView und FormView getrennt, wie ihre Möglichkeiten zur Datenänderung und Konfiguration dieser Daten-Websteuerelemente unterschiedlich sind.
+Nach dem ObjectDataSource-Steuerelement der Seite hinzugefügt und konfiguriert wurde, können wir Daten Websteuerelemente hinzufügen, auf der Seite, um sowohl die Daten anzuzeigen, und bieten eine Möglichkeit für den Endbenutzer zu ändern. Sehen wir uns die GridView, DetailsView und FormView-Steuerelement, wie diese datenwebsteuerelemente in ihren Möglichkeiten zur Datenänderung und die Konfiguration unterscheiden.
 
-Wir sehen uns im weiteren Verlauf dieses Artikels sehr einfachen bearbeiten, einfügen und löschen die Unterstützung durch die GridView, DetailsView, hinzufügen und Steuerelemente FormView ist wirklich einfach eine Reihe von Kontrollkästchen aktivieren. Es gibt viele Besonderheiten und Grenzfälle in der Praxis, die solche Funktionen, die komplizierter als einfach zeigen, und klicken Sie auf bereitstellen vornehmen. Dieses Lernprogramm konzentriert sich jedoch ausschließlich auf Nachweis der vereinfachte Möglichkeiten zur Datenänderung. Zukünftige Lernprogramme untersucht, die in einer realen zweifellos auftreten, bedenken.
+Wir sehen uns im weiteren Verlauf dieses Artikels, Hinzufügen von sehr einfachen bearbeiten, einfügen und löschen über Support im Rahmen der GridView, DetailsView und FormView-Steuerelemente ist wirklich so einfach wie eine Reihe von Kontrollkästchen. Es gibt viele feinheiten und Grenzfälle in der Praxis, die machen solche Funktionen, die komplizierter als nur zeigen, und klicken Sie auf bereitstellen. Dieses Tutorial konzentriert sich jedoch ausschließlich auf Beweisen einfache Möglichkeiten zur Datenänderung. Zukünftige Tutorials werden Probleme untersuchen, die zweifellos in einer realen Umgebung auftreten.
 
 ## <a name="deleting-data-from-the-gridview"></a>Löschen von Daten aus der GridView
 
-Starten Sie, indem Sie eine GridView aus der Toolbox in den Designer ziehen. Binden Sie als Nächstes das ObjectDataSource an die GridView durch Auswahl aus der Dropdown-Liste in die GridView Smarttag. An diesem Punkt werden die GridView deklarative Markup:
+Starten einer GridView-Ansicht aus der Toolbox in den Designer ziehen. Binden Sie als Nächstes dem ObjectDataSource-Steuerelement an die GridView, indem Sie ihn aus der Dropdown-Liste in den GridView Smarttag auswählen. An diesem Punkt werden die GridView deklarative Markup:
 
 
 [!code-aspx[Main](an-overview-of-inserting-updating-and-deleting-data-cs/samples/sample4.aspx)]
 
-Binden die GridView an das ObjectDataSource über das Smarttag bietet zwei Vorteile:
+Binden die GridView, an dem ObjectDataSource-Steuerelement über die Smarttag hat zwei Vorteile:
 
-- BoundFields und CheckBoxFields werden für jeden der von der ObjectDataSource zurückgegebenen Felder automatisch erstellt. Darüber hinaus werden die BoundField- und des CheckBoxField Eigenschaften basierend auf Metadaten des zugrunde liegenden Felds festgelegt. Z. B. die `ProductID`, `CategoryName`, und `SupplierName` Felder werden als schreibgeschützt markiert die `ProductsDataTable` und aus diesem Grund darf nicht aktualisiert werden beim Bearbeiten. Um diese, diese BoundFields Rechnung zu tragen [ReadOnly-Eigenschaften](https://msdn.microsoft.com/library/system.web.ui.webcontrols.boundfield.readonly(VS.80).aspx) festgelegt `true`.
-- Die [DataKeyNames Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.datakeynames(VS.80).aspx) Primärschlüsselfelder des zugrunde liegenden Objekts zugewiesen ist. Dies ist wichtig, wenn die GridView zum Bearbeiten oder Löschen von Daten verwenden, wie diese Eigenschaft gibt an, das Feld (oder einen Satz von Feldern), eindeutig identifiziert jeden Datensatz. Weitere Informationen zu den `DataKeyNames` -Eigenschaft, verweisen zurück auf die [Master/Detail mit auswählbaren Master GridView mit einer Details-DetailView](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md) Lernprogramm.
+- BoundFields und CheckBoxFields werden automatisch für jedes der Felder zurückgegeben werden, von dem ObjectDataSource-Steuerelement erstellt. Darüber hinaus werden die BoundField- und des CheckBoxField Eigenschaften basierend auf Metadaten für das zugrunde liegende Feld festgelegt. Z. B. die `ProductID`, `CategoryName`, und `SupplierName` Felder werden als schreibgeschützt markiert die `ProductsDataTable` und aus diesem Grund sollte nicht aktualisierbar sein beim Bearbeiten. Um diese, diese BoundFields aufzunehmen [ReadOnly-Eigenschaften](https://msdn.microsoft.com/library/system.web.ui.webcontrols.boundfield.readonly(VS.80).aspx) festgelegt `true`.
+- Die [DataKeyNames-Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.datakeynames(VS.80).aspx) Primärschlüsselfelder des zugrunde liegenden Objekts zugewiesen wird. Dies ist wichtig, wenn unter Verwendung der GridView bearbeiten oder Löschen von Daten, wie diese Eigenschaft gibt an, das Feld (oder einen Satz von Feldern), eindeutig identifiziert jeden Datensatz. Weitere Informationen zu den `DataKeyNames` -Eigenschaft verweisen zurück auf die [Master/Detail unter Verwendung eines auswählbaren GridView-Mastersteuerelements mit einem DetailView](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md) Tutorial.
 
-Auf diese Weise während auf das ObjectDataSource über das Fenster "Eigenschaften" oder die deklarative Syntax die GridView gebunden werden kann, müssen Sie die entsprechenden BoundField manuell hinzufügen und `DataKeyNames` Markup.
+Auf diese Weise während dem ObjectDataSource-Steuerelement über das Fenster "Eigenschaften" oder die deklarative Syntax des GridView gebunden sein kann, müssen Sie die entsprechenden BoundField manuell hinzufügen und `DataKeyNames` Markup.
 
-GridView-Steuerelements bietet integrierte Unterstützung für auf Zeilenebene zu bearbeiten und löschen. Konfigurieren einer GridView zur Unterstützung von löschen Fügt eine Spalte von Schaltflächen zum Löschen. Klickt der Benutzer die Schaltfläche "löschen" für eine bestimmte Zeile, ein Postback erfolgt und die GridView führt die folgenden Schritte aus:
+Das GridView-Steuerelement bietet integrierte Unterstützung für auf Zeilenebene zu bearbeiten und löschen. Konfigurieren einer GridView-Ansicht um gelöscht zu unterstützen, fügt eine Spalte mit Schaltflächen zum Löschen. Klickt der Endbenutzer auf die Schaltfläche "löschen" für eine bestimmte Zeile, ein Postback Sicherheitsvorschriften und GridView führt die folgenden Schritte aus:
 
-1. Das ObjectDataSource `DeleteParameters` Werte zugewiesen werden
-2. Das ObjectDataSource `Delete()` Methode wird aufgerufen, den angegebenen Datensatz löschen
-3. GridView bindet sich selbst auf die ObjectDataSource durch Aufrufen seiner `Select()` Methode
+1. Das "ObjectDataSource" `DeleteParameters` Werte werden zugewiesen.
+2. Das "ObjectDataSource" `Delete()` Methode wird aufgerufen, den angegebenen Datensatz löschen
+3. Das GridView erneuerte Bindungen selbst auf dem ObjectDataSource-Steuerelement, durch den Aufruf der `Select()` Methode
 
-Die Werte für die `DeleteParameters` sind die Werte der die `DataKeyNames` Felder für die Zeile, deren Schaltfläche "löschen" geklickt wurde. Daher ist es wichtig, die einer GridView `DataKeyNames` Eigenschaft ordnungsgemäß festgelegt werden. Wenn sie nicht vorhanden ist, ist die `DeleteParameters` zugewiesen wird eine `null` Wert in Schritt 1, der nicht wiederum in einem verursacht gelöschten Datensätzen, die in Schritt2.
+Die Werte für die `DeleteParameters` sind die Werte der der `DataKeyNames` Felder für die Zeile, deren löschen-Schaltfläche geklickt wurde. Es ist daher wichtig, das einer GridView `DataKeyNames` Eigenschaft richtig festgelegt sein. Wenn sie nicht vorhanden ist, ist die `DeleteParameters` zugewiesen wird eine `null` Wert in Schritt 1, was wiederum nicht in einem führt gelöschten Datensätzen in Schritt2.
 
 > [!NOTE]
-> Die `DataKeys` Auflistung in die GridView-s-Steuerelementzustand gespeichert ist, d. h. die `DataKeys` Werte werden über Postbacks gespeichert werden, selbst wenn der Ansichtszustand für GridView s deaktiviert wurde. Allerdings ist es sehr wichtig, dass der Ansichtszustand für GridViews, die unterstützt werden, bearbeiten oder löschen (das Standardverhalten) aktiviert bleibt. Wenn Sie festlegen, dass die GridView s `EnableViewState` Eigenschaft `false`, bearbeiten und Löschen von Verhalten funktioniert gut für einen einzelnen Benutzer, aber wenn gleichzeitige Benutzer löschen von Daten vorhanden sind, besteht die Möglichkeit, dass diese gleichzeitigen Benutzern versehentlich möglicherweise Löschen oder bearbeiten, dass sie-t aufgezeichnet werden soll. Finden Sie unter meinem Blogeintrag [Warnung: Parallelität Problem mit ASP.NET 2.0 GridViews/DetailsView/FormViews, Bearbeitung unterstützen und/oder löschen und, deren Ansichtszustand ist deaktiviert,](http://scottonwriting.net/sowblog/archive/2006/10/03/163215.aspx), Weitere Informationen.
+> Die `DataKeys` Sammlung befindet sich in den GridView-s-Steuerelementzustand, was bedeutet, dass die `DataKeys` Werte werden während des Zurücksendens gespeichert werden, auch wenn der Ansichtszustand der GridView-s deaktiviert wurde. Allerdings ist es sehr wichtig, dass der Ansichtszustand für GridViews, die unterstützt werden, bearbeiten oder löschen (das Standardverhalten) aktiviert bleibt. Wenn Sie festlegen, dass das GridView-s `EnableViewState` Eigenschaft `false`, das Bearbeiten und Löschen von Verhalten werden problemlos für einen einzelnen Benutzer funktionieren, aber wenn gleichzeitige Benutzer, die Löschen von Daten vorhanden sind, besteht die Möglichkeit, dass diese gleichzeitige Benutzer versehentlich können Löschen oder bearbeiten, dass sie nihnen t aufgezeichnet werden soll. Finden Sie in meinem Blog, [Warnung: Problem der Parallelität mit ASP.NET 2.0 GridViews/DetailsView/FormViews diese Unterstützung zu bearbeiten bzw. löschen und, deren Ansichtszustand deaktiviert ist](http://scottonwriting.net/sowblog/archive/2006/10/03/163215.aspx), Weitere Informationen.
 
 
-Diese gleiche Warnung gilt auch für DetailsViews und FormViews.
+Diese gleichen Warnung gilt auch für DetailsViews und FormViews verwendet werden.
 
-Zum Löschen von Funktionen für eine GridView hinzuzufügen, wechseln Sie zu dessen Smarttag und aktivieren Sie das Kontrollkästchen Löschen aktivieren.
+Um das Löschen von Funktionen zu einer GridView-Ansicht hinzuzufügen, wechseln Sie zu seinem Smarttag und aktivieren Sie das Kontrollkästchen Löschen aktivieren.
 
 
 ![Überprüfen Sie das Löschen von Kontrollkästchen aktivieren](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image24.png)
@@ -196,252 +195,252 @@ Zum Löschen von Funktionen für eine GridView hinzuzufügen, wechseln Sie zu de
 **Abbildung 10**: Überprüfen Sie das Löschen von Kontrollkästchen aktivieren
 
 
-Aktivieren des Kontrollkästchens löschen aktivieren aus dem Smarttag Fügt eine CommandField an die GridView. Die CommandField rendert eine Spalte in der GridView mit Schaltflächen für eine oder mehrere der folgenden Aufgaben ausführen: Auswählen eines Datensatzes, einen Datensatz bearbeiten und Löschen eines Datensatzes. Zuvor wurde erläutert, die CommandField in Aktion auswählen von Datensätzen in der [Master/Detail mit auswählbaren Master GridView mit einer Details-DetailView](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md) Lernprogramm.
+Aktivieren des Kontrollkästchens löschen aktivieren, aus dem Smarttag hinzugefügt GridView eine CommandField. Die CommandField rendert eine Spalte in der GridView mit Schaltflächen zum Ausführen von mindestens einer der folgenden Aufgaben: Wählen Sie einen Datensatz, einen Datensatz zu bearbeiten und Löschen eines Datensatzes. Wir bereits gesehen haben, die CommandField in Aktion auswählen von Datensätzen in der [Master/Detail unter Verwendung eines auswählbaren GridView-Mastersteuerelements mit einem DetailView](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md) Tutorial.
 
-Die CommandField enthält eine Reihe von `ShowXButton` Eigenschaften, die angeben, welche Reihe von Schaltflächen in der CommandField angezeigt werden. Durch Aktivieren des Kontrollkästchens löschen aktivieren einer CommandField, deren `ShowDeleteButton` Eigenschaft `true` die GridView Columns-Auflistung hinzugefügt wurde.
+Die CommandField enthält eine Reihe von `ShowXButton` Eigenschaften, die angeben, welche Reihe von Schaltflächen in der CommandField angezeigt werden. Durch Aktivieren des Kontrollkästchens löschen aktivieren einer CommandField, deren `ShowDeleteButton` Eigenschaft `true` GridView Columns-Auflistung hinzugefügt wurde.
 
 
 [!code-aspx[Main](an-overview-of-inserting-updating-and-deleting-data-cs/samples/sample5.aspx)]
 
-An diesem Punkt haben wir glauben es oder nicht mit dem Hinzufügen von Löschen von Unterstützung an die GridView! Wie Abbildung 11 zeigt, ist beim Zugriff auf diese Seite über einen Browser eine Spalte mit Schaltflächen zum Löschen vorhanden.
+An diesem Punkt haben wir ob Sie es glauben oder nicht, mit dem Hinzufügen von Unterstützung für das Löschen von an die GridView! Wie in Abbildung 11 dargestellt, wenn auf dieser Seite über einen Browser eine Spalte mit Schaltflächen zum Löschen vorhanden ist.
 
 
-[![Die CommandField Fügt eine Spalte mit den Schaltflächen löschen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image26.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image25.png)
+[![Die CommandField Fügt eine Spalte mit Schaltflächen zum Löschen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image26.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image25.png)
 
-**Abbildung 11**: die CommandField Fügt eine Spalte von löschen Schaltflächen ([klicken Sie hier, um das Bild in voller Größe angezeigt](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image27.png))
+**Abbildung 11**: die CommandField Fügt eine Spalte der löschen-Schaltflächen ([klicken Sie, um das Bild in voller Größe anzeigen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image27.png))
 
 
-Wenn Sie dieses Lernprogramm von a bis z auf Ihre eigenen, erstellen wurden haben beim Testen von dieser Seite klicken wird die Schaltfläche "löschen" eine Ausnahme ausgelöst. Um zu erfahren, warum diese Ausnahmen ausgelöst wurden und wie Sie das Problem beheben, lesen Sie weiter.
+Wenn Sie in diesem Tutorial von Anfang an auf sich selbst erstellen wurde haben beim Testen von dieser Seite klicken wird die Schaltfläche "löschen" eine Ausnahme ausgelöst. Lesen Sie, warum diese Ausnahmen ausgelöst wurden und zur Behebung dieser Probleme finden Sie weiter.
 
 > [!NOTE]
-> Wenn Sie zusammen mit der zugehörigen dieses Lernprogramms Download befolgen, wurden diese Probleme bereits berücksichtigt. Allerdings empfehlen wir Ihnen, durch die Identifizierung von Problemen, die auftreten können, und geeignete Abhilfemaßnahmen unten aufgeführten Informationen zu lesen.
+> Wenn Sie die Verwendung der im Downloads enthalten, in diesem Tutorial befolgt haben, haben diese Probleme bereits berücksichtigt wurden. Allerdings sollten Sie durch die Identifizierung von Problemen, die auftreten können und geeignete problemumgehungen unten aufgeführten Details zu lesen.
 
 
-Wenn beim Versuch, ein Produkt zu löschen, eine Ausnahme angezeigt, dessen Meldung ähnelt "*ObjectDataSource 'ObjectDataSource1' eine nicht generische Methode"DeleteProduct", die über Parameter verfügt nicht gefunden:" ProductID "ursprünglichen\_ "ProductID"*, "haben Sie wahrscheinlich vergessen, entfernen Sie die `OldValuesParameterFormatString` Eigenschaft aus der ObjectDataSource. Mit der `OldValuesParameterFormatString` Eigenschaft angegeben wird, das ObjectDataSource versucht, für die Übergabe in beiden `productID` und `original_ProductID` Eingabeparametern der `DeleteProduct` Methode. `DeleteProduct`, akzeptiert jedoch nur einen einzelnen Eingabeparameter, daher die Ausnahme. Entfernen der `OldValuesParameterFormatString` Eigenschaft (oder bei der Einstellung `{0}`) weist die ObjectDataSource nicht versucht, den ursprünglichen Eingabeparameter übergeben.
+Wenn Sie beim Versuch, ein Produkt zu löschen, eine Ausnahme angezeigt, dessen Meldung ist vergleichbar mit "*ObjectDataSource"ObjectDataSource1"nicht gefunden. eine nicht generische Methode"DeleteProduct", die über Parameter verfügt: ProductID, ursprünglichen\_ "ProductID"*, "haben Sie wahrscheinlich vergessen, entfernen Sie die `OldValuesParameterFormatString` Eigenschaft aus dem ObjectDataSource-Steuerelement. Mit der `OldValuesParameterFormatString` Eigenschaft angegeben ist, dem ObjectDataSource-Steuerelement für die Übergabe in beiden `productID` und `original_ProductID` Eingabeparameter der `DeleteProduct` Methode. `DeleteProduct`, akzeptiert jedoch nur einen einzelnen Eingabeparameter, daher die Ausnahme. Entfernen der `OldValuesParameterFormatString` Eigenschaft (oder wenn diese Option auf `{0}`) weist Sie dem ObjectDataSource-Steuerelement nicht versuchte, die in der ursprünglichen Eingabeparameter übergeben.
 
 
-[![Stellen Sie sicher, dass die Eigenschaft OldValuesParameterFormatString Out gelöscht wurde](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image29.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image28.png)
+[![Stellen Sie sicher, dass sich die OldValuesParameterFormatString Eigenschaft gelöscht wurde](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image29.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image28.png)
 
-**Abbildung 12**: sicherstellen, dass die `OldValuesParameterFormatString` Eigenschaft hat wurde deaktiviert, ([klicken Sie hier, um das Bild in voller Größe angezeigt](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image30.png))
-
-
-Auch wenn Sie entfernt haben die `OldValuesParameterFormatString` Eigenschaft weiterhin erhalten Sie eine Ausnahme beim Versuch, ein Produkt mit der Nachricht zu löschen: "*die DELETE-Anweisung steht in Konflikt mit der REFERENCE-Einschränkung ' FK\_Reihenfolge\_Details \_Produkte*. " Die Northwind-Datenbank enthält eine foreign Key-Einschränkung zwischen den `Order Details` und `Products` Tabelle, was bedeutet, dass ein Produkt kann nicht aus dem System gelöscht werden, treten ein oder mehrere Datensätze für sie in der `Order Details` Tabelle. Da jedes Produkt in der Northwind-Datenbank mindestens ein Datensatz `Order Details`, alle Produkte aus, bis wir das Produkt zugeordneten Details bestellungsdatensätze zuerst löschen kann nicht gelöscht.
+**Abbildung 12**: sicherstellen, dass die `OldValuesParameterFormatString` Eigenschaft verfügt über wurde gelöscht, ([klicken Sie, um das Bild in voller Größe anzeigen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image30.png))
 
 
-[![Eine Foreign Key-Einschränkung verhindert das Löschen von Produkten](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image32.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image31.png)
-
-**Abbildung 13**: eine Foreign Key-Einschränkung verhindert das Löschen von Produkten ([klicken Sie hier, um das Bild in voller Größe angezeigt](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image33.png))
+Auch wenn Sie entfernt haben die `OldValuesParameterFormatString` Eigenschaft weiterhin erhalten Sie eine Ausnahme beim Versuch, ein Produkt mit der Meldung zu löschen: "*die DELETE-Anweisung steht in Konflikt mit der REFERENCE-Einschränkung" FK\_Reihenfolge\_Details \_Produkte*. " Die Northwind-Datenbank enthält eine fremdschlüsseleinschränkung zwischen der `Order Details` und `Products` Tabelle, d. h., ein Produkt kann nicht aus dem System gelöscht werden, treten ein oder mehrere Datensätze für die sie in der `Order Details` Tabelle. Da jedes Produkt in der Northwind-Datenbank mindestens ein Datensatz `Order Details`, es kann keine Produkte gelöscht, bis wir zunächst den produktanforderungen verknüpft Details bestellungsdatensätze löschen.
 
 
-Für unser Tutorial aus, lassen Sie uns einfach Löschen aller Datensätze aus der `Order Details` Tabelle. In einer realen Anwendung würde wir entweder benötigen:
+[![Eine Foreign Key-Einschränkung verhindert, dass das Löschen von Produkten](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image32.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image31.png)
 
-- Haben Sie einen anderen Bildschirm, um Detailbestellinformationen verwalten
-- Erweitern der `DeleteProduct` Methode, um die Logik zum Löschen von Bestelldetails für das angegebene Produkt einschließen
-- Ändern Sie die SQL-Abfrage von TableAdapter verwendet, um das Löschen von Bestelldetails für das angegebene Produkt einschließen
+**Abbildung 13**: eine Foreign Key-Einschränkung verhindert, dass die Löschung der Produkte ([klicken Sie, um das Bild in voller Größe anzeigen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image33.png))
 
-Nehmen wir einfach Löschen aller Datensätze aus der `Order Details` Tabelle, foreign Key-Einschränkung zu umgehen. Navigieren Sie zu dem Server-Explorer in Visual Studio, mit der rechten Maustaste auf die `NORTHWND.MDF` Knoten, und wählen Sie die neue Abfrage. Klicken Sie dann in das Abfragefenster ein, führen Sie die folgende SQL-Anweisung an: `DELETE FROM [Order Details]`
+
+Für unser Tutorial lassen Sie uns einfach Löschen aller Datensätze aus der `Order Details` Tabelle. In einer realen Anwendung müssen wir entweder:
+
+- Haben Sie einen anderen Bildschirm zum Verwalten von Bestellinformationen für details
+- Erweitern Sie die `DeleteProduct` Methode, um die Logik, um die Details für das angegebene Produkt Reihenfolge gelöscht werden, enthalten.
+- Ändern Sie die SQL-Abfrage, die von der TableAdapter verwendet, um das Löschen von Auftragsdetails für das angegebene Produkt enthalten
+
+Lassen Sie uns einfach Löschen aller Datensätze aus der `Order Details` Tabelle, foreign Key-Einschränkung zu umgehen. Wechseln Sie zu dem Server-Explorer in Visual Studio, mit der rechten Maustaste auf die `NORTHWND.MDF` Knoten, und wählen Sie die neue Abfrage. Führen Sie dann im Abfragefenster die folgende SQL-Anweisung ein: `DELETE FROM [Order Details]`
 
 
 [![Löschen Sie alle Datensätze aus der Order Details-Tabelle](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image35.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image34.png)
 
-**Abbildung 14**: Löschen Sie alle Datensätze aus der `Order Details` Tabelle ([klicken Sie hier, um das Bild in voller Größe angezeigt](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image36.png))
+**Abbildung 14**: Löschen Sie alle Datensätze aus der `Order Details` Tabelle ([klicken Sie, um das Bild in voller Größe anzeigen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image36.png))
 
 
-Nach dem Entfernen der `Order Details` Tabelle durch Klicken auf die Schaltfläche "löschen" löscht das Produkt ohne Fehler. Wenn das Produkt durch Klicken auf die Schaltfläche "löschen" nicht gelöscht werden, zu überprüfen, um sicherzustellen, dass der GridView `DataKeyNames` -Eigenschaft auf das Feld für den Primärschlüssel festgelegt ist (`ProductID`).
+Nach dem beseitigen der `Order Details` Tabelle, die Sie auf die Schaltfläche "löschen" klicken, wird das Produkt ohne Fehler gelöscht. Wenn das Produkt durch Klicken auf die Schaltfläche "Delete" nicht gelöscht wird, zu überprüfen, um sicherzustellen, dass der GridView `DataKeyNames` -Eigenschaftensatz auf Feld mit dem Primärschlüssel (`ProductID`).
 
 > [!NOTE]
-> Beim Klicken auf die Schaltfläche "löschen" wird ein Postback erfolgt, und der Datensatz gelöscht. Dies kann gefährlich sein, da einfach versehentlich klicken Sie auf die Schaltfläche "löschen" den falschen Zeile auf. In einem späteren Lernprogramm sehen wir, wie eine Bestätigung für die clientseitige hinzufügen, wenn Sie einen Datensatz löschen.
+> Beim Klicken auf die Schaltfläche "löschen" erfolgt ein Postback aus, und der Datensatz gelöscht. Dies kann gefährlich sein, da es einfach, versehentlich klicken auf die Schaltfläche zum Löschen der falschen Zeile handelt. In einem späteren Tutorial sehen wir, wie eine clientseitiger Bestätigung hinzufügen, wenn Sie einen Datensatz zu löschen.
 
 
 ## <a name="editing-data-with-the-gridview"></a>Bearbeiten von Daten mit GridView
 
-Zusammen mit gelöscht wird, stellt des GridView-Steuerelements auch integrierte Unterstützung für das Bearbeiten auf Zeilenebene bereit. Konfigurieren einer GridView zur Unterstützung der Bearbeitung Fügt eine Spalte des bearbeiten-Schaltflächen. Wenn Sie hinsichtlich der Endbenutzer auf eine Zeile Bearbeiten Schaltfläche Ursachen Zeile bearbeitet werden, werden die Zellen in Textfelder ein, die vorhandenen Werte enthält, und Ersetzen Sie dabei die Schaltfläche "Bearbeiten", mit dem Update und die Schaltflächen "Abbrechen". Nachdem Sie die gewünschten Änderungen vornehmen, können die Endbenutzer die Schaltfläche "Aktualisieren", um die Änderungen zu übernehmen oder die Schaltfläche "Abbrechen", um diese zu verwerfen klicken. In beiden Fällen gibt nach dem Klicken auf Update- oder "Abbrechen" GridView Datenbankzustands vorab bearbeiten.
+Zusammen mit löschen, stellt das GridView-Steuerelement auch integrierte Unterstützung für die Bearbeitung auf Zeilenebene bereit. Konfigurieren einer GridView-Ansicht zur Unterstützung der Bearbeitung Fügt eine Spalte mit Bearbeitungsschaltflächen hinzu. Wenn Sie aus Sicht des Endbenutzers auf einer Zeile Bearbeiten Schaltfläche Ursachen, die Zeile bearbeitet werden, werden die Zellen in Textfelder ein, die die vorhandenen Werte enthält, und ersetzen die Schaltfläche "Bearbeiten" mit Update und "Abbrechen" Schaltflächen. Treffen Sie die gewünschten Änderungen vor, und können Benutzer die Schaltfläche "Aktualisieren", um die Änderungen zu übernehmen oder die Schaltfläche "Abbrechen", um sie zu verwerfen klicken. In beiden Fällen nach dem Klicken auf aktualisieren, oder der GridView-gibt den Zustand vor der Bearbeitung abbrechen.
 
-Unsere hinsichtlich der als der Entwickler der Seite klickt der Benutzer die Schaltfläche "Bearbeiten" für eine bestimmte Zeile, ein Postback erfolgt und die GridView führt die folgenden Schritte aus:
+Aus unserer Sicht als Seitenentwickler klickt der Endbenutzer auf die Schaltfläche "Bearbeiten" für eine bestimmte Zeile, ein Postback Sicherheitsvorschriften und GridView führt die folgenden Schritte aus:
 
-1. Der GridView `EditItemIndex` Eigenschaft zugewiesen ist, auf den Index der Zeile, deren Schaltfläche "Bearbeiten" geklickt wurde,
-2. GridView bindet sich selbst auf die ObjectDataSource durch Aufrufen seiner `Select()` Methode
-3. Der Index der Zeile entspricht der `EditItemIndex` wird gerendert, in "Bearbeitungsmodus". In diesem Modus wird die Schaltfläche "Bearbeiten" durch die Schaltflächen "Abbrechen" und "Update" und BoundFields ersetzt, deren `ReadOnly` Eigenschaften sind "false" (Standard) werden als Textfeld Web, dessen Steuerelemente gerendert `Text` Eigenschaften die Datenfelder Werte zugewiesen sind.
+1. GridView `EditItemIndex` -Eigenschaft zugewiesen, der Index der Zeile, deren Schaltfläche "Bearbeiten" geklickt wurde,
+2. Das GridView erneuerte Bindungen selbst auf dem ObjectDataSource-Steuerelement, durch den Aufruf der `Select()` Methode
+3. Der Index der Zeile entspricht der `EditItemIndex` gerendert wird, in "Edit Mode." In diesem Modus wird die Schaltfläche "Bearbeiten" Schaltflächen "Update" und "Abbrechen" und BoundFields ersetzt, deren `ReadOnly` Eigenschaften sind falsch (Standardeinstellung) werden als Textfeld Web, dessen Steuerelemente gerendert `Text` Eigenschaften werden die Datenfelder Werte zugewiesen.
 
-Zu diesem Zeitpunkt wird das Markup an den Browser, ermöglicht der Endbenutzer keine Änderungen vornehmen, um Daten aus der Zeile zurückgegeben. Klickt der Benutzer auf die Schaltfläche "Aktualisieren", ein Postback erfolgt und die GridView führt die folgenden Schritte aus:
+An diesem Punkt wird das Markup an den Browser ermöglichen dem Endbenutzer keine Änderungen vornehmen, auf die Zeile der Daten zurückgegeben. Klickt der Benutzer auf die Schaltfläche "Aktualisieren", ein Postback auftritt, und die GridView führt die folgenden Schritte aus:
 
-1. Das ObjectDataSource `UpdateParameters` Werte der in Bearbeitung der GridView-Schnittstelle vom Endbenutzer eingegebenen Werte zugewiesen werden
-2. Das ObjectDataSource `Update()` Methode wird aufgerufen, den angegebenen Datensatz aktualisieren
-3. GridView bindet sich selbst auf die ObjectDataSource durch Aufrufen seiner `Select()` Methode
+1. Das "ObjectDataSource" `UpdateParameters` Werte werden durch den Endbenutzer in den GridView Bearbeitungsoberfläche eingegebenen Werte zugewiesen
+2. Das "ObjectDataSource" `Update()` Methode wird aufgerufen, den angegebenen Datensatz aktualisieren
+3. Das GridView erneuerte Bindungen selbst auf dem ObjectDataSource-Steuerelement, durch den Aufruf der `Select()` Methode
 
-Die Primärschlüsselwerte zugewiesen der `UpdateParameters` in Schritt 1 stammen aus den Werten im angegebenen die `DataKeyNames` -Eigenschaft, während die Nichtprimär-Schlüsselwerte aus dem Text in das Textfeld Websteuerelementen der bearbeiteten Zeile stammen. Wie bei löschen, es wichtiger ist, die einer GridView `DataKeyNames` Eigenschaft ordnungsgemäß festgelegt werden. Wenn sie nicht vorhanden ist, ist die `UpdateParameters` Primärschlüsselwert zugewiesen ein `null` Wert in Schritt 1, der nicht wiederum in einem verursacht aktualisiert Datensätze in Schritt2.
+Die Primärschlüsselwerte zugewiesen der `UpdateParameters` stammen Sie in Schritt 1 im angegebenen Werte die `DataKeyNames` -Eigenschaft, während nicht-primäre Schlüsselwerte aus dem Text in das Textfeld Websteuerelementen für die bearbeitete Zeile stammen. Wie gelöscht werden, es unerlässlich ist, das einer GridView `DataKeyNames` Eigenschaft richtig festgelegt sein. Wenn sie nicht vorhanden ist, ist die `UpdateParameters` Primärschlüsselwert zugewiesen eine `null` Wert in Schritt 1, was wiederum nicht in einem führt aktualisiert Datensätze, die in Schritt2.
 
-Bearbeiten-Funktionalität kann durch Überprüfen einfach das Kontrollkästchen Bearbeiten aktivieren, in die GridView Smarttag aktiviert werden.
-
-
-![Überprüfen Sie das Kontrollkästchen Bearbeiten aktivieren](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image37.png)
-
-**Abbildung 15**: Überprüfen Sie das Kontrollkästchen Bearbeiten aktivieren
+Editing-Funktionalität kann durch einfaches aktivieren das Kontrollkästchen Bearbeiten aktivieren, in den GridView Smarttag aktiviert werden.
 
 
-Überprüfen das Kontrollkästchen Bearbeiten aktivieren wird eine CommandField hinzufügen (sofern erforderlich), und legen seine `ShowEditButton` Eigenschaft `true`. Wie bereits zuvor gesehen, wird die CommandField enthält eine Reihe von `ShowXButton` Eigenschaften, die angeben, welche Reihe von Schaltflächen in der CommandField angezeigt werden. Überprüfen das Kontrollkästchen Bearbeiten aktivieren fügt die `ShowEditButton` Eigenschaft, um die vorhandenen CommandField:
+![Überprüfen Sie die Bearbeitung von Kontrollkästchen aktivieren](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image37.png)
+
+**Abbildung 15**: Überprüfen Sie die Bearbeitung von Kontrollkästchen aktivieren
+
+
+Überprüfen das Kontrollkästchen Bearbeiten aktivieren wird eine CommandField hinzufügen (sofern erforderlich), und legen dessen `ShowEditButton` Eigenschaft `true`. Wie wir gesehen haben, wird die CommandField enthält eine Reihe von `ShowXButton` Eigenschaften, die angeben, welche Reihe von Schaltflächen in der CommandField angezeigt werden. Aktivieren des Kontrollkästchens Bearbeiten aktivieren fügt die `ShowEditButton` Eigenschaft, um die vorhandenen CommandField:
 
 
 [!code-aspx[Main](an-overview-of-inserting-updating-and-deleting-data-cs/samples/sample6.aspx)]
 
-Das ist alles vorhanden ist, zum Hinzufügen der Unterstützung für das rudimentäre bearbeiten. Wie Figure16 gezeigt, die Bearbeitungsoberfläche stattdessen einfach gehalten wird jede BoundField, deren `ReadOnly` -Eigenschaftensatz auf `false` (Standard) wird als ein Textfeld gerendert. Dies beinhaltet Felder wie `CategoryID` und `SupplierID`, die Schlüssel auf andere Tabellen sind.
+Das ist alles zum Hinzufügen von Unterstützung für die rudimentäre Bearbeitung vorhanden ist. Die Bearbeitungsschnittstelle Figure16 zeigt, ist recht einfach gehalten jedes BoundField, deren `ReadOnly` -Eigenschaftensatz auf `false` (Standard) als ein TextBox-Element gerendert wird. Dies beinhaltet Felder wie `CategoryID` und `SupplierID`, die Schlüssel auf andere Tabellen sind.
 
 
-[![Klicken Sie auf Chai s Schaltfläche "Bearbeiten" zeigt die Zeile im Bearbeitungsmodus](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image39.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image38.png)
+[![Durch Klicken auf Chai s Schaltfläche "Bearbeiten" wird die Zeile im Bearbeitungsmodus angezeigt.](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image39.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image38.png)
 
-**Abbildung 16**: durch Klicken auf Chai s Schaltfläche "Bearbeiten" zeigt die Zeile im Bearbeitungsmodus ([klicken Sie hier, um das Bild in voller Größe angezeigt](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image40.png))
+**Abbildung 16**: s der Chai durch Klicken auf Schaltfläche "Bearbeiten" zeigt die Zeile im Bearbeitungsmodus ([klicken Sie, um das Bild in voller Größe anzeigen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image40.png))
 
 
-Zusätzlich zur Aufforderung der Benutzer für eine direkte Bearbeitung Fremdschlüsselwerte, fehlt der Bearbeitung Schnittstelle auf folgende Weise:
+Zusätzlich zu gerätebenutzern Fremdschlüsselwerte direkt zu bearbeiten, fehlen die Bearbeitungsschnittstelle-Schnittstelle auf folgende Weise:
 
-- Wenn der Benutzer gibt eine `CategoryID` oder `SupplierID` , die in der Datenbank nicht vorhanden die `UPDATE` wird verletzt eine foreign Key-Einschränkung, dass eine Ausnahme ausgelöst werden soll.
-- Die Bearbeitungsoberfläche ist keine Validierung nicht enthalten. Wenn Sie nicht, dass einen erforderlichen Wert angeben (z. B. `ProductName`), oder geben Sie einen Zeichenfolgenwert ein, in dem ein numerischer Wert erwartet wird, (wie das Eingeben von "Zu viele!" in der `UnitPrice` Textfeld), wird eine Ausnahme ausgelöst werden. Eine zukünftige Lernprogramm untersucht zum Hinzufügen von Steuerelementen für die Validierung zu der Benutzeroberfläche zur Bearbeitung.
-- Derzeit *alle* Produkt-Felder, die nicht schreibgeschützt sind in der GridView enthalten sein müssen. Angenommen, wäre es ein Feld aus der GridView entfernen, `UnitPrice`, beim Aktualisieren der Daten die GridView nicht festgelegt werden die `UnitPrice` `UpdateParameters` -Wert, der des Datenbankdatensatz geändert würde `UnitPrice` auf eine `NULL` Wert. Auf ähnliche Weise, wenn ein erforderliches Feld, z. B. `ProductName`, entfernt aus der GridView-das Update schlägt fehl, mit dem gleichen "*Spaltenname 'ProductName' lässt keine NULL-Werte*" Ausnahme, die oben genannten.
-- Die Bearbeitung Schnittstelle Formatierung bewirkt, dass viele wünschenswert sein. Die `UnitPrice` wird mit vier Dezimalstellen angezeigt. Im Idealfall der `CategoryID` und `SupplierID` Werten DropDownLists, die die Kategorien und Lieferanten im System auflisten.
+- Wenn der Benutzer eingibt eine `CategoryID` oder `SupplierID` nicht in der Datenbank vorhandenen der `UPDATE` wird verletzt eine foreign Key-Einschränkung, dass eine Ausnahme ausgelöst werden soll.
+- Die Bearbeitungsschnittstelle enthält keine Validierung. Wenn Sie nicht, dass einen erforderlichen Wert angeben (z. B. `ProductName`), oder geben Sie einen Zeichenfolgenwert ein, wo ein numerischer Wert erwartet wird (z. B. durch Eingabe von "Zu viel!" in der `UnitPrice` Textfeld), wird eine Ausnahme ausgelöst werden. Eine zukünftige Tutorial wird das Hinzufügen von Steuerelementen zur gültigkeitsprüfung die Bearbeitung der Benutzeroberfläche untersuchen.
+- Derzeit *alle* Product-Felder, die nicht schreibgeschützt sind, die in den GridView-Ansicht enthalten sein müssen. Würden wir zum Entfernen eines Felds aus der GridView, z. B. `UnitPrice`beim Aktualisieren der Daten der GridView nicht festgelegt, wird die `UnitPrice` `UpdateParameters` -Wert, der des Datenbankdatensatzes ändern würde `UnitPrice` auf eine `NULL` Wert. Auf ähnliche Weise, wenn ein erforderliches Feld, z. B. `ProductName`, entfernt von GridView-das Update schlägt fehl, mit dem gleichen "*Spaltenname 'ProductName' lässt keine NULL-Werte*" Ausnahme, die oben genannten.
+- Die Bearbeitung Schnittstelle Formatierung bleibt viel zu wünschen übrig. Die `UnitPrice` mit vier Dezimalstellen angezeigt. Im Idealfall die `CategoryID` und `SupplierID` Werte würde die DropDownList-Steuerelementen, die Liste der Kategorien und Lieferanten im System enthalten.
 
-Hierbei handelt es sich um alle Mängel, die wir mit live, jetzt aber wird in zukünftigen Lernprogrammen adressiert werden.
+Hierbei handelt es sich um alle Mängel, die wir jetzt, aber ist mit live werden in zukünftigen Lernprogrammen adressiert werden.
 
 ## <a name="inserting-editing-and-deleting-data-with-the-detailsview"></a>Einfügen, bearbeiten und Löschen von Daten mit DetailsView
 
-Wie wir Steuerelement zeigt einen Datensatz zu einem Zeitpunkt, und wie die GridView kann zum Bearbeiten und Löschen des aktuell angezeigten Datensatzes in früheren Lernprogrammen, DetailsView gesehen haben. Sowohl der Endbenutzer-Erfahrung mit bearbeiten und Löschen von Elementen aus einem DetailsView und der Workflow von der Seite ASP.NET ist identisch mit der GridView. Die GridView, DetailsView unterscheidet besteht darin, dass es auch integrierten Einfügen von Unterstützung.
+Wie wir in den vorherigen Tutorials gesehen haben, wird von DetailsView-Steuerelement zeigt einen Datensatz, zu einem Zeitpunkt, und wie GridView, ermöglicht das Bearbeiten und Löschen des derzeit angezeigten Datensatzes. Sowohl der Endbenutzer-Erfahrung mit bearbeiten und Löschen von Elementen aus einem DetailsView und der Workflow von der Seite von ASP.NET ist identisch mit der GridView. GridView, DetailsView unterscheidet ist, dass es auch integrierten einfügen Unterstützung bietet.
 
-Zur Veranschaulichung der Möglichkeiten zur Datenänderung der GridView zu starten, indem Sie eine DetailsView zum Hinzufügen der `Basics.aspx` oberhalb der vorhandenen GridView und an den vorhandenen ObjectDataSource über die DetailsView Smarttag gebunden wird. Als Nächstes deaktivieren, DetailsView des `Height` und `Width` Eigenschaften, und aktivieren Sie die Option Paging aktivieren aus dem Smarttag. Zum Aktivieren der Bearbeitung Kontrollkästchen einfügen und Löschen von Unterstützung, einfach die Bearbeiten aktivieren, aktivieren Sie einfügen und löschen aktivieren im Smarttag.
-
-
-![Konfigurieren von DetailsView an den Support, bearbeiten, einfügen und löschen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image41.png)
-
-**Abbildung 17**: Konfigurieren von DetailsView an den Support, bearbeiten, einfügen und löschen
+Um die Möglichkeiten zur Datenänderung der GridView zu demonstrieren, Hinzufügen einer DetailsView, zunächst die `Basics.aspx` Seite über der vorhandenen GridView, und binden sie an der vorhandenen "ObjectDataSource" über DetailsViews-Smarttag. Weiter, löschen Sie die DetailsView `Height` und `Width` Eigenschaften, und aktivieren Sie die Option Paging aktivieren, aus dem Smarttag. Zum Aktivieren der Bearbeitung die Kontrollkästchen einfügen und Löschen von Unterstützung, einfach die Bearbeitung aktivieren, aktivieren Sie einfügen und löschen aktivieren im Smarttag.
 
 
-Als hinzugefügt mit GridView hinzufügen, bearbeiten, einfügen oder löschen die Unterstützung einer CommandField, DetailsView wie im folgenden deklarative Syntax gezeigt:
+![Konfigurieren der DetailsView an den Support, bearbeiten, einfügen und löschen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image41.png)
+
+**Abbildung 17**: konfigurieren die DetailsView an den Support, bearbeiten, einfügen und löschen
+
+
+Als hinzugefügt mit GridView hinzufügen, bearbeiten, einfügen oder löschen die Unterstützung einer CommandField DetailsView, wie im folgenden deklarative Syntax gezeigt:
 
 
 [!code-aspx[Main](an-overview-of-inserting-updating-and-deleting-data-cs/samples/sample7.aspx)]
 
-Beachten Sie, dass für DetailsView der CommandField am Ende der Auflistung der Spalten in der Standardeinstellung angezeigt wird. Da der DetailsView Felder als Zeilen gerendert werden die CommandField angezeigt wird, als eine Zeile mit Insert, bearbeiten und Löschen von Schaltflächen am unteren Rand der DetailsView.
+Beachten Sie, dass für DetailsView der CommandField am Ende der Auflistung der Spalten in der Standardeinstellung angezeigt wird. Da die Felder der DetailsView als Zeilen gerendert werden die CommandField angezeigt wird, als eine Zeile mit Insert, bearbeiten und Löschen von Schaltflächen am unteren Rand der DetailsView.
 
 
-[![Konfigurieren von DetailsView an den Support, bearbeiten, einfügen und löschen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image43.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image42.png)
+[![Konfigurieren der DetailsView an den Support, bearbeiten, einfügen und löschen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image43.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image42.png)
 
-**Abbildung 18**: Konfigurieren von DetailsView zu bearbeiten, einfügen und Löschen von Unterstützung ([klicken Sie hier, um das Bild in voller Größe angezeigt](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image44.png))
-
-
-Durch Klicken auf die Schaltfläche "löschen" die gleiche Sequenz von Ereignissen wie bei der GridView beginnt: a Postbacks gefolgt von dessen ObjectDataSource Auffüllen DetailsView `DeleteParameters` basierend auf den `DataKeyNames` Werte und durch Aufrufen seiner ObjectDataSource abgeschlossen `Delete()` -Methode, die das Produkt tatsächlich aus der Datenbank entfernt. Bearbeiten in DetailsView funktioniert auch in einer Weise, die identisch mit der GridView.
-
-Zum Einfügen, erhält der Endbenutzer mit einem neu-Schaltfläche geklickt, DetailsView in "Einfügemodus" rendert Mit "Einfügemodus" die Schaltfläche "Neu" durch die Schaltflächen "und" Abbrechen "Insert", und nur diese BoundFields ersetzt wird, dessen `InsertVisible` -Eigenschaftensatz auf `true` (Standardeinstellung) werden angezeigt. Identifiziert als automatische Inkrementierung-Felder, wie z. B. Datenfelder `ProductID`, haben ihre [InsertVisible Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datacontrolfield.insertvisible(VS.80).aspx) festgelegt `false` beim Binden von DetailsView an die Datenquelle mithilfe des Smarttags.
-
-Beim Binden einer Datenquelle an einen DetailsView über das Smarttag, legt Visual Studio die `InsertVisible` Eigenschaft `false` nur für automatisch inkrementierte Felder. Schreibgeschützte Felder, wie z. B. `CategoryName` und `SupplierName`, wird in der Benutzeroberfläche "Einfügemodus" angezeigt werden, es sei denn, ihre `InsertVisible` -Eigenschaft explizit festgelegt wird, um `false`. Können Sie diese beiden Felder festlegen `InsertVisible` Eigenschaften `false`, entweder über die DetailsView deklarative Syntax oder über die Felder bearbeiten im Smarttag verknüpfen. Abbildung 19 zeigt die Einstellung der `InsertVisible` Eigenschaften `false` durch Klicken auf die Felder bearbeiten zu verknüpfen.
+**Abbildung 18**: DetailsView zu bearbeiten, einfügen und löschen-Unterstützung konfigurieren ([klicken Sie, um das Bild in voller Größe anzeigen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image44.png))
 
 
-[![Northwind Traders bietet jetzt Acme Tee](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image46.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image45.png)
+Durch Klicken auf die Schaltfläche "löschen" die gleiche Sequenz von Ereignissen wie bei der GridView beginnt: a Postbacks gefolgt von der füllen seine "ObjectDataSource" DetailsView `DeleteParameters` basierend auf den `DataKeyNames` Werte und abgeschlossen durch einen Aufruf der "ObjectDataSource" `Delete()` -Methode, die das Produkt tatsächlich aus der Datenbank entfernt. Bearbeitung im DetailsView funktioniert auch in einer Weise, die identisch mit der GridView.
 
-**Abbildung 19**: Northwind Traders jetzt bietet Acme Tee ([klicken Sie hier, um das Bild in voller Größe angezeigt](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image47.png))
+Zum Einfügen, der Endbenutzer erhält eine neu-Schaltfläche geklickt wird, rendert die DetailsView im "Einfügemodus befindet." Mit "Insert-Modus" wird die Schaltfläche "neue" Schaltflächen "Insert" und "Abbrechen", und nur diese BoundFields ersetzt, deren `InsertVisible` -Eigenschaftensatz auf `true` (Standardeinstellung) werden angezeigt. Diese identifiziert als automatisch inkrementierte Felder, z. B. Datenfelder `ProductID`, haben ihre [InsertVisible-Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datacontrolfield.insertvisible(VS.80).aspx) festgelegt `false` beim Binden von DetailsView an die Datenquelle über das Smarttag.
 
-
-Nach dem Festlegen der `InsertVisible` Eigenschaften, die Ansicht der `Basics.aspx` Seite in einem Browser, und klicken Sie auf die Schaltfläche "Neu". Abbildung 20 zeigt DetailsView beim Hinzufügen einer neuen Getränke Acme Tee, um unsere Produktlinie.
-
-
-[![Northwind Traders bietet jetzt Acme Tee](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image49.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image48.png)
-
-**Abbildung 20**: Northwind Traders jetzt bietet Acme Tee ([klicken Sie hier, um das Bild in voller Größe angezeigt](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image50.png))
+Beim Binden einer Datenquelle an ein DetailsView über das Smarttag, legt Visual Studio die `InsertVisible` Eigenschaft `false` nur für automatisch inkrementierte Felder. Schreibgeschützte Felder, z. B. `CategoryName` und `SupplierName`, wird in der Benutzeroberfläche "Einfügemodus" angezeigt werden, es sei denn, ihre `InsertVisible` -Eigenschaftensatz explizit auf `false`. Legen Sie die folgenden beiden Felder in Ruhe `InsertVisible` Eigenschaften `false`, über deklarative Syntax des DetailsView oder über die Felder bearbeiten verknüpfen Sie im Smarttag. Abbildung 19 zeigt die Einstellung der `InsertVisible` Eigenschaften `false` durch Klicken auf die Felder bearbeiten zu verknüpfen.
 
 
-Nach dem Eingeben der Details für Acme Tee, und klicken Sie auf die Schaltfläche zum Einfügen, erfolgt ein Postback und der neue Datensatz hinzugefügt wird die `Products` Datenbanktabelle. Seit dieser DetailsView der Produkte in der Reihenfolge aufgeführt mit denen sie in der Datenbanktabelle vorhanden sind sind, müssen wir Produkt bis zum letzten Seite, um das neue Produkt finden Sie unter.
+[![Northwind Traders bietet jetzt die Acme Tee](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image46.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image45.png)
+
+**Abbildung 19**: Northwind Traders jetzt bietet Acme Tee ([klicken Sie, um das Bild in voller Größe anzeigen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image47.png))
 
 
-[![Details für Acme Tee](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image52.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image51.png)
+Nach dem Festlegen der `InsertVisible` Eigenschaften, die Ansicht der `Basics.aspx` Seite in einem Browser, und klicken Sie auf die Schaltfläche "Neu". Abbildung 20 zeigt die DetailsView beim Hinzufügen einer neuen trinken, Acme Tee, um unsere-Produktlinie.
 
-**Abbildung 21**: Details für Acme Tee ([klicken Sie hier, um das Bild in voller Größe angezeigt](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image53.png))
+
+[![Northwind Traders bietet jetzt die Acme Tee](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image49.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image48.png)
+
+**Abbildung 20**: Northwind Traders jetzt bietet Acme Tee ([klicken Sie, um das Bild in voller Größe anzeigen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image50.png))
+
+
+Nach dem Sie die Details für die Acme Tee eingeben, und klicken Sie auf die Schaltfläche "Insert", erfolgt ein Postback und der neue Datensatz hinzugefügt wird die `Products` Datenbanktabelle. Da diese DetailsView der Produkte in der Reihenfolge aufgeführt, mit dem sie in der Tabelle der Datenbank vorhanden sind, müssen wir Produkt bis zum letzten Seite, um das neue Produkt finden Sie unter.
+
+
+[![Details für die Acme Tee](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image52.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image51.png)
+
+**Abbildung 21**: Details für die Acme Tee ([klicken Sie, um das Bild in voller Größe anzeigen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image53.png))
 
 
 > [!NOTE]
-> Der DetailsView [CurrentMode Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.currentmode(VS.80).aspx) gibt die Schnittstelle wird angezeigt und kann einen der folgenden Werte: `Edit`, `Insert`, oder `ReadOnly`. Die [DefaultMode-Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.defaultmode(VS.80).aspx) gibt der Modus, DetailsView gibt an, nach einer Änderung oder zum Einfügen von, wurde abgeschlossen und eignet sich zum Anzeigen einer DetailsView, die dauerhaft in Bearbeitung ist, oder im Einfügemodus.
+> DetailsViews [CurrentMode Eigenschaft](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.currentmode(VS.80).aspx) gibt die Schnittstelle wird angezeigt und kann einen der folgenden Werte: `Edit`, `Insert`, oder `ReadOnly`. Die [Eigenschaft "DefaultMode"](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.defaultmode(VS.80).aspx) gibt an, der Modus DetailsView, gibt an, nach einer Bearbeitung, oder fügen Sie abgeschlossen wurde, und eignet sich für ein DetailsView, die dauerhaft in Bearbeitung oder Einfügemodus anzeigen.
 
 
-Der Zeitpunkt und die auf Einfügen und Bearbeitungsfunktionen von DetailsView beeinträchtigt werden, über die gleichen Einschränkungen wie die GridView: der Benutzer muss die vorhandene eingeben `CategoryID` und `SupplierID` Werte über ein Textfeld, besitzt der Schnittstelle eine Validierungslogik; alle Produkt-Felder, die keine zulassen `NULL` Werte oder keinen Standardwert auf der Datenbankebene angegebene Wert in der einfügen-Schnittstelle usw. enthalten sein muss.
+Der Punkt und klicken Sie hier einfügen und Bearbeitungsfunktionen von DetailsView Leiden dieselben Einschränkungen wie GridView: der Benutzer muss die vorhandene eingeben `CategoryID` und `SupplierID` Werte über ein Textfeld; die besitzt der Schnittstelle keine Überprüfungslogik; alle Produkt-Felder, die keine zulassen `NULL` Werte oder keinen Standard auf der Datenbankebene angegebene Wert in der einfügen-Schnittstelle, und So weiter enthalten sein muss.
 
-Die Techniken untersuchen wir zu erweitern, und erweitern die GridView Bearbeitungsoberfläche in zukünftigen Artikeln, DetailsView-Steuerelements bearbeiten und Einfügen von Schnittstellen auch angewendet werden können.
+Die Techniken untersuchen wir zum Erweitern und Verbessern der GridView Bearbeitungsoberfläche in zukünftigen Artikeln auf der DetailsView-Steuerelement bearbeiten und Einfügen von Schnittstellen angewendet werden können.
 
-## <a name="using-the-formview-for-a-more-flexible-data-modification-user-interface"></a>Die FormView verwenden für eine flexiblere Änderung Benutzeroberfläche
+## <a name="using-the-formview-for-a-more-flexible-data-modification-user-interface"></a>Verwenden das FormView-Steuerelement für eine flexiblere Änderung Benutzeroberfläche
 
-Die FormView bietet integrierten Unterstützung für das Einfügen, bearbeiten und Löschen von Daten, aber da Vorlagen anstelle von Feldern verwendet wird, besteht keine Möglichkeit, die BoundFields oder die CommandField von GridView und DetailsView-Steuerelementen verwendet werden, um die Daten hinzufügen Änderung-Schnittstelle. Diese Schnittstelle, die die Web-Steuerelemente für das Sammeln von Benutzer Eingabe, wenn Sie ein neues Element hinzufügen oder Bearbeiten einer vorhandenen zusammen mit dem neuen bearbeiten, löschen, einfügen, aktualisieren und Abbrechen (Schaltflächen) muss stattdessen manuell auf den entsprechenden Vorlagen hinzugefügt werden. Glücklicherweise, erstellt Visual Studio automatisch die erforderliche Schnittstelle, beim Binden von FormView an eine Datenquelle mithilfe der Dropdown-Liste in seinem Smarttag.
+Die FormView-Steuerelement bietet integrierte Unterstützung für einfügen, bearbeiten und Löschen von Daten, aber da es Vorlagen anstelle von Feldern verwendet ist kein Platz für das Hinzufügen der BoundFields oder die CommandField durch die GridView und DetailsView-Steuerelemente verwendet, um die Daten bereitzustellen Änderung-Schnittstelle. Diese Schnittstelle, die die Web-Steuerelemente für das Sammeln von Benutzer eingeben, wenn Sie ein neues Element hinzufügen oder bearbeiten eine vorhandene zusammen mit der neu bearbeiten, löschen, einfügen, aktualisieren und Abbrechen (Schaltflächen) muss stattdessen manuell an den entsprechenden Vorlagen hinzugefügt werden. Glücklicherweise wird Visual Studio automatisch die erforderliche Schnittstelle erstellen, bei der Bindung von FormView an eine Datenquelle in der Dropdown-Liste in der Smarttag.
 
-Um diese Verfahren zu veranschaulichen, starten Sie durch hinzufügen einen FormView der `Basics.aspx` Seite und aus der FormView-Smarttag, binden Sie es an das ObjectDataSource bereits erstellt. Dadurch wird ein `EditItemTemplate`, `InsertItemTemplate`, und `ItemTemplate` für FormView mit TextBox-Websteuerelemente zum Sammeln von Eingabe- und Websteuerelemente Schaltfläche des Benutzers für das Symbol neu, bearbeiten, löschen, einfügen, aktualisieren und Abbrechen (Schaltflächen). Darüber hinaus die FormView `DataKeyNames` -Eigenschaft auf das Feld für den Primärschlüssel festgelegt ist (`ProductID`) des Objekts durch das ObjectDataSource zurückgegeben. Aktivieren Sie schließlich in der FormView-Smarttag Option Paging aktivieren.
+Um diese Techniken zu veranschaulichen, starten Sie durch das Hinzufügen von einem FormView-Steuerelement, das `Basics.aspx` Seite, und binden Sie sie aus der FormView smart Tag, an dem ObjectDataSource-Steuerelement bereits erstellt. Dadurch wird ein `EditItemTemplate`, `InsertItemTemplate`, und `ItemTemplate` für die FormView-Steuerelement mit dem TextBox-Websteuerelemente zum Sammeln von Eingabe- und Schaltfläche Websteuerelemente des Benutzers für die neue, bearbeiten, löschen, einfügen, aktualisieren und Abbrechen (Schaltflächen). Darüber hinaus der FormView `DataKeyNames` -Eigenschaftensatz auf Feld mit dem Primärschlüssel (`ProductID`) des Objekts zurückgegeben wird, von dem ObjectDataSource-Steuerelement. Aktivieren Sie abschließend in das FormView Smarttag-Option Paging aktivieren.
 
-Nachstehend sehen Sie das deklarative Markup für die FormView `ItemTemplate` nach FormView an das ObjectDataSource gebunden wurde. Standardmäßig jedes Product-Feld nicht boolescher Wert gebunden ist, um die `Text` Eigenschaft eines Steuerelements Bezeichnung Web während jedes Feld boolescher Wert (`Discontinued`) gebunden ist die `Checked` Eigenschaft eines deaktivierten CheckBox Web-Steuerelements. In der Reihenfolge für die Schaltflächen New, Edit und Delete bestimmte FormView Verhalten beim Auslösen, es ist unbedingt erforderlich, die ihre `CommandName` Werte festgelegt werden, um `New`, `Edit`, und `Delete`zugeordnet.
+Das folgende Beispiel zeigt die deklarative Markup für der FormView `ItemTemplate` nachdem das FormView-Steuerelement auf dem ObjectDataSource-Steuerelement gebunden wurde. Standardmäßig jedes Product-Feld nicht booleschen Wert gebunden ist, um die `Text` Eigenschaft eines Label-Websteuerelements während jedes Feld boolescher Wert (`Discontinued`) gebunden ist die `Checked` Eigenschaft ein deaktiviertes Kontrollkästchen-Steuerelement. In der Reihenfolge für die Schaltflächen New, Edit und Delete auf bestimmte FormView-Verhalten beim Klicken auf auslösen, ist es zwingend erforderlich, die ihre `CommandName` Werte festgelegt werden, um `New`, `Edit`, und `Delete`bzw.
 
 
 [!code-aspx[Main](an-overview-of-inserting-updating-and-deleting-data-cs/samples/sample8.aspx)]
 
-Abbildung 22 zeigt die FormView `ItemTemplate` über einen Browser angezeigt. Jedes Feld "Product" wird mit den New, Edit und Delete-Schaltflächen im unteren Bereich aufgeführt.
+Abbildung 22 zeigt der FormView `ItemTemplate` über einen Browser angezeigt. Jedes Feld "Product" wird mit den New, Edit und Delete-Schaltflächen unten aufgeführt.
 
 
-[![Weisen FormView ItemTemplate Listet jedes Feld "Product" sowie neue, bearbeiten und Löschen von Schaltflächen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image55.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image54.png)
+[![Das weisen FormView ItemTemplate führt jedes Feld "Product" sowie neue, bearbeiten und Löschen von Schaltflächen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image55.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image54.png)
 
-**Abbildung 22**: die weisen FormView `ItemTemplate` Listet jedes Produkt Feld zusammen mit den Schaltflächen löschen, bearbeiten und neu ([klicken Sie hier, um das Bild in voller Größe angezeigt](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image56.png))
+**Abbildung 22**: die weisen FormView `ItemTemplate` Listet jedes Produkt Feld zusammen mit Schaltflächen löschen, bearbeiten und neu ([klicken Sie, um das Bild in voller Größe anzeigen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image56.png))
 
 
-Wie Sie mit dem GridView und DetailsView, klicken Sie auf die Schaltfläche "löschen" oder eine Schaltfläche, LinkButton oder ImageButton, deren `CommandName` Eigenschaft auf Löschen, wird ein Postback festgelegt ist, füllt das ObjectDataSource `DeleteParameters` basierend auf der FormView `DataKeyNames`aus und ruft das ObjectDataSource `Delete()` Methode.
+Wie Sie mit GridView und DetailsView, klicken Sie auf die Schaltfläche "löschen" oder eine beliebige Schaltfläche, LinkButton oder ImageButton, deren `CommandName` Eigenschaft auf festgelegt wird, löschen bewirkt, dass einen Postback, füllt das "ObjectDataSource" `DeleteParameters` basierend auf der FormView `DataKeyNames`Wert und dem ObjectDataSource-Steuerelement ruft `Delete()` Methode.
 
-Beim Klicken auf die Schaltfläche "Bearbeiten" ein Postback erfolgt und die Daten erneut gebunden wird, um die `EditItemTemplate`, die zum Rendern der Bearbeitungsoberfläche verantwortlich ist. Diese Schnittstelle enthält die Web-Steuerelemente für die Bearbeitung von Daten zusammen mit den Schaltflächen Aktualisieren und "Abbrechen". Die Standardeinstellung `EditItemTemplate` generiert, die von Visual Studio enthält eine Bezeichnung für alle Felder automatisch inkrementierten (`ProductID`), ein Textfeld für jedes Wertfeld nicht boolescher sowie ein Kontrollkästchen für jedes Feld boolescher Wert. Dieses Verhalten ist vergleichbar mit der automatisch generierten BoundFields die GridView und DetailsView-Steuerelemente.
+Wenn auf die Schaltfläche "Bearbeiten" geklickt wird, erfolgt ein Postback und die Daten werden erneut gebunden, um die `EditItemTemplate`, die zum Rendern der Bearbeitungsschnittstelle verantwortlich ist. Diese Schnittstelle enthält die Web-Steuerelemente zum Bearbeiten von Daten zusammen mit den Schaltflächen Aktualisieren und "Abbrechen". Der Standardwert `EditItemTemplate` vom Visual Studio enthält eine Bezeichnung für automatisch inkrementierte Felder (`ProductID`), ein Textfeld für die einzelnen Felder nicht boolescher Wert und ein Kontrollkästchen für jedes Feld boolescher Wert. Dieses Verhalten ähnelt sehr der automatisch generierten BoundFields in den GridView und DetailsView-Steuerelementen.
 
 > [!NOTE]
-> Eine kleine Probleme mit der FormView automatische Generierung von der `EditItemTemplate` ist, dass TextBox Web-Steuerelemente für diese Felder gerendert, die z. B. schreibgeschützt sind `CategoryName` und `SupplierName`. Wir sehen, wie Sie für dieses Konto in Kürze.
+> Ein kleines Problem bei der FormView automatische Generierung von der `EditItemTemplate` besteht darin, dass die TextBox-Web-Steuerelemente für diese Felder rendert, die schreibgeschützt, z. B. `CategoryName` und `SupplierName`. Erfahren Sie, wie an diesen in Kürze.
 
 
-Der TextBox-Steuerelemente der `EditItemTemplate` haben ihre `Text` Eigenschaft gebunden wird, auf den Wert von der entsprechenden Feld using *bidirektionale Datenbindung*. Die bidirektionale Datenbindung, gekennzeichnet durch `<%# Bind("dataField") %>`, führt Databinding sowohl beim Binden von Daten an die Vorlage und beim Auffüllen der ObjectDataSource-Parameter zum Einfügen oder Bearbeiten von Datensätzen. D. h., wenn der Benutzer die Schaltfläche "Bearbeiten" aus klickt der `ItemTemplate`die `Bind()` Methode gibt den Wert des angegebenen Felds zurück. Nachdem der Benutzer mit der ihre Änderungen und Updates klickt, veröffentlicht die Werte zurück, die entsprechen den angegeben wird, mithilfe von Datenfeldern `Bind()` gelten für das ObjectDataSource `UpdateParameters`. Alternativ unidirektionale Databinding gekennzeichnet durch `<%# Eval("dataField") %>`nur Datenfeldwerte beim Binden von Daten an die Vorlage abruft und führt *nicht* Postback der vom Benutzer eingegebenen Werten zum Parameter von der Datenquelle zurück.
+Das TextBox-Steuerelemente der `EditItemTemplate` haben ihre `Text` -Eigenschaft gebunden, auf den Wert eines ihre entsprechenden Daten unter Verwendung *bidirektionale Datenbindung*. Bidirektionale Datenbindung, gekennzeichnet durch `<%# Bind("dataField") %>`, Datenbindung, die beide ausführt, beim Binden von Daten mit der Vorlage und dem ObjectDataSource-Steuerelement-Parameter für das Einfügen oder Bearbeiten von Datensätzen zu füllen. D. h., wenn der Benutzer die Schaltfläche "Bearbeiten" aus klickt der `ItemTemplate`, `Bind()` -Methode gibt den Wert des angegebenen Felds. Nachdem der Benutzer ihre Änderungen werden und Updates klickt, veröffentlicht die Werte zurück, die entsprechen, die Datenfelder angegeben `Bind()` gelten für das "ObjectDataSource" `UpdateParameters`. Alternativ unidirektionale Datenbindung, gekennzeichnet durch `<%# Eval("dataField") %>`, werden nur die Feldwerte für die Daten abgerufen, beim Binden von Daten mit der Vorlage und ist *nicht* Postback der vom Benutzer eingegebenen Werten zum Parameter mit der Datenquelle zurück.
 
-Das folgende deklarative Markup zeigt die FormView `EditItemTemplate`. Beachten Sie, dass die `Bind()` Methode wird in der Databinding-Syntax verwendet und die Websteuerelemente Update und "Abbrechen" Schaltfläche denen ihre `CommandName` Eigenschaften entsprechend festgelegt.
+Das folgende deklarative Markup zeigt die FormView `EditItemTemplate`. Beachten Sie, dass die `Bind()` Methode ist hier die Databinding-Syntax verwendet und der Update- und Schaltfläche-Abbrechen-Steuerelemente haben ihre `CommandName` Eigenschaften entsprechend festlegen.
 
 [!code-aspx[Main](an-overview-of-inserting-updating-and-deleting-data-cs/samples/sample9.aspx)]
 
-Unsere `EditItemTemplate`, zurzeit zeigen, führt dazu, dass eine Ausnahme ausgelöst werden, wenn Sie versuchen, ihn zu verwenden. Das Problem besteht darin, die die `CategoryName` und `SupplierName` Felder werden gerendert, da Textfeld Web gesteuert wird, in der `EditItemTemplate`. Wir müssen entweder diesen Textfelder in Bezeichnungen ändern oder vollständig zu entfernen. Nehmen wir einfach löschen sie vollständig aus der `EditItemTemplate`.
+Unsere `EditItemTemplate`, zurzeit zeigen, wird eine Ausnahme ausgelöst wird, wenn wir versuchen, ihn zu verwenden. Das Problem besteht darin, die die `CategoryName` und `SupplierName` Felder werden gerendert werden, da Textfeld Web gesteuert wird, in der `EditItemTemplate`. Wir müssen entweder diese Textfelder in Bezeichnungen zu ändern oder entfernen Sie sie vollständig. Lassen Sie uns einfach wieder löschen vollständig aus der `EditItemTemplate`.
 
-Abbildung 23 zeigt FormView in einem Browser, nachdem die Schaltfläche "Bearbeiten" für Chai auf den geklickt wurde. Beachten Sie, dass die `SupplierName` und `CategoryName` Felder der `ItemTemplate` nicht mehr vorhanden sind, wie wir gerade entfernt sie aus der `EditItemTemplate`. Die gleiche Sequenz von Schritten wie GridView und DetailsView durchläuft die FormView, wenn auf die Schaltfläche "Aktualisieren" geklickt wird.
-
-
-[![Standardmäßig zeigt ItemTemplate jedes bearbeitbaren Produktfeld als Textfeld oder das Kontrollkästchen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image58.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image57.png)
-
-**Abbildung 23**: standardmäßig die `EditItemTemplate` zeigt jede bearbeitbare Feld "Product" als Textfeld oder Kontrollkästchen ([klicken Sie hier, um das Bild in voller Größe angezeigt](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image59.png))
+Abbildung 23 zeigt das FormView-Steuerelement in einem Browser, nachdem auf die Schaltfläche "Bearbeiten" für Chai geklickt wurde. Beachten Sie, dass die `SupplierName` und `CategoryName` Felder, die der `ItemTemplate` sind nicht mehr vorhanden ist, wie wir gerade entfernt sie aus der `EditItemTemplate`. Die gleiche Sequenz von Schritten wie GridView und DetailsView durchläuft das FormView-Steuerelement, wenn auf die Schaltfläche "Aktualisieren" geklickt wird.
 
 
-Wenn die Schaltfläche "Einfügen" der FormView geklickt wird `ItemTemplate` ein Postback erfolgt. Allerdings ist keine Daten an die FormView gebunden, da ein neuer Datensatz hinzugefügt wird. Die `InsertItemTemplate` -Schnittstelle enthält die Web-Steuerelemente zum Hinzufügen eines neuen Datensatzes zusammen mit den Schaltflächen einfügen und "Abbrechen". Die Standardeinstellung `InsertItemTemplate` generiert, die von Visual Studio enthält ein Textfeld für jedes Wertfeld nicht boolescher und ein Kontrollkästchen für jedes Feld boolescher Wert, die automatisch generierte ähnelt `EditItemTemplate`der Schnittstelle. TextBox-Steuerelemente haben ihre `Text` Eigenschaft gebunden wird, auf den Wert ihrer entsprechenden Feld "Daten" Verwenden der bidirektionalen Datenbindung.
+[![Standardmäßig zeigt die EditItemTemplate jedes bearbeitbare Produktfeld als Textfeld oder das Kontrollkästchen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image58.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image57.png)
 
-Das folgende deklarative Markup zeigt die FormView `InsertItemTemplate`. Beachten Sie, dass die `Bind()` Methode wird in der Databinding-Syntax verwendet und die Websteuerelemente einfügen und Abbrechen Schaltfläche denen ihre `CommandName` Eigenschaften entsprechend festgelegt.
+**Abbildung 23**: standardmäßig die `EditItemTemplate` zeigt jedes bearbeitbare Feld "Product" als Textfeld oder Kontrollkästchen ([klicken Sie, um das Bild in voller Größe anzeigen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image59.png))
+
+
+Wenn auf die Schaltfläche "Insert" der FormView geklickt wird `ItemTemplate` Sicherheitsvorschriften ein Postback. Allerdings ist keine Daten auf das FormView-Steuerelement gebunden, da ein neuer Datensatz hinzugefügt wird. Die `InsertItemTemplate` Schnittstelle umfasst die Web-Steuerelemente zum Hinzufügen eines neuen Datensatzes zusammen mit den Schaltflächen einfügen und Abbrechen. Der Standardwert `InsertItemTemplate` vom Visual Studio enthält ein Textfeld für die einzelnen Felder nicht boolescher Wert und ein Kontrollkästchen für jedes Feld boolescher Wert, ähnlich den automatisch generierten `EditItemTemplate`der Schnittstelle. Die TextBox-Steuerelemente haben ihre `Text` -Eigenschaft gebunden, auf den Wert ihrer entsprechenden Feld "Daten" Verwenden der bidirektionalen Datenbindung.
+
+Das folgende deklarative Markup zeigt die FormView `InsertItemTemplate`. Beachten Sie, dass die `Bind()` Methode ist hier die Databinding-Syntax verwendet und die Websteuerelemente einfügen und Abbrechen Schaltfläche haben ihre `CommandName` Eigenschaften entsprechend festlegen.
 
 
 [!code-aspx[Main](an-overview-of-inserting-updating-and-deleting-data-cs/samples/sample10.aspx)]
 
-Es wird eine Besonderheit mit der FormView automatische Generierung von der `InsertItemTemplate`. Insbesondere werden die Textfeld-Websteuerelemente auch für die Felder, die z. B. schreibgeschützt sind erstellt `CategoryName` und `SupplierName`. Wie Sie mit der `EditItemTemplate`, müssen wir diese Textfelder aus Entfernen der `InsertItemTemplate`.
+Es gibt eine Besonderheit mit der FormView automatische Generierung von der `InsertItemTemplate`. Insbesondere werden die TextBox-Websteuerelemente erstellt, auch für diese Felder schreibgeschützt, z. B. `CategoryName` und `SupplierName`. Wie Sie mit der `EditItemTemplate`, müssen wir entfernen diese Textfelder aus der `InsertItemTemplate`.
 
-Abbildung 24 zeigt FormView in einem Browser, wenn ein neues Produkt, Acme Kaffee hinzufügen. Beachten Sie, dass die `SupplierName` und `CategoryName` Felder der `ItemTemplate` nicht mehr vorhanden sind, wie wir gerade entfernt. Wenn die Schaltfläche "Einfügen" der FormView-fortgesetzt, über die gleiche Sequenz von Schritten wie DetailsView-Steuerelement geklickt wird, Hinzufügen von ein neuer Datensatz der `Products` Tabelle. Abbildung 25 zeigt Acme Kaffee Produktdetails in der FormView, nachdem es eingefügt wurde.
-
-
-[![Die InsertItemTemplate bestimmt die FormView einfügen-Schnittstelle](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image61.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image60.png)
-
-**Abbildung 24**: die `InsertItemTemplate` bestimmt die FormView einfügen-Schnittstelle ([klicken Sie hier, um das Bild in voller Größe angezeigt](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image62.png))
+Abbildung 24 zeigt das FormView-Steuerelement in einem Browser, wenn ein neues Produkt, Acme Kaffee hinzufügen. Beachten Sie, dass die `SupplierName` und `CategoryName` Felder, die der `ItemTemplate` sind nicht mehr vorhanden ist, wie wir gerade entfernt. Wenn die Schaltfläche "Insert" der FormView-Steuerelement wird fortgesetzt, über die gleiche Sequenz von Schritten wie DetailsView-Steuerelement geklickt wird, Hinzufügen eines neuen Datensatzes in die `Products` Tabelle. Abbildung 25 zeigt Acme Kaffee Produktdetails in das FormView-Steuerelement, nachdem es eingefügt wurde.
 
 
-[![Die Details für das neue Produkt, Acme Coffee, werden in der FormView angezeigt.](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image64.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image63.png)
+[![Die InsertItemTemplate bestimmt das FormView einfügen-Schnittstelle](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image61.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image60.png)
 
-**Abbildung 25**: Details für das neue Produkt, Acme Coffee, werden in der FormView angezeigt ([klicken Sie hier, um das Bild in voller Größe angezeigt](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image65.png))
+**Abbildung 24**: die `InsertItemTemplate` bestimmt der FormView einfügen-Schnittstelle ([klicken Sie, um das Bild in voller Größe anzeigen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image62.png))
 
 
-Durch Herausnehmen von der schreibgeschützten, ermöglicht das Bearbeiten und Einfügen von Schnittstellen in drei unterschiedliche Vorlagen, die FormView für eine feinere Kontrolle über diese Schnittstellen als die, DetailsView und GridView.
+[![Die Details für das neue Produkt, Acme Kaffee, werden in der FormView-Steuerelement angezeigt.](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image64.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image63.png)
+
+**Abbildung 25**: die Details für das neue Produkt, Acme Kaffee, werden angezeigt, in das FormView-Steuerelement ([klicken Sie, um das Bild in voller Größe anzeigen](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image65.png))
+
+
+Durch Herausnehmen von der schreibgeschützten, ermöglicht das Bearbeiten und Einfügen von Schnittstellen in drei separate Vorlagen, die FormView-Steuerelement für eine feiner abgestufte Kontrolle über diese Schnittstellen als das GridView und DetailsView die.
 
 > [!NOTE]
-> Wie DetailsView, FormView des `CurrentMode` Eigenschaft gibt die Schnittstelle, die angezeigt wird und die zugehörige `DefaultMode` Eigenschaft gibt den Modus der FormView gibt, nach einer Änderung oder Insert wurde abgeschlossen.
+> Wie DetailsView, FormView `CurrentMode` Eigenschaft gibt an, die Schnittstelle, die angezeigt wird und die zugehörige `DefaultMode` Eigenschaft gibt den Modus der FormView-Steuerelement gibt, nach einer Bearbeitung oder Einfügevorgang abgeschlossen wurde.
 
 
 ## <a name="summary"></a>Zusammenfassung
 
-In diesem Lernprogramm untersucht es die Grundlagen von einfügen, bearbeiten und Löschen von Daten mit GridView, DetailsView und FormView. Alle drei dieser Steuerelemente bieten einige integrierte Möglichkeiten zur Datenänderung, die verwendet werden kann, ohne eine einzige Codezeile schreiben, auf der ASP.NET-Seite unser Dank gilt den Websteuerelementen Daten und das ObjectDataSource. Allerdings die einfache zeigen und klicken Sie auf Techniken Render relativ frail und Naïve Änderung Benutzeroberfläche. Um die Bereitstellung der Validierung programmgesteuerte Werte einfügen, ordnungsgemäß Behandeln von Ausnahmen, Anpassen der Benutzeroberfläche und usw., benötigen wir eine Bevy Techniken vertrauen, die über die nächsten mehrere Lernprogramme erläutert werden.
+In diesem Tutorial untersucht es die Grundlagen der einfügen, bearbeiten und Löschen von Daten mit der GridView, DetailsView und FormView-Steuerelement. Alle drei dieser Steuerelemente bieten einige integrierte Möglichkeiten zur Datenänderung, die verwendet werden kann, ohne eine einzige Zeile Code schreiben, auf der ASP.NET-Seite Dank den datenwebsteuerelementen und dem ObjectDataSource-Steuerelement. Allerdings das einfache zeigen und klicken Sie auf Methoden rendern eine ziemlich frail und naive Änderung Benutzeroberfläche. Um die Validierung bereitstellen zu können, programmgesteuerte Werte einfügen, ordnungsgemäß Behandeln von Ausnahmen, Anpassen der Benutzeroberfläche und usw., müssen wir eine Reihe von Techniken abhängen, die über die nächsten mehrere Tutorials erläutert werden.
 
 Viel Spaß beim Programmieren!
 
-## <a name="about-the-author"></a>Informationen zum Autor
+## <a name="about-the-author"></a>Der Autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben ASP/ASP.NET-Büchern und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web-Technologien seit 1998 arbeitet. Scott fungiert als ein unabhängiger Berater, Trainer und Writer. Sein neueste Buch wird [ *Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er die erreicht werden kann, zur [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog die finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), Autor von sieben Büchern zu ASP/ASP.NET und Gründer von [4GuysFromRolla.com](http://www.4guysfromrolla.com), arbeitet mit Microsoft-Web-Technologien seit 1998. Er ist als ein unabhängiger Berater, Schulungsleiter und Autor. Sein neueste Buch wird [*Sams Schulen selbst ASP.NET 2.0 in 24 Stunden*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Er ist unter [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) oder über seinen Blog finden Sie unter [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 > [!div class="step-by-step"]
 > [Nächste](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)

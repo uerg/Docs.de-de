@@ -1,177 +1,176 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/combobox/how-do-i-use-the-combobox-control-vb
-title: Verwendung der ComboBox-Steuerelement (VB) | Microsoft Docs
+title: Wie verwende ich das ComboBox-Steuerelement? (VB) | Microsoft-Dokumentation
 author: microsoft
-description: Kombinationsfeld-Steuerelement ist ein ASP.NET AJAX-Steuerelement, das die Flexibilität eines Textfelds mit einer Liste von Optionen kombiniert, in dem Benutzer auswählen können.
+description: "\"ComboBox\" ist ein ASP.NET AJAX-Steuerelement, das die Flexibilität, ein Textfeld mit einer Liste von Optionen kombiniert, aus denen Benutzer auswählen können."
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
 ms.topic: article
 ms.assetid: e887e7b2-a6e7-4a28-a134-ba334494badb
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/combobox/how-do-i-use-the-combobox-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e42844e326cb190502a51c5a85195b4752d7e827
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
-ms.translationtype: MT
+ms.openlocfilehash: 3241641b3e136b24c8cff75026e496ddf8eb04ac
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30875408"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37371903"
 ---
-<a name="how-do-i-use-the-combobox-control-vb"></a>Verwendung der ComboBox-Steuerelement (VB)
+<a name="how-do-i-use-the-combobox-control-vb"></a>Wie verwende ich das ComboBox-Steuerelement? (VB)
 ====================
 durch [Microsoft](https://github.com/microsoft)
 
-> Kombinationsfeld-Steuerelement ist ein ASP.NET AJAX-Steuerelement, das die Flexibilität eines Textfelds mit einer Liste von Optionen kombiniert, in dem Benutzer auswählen können.
+> "ComboBox" ist ein ASP.NET AJAX-Steuerelement, das die Flexibilität, ein Textfeld mit einer Liste von Optionen kombiniert, aus denen Benutzer auswählen können.
 
 
-Das Ziel dieses Lernprogramms ist die AJAX-Steuerelement-Toolkit ComboBox-Steuerelement zu erläutern. Das Kombinationsfeld funktioniert wie eine Kombination zwischen einem Standardsteuerelement DropDownList mit ASP.NET und ein TextBox-Steuerelement. Sie können entweder aus einer vorhandenen Liste von Elementen auswählen oder geben Sie ein neues Element.
+Das Ziel in diesem Tutorial wird das AJAX Control Toolkit ComboBox-Steuerelement beschrieben. Das Kombinationsfeld funktioniert wie eine Verbindung zwischen einem standardmäßigen ASP.NET DropDownList-Steuerelement und ein TextBox-Steuerelement. Sie können entweder aus einer vorhandenen Liste von Elementen oder geben Sie ein neues Element.
 
-Das Kombinationsfeld ähnelt der AutoVervollständigen-Extendersteuerelement, aber die Steuerelemente in verschiedenen Szenarien verwendet werden. Der AutoComplete-Extender fragt einen Webdienst, um übereinstimmende Einträge zu erhalten. ComboBox-Steuerelement wird hingegen mit einem Satz von Elementen initialisiert. Mit der AutoVervollständigen-Extender wird ist sinnvoll, wenn Sie mit einer großen Datenmenge (Millionen von Car Teile) arbeiten, bei der Verwendung der ComboBox-Steuerelement sinnvoll bei der Arbeit mit einem kleinen Satz von Daten (Dutzende von Car Teile).
+Das Kombinationsfeld ist vergleichbar mit dem AutoComplete-Extender-Steuerelement, aber die Steuerelemente in verschiedenen Szenarien verwendet werden. Der AutoComplete-Extender fragt einen Webdienst, um übereinstimmende Einträge zu erhalten. Das Steuerelement "ComboBox" wird mit einem Satz von Elementen im Gegensatz dazu initialisiert. Mit der AutoComplete-Extender wird ist sinnvoll, wenn Sie mit einem großen Satz von Daten (Millionen von Auto-Teile) arbeiten, bei der Verwendung von Kombinationsfeld-Steuerelement sinnvoll bei der Arbeit mit einer kleinen Gruppe von Daten (Dutzende von Autos Teilen).
 
 ## <a name="selecting-from-a-static-list-of-items"></a>Auswahl aus einer statischen Liste von Elementen
 
-Lassen Sie s mit einer einfachen Beispiel zur Verwendung der ComboBox-Steuerelement zu starten. Stellen Sie sich vor, dass eine statische Liste von Elementen in einer Dropdownliste angezeigt werden soll. Sie möchten jedoch geöffnet bleiben die Gefahr, dass die Liste nicht vollständig ist. Möchten Sie einem Benutzer ermöglichen, einen benutzerdefinierten Wert in der Liste eingeben.
+Lassen Sie s beginnen mit einem einfachen Beispiel der Verwendung von Kombinationsfeld-Steuerelement. Stellen Sie sich, dass Sie eine statische Liste von Elementen in einer Dropdownliste angezeigt werden soll. Sie möchten jedoch geöffnet bleiben die Möglichkeit, dass die Liste nicht vollständig ist. Möchten Sie einem Benutzer ermöglichen, einen benutzerdefinierten Wert in der Liste eingeben.
 
-Wir ll, erstellen Sie eine neue ASP.NET Web Forms-Seite, und verwenden Sie das ComboBox-Steuerelement auf der Seite. Fügen Sie die neue ASP.NET-Seite zu Ihrem Projekt hinzu, und wechseln Sie zur Entwurfsansicht.
+Wir alle eine neue ASP.NET Web Forms-Seite erstellen und verwenden Sie das ComboBox-Steuerelement auf der Seite. Fügen Sie der neuen ASP.NET-Seite zu Ihrem Projekt, und wechseln Sie zur Entwurfsansicht.
 
-Wenn Sie das ComboBox-Steuerelement auf der Seite verwenden möchten, müssen Sie ein ScriptManager-Steuerelement auf der Seite hinzufügen. Ziehen Sie das ScriptManager-Steuerelement vom der Registerkarte "AJAX-Erweiterungen" auf die Oberfläche des Designers aus. Sie sollten das ScriptManager-Steuerelement am oberen Rand der Seite hinzufügen. können Sie ihn hinzufügen unmittelbar unterhalb der öffnenden serverseitige &lt;Formular&gt; Tag.
+Wenn Sie das ComboBox-Steuerelement auf der Seite verwenden möchten, müssen Sie ein ScriptManager-Steuerelement auf der Seite hinzufügen. Ziehen Sie das ScriptManager-Steuerelement vom der Registerkarte "AJAX-Erweiterungen" auf die Oberfläche des Designers ein. Sie sollten das ScriptManager-Steuerelement am oberen Rand der Seite hinzufügen; hinzuzufügen, können Sie direkt unterhalb der Serverseite öffnen &lt;Formular&gt; Tag.
 
-Als Nächstes ziehen Sie das ComboBox-Steuerelement auf die Seite. Sie finden das ComboBox-Steuerelement in der Toolbox mit den anderen AJAX-Steuerelement-Toolkit-Steuerelemente und -Extender (siehe Abbildung 1).
-
-
-[![Einfaches Formular zum Erstellen einer Business-Karte](how-do-i-use-the-combobox-control-vb/_static/image1.jpg)](how-do-i-use-the-combobox-control-vb/_static/image1.png)
-
-**Abbildung 01**: das ComboBox-Steuerelement aus der Toolbox auswählen ([klicken Sie hier, um das Bild in voller Größe angezeigt](how-do-i-use-the-combobox-control-vb/_static/image2.png))
+Als Nächstes ziehen Sie das ComboBox-Steuerelement, auf der Seite zu erhalten. Sie finden das ComboBox-Steuerelement in der Toolbox mit anderen AJAX Control Toolkit-Steuerelemente und Extender (siehe Abbildung 1).
 
 
-Wir ll verwenden das ComboBox-Steuerelement, um eine statische Liste mit Auswahlmöglichkeiten anzuzeigen. Der Benutzer kann eine bestimmte Ebene der Spiciness für ihre Nahrungsmittel aus einer Liste von drei Optionen auswählen: leichte, Mittel und Hot (siehe Abbildung 2).
+[![Einfaches Formular zum Erstellen einer Visitenkarte](how-do-i-use-the-combobox-control-vb/_static/image1.jpg)](how-do-i-use-the-combobox-control-vb/_static/image1.png)
+
+**Abbildung 01**: das ComboBox-Steuerelement aus der Toolbox auswählen ([klicken Sie, um das Bild in voller Größe anzeigen](how-do-i-use-the-combobox-control-vb/_static/image2.png))
+
+
+Wir verwenden das ComboBox-Steuerelement eine statische Liste mit Optionen angezeigt. Der Benutzer kann eine bestimmte Ebene des Spiciness für die Nahrungsmittel aus einer Liste von drei Optionen auswählen: in Cartoons ein, mittelgroßen und großen "heiß" (siehe Abbildung 2).
 
 
 [![Auswahl aus einer statischen Liste von Elementen](how-do-i-use-the-combobox-control-vb/_static/image2.jpg)](how-do-i-use-the-combobox-control-vb/_static/image3.png)
 
-**Abbildung 02**: Auswahl aus einer statischen Liste von Elementen ([klicken Sie hier, um das Bild in voller Größe angezeigt](how-do-i-use-the-combobox-control-vb/_static/image4.png))
+**Abbildung 02**: Auswahl aus einer statischen Liste von Elementen ([klicken Sie, um das Bild in voller Größe anzeigen](how-do-i-use-the-combobox-control-vb/_static/image4.png))
 
 
-Es gibt zwei Möglichkeiten, dass Sie diese Optionen für das ComboBox-Steuerelement hinzufügen können. Zuerst die Option Bearbeitungsoptionen Task beim Bewegen der Maus über dem Steuerelement in der Entwurfsansicht und der Element-Editor zu öffnen (siehe Abbildung 3).
+Es gibt zwei Möglichkeiten, dass Sie diese Optionen für das ComboBox-Steuerelement hinzufügen können. Zuerst die Option Bearbeitungsoptionen Tasks beim Darüberbewegen des Mauszeigers des Mauszeigers über dem Steuerelement in der Entwurfsansicht, und öffnen Sie den Element-Editor (siehe Abbildung 3).
 
 
-[![ComboBox-Elemente bearbeiten](how-do-i-use-the-combobox-control-vb/_static/image3.jpg)](how-do-i-use-the-combobox-control-vb/_static/image5.png)
+[![Bearbeiten von "ComboBox"-Elementen](how-do-i-use-the-combobox-control-vb/_static/image3.jpg)](how-do-i-use-the-combobox-control-vb/_static/image5.png)
 
-**Abbildung 03**: Bearbeiten von ComboBox-Elemente ([klicken Sie hier, um das Bild in voller Größe angezeigt](how-do-i-use-the-combobox-control-vb/_static/image6.png))
+**Abbildung 03**: Bearbeiten von "ComboBox"-Elemente ([klicken Sie, um das Bild in voller Größe anzeigen](how-do-i-use-the-combobox-control-vb/_static/image6.png))
 
 
-Die zweite Möglichkeit besteht, um die Liste der Elemente zwischen den öffnenden und schließenden hinzuzufügen &lt;Asp: ComboBox&gt; Tags in der Quellansicht. Die Seite im Codebeispiel 1 enthält die aktualisierte ComboBox, die die Liste der Elemente verfügt.
+Die zweite Option ist die Liste der Elemente zwischen den öffnenden und schließenden hinzufügen &lt;Asp: "ComboBox"&gt; Tags in der Quellansicht. Diese Seite in Codebeispiel 1 enthält die aktualisierte "ComboBox", die die Liste der Elemente enthält.
 
 **1 – Static.aspx auflisten**
 
 [!code-aspx[Main](how-do-i-use-the-combobox-control-vb/samples/sample1.aspx)]
 
-Beim Öffnen der Seite im Codebeispiel 1 können Sie eine der vorhandenen Optionen aus dem Kombinationsfeld auswählen. Das heißt, funktioniert der ComboBox wie ein DropDownList-Steuerelement.
+Wenn Sie die Seite in Codebeispiel 1 öffnen, können Sie eine der vorhandenen Optionen aus dem Kombinationsfeld auswählen. Das heißt, funktioniert die "ComboBox" genau wie ein DropDownList-Steuerelement ein.
 
-Allerdings müssen Sie auch die Möglichkeit, eine neue Auswahl (z. B. Super Spicy), die nicht in der vorhandenen Liste eingeben. Daher funktioniert der ComboBox auch wie ein TextBox-Steuerelement.
+Allerdings müssen Sie auch die Möglichkeit, eine neue Wahl (z. B. Super großartige), die nicht in der vorhandenen Liste eingeben. Das Kombinationsfeld funktioniert auch wie ein TextBox-Steuerelement.
 
-Unabhängig davon, ob Sie ein bereits vorhandener auswählen, geben Sie Element oder Sie ein benutzerdefiniertes Element bei der Übermittlung des Formulars Ihrer Wahl in das Label-Steuerelement angezeigt wird. Wenn Sie das Formular, das BtnSubmit senden\_auf Handler ausgeführt wird, und aktualisiert die Bezeichnung (siehe Abbildung 4).
+Unabhängig davon, ob Sie eine bereits vorhandene auswählen, geben Sie ein Element oder ein benutzerdefiniertes Element, wenn Sie das Formular übermitteln Ihrer Wahl, die in das Label-Steuerelement angezeigt wird. Wenn Sie das Formular übermittelt, die BtnSubmit\_Klick-Handler ausgeführt wird und aktualisiert die Bezeichnung (siehe Abbildung 4).
 
 
 [![Das ausgewählte Element anzeigen](how-do-i-use-the-combobox-control-vb/_static/image4.jpg)](how-do-i-use-the-combobox-control-vb/_static/image7.png)
 
-**Abbildung 04**: das ausgewählte Element anzeigen ([klicken Sie hier, um das Bild in voller Größe angezeigt](how-do-i-use-the-combobox-control-vb/_static/image8.png))
+**Abbildung 04**: das ausgewählte Element anzeigen ([klicken Sie, um das Bild in voller Größe anzeigen](how-do-i-use-the-combobox-control-vb/_static/image8.png))
 
 
-Das Kombinationsfeld unterstützt die gleichen Eigenschaften wie das DropDownList-Steuerelement für das ausgewählte Element abrufen, nachdem ein Formular gesendet wird:
+Das Kombinationsfeld unterstützt die gleichen Eigenschaften wie das DropDownList-Steuerelement, für das ausgewählte Element abrufen, nachdem ein Formular übermittelt wird:
 
-- SelectedItem.Text - zeigt den Wert der Text-Eigenschaft des ausgewählten Elements.
-- SelectedItem.Value - zeigt den Wert der Value-Eigenschaft des ausgewählten Elements ab oder zeigt den Text in der ComboBox eingegeben.
-- "SelectedValue" - identisch mit SelectedItem.Value, mit dem Unterschied, dass diese Eigenschaft Ihnen die ermöglicht Angabe den (ersten) standardmäßig ausgewählten Element.
+- SelectedItem.Text – zeigt den Wert der Text-Eigenschaft des ausgewählten Elements an.
+- SelectedItem.Value – zeigt den Wert der Value-Eigenschaft des ausgewählten Elements ab oder zeigt den Text in der ComboBox eingegeben.
+- SelectedValue - identisch mit SelectedItem.Value, mit dem Unterschied, dass diese Eigenschaft, die Sie das ausgewählte Element mit Standardwert (ersten) angeben kann.
 
-Bei der Eingabe wird eine benutzerdefinierte Auswahl in der ComboBox klicken Sie dann die benutzerdefinierte Auswahl sowohl die SelectedItem.Value der SelectedItem.Text zugewiesen.
+Wenn Sie eingeben wird eine benutzerdefinierte Auswahl in das Kombinationsfeld klicken Sie dann die benutzerdefinierte Auswahl SelectedItem.Text sowohl SelectedItem.Value Eigenschaften zugewiesen.
 
 ## <a name="selecting-the-list-of-items-from-the-database"></a>Die Liste der Elemente auswählen aus der Datenbank
 
-Sie können die Liste der Elemente, die im Kombinationsfeld zeigt aus einer Datenbank abrufen. Beispielsweise können Sie das Kombinationsfeld an ein SqlDataSource-Steuerelement, einem ObjectDataSource-Steuerelement, einem LinqDataSource oder EntityDataSource binden.
+Sie können die Liste der Elemente, die das Kombinationsfeld anzeigt aus einer Datenbank abrufen. Beispielsweise können Sie das Kombinationsfeld ein SqlDataSource-Steuerelement, ein ObjectDataSource-Steuerelement, ein LinqDataSource oder EntityDataSource binden.
 
-Angenommen Sie, eine Liste von Filmen in einem Kombinationsfeld angezeigt werden soll. Die Liste von Filmen aus der Datenbanktabelle Filme abgerufen werden sollen. Führen Sie folgende Schritte aus:
+Stellen Sie sich, dass Sie eine Liste von Filmen in einem Kombinationsfeld angezeigt werden soll. Die Liste der Filme aus der Tabelle der Datenbank Filme abgerufen werden sollen. Führen Sie folgende Schritte aus:
 
 1. Erstellen Sie eine Seite mit dem Namen Movies.aspx
-2. Fügen Sie ein ScriptManager-Steuerelement durch Ziehen von ScriptManager aus der Registerkarte "AJAX-Erweiterungen" in der Toolbox auf der Seite auf der Seite hinzu.
-3. Fügen Sie ein ComboBox-Steuerelement durch Ziehen das Kombinationsfeld auf der Seite auf der Seite hinzu.
-4. Zeigen Sie in der Entwurfsansicht mit der Maus über das ComboBox-Steuerelement, und wählen Sie die **Datenquelle auswählen** Aufgabe Option (siehe Abbildung 5). Der Konfigurations-Assistent wird gestartet.
-5. In der **wählen Sie eine Datenquelle** Schritt wählen Sie die &lt;neue Datenquelle&gt; Option.
-6. In der **wählen Sie einen Datenquellentyp** Schritt: Wählen Sie die Datenbank.
-7. In der **wählen Sie Ihre Datenverbindung** Schritt: Wählen Sie die Datenbank (z. B. MoviesDB.mdf).
-8. In der **Verbindungszeichenfolge in der Anwendungskonfigurationsdatei speichern** Schritt: Wählen Sie die Option zum Speichern der Verbindungszeichenfolge.
+2. Fügen Sie ein ScriptManager-Steuerelement auf der Seite, indem Sie im ScriptManager unter der Registerkarte "AJAX-Erweiterungen" in der Toolbox auf die Seite ziehen.
+3. Fügen Sie ein ComboBox-Steuerelement durch Ziehen von das Kombinationsfeld auf der Seite auf der Seite hinzu.
+4. In der Entwurfsansicht, bewegen Sie die Maus über das ComboBox-Steuerelement, und wählen Sie die **Datenquelle auswählen** aufgabenoption (siehe Abbildung 5). Der Konfigurations-Assistent wird gestartet.
+5. In der **Auswählen einer Datenquelle** Schritt wählen die &lt;neue Datenquelle&gt; Option.
+6. In der **wählen Sie einen Datenquellentyp** Schritt, wählen Sie die Datenbank.
+7. In der **wählen Sie Ihre Datenverbindung** Schritt, wählen Sie Ihre Datenbank (z. B. MoviesDB.mdf).
+8. In der **Verbindungszeichenfolge in der Anwendungskonfigurationsdatei speichern** Schritt, wählen Sie die Option zum Speichern der Verbindungszeichenfolge.
 9. In der **konfigurieren Sie die Select-Anweisung** Schritt, wählen Sie die Datenbanktabelle Filme aus, und wählen Sie alle Spalten.
-10. In der **Testabfrage** Schritt, klicken Sie auf "Fertig stellen".
-11. In der **Datenquelle auswählen** Schritt wählen Sie den Titel für das Feld angezeigt und die Id-Spalte für die Daten Feld (siehe Abbildung).
+10. In der **Testabfrage** Schritt, klicken Sie auf die Schaltfläche "Fertig stellen".
+11. In der **Datenquelle auswählen** Schritt wählen die Spalte Titel für das anzuzeigende Feld und die Id-Spalte, für die Daten Feld (siehe Abbildung).
 12. Klicken Sie auf die Schaltfläche "OK", um den Assistenten zu schließen.
 
 
 [![Auswählen einer Datenquelle](how-do-i-use-the-combobox-control-vb/_static/image5.jpg)](how-do-i-use-the-combobox-control-vb/_static/image9.png)
 
-**Abbildung 05**: Auswählen einer Datenquelle ([klicken Sie hier, um das Bild in voller Größe angezeigt](how-do-i-use-the-combobox-control-vb/_static/image10.png))
+**Abbildung 05**: Auswählen einer Datenquelle ([klicken Sie, um das Bild in voller Größe anzeigen](how-do-i-use-the-combobox-control-vb/_static/image10.png))
 
 
-[![Wählen die Datenfelder für Text- und Wertdaten](how-do-i-use-the-combobox-control-vb/_static/image6.jpg)](how-do-i-use-the-combobox-control-vb/_static/image11.png)
+[![Die Datenfelder für Text und Wert auswählen](how-do-i-use-the-combobox-control-vb/_static/image6.jpg)](how-do-i-use-the-combobox-control-vb/_static/image11.png)
 
-**Abbildung 06**: Wählen die Datenfelder für Text- und Wertdaten ([klicken Sie hier, um das Bild in voller Größe angezeigt](how-do-i-use-the-combobox-control-vb/_static/image12.png))
+**Abbildung 06**: Wählen die Datenfelder für Text und Wert ([klicken Sie, um das Bild in voller Größe anzeigen](how-do-i-use-the-combobox-control-vb/_static/image12.png))
 
 
-Nachdem Sie die oben beschriebenen Schritte abgeschlossen haben, ist das Kombinationsfeld an ein SqlDataSource-Steuerelement gebunden, die aus der Datenbanktabelle Filme Filme darstellt. Die Quelle für die Seite sieht wie folgt auflisten 2 (ich bereinigt, die die Formatierung etwas).
+Nachdem Sie die oben genannten Schritte abgeschlossen haben, ist das Kombinationsfeld zu einem SqlDataSource-Steuerelement gebunden, das die Filme aus der Tabelle der Datenbank Filme darstellt. Die Quelle für die Seite sieht wie Codebeispiel 2 (ich bereinigt, die die Formatierung ein bisschen).
 
-**Auflisten von 2 – Movies.aspx**
+**Codebeispiel 2 - Movies.aspx**
 
 [!code-aspx[Main](how-do-i-use-the-combobox-control-vb/samples/sample2.aspx)]
 
-Beachten Sie, dass das ComboBox-Steuerelement eine DataSourceID-Eigenschaft verfügt, die auf die SqlDataSource-Steuerelement zeigt. Wenn Sie die Seite in einem Browser öffnen, wird die Liste von Filmen aus der Datenbank angezeigt (siehe Abbildung 7). Sie können eine Auswahlliste einen Film aus der Liste, oder geben Sie einen neuen Film Sie Films in der ComboBox eingeben.
+Beachten Sie, dass das Steuerelement "ComboBox" eine Eigenschaft DataSourceID-Wert, die auf dem SqlDataSource-Steuerelement zeigt. Wenn Sie die Seite in einem Browser öffnen, wird die Liste der Filme aus der Datenbank angezeigt (siehe Abbildung 7). Sie können entweder eine Abholung einen Film aus der Liste, oder geben Sie einen neuen Film durch Eingabe des Films in das Kombinationsfeld.
 
 
-[![Anzeigen einer Liste von Filmen](how-do-i-use-the-combobox-control-vb/_static/image7.jpg)](how-do-i-use-the-combobox-control-vb/_static/image13.png)
+[![Zeigt eine Liste von Filmen](how-do-i-use-the-combobox-control-vb/_static/image7.jpg)](how-do-i-use-the-combobox-control-vb/_static/image13.png)
 
-**Abbildung 07**: Anzeigen einer Liste von Filmen ([klicken Sie hier, um das Bild in voller Größe angezeigt](how-do-i-use-the-combobox-control-vb/_static/image14.png))
+**Abbildung 07**: Zeigt eine Liste von Filmen ([klicken Sie, um das Bild in voller Größe anzeigen](how-do-i-use-the-combobox-control-vb/_static/image14.png))
 
 
 ## <a name="setting-the-dropdownstyle"></a>Festlegen der DropDownStyle
 
-Der ComboBox DropDownStyle-Eigenschaft können so ändern Sie das Verhalten des Kombinationsfelds. Diese Eigenschaft akzeptiert es mögliche Werte:
+Sie können die ComboBox DropDownStyle-Eigenschaft verwenden, um das Verhalten des "ComboBox" ändern. Diese Eigenschaft akzeptiert es mögliche Werte:
 
-- DropDown - (Standardwert) das Kombinationsfeld zeigt eine Dropdownliste, wenn klicken Sie auf den Pfeil, und Sie können einen benutzerdefinierten Wert eingeben.
-- Einfache - Kombinationsfeld zeigt eine Dropdownliste automatisch, und Sie können einen benutzerdefinierten Wert eingeben.
-- DropDownList - funktioniert das Kombinationsfeld, wie ein DropDownList-Steuerelement.
+- Dropdown "" - können (Standardwert) der "ComboBox" zeigt eine Dropdownliste, wenn Sie den Pfeil und klicken Sie auf einen benutzerdefinierten Wert eingeben.
+- Einfach: das Kombinationsfeld wird automatisch eine Dropdownliste angezeigt, und Sie können einen benutzerdefinierten Wert eingeben.
+- DropDownList - funktioniert das Kombinationsfeld, genauso wie ein DropDownList-Steuerelement.
 
-Die verschiedenen zwischen Dropdownliste und einfach ist, wenn die Liste der Elemente angezeigt wird. Im Fall von einfachen wird die Liste angezeigt, sofort Wenn Sie den Fokus auf das Kombinationsfeld verschieben. Im Fall von Dropdownliste müssen Sie den Pfeil, um die Liste der Elemente finden Sie unter klicken.
+Der Unterschied zwischen Dropdownliste und einfach ist, wenn die Liste von Elementen angezeigt wird. Im Fall von einfachen wird die Liste angezeigt, sofort Wenn Sie an das Kombinationsfeld Fokus. Im Fall von Dropdown-Liste müssen Sie den Pfeil, um die Liste der Elemente finden Sie unter klicken.
 
-Der DropDownList-Wert bewirkt, dass das ComboBox-Steuerelement funktioniert wie ein standard DropDownList-Steuerelement. Es ist jedoch hier ein wichtiger Unterschied. Ältere Versionen von Internet Explorer anzeigen eines DropDownList-Steuerelements mit einem unendlichen Z-Index, damit das Steuerelement vor jedem Steuerelement platziert davor angezeigt wird. Da der ComboBox HTML rendert &lt;Div&gt; Tag anstelle einer HTML &lt;wählen&gt; Tag, das Kombinationsfeld ordnungsgemäß respektiert Z-Reihenfolge.
+Die DropDownList-Wert bewirkt, dass das ComboBox-Steuerelement funktioniert wie ein standard DropDownList-Steuerelement. Allerdings besteht auch hier ein wichtiger Unterschied. Ältere Versionen von Internet Explorer anzeigen ein DropDownList-Steuerelement mit einem unendlichen Z-Index, also vor jedem Steuerelement platziert werden, vor das Steuerelement angezeigt wird. Da das Kombinationsfeld eine HTML rendert &lt;Div&gt; Tag anstelle von einem HTML &lt;wählen&gt; -Tag, Z-Reihenfolge für das Kombinationsfeld ordnungsgemäß berücksichtigt werden.
 
 ## <a name="setting-the-autocompletemode"></a>Festlegen der AutoCompleteMode
 
-Sie verwenden die ComboBox AutoCompleteMode-Eigenschaft, um anzugeben, was passiert, wenn ein Benutzer Text in der ComboBox eingibt. Diese Eigenschaft akzeptiert die folgenden möglichen Werte an:
+Sie verwenden die ComboBox AutoCompleteMode-Eigenschaft, um anzugeben, was geschieht, wenn ein Benutzer Text in der ComboBox eingibt. Diese Eigenschaft akzeptiert die folgenden möglichen Werten:
 
-- None: (Standardwert) der ComboBox bietet keines Verhalten automatisch zu vervollständigen.
-- Vorschlagen - Kombinationsfeld zeigt die Liste, und das entsprechende Element in der Liste hervorgehoben (siehe Abbildung 8).
-- Anfügen: ComboBox wird die Liste nicht angezeigt, und er fügt die übereinstimmenden Elements aus der Liste auf, was Sie eingegeben haben (siehe Abbildung 9).
-- SuggestAppend - ComboBox sowohl zeigt die Liste an und fügt die übereinstimmende Element aus der Liste auf, was Sie eingegeben haben (siehe Abbildung 10).
+- None: (Standardwert), die das Kombinationsfeld keine AutoComplete-Verhalten bietet.
+- Vorschlagen - Kombinationsfeld zeigt die Liste, und das übereinstimmende Element in der Liste werden hervorgehoben (siehe Abbildung 8).
+- Fügen Sie - Kombinationsfeld wird die Liste nicht angezeigt, und er fügt das übereinstimmende Element aus der Liste auf, was Sie eingegeben haben (siehe Abbildung 9).
+- SuggestAppend - Kombinationsfeld sowohl die Liste und fügt das entsprechende Element aus der Liste auf, was Sie eingegeben haben (siehe Abbildung 10).
 
 
 [![Das Kombinationsfeld macht einen Vorschlag](how-do-i-use-the-combobox-control-vb/_static/image8.jpg)](how-do-i-use-the-combobox-control-vb/_static/image15.png)
 
-**Abbildung 08**: das Kombinationsfeld macht einen Vorschlag ([klicken Sie hier, um das Bild in voller Größe angezeigt](how-do-i-use-the-combobox-control-vb/_static/image16.png))
+**Abbildung 08**: die "ComboBox" macht einen Vorschlag ([klicken Sie, um das Bild in voller Größe anzeigen](how-do-i-use-the-combobox-control-vb/_static/image16.png))
 
 
-[![ComboBox fügt die übereinstimmenden text](how-do-i-use-the-combobox-control-vb/_static/image9.jpg)](how-do-i-use-the-combobox-control-vb/_static/image17.png)
+[!["ComboBox" fügt die übereinstimmenden text](how-do-i-use-the-combobox-control-vb/_static/image9.jpg)](how-do-i-use-the-combobox-control-vb/_static/image17.png)
 
-**Abbildung 09**: ComboBox fügt die übereinstimmenden Text ([klicken Sie hier, um das Bild in voller Größe angezeigt](how-do-i-use-the-combobox-control-vb/_static/image18.png))
+**Abbildung 09**: "ComboBox" fügt die übereinstimmenden Text ([klicken Sie, um das Bild in voller Größe anzeigen](how-do-i-use-the-combobox-control-vb/_static/image18.png))
 
 
 [![Das Kombinationsfeld schlägt vor, und fügt](how-do-i-use-the-combobox-control-vb/_static/image10.jpg)](how-do-i-use-the-combobox-control-vb/_static/image19.png)
 
-**Abbildung 10**: das Kombinationsfeld schlägt vor, und fügt ([klicken Sie hier, um das Bild in voller Größe angezeigt](how-do-i-use-the-combobox-control-vb/_static/image20.png))
+**Abbildung 10**: die "ComboBox" schlägt vor, und fügt ([klicken Sie, um das Bild in voller Größe anzeigen](how-do-i-use-the-combobox-control-vb/_static/image20.png))
 
 
 ## <a name="summary"></a>Zusammenfassung
 
-In diesem Lernprogramm haben Sie gelernt, wie das ComboBox-Steuerelement zu verwenden, um einen festen Satz von Elementen anzuzeigen. Wir gebunden ComboBox-Steuerelement, um einen statischen Satz von Elementen und in einer Datenbanktabelle. Schließlich haben Sie gelernt, wie das Verhalten der ComboBox zu ändern, indem Sie ihre DropDownStyle und AutoCompleteMode Eigenschaften festlegen.
+In diesem Tutorial haben Sie gelernt, wie das ComboBox-Steuerelement zu verwenden, um einen festen Satz von Elementen anzuzeigen. Wir gebunden das ComboBox-Steuerelement, sowohl um einen statischen Satz von Elementen und einer Datenbanktabelle. Schließlich haben Sie das Verhalten des "ComboBox" durch Festlegen seiner Eigenschaften DropDownStyle und AutoCompleteMode ändern.
 
 > [!div class="step-by-step"]
 > [Vorherige](how-do-i-use-the-combobox-control-cs.md)
