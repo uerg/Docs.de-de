@@ -4,19 +4,16 @@ title: Untersuchen die Details und Delete-Methoden | Microsoft-Dokumentation
 author: Rick-Anderson
 description: 'Hinweis: Eine aktualisierte Version dieses Tutorials ist hier verfügbar, dass das ASP.NET MVC 5 und Visual Studio 2013 verwendet. Es ist eine sicherere, viel einfacher zu folgen und demo...'
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/28/2012
-ms.topic: article
 ms.assetid: 11425ff3-09fc-4efa-be9a-b53bce503460
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/examining-the-details-and-delete-methods
 msc.type: authoredcontent
-ms.openlocfilehash: fc007c7c0a6fdb818e39ef01437f5f9cf3d14513
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 98aa7b0b198f43bc28d7181af0f0808438d6ef76
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37375327"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37834950"
 ---
 <a name="examining-the-details-and-delete-methods"></a>Untersuchen die Details und Delete-Methoden
 ====================

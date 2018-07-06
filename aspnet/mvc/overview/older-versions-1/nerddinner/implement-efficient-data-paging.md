@@ -4,19 +4,16 @@ title: Implementieren von effizienten Datenauslagerung | Microsoft-Dokumentation
 author: microsoft
 description: Schritt 8 zeigt, wie die URL "/ dinners" pagingunterstützung hinzugefügt werden, sodass anstatt 1000 s von Dinner auf einmal, wir nur 10 bevorstehende Dinner unter wird angezeigt...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/27/2010
-ms.topic: article
 ms.assetid: adea836d-dbc2-4005-94ea-53aef09e9e34
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/implement-efficient-data-paging
 msc.type: authoredcontent
-ms.openlocfilehash: e6347c817c7518ef96ffbbf83cf98dd4dc6c011e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bcd7fdf59fac8328752aa2ebab61c1d50a8b6b0d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37372448"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842142"
 ---
 <a name="implement-efficient-data-paging"></a>Implementieren von effizienten Datenauslagerung
 ====================

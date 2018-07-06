@@ -4,19 +4,16 @@ title: Batch aktualisieren (c#) | Microsoft-Dokumentation
 author: rick-anderson
 description: Erfahren Sie, wie Sie mehrere Datenbankdatensätze in einem einzelnen Vorgang aktualisieren. In der UI-Schicht erstellen wir eine GridView, in dem jede Zeile bearbeitet werden kann. In den Daten...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/26/2007
-ms.topic: article
 ms.assetid: 4e849bcc-c557-4bc3-937e-f7453ee87265
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-updating-cs
 msc.type: authoredcontent
-ms.openlocfilehash: bd8a8f4bc56867da1668fda32b42efcf3a629cdf
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0cb55689ac3a6dc36ed18459ecece82ff0b073b7
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37366805"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842191"
 ---
 <a name="batch-updating-c"></a>Batch-Update (c#)
 ====================
