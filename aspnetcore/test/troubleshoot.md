@@ -5,76 +5,64 @@ description: In diesem Artikel werden Warnungen und Fehler erläutert. Außerdem
 ms.author: riande
 ms.date: 04/05/2018
 uid: test/troubleshoot
-ms.openlocfilehash: ae4e6f191d8f856de60ecf21cb882b5ee9b02064
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: b4d90f541a4cda2d41b49101b7ea39af87a4dcb4
+ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274592"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37889011"
 ---
 # <a name="troubleshoot-aspnet-core-projects"></a>Problembehandlung bei ASP.NET Core-Projekten
 
 Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Die folgenden Links erhalten Sie Anleitungen zur Fehlerbehebung:
+Die folgenden Links erhalten Anleitungen zur Fehlerbehebung:
 
 * [Problembehandlung bei ASP.NET Core in Azure App Service](xref:host-and-deploy/azure-apps/troubleshoot)
 * [Problembehandlung bei ASP.NET Core in IIS](xref:host-and-deploy/iis/troubleshoot)
 * [Referenz zu häufigen Fehlern bei Azure App Service und IIS mit ASP.NET Core](xref:host-and-deploy/azure-iis-errors-reference)
-* [NDC Konferenz (London 2018): Diagnostizieren von Problemen in ASP.NET-Anwendungen für Core](https://www.youtube.com/watch?v=RYI0DHoIVaA)
-* [ASP.NET-Blog: Beheben von Leistungsproblemen für ASP.NET Core](https://blogs.msdn.microsoft.com/webdev/2018/05/23/asp-net-core-performance-improvements/)
+* [NDC Conference (London, 2018): Diagnostizieren von Problemen in ASP.NET Core-Anwendungen](https://www.youtube.com/watch?v=RYI0DHoIVaA)
+* [ASP.NET-Blog: Problembehandlung bei Leistungsproblemen von ASP.NET Core](https://blogs.msdn.microsoft.com/webdev/2018/05/23/asp-net-core-performance-improvements/)
 
 ## <a name="net-core-sdk-warnings"></a>.NET Core SDK-Warnungen
 
-### <a name="both-the-32-bit-and-64-bit-versions-of-the-net-core-sdk-are-installed"></a>Sowohl die 32-Bit und 64-Bit-Versionen von .NET Core SDK installiert sind
+### <a name="both-the-32-bit-and-64-bit-versions-of-the-net-core-sdk-are-installed"></a>Die 32-Bit und 64-Bit-Versionen von .NET Core SDK sind installiert.
 
 In der **neues Projekt** Dialogfeld für ASP.NET Core, können Sie die folgende Warnung angezeigt:
 
-> 32- und 64-Bit-Versionen von .NET Core SDK installiert sind. Nur Vorlagen für die 64-Bit-Versionen installiert "" c: "\\Programmdateien\\Dotnet\\Sdk\\" wird angezeigt.
+> Es werden sowohl 32- und 64-Bit-Versionen von .NET Core SDK installiert. Nur Vorlagen aus die 64-Bit-Versionen installiert ' "c:"\\Programmdateien\\Dotnet\\Sdk\\"wird angezeigt.
 
-![Screenshot des Dialogfelds OneASP.NET mit der Warnung](troubleshoot/_static/both32and64bit.png)
+![Screenshot des Dialogfelds mit die Warnmeldung OneASP.NET](troubleshoot/_static/both32and64bit.png)
 
-Diese Warnung wird angezeigt, wenn (x86) 32-Bit und 64-Bit (x 64)-Versionen der [.NET Core SDK](https://www.microsoft.com/net/download/all) installiert sind. Häufige Ursachen für die beide Versionen installiert werden können umfassen:
+Diese Warnung wird angezeigt, wenn sowohl die 32-Bit-(x86) als auch die 64-Bit (x 64) Versionen der [.NET Core SDK](https://www.microsoft.com/net/download/all) installiert sind. Häufige Gründe, die beide Versionen installiert sind enthalten:
 
-* Sie ursprünglich heruntergeladen eine 32-Bit-Computer mit .NET Core SDK-Installationsprogramm aber anschließend kopiert er über und ihn auf einem 64-Bit-Computer installiert.
-* Die 32-Bit-.NET Core SDK wurde durch eine andere Anwendung installiert.
+* Sie ursprünglich heruntergeladen das .NET Core SDK-Installationsprogramm, das mit einem 32-Bit-Computer, aber klicken Sie dann über kopiert und es auf einem 64-Bit-Computer installiert.
+* Das 32-Bit .NET Core SDK wurde durch eine andere Anwendung installiert.
 * Die falsche Version wurde heruntergeladen und installiert.
 
-Deinstallieren Sie die 32-Bit-.NET Core SDK, um diese Warnung zu vermeiden. Deinstallieren von **Systemsteuerung** > **Programme und Funktionen** > **deinstallieren oder Ändern eines Programms**. Wenn Sie verstehen, warum die Warnung wird ausgegeben, und deren Auswirkungen, können Sie die Warnung ignorieren.
+Deinstallieren Sie die 32-Bit .NET Core-SDK, um diese Warnung zu vermeiden. Deinstallieren von **Systemsteuerung** > **Programme und Funktionen** > **deinstallieren oder Ändern eines Programms**. Wenn Sie verstehen, warum die Warnung tritt auf, und deren Auswirkungen, können Sie die Warnung ignorieren.
 
-### <a name="the-net-core-sdk-is-installed-in-multiple-locations"></a>.NET Core SDK ist in mehreren Speicherorten installiert.
-
-In der **neues Projekt** Dialogfeld für ASP.NET Core, können Sie die folgende Warnung angezeigt:
-
-> .NET Core SDK ist in mehreren Speicherorten installiert. Nur Vorlagen für die SDKs an installierten "" c: "\\Programmdateien\\Dotnet\\Sdk\\" wird angezeigt.
-
-![Screenshot des Dialogfelds OneASP.NET mit der Warnung](troubleshoot/_static/multiplelocations.png)
-
-Diese Meldung wird angezeigt, wenn Sie mindestens eine Installation von .NET Core SDK in einem Verzeichnis außerhalb von haben *"c:"\\Programmdateien\\Dotnet\\Sdk\\*. Dies geschieht normalerweise, wenn der .NET Core SDK auf einem Computer mit Kopieren/Einfügen anstelle der MSI-Installationsprogramm bereitgestellt wurde.
-
-Deinstallieren Sie die 32-Bit-.NET Core SDK, um diese Warnung zu vermeiden. Deinstallieren von **Systemsteuerung** > **Programme und Funktionen** > **deinstallieren oder Ändern eines Programms**. Wenn Sie verstehen, warum die Warnung wird ausgegeben, und deren Auswirkungen, können Sie die Warnung ignorieren.
-
-### <a name="no-net-core-sdks-were-detected"></a>Es wurden keine .NET Core-SDKs erkannt.
+### <a name="the-net-core-sdk-is-installed-in-multiple-locations"></a>Das .NET Core SDK ist an mehreren Speicherorten installiert.
 
 In der **neues Projekt** Dialogfeld für ASP.NET Core, können Sie die folgende Warnung angezeigt:
 
-> Keine .NET Core-SDKs erkannt wurden, stellen Sie sicher, dass sie in der Umgebungsvariablen "PATH" enthalten sind.
+> Das .NET Core SDK ist an mehreren Speicherorten installiert. Nur Vorlagen aus dem SDK unter "C:\\Programmdateien\\Dotnet\\Sdk\\" wird angezeigt.
 
-![Screenshot des Dialogfelds OneASP.NET mit der Warnung](troubleshoot/_static/NoNetCore.png)
+![Screenshot des Dialogfelds mit die Warnmeldung OneASP.NET](troubleshoot/_static/multiplelocations.png)
 
-Diese Warnung wird angezeigt, wenn die Umgebungsvariable `PATH` zeigt nicht auf eine beliebige .NET Core-SDKs auf dem Computer. Um dieses Problem zu lösen:
+Diese Meldung angezeigt, wenn Sie mindestens eine Installation von .NET Core SDK in einem Verzeichnis außerhalb des haben *C:\\Programmdateien\\Dotnet\\Sdk\\*. Dies geschieht normalerweise, wenn das .NET Core SDK auf einem Computer mit Kopieren/Einfügen, anstatt das MSI-Installationsprogramm bereitgestellt wurde.
 
-* Installieren, oder stellen Sie sicher, dass die .NET Core SDK installiert ist.
-* Überprüfen Sie die `PATH` -Umgebungsvariable zeigt auf den Speicherort, die das SDK installiert ist. Normalerweise legt der Installer die `PATH`.
+Deinstallieren Sie die 32-Bit .NET Core-SDK, um diese Warnung zu vermeiden. Deinstallieren von **Systemsteuerung** > **Programme und Funktionen** > **deinstallieren oder Ändern eines Programms**. Wenn Sie verstehen, warum die Warnung tritt auf, und deren Auswirkungen, können Sie die Warnung ignorieren.
 
-::: moniker range=">= aspnetcore-2.1"
+### <a name="no-net-core-sdks-were-detected"></a>Es wurden keine .NET Core SDKs erkannt.
 
-### <a name="use-of-ihtmlhelperpartial-may-result-in-app-deadlocks"></a>Verwendung von IHtmlHelper.Partial möglicherweise in app-Deadlocks führen.
+In der **neues Projekt** Dialogfeld für ASP.NET Core, können Sie die folgende Warnung angezeigt:
 
-In ASP.NET Core 2.1 und höher Aufrufen `Html.Partial` führt zu einer Warnung Analyzer aufgrund der Möglichkeit von Deadlocks. Die Warnung angezeigt wird:
+> Es wurden keine .NET Core SDKs erkannt, stellen Sie sicher, dass sie in der Umgebungsvariablen "PATH" enthalten sind.
 
-> Verwendung von IHtmlHelper.Partial kann in der anwendungsdeadlocks führen. Erwägen Sie `<partial>` Tag Helper oder `IHtmlHelper.PartialAsync`.
+![Screenshot des Dialogfelds mit die Warnmeldung OneASP.NET](troubleshoot/_static/NoNetCore.png)
 
-Aufrufe von `@Html.Partial` ersetzt werden sollte, indem `@await Html.PartialAsync` oder das Hilfsprogramm writeid `<partial name="_Partial" />`.
+Diese Warnung wird angezeigt, wenn die Umgebungsvariable `PATH` verweist nicht auf alle .NET Core-SDKs auf dem Computer. Um dieses Problem zu beheben:
 
-::: moniker-end
+* Installieren, oder stellen Sie sicher, dass das .NET Core SDK installiert ist.
+* Überprüfen Sie, ob die `PATH` Umgebungsvariable verweist auf den Speicherort, in dem das SDK installiert ist. Der Installer normalerweise legt der `PATH`.

@@ -5,12 +5,12 @@ description: Erfahren Sie, wie Sie benutzerdefinierte Speicheranbieter für ASP.
 ms.author: riande
 ms.date: 05/24/2017
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: d7baa8ed142a7d3337adceff2dc93274604bde4c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: bdde9b93449c2f3f8d43cc4ff86472ed8a60ed1c
+ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37831335"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37889167"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Benutzerdefinierte Speicheranbieter für ASP.NET Core Identity
 
@@ -51,7 +51,7 @@ Erstellen Sie zum Erstellen eines benutzerdefinierten Speicheranbieters der Date
 
 Beim Erstellen einer neuen Instanz der `UserManager` oder `RoleManager` Sie geben den Typ der Benutzerklasse, und übergeben Sie eine Instanz der Store-Klasse als Argument. Dadurch können Sie Ihre benutzerdefinierten Klassen in ASP.NET Core zu integrieren. 
 
-[Konfigurieren der app zur Verwendung der neuen Speicheranbieter](#reconfigure-app-to-use-new-storage-provider) wird gezeigt, wie zum Instanziieren `UserManager` und `RoleManager` mit einem benutzerdefinierten Speicher.
+[Konfigurieren der app zur Verwendung der neuen Speicheranbieter](#reconfigure-app-to-use-a-new-storage-provider) wird gezeigt, wie zum Instanziieren `UserManager` und `RoleManager` mit einem benutzerdefinierten Speicher.
 
 ## <a name="aspnet-core-identity-stores-data-types"></a>ASP.NET Core Identity speichert-Datentypen
 
