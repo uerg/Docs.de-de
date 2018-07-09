@@ -4,19 +4,16 @@ title: Wiederherstellen und Ändern von Kennwörtern (VB) | Microsoft-Dokumentat
 author: rick-anderson
 description: ASP.NET umfasst zwei Web-Steuerelemente für die Unterstützung bei der Wiederherstellung, und Ändern von Kennwörtern. Das Steuerelement PasswordRecovery ermöglicht einen Besucher seinen Pa verlorene wiederherstellen...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/01/2008
-ms.topic: article
 ms.assetid: f9adcb5d-6d70-4885-a3bf-ed95efb4da1a
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/recovering-and-changing-passwords-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 68b70708904a46e31639331bbfd0dd31240ea421
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bb52204b58bcdbb3d03390868e52b8a6f74df5e4
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393995"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37822906"
 ---
 <a name="recovering-and-changing-passwords-vb"></a>Wiederherstellen und Ändern von Kennwörtern (VB)
 ====================

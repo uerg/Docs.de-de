@@ -4,19 +4,16 @@ title: Benutzerbasierte Autorisierung (c#) | Microsoft-Dokumentation
 author: rick-anderson
 description: In diesem Tutorial betrachten wir Beschränken des Zugriffs auf Seiten und Funktionen über eine Vielzahl von Techniken für auf Seitenebene eingeschränkt.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/18/2008
-ms.topic: article
 ms.assetid: 3c815a9e-2296-4b9b-b945-776d54989daa
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/user-based-authorization-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5ab8fb2782cf9d29c9912fa81158c50a9d8d8af5
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 2fe1dbc7e5fd609870975fbf41849522bbeed534
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37396779"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37823988"
 ---
 <a name="user-based-authorization-c"></a>Benutzerbasierte Autorisierung (c#)
 ====================

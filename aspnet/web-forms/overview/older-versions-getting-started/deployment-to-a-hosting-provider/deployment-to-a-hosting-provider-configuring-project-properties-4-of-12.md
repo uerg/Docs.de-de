@@ -4,19 +4,16 @@ title: 'Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visu
 author: tdykstra
 description: In dieser tutorialreihe erfahren Sie, wie zum Bereitstellen einer ASP.NET-Anwendung (veröffentlichen) Webanwendungsprojekt, die eine SQL Server Compact-Datenbank enthält, mithilfe von Visual Stu...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/17/2011
-ms.topic: article
 ms.assetid: 8b013630-842c-4d44-a6fc-c6be43e7210f
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-configuring-project-properties-4-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 4aa1e55f21e74ae8da67d6d13c35a8de5693ec3a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: cb496c31ba09030087180ac67647c8c0854c372b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37396265"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37814196"
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-configuring-project-properties---4-of-12"></a>Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio oder Visual Web Developer: Konfigurieren von Projekteigenschaften - 4 von 12
 ====================

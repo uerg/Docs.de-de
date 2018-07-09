@@ -4,19 +4,16 @@ title: Migrieren von Daten eines universellen Anbieters für Mitgliedschaften un
 author: rustd
 description: In diesem Tutorial wird beschrieben, die erforderlichen Schritte zum Migrieren von Benutzer und Daten der Rolle und Benutzerprofildaten, die mit der Universal Providers einer vorhandenen App erstellt wird...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/13/2013
-ms.topic: article
 ms.assetid: 2e260430-d13c-4658-bd05-e256fc0d63b8
-ms.technology: ''
 msc.legacyurl: /identity/overview/migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: dce27af273adb45c1ad8f07790c98d2fa5862f67
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1f685e676d3ca4eeb64f48f0df7212402a9f6f5f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377959"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37810033"
 ---
 <a name="migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity-c"></a>Migrieren von Daten eines universellen Anbieters für Mitgliedschaften und Benutzerprofilen nach ASP.NET Identity (c#)
 ====================

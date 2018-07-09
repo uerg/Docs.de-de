@@ -1,50 +1,50 @@
 ---
-title: Benutzerdefinierte Autorisierung Richtlinie Anbieter in ASP.NET Core
+title: Anbieter von benutzerdefinierten Autorisierungsrichtlinien in ASP.NET Core
 author: mjrousos
-description: Erfahren Sie, wie eine benutzerdefinierte IAuthorizationPolicyProvider in einer ASP.NET Core-app verwenden, um Autorisierungsrichtlinien dynamisch zu generieren.
+description: Erfahren Sie, wie eine benutzerdefinierte IAuthorizationPolicyProvider in einer ASP.NET Core-app zu verwenden, um Autorisierungsrichtlinien dynamisch zu generieren.
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/02/2018
 uid: security/authorization/iauthorizationpolicyprovider
-ms.openlocfilehash: 218d7a495655598046671093c0cfe7b9622aca5e
-ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
+ms.openlocfilehash: 6e46172ec8c5271ffcbad87e4ea5cc98465b78b0
+ms.sourcegitcommit: 41d3c4b27309d56f567fd1ad443929aab6587fb1
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37077601"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37910249"
 ---
-# <a name="custom-authorization-policy-providers-using-iauthorizationpolicyprovider-in-aspnet-core"></a>Benutzerdefinierte Autorisierung-Policy-Anbietern, die mithilfe von IAuthorizationPolicyProvider in ASP.NET Core 
+# <a name="custom-authorization-policy-providers-using-iauthorizationpolicyprovider-in-aspnet-core"></a>Benutzerdefinierten Autorisierungsanbieter für Richtlinie mithilfe von IAuthorizationPolicyProvider in ASP.NET Core 
 
 Durch [Mike Rousos](https://github.com/mjrousos)
 
-In der Regel bei Verwendung [Richtlinie basierende Autorisierung](xref:security/authorization/policies), Richtlinien werden durch den Aufruf registriert `AuthorizationOptions.AddPolicy` als Teil der Dienstkonfiguration für die Autorisierung. In einigen Szenarien ist es möglicherweise nicht möglich (oder wünschenswert) aller Autorisierungsrichtlinien auf diese Weise zu registrieren. In diesen Fällen können Sie eine benutzerdefinierte `IAuthorizationPolicyProvider` steuern, wie die Autorisierungsrichtlinien bereitgestellt werden.
+In der Regel bei Verwendung [richtlinienbasierte Autorisierung](xref:security/authorization/policies), Richtlinien werden registriert, indem `AuthorizationOptions.AddPolicy` als Teil der Dienstkonfiguration für die Autorisierung. In einigen Szenarien ist es möglicherweise nicht möglich (oder wünschenswert) aller Autorisierungsrichtlinien auf diese Weise zu registrieren. In diesen Fällen können Sie eine benutzerdefinierte `IAuthorizationPolicyProvider` steuern, wie die Autorisierungsrichtlinien angegeben werden.
 
-Beispiele für Szenarien, bei einer benutzerdefinierten [IAuthorizationPolicyProvider](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationpolicyprovider) kann hilfreich sein, gehören:
+Beispiele für Szenarien, bei einer benutzerdefinierten [IAuthorizationPolicyProvider](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationpolicyprovider) kann nützlich sein, gehören:
 
-* Verwenden einen externen Dienst, um die richtlinienauswertung sicherzustellen.
-* Verwenden einen großen Bereich von Richtlinien (für verschiedene Raumnummer oder ALTER, z. B.), daher es nicht sinnvoll hinzuzufügende jede einzelne Autorisierungsrichtlinie mit einer `AuthorizationOptions.AddPolicy` aufrufen.
-* Erstellen von Richtlinien zur Laufzeit basierend auf Informationen in einer externen Datenquelle (z. B. eine Datenbank) oder autorisierungsanforderungen dynamisch mithilfe eines anderen Mechanismus bestimmen.
+* Verwenden einen externen Dienst, um die Auswertung der Richtlinie bereitstellen.
+* Verwenden einen großen Bereich von Richtlinien (bei anderen Raum Zahlen oder Altersgruppe, z. B.), daher es nicht sinnvoll, jede einzelne Autorisierungsrichtlinie mit Hinzufügen einer `AuthorizationOptions.AddPolicy` aufrufen.
+* Erstellen von Richtlinien zur Laufzeit basierend auf Informationen in einer externen Datenquelle (z. B. eine Datenbank) oder dynamisch Festlegen der autorisierungsanforderungen für die mithilfe eines anderen Mechanismus.
 
 ## <a name="customizing-policy-retrieval"></a>Anpassen des Abrufens von Richtlinien
 
-ASP.NET Core-apps mit einer Implementierung der der `IAuthorizationPolicyProvider` Schnittstelle, um Autorisierungsrichtlinien abzurufen. Standardmäßig [DefaultAuthorizationPolicyProvider](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.authorization.defaultauthorizationpolicyprovider) registriert und verwendet wird. `DefaultAuthorizationPolicyProvider` Gibt die Richtlinien aus der `AuthorizationOptions` in bereitgestellten ein `IServiceCollection.AddAuthorization` aufrufen.
+ASP.NET Core-apps mit einer Implementierung der der `IAuthorizationPolicyProvider` Schnittstelle, um Autorisierungsrichtlinien abzurufen. In der Standardeinstellung [DefaultAuthorizationPolicyProvider](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.authorization.defaultauthorizationpolicyprovider) registriert und verwendet wird. `DefaultAuthorizationPolicyProvider` Gibt die Richtlinien aus der `AuthorizationOptions` bereitgestellt, die ein `IServiceCollection.AddAuthorization` aufrufen.
 
-Sie können dieses Verhalten anpassen, indem Sie ein anderes registrieren `IAuthorizationPolicyProvider` Implementierung in der app [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) Container. 
+Sie können dieses Verhalten anpassen, indem Sie die Registrierung einer anderen `IAuthorizationPolicyProvider` Implementierung der App [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) Container. 
 
 Die `IAuthorizationPolicyProvider` Schnittstelle enthält zwei APIs:
 
-* [GetPolicyAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationpolicyprovider.getpolicyasync?view=aspnetcore-2.0#Microsoft_AspNetCore_Authorization_IAuthorizationPolicyProvider_GetPolicyAsync_System_String_) gibt eine Autorisierungsrichtlinie für einen angegebenen Namen zurück.
-* [GetDefaultPolicyAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationpolicyprovider.getdefaultpolicyasync?view=aspnetcore-2.0) gibt die Standardrichtlinie für die Autorisierung (die Richtlinie zum `[Authorize]` Attribute ohne eine Richtlinie angegeben). 
+* [GetPolicyAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationpolicyprovider.getpolicyasync?view=aspnetcore-2.0#Microsoft_AspNetCore_Authorization_IAuthorizationPolicyProvider_GetPolicyAsync_System_String_) gibt eine Autorisierungsrichtlinie für einen bestimmten Namen.
+* [GetDefaultPolicyAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationpolicyprovider.getdefaultpolicyasync?view=aspnetcore-2.0) gibt die Standardrichtlinie für die Autorisierung (die Richtlinie zum `[Authorize]` Attribute ohne eine Richtlinie). 
 
-Durch die Implementierung dieser zwei APIs, können Sie anpassen, wie die Autorisierungsrichtlinien bereitgestellt werden.
+Implementieren Sie diese beiden APIs, können Sie anpassen, wie die Autorisierungsrichtlinien bereitgestellt werden.
 
-## <a name="parameterized-authorize-attribute-example"></a>Parametrisierte autorisieren Beispiel für ein Attribut
+## <a name="parameterized-authorize-attribute-example"></a>Parametrisierte autorisieren Sie die Beispiel-Attribut
 
-Ein Szenario, in dem `IAuthorizationPolicyProvider` eignet sich benutzerdefinierte ermöglicht `[Authorize]` Attribute, deren Anforderungen richten sich nach Parameter. Beispielsweise ist in [Richtlinie basierende Autorisierung](xref:security/authorization/policies) Dokumentation einer Age-basierte ("AtLeast21") Richtlinie wurde als Stichprobe verwendet. Wenn verschiedene steuerungsaktionen in einer app für Benutzer verfügbar gemacht werden sollen *unterschiedliche* Altersgruppen, es möglicherweise sinnvoll, viele verschiedene Age-basierte Richtlinien zu verwenden. Statt zu registrieren alle anderen Age-basierte Richtlinien, die in die Anwendung muss `AuthorizationOptions`, können Sie die Richtlinien mit einem benutzerdefinierten dynamisch generieren `IAuthorizationPolicyProvider`. Um mit den Richtlinien einfacher zu gestalten, können Sie Aktionen mit benutzerdefinierten Autorisierungs-Attribut, z. B. kommentieren `[MinimumAgeAuthorize(20)]`.
+Ein Szenario, in denen `IAuthorizationPolicyProvider` eignet sich besteht darin, benutzerdefinierte ermöglichen `[Authorize]` Attribute, deren Anforderungen richten sich nach einem Parameter. Z. B. in [richtlinienbasierte Autorisierung](xref:security/authorization/policies) Dokumentation, die eine Age-basierte ("AtLeast21") wurde die Richtlinie als Beispiel verwendet. Wenn anderen Controller-Aktionen in einer app für Benutzer verfügbar gemacht werden sollen *verschiedene* Zugriffe, es kann hilfreich sein, über viele verschiedene Age-basierte Richtlinien verfügen. Statt die Registrierung aller anderen Age-basierten Richtlinien, die die Anwendung im benötigen `AuthorizationOptions`, Sie können die Richtlinien mit einem benutzerdefinierten dynamisch generieren `IAuthorizationPolicyProvider`. Um mit den Richtlinien einfacher zu gestalten, können Sie Aktionen mit benutzerdefinierten autorisierungsattributs wie versehen `[MinimumAgeAuthorize(20)]`.
 
-## <a name="custom-authorization-attributes"></a>Benutzerdefinierte Autorisierungsattribute
+## <a name="custom-authorization-attributes"></a>Benutzerdefinierte Attribute
 
-Autorisierungsrichtlinien werden durch ihre Namen identifiziert. Die benutzerdefinierte `MinimumAgeAuthorizeAttribute` beschrieben muss zuvor Argumente in eine Zeichenfolge zugeordnet werden, die zum Abrufen der entsprechenden Autorisierungsrichtlinie verwendet werden kann. Hierzu können Sie durch Ableiten von `AuthorizeAttribute` und machen die `Age` Eigenschaft Wrap der `AuthorizeAttribute.Policy` Eigenschaft.
+Autorisierungsrichtlinien werden anhand ihrer Namen identifiziert. Die benutzerdefinierte `MinimumAgeAuthorizeAttribute` beschrieben muss zuvor Zuordnen von Argumenten in eine Zeichenfolge, die verwendet werden können, um die entsprechende Autorisierungsrichtlinie abzurufen. Sie erreichen dies durch Ableiten von `AuthorizeAttribute` und die `Age` Eigenschaft Wrap der `AuthorizeAttribute.Policy` Eigenschaft.
 
 ```CSharp
 internal class MinimumAgeAuthorizeAttribute : AuthorizeAttribute
@@ -72,9 +72,9 @@ internal class MinimumAgeAuthorizeAttribute : AuthorizeAttribute
 }
 ```
 
-Dieser Attributtyp wurde eine `Policy` Zeichenfolge basierend auf den hartcodierten-Präfix (`"MinimumAge"`) und eine ganze Zahl, die über den Konstruktor übergeben.
+Dieser Attributtyp verfügt über eine `Policy` Zeichenfolge auf Grundlage der fest programmierte-Präfix (`"MinimumAge"`) und eine ganze Zahl, die über den Konstruktor übergeben.
 
-Sie können auf die gleiche Weise wie andere Aktionen anwenden `Authorize` Attribute, außer dass es sich um eine ganze Zahl als Parameter verwendet.
+Sie können Aktionen in der gleichen Weise wie andere anwenden `Authorize` Attribute, außer dass es sich um eine ganze Zahl als Parameter verwendet.
 
 ```CSharp
 [MinimumAgeAuthorize(10)]
@@ -83,13 +83,13 @@ public IActionResult RequiresMinimumAge10()
 
 ## <a name="custom-iauthorizationpolicyprovider"></a>Benutzerdefinierte IAuthorizationPolicyProvider
 
-Die benutzerdefinierte `MinimumAgeAuthorizeAttribute` erleichtert Anforderung Autorisierungsrichtlinien für alle gewünschten Mindestalter. Das nächste Problem zu lösen Sie sicherstellen, dass für alle diese verschiedenen Altersgruppen Autorisierungsrichtlinien verfügbar sind. Dies ist, wenn ein `IAuthorizationPolicyProvider` eignet.
+Die benutzerdefinierte `MinimumAgeAuthorizeAttribute` erleichtert Autorisierungsrichtlinien für die Anforderung für alle gewünschten Mindestalter. Das nächste Problem lösen Sie sicherstellen, dass Autorisierungsrichtlinien für alle diese verschiedenen Altersgruppen verfügbar sind. Hier kommt ein `IAuthorizationPolicyProvider` eignet.
 
-Bei Verwendung `MinimumAgeAuthorizationAttribute`, Richtliniennamen Autorisierung werden entsprechen dem folgenden Muster `"MinimumAge" + Age`, sodass die benutzerdefinierte `IAuthorizationPolicyProvider` Autorisierungsrichtlinien durch generieren soll:
+Bei Verwendung `MinimumAgeAuthorizationAttribute`, Richtliniennamen Autorisierung werden das folgende Namensgebungsmuster `"MinimumAge" + Age`, sodass die benutzerdefinierte `IAuthorizationPolicyProvider` Autorisierungsrichtlinien durch generieren soll:
 
 * Analysieren das Alter von den Richtliniennamen an.
 * Mithilfe von `AuthorizationPolicyBuilder` zum Erstellen eines neuen `AuthorizationPolicy`
-* Hinzufügen von Anforderungen an die Richtlinie basierend auf dem Alter mit `AuthorizationPolicyBuilder.AddRequirements`. In anderen Szenarien können `RequireClaim`, `RequireRole`, oder `RequireUserName` stattdessen.
+* Hinzufügen von Anforderungen an die Richtlinie aufgrund des Alters mit `AuthorizationPolicyBuilder.AddRequirements`. Sie können in anderen Szenarien verwenden `RequireClaim`, `RequireRole`, oder `RequireUserName` stattdessen.
 
 ```CSharp
 internal class MinimumAgePolicyProvider : IAuthorizationPolicyProvider
@@ -115,40 +115,40 @@ internal class MinimumAgePolicyProvider : IAuthorizationPolicyProvider
 }
 ```
 
-## <a name="multiple-authorization-policy-providers"></a>Mehrere Authorization Policy-Anbieter
+## <a name="multiple-authorization-policy-providers"></a>Anbieter von mehreren Autorisierung
 
-Bei Verwendung von benutzerdefinierten `IAuthorizationPolicyProvider` Implementierungen, Bedenken Sie, die ASP.NET Core verwendet nur eine Instanz des `IAuthorizationPolicyProvider`. Wenn ein benutzerdefinierter Anbieter können alle Richtliniennamen Autorisierungsrichtlinien bereit ist, sollten sie auf eine sicherungsanbieter zurückgegriffen. Richtliniennamen gehören diejenigen, die eine Standardrichtlinie für stammen `[Authorize]` Attribute ohne Namen.
+Bei Verwendung von benutzerdefinierten `IAuthorizationPolicyProvider` Implementierungen, Bedenken Sie, die ASP.NET Core verwendet nur eine Instanz des `IAuthorizationPolicyProvider`. Wenn ein benutzerdefinierter Anbieter nicht können alle Richtliniennamen Autorisierungsrichtlinien bereit ist, sollte es zu einem backup-Anbieter zurückgegriffen. Richtliniennamen sind diejenigen, die eine Standardrichtlinie für stammen `[Authorize]` Attribute ohne Namen.
 
-Betrachten Sie beispielsweise, dass eine Anwendung benutzerdefinierte Age-Richtlinien und Herkömmliche rollenbasierte richtlinienabrufs erforderlich. Eine solche Anwendung konnte eine benutzerdefinierte Richtlinie Autorisierungsanbieter verwenden, die:
+Betrachten Sie beispielsweise, dass eine Anwendung sowohl für benutzerdefinierte Alter Richtlinien als auch für Herkömmliche rollenbasierte richtlinienabrufs benötigt. Eine solche Anwendung können einen benutzerdefinierten Autorisierungs-Richtlinienanbieter, die:
 
 * Versucht, Richtliniennamen zu analysieren. 
-* Aufrufe an einen anderen Richtlinienanbieter (z. B. `DefaultAuthorizationPolicyProvider`) Wenn der Name der Richtlinie ein Alter enthält.
+* Aufrufe an eine andere Richtlinie-Anbieter (z. B. `DefaultAuthorizationPolicyProvider`) Wenn der Richtlinienname nicht Alter enthält.
 
 ## <a name="default-policy"></a>Standardrichtlinie
 
-Zusätzlich zur Bereitstellung von benannten Autorisierungsrichtlinien, eine benutzerdefinierte `IAuthorizationPolicyProvider` muss implementieren `GetDefaultPolicyAsync` ermöglichen eine Autorisierungsrichtlinie für `[Authorize]` Attribute ohne ein Richtlinienname angegeben.
+Zusätzlich zur Bereitstellung von benannten Autorisierungsrichtlinien, die eine benutzerdefinierte `IAuthorizationPolicyProvider` implementiert werden muss `GetDefaultPolicyAsync` , geben Sie eine Autorisierungsrichtlinie für `[Authorize]` Attribute ohne ein Richtlinienname angegeben.
 
-In vielen Fällen einen authentifizierten Benutzer dieses Autorisierungsattribut nur erfordern, damit Sie die erforderliche Richtlinie mit einem Aufruf von vornehmen können `RequireAuthenticatedUser`:
+In vielen Fällen ein authentifiziertes Benutzers, dieses Autorisierungsattribut nur erfordert, damit Sie die erforderlichen Richtlinie mit einem Aufruf von treffen können `RequireAuthenticatedUser`:
 
 ```CSharp
 public Task<AuthorizationPolicy> GetDefaultPolicyAsync() => 
     Task.FromResult(new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build());
 ```
 
-Wie bei der alle Aspekte einer benutzerdefinierten `IAuthorizationPolicyProvider`, Sie können hierzu Bedarf anpassen. In einigen Fällen:
+Wie bei der alle Aspekte einer benutzerdefinierten `IAuthorizationPolicyProvider`, Sie können dies, je nach Bedarf anpassen. In einigen Fällen:
 
-* Standard-Autorisierungsrichtlinien möglicherweise nicht verwendet werden.
-* Die Standardrichtlinie abrufen kann an ein Fallback delegiert werden `IAuthorizationPolicyProvider`.
+* Standardrichtlinien für die Autorisierung können nicht verwendet werden.
+* Abrufen der Standardrichtlinie kann delegiert werden, um ein Fallback `IAuthorizationPolicyProvider`.
 
 ## <a name="using-a-custom-iauthorizationpolicyprovider"></a>Verwenden eine benutzerdefinierte IAuthorizationPolicyProvider
 
-Zum Verwenden von benutzerdefinierter Richtlinien von einem `IAuthorizationPolicyProvider`, müssen Sie:
+Zum Verwenden benutzerdefinierter Richtlinien aus einer `IAuthorizationPolicyProvider`, müssen Sie:
 
-* Registrieren Sie die entsprechende `AuthorizationHandler` Typen mit abhängigkeiteneinschleusung (beschrieben [Richtlinie basierende Autorisierung](xref:security/authorization/policies#authorization-handlers)), wie bei allen Richtlinie basierende autorisierungsszenarien.
-* Registrieren Sie die benutzerdefinierte `IAuthorizationPolicyProvider` Geben Sie die app abhängigkeitsauflistung Injection-Dienst (in `Startup.ConfigureServices`) um den Standardanbieter für die Richtlinie zu ersetzen.
+* Registrieren Sie die entsprechende `AuthorizationHandler` Typen mit Dependency Injection (beschrieben [richtlinienbasierte Autorisierung](xref:security/authorization/policies#authorization-handlers)), wie bei allen richtlinienbasierte Autorisierung-Szenarien.
+* Registrieren Sie die benutzerdefinierte `IAuthorizationPolicyProvider` Typ in der app Dependency Injection-Dienst-Auflistung (in `Startup.ConfigureServices`) um den Standardanbieter für die Richtlinie zu ersetzen.
 
 ```CSharp
 services.AddTransient<IAuthorizationPolicyProvider, MinimumAgePolicyProvider>();
 ```
 
-Eine vollständige benutzerdefinierte `IAuthorizationPolicyProvider` Beispiel steht in den [Aspnet/AuthSamples GitHub-Repository](https://github.com/aspnet/AuthSamples/tree/dev/samples/CustomPolicyProvider).
+Eine vollständige benutzerdefinierte `IAuthorizationPolicyProvider` Beispiel steht in der [Aspnet/AuthSamples GitHub-Repository](https://github.com/aspnet/AuthSamples/tree/master/samples/CustomPolicyProvider).

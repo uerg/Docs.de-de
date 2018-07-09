@@ -4,19 +4,16 @@ title: Interaktion mit der Inhaltsseite von der Masterseite (c#) | Microsoft-Dok
 author: rick-anderson
 description: Untersucht, wie Sie rufen Methoden, Eigenschaften usw. von der Seite Inhalt im Code auf der Masterseite festgelegt.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/11/2008
-ms.topic: article
 ms.assetid: 3282df5e-516c-4972-8666-313828b90fb5
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: bb6785cd3fd462e651441d303c464064739723f9
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 293e4dab6142393c9d57836a2f04244388e54cec
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37382594"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37808365"
 ---
 <a name="interacting-with-the-content-page-from-the-master-page-c"></a>Interaktion mit der Inhaltsseite von der Masterseite (c#)
 ====================

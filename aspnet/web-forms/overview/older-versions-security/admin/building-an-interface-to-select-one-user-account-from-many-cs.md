@@ -4,19 +4,16 @@ title: Erstellen eine Schnittstelle zum Auswählen eines Benutzerkontos aus viel
 author: rick-anderson
 description: In diesem Tutorial werden wir eine Benutzeroberfläche mit einem ausgelagerten, filterbar Raster erstellen. Insbesondere besteht aus unserer Benutzeroberfläche aus einer Reihe von LinkButtons für...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/01/2008
-ms.topic: article
 ms.assetid: 9e4e687c-b4ec-434f-a4ef-edb0b8f365e4
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4adc24033f44892671d2c9b4ec759aaec77e0bc9
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a4d5b4c332cd256007db2f857c89fe3133205315
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37378591"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832842"
 ---
 <a name="building-an-interface-to-select-one-user-account-from-many-c"></a>Erstellen eine Schnittstelle zum Auswählen eines Benutzerkontos aus vielen (c#)
 ====================

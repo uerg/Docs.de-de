@@ -4,19 +4,16 @@ title: Hochladen von Dateien (c#) | Microsoft-Dokumentation
 author: rick-anderson
 description: Erfahren Sie, wie Benutzer zum Hochladen von Binärdateien (z. B. Word oder PDF-Dokumente) können zu Ihrer Website, in denen die Server-Dateisystem gespeichert werden kann...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/27/2007
-ms.topic: article
 ms.assetid: b381b1da-feb3-4776-bc1b-75db53eb90ab
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/uploading-files-cs
 msc.type: authoredcontent
-ms.openlocfilehash: aaa81014a03fc04e68ea7b8014933cf87002af2e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: f420797b7c06b9063b70b784a5b61c7d02162c1d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37388327"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37820074"
 ---
 <a name="uploading-files-c"></a>Hochladen von Dateien (c#)
 ====================

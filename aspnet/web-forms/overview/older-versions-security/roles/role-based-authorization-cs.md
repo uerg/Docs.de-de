@@ -4,19 +4,16 @@ title: Rollenbasierte Autorisierung (c#) | Microsoft-Dokumentation
 author: rick-anderson
 description: Dieses Tutorial beginnt mit einem Blick auf wie das Framework Rollen die Rollen eines Benutzers mit seinem Sicherheitskontext zuordnet. Klicken Sie dann untersucht rollenbasierte URL anwenden...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/24/2008
-ms.topic: article
 ms.assetid: 4d9b63fa-c3d4-4e85-82b1-26ae3ba3ca1c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/role-based-authorization-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c8c22f140478deddc2e44f0933edfe0e499bb471
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 243a386bf682d63e3095a4e90ca0a0f08d24b503
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37397162"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37839946"
 ---
 <a name="role-based-authorization-c"></a>Rollenbasierte Autorisierung (c#)
 ====================

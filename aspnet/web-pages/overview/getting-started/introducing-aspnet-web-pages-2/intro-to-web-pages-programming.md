@@ -4,19 +4,16 @@ title: Einführung in ASP.NET Web Pages - Grundlagen der Programmierung | Micros
 author: tfitzmac
 description: 'In diesem Tutorial enthält eine Übersicht der Programmierung in ASP.NET Web Pages mit Razor-Syntax. Sie lernen Folgendes: die grundlegende Razor-Syntax, mit denen Sie für den Pr...'
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/17/2015
-ms.topic: article
 ms.assetid: 7526ed45-a97d-4e8a-8301-01324ef0eff9
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
 msc.type: authoredcontent
-ms.openlocfilehash: 3824db99b3313876585fe284c254ac89b256bc8f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 56268943b09d366b15d3a11e641d6c6b6c95aa16
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37383244"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37839748"
 ---
 <a name="introducing-aspnet-web-pages---programming-basics"></a>Einführung in ASP.NET Web Pages - Grundlagen der Programmierung
 ====================

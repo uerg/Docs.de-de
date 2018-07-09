@@ -4,19 +4,16 @@ title: OWIN-Middleware in der IIS integrierte Pipeline | Microsoft-Dokumentation
 author: Praburaj
 description: In diesem Artikel zeigt, wie zum Ausführen von OWIN-Middleware-Komponenten (OMCs) in der integrierten IIS-Pipeline, und wie der Pipeline Ereignissatz ein OMC ausgeführt wird. Sie sollten...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/07/2013
-ms.topic: article
 ms.assetid: d031c021-33c2-45a5-bf9f-98f8fa78c2ab
-ms.technology: ''
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
 msc.type: authoredcontent
-ms.openlocfilehash: 1c2f7a9b948331eae2f5b44f25219adb76a0c745
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e78ded1dcafd40097d6477a757406c7170dd1bb7
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37379059"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37828097"
 ---
 <a name="owin-middleware-in-the-iis-integrated-pipeline"></a>OWIN-Middleware in der integrierten IIS-pipeline
 ====================

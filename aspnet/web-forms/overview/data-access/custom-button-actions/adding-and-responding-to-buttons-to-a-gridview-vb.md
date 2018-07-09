@@ -4,19 +4,16 @@ title: Hinzufügen von und reagieren auf Schaltflächen zu einer GridView-Ansich
 author: rick-anderson
 description: In diesem Tutorial betrachten wir das Hinzufügen von benutzerdefinierten Schaltflächen, eine Vorlage und die Felder des ein GridView- oder DetailsView-Steuerelement. Insbesondere werden wir Buildspeicherort...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/13/2006
-ms.topic: article
 ms.assetid: 06c6bbd2-4bdc-435b-87a3-df2c868f4baa
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions/adding-and-responding-to-buttons-to-a-gridview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 458f90bf70d6f10402583623ef62bf1572040ce4
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1e35c6655506b5ec79efe8a5000e136e865854f2
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37365057"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37831692"
 ---
 <a name="adding-and-responding-to-buttons-to-a-gridview-vb"></a>Hinzufügen von und reagieren auf Schaltflächen zu einer GridView-Ansicht (VB)
 ====================

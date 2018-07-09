@@ -4,19 +4,16 @@ title: Aktualisieren und Löschen von vorhandenen Binärdaten (c#) | Microsoft-D
 author: rick-anderson
 description: In den vorherigen Tutorials haben wir gesehen, wie das GridView-Steuerelement sie auf einfache Weise zu bearbeiten und Löschen von Textdaten. In diesem Tutorial sehen wir, wie das GridView-Steuerelement auch machen...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/27/2007
-ms.topic: article
 ms.assetid: 35798f21-1606-434b-83f8-30166906ef49
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/updating-and-deleting-existing-binary-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2eb9b4cb9403f5d793605fe023e4e0757bcda6f4
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: d38f549004265810e80d09eeacd30bc6d640ae6c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37372011"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37804243"
 ---
 <a name="updating-and-deleting-existing-binary-data-c"></a>Aktualisieren und Löschen von vorhandenen Binärdaten (c#)
 ====================

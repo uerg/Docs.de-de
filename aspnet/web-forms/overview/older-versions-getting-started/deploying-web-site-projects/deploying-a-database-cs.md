@@ -4,19 +4,16 @@ title: Bereitstellen einer Datenbank (c#) | Microsoft-Dokumentation
 author: rick-anderson
 description: Bereitstellen einer ASP.NET-Webanwendung umfasst das Abrufen der erforderlichen Dateien und Ressourcen aus der Entwicklungsumgebung in der produktionsumgebung bereit. Für Daten...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/23/2009
-ms.topic: article
 ms.assetid: ff537a10-9f1f-43fe-9bcb-3dda161ba8f5
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-a-database-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fe85e583618cbab772c788f9a53509000aa415c5
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: baab10b8752af8c971f65df6e67cb77d9ad6518e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37386535"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37834335"
 ---
 <a name="deploying-a-database-c"></a>Bereitstellen einer Datenbank (c#)
 ====================

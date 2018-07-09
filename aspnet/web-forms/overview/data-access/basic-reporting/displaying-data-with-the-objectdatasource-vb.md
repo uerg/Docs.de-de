@@ -4,19 +4,16 @@ title: Anzeigen von Daten mit dem ObjectDataSource-Steuerelement (VB) | Microsof
 author: rick-anderson
 description: In diesem Tutorial überprüft das ObjectDataSource-Steuerelement, das mit diesem Steuerelement, das von der BLL, die im vorherigen Tutorial ohne Havi erstellte abgerufene Daten gebunden werden kann...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/31/2010
-ms.topic: article
 ms.assetid: d62c3a63-0940-4019-874e-4a4047df0c1c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/displaying-data-with-the-objectdatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a4be0d2096824f95a4e21294c35e36c0badb7cfb
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 759403bf175cfb2d44cc53ab497c55c354733f15
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37400667"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832723"
 ---
 <a name="displaying-data-with-the-objectdatasource-vb"></a>Anzeigen von Daten mit dem ObjectDataSource-Steuerelement (VB)
 ====================

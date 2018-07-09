@@ -4,19 +4,16 @@ title: Arbeiten mit berechneten Spalten (VB) | Microsoft-Dokumentation
 author: rick-anderson
 description: Wenn Sie eine Datenbanktabelle zu erstellen, Microsoft SQL Server ermöglicht es Ihnen, eine berechnete Spalte zu definieren, dessen Wert aus einem Ausdruck berechnet wird, in der Regel verw...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/03/2007
-ms.topic: article
 ms.assetid: 5811b8ff-ed56-40fc-9397-6b69ae09a8f6
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/working-with-computed-columns-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5837baccb9e378546d26703c99dcddd144ba80de
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 7e489640c9075b3443725ddd776ca08fd5569232
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37386772"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830988"
 ---
 <a name="working-with-computed-columns-vb"></a>Arbeiten mit berechneten Spalten (VB)
 ====================

@@ -4,19 +4,16 @@ title: Anzeigen von Binärdaten in der Datenweb-(VB) steuert | Microsoft-Dokumen
 author: rick-anderson
 description: In diesem Tutorial untersuchen wir die Optionen zum Präsentieren von Binärdaten in eine Webseite, einschließlich der Anzeige der Bilddatei und die Bereitstellung von einem Link "Download" f...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/27/2007
-ms.topic: article
 ms.assetid: 9201656a-e1c2-4020-824b-18fb632d2925
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/displaying-binary-data-in-the-data-web-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a9d298ef328e951f235a6cfcd41b73fafefb0dfb
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: fe6a16a3ee601eb58ae9d51b599684b47392eba2
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37373106"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37810293"
 ---
 <a name="displaying-binary-data-in-the-data-web-controls-vb"></a>Anzeigen von Binärdaten in den Datenwebsteuerelementen (VB)
 ====================
