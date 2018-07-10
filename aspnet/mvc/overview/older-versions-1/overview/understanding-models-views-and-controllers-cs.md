@@ -4,19 +4,16 @@ title: Grundlegendes zu Modellen, Ansichten und Controllern (c#) | Microsoft-Dok
 author: StephenWalther
 description: Fragen Sie sich zu Modellen, Ansichten und Controllern? In diesem Tutorial erläutert Stephen Walther die verschiedenen Teile einer ASP.NET MVC-Anwendung.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/19/2008
-ms.topic: article
 ms.assetid: 87313792-0a96-4caf-89fc-1457d54e5c1e
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/overview/understanding-models-views-and-controllers-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f5cf39e4652a3e487dcd79b2cf887efb992c2107
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: c4c5247ac4b880c1be60f0419ebc9fc9b790c639
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37376908"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37823393"
 ---
 <a name="understanding-models-views-and-controllers-c"></a>Grundlegendes zu Modellen, Ansichten und Controllern (c#)
 ====================

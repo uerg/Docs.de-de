@@ -132,7 +132,7 @@ Beachten Sie, dass keine dieser Abfragen zurückgeben der `Categories` s'-Tabell
 Starten, indem diese beiden Spalten zum Hinzufügen der `CategoriesDataTable`. Mit der rechten Maustaste auf die `CategoriesDataTable` s-Header, wählen Sie aus dem Kontextmenü hinzufügen, und wählen Sie dann die Option Spalte. Hiermit wird ein neues `DataColumn` in der Datentabelle, die mit dem Namen `Column1`. Benennen Sie diese Spalte in `Picture`. Legen Sie im Eigenschaftenfenster die `DataColumn` s `DataType` Eigenschaft `System.Byte[]` (Dies ist dabei nicht um eine Option in der Dropdown-Liste, müssen Sie sie eingeben).
 
 
-[![Erstellen Sie eine DataColumn mit dem Namen Bild ist, deren Datentyp System.Byte]](uploading-files-vb/_static/image6.gif)](uploading-files-vb/_static/image7.png)
+[![Erstellen Sie eine DataColumn mit dem Namen Bild ist, deren Datentyp System.Byte](uploading-files-vb/_static/image6.gif)](uploading-files-vb/_static/image7.png)
 
 **Abbildung 6**: Erstellen einer `DataColumn` benannte `Picture` , deren `DataType` ist `System.Byte[]` ([klicken Sie, um das Bild in voller Größe anzeigen](uploading-files-vb/_static/image8.png))
 

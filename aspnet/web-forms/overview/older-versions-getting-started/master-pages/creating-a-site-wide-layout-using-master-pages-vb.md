@@ -4,19 +4,16 @@ title: Erstellen einen websiteweiten Layouts mit Masterseiten (VB) | Microsoft-D
 author: rick-anderson
 description: In diesem Tutorial werden die Grundlagen der Masterseite angezeigt. Nämlich gibt Masterseiten geben, wie funktioniert die einer Erstellen einer Masterseite, gibt der Platzhalter für Inhalte, wie ein Cr funktioniert...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/21/2008
-ms.topic: article
 ms.assetid: 30945276-8ed9-4b27-8e50-4309244d3559
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/creating-a-site-wide-layout-using-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b47f2d838cef8e43df83d49eecff2bae8553889e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 182f45c28dc37633b429fead333d401818299e36
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377313"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37827821"
 ---
 <a name="creating-a-site-wide-layout-using-master-pages-vb"></a>Erstellen einen websiteweiten Layouts mit Masterseiten (VB)
 ====================
@@ -127,20 +124,20 @@ Die `DOCTYPE` und deklarativen Markup der Seite angezeigt wird, unter dem `@Mast
 Diese deklarativen Masterseite Standardmarkup dient als Ausgangspunkt für eigene Masterseiten entwerfen. Können Sie den HTML-Code bearbeiten oder zusätzliche Websteuerelemente oder ContentPlaceHolder-Steuerelemente auf die Masterseite hinzufügen.
 
 > [!NOTE]
-> Master-Seiten-Schnellstart-Lernprogramme
+> Beim Entwerfen einer Masterseite stellen sicher, dass die Masterseite enthält ein Webformular und, mindestens ein ContentPlaceHolder-Steuerelement wird in diesem Web Form angezeigt.
 
 
-### <a name="creating-a-simple-site-layout"></a>Der Autor
+### <a name="creating-a-simple-site-layout"></a>Erstellen einer einfachen Website Layouts
 
-Scott Mitchell, Autor mehrerer Büchern zu ASP/ASP.NET und Gründer von 4GuysFromRolla.com, arbeitet mit Microsoft-Web-Technologien seit 1998. Er ist als ein unabhängiger Berater, Schulungsleiter und Autor. Sein neuestes Buch heißt `Default.aspx` Sams Teach selbst ASP.NET 3.5 in 24 Stunden.
-
-
-[![Besonderen Dank an](creating-a-site-wide-layout-using-master-pages-vb/_static/image15.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image14.png)
-
-**Meine zukünftigen MSDN-Artikeln überprüfen möchten?
+Erweitern wir nun `Site.master`des standardmäßigen deklaratives Markup zum Erstellen eines Standort-Layouts, in dem alle Seiten teilen: einen allgemeinen Header, eine linke Spalte mit Navigation, Nachrichten und andere websiteweite Inhalte; und eine Fußzeile, in dem das Symbol "Unterstützt von Microsoft ASP.NET" angezeigt. Abbildung 6 zeigt das Ergebnis der Masterseite, wenn eine der Seiten, auf die Inhalte über einen Browser angezeigt wird. Der rote Eingekreiste Bereich in Abbildung 6 bezieht sich auf der Seite aufgerufen wird (`Default.aspx`); der andere Inhalt sind auf der Masterseite definierte und aus diesem Grund konsistent alle Inhaltsseiten.
 
 
-Wenn dies der Fall ist, löschen Sie mir eine Linie an `Site.master`  .
+[![Die Masterseite definiert das Markup für die oben, linken und unteren Teile](creating-a-site-wide-layout-using-master-pages-vb/_static/image15.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image14.png)
+
+**Abbildung 06**: die Masterseite definiert das Markup für die oben, linken und unteren Teile ([klicken Sie, um das Bild in voller Größe anzeigen](creating-a-site-wide-layout-using-master-pages-vb/_static/image16.png))
+
+
+Um das Website-Layout in Abbildung 6 dargestellten zu erreichen, starten Sie mit dem Aktualisieren der `Site.master` Masterseite, sodass sie die folgende deklarative Markup enthält:
 
 [!code-aspx[Main](creating-a-site-wide-layout-using-master-pages-vb/samples/sample2.aspx)]
 

@@ -4,19 +4,16 @@ title: Überprüfen der Anmeldeinformationen anhand der Mitgliedschaft Benutzer 
 author: rick-anderson
 description: In diesem Tutorial untersuchen wir die Anmeldeinformationen eines Benutzers anhand des mitgliedschaftsbenutzerspeichers mit dem Login-Steuerelement und programmgesteuerte Möglichkeit zu überprüfen...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/18/2008
-ms.topic: article
 ms.assetid: 61aa4e08-aa81-4aeb-8ebe-19ba7a65e04c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e0675bc814d293c6b7eff1789622158f907ebdff
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: e8c46d09a7ebab19204f7c439ec4333e0c36b73e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37395278"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37828954"
 ---
 <a name="validating-user-credentials-against-the-membership-user-store-c"></a>Überprüfen der Anmeldeinformationen anhand der Mitgliedschaft Benutzer Store (c#)
 ====================
