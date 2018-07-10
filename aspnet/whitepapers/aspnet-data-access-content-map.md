@@ -4,19 +4,16 @@ title: 'ASP.NET: Datenzugriff – empfohlene Ressourcen | Microsoft-Dokumentatio
 author: rick-anderson
 description: Dieses Thema enthält Links zu Dokumentationsressourcen zur Verwendung für den Datenzugriff in ASP.NET-Webanwendungen wird in erster Linie mithilfe des Entity Framework und SQL-Se...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/25/2013
-ms.topic: article
 ms.assetid: f8157be1-4ab9-469e-ad3a-0ccc80b56c00
-ms.technology: ''
 msc.legacyurl: /whitepapers/aspnet-data-access-content-map
 msc.type: content
-ms.openlocfilehash: 3a8d7de622fd2d0b229dba3af31557a172b90df8
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: fb0cea94d82cc8f59ec56a5445ee84d38325995e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37396363"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832499"
 ---
 <a name="aspnet-data-access---recommended-resources"></a>ASP.NET: Datenzugriff – empfohlene Ressourcen
 ====================
@@ -102,7 +99,7 @@ Siehe auch [Bücher über das Entity Framework](#efbooks) und [Weitere Entity Fr
 Die meisten Cover Migrationen angeführten Code First-Tutorials. Siehe auch die folgenden Ressourcen.
 
 - [ASP.NET-webbereitstellung mithilfe von Visual Studio](../web-forms/overview/deployment/visual-studio-web-deployment/introduction.md). 2-Part tutorialserie, die zeigt, wie Sie mit Code First-Migrationen zum Bereitstellen einer Datenbank.
-- [Dieser Abschnitt enthält Links zu zusätzlichen Ressourcen, die Weitere Informationen zum Verwenden von Visual Studio und IIS-Bereitstellungstools nützlich sind. Microsoft Azure). So verwenden Sie Migrationen Mitgliedschafts-und Anwendungsdaten in Azure bereitstellen.
+- [Bereitstellen eine sicheren ASP.NET MVC 5-app mit Mitgliedschaft, OAuth und SQL-Datenbank auf einer Windows Azure-Web-Website](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). Microsoft Azure). So verwenden Sie Migrationen Mitgliedschafts-und Anwendungsdaten in Azure bereitstellen.
 - [Übersicht über die Bereitstellung für Visual Studio und ASP.NET Web](https://msdn.microsoft.com/library/dd394698.aspx#dbdeployment). Finden Sie unter den **Konfigurieren von Datenbank-Bereitstellung in Visual Studio** Abschnitt eine Erläuterung der wie Code First-Migrationen in Visual Studio Web-Bereitstellungsfunktionen integriert wird.
 - [Data Developer Center – Code First-Migrationen](https://msdn.microsoft.com/data/jj591621) (MSDN). Dokumentation für das Entity Framework-Team Migrationen.
 - [Migrationen Screencast-Reihe](https://blogs.msdn.com/b/adonet/archive/2014/03/12/migrations-screencast-series.aspx). EF-Blog). Drei-Videos auf erweiterten Themen in Code First-Migrationen.
@@ -243,7 +240,7 @@ Siehe auch die folgenden Abschnitten zum Arbeiten mit SQL Server Express und Loc
 - [Windows Azure-Trainingskit](https://www.microsoft.com/download/details.aspx?id=8396) (Microsoft Download Center). Enthält praktische Übungseinheiten für SQL-Datenbank.
 - [Community-Forum für Windows Azure SQL-Datenbank](https://social.msdn.microsoft.com/Forums/ssdsgetstarted/threads).
 - [In Windows Azure SQL-Datenbank verschieben](https://msdn.microsoft.com/library/ff803375.aspx) (MSDN). Ein Kapitel eines umfassende End-to-End-Szenarios vom Microsoft Patterns and Practices-Team. Warum Sie ggf. zu migrierenden behandelt und wie von SQL Server mit SQL-Datenbank migrieren.
-- [Enthält Referenzinformationen nützlich, aber die meisten der TechNet-Seiten nicht jahrelang aktualisiert wurden.
+- [Migrieren von SQL Server-Datenbanken zu Windows Azure SQL-Datenbank](https://msdn.microsoft.com/library/windowsazure/jj156160.aspx) (MSDN).
 - [SQL-Datenbankmigrations-Assistent](http://sqlazuremw.codeplex.com/). Open Source-Tool für die Migration von Datenbanken in und aus SQL-Datenbank.
 
 <a id="ssdbchoosing"></a>

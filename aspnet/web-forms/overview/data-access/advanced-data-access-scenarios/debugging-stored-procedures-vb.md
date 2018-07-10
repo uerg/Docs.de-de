@@ -4,19 +4,16 @@ title: Debuggen von gespeicherten Prozeduren (VB) | Microsoft-Dokumentation
 author: rick-anderson
 description: Visual Studio Professional und Team System-Editionen können Sie Haltepunkte setzen und springen, um gespeicherte Prozeduren in SQL Server, zu debuggen gespeichert...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/03/2007
-ms.topic: article
 ms.assetid: 9ed8ccb5-5f31-4eb4-976d-cabf4b45ca09
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 67714284c44c7bc9b06dc599601e116b83017e3e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: a4a507205ff8e837f64e01acf84f6376006a87b9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37402000"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37806650"
 ---
 <a name="debugging-stored-procedures-vb"></a>Debuggen von gespeicherten Prozeduren (VB)
 ====================
@@ -93,22 +90,22 @@ Bevor wir mit dem Debuggen von gespeicherten Prozeduren, die aufgerufen wird, vo
 **Abbildung 3**: Aktivieren Sie das SQL Server-Kontrollkästchen in der Anwendung-s-Eigenschaftenseiten ([klicken Sie, um das Bild in voller Größe anzeigen](debugging-stored-procedures-vb/_static/image7.png))
 
 
-Darüber hinaus müssen wir zum Aktualisieren der Datenbank-Verbindungszeichenfolge, die von der Anwendung verwendet wird, so dass Verbindungspooling deaktiviert ist. Um ein T-SQL-Database-Objekt direkt zu debuggen, suchen Sie das Objekt über den Server-Explorer und dann mit der rechten Maustaste darauf, und Einzelschritt auswählen. Dadurch wird der Debugger gestartet und hält bei der ersten Anweisung des Datenbankobjekts, das an diesem Punkt können Sie durchlaufen die Objekt-s-Anweisungen und anzeigen und ändern die Parameterwerte. In Schritt 1 dieser Ansatz in Einzelschritten wird die  gespeicherte Prozedur. Anwendungsdebuggen können Haltepunkte direkt in die Datenbankobjekte festgelegt werden.
+Darüber hinaus müssen wir zum Aktualisieren der Datenbank-Verbindungszeichenfolge, die von der Anwendung verwendet wird, so dass Verbindungspooling deaktiviert ist. Wenn eine Verbindung mit einer Datenbank geschlossen wird, den entsprechenden `SqlConnection` Objekt befindet sich in einem Pool der verfügbaren Verbindungen. Beim Herstellen einer Verbindungs mit einer Datenbank, ein Objekt verfügbare Verbindung abgerufen werden können, aus diesem Pool anstatt erstellen und eine neue Verbindung herstellen müssen. Diese pooling von Verbindungsobjekten ist eine leistungsverbesserung und ist standardmäßig aktiviert. Allerdings beim Debuggen sollten deaktivieren Verbindungspooling, da der Debuginfrastruktur nicht ordnungsgemäß wiederhergestellt ist, wenn Sie mit einer Verbindung zu arbeiten, die aus dem Pool erstellt wurde.
 
-Wenn ein Datenbankobjekt mit Haltepunkten aus einer Clientanwendung (z. B. eine ASP.NET-Webanwendung) aufgerufen wird, stoppt das Programm, wie der Debugger übernimmt.
+Deaktiviertes Verbindungspooling, aktualisieren Sie die `NORTHWNDConnectionString` in `Web.config` , damit sie die Einstellung enthält `Pooling=false` .
 
 
 [!code-xml[Main](debugging-stored-procedures-vb/samples/sample1.xml)]
 
 > [!NOTE]
-> Anwendungsdebuggen ist nützlich, weil es deutlicher zeigt, welche Anwendungsaktion führt dazu, dass ein bestimmtes Datenbankobjekt aufgerufen werden.
+> Wenn Sie fertig sind Debuggen von SQL Server über die ASP.NET-Anwendung achten reaktivieren, Verbindungspooling durch das Entfernen der `Pooling` aus der Verbindungszeichenfolge festlegen (oder durch Festlegung auf `Pooling=true` ).
 
 
-Es erfordert jedoch ein wenig mehr Konfigurations- und Setupprobleme als direktes Datenbankdebugging. Datenbankobjekte können auch über SQL Server-Projekte gedebuggt werden.
+An diesem Punkt wurde die ASP.NET-Anwendung konfiguriert, um Visual Studio zum Debuggen von SQL Server-Datenbankobjekte, die beim Aufrufen durch die Webanwendung zu ermöglichen. Jetzt muss nur noch eine gespeicherte Prozedur einen Haltepunkt hinzu, und starten Sie das Debuggen wird!
 
-## <a name="step-3-adding-a-breakpoint-and-debugging"></a>Betrachten wir mithilfe von SQL Server-Projekte, und verwenden sie zum Erstellen und Debuggen von verwalteten Datenbankobjekten im nächsten Tutorial.
+## <a name="step-3-adding-a-breakpoint-and-debugging"></a>Schritt 3: Hinzufügen eines Haltepunkts und das Debuggen
 
-Viel Spaß beim Programmieren! Wie in Abbildung 4 dargestellt, wird der Haltepunkt als roter Kreis im Rand angezeigt.
+Öffnen der `Products_SelectByCategoryID` gespeicherte Prozedur, und legen Sie einen Haltepunkt am Anfang der `SELECT` Anweisung durch Klicken auf den Rand bei der entsprechenden Stelle platzieren den Cursor am Anfang oder das `SELECT` -Anweisung und drücken F9. Wie in Abbildung 4 dargestellt, wird der Haltepunkt als roter Kreis im Rand angezeigt.
 
 
 [![Festlegen eines Haltepunkts in der Products_SelectByCategoryID gespeicherten Prozedur](debugging-stored-procedures-vb/_static/image9.png)](debugging-stored-procedures-vb/_static/image8.png)

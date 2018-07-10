@@ -4,19 +4,16 @@ title: Geschachtelte Web-Steuerelementen (VB) | Microsoft-Dokumentation
 author: rick-anderson
 description: In diesem Lernprogramm aus, die wir untersuchen werden mit einem Wiederholungssteuerelement in einer anderen Repeater geschachtelt. In den Beispielen werden dem inneren Repeater beide d Auffüllen veranschaulicht...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/13/2006
-ms.topic: article
 ms.assetid: 8b7fcf7b-722b-498d-a4e4-7c93701e0c95
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2f7980d22d6ebc15a033cca321644a2bf1d4e3bb
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 45e460edb09fe9398d204e0f280dfb088a44946d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37390027"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803177"
 ---
 <a name="nested-data-web-controls-vb"></a>Geschachtelte Datenwebsteuerelemente (VB)
 ====================
@@ -78,9 +75,9 @@ Abbildung 4 zeigt unseren Fortschritt, wenn Sie über einen Browser angezeigt.
 
 ## <a name="step-2-adding-the-nested-product-repeater"></a>Schritt 2: Hinzufügen geschachtelter Produkt Repeater
 
-Die erste Methode untersucht verwendet eine "ObjectDataSource" in der äußeren Websteuerelement s `CategoryList` , gebunden an das interne Web-Steuerelement über seine `ItemTemplate` Eigenschaft. Die zweite Methode Zugriff auf die Daten über eine Methode in der ASP.NET Page-s-Code-Behind-Klasse. Diese Methode klicken Sie dann auf die inneren Daten Websteuerelement s gebunden werden kann `CategoryList` Eigenschaft über die Databinding-Syntax. Während die geschachtelten Benutzeroberfläche untersucht, die in diesem Tutorial einen Repeater, die in einem Wiederholungssteuerelement geschachtelt verwendet, können diese Techniken auf den anderen datenwebsteuerelementen erweitert werden.
+Mit der Kategorie Angebot abgeschlossen ist, unsere nächste Aufgabe ist einen Repeater zum Hinzufügen der `CategoryList` s `ItemTemplate` , Informationen zu diesen Produkten, die zu der jeweiligen Kategorie gehören anzeigt. Es gibt eine Reihe von Möglichkeiten, die wir Daten für diesen inneren Repeater, abrufen können, von denen zwei wir weiter unten erläutert. Jetzt können s nur die Produkte Repeater erstellen innerhalb der `CategoryList` Repeater s `ItemTemplate`. Können Sie insbesondere s haben das Produkt Repeater-Anzeige, die jedes Produkt in einer Liste mit Aufzählungszeichen mit jedem Listenelement einschließlich Produktname s und Preis.
 
-Sie können schachteln, einen Repeater innerhalb einer GridView-Ansicht oder einer GridView-Ansicht in einem DataList-Steuerelement und so weiter. Führendes Prüfer für dieses Tutorial wurden Zack Jones und Liz Shulok.
+Um diesen Repeater zu erstellen, wir manuell eingeben, die deklarative Syntax des inneren Repeater s und die Vorlagen in müssen, die `CategoryList` s `ItemTemplate`. Fügen Sie das folgende Markup innerhalb der `CategoryList` Repeater s `ItemTemplate`:
 
 
 [!code-aspx[Main](nested-data-web-controls-vb/samples/sample2.aspx)]

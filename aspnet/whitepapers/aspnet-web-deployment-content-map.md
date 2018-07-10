@@ -4,19 +4,16 @@ title: 'ASP.NET: Webbereitstellung – empfohlene Ressourcen | Microsoft-Dokumen
 author: rick-anderson
 description: Dieses Thema enthält Links zu Dokumentationen, die Ressourcen zum Bereitstellen (veröffentlichen) von ASP.NET web-Anwendungen zu IIS mithilfe von Visual Studio 2010, Visual Web De...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/14/2014
-ms.topic: article
 ms.assetid: 58b583cd-c4ab-47a3-8527-8c92c298c91f
-ms.technology: ''
 msc.legacyurl: /whitepapers/aspnet-web-deployment-content-map
 msc.type: content
-ms.openlocfilehash: d29ea65ee5b7056d04f2aa637c36b8216fdff411
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: f46a588144fb1af958737b07b73acbff60318fe6
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37363182"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37809419"
 ---
 <a name="aspnet-web-deployment---recommended-resources"></a>ASP.NET: Webbereitstellung – empfohlene Ressourcen
 ====================
@@ -145,9 +142,9 @@ Siehe auch [sicherstellen einer Anwendungs offline ist, während der Bereitstell
 
 - [ASP.NET-webbereitstellung mithilfe von Visual Studio: Bereitstellen eines Codeupdates](../web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update.md). Finden Sie im Abschnitt **nehmen Sie die Anwendung offline schalten, während der Bereitstellung.**
 - [Offlineschalten einer Anwendung vor der Veröffentlichung](https://www.iis.net/learn/publish/deploying-application-packages/taking-an-application-offline-before-publishing) (IIS.NET-Website). Erläutert, eine Funktion, die in Web Deploy 3.0, die Verarbeitung von einer app automatisiert integriert\_offline.htm-Datei. Dieses Feature funktioniert nicht mit benutzerdefinierter app\_offline.htm-Dateien.
-- [Wie Sie Ihre Web-app während der Veröffentlichung](http://sedodream.com/2012/01/08/HowToTakeYourWebAppOfflineDuringPublishing.aspx) (Sayed Hashimi-Blog). ASP.NET-webbereitstellung mithilfe von Visual Studio: Problembehandlung bei.
-- [Problembehandlung bei allgemeine Problemen mit Web bereitstellen](https://blogs.msdn.com/b/webdev/archive/2013/10/30/web-publishing-updates-for-app-offline-and-usechecksum.aspx). Web-bereitstellen-Fehlercodes (IIS.NET-Website).
-- [Bereitstellung – häufig gestellte Fragen für Visual Studio und ASP.NET Web](https://blogs.iis.net/msdeploy/archive/2013/07/09/webdeploy-3-5-rtw.aspx) (MSDN). Unterschiede zwischen IIS und ASP.NET Development Server Core.
+- [Wie Sie Ihre Web-app während der Veröffentlichung](http://sedodream.com/2012/01/08/HowToTakeYourWebAppOfflineDuringPublishing.aspx) (Sayed Hashimi-Blog). Gewusst wie: Verwenden einer benutzerdefinierten Anwendung automatisieren\_offline.htm-Datei.
+- [Veröffentlichen von Updates für die app offline und Usechecksum Web](https://blogs.msdn.com/b/webdev/archive/2013/10/30/web-publishing-updates-for-app-offline-and-usechecksum.aspx) (Blog zur Microsoft-Web-Entwicklung). Eine weitere Option für die Verwendung der app Automatisierung\_offline.htm-Datei.
+- [Web bereitstellen 3.5 RTW](https://blogs.iis.net/msdeploy/archive/2013/07/09/webdeploy-3-5-rtw.aspx) (IIS.NET-Website). Neues Feature im Web bereitstellen 3.5 für benutzerdefinierte app\_offline.htm-Dateien.
 
 
 <a id="databasewithweb"></a>
@@ -155,13 +152,13 @@ Siehe auch [sicherstellen einer Anwendungs offline ist, während der Bereitstell
 
 ## <a name="deploying-a-database-or-changes-to-a-database-as-part-of-web-application-deployment"></a>Bereitstellen einer Datenbank oder Änderungen in einer Datenbank als Teil der Bereitstellung von Webanwendungen
 
-- [Allgemeine Konfigurationsunterschiede zwischen Entwicklungs- und Produktionsumgebungen](https://msdn.microsoft.com/library/dd394698.aspx#dbdeployment). Hosten von ASP.NET-Anwendungen auf der mittleren Vertrauensebene (4 Guys von Rolla-Website).
-- [ASP.NET-webbereitstellung mithilfe von Visual Studio](../web-forms/overview/deployment/visual-studio-web-deployment/introduction.md). ASP.NET-Konfiguration und Bereitstellung Forum.
-- [StackOverflow.com](https://msdn.microsoft.com/library/dd465337.aspx).
-- [Dieser Abschnitt enthält Links zu zusätzlichen Ressourcen, die Weitere Informationen zum Verwenden von Visual Studio und IIS-Bereitstellungstools nützlich sind. Den folgenden Blogs enthalten häufig Informationen zur Bereitstellung von Visual Studio:
-- [Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio](../web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12.md). Webentwicklungstools at Microsoft-Blog.
+- [Konfigurieren die Datenbankbereitstellung in Visual Studio](https://msdn.microsoft.com/library/dd394698.aspx#dbdeployment) (MSDN). Überblick über die Optionen zum Bereitstellen einer Datenbank mit einem Webprojekt.
+- [ASP.NET-webbereitstellung mithilfe von Visual Studio](../web-forms/overview/deployment/visual-studio-web-deployment/introduction.md). 12-Teil der tutorialreihe, zeigt die datenbankbereitstellung mit DbDacFx-Anbieter und Entity Framework Code First-Migrationen.
+- [Vorgehensweise: Bereitstellen einer Web-Projekt mithilfe der One-Click-Veröffentlichung in Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx) (MSDN).
+- [Bereitstellen eine sicheren ASP.NET MVC 5-app mit Mitgliedschaft, OAuth und SQL-Datenbank auf einer Windows Azure-Web-Website](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). Ein langes Lernprogramm, das Erstellen und Bereitstellen eine Anwendung mit einem einzelnen SQL Server-Datenbank für Mitgliedschafts-und Anwendungsdaten.
+- [Bereitstellen einer ASP.NET-Webanwendung mit SQL Server Compact mit Visual Studio](../web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12.md). 12-Teil der tutorialreihe, zeigt, wie Sie SQL Server Compact-Datenbanken bereitstellen und Migrieren von SQL Server Compact auf eine Vollversion von SQL Server.
 
-Blog von sayed Hashimi.
+Finden Sie in Webanwendung auch erstellen und einem Webbereitstellungspaket installieren und Bereitstellen einer Webanwendung unter Verwendung eines continuous Integration (CI)-Prozesses zuvor auf dieser Seite bereitstellen.
 
 
 <a id="databaseseparate"></a>
@@ -169,13 +166,13 @@ Blog von sayed Hashimi.
 
 ## <a name="deploying-a-database-separately-from-web-application-deployment"></a>Bereitstellen einer Datenbank getrennt von der Bereitstellung von Webanwendungen
 
-- [Die folgenden Ressourcen bieten Dokumentation zu Web Deploy, das IIS-Framework, das Visual Studio verwendet wird, um die Web Application Project-Bereitstellungsaufgaben auszuführen.
-- [Sie können Fragen zu Web Deploy, in der [Web Deployment Tool Forum](https://blogs.msdn.com/b/ssdt/archive/2012/02/02/including-data-in-an-sql-server-database-project.aspx) auf der Website IIS.net. Einführung in Web Deploy.
-- [Installieren und Konfigurieren von Web bereitstellen](https://docs.microsoft.com/azure/sql-database/sql-database-cloud-migrate).
-- [PowerShell-Skripts zum Automatisieren von Web Setup bereitstellen](https://msdn.microsoft.com/library/windowsazure/ee730904.aspx).
-- [Webbereitstellungstool](https://blogs.msdn.com/b/ssdt/archive/2012/04/19/migrating-a-database-to-sql-azure-using-ssdt.aspx).
-- [Tabelle der obersten Ebene Inhaltsverzeichnisknoten für Web Deploy-Dokumentation auf der TechNet-Website.
-- [Enthält Referenzinformationen nützlich, aber die meisten der TechNet-Seiten nicht jahrelang aktualisiert wurden.
+- [SQL Server-Datentools](https://msdn.microsoft.com/library/hh272686(v=vs.103).aspx) (MSDN).
+- [Einschließlich der Daten in eine SQL Server-Datenbankprojekt](https://blogs.msdn.com/b/ssdt/archive/2012/02/02/including-data-in-an-sql-server-database-project.aspx) (SQL Server Data Tools team-Blog). Informationen zum Schema und Daten bereitstellen, wenn Sie eine Datenbank bereitstellen.
+- [Gewusst wie: Bereitstellen einer Datenbank in Windows Azure](https://docs.microsoft.com/azure/sql-database/sql-database-cloud-migrate) (Microsoft Azure-Website)
+- [Migrieren von Datenbanken zu Windows Azure SQL-Datenbank (früher SQL Azure)](https://msdn.microsoft.com/library/windowsazure/ee730904.aspx) (MSDN).
+- [Migrieren einer Datenbank zu SQL Azure mithilfe von SSDT](https://blogs.msdn.com/b/ssdt/archive/2012/04/19/migrating-a-database-to-sql-azure-using-ssdt.aspx) (SQL Server Data Tools team-Blog).
+- [Migrieren von datenorientierten Anwendungen zu Windows Azure](https://msdn.microsoft.com/library/jj156154.aspx) (MSDN).
+- [Migrieren von SQL Server-Datenbanken zu Windows Azure SQL-Datenbank](https://msdn.microsoft.com/library/windowsazure/jj156160.aspx) (MSDN).
 
 
 <a id="aspnetmembership"></a>
@@ -183,10 +180,10 @@ Blog von sayed Hashimi.
 
 ## <a name="deploying-a-web-application-that-uses-aspnet-application-services-such-as-membership-and-profiling"></a>Bereitstellen einer Webanwendung, die ASP.NET-Anwendung verwendet Dienste, z.B. die Mitgliedschaft und profilerstellung
 
-- [Dieser Abschnitt enthält Links zu zusätzlichen Ressourcen, die Weitere Informationen zum Verwenden von Visual Studio und IIS-Bereitstellungstools nützlich sind. Den folgenden Blogs enthalten häufig Informationen zur Bereitstellung von Visual Studio:
-- ["Microsoft.Web.Deployment"-Namespace](https://asp.net/identity/). API-Dokumentation wurde nicht seit Version 1.0 aktualisiert wurde.
-- [ASP.NET-webbereitstellung mithilfe von Visual Studio](../web-forms/overview/deployment/visual-studio-web-deployment/introduction.md). Die Microsoft Web Deployment-Teamblog.
-- [Registerkarte veröffentlichen, in der Website IIS.net](../web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-cs.md). Für die Website Projekte jedoch gilt auch für Webanwendungsprojekte.
+- [Bereitstellen eine sicheren ASP.NET MVC 5-app mit Mitgliedschaft, OAuth und SQL-Datenbank auf einer Windows Azure-Web-Website](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). Ein langes Lernprogramm, das Erstellen und Bereitstellen eine Anwendung mit einem einzelnen SQL Server-Datenbank für Mitgliedschafts-und Anwendungsdaten.
+- [ASP.NET Identity](https://asp.net/identity/). Ressourcen für ASP.NET Identity.
+- [ASP.NET-webbereitstellung mithilfe von Visual Studio](../web-forms/overview/deployment/visual-studio-web-deployment/introduction.md). Teil 12 tutorialreihe wird gezeigt, wie eine ASP.NET-Mitgliedschaftsdatenbank bereitgestellt wird.
+- [Konfigurieren einer Website, die Anwendungsdiensten](../web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-cs.md). Für die Website Projekte jedoch gilt auch für Webanwendungsprojekte.
 - [Benutzer und Rollen auf der Produktionswebsite](../web-forms/overview/older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-cs.md). Für die Website Projekte jedoch gilt auch für Webanwendungsprojekte.
 
 

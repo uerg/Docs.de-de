@@ -4,19 +4,16 @@ title: 'Iteration #5 – Erstellen von Komponententests (VB) | Microsoft-Dokumen
 author: microsoft
 description: In der fünften Iteration stellen wir unsere Anwendung einfacher zu verwalten und zu ändern, indem Sie die Komponententests hinzufügen. Wir unsere Data Model-Klassen modellieren und Erstellen von Komponententests für o...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2009
-ms.topic: article
 ms.assetid: c6e5c036-2265-4fa7-a9eb-47f197bdc262
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 302dfc2a26e3f357818570c673eafe44346330c4
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: f2a535128816153d9ff9b14d1895dabd967ad871
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37390001"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37806380"
 ---
 <a name="iteration-5--create-unit-tests-vb"></a>Iteration #5 – Erstellen von Komponententests (VB)
 ====================
@@ -157,28 +154,28 @@ Der erste Test überprüft, dass ein gültiger Kontakt keine Überprüfung ein F
 
 Der Code für diese Tests ist in Codebeispiel 1 enthalten.
 
-**Wenn Sie planen, erstellen Sie Komponententests für Ihre Controller müssen Sie explizite Ansichtsnamen aus Ihre Controlleraktionen zurückzugeben.**
+**1 – Models\ContactManagerServiceTest.vb auflisten**
 
 [!code-vb[Main](iteration-5-create-unit-tests-vb/samples/sample1.vb)]
 
 
-Beispielsweise geben eine Ansicht wie folgt zurück: Zurückgeben von View()
+Da wir die Contact-Klasse in Codebeispiel 1 verwenden, müssen wir unser Testprojekt einen Verweis auf das Microsoft Entity Framework hinzufügen. Fügen Sie einen Verweis auf die System.Data.Entity-Assembly hinzu.
 
 
-Stattdessen geben Sie die Ansicht wie folgt zurück: Zurückgeben von View("Create") Wenn Sie nicht explizit sind bei der Rückgabe einer Ansicht klicken Sie dann zurückgegeben die ViewResult.ViewName-Eigenschaft eine leere Zeichenfolge.
+Codebeispiel 1 enthält eine Methode, die mit dem Namen Initialize(), die mit dem [TestInitialize]-Attribut ergänzt wird. Diese Methode wird automatisch aufgerufen, bevor jede der Komponententests ausgeführt wird (es wird 5 Mal direkt vor jedem der Komponententests bezeichnet). Die Initialize()-Methode wird ein pseudorepository mit der folgenden Zeile des Codes erstellt:
 
 [!code-vb[Main](iteration-5-create-unit-tests-vb/samples/sample2.vb)]
 
-Codebeispiel 2 - Controllers\ContactControllerTest.vb In dieser Iteration haben wir Komponententests für die Kontakt-Manager-Anwendung erstellt. Wir können diese Komponententests ausführen, um sicherzustellen, dass die Anwendung weiterhin in die Art und Weise verhält sich, die wir erwarten, dass jederzeit.
+Diese Codezeile verwendet das Moq-Framework zum Generieren eines simulierten Repositorys über die IContactManagerRepository-Schnittstelle. Das pseudorepository wird anstelle der tatsächlichen EntityContactManagerRepository verwendet, um zu vermeiden, Zugriff auf die Datenbank aus, wenn jeder Komponententest ausgeführt wird. Das pseudorepository implementiert die Methoden der Schnittstelle IContactManagerRepository, aber die Methoden Don t eigentlich lediglich.
 
 > [!NOTE] 
 > 
-> Die Komponententests fungieren als Sicherheitsnetz für die Anwendung ermöglicht uns, unsere Anwendung in der Zukunft sicher zu ändern. Wir haben zwei Sätze von Komponententests erstellt. Zunächst haben wir unsere Validierungslogik durch Erstellen von Komponententests für unseren Dienstebene getestet.
+> Wenn Sie das Moq-Framework verwenden, besteht ein Unterschied zwischen \_MockRepository und \_mockRepository.Object. Die erste bezieht sich auf die Mock (der IContactManagerRepository)-Klasse enthält Methoden zur Angabe, wie sich das pseudorepository verhält. Letztere bezieht sich auf die tatsächliche pseudorepository, das die IContactManagerRepository-Schnittstelle implementiert.
 
 
-Als Nächstes können wir unsere datenflusskontrolllogik durch Erstellen von Komponententests für unseren Controller-Ebene getestet. Beim Testen unsere Dienstebene isoliert wir unsere Tests für unseren Dienstebene aus unserem Repository-Ebene durch unsere Repositoryschicht imitieren.
+Beim Erstellen einer Instanz der Klasse ContactManagerService, wird das pseudorepository in die Initialize()-Methode verwendet. Alle die einzelnen Komponententests verwenden diese Instanz der ContactManagerService-Klasse.
 
-Wenn Sie die Controller-Ebene zu testen, isoliert wir unsere Tests für unsere Controller-Ebene durch Simulieren von der Dienstebene. In der nächsten Iteration ändern wir die Kontakt-Manager-Anwendung, damit sie wenden Sie sich an Gruppen unterstützt. Wir werden unsere Anwendung, die unter Verwendung der Software Design sogenannten testgesteuerte Entwicklung dieser neuen Funktionalität hinzufügen. Das heißt, ist eine Methode, die mit dem [TestMethod]-Attribut ergänzt wird ein Komponententest.
+Codebeispiel 1 enthält fünf Methoden, die jeweils die Komponententests entsprechen. Jede dieser Methoden wird mit dem [TestMethod]-Attribut ergänzt. Wenn Sie die Komponententests ausführen, wird jede Methode, die dieses Attribut wurde aufgerufen. Das heißt, ist eine Methode, die mit dem [TestMethod]-Attribut ergänzt wird ein Komponententest.
 
 Der erste Komponententest, mit dem Namen CreateContact(), stellt sicher, dass der Wert "true" beim Aufrufen von CreateContact() zurückgegeben werden, wenn eine gültige Instanz von der Contact-Klasse an die Methode übergeben wird. Der Test erstellt eine Instanz der Klasse wenden Sie sich an, ruft die CreateContact()-Methode auf und stellt sicher, dass CreateContact() den Wert True zurückgibt.
 

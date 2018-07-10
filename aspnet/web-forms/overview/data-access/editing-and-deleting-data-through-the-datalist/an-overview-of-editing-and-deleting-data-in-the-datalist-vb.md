@@ -4,19 +4,16 @@ title: Eine Übersicht über bearbeiten und Löschen von Daten im DataList-Steue
 author: rick-anderson
 description: Beim DataList-Steuerelement integrierte bearbeiten und Löschen von Funktionen fehlen, werden in diesem Tutorial erfahren Sie, wie einem DataList-Steuerelement zu erstellen, unterstützt wird, bearbeiten und Löschen von o...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/30/2006
-ms.topic: article
 ms.assetid: 9410a23c-9697-4f07-bd71-e62b0ceac655
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5e2a0f672a9be074abd3ab92eb5b36c18d64d1b6
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: aa1e07be5b634a0e66f7c6f03f80a1aa2c741189
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37364014"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37804497"
 ---
 <a name="an-overview-of-editing-and-deleting-data-in-the-datalist-vb"></a>Eine Übersicht über bearbeiten und Löschen von Daten im DataList-Steuerelement (VB)
 ====================
@@ -188,11 +185,11 @@ Wir müssen die entsprechenden Product Feld Datenwerte binden die `Text` Eigensc
 **Abbildung 10**: Binden der `ProductName` und `UnitPrice` Daten Felder der `Text` Eigenschaften der TextBox-Elemente
 
 
-Er ist als ein unabhängiger Berater, Schulungsleiter und Autor. Er ist unter `InsertParameters` `UpdateParameters`. oder über seinen Blog finden Sie unter `Text` `UpdateProduct` `ProductsBLL`.
+Beachten Sie, wie in Abbildung 10 im Dialogfeld DataBindings bearbeiten *nicht* enthalten die bidirektionale Datenbindung-Kontrollkästchen, das beim Bearbeiten ein TemplateField im GridView oder DetailsView oder einer Vorlage in das FormView-Steuerelement vorhanden ist. Die bidirektionale Datenbindung-Funktion zulässig, den in der Web-Eingabesteuerelement automatisch der entsprechenden "ObjectDataSource"-s zugewiesen werden soll eingegebenen Wert `InsertParameters` oder `UpdateParameters` beim Einfügen oder Aktualisieren von Daten. DataList-Steuerelement unterstützt keine bidirektionale Datenbindung, später in diesem Tutorial nach dem wird Benutzer sehen ihrer Änderungen und bereit ist, um die Daten aktualisieren, müssen wir diese Textfelder programmgesteuerten Zugriff auf `Text` Eigenschaften und übergeben Sie deren Werte in der entsprechende `UpdateProduct` -Methode in der die `ProductsBLL` Klasse.
 
-Besonderen Dank an Diese tutorialreihe wurde durch viele hilfreiche Reviewer überprüft. Führendes Prüfer für dieses Tutorial wurden Zack Jones, Ken Pespisa und Randy Schmidt. Meine zukünftigen MSDN-Artikeln überprüfen möchten?
+Abschließend müssen wir Updates hinzufügen und Schaltflächen zum Abbrechen der `EditItemTemplate`. Wie in beschrieben der [Master/Detail, verwenden eine Liste mit Aufzählungszeichen Liste der Masterdatensätze mit einem DataList-Steuerelement Details](../filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md) Tutorial, wenn eine Schaltfläche, LinkButton oder ImageButton, deren `CommandName` -Eigenschaftensatz aus geklickt wird, die innerhalb eines Repeater oder DataList-Steuerelement, das Repeater oder DataList s `ItemCommand` Ereignis wird ausgelöst. Für DataList-Steuerelement Wenn die `CommandName` Eigenschaft auf einen bestimmten Wert festgelegt ist, kann ein weiteres Ereignis ebenfalls ausgelöst werden. Die spezielle `CommandName` Eigenschaftswerte enthalten, u.a.:
 
-- Wenn dies der Fall ist, löschen Sie mir eine Linie an `CancelCommand` .
+- Abbrechen, löst die `CancelCommand` Ereignis
 - Bearbeiten Sie löst die `EditCommand` Ereignis
 - Aktualisieren Sie löst die `UpdateCommand` Ereignis
 

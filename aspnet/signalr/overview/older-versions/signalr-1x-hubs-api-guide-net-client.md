@@ -4,19 +4,16 @@ title: Leitfaden für ASP.NET SignalR Hubs-API – .NET-Client (SignalR 1.x) | M
 author: pfletcher
 description: Dieses Dokument enthält eine Einführung zur Verwendung von den Hubs-API für den SignalR .NET-Client zu erhalten, wie z. B. Windows Store (WinRT), WPF, Silverlight und Nachteile Version 2...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/17/2013
-ms.topic: article
 ms.assetid: c334adc3-d6dc-44f3-9f06-f7634475aad3
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/older-versions/signalr-1x-hubs-api-guide-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 948384298366ba87effeaaff55f38e4edc7be940
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 64d4f16dfcd121bc73f05cf8d320dc6ff2488f9a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37389533"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37834687"
 ---
 <a name="aspnet-signalr-hubs-api-guide---net-client-signalr-1x"></a>Leitfaden für ASP.NET SignalR Hubs-API – .NET-Client (SignalR 1.x)
 ====================
@@ -92,7 +89,7 @@ Bevor Sie eine Verbindung herstellen können, müssen Sie erstellen eine `HubCon
 
 Der Beispielcode verwendet die Standardeinstellung "/ Signalr" die URL für die Verbindung mit Ihrem SignalR Service. WPF-Clientcode für die Methode wird vom Server ohne Parameter aufgerufen. [ASP.NET SignalR Hubs API Guide - Server - The /signalr URL](../guide-to-the-api/hubs-api-guide-server.md#signalrurl).
 
-Wenn die `Start` Methode asynchron ausgeführt wird. Console Application-Clientcode für die Methode aufgerufen wird, vom Server ohne Parameter WPF-Client-Code für eine Methode aufgerufen wird, vom Server mit einem parameter
+Wenn die `Start` Methode asynchron ausgeführt wird. Um sicherzustellen, dass es sich bei nachfolgenden Codezeilen nicht erst ausführen, nachdem die Verbindung hergestellt ist, verwenden Sie `await` in einer asynchronen Methode von ASP.NET 4.5 oder `.Wait()` in eine synchrone Methode. Verwenden Sie keine `.Wait()` in einem WinRT-Client.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample2.cs?highlight=1)]
 
@@ -104,17 +101,17 @@ Die `HubConnection`-Klasse ist threadsicher.
 
 ### <a name="cross-domain-connections-from-silverlight-clients"></a>Domänenübergreifende Verbindungen von Silverlight-clients
 
-Silverlight-Client-Code für eine Methode aufgerufen wird, vom Server mit einem parameter
+Informationen dazu, wie Sie die domänenübergreifende Verbindungen von Silverlight-Clients zu aktivieren, finden Sie unter [vornehmen einer Service Available Across Domain Boundaries](https://msdn.microsoft.com/library/cc197955(v=vs.95).aspx).
 
 <a id="configureconnection"></a>
 
 ## <a name="how-to-configure-the-connection"></a>Gewusst wie: Konfigurieren der Verbindung
 
-Console Application-Clientcode für eine Methode aufgerufen wird, vom Server mit einem parameter
+Bevor Sie eine Verbindung herstellen, können Sie eine der folgenden Optionen angeben:
 
-- WPF-Client-Code für eine Methode aufgerufen wird, vom Server mit einem Parameter, die ein dynamisches Objekt verwenden, für den parameter
-- Silverlight-Client-Code für eine Methode aufgerufen wird, vom Server mit einem Parameter, die ein dynamisches Objekt verwenden, für den parameter
-- Console Application-Clientcode für eine Methode aufgerufen wird, vom Server mit einem Parameter, die ein dynamisches Objekt verwenden, für den parameter
+- Gleichzeitige Verbindungen beschränken.
+- Abfragezeichenfolgenparameter.
+- Die Transportmethode.
 - HTTP-Header.
 - Clientzertifikate.
 

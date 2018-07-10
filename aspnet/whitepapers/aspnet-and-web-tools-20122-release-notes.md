@@ -4,19 +4,16 @@ title: ASP.NET und Web Tools 2012.2 – Anmerkungen zu dieser | Microsoft-Dokume
 author: rick-anderson
 description: Versionshinweise zu ASP.NET und Web Tools 2012.2.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/14/2013
-ms.topic: article
 ms.assetid: bdb18d02-9f61-4676-836d-6fdea94f9282
-ms.technology: ''
 msc.legacyurl: /whitepapers/aspnet-and-web-tools-20122-release-notes
 msc.type: content
-ms.openlocfilehash: a5558648450650f9939a490ed669e4918e7ee36d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 687eca7d1a7368338bb16c5de24fbe99e9ba500d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37390461"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37806406"
 ---
 <a name="aspnet-and-web-tools-20122-release-notes"></a>ASP.NET und Webtools 2012.2 – Anmerkungen dieser Version
 ====================
@@ -158,50 +155,50 @@ Weitere Informationen zum Konfigurieren und Verwenden von ASP.NET Web-API-Ablauf
 
 #### <a name="aspnet-web-api-help-page"></a>ASP.NET Web-API-Hilfeseite
 
-Die ASP.NET Web API-Hilfeseite ist jetzt standardmäßig in der Web-API-Projektvorlage enthalten. Die ASP.NET Web API-Hilfeseite generiert automatisch die Dokumentation für Web-APIs, z.B. die HTTP-Endpunkte, unterstützten HTTP-Methoden, Parameter und Beispiel Anforderungs- und antwortnutzlasten der Nachricht. Dokumentation automatisch von Kommentaren in Ihrem Code per Pull abgerufen wird. Wir werden diese häufig verwendete Konvention Standardkonventionen fehlt.
+Die ASP.NET Web API-Hilfeseite ist jetzt standardmäßig in der Web-API-Projektvorlage enthalten. Die ASP.NET Web API-Hilfeseite generiert automatisch die Dokumentation für Web-APIs, z.B. die HTTP-Endpunkte, unterstützten HTTP-Methoden, Parameter und Beispiel Anforderungs- und antwortnutzlasten der Nachricht. Dokumentation automatisch von Kommentaren in Ihrem Code per Pull abgerufen wird. Sie können auch die ASP.NET Web API-Hilfeseite an eine beliebige Anwendung, die mithilfe des ASP.NET Web API Help Page NuGet-Pakets hinzufügen ([http://www.nuget.org/packages/microsoft.aspnet.webapi.helppage](http://www.nuget.org/packages/microsoft.aspnet.webapi.helppage)).
 
-Dieses Problem, zu umgehen müssen Benutzer neue routing-Konvention, um Unterstützung zu erweitern.
+Weitere Informationen zum Einrichten und Anpassen von der ASP.NET Web API-Hilfeseite finden Sie unter [ https://go.microsoft.com/fwlink/?LinkId=271140 ](https://go.microsoft.com/fwlink/?LinkId=271140).
 
 <a id="_ASP.NET_SignalR"></a>
 ### <a name="aspnet-signalr"></a>ASP.NET SignalR
 
-Facebook-Vorlagenprobleme
+ASP.NET SignalR vereinfacht Hinzufügen von Echtzeit-Webfunktionen-Funktionen zu Ihrer ASP.NET-Anwendung mithilfe von WebSockets, falls verfügbar und automatisch Fallback auf andere Verfahren, wenn dies nicht der Fall.
 
-Facebook-Anwendungsvorlage funktioniert nur mit .NET 4.5
+Weitere Informationen zur Verwendung von ASP.NET SignalR finden Sie unter [ https://go.microsoft.com/fwlink/?LinkId=271271 ](https://go.microsoft.com/fwlink/?LinkId=271271).
 
 <a id="_ASP.NET_Friendly_URLs"></a>
 ### <a name="aspnet-friendly-urls"></a>ASP.NET Friendly URLs
 
-Sie müssen .NET 4.5 auswählen, in der Dropdownliste "Framework" in das Dialogfeld "Neues Projekt" auf die Vorlage der Facebook-Anwendung in ASP.NET MVC 4 finden Sie unter. Real-Time-Update-Controller Die Facebook-Anwendungsvorlage kann Benutzer ganz einfach erstellen Sie eine Web-API-Controller, um Aktualisierungen in Echtzeit über Facebook zu behandeln.
+ASP.NET FriendlyURLs erleichtert für Web Forms-Entwickler zum Generieren von URLs cleaner (ohne die ASPX-Erweiterung) zu suchen. Es ist wenig keine Konfiguration erforderlich und kann mit vorhandenen ASP.NET v4. 0-Anwendungen verwendet werden. Das Feature FriendlyURLs erleichtert auch die Entwickler ihre Anwendungen durch die Unterstützung von Wechseln zwischen Desktop- und mobile Ansichten mobile-Unterstützung hinzugefügt.
 
-Wenn es sich bei Ihrem Entwicklungscomputer hinter einer NAT befindet, funktioniert möglicherweise Ihres Controllers nicht ohne weitere Konfiguration des Netzwerks.
+Weitere Informationen zur Installation und Verwendung von Friendly URLs von ASP.NET finden Sie unter [ http://www.hanselman.com/blog/IntroducingASPNETFriendlyUrlsCleanerURLsEasierRoutingAndMobileViewsForASPNETWebForms.aspx ](http://www.hanselman.com/blog/IntroducingASPNETFriendlyUrlsCleanerURLsEasierRoutingAndMobileViewsForASPNETWebForms.aspx).
 
 <a id="_Known_Issues_and"></a>
 ## <a name="known-issues-and-breaking-changes"></a>Bekannte Probleme und aktueller Änderungen
 
-Einzelheiten finden Sie hier:
+Dieser Abschnitt beschreibt bekannte Probleme und Änderungen, die in der Version von ASP.NET und Web Tools 2012.2 sind.
 
 ### <a name="installation-issues"></a>Probleme bei der Installation
 
-#### <a name="out-of-order-installs-of-visual-studio-2012"></a>Abfrage-Zeichenfolgenwerte mit Facebook OAuth-Parameter in Konflikt stehen
+#### <a name="out-of-order-installs-of-visual-studio-2012"></a>Außerhalb der Reihenfolge Installationen von Visual Studio 2012
 
-Die folgenden Felder in Konflikt mit Facebook OAuth Dialogfeld Aufruf URL sichern. Fügen Sie keine eigene Abfragezeichenfolgen-Werte mit den folgenden Namen: Code "," Fehler "," FehlerBeschreibung "," FehlerGrund.
+Installieren eine zusätzliche SKU von Visual Studio 2012, nach der Installation von ASP.NET und Web Tools 2012.2 ein Reparaturvorgangs benötigen. Betrachten Sie die folgende Sequenz:
 
-1. Verwenden der Seitenprüfung mit Facebook-Vorlage
-2. Sie können nicht das Feature der Seitenprüfung in Visual Studio 2012 verwenden, während des Debuggens Ihrer Facebook-Anwendung.
-3. Die Seitenprüfung unterstützt derzeit keine Iframes.
+1. Installieren von Visual Studio 2012 Express für Web
+2. Installieren von ASP.NET und Webtools 2012.2
+3. Installieren Sie Visual Studio 2012 Professional, Premium oder Ultimate
 
-Einseitige Anwendung Vorlagenprobleme Fokusereignis wird mit JQuery 2.2.1 1.9/Knockout-Update, bei der Ausführung von Standard-MVC-SPA-Projekt neu Bearbeiten der Todo-Element geben Sie nicht ordnungsgemäß verarbeitet. Mit JQuery 1.9/Knockout 2.2.1 aktualisiert werden, beim Standard-MVC-SPA-Projekt ausführen, neue Todo-Elements bearbeiten geben nicht mehr den Fokus wieder für das Bearbeiten neue Todo-Element nach dem das neue Todo-Element der Todo-Liste eingeben.
+Schritt 2 würde nur Installieren von Updates für Express für Web. Um sicherzustellen, dass die zusätzliche SKU, die in Schritt 3 installiert das Update enthält, müssen Sie reparieren Sie die ASP.NET und Web Tools 2012.2, zum Installieren der Updates für die letzten-SKU installiert. Dies gilt auch, wenn die SKUs in Schritt 1 und 3 rückgängig gemacht werden.
 
-#### <a name="installing-microsoft-aspnet-and-web-tools-20122-when-visual-studio-is-open"></a>Problemumgehung Verweis   , und nehmen Sie ähnliche Korrektur an der folgende Code:
+#### <a name="installing-microsoft-aspnet-and-web-tools-20122-when-visual-studio-is-open"></a>Microsoft ASP.NET und Web Tools 2012.2 zu installieren, wenn Visual Studio geöffnet ist.
 
-Datei todo.model.js todolist(data) funktioniert, fügen Sie folgenden:
+Wenn Visual Studio während der Installation von Microsoft ASP.NET und Web Tools 2012.2 geöffnet ist, kann Visual Studio in einem fehlerhaften Zustand kommen. Es empfiehlt sich, dass Benutzer über alle Instanzen von Visual Studio, bevor Sie mit der Installation schließen.
 
-#### <a name="canceling-aspnet-and-web-tools-20122-setup-in-the-middle-of-installation"></a>todoList.prototype.addTodo funktioniert, fügen Sie den folgenden blacked Text hinzu:
+#### <a name="canceling-aspnet-and-web-tools-20122-setup-in-the-middle-of-installation"></a>Abbrechen von ASP.NET und Web Tools 2012.2-Setup in der Mitte der installation
 
-Datei "Index.cshtml", fügen Sie den folgenden blacked Text hinzu: Form-Data-Bind =übermitteln: AddTodo 
+Abbrechen von ASP.NET und Web Tools 2012.2 wird von Setup in der Mitte Installation Visual Studio in einem fehlerhaften Zustand beibehalten. Um dieses Problems führen Sie diese Schritte beheben: 
 
-- Geben Sie die Klasse =AddTodo Typ =Text Data-Bind =Wert: NewTodoTitle, Platzhalter: "Typ hier hinzufügen", BlurOnEnter: "true" "HasFocus": IsSelected, Ereignis: {blur: AddTodo}
+- Wechseln Sie zu Programme.
 - Deinstallieren Sie Microsoft ASP.NET und Web Tools 2012.2, falls vorhanden.
 - Installieren von Microsoft ASP.NET und Webtools 2012.2
 
