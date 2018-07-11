@@ -1,6 +1,6 @@
-# <a name="how-to-buildrun-secure-user-data-sample"></a>Build/sichere Benutzer Datenbeispiel Ausführung
+# <a name="how-to-buildrun-secure-user-data-sample"></a>Wie Sie Build/Datenbeispiel sichere Benutzer ausführen.
 
-* Legen Sie das Kennwort, mit dem geheimen Schlüssel-Manager-Tool:
+* Legen Sie das Kennwort, mit dem Geheimnis-Manager-Tool:
 
   `dotnet user-secrets set SeedUserPW <pw>`
 
