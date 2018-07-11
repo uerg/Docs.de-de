@@ -5,14 +5,14 @@ description: Lernen Sie das ASP.NET Core-Hilfsprogramm für Teiltags und die Rol
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 04/13/2018
+ms.date: 07/06/2018
 uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-ms.openlocfilehash: fea84621f185c4113147cf0dfd173704bc7b6d81
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 2272b2ecdd6f2b0a759356b1f03dd5c495ea1c91
+ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274400"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37889102"
 ---
 # <a name="partial-tag-helper-in-aspnet-core"></a>Hilfsprogramm für Teiltags in ASP.NET Core
 
@@ -25,7 +25,7 @@ Von [Scott Addie](https://github.com/scottaddie)
 Das Hilfsprogramm für Teiltags wird für das Rendern einer [Teilansicht](xref:mvc/views/partial) auf Razor-Seiten und in MVC-Apps verwendet. Bedenken Sie dabei Folgendes:
 
 * Das Programm erfordert ASP.NET Core 2.1 oder höher.
-* Es stellt eine Alternative zur [Syntax des HTML-Hilfsprogramms](xref:mvc/views/partial#referencing-a-partial-view) dar.
+* Es stellt eine Alternative zur [Syntax des HTML-Hilfsprogramms](xref:mvc/views/partial#reference-a-partial-view) dar.
 * Es rendert die Teilansicht asynchron.
 
 Folgende zählen zu den Optionen des HTML-Hilfsprogramms für das Rendern einer Teilansicht:
@@ -81,7 +81,17 @@ Im vorangehenden Code wird der Schlüsselwert `IsNumberReadOnly` auf `true` fest
 
 In diesem Beispiel bestimmt der Wert von `ViewData["IsNumberReadOnly"]`, ob das Feld *Number* (Anzahl) schreibgeschützt sein soll.
 
+## <a name="migrate-from-an-html-helper"></a>Migrieren von einem HTML-Hilfsprogramm
+
+Sehen Sie sich das folgende Beispiel für das Hilfsprogramm für asynchrone HTML an. Eine Sammlung von Produkten wird durchlaufen und dargestellt. Laut dem ersten Parameter der `PartialAsync`-Methode wird die Teilansicht *_ProductPartial.cshtml* geladen. Eine Instanz des `Product`-Modells wird für die Bindung an die Teilansicht übergeben.
+
+[!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Products.cshtml?name=snippet_HtmlHelper&highlight=3)]
+
+Das folgende Teiltaghilfsprogramm erreicht dasselbe asynchrone Renderingverhalten wie das `PartialAsync`-HTML-Hilfsprogramm. Dem `model`-Attribut wird eine `Product`-Modellinstanz zum Binden an die Teilansicht zugewiesen.
+
+[!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Products.cshtml?name=snippet_TagHelper&highlight=3)]
+
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Teilansichten](xref:mvc/views/partial)
-* [Weakly typed data (ViewData, ViewData attribute, and ViewBag) (Schwach typisierte Daten (ViewData, ViewData-Attribut und ViewBag))](xref:mvc/views/overview#weakly-typed-data-viewdata-viewdata-attribute-and-viewbag)
+* <xref:mvc/views/partial>
+* <xref:mvc/views/overview#weakly-typed-data-viewdata-viewdata-attribute-and-viewbag>

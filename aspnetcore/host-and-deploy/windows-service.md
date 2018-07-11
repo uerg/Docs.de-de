@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/04/2018
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 718cc83bb29c0cff323853d22c107e00616b1dd1
-ms.sourcegitcommit: 2941e24d7f3fd3d5e88d27e5f852aaedd564deda
+ms.openlocfilehash: bce09a500160f0bf13926786d277f8b1e88c1bf8
+ms.sourcegitcommit: ea7ec8d47f94cfb8e008d771f647f86bbb4baa44
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37126234"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37894256"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Hosten von ASP.NET Core in einem Windows-Dienst
 
@@ -40,7 +40,7 @@ Die folgenden minimalen Änderungen sind für die Einrichtung eines vorhandenen 
 
    * Rufen Sie [host.RunAsService](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostwindowsserviceextensions.runasservice) anstelle von `host.Run` auf.
 
-   * Wenn der Code `UseContentRoot` aufruft, verwenden Sie anstelle von `Directory.GetCurrentDirectory()` einen Pfad zum veröffentlichten Speicherort der App.
+   * Rufen Sie [UseContentRoot](xref:fundamentals/host/web-host#content-root) auf, und verwenden Sie anstelle von `Directory.GetCurrentDirectory()` einen Pfad zum veröffentlichten Speicherort der App.
 
      ::: moniker range=">= aspnetcore-2.0"
 
@@ -70,7 +70,7 @@ Die folgenden minimalen Änderungen sind für die Einrichtung eines vorhandenen 
 
    Verwenden Sie zum Erstellen eines Diensts, der im Projektordner veröffentlicht wird, den Pfad zum *Veröffentlichungsordner*. Im folgenden Beispiel wird der Dienst
 
-   * **MyService** genannt
+   * Name: **MyService**
    * und im Ordner *c:\\my_services\\AspNetCoreService\\bin\\Release\\&lt;TARGET_FRAMEWORK&gt;\\publish* veröffentlicht.
    * Der Dienst wird durch eine ausführbare App-Datei namens *AspNetCoreService.exe* dargestellt.
 

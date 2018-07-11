@@ -5,12 +5,12 @@ description: Erfahren Sie, wie ASP.NET Core Dienste und Middleware für das Loka
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 0f48490af5805e4351c983f3ae519268c8e9c7a7
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 9647b605d4b9a23b365085e3677fb0e9b93f0da4
+ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274130"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434012"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalisierung und Lokalisierung in ASP.NET Core
 
@@ -158,6 +158,27 @@ Ressourcendateien, die `@inject IViewLocalizer` in Razor-Ansichten verwenden, fo
 * Resources/Views.Home.About.fr.resx
 
 Wenn Sie nicht die Option `ResourcesPath` verwenden, befindet sich die *RESX*-Datei für eine Ansicht im selben Ordner wie die Ansicht.
+
+### <a name="rootnamespaceattribute"></a>RootNamespaceAttribute 
+
+Das [RootNamespace](/dotnet/api/microsoft.extensions.localization.rootnamespaceattribute?view=aspnetcore-2.1)-Attribut stellt den Stammnamespace einer Assembly bereit, wenn der Stammnamespace einer Assembly sich vom Assemblynamen unterscheidet. 
+
+Wenn der Stammnamespace einer Assembly sich vom Assemblynamen unterscheidet, dann geschieht Folgendes:
+
+* Die Lokalisierung funktioniert standardmäßig nicht.
+* Die Lokalisierung schlägt aufgrund der Art und Weise, wie nach Ressourcen innerhalb der Assembly gesucht wird, fehl. `RootNamespace` ist ein Buildzeitwert, der für den ausgeführten Prozess nicht verfügbar ist. 
+
+Wenn sich `RootNamespace` vom `AssemblyName` unterscheidet, schließen Sie Folgendes in *AssemblyInfo.cs* ein (mit den durch die aktuellen Werte ersetzten Parameterwerten):
+
+```Csharp
+using System.Reflection;
+using Microsoft.Extensions.Localization;
+
+[assembly: ResourceLocation("Resource Folder Name")]
+[assembly: RootNamespace("App Root Namespace")]
+```
+
+Der vorangehende Code ermöglicht die erfolgreiche Auflösung von RESX-Dateien.
 
 ## <a name="culture-fallback-behavior"></a>Kulturfallbackverhalten
 

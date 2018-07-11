@@ -2,16 +2,17 @@
 title: WebSockets-Unterstützung in ASP.NET Core
 author: rick-anderson
 description: Erfahren Sie, wie Sie mit WebSockets in ASP.NET beginnen.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/15/2018
+ms.date: 06/28/2018
 uid: fundamentals/websockets
-ms.openlocfilehash: ee529f1aaadb6b6062bed56003c51f161eae7e72
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: a9fe13ef7895ea3ab43257dbbaf4521f883c0804
+ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273796"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37433986"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>WebSockets-Unterstützung in ASP.NET Core
 
@@ -46,16 +47,9 @@ In diesem Artikel erfahren Sie, wie Sie mit WebSockets in ASP.NET beginnen. Bei 
 
 Verwenden Sie WebSockets, um direkt mit einer Socketverbindung zu arbeiten. Verwenden Sie WebSockets beispielsweise für die bestmögliche Leistung bei einem Echtzeitspiel.
 
-[ASP.NET SignalR](/aspnet/signalr/overview/getting-started/introduction-to-signalr) stellt ein erweitertes App-Modell für Echtzeitfunktionen bereit, aber es kann nur in ASP.NET 4.x und nicht in ASP.NET Core ausgeführt werden. Eine ASP.NET Core-Version von SignalR ist für das Release von ASP.NET Core 2.1 geplant. Weitere Informationen finden Sie unter [ASP.NET Core 2.1 high-level planning (Grundlegende Planung von ASP.NET Core 2.1)](https://github.com/aspnet/Announcements/issues/288).
+[ASP.NET Core SignalR](xref:signalr/introduction) ist eine Bibliothek, die das Hinzufügen von Echtzeitwebfunktionalität zu Apps erleichtert. Sie verwendet wenn möglich immer WebSockets.
 
-Vor dem Release von SignalR Core können WebSockets verwendet werden. Die Features von SignalR müssen jedoch vom Entwickler bereitgestellt und unterstützt werden. Zum Beispiel:
-
-* Unterstützung für eine größere Zahl an unterschiedlichen Browserversionen, indem Sie ein automatisches Fallback auf alternative Transportmethoden einsetzen
-* Der automatische Aufbau einer neuen Verbindung, wenn die Verbindung unterbrochen wurde
-* Unterstützung für das Aufrufen von Methoden auf dem Server durch Clients bzw. andersherum
-* Unterstützung für die Skalierung auf mehrere Server
-
-## <a name="how-to-use-it"></a>Verwendungsweise
+## <a name="how-to-use-websockets"></a>So verwenden Sie WebSockets
 
 * Installieren Sie das Paket [Microsoft.AspNetCore.WebSockets](https://www.nuget.org/packages/Microsoft.AspNetCore.WebSockets/).
 * Konfigurieren Sie die Middleware.
