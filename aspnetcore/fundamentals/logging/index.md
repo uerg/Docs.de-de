@@ -5,12 +5,12 @@ description: Erfahren Sie mehr über das Protokollierungsframework in ASP.NET Co
 ms.author: tdykstra
 ms.date: 12/15/2017
 uid: fundamentals/logging/index
-ms.openlocfilehash: 969ad303c3fee06aa40d43140153ffbf58b735db
-ms.sourcegitcommit: 2941e24d7f3fd3d5e88d27e5f852aaedd564deda
+ms.openlocfilehash: dde01129bb7ea29544c4c416dfe9b5522a738d01
+ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37126286"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37938484"
 ---
 # <a name="logging-in-aspnet-core"></a>Protokollierung in ASP.NET Core
 
@@ -29,6 +29,8 @@ ASP.NET Core unterstützt eine Protokollierungs-API, die mit mehreren verschiede
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
 ::: moniker-end
+
+Informationen zur stdout-Protokollierung beim Hosten mit IIS finden Sie unter <xref:host-and-deploy/iis/troubleshoot#aspnet-core-module-stdout-log>. Informationen zur stdout-Protokollierung mit Azure App Service finden Sie unter <xref:host-and-deploy/azure-apps/troubleshoot#aspnet-core-module-stdout-log>.
 
 ## <a name="how-to-create-logs"></a>Erstellen von Protokollen
 
