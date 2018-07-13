@@ -4,19 +4,16 @@ title: 'Praxisnahe Übung: verwaltbare Azure-Websites: Verwalten von Änderungen
 author: rick-anderson
 description: Erfahren Sie in dieser Übungseinheit, wie Microsoft Azure vereinfacht zum Erstellen und Bereitstellen von Websites in der Produktion.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/16/2014
-ms.topic: article
 ms.assetid: ecfd0eb4-c4ad-44e6-9db9-a2a66611ff6a
-ms.technology: ''
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: e7dcca855e55d10926de6d5e11e5a40e766128fd
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 3a118cdd7e3f3878976e4f8480ce2236b8d3ba88
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37385352"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37824795"
 ---
 <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Praxisnahe Übung: verwaltbare Azure-Websites: Verwalten von Änderungen und Skalierungen
 ====================
@@ -246,138 +243,138 @@ In dieser Aufgabe verwenden Sie **Entity Framework Code First-Migrationen** , er
 <a id="Exercise2"></a>
 ### <a name="exercise-2-deploying-a-web-app-to-staging"></a>Übung 2: Bereitstellen einer Web-App in der Stagingumgebung
 
-**Web-Apps in Azure App Service** können Sie die Staging-Veröffentlichung durchführen. Klicken Sie auf Ja bei der Veröffentlichung zu aktivieren. Bestätigt – Staging-VeröffentlichungJa klicken, um Staging-Veröffentlichung zu aktivieren
+**Web-Apps in Azure App Service** können Sie die Staging-Veröffentlichung durchführen. Bei der Veröffentlichung ein stagingwebsiteslot für jede standardmäßige Produktionswebsite erstellt und ermöglicht es Ihnen, diese Slots ohne Downtime zu wechseln. Dies ist sehr nützlich ist, überprüfen vor der Freigabe für die Öffentlichkeit Änderungen inkrementell Websiteinhalte zu integrieren und Rollback aus, wenn Änderungen werden nicht wie erwartet funktioniert.
 
-Bestätigen bei der Veröffentlichung Erweitern Sie in der Liste der Web-apps die Markierung links vom Namen Ihrer Web-app im stagingslot-Website angezeigt. Es hat den Namen der Web-app gefolgt von **(staging)**. Klicken Sie auf der Stagingsite, um zur Verwaltungsseite zu wechseln. Navigieren in der staging-Web-appNavigieren in der staging-Web-app
+In dieser Übung werden Sie Bereitstellen der **Meister Quiz** Anwendung in die Stagingumgebung der Web-app mithilfe von Git-quellcodeverwaltung. Zu diesem Zweck, Sie erstellen die Web-app und Bereitstellen die erforderlichen Komponenten auf das Verwaltungsportal, konfigurieren Sie eine **Git** Repository und übertragen Sie die Anwendung-Quellcode aus dem lokalen Computer im stagingslot. Aktualisieren Sie auch die Produktionsdatenbank mit dem **Code First-Migrationen** Sie in der vorherigen Übung erstellt haben. Sie werden die Anwendung in dieser testumgebung, um zu überprüfen, ob der Vorgang ausgeführt. Wenn Sie zufrieden sind, dass die It arbeitet gemäß Ihren Erwartungen, stuft Sie die Anwendung für die Produktion.
 
 > [!NOTE]
-> Navigieren in der staging-app Beachten Sie, dass alle anderen Web-app-Verwaltungsseite, He-Verwaltungsseite aussieht. Navigieren Sie zu der [Bereitstellungen](https://azure.microsoft.com/pricing/details/app-service/) Seite, und kopieren die Git-URL Wert.
+> Um die Veröffentlichung in Stagingumgebung aktivieren zu können, muss die Web-app in **Modus "Standard"**. Beachten Sie, dass zusätzliche Gebühren anfallen, wenn Sie Ihre Web-app in den Standardmodus ändern. Weitere Informationen zu den Preisen finden Sie unter [App Service-Preise](https://azure.microsoft.com/pricing/details/app-service/).
 
 
 <a id="Ex2Task1"></a>
-#### <a name="task-1--creating-a-web-app-in-azure-app-service"></a>Sie werden später in dieser Übung verwendet.
+#### <a name="task-1--creating-a-web-app-in-azure-app-service"></a>Aufgabe 1 – Erstellen einer Web-App in Azure App Service
 
-Kopieren den Wert der Git-URL Öffnen Sie ein neues **Git Bash** Konsole und führen Sie die folgenden Befehle aus.
+In dieser Aufgabe erstellen Sie eine Web-app in **Azure App Service** aus dem Verwaltungsportal. Konfigurieren Sie auch eine **SQL-Datenbank** zum Speichern von Anwendungsdaten und Konfigurieren von einem lokalen Git-Repository für die quellcodeverwaltung.
 
-1. Update der [[YOUR-APPLICATION-PATH]](https://manage.windowsazure.com) Platzhalter durch den Pfad zu der GeekQuiz Lösung befindet sich in der Source\Ex1-DeployingWebSiteToStaging\Begin Ordner Dieses Lab.
+1. Wechseln Sie zu der [Azure-Verwaltungsportal](https://manage.windowsazure.com) und melden Sie sich mit dem Microsoft-Konto, das Ihrem Abonnement zugeordnet.
 
-    ![Git-Initialisierung und der erste commit](maintainable-azure-websites-managing-change-and-scale/_static/image13.png)
+    ![Melden Sie sich beim Azure-Verwaltungsportal](maintainable-azure-websites-managing-change-and-scale/_static/image13.png)
 
-    *Git-Initialisierung und der erste commit*
-2. Führen Sie den folgenden Befehl aus, um Ihre Web-app an die Remoteinstanz übertragen **Git** Repository.
+    *Melden Sie sich beim Azure-Verwaltungsportal*
+2. Klicken Sie auf **neu** in der Befehlsleiste am unteren Rand der Seite.
 
-    ![Ersetzen Sie den Platzhalter durch die URL, die Sie aus dem Verwaltungsportal abgerufen haben.")
+    ![Erstellen einer neuen Web-app](maintainable-azure-websites-managing-change-and-scale/_static/image14.png "Erstellen einer neuen Web-app")
 
-    *Sie werden aufgefordert, Ihr bereitstellungskennwort.*
-3. Pushen in Windows Azure
+    *Erstellen einer neuen Web-app*
+3. Klicken Sie auf **Compute**, **Website** und dann **Benutzerdefiniert erstellen**.
 
-    ![Pushen in Azure")
+    ![Erstellen einer neuen Web-app mithilfe von benutzerdefinierte Erstellung](maintainable-azure-websites-managing-change-and-scale/_static/image15.png "Erstellen einer neuen Web-app mithilfe von benutzerdefinierte Erstellung")
 
-    *Wenn Sie Inhalte auf dem FTP-Host oder das GIT-Repository eine Web-app bereitstellen, müssen Sie Authentifizierung, mit der *Anmeldeinformationen für die Bereitstellung* , die Sie aus der Web-app erstellt Schnellstart oder Dashboard  Verwaltungsseiten.*
-4. Wenn Sie nicht, dass Ihre Anmeldeinformationen für die Bereitstellung wissen können Sie ganz einfach mithilfe des Verwaltungsportals zurücksetzen. Öffnen Sie die Web-app **Dashboard** Seite, und klicken Sie auf die **bereitstellungsanmeldeinformationen für die zurücksetzen** Link.
+    *Erstellen einer neuen Web-app mithilfe von benutzerdefinierte Erstellung*
+4. In der **neue Website - Benutzerdefiniert erstellen** Dialogfeld geben einen verfügbaren **URL** (z. B. *Meister-Quiz*), wählen Sie einen Speicherort in der **Region** Dropdown-Liste, und wählen **Erstellen einer neuen SQL-Datenbank** in die **Datenbank** Dropdown-Liste. Wählen Sie abschließend die **veröffentlichen aus der quellcodeverwaltung** Kontrollkästchen und klicken Sie auf **Weiter**.
 
-    ![Geben Sie ein neues Kennwort ein, und klicken Sie auf OK.](maintainable-azure-websites-managing-change-and-scale/_static/image16.png)
+    ![Anpassen der neuen Web-app](maintainable-azure-websites-managing-change-and-scale/_static/image16.png)
 
-    *Geben Sie ein neues Kennwort ein, und klicken Sie auf *OK*.*
-5. Anmeldeinformationen für die Bereitstellung gelten für die Verwendung mit allen Web-apps, die Ihrem Abonnement zugeordnet wurde.
+    *Anpassen der neuen Web-app*
+5. Geben Sie die folgenden Informationen für die datenbankeinstellungen:
 
-   - Um die Web-app wurde erfolgreich per Push übertragen in Azure zu überprüfen, wechseln Sie zurück zum Verwaltungsportal, und klicken Sie auf **Websites**.
-   - Suchen Sie Ihre Web-app aus, und erweitern Sie den Eintrag, um die stagingwebsiteslot anzuzeigen. Klicken Sie auf die Namen um zur Verwaltungsseite zu wechseln.
-   - Klicken Sie auf **Bereitstellungen** , finden Sie unter den **Bereitstellungsverlauf**. Überprüfen Sie, ob ein aktive Bereitstellung mit Ihrem  anfänglichen Commit.
+   - In der **Namen** Text Geben Sie einen Datenbanknamen an (z. B. *Geekquiz\_Db*)
+   - Auf dem Server **Dropdownliste** Liste **neue SQL-Datenbankserver**. Alternativ können Sie einen vorhandenen Server auswählen.
+   - In der **Datenbankbenutzername** und **Datenbankkennwort** Felder, geben Sie den Benutzernamen und das Kennwort für den SQL-Datenbankserver. Wenn Sie einen Server auswählen ist bereits vorhanden, Sie werden aufgefordert, das Kennwort.
 
-     ![Aktive Bereitstellung](maintainable-azure-websites-managing-change-and-scale/_static/image17.png)
+     ![Die datenbankeinstellungen angeben](maintainable-azure-websites-managing-change-and-scale/_static/image17.png)
 
-     *Aktive Bereitstellung*
+     *Die datenbankeinstellungen angeben*
 6. Klicken Sie auf **Weiter**, um fortzufahren.
-7. Klicken Sie abschließend auf **Durchsuchen** in der Befehlsleiste, um die Web-app aufzurufen.
+7. Wählen Sie **lokales Git-Repository** für die quellcodeverwaltung verwenden, und klicken Sie auf **Weiter**.
 
     > [!NOTE]
-    > Navigieren zur WebApp
+    > Sie können Anmeldeinformationen für die Bereitstellung (Benutzername und Kennwort) aufgefordert.
 
-    ![Wenn die Anwendung erfolgreich bereitgestellt wurde, sehen Sie die Anmeldeseite Meister Quiz.](maintainable-azure-websites-managing-change-and-scale/_static/image18.png)
+    ![Das Git-Repository erstellen](maintainable-azure-websites-managing-change-and-scale/_static/image18.png)
 
-    *Der Adress-URL der bereitgestellten Anwendung enthält den Namen der Web-app gefolgt von *-staging*.*
-8. Anwendung, die in der Stagingumgebung ausgeführt wird
+    *Das Git-Repository erstellen*
+8. Warten Sie, bis die neue Web-app erstellt wird.
 
     > [!NOTE]
-    > Wenn Sie die Anwendung zu untersuchen möchten, klicken Sie auf *registrieren* um einen neuen Benutzer zu registrieren. Schließen Sie die Kontodetails, indem Sie ein Benutzername, e-Mail-Adresse und Kennwort einzugeben.
+    > Standardmäßig stellt Azure Domänen bereit, mit denen *azurewebsites.net* sondern bietet auch die Möglichkeit, benutzerdefinierte Domänen, die über das Azure-Verwaltungsportal festgelegt. Allerdings können Sie benutzerdefinierte Domänen nur verwalten, bei Verwendung von bestimmten Azure App Service-Modi.
     > 
-    > Als Nächstes wird die Anwendung die erste Frage des Quiz dargestellt. Beantworten Sie ein paar Fragen, um sicherzustellen, dass es wie erwartet funktioniert. Anwendung verwendet werden Aufgabe 4: die Web-App für die Produktion heraufstufen Nun, da Sie überprüft haben, dass die Web-app in der Stagingumgebung ordnungsgemäß funktioniert, können Sie es in die produktionsumgebung überführen.
+    > Azure App Service ist in Free, Shared, Basic, Standard und Premium-Editionen verfügbar. Im Free und Shared-Modus werden alle Web-apps in einer Umgebung mit mehreren Mandanten ausgeführt und Kontingente für die Verwendung von CPU, Arbeitsspeicher und Netzwerk haben. Die maximale Anzahl von kostenlosen apps kann mit Ihrem Plan variieren. Im Modus "Standard" Wählen Sie an, welche apps auf dedizierten virtuellen Computern, die entsprechen ausgeführt wird, an die standardmäßige Azure-computeressourcen. Finden Sie die Web-app-Modus-Konfiguration in der **Skalierung** im Menü der Web-app.
     > 
-    > ![In dieser Aufgabe werden Sie den stagingslot-Website in den produktionsslot für den Standort ausgetauscht.")
+    > ![Azure App Service-Modi](maintainable-azure-websites-managing-change-and-scale/_static/image19.png "Azure App Service-Modi")
     > 
-    > Wechseln Sie zurück zum Verwaltungsportal, und wählen Sie den stagingslot-Website.
+    > Bei Verwendung von **Shared** oder **Standard** Modus, Sie werden benutzerdefinierte Domänen für Ihre Web-app zu verwalten, indem Sie zu Ihrer app **konfigurieren** Menü und klicken Sie auf **Domänen verwalten** unter *Domänennamen*.
     > 
-    > ![Klicken Sie auf ![austauschen] in der Befehlsleiste.")
+    > ![Verwalten von Domänen](maintainable-azure-websites-managing-change-and-scale/_static/image20.png "Domänen verwalten")
     > 
-    > ![Wechseln Sie in die Produktion")
-9. Klicken Sie auf **Ja** in das Dialogfeld zur Bestätigung der Swap-Vorgang fortsetzen.
+    > ![Benutzerdefinierte Domänen verwalten](maintainable-azure-websites-managing-change-and-scale/_static/image21.png "benutzerdefinierte Domänen verwalten")
+9. Nachdem die Web-app erstellt wurde, klicken Sie auf den Link unter der **URL** Spalte, um zu überprüfen, dass die neue Web-app ausgeführt wird.
 
-    ![Azure wird den Inhalt der Produktionssite mit dem Inhalt der staging-Website sofort ausgetauscht.](maintainable-azure-websites-managing-change-and-scale/_static/image22.png)
+    ![Navigieren in der neuen Web-app](maintainable-azure-websites-managing-change-and-scale/_static/image22.png)
 
-    *Azure wird den Inhalt der Produktionssite mit dem Inhalt der staging-Website sofort ausgetauscht.*
+    *Navigieren in der neuen Web-app*
 
-    ![Einige Einstellungen aus der bereitgestellten Version werden automatisch auf die Version (z. B. Verbindungszeichenfolge Außerkraftsetzungen "," Handlerzuordnungen "" usw.) kopiert werden, aber andere Einstellungen nicht ändert (z. B. DNS-Endpunkte, SSL-Bindungen, usw.).](maintainable-azure-websites-managing-change-and-scale/_static/image23.png)
+    ![ausgeführte Web-app](maintainable-azure-websites-managing-change-and-scale/_static/image23.png)
 
-    *Einige Einstellungen aus der bereitgestellten Version werden automatisch auf die Version (z. B. Verbindungszeichenfolge Außerkraftsetzungen "," Handlerzuordnungen "" usw.) kopiert werden, aber andere Einstellungen nicht ändert (z. B. DNS-Endpunkte, SSL-Bindungen, usw.).*
+    *ausgeführte Web-app*
 
 <a id="Ex2Task2"></a>
-#### <a name="task-2--creating-the-production-sql-database"></a>Swap-Vorgang bestätigen
+#### <a name="task-2--creating-the-production-sql-database"></a>Aufgabe 2: Erstellen der SQL-Datenbank der Produktion
 
-Nachdem der Austausch abgeschlossen ist, wählen Sie den produktionsslot, und klicken Sie auf **Durchsuchen** in der Befehlsleiste am Produktionsstandort zu öffnen.
+In dieser Aufgabe verwenden Sie die **Entity Framework Code First-Migrationen** zum Erstellen der Datenbank als Ziel der **Azure SQL-Datenbank** Instanz, die Sie in der vorherigen Aufgabe erstellt haben.
 
-1. Beachten Sie die URL in die Adressleiste ein.
-2. Sie müssen möglicherweise aktualisieren Sie Ihren Browser, um den Cache zu löschen.
+1. Im Verwaltungsportal, wechseln Sie zu der Web-app, die Sie in der vorherigen Aufgabe erstellt haben, und wechseln Sie zu dessen **Dashboard**.
+2. In der **Dashboard** auf **Verbindungszeichenfolgen anzeigen** link die **Blick** Abschnitt.
 
-    ![In Internet Explorer Sie erreichen dies durch Drücken von ![STRG + R].")
+    ![Verbindungszeichenfolgen anzeigen](maintainable-azure-websites-managing-change-and-scale/_static/image24.png "Verbindungszeichenfolgen anzeigen")
 
-    *In der produktionsumgebung ausgeführte Web-app*
-3. In der **GitBash** -Konsole, die remote-URL für das lokale Git-Repository zur Ausrichtung auf des produktionsslots zu aktualisieren.
+    *Verbindungszeichenfolgen anzeigen*
+3. Kopieren der **Verbindungszeichenfolge** Wert ein, und schließen Sie das Dialogfeld.
 
-    ![Führen Sie zu diesem Zweck den folgenden Befehl, und Ersetzen Sie die Platzhalter durch Ihren Benutzernamen für die Bereitstellung und den Namen der Web-app ein.")
+    ![Die Verbindungszeichenfolge im Azure-Verwaltungsportal](maintainable-azure-websites-managing-change-and-scale/_static/image25.png "Verbindungszeichenfolge im Azure-Verwaltungsportal")
 
-    *In den folgenden Übungen werden Sie Änderungen mit dem Produktionsstandort statt der Stagingumgebung nur für die Einfachheit des Labs mithilfe von Push übertragen.*
-4. In einem realen Szenario ist es um die Änderungen in der Stagingumgebung zu überprüfen, bevor die Weiterleitung zur Produktion empfohlen.
+    *Die Verbindungszeichenfolge im Azure-Verwaltungsportal*
+4. Klicken Sie auf **SQL-Datenbanken** auf die Liste der SQL-Datenbanken in Azure finden Sie unter
 
-    ![Übung 3: Bereitstellung Rollback in der Produktion durchführen.")
+    ![SQL-Datenbank-Menü](maintainable-azure-websites-managing-change-and-scale/_static/image26.png "im Menü die SQL-Datenbank")
 
-    *Es gibt Szenarien, in dem Sie kein stagingslots zum Austausch zwischen Staging und Produktion, z. B. im laufenden Betrieb ausführen, wenn Sie mit arbeiten *Free* oder Shared Modus.*
-5. In diesen Szenarien sollten Sie Ihre Anwendung in einer testumgebung – entweder lokal oder an einem Remotestandort – testen, bevor in einer produktionsumgebung bereitstellen.
+    *SQL-Datenbank-Menü*
+5. Suchen Sie die Datenbank, die Sie in der vorherigen Aufgabe erstellt haben, und klicken Sie auf dem Server.
 
-    ![Allerdings ist es möglich, dass ein Problem, das nicht erkannt wird, während der Testphase am Produktionsstandort auftreten kann.")
+    ![SQL-Datenbankserver](maintainable-azure-websites-managing-change-and-scale/_static/image27.png "SQL-Datenbankserver")
 
-    *In diesem Fall ist es wichtig, einen Mechanismus, um einfach auf eine vorherige und stabile Version der Anwendung so schnell wie möglich zu wechseln.*
-6. In **Azure App Service**, kontinuierliche Bereitstellung über quellcodeverwaltung macht diese Dank der Möglichkeit der **erneut bereitstellen** Aktion im Verwaltungsportal verfügbar.
+    *SQL-Datenbankserver*
+6. In der **Schnellstart** Seite des Servers, klicken Sie auf **konfigurieren**.
 
-    ![Azure überwacht die Bereitstellungen, die Commits per Push an das Repository zugeordnet und bietet eine Option aus, um die Anwendung, die mit Ihrer vorherigen Bereitstellungen, jederzeit erneut bereitzustellen.")
+    ![Menü "konfigurieren"](maintainable-azure-websites-managing-change-and-scale/_static/image28.png "Menü \"konfigurieren\"")
 
-    *In dieser Übung führen Sie eine Änderung an den Code in die *Meister Quiz* -Anwendung, die absichtlich Fügt eine Fehler.*
-7. Stellt Sie bereit, die Anwendung für die Produktion, um den Fehler anzuzeigen, und klicken Sie dann Sie nutzt die Funktion erneut bereitstellen zu den vorherigen Zustand zurückkehren.
+    *Konfigurieren Sie im Menü*
+7. In der **zulässige IP-Adressen** an, klicken Sie im Abschnitt **hinzufügen, die den zulässigen IP-Adressen** Link, um die IP-Adresse für die Verbindung mit dem SQL-Datenbank-Server zu aktivieren.
 
-    ![Aufgabe 1: Aktualisieren der Meister Quiz-Anwendung")
+    ![Zulässige IP-Adressen](maintainable-azure-websites-managing-change-and-scale/_static/image29.png "zulässige IP-Adressen")
 
-    *In dieser Aufgabe gestalten Sie ein kleines Stück des Codes, der die *TriviaController* Klasse Teil der Programmlogik zu extrahieren, die die ausgewählte Test-Option in eine neue Methode aus der Datenbank abruft.*
-8. Wechseln Sie zu Visual Studio-Instanz mit der **GeekQuiz** Lösung aus der vorhergehenden Übung.
+    *Zulässige IP-Adressen*
+8. Klicken Sie auf **speichern** am unteren Rand der Seite, um den Schritt abzuschließen.
 9. Wechseln Sie zurück zu Visual Studio.
-10. In **Projektmappen-Explorer**öffnen die *TriviaController.cs* Datei innerhalb der Controller Ordner.
+10. In der **-Paket-Manager-Konsole**, führen Sie den folgenden Befehl und Ersetzen Sie dabei *[YOUR-CONNECTION-STRING]* Platzhalter durch die Verbindungszeichenfolge, die Sie aus Azure kopiert
 
     [!code-powershell[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample10.ps1)]
 
-    ![Suchen Sie die ![StoreAsync] Methode, und wählen Sie der Code in der folgenden Abbildung hervorgehoben.")
+    ![Aktualisieren einer Datenbank für Windows Azure SQL-Datenbank](maintainable-azure-websites-managing-change-and-scale/_static/image30.png "Datenbank aktualisieren, die für Windows Azure SQL-Datenbank")
 
-    *Wählen den code*
+    *Aktualisieren einer Datenbank für Azure SQL-Datenbank*
 
 <a id="Ex2Task3"></a>
-#### <a name="task-3--deploying-geek-quiz-to-staging-using-git"></a>Mit der rechten Maustaste in des ausgewählten Codes, erweitern Sie die Umgestalten Menü Methode extrahieren... .
+#### <a name="task-3--deploying-geek-quiz-to-staging-using-git"></a>Aufgabe 3: Bereitstellen von Meister Quiz in die Stagingumgebung, die mithilfe von Git
 
-Den Code extrahieren als eine neue Methode Wählen die Extract-Methode
+In dieser Aufgabe können Sie bei der Veröffentlichung in Ihrer Web-app. Klicken Sie dann verwenden Sie Git zum Veröffentlichen der Anwendung Meister Quiz direkt aus Ihrem lokalen Computer in der Stagingumgebung bereit, der Web-app.
 
-1. In der **Methode extrahieren** klicken Sie im Dialogfeld die Namen der neuen Methode MatchesOption , und klicken Sie auf OK.
+1. Wechseln Sie zurück zum Portal, und klicken Sie auf den Namen der Web-app unter der **Namen** Spalte die Verwaltungsseiten angezeigt.
 
-    ![Der Name der Methode angeben](maintainable-azure-websites-managing-change-and-scale/_static/image31.png)
+    ![Öffnen die Seiten der Web-app-Verwaltung](maintainable-azure-websites-managing-change-and-scale/_static/image31.png)
 
-    *Der Name der Methode angeben*
-2. Angeben des Namens für die extrahierte Methode Unter den **allgemeine** wählen Sie im Abschnitt **Standard** für die Konfiguration und klicken Sie auf **speichern** in der Befehlsleiste.
+    *Öffnen die Seiten der Web-app-Verwaltung*
+2. Navigieren Sie zu der **Skalierung** Seite. Unter den **allgemeine** wählen Sie im Abschnitt **Standard** für die Konfiguration und klicken Sie auf **speichern** in der Befehlsleiste.
 
     > [!NOTE]
     > Zum Ausführen aller Web-apps in der aktuellen Region und Abonnement in **Standard** Modus, lassen die **Alles markieren** Kontrollkästchen der **Standorte auswählen** Konfiguration. Deaktivieren Sie andernfalls die **Alles markieren** Kontrollkästchen.
@@ -745,7 +742,7 @@ Wechseln Sie in dieser Übung über die erforderlichen Schritte zum Konfiguriere
 In dieser Aufgabe verwenden Sie das Azure-Verwaltungsportal, um die Autoscale-Funktion für die Web-app zu aktivieren, die Sie in der Übung 2 erstellt haben.
 
 1. In der [Azure-Verwaltungsportal](https://manage.windowsazure.com/)Option **Websites** , und klicken Sie auf die Web-app, die Sie in der Übung 2 erstellt haben.
-2. Angeben des Namens für die extrahierte Methode Unter den **Kapazität** wählen Sie im Abschnitt **CPU** für die **nach Metrik skalieren** Konfiguration.
+2. Navigieren Sie zu der **Skalierung** Seite. Unter den **Kapazität** wählen Sie im Abschnitt **CPU** für die **nach Metrik skalieren** Konfiguration.
 
     > [!NOTE]
     > Bei der Skalierung von CPU, passt Azure dynamisch die Anzahl der Instanzen, die die app verwendet wird, wenn die CPU-Auslastung ändert.
@@ -790,18 +787,18 @@ Nachdem **für die automatische Skalierung** wurde konfiguriert haben, erstellen
     ![Ändern die Url-Eigenschaft](maintainable-azure-websites-managing-change-and-scale/_static/image82.png "Ändern der Url-Eigenschaft")
 
     *Ändern die Url-Eigenschaft*
-5. Reduzieren Sie die maximalen und minimalen Werte, der die **Ziel-CPU** Bereich in der Konfiguration der automatischen Skalierung Ihrer Web-App
+5. In der **Namen "WebTest1.webtest"** Fenster mit der rechten Maustaste **WebTest1** , und klicken Sie auf **Schleife hinzufügen...** .
 
-    ![Ausführen des Auslastungstests in der Cloud mit ![Visual Studio Online].")
+    ![Hinzufügen einer Schleife zu WebTest1](maintainable-azure-websites-managing-change-and-scale/_static/image83.png "Hinzufügen einer Schleife zu WebTest1")
 
-    *Weitere Informationen *hier*
-6. In dieser praktischen Übungseinheit haben Sie gelernt, wie Sie zum Einrichten und Bereitstellen der Anwendung auf Produktions-Web-apps in Azure.
+    *Hinzufügen einer Schleife zu WebTest1*
+6. In der **Bedingungsregel und Elemente hinzufügen zu Schleife** wählen Sie im Dialogfeld die **For-Schleife** Regel, und ändern Sie die folgenden Eigenschaften.
 
-   1. **Sie beginnen, indem Sie erkennen, und aktualisieren Ihre Datenbanken mithilfe von **Entity Framework Code First-Migrationen**, setzte sich durch das Bereitstellen neuer Versionen des Standorts mit Git und Ausführen von Rollbacks zu den neueste stabile Version Ihres Standorts.
-   2. **Darüber hinaus haben Sie Ihre app mit Speicher auf den statischen Inhalt in einen Blob-Container verschieben zu skalieren.
-   3. **Sie beginnen, indem Sie erkennen, und aktualisieren Ihre Datenbanken mithilfe von **Entity Framework Code First-Migrationen**, setzte sich durch das Bereitstellen neuer Versionen des Standorts mit Git und Ausführen von Rollbacks zu den neueste stabile Version Ihres Standorts.
+   1. **Beenden Sie Wert:** 1000
+   2. **Kontextparametername:** Iterator
+   3. **Der Inkrementwert:** 1
 
-      ![Darüber hinaus haben Sie Ihre app mit Speicher auf den statischen Inhalt in einen Blob-Container verschieben zu skalieren.")
+      ![Die Regel für Schleife auswählen und Aktualisieren der Eigenschaften](maintainable-azure-websites-managing-change-and-scale/_static/image84.png "Sie die Regel für Schleife auswählen und Aktualisieren der Eigenschaften")
 
       *Die Regel für Schleife auswählen und Aktualisieren der Eigenschaften*
 7. Unter den **Elemente in Schleife** Abschnitt, wählen Sie die Anforderung, die Sie zuvor erstellt haben als das erste und letzte Element, für die Schleife. Klicken Sie auf **OK** um den Vorgang fortzusetzen.
