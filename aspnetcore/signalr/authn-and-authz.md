@@ -1,0 +1,124 @@
+---
+title: Authentifizierung und Autorisierung in ASP.NET Core SignalR
+author: rachelappel
+description: Erfahren Sie, wie Sie Authentifizierung und Autorisierung in ASP.NET Core SignalR verwenden.
+monikerRange: '>= aspnetcore-2.1'
+ms.author: anurse
+ms.custom: mvc
+ms.date: 06/29/2018
+uid: signalr/authn-and-authz
+ms.openlocfilehash: 32e5fcf2fd3f888e0e131fa47bd9a74eede3c26d
+ms.sourcegitcommit: 32626efaa7316c9b283c96be6516e637d548c5e5
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39028462"
+---
+# <a name="authentication-and-authorization-in-aspnet-core-signalr"></a>Authentifizierung und Autorisierung in ASP.NET Core SignalR
+
+Durch [Andrew Stanton-Nurse](https://twitter.com/anurse)
+
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/authn-and-authz/sample/) [(Herunterladen von)](xref:tutorials/index#how-to-download-a-sample)
+
+## <a name="authenticate-users-connecting-to-a-signalr-hub"></a>Authentifizieren von Benutzern, die Verbindung mit einer SignalR-hub
+
+SignalR kann verwendet werden, mit [Authentifizierung in ASP.NET Core](xref:security/authentication/index) , jede Verbindung ein Benutzers zugeordnet werden soll. In einem Hub Authentifizierungsdaten über aufgerufen werden können die [ `HubConnectionContext.User` ](/dotnet/api/microsoft.aspnetcore.signalr.hubconnectioncontext.user) Eigenschaft. Authentifizierung kann den Hub zum Aufrufen von Methoden für alle Verbindungen mit einem Benutzer verknüpft (finden Sie unter [Verwalten von Benutzern und Gruppen in SignalR](xref:signalr/groups) Informationen). Mehrere Verbindungen können einen einzelnen Benutzer zugeordnet werden.
+
+### <a name="cookie-authentication"></a>Cookie-Authentifizierung
+
+In einer browserbasierten-app ermöglicht Cookie-Authentifizierung für Ihre vorhandenen Anmeldeinformationen des Benutzers automatisch an die SignalR-Verbindungen übermittelt. Wenn Sie den Browserclient zu verwenden, ist keine zusätzliche Konfiguration erforderlich. Wenn der Benutzer zu Ihrer app angemeldet ist, erbt die SignalR-Verbindung automatisch diese Authentifizierung.
+
+Cookie-Authentifizierung wird nicht empfohlen, es sei denn, der app lediglich zum Authentifizieren von Benutzern aus dem Webclient benötigt. Bei Verwendung der [.NET Client](xref:signalr/dotnet-client), `Cookies` Eigenschaft kann konfiguriert werden, der `.WithUrl` Aufruf, um ein Cookie bereitzustellen. Verwenden der Cookieauthentifizierung vom .NET-Client erfordert jedoch die app eine API zum Austauschen von Authentifizierungsdaten für ein Cookie bereitstellen.
+
+### <a name="bearer-token-authentication"></a>Token-Bearer-Authentifizierung
+
+Token-Bearer-Authentifizierung wird empfohlen, wenn Clients als Browser-Clients verwenden. Bei diesem Ansatz wird dem Client ein Zugriffstoken, die der Server überprüft und zur Identifizierung des Benutzers verwendet. Die Details des Bearer-token-Authentifizierung sind über den Rahmen dieses Dokuments hinaus. Auf dem Server Bearer-token-Authentifizierung erfolgt über die [JWT-Bearer-Middleware](/dotnet/api/microsoft.extensions.dependencyinjection.jwtbearerextensions.addjwtbearer).
+
+In JavaScript-Client das Token kann bereitgestellt werden, mithilfe der [AccessTokenFactory](xref:signalr/configuration#configure-bearer-authentication) Option.
+
+[!code-typescript[Configure Access Token](authn-and-authz/sample/wwwroot/js/chat.ts?range=63-65)]
+
+In der .NET Client besteht ein ähnliches [AccessTokenProvider](xref:signalr/configuration#configure-bearer-authentication) -Eigenschaft, die zum Konfigurieren des Tokens verwendet werden kann:
+
+```csharp
+var connection = new HubConnectionBuilder()
+    .WithUrl("https://example.com/myhub", options =>
+    { 
+        options.AccessTokenProvider = () => _myAccessToken;
+    })
+    .Build();
+```
+
+> [!NOTE]
+> Die token Access-Funktion, die Sie angeben, wird aufgerufen, bevor **jeder** HTTP-Anforderung, die von SignalR. Wenn Sie das Token zu erneuern, um die Verbindung aktiv bleibt, (da es beim Herstellen der Verbindung ablaufen kann) müssen, tun Sie dies innerhalb dieser Funktion und das aktualisierte Token zurückgegeben.
+
+Bearertoken werden in standard-Web-APIs einen HTTP-Header gesendet. SignalR ist jedoch nicht möglich, diese Header in Browsern festlegen, wenn Sie einige Transporte verwenden. Bei Verwendung von WebSockets "und" Server-Sent Ereignisse wird das Token als ein Abfragezeichenfolgen-Parameter übertragen. Um dies auf dem Server zu unterstützen, sind zusätzliche Konfigurationsschritte erforderlich:
+
+[!code-csharp[Configure Server to accept access token from Query String](authn-and-authz/sample/Startup.cs?range=33-34,42-80,90)]
+
+### <a name="windows-authentication"></a>Windows-Authentifizierung
+
+Wenn [Windows-Authentifizierung](xref:security/authentication/windowsauth) erfolgt in Ihrer app kann SignalR, die diese Identität zum Sichern von Hubs verwenden. Um Nachrichten an einzelne Benutzer zu senden, müssen Sie jedoch einen benutzerdefinierten Anbieter für die Benutzer-ID hinzufügen. Dies ist, da das System der Windows-Authentifizierung nicht den Anspruch "Name Identifier", den SignalR verwendet bereitstellt, um zu bestimmen, den Benutzernamen ein.
+
+Fügen Sie eine neue Klasse, die implementiert `IUserIdProvider` und Abrufen von einer der Ansprüche aus dem Benutzer, die als Bezeichner zu verwenden. Um beispielsweise den Anspruch "Name" verwenden (Dies ist die Windows-Benutzernamen im Format `[Domain]\[Username]`), erstellen Sie die folgende Klasse:
+
+```csharp
+public class NameUserIdProvider : IUserIdProvider
+{
+    public string GetUserId(HubConnectionContext connection)
+    {
+        return connection.User?.FindFirst(ClaimTypes.Name)?.Value;
+    }
+}
+```
+
+Statt `ClaimTypes.Name`, können Sie einen beliebigen Wert aus der `User` (z. B. die Windows-SID-ID, usw.).
+
+> [!NOTE]
+> Die von Ihnen ausgewählte Wert muss zwischen allen Benutzern in Ihrem System eindeutig. Andernfalls konnte eine Nachricht für einen einzelnen Benutzer vorgesehen am Ende zu einem anderen Benutzer.
+
+Registrieren Sie diese Komponente in Ihre `Startup.ConfigureServices` Methode **nach** den Aufruf von `.AddSignalR`
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    // ... other services ...
+
+    services.AddSignalR();
+    services.AddSingleton<IUserIdProvider, NameUserIdProvider>();
+}
+```
+
+## <a name="authorize-users-to-access-hubs-and-hub-methods"></a>Autorisieren von Benutzern für den Zugriff Hubs und hubmethoden
+
+Standardmäßig können alle Methoden in einem Hub nicht authentifizierter Benutzer aufgerufen werden. Um die Authentifizierung erforderlich ist, gelten die [autorisieren](/dotnet/api/microsoft.aspnetcore.authorization.authorizeattribute) Attribut mit dem Hub:
+
+[!code-csharp[Restrict a hub to only authorized users](authn-and-authz/sample/Hubs/ChatHub.cs?range=8-10,32)]
+
+Können Sie die Konstruktorargumente und die Eigenschaften der `[Authorize]` Attribut, um den Zugriff auf nur übereinstimmende bestimmte Benutzer beschränken [Autorisierungsrichtlinien](xref:security/authorization/policies). Wenn Sie eine benutzerdefinierte Autorisierungsrichtlinie aufgerufen haben z. B. `MyAuthorizationPolicy` können Sie sicherstellen, dass nur Benutzer, die dieser Richtlinie entsprechen den Hub, mit dem folgenden Code zugreifen können:
+
+```csharp
+[Authorize("MyAuthorizationPolicy")]
+public class ChatHub: Hub
+{
+}
+```
+
+Einzelne hubmethoden haben die `[Authorize]` ebenfalls angewendet. Wenn der aktuelle Benutzer die Richtlinie angewendet wird, an die Methode nicht übereinstimmt, wird ein Fehler an den Aufrufer zurückgegeben:
+
+```csharp
+[Authorize]
+public class ChatHub: Hub
+{
+    public async Task Send(string message)
+    {
+        // ... send a message to all users ...
+    }
+
+    [Authorize("Administrators")]
+    public void BanUser(string userName)
+    {
+        // ... ban a user from the chat room (something only Administrators can do) ...
+    }
+}
+```
