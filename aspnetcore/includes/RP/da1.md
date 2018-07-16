@@ -1,13 +1,13 @@
-# <a name="update-the-generated-pages"></a>Aktualisieren der generierten Seiten
+# <a name="update-the-generated-pages"></a><span data-ttu-id="84551-101">Aktualisieren der generierten Seiten</span><span class="sxs-lookup"><span data-stu-id="84551-101">Update the generated pages</span></span>
 
-Von [Rick Anderson](https://twitter.com/RickAndMSFT)
+<span data-ttu-id="84551-102">Von [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="84551-102">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
-Für den Anfang ist die Movie-App schon recht ansprechend, doch es gibt Raum für Verbesserungen. Wir wollen die Uhrzeit nicht sehen (12:00:00 Uhr in der nachstehenden Abbildung), und **ReleaseDate** als soll **Release Date** (zwei Wörter) angezeigt werden.
+<span data-ttu-id="84551-103">Für den Anfang ist die Movie-App schon recht ansprechend, doch es gibt Raum für Verbesserungen.</span><span class="sxs-lookup"><span data-stu-id="84551-103">We have a good start to the movie app, but the presentation isn't ideal.</span></span> <span data-ttu-id="84551-104">Wir wollen die Uhrzeit nicht sehen (12:00:00 Uhr in der nachstehenden Abbildung), und **ReleaseDate** als soll **Release Date** (zwei Wörter) angezeigt werden.</span><span class="sxs-lookup"><span data-stu-id="84551-104">We don't want to see the time (12:00:00 AM in the image below) and **ReleaseDate** should be **Release Date** (two words).</span></span>
 
 ![In Chrome geöffnete Movie-Anwendung mit Filmdaten](../../tutorials/razor-pages/sql/_static/m55.png)
 
-## <a name="update-the-generated-code"></a>Aktualisieren des generierten Codes
+## <a name="update-the-generated-code"></a><span data-ttu-id="84551-106">Aktualisieren des generierten Codes</span><span class="sxs-lookup"><span data-stu-id="84551-106">Update the generated code</span></span>
 
-Öffnen Sie die Datei *Models/Movie.cs*, und fügen Sie die im folgenden Code gezeigten markierten Zeilen hinzu:
+<span data-ttu-id="84551-107">Öffnen Sie die Datei *Models/Movie.cs*, und fügen Sie die im folgenden Code gezeigten markierten Zeilen hinzu:</span><span class="sxs-lookup"><span data-stu-id="84551-107">Open the *Models/Movie.cs* file and add the highlighted lines shown in the following code:</span></span>
 
 [!code-csharp[](code/Models/Movie.cs?highlight=2,11-12)]

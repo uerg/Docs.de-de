@@ -1,7 +1,7 @@
-Wenn Sie eine Fehlermeldung erhalten, müssen Sie Folgendes tun:
+<span data-ttu-id="4ea2a-101">Wenn Sie eine Fehlermeldung erhalten, müssen Sie Folgendes tun:</span><span class="sxs-lookup"><span data-stu-id="4ea2a-101">If you get the error:</span></span>
   ```
   The process cannot access the file 
  'RazorPagesMovie/bin/Debug/netcoreapp2.0/RazorPagesMovie.dll' 
   because it is being used by another process.
   ```
-Beenden Sie Visual Studio, und führen Sie den Befehl erneut aus.
+<span data-ttu-id="4ea2a-102">Beenden Sie Visual Studio, und führen Sie den Befehl erneut aus.</span><span class="sxs-lookup"><span data-stu-id="4ea2a-102">Exit Visual Studio and run the command again.</span></span>
