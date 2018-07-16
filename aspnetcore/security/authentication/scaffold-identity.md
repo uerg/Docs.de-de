@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 5/16/2018
 uid: security/authentication/scaffold-identity
-ms.openlocfilehash: cf6544d8b671f026c8466fa8dff506027b64cf1f
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 07163941d0bd1fea6f9b3d9867536580d8a9e9d8
+ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38217681"
+ms.lasthandoff: 07/15/2018
+ms.locfileid: "39063272"
 ---
 # <a name="scaffold-identity-in-aspnet-core-projects"></a>Gerüst-Identität in ASP.NET Core-Projekten
 
@@ -64,6 +64,10 @@ Identität wird im konfiguriert *Areas/Identity/IdentityHostingStartup.cs*. Weit
 ### <a name="migrations-useauthentication-and-layout"></a>Migrationen, UseAuthentication und layout
 
 [!INCLUDE[](~/includes/scaffold-identity/migrations.md)]
+
+<a name="useauthentication"></a>
+
+### <a name="enable-authentication"></a>Aktivieren der Authentifizierung
 
 In der `Configure` Methode der `Startup` Klasse, rufen Sie [UseAuthentication](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_) nach `UseStaticFiles`:
 

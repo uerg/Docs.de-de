@@ -5,12 +5,12 @@ description: In diesem Tutorial werden verwandte Daten gelesen und angezeigt. Da
 ms.author: riande
 ms.date: 11/05/2017
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: 4e0aa7151cc54f666202458ba60500a7c04f5ebb
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: fa3147cc4ad121784911eef802e04ca91f16448f
+ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276759"
+ms.lasthandoff: 07/15/2018
+ms.locfileid: "39063311"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Razor-Seiten mit EF Core in ASP.NET Core: Lesen verwandter Daten (6 von 8)
 
@@ -74,19 +74,11 @@ So zeigen Sie den Namen der zugewiesenen Abteilung in einer Kursliste an:
 * Führen Sie den folgenden Befehl aus:
 
   ```console
+  dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 2.1.0
   dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
   ```
 
 Der vorherige Befehl erstellt ein Gerüst für das `Course`-Modell. Öffnen Sie das Projekt in Visual Studio.
-
-Erstellen Sie das Projekt. Der Build generiert z.B. die folgenden Fehler:
-
-`1>Pages/Courses/Index.cshtml.cs(26,37,26,43): error CS1061: 'SchoolContext' does not
- contain a definition for 'Course' and no extension method 'Course' accepting a first
- argument of type 'SchoolContext' could be found (are you missing a using directive or
- an assembly reference?)`
-
- Ändern Sie `_context.Course` allgemein in `_context.Courses` (d.h., fügen Sie ein „s“ zu `Course` hinzu). Der Begriff wurde siebenmal gefunden und aktualisiert.
 
 Öffnen Sie *Pages/Courses/Index.cshtml.cs*. Untersuchen Sie die `OnGetAsync`-Methode. Die Gerüstbauengine gibt Eager Loading für die `Department`-Navigationseigenschaft an. Die `Include`-Methode gibt Eager Loading an.
 
