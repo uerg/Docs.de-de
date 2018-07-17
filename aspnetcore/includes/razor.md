@@ -1,4 +1,6 @@
-Dieses Tutorial vermittelt Informationen zur ASP.NET Core MVC-Webentwicklung mit Controllern und Ansichten. Razor-Seiten stellen eine neue Alternative in ASP.NET Core 2.0 und höher dar – ein seitenbasiertes Programmiermodell, mit dem das Erstellen einer Webbenutzeroberfläche einfacher und produktiver wird. Es empfiehlt sich, dass Sie sich das Tutorial der [Razor Pages](xref:tutorials/razor-pages/razor-pages-start) vor der MVC-Version ansehen. Das Tutorial zu Razor Pages:
+Dieses Tutorial vermittelt Informationen zur ASP.NET Core MVC-Webentwicklung mit Controllern und Ansichten. Razor Pages ist ein Feature des ASP.NET Core-MVC-Frameworks, mit dem die Erstellung und das Testen der Webbenutzeroberfläche einfacher und produktiver wird. Sie können Razor Pages zusammen mit Controllern und Ansicht im selben Projekt verwenden.
+
+Nach der Verwendung von Razor Pages ziehen viele Entwickler dieses Feature Controllern und Ansichten vor. Es wird empfohlen, sich das Tutorial zu [Razor Pages](xref:tutorials/razor-pages/razor-pages-start) vor dem Tutorial zu MVC/Controllern/Ansichten anzusehen. Das Tutorial zu Razor Pages:
 
 * Ist die bevorzugte Methode für die Entwicklung neuer Anwendungen.
 * Ist einfacher zu befolgen.
