@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/07/2017
 uid: host-and-deploy/index
-ms.openlocfilehash: 31444475e39a12d526dd624bb508770429e414ca
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: e62b68c4cfad29bb8bea3b9fbb2c231a4afeccea
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277149"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095667"
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Hosten und Bereitstellen von ASP.NET Core
 
@@ -71,6 +71,10 @@ Mithilfe des [Features zum Veröffentlichen einer Web-App](xref:tutorials/publis
 ## <a name="publishing-to-azure"></a>Veröffentlichen in Azure
 
 Anweisungen zum Veröffentlichen einer App in Azure mit Visual Studio finden Sie unter [Veröffentlichen einer ASP.NET Core-Web-App in Azure App Service mit Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs). Die App kann auch über die [Befehlszeile](xref:tutorials/publish-to-azure-webapp-using-cli) in Azure veröffentlicht werden.
+
+## <a name="host-in-a-web-farm"></a>Hosten in einer Webfarm
+
+Weitere Informationen zur Konfiguration des Hostings von ASP.NET Core-Apps in einer Webfarmumgebung (z.B. Bereitstellen mehrerer App-Instanzen zur besseren Skalierbarkeit) finden Sie unter <xref:host-and-deploy/web-farm>.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 

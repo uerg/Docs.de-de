@@ -1,30 +1,30 @@
 ---
-title: -Angriffe zu verhindern, dass Cross-Site Request XSRF/Websiteübergreifender Anforderungsfälschung in ASP.NET Core
+title: Zu verhindern, dass Cross-Site Request Forgery (XSRF/CSRF) attacks in ASP.NET Core
 author: steve-smith
-description: Erfahren Sie, wie ein, um Angriffe auf Web-apps zu verhindern, in denen eine bösartige Website die Interaktion zwischen einem Clientbrowser und die app auswirken kann.
+description: Erfahren Sie, wie ein, um Angriffe auf Web-apps zu verhindern, in dem eine schädliche Website die Interaktion zwischen einem Clientbrowser und die app auswirken kann.
 ms.author: riande
 ms.custom: mvc
 ms.date: 03/19/2018
 uid: security/anti-request-forgery
-ms.openlocfilehash: a00bd4ff4b265a19766e54e6ad6b97b870df56c5
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 6a30e1e2321ca3a81d6e1a320d1d87dddb3033c7
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36279596"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095787"
 ---
-# <a name="prevent-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>-Angriffe zu verhindern, dass Cross-Site Request XSRF/Websiteübergreifender Anforderungsfälschung in ASP.NET Core
+# <a name="prevent-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>Zu verhindern, dass Cross-Site Request Forgery (XSRF/CSRF) attacks in ASP.NET Core
 
 Durch [Steve Smith](https://ardalis.com/), [Fiyaz Hasan](https://twitter.com/FiyazBinHasan), und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Websiteübergreifende anforderungsfälschung (auch bekannt als XSRF oder CSRF, Aussprache *Siehe Surfen*) ist ein Angriff gegen Web gehostete apps, die bei dem eine böswillige Web-app die Interaktion zwischen einem Clientbrowser und eine WebApp, die Vertrauensstellungen, die beeinflussen kann Browser. Diese Angriffe sind möglich, da Webbrowsern einige Arten von Authentifizierungstoken automatisch mit jeder Anforderung an eine Website gesendete. Diese Form von Angriff ist auch bekannt als ein *einmalklick-Angriff* oder *Sitzung riding* , da das Risiko eines Angriffs nutzt die der Benutzer zuvor Sitzung authentifiziert.
+Websiteübergreifende anforderungsfälschung (auch bekannt als XSRF oder CSRF-Angriffen ausgesprochen *finden Sie unter ausspricht*) ist ein Angriff gegen gehostete Web-apps, die eine böswilligen Web-app kann bei dem die Interaktion zwischen einem Clientbrowser und einer Web-app, die vertraut, die beeinflussen Browser. Diese Angriffe sind möglich, da Webbrowser einige Arten von Authentifizierungstoken automatisch mit jeder Anforderung an eine Website gesendet werden. Diese Form der Exploit ist auch bekannt als eine *One-Click-Angriffs* oder *Sitzung Vorderkante* , da der Angriff nutzt die der Benutzer zuvor Sitzung authentifiziert.
 
-Ein Beispiel von CSRF-Angriffen:
+Ein Beispiel eines CSRF-Angriffs:
 
-1. Ein Benutzer meldet sich in `www.good-banking-site.com` mit Formularauthentifizierung. Der Server authentifiziert den Benutzer und gibt eine Antwort, die ein Authentifizierungscookie enthält. Der Standort ist anfällig für Angriffe, da sie alle Anforderungen vertraut, die sie mit einem gültigen Authentifizierungscookie erhält.
-1. Der Benutzer besucht eine bösartige Website `www.bad-crook-site.com`.
+1. Ein Benutzer meldet sich in `www.good-banking-site.com` mit Formularauthentifizierung. Der Server authentifiziert den Benutzer und gibt eine Antwort, die ein Authentifizierungscookie enthält. Der Standort ist anfällig für Angriffe, da es sich um alle Anforderungen vertraut, die sie mit der ein gültiges Authentifizierungscookie erhält.
+1. Der Benutzer besucht eine schädliche Website, `www.bad-crook-site.com`.
 
-   Die bösartige Website `www.bad-crook-site.com`, enthält ein HTML-Formular, das etwa wie folgt:
+   Die bösartige Website, `www.bad-crook-site.com`, enthält ein HTML-Formular, das dem folgenden ähnelt:
 
    ```html
    <h1>Congratulations! You're a Winner!</h1>
@@ -35,66 +35,66 @@ Ein Beispiel von CSRF-Angriffen:
    </form>
    ```
 
-   Beachten Sie, dass des Formulars `action` Beiträge, die an die anfällig für Website und nicht an die bösartige Website. Dies ist der "Cross-Site" Teil CSRF.
+   Beachten Sie, dass des Formulars `action` Beiträge an anfälligen Website und nicht an die bösartige Website. Dies ist der Teil von "Cross-Site" für CSRF.
 
-1. Der Benutzer wählt die Schaltfläche "Absenden". Der Browser sendet die Anforderung und schließt automatisch das Authentifizierungscookie für die angeforderte Domäne `www.good-banking-site.com`.
-1. Die Anforderung ausgeführt wird, auf die `www.good-banking-site.com` Server mit dem Kontext des Benutzers Authentifizierung und alle Aktionen, die ein authentifizierter Benutzer ausführen darf ausführen können.
+1. Der Benutzer wählt die Schaltfläche "Senden". Der Browser sendet die Anforderung und schließt automatisch das Authentifizierungscookie für die angeforderte Domäne `www.good-banking-site.com`.
+1. Die Anforderung ausgeführt wird, auf die `www.good-banking-site.com` Server mit dem Kontext des Benutzers Authentifizierung und können Aktionen, die ein authentifizierter Benutzer ausführen darf.
 
-Zusätzlich zu dem Szenario, in dem der Benutzer die Schaltfläche zum Senden des Formulars auswählt, können die bösartige Website:
+Zusätzlich zu dem Szenario, in dem sich der Benutzer auf die Schaltfläche zum Senden des Formulars auswählt, können die bösartige Website:
 
-* Führen Sie ein Skript, das automatisch auf das Formular sendet.
-* Senden Sie der Übermittlung des Formulars als eine AJAX-Anforderung.
-* Blenden Sie das Formular mithilfe der CSS.
+* Führen Sie ein Skript, das automatisch auf das Formular übermittelt.
+* Senden Sie die Übermittlung des Formulars wird als eine AJAX-Anforderung.
+* Blenden Sie das Formular mit CSS.
 
-Diese alternativen Szenarien erfordern keine Aktion kein(e) Eingaben des Benutzers als anfänglich die bösartige Website besuchen.
+Diese alternativen Szenarien erforderlich keine Aktion oder die Eingabe des Benutzers als zunächst auf die bösartige Website.
 
-Verwendung von HTTPS nicht zu verhindern, dass eine CSRF-Angriffen. Kann die bösartige Website senden ein `https://www.good-banking-site.com/` anfordern genauso einfach wie eine unsichere Anforderung senden können.
+Mithilfe von HTTPS nicht verhindert, dass eine CSRF-Angriffe. Kann die bösartige Website senden ein `https://www.good-banking-site.com/` Anforderung so einfach wie eine unsichere Anforderung senden kann.
 
-Einige Angriffe als Ziel Endpunkte, auf die GET-Anforderungen reagiert. in diesem Fall einem Bildtag dienen zum Ausführen der Aktion. Diese Form von Angriff ist üblich, auf der Forum-Standorte, die Bilder ermöglichen jedoch JavaScript blockiert. Apps, die Status für GET-Anforderungen ändern, in denen Variablen oder Ressourcen geändert werden, sind anfällig für Angriffe. **GET-Anforderungen, die Status geändert sind unsicher. Eine bewährte Methode besteht darin nie Zustand für eine GET-Anforderung ändern.**
+Einige Angriffe Zielen Endpunkte, die auf den GET-Anforderungen, Antworten in diesem Fall ein Bildtag dienen zum Ausführen der Aktion. Diese Form des Angriffs ist üblich, auf der Forum-Websites, die Bilder zulässig, aber Hiermit blockieren Sie JavaScript. Apps, die statusänderung zu GET-Anforderungen, bei dem Variablen oder Ressourcen geändert werden, sind anfällig für Angriffe. **GET-Anforderungen, die Status ändern, sind unsicher. Eine bewährte Methode besteht darin Zustand für eine GET-Anforderung nie zu ändern.**
 
-CSRF-Angriffen sind für Web-apps, die Cookies für die Authentifizierung zu verwenden, da möglich:
+CSRF-Angriffe sind für Web-apps, die Cookies für die Authentifizierung zu verwenden, da möglich:
 
-* Browser Speichern von Cookies, die von einer Web-app ausgegeben.
-* Gespeicherte Cookies enthalten die Sitzungscookies für authentifizierte Benutzer.
-* Browser senden alle Cookies einer Domäne in der Web-app zugeordnete jede Anforderung, unabhängig davon, wie die Anforderung an die app innerhalb des Browsers generiert wurde.
+* Speichern Browser die Cookies, die von einer Web-app ausgestellt.
+* Gespeicherten Cookies enthalten die Sitzungscookies für authentifizierte Benutzer.
+* Browser senden, dass alle Cookies mit einer Domäne zur Web-app verknüpft ist jede Anforderung unabhängig davon, wie die Anforderung an die app im Browser generiert wurde.
 
-Allerdings CSRF-Angriffen sind nicht begrenzt auf Cookies ausnutzen. Beispielsweise Basis-und Digestauthentifizierung sind auch anfällig. Nachdem ein Benutzer mit Standard oder Digest-Authentifizierung anmeldet, sendet der Browser die Anmeldeinformationen automatisch bis die Sitzung&dagger; endet.
+Allerdings CSRF-Angriffe sind nicht beschränkt auf Cookies ausnutzen. Z. B. Basis-und Digestauthentifizierung sind auch anfällig. Nachdem ein Benutzer mit der Standard oder Digest-Authentifizierung anmeldet, sendet der Browser die Anmeldeinformationen automatisch bis die Sitzung&dagger; endet.
 
-&dagger;In diesem Kontext *Sitzung* bezieht sich auf die clientseitige-Sitzung, die während der Authentifizierung des Benutzers. Es ist unabhängig vom stagingstatus serverseitige Sitzungen oder [ASP.NET Core Sitzung Middleware](xref:fundamentals/app-state).
+&dagger;In diesem Kontext *Sitzung* bezieht sich auf die clientseitige Sitzung während der der Benutzer wird authentifiziert. Es ist, die nicht mit einem serverseitigen Sitzungen oder [ASP.NET Core-Sitzungsmiddleware](xref:fundamentals/app-state).
 
-Benutzer können CSRF Sicherheitsrisiken erraten, durch Vorsichtsmaßnahmen:
+Benutzer können sich gegen CSRF-Schwachstellen durch Vorsichtsmaßnahmen schützen:
 
-* Melden Sie sich außerhalb der Web-apps, die nach Abschluss ihrer Verwendung.
+* Melden Sie sich auf die Web-apps nach deren Verwendung.
 * Deaktivieren der Browsercookies in regelmäßigen Abständen.
 
-Allerdings sind CSRF Sicherheitsrisiken im Grunde ein Problem mit der Web-app, nicht für den Endbenutzer.
+CSRF-Sicherheitsrisiken sind jedoch im Grunde ein Problem mit der Web-app nicht der Endbenutzer.
 
 ## <a name="authentication-fundamentals"></a>Grundlagen der Authentifizierung
 
-Cookie-basierte Authentifizierung ist eine gängige Form der Authentifizierung. Token-basierter Authentifizierungssysteme wachsen in Beliebtheit, insbesondere für Single Page Applications (SPAs).
+Cookie-basierte Authentifizierung ist eine gängige Form der Authentifizierung. Tokenbasierte Authentifizierungssysteme wachsen Beliebtheit, insbesondere für Single Page Applications (SPAs).
 
 ### <a name="cookie-based-authentication"></a>Cookie-basierte Authentifizierung
 
-Wenn ein Benutzer authentifiziert hat, mithilfe seines Benutzernamens und Kennworts, sind sie ein Token, das ein Authentifizierungsticket für die Authentifizierung und Autorisierung verwendeten enthält ausgestellt. Das Token wird als ein Cookie, die mit jeder Anforderung der Client stellt gespeichert. Generieren und überprüfen dieses Cookie wird von der Cookieauthentifizierungsmiddleware ausgeführt. Die [Middleware](xref:fundamentals/middleware/index) einen Benutzerprinzipal in einem verschlüsselten Cookie serialisiert. Bei nachfolgenden Anforderungen die Middleware überprüft das Cookie, den Prinzipal erstellt, und weist den Prinzipal, der [Benutzer](/dotnet/api/microsoft.aspnetcore.http.httpcontext.user) Eigenschaft [HttpContext](/dotnet/api/microsoft.aspnetcore.http.httpcontext).
+Wenn ein Benutzer authentifiziert, mit ihrem Benutzernamen und Kennwort, sind sie ausgestellt ein Token, mit der ein Authentifizierungsticket, die für die Authentifizierung und Autorisierung verwendet werden kann. Das Token wird gespeichert, da ein Cookie an, die mit jeder Anforderung des Clients ist. Erstellen und überprüfen dieses Cookie wird durch die Cookieauthentifizierungs-Middleware ausgeführt. Die [Middleware](xref:fundamentals/middleware/index) einen Benutzerprinzipal in einem verschlüsselten Cookie serialisiert. Bei nachfolgenden Anforderungen, die Middleware überprüft das Cookie, erstellt den Prinzipal aus, und weist den Prinzipal, der [Benutzer](/dotnet/api/microsoft.aspnetcore.http.httpcontext.user) Eigenschaft ["HttpContext"](/dotnet/api/microsoft.aspnetcore.http.httpcontext).
 
-### <a name="token-based-authentication"></a>Token-basierte Authentifizierung
+### <a name="token-based-authentication"></a>Tokenbasierte Authentifizierung
 
-Wenn ein Benutzer authentifiziert wurde, sind sie ein Token (nicht antiforgery Token) ausgegeben. Das Token enthält Benutzerinformationen in Form von [Ansprüche](/dotnet/framework/security/claims-based-identity-model) oder ein Verweistoken, die die app auf Benutzerzustand verwaltet in der app verweist. Wenn ein Benutzer versucht, Zugriff auf eine Ressource, die eine Authentifizierung erforderlich ist, wird das Token an die app mit einer zusätzlichen Authorization-Header in Form von Bearer-Token gesendet. Dadurch wird die app zustandslos. Jede nachfolgende Anforderung ist das Token für die serverseitige Validierung in der Anforderung übergeben. Dieses Token wird nicht *verschlüsselte*; es hat *codiert*. Auf dem Server wird das Token für den Zugriff auf seine Informationen decodiert. Um das Token bei nachfolgenden Anforderungen zu senden, speichern Sie das Token im lokalen Speicher des Browsers. Werden Sie nicht Sicherheitsrisiko FORGERY besorgt, wenn das Token im lokalen Speicher des Browsers gespeichert werden. CSRF ist relevant, wenn das Token in einem Cookie gespeichert wird.
+Wenn ein Benutzer authentifiziert ist, können sie ein Token (kein Antifälschungstoken) ausgegeben. Das Token enthält Benutzerinformationen in Form von [Ansprüche](/dotnet/framework/security/claims-based-identity-model) oder ein Verweistoken, die die app auf Benutzerstatus, die in der app verwaltet verweist. Wenn ein Benutzer versucht, die Zugriff auf eine Ressource, die eine Authentifizierung erforderlich, wird das Token an die app mit einer zusätzlichen Authorization-Header in Form von Trägertoken, das gesendet. Dadurch wird die app zustandslos. In jeder nachfolgenden Anforderung wird das Token für die serverseitige Validierung in der Anforderung übergeben. Dieses Token ist nicht *verschlüsselte*; es *codiert*. Auf dem Server wird das Token decodiert, für den Zugriff auf ihre Informationen. Um das Token bei nachfolgenden Anforderungen zu senden, müssen Sie das Token im lokalen Speicher des Browsers gespeichert. Werden Sie keine Bedenken bezüglich eines CSRF-Sicherheitsrisiko, wenn das Token im lokalen Speicher des Browsers gespeichert ist. CSRF ist ein Problem auf, wenn das Token in einem Cookie gespeichert wird.
 
-### <a name="multiple-apps-hosted-at-one-domain"></a>Mehrere apps, die an einer Domäne gehostet
+### <a name="multiple-apps-hosted-at-one-domain"></a>Mehrere apps, die in einer Domäne gehostet werden.
 
-Freigegebene Hostingumgebungen sind anfällig für Sitzungsübernahme CSRF-Anmeldung und andere Angriffe.
+Freigegebene Hostingumgebungen sind anfällig für Session Hijacking, CSRF-Anmeldung und andere Angriffe.
 
-Obwohl `example1.contoso.net` und `example2.contoso.net` sind verschiedene Hosts besteht ein implizites Vertrauensverhältnis zwischen Hosts unter der `*.contoso.net` Domäne. Diese implizite Vertrauensstellung kann potenziell nicht vertrauenswürdige Hosts Cookies gegenseitig beeinträchtigen (die gleichen-Origin-Richtlinien, die zum Steuern der AJAX-Anforderungen sind nicht unbedingt auf HTTP-Cookies anwendbar).
+Obwohl `example1.contoso.net` und `example2.contoso.net` sind verschiedene Hosts besteht ein implizites Vertrauensverhältnis zwischen Hosts in der `*.contoso.net` Domäne. Diese implizite Vertrauensstellung kann potenziell nicht vertrauenswürdige Hosts die Cookies des jeweils anderen auswirken (die gleichen Ursprungs-Richtlinien, die steuern, AJAX-Anforderungen unbedingt gelten nicht für HTTP-Cookies).
 
-Angriffe, die vertrauenswürdigen Cookies zwischen apps, die auf der gleichen Domäne gehostet ausnutzen können verhindert werden, indem Sie Domänen nicht freigeben. Wenn jede app in einer eigenen Domäne gehostet wird, besteht keine Vertrauensstellung implizite Cookie, um diese auszunutzen.
+Angriffe, die vertrauenswürdige Cookies zwischen apps, die in der gleichen Domäne gehostet ausnutzen können verhindert werden, durch die Domänen nicht freigegeben wird. Wenn jede app in einer eigenen Domäne gehostet wird, besteht keine Vertrauensstellung für implizite Cookie ausnutzen.
 
-## <a name="aspnet-core-antiforgery-configuration"></a>ASP.NET Core antiforgery-Konfiguration
+## <a name="aspnet-core-antiforgery-configuration"></a>ASP.NET Core-antiforgery-Konfiguration
 
 > [!WARNING]
-> ASP.NET Core implementiert antiforgery mit [ASP.NET Core Datenschutz](xref:security/data-protection/introduction). Data Protection Stapel muss konfiguriert werden, um in einer Serverfarm zu arbeiten. Finden Sie unter [Konfigurieren von Data Protection](xref:security/data-protection/configuration/overview) für Weitere Informationen.
+> ASP.NET Core implementiert antiforgery mit [ASP.NET Core-Datenschutz](xref:security/data-protection/introduction). Stapel für den Schutz von Daten muss konfiguriert werden, um in einer Serverfarm zu arbeiten. Finden Sie unter [konfigurieren Sie den Schutz von Daten von](xref:security/data-protection/configuration/overview) für Weitere Informationen.
 
-In ASP.NET Core 2.0 oder höher der [FormTagHelper](xref:mvc/views/working-with-forms#the-form-tag-helper) antiforgery Token in HTML-Formularelemente injiziert. Das folgende Markup in einer Razor-Datei wird automatisch antiforgery Token generiert:
+In ASP.NET Core 2.0 oder höher der [FormTagHelper](xref:mvc/views/working-with-forms#the-form-tag-helper) fälschungssicherheitstoken in HTML-Formularelemente einfügt. Das folgende Markup in einer Razor-Datei wird automatisch fälschungssicherheitstoken generiert:
 
 ```cshtml
 <form method="post">
@@ -102,16 +102,16 @@ In ASP.NET Core 2.0 oder höher der [FormTagHelper](xref:mvc/views/working-with-
 </form>
 ```
 
-Mithilfe von Pull, [IHtmlHelper.BeginForm](/dotnet/api/microsoft.aspnetcore.mvc.rendering.ihtmlhelper.beginform) antiforgery Token standardmäßig generiert, wenn die-Methode des Formulars GET nicht ist.
+Entsprechend, [IHtmlHelper.BeginForm](/dotnet/api/microsoft.aspnetcore.mvc.rendering.ihtmlhelper.beginform) fälschungssicherheitstoken standardmäßig generiert, wenn die-Methode des Formulars GET nicht ist.
 
-Die automatische Generierung von antiforgery Token für HTML-Formularelemente geschieht bei der `<form>` -Tag enthält die `method="post"` Attribut und eine der folgenden sind "true":
+Erfolgt die automatische Generierung von fälschungssicherheitstoken für HTML-Formularelemente bei der `<form>` -Tag enthält den `method="post"` -Attribut und eine der folgenden erfüllt sind:
 
   * Das Action-Attribut ist leer (`action=""`).
-  * Das Action-Attribut nicht angegeben (`<form method="post">`).
+  * Das Action-Attribut ist nicht angegeben (`<form method="post">`).
 
-Automatische Generierung von antiforgery Token für HTML-Formularelemente kann deaktiviert werden:
+Automatische Generierung von fälschungssicherheitstoken für HTML-Formularelemente kann deaktiviert werden:
 
-* Explizit deaktivieren antiforgery-Token mit den `asp-antiforgery` Attribut:
+* Deaktivieren Sie explizit die antiforgery Token mit den `asp-antiforgery` Attribut:
 
   ```cshtml
   <form method="post" asp-antiforgery="false">
@@ -119,7 +119,7 @@ Automatische Generierung von antiforgery Token für HTML-Formularelemente kann d
   </form>
   ```
 
-* Form-Elements ist entschieden-Out-of-Tag-Hilfsprogramme von unter Verwendung des Hilfsprogramms Tag [! Ausschlussverfahren Symbol](xref:mvc/views/tag-helpers/intro#opt-out):
+* Das Formularelement ist entschieden-Out-of Taghilfsprogramme mit dem Taghilfsprogramm [! melden Sie sich Symbol](xref:mvc/views/tag-helpers/intro#opt-out):
 
   ```cshtml
   <!form method="post">
@@ -127,7 +127,7 @@ Automatische Generierung von antiforgery Token für HTML-Formularelemente kann d
   </!form>
   ```
 
-* Entfernen Sie die `FormTagHelper` aus der Sicht. Die `FormTagHelper` kann aus einer Sicht entfernt werden, indem Sie die folgende Anweisung an die Razor-Ansicht:
+* Entfernen Sie die `FormTagHelper` aus der Sicht. Die `FormTagHelper` können aus einer Sicht entfernt werden, indem Sie die Razor-Ansicht die folgende Anweisung hinzufügen:
 
   ```cshtml
   @removeTagHelper Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper, Microsoft.AspNetCore.Mvc.TagHelpers
@@ -136,13 +136,13 @@ Automatische Generierung von antiforgery Token für HTML-Formularelemente kann d
 > [!NOTE]
 > [Razor-Seiten](xref:razor-pages/index) vor XSRF/CSRF automatisch geschützt sind. Weitere Informationen finden Sie unter [XSRF/CSRF und Razor-Seiten](xref:razor-pages/index#xsrf).
 
-Die am häufigsten verwendete Ansatz zum Schutz vor CSRF-Angriffen ist die Verwendung der *für die Domänensynchronisierung Tokenmuster* (STP). STP wird verwendet, wenn der Benutzer eine Seite mit den Formulardaten anfordert:
+Die am häufigsten verwendete Ansatz für die Verteidigung gegen CSRF-Angriffe ist die Verwendung der *für die Domänensynchronisierung Tokenmuster* (STP). STP wird verwendet, wenn der Benutzer eine Seite mit den Formulardaten anfordert:
 
-1. Der Server sendet ein Token, das die Identität des aktuellen Benutzers an den Client zugeordnet.
-1. Der Client sendet das Token wieder an den Server für die Überprüfung.
-1. Wenn der Server ein Token, die Identität des authentifizierten Benutzers übereinstimmt empfängt, wird die Anforderung abgelehnt.
+1. Der Server sendet ein Token, die denen des aktuellen Benutzers Identität an den Client zugeordnet ist.
+1. Der Client sendet das Token zurück an den Server für die Überprüfung.
+1. Wenn der Server ein Token, die Identität des authentifizierten Benutzers entsprechen nicht erhält, wird die Anforderung zurückgewiesen.
 
-Das Token ist eindeutig und unvorhersehbar. Das Token kann auch verwendet werden, um sicherzustellen, dass ordnungsgemäße Sequenzierung einer Reihe von Anforderungen (z. B. Sicherstellen der anforderungssequenz des: Seite 1 &ndash; Seite 2 &ndash; Seite 3). Alle Formulare in den Razor-Seiten und ASP.NET Core MVC-Vorlagen generiert antiforgery-Token. Die folgenden zwei Beispiele anzeigen generieren antiforgery Token:
+Das Token ist eindeutig und nicht vorhersagbar. Das Token kann auch verwendet werden, um sicherzustellen, dass ordnungsgemäße Sequenzierung einer Reihe von Anforderungen (z. B. Sicherstellen der anforderungssequenz des: Seite 1 &ndash; Seite 2 &ndash; Seite 3). Alle Formulare in ASP.NET Core MVC und Razor Pages-Vorlagen generiert fälschungssicherheitstoken. Die folgenden zwei Beispiele anzeigen generieren fälschungssicherheitstoken:
 
 ```cshtml
 <form asp-controller="Manage" asp-action="ChangePassword" method="post">
@@ -155,7 +155,7 @@ Das Token ist eindeutig und unvorhersehbar. Das Token kann auch verwendet werden
 }
 ```
 
-Explizit ein antiforgery Token zum Hinzufügen einer `<form>` Element ohne das HTML-Hilfsobjekt Tag Hilfsprogramme mit [ @Html.AntiForgeryToken ](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.htmlhelper.antiforgerytoken):
+Explizit hinzufügen ein Antifälschungstoken an einen `<form>` -Element ohne das HTML-Hilfsobjekt mit Taghilfsprogrammen [ @Html.AntiForgeryToken ](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.htmlhelper.antiforgerytoken):
 
 ```cshtml
 <form action="/" method="post">
@@ -163,21 +163,21 @@ Explizit ein antiforgery Token zum Hinzufügen einer `<form>` Element ohne das H
 </form>
 ```
 
-In jedem der vorangegangenen Fälle fügt ASP.NET Core ein ausgeblendetes Formularfeld folgt oder ähnlich:
+In allen genannten Fällen fügt ASP.NET Core ein ausgeblendetes Formularfeld, die etwa wie folgt hinzu:
 
 ```cshtml
 <input name="__RequestVerificationToken" type="hidden" value="CfDJ8NrAkS ... s2-m9Yw">
 ```
 
-ASP.NET Core umfasst drei [Filter](xref:mvc/controllers/filters) für die Arbeit mit antiforgery Token:
+ASP.NET Core enthält drei [Filter](xref:mvc/controllers/filters) für die Verwendung von fälschungssicherheitstoken:
 
 * [ValidateAntiForgeryToken](/dotnet/api/microsoft.aspnetcore.mvc.validateantiforgerytokenattribute)
 * [AutoValidateAntiforgeryToken](/dotnet/api/microsoft.aspnetcore.mvc.autovalidateantiforgerytokenattribute)
 * [IgnoreAntiforgeryToken](/dotnet/api/microsoft.aspnetcore.mvc.ignoreantiforgerytokenattribute)
 
-## <a name="antiforgery-options"></a>Antiforgery Optionen
+## <a name="antiforgery-options"></a>Antiforgery-Optionen
 
-Anpassen [antiforgery Optionen](/dotnet/api/Microsoft.AspNetCore.Antiforgery.AntiforgeryOptions) in `Startup.ConfigureServices`:
+Anpassen von [antiforgery Optionen](/dotnet/api/Microsoft.AspNetCore.Antiforgery.AntiforgeryOptions) in `Startup.ConfigureServices`:
 
 ```csharp
 services.AddAntiforgery(options => 
@@ -194,20 +194,20 @@ services.AddAntiforgery(options =>
 
 | Option | Beschreibung |
 | ------ | ----------- |
-| [Cookie](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookie) | Hängen die Einstellungen, die zum Erstellen der antiforgery Cookies verwendet. |
-| [CookieDomain](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookiedomain) | Die Domäne des Cookies. Wird standardmäßig auf `null` festgelegt. Diese Eigenschaft ist veraltet und wird in einer zukünftigen Version entfernt. Die empfohlene Alternative ist Cookie.Domain. |
-| [CookieName](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookiename) | Der Name des Cookies. Wenn nicht festgelegt, der vom System eine eindeutige Namen, die mit beginnt generiert die [DefaultCookiePrefix](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.defaultcookieprefix) (". AspNetCore.Antiforgery."). Diese Eigenschaft ist veraltet und wird in einer zukünftigen Version entfernt. Die empfohlene Alternative ist Cookie.Name. |
-| [CookiePath](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookiepath) | Der Pfad für das Cookie festgelegt. Diese Eigenschaft ist veraltet und wird in einer zukünftigen Version entfernt. Die empfohlene Alternative ist Cookie.Path. |
-| [FormFieldName](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.formfieldname) | Der Name des Felds verborgene vom antiforgery System zum Rendern von antiforgery Token in Ansichten verwendet werden soll. |
-| [HeaderName](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.headername) | Der Name des Headers vom antiforgery System verwendet werden soll. Wenn `null`, das System berücksichtigt nur Formulardaten. |
-| [RequireSsl](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.requiressl) | Gibt an, ob SSL vom antiforgery System erforderlich ist. Wenn `true`, nicht-SSL-Anforderungen fehl. Wird standardmäßig auf `false` festgelegt. Diese Eigenschaft ist veraltet und wird in einer zukünftigen Version entfernt. Die empfohlene Alternative ist die Cookie.SecurePolicy festgelegt. |
-| [SuppressXFrameOptionsHeader](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.suppressxframeoptionsheader) | Gibt an, ob die Generierung von Unterdrücken der `X-Frame-Options` Header. Standardmäßig wird der Header mit einem Wert von "SAMEORIGIN" generiert. Wird standardmäßig auf `false` festgelegt. |
+| [Cookie](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookie) | Bestimmt die Einstellungen verwendet, um die antiforgery Cookies zu erstellen. |
+| [CookieDomain](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookiedomain) | Die Domäne des Cookies. Wird standardmäßig auf `null` festgelegt. Diese Eigenschaft ist veraltet und wird in einer zukünftigen Version entfernt. Die empfohlene Alternative ist die Cookie.Domain. |
+| [CookieName](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookiename) | Der Name des Cookies. Wenn nicht festgelegt ist, generiert das System einen eindeutigen Namen ab, mit der [DefaultCookiePrefix](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.defaultcookieprefix) (". AspNetCore.Antiforgery."). Diese Eigenschaft ist veraltet und wird in einer zukünftigen Version entfernt. Die empfohlene Alternative ist die Cookie.Name. |
+| [CookiePath](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookiepath) | Der Pfad für das Cookie festgelegt. Diese Eigenschaft ist veraltet und wird in einer zukünftigen Version entfernt. Die empfohlene Alternative ist die Cookie.Path. |
+| [FormFieldName](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.formfieldname) | Der Name des ausgeblendeten Formularfelds mit denen vom System antiforgery fälschungssicherheitstoken in Ansichten gerendert werden soll. |
+| [HeaderName](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.headername) | Der Name des Headers der antiforgery-System verwendet werden soll. Wenn `null`, das System berücksichtigt nur die Formulardaten. |
+| [RequireSsl](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.requiressl) | Gibt an, ob das System antiforgery SSL erforderlich ist. Wenn `true`, nicht-SSL-Anforderungen schlagen fehl. Wird standardmäßig auf `false` festgelegt. Diese Eigenschaft ist veraltet und wird in einer zukünftigen Version entfernt. Die empfohlene Alternative ist Cookie.SecurePolicy festlegen. |
+| [SuppressXFrameOptionsHeader](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.suppressxframeoptionsheader) | Gibt an, ob die Erstellung von Unterdrücken der `X-Frame-Options` Header. Standardmäßig wird der Header mit einem Wert von "SAMEORIGIN" generiert. Wird standardmäßig auf `false` festgelegt. |
 
 Weitere Informationen finden Sie unter [CookieAuthenticationOptions](/dotnet/api/Microsoft.AspNetCore.Builder.CookieAuthenticationOptions).
 
-## <a name="configure-antiforgery-features-with-iantiforgery"></a>Konfigurieren von antiforgery Funktionen mit IAntiforgery
+## <a name="configure-antiforgery-features-with-iantiforgery"></a>Konfigurieren antiforgery-Features mit IAntiforgery
 
-[IAntiforgery](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgery) stellt die API zum Konfigurieren von antiforgery Funktionen bereit. `IAntiforgery` angefordert werden können, der `Configure` Methode der `Startup` Klasse. Im folgenden Beispiel wird die Middleware auf der Startseite der app antiforgery-Token generieren und senden es in der Antwort als Cookie (mithilfe der Angular Dateinamenskonvention weiter unten in diesem Thema beschrieben):
+[IAntiforgery](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgery) stellt die API zum Konfigurieren der antiforgery Features bereit. `IAntiforgery` können angefordert werden, der `Configure` Methode der `Startup` Klasse. Im folgenden Beispiel wird die Middleware auf der Startseite der app eine antiforgery Token generieren und senden sie in der Antwort als Cookie (mithilfe von die standardmäßige Angular Benennungskonvention weiter unten in diesem Thema beschrieben):
 
 ```csharp
 public void Configure(IApplicationBuilder app, IAntiforgery antiforgery)
@@ -234,7 +234,7 @@ public void Configure(IApplicationBuilder app, IAntiforgery antiforgery)
 
 ### <a name="require-antiforgery-validation"></a>Antiforgery-Überprüfung
 
-[ValidateAntiForgeryToken](/dotnet/api/microsoft.aspnetcore.mvc.validateantiforgerytokenattribute) ist ein Aktionsfilter, die auf einer einzelnen Aktion, die einen Controller angewendet werden kann oder Global. Anforderungen für Aktionen, die dieser Filter angewendet haben werden blockiert, es sei denn, die Anforderung ein gültiges antiforgery Token enthält.
+[ValidateAntiForgeryToken](/dotnet/api/microsoft.aspnetcore.mvc.validateantiforgerytokenattribute) ist ein Aktionsfilter, die mit einer einzelnen Aktion, einen Controller angewendet werden kann oder Global. Anforderungen an Aktionen, die dieser Filter angewendet haben werden blockiert, es sei denn, der die Anforderung ein gültiges antiforgery Token enthält.
 
 ```csharp
 [HttpPost]
@@ -261,23 +261,23 @@ public async Task<IActionResult> RemoveLogin(RemoveLoginViewModel account)
 }
 ```
 
-Die `ValidateAntiForgeryToken` Attribut erfordert ein Token für Anforderungen an die Aktionsmethoden, die es ausstattet, einschließlich HTTP GET-Anforderungen. Wenn die `ValidateAntiForgeryToken` Attribut über die app Controller angewendet wird, können sie mit außer Kraft gesetzt werden die `IgnoreAntiforgeryToken` Attribut.
+Die `ValidateAntiForgeryToken` Attribut erfordert ein Token für Anforderungen an die Aktionsmethoden, die es ausstattet, einschließlich HTTP GET-Anforderungen. Wenn die `ValidateAntiForgeryToken` Attribut angewendet wird, auf der app Controller, sie kann überschrieben werden, mit der `IgnoreAntiforgeryToken` Attribut.
 
 > [!NOTE]
 > ASP.NET Core unterstützt keine GET-Anforderungen automatisch antiforgery Token hinzugefügt werden.
 
-### <a name="automatically-validate-antiforgery-tokens-for-unsafe-http-methods-only"></a>Überprüfen Sie automatisch antiforgery Token für unsichere nur HTTP-Methoden
+### <a name="automatically-validate-antiforgery-tokens-for-unsafe-http-methods-only"></a>Überprüfen Sie fälschungssicherheitstoken für unsichere HTTP-Methoden nur automatisch
 
-ASP.NET Core apps erstellen keine antiforgery Token für die sichere HTTP-Methoden (GET, HEAD, Optionen und TRACE). Anstelle von Allgemein Anwenden der `ValidateAntiForgeryToken` Attribut und überschreiben diese mit `IgnoreAntiforgeryToken` Attribute, die [AutoValidateAntiforgeryToken](/dotnet/api/microsoft.aspnetcore.mvc.autovalidateantiforgerytokenattribute) Attribut kann verwendet werden. Dieses Attribut funktioniert genauso wie die `ValidateAntiForgeryToken` Attribut, außer dass es keine Token für Anforderungen, die mit den folgenden HTTP-Methoden erforderlich:
+ASP.NET Core-apps erstellen keine fälschungssicherheitstoken für sichere HTTP-Methoden (GET, HEAD, Optionen und ABLAUFVERFOLGUNG). Anstelle von Allgemein Anwenden der `ValidateAntiForgeryToken` -Attribut, und überschreiben Sie dann mit `IgnoreAntiforgeryToken` Attribute, die [AutoValidateAntiforgeryToken](/dotnet/api/microsoft.aspnetcore.mvc.autovalidateantiforgerytokenattribute) Attribut kann verwendet werden. Dieses Attribut funktioniert genauso wie die `ValidateAntiForgeryToken` Attribut, außer dass es keine Token für Anforderungen mit den folgenden HTTP-Methoden erfordert:
 
 * GET
 * HEAD-,
 * OPTIONEN
 * TRACE
 
-Wir empfehlen die Verwendung von `AutoValidateAntiforgeryToken` weitgefasst gilt dies für nicht-API-Szenarien. Dadurch wird sichergestellt, dass Aktionen nach standardmäßig geschützt werden. Die Alternative besteht darin, antiforgery Token standardmäßig ignoriert, es sei denn, `ValidateAntiForgeryToken` auf einzelner Aktionsmethoden angewendet wird. Es wahrscheinlicher ist in diesem Szenario für eine POST-Aktionsmethode, verbleiben soll, versehentlich ungeschützten Ort verlassen der app CSRF-Angriffe anfällig. Alle Einträge sollten das antiforgery Token gesendet werden.
+Wir empfehlen die Verwendung von `AutoValidateAntiforgeryToken` Allgemein für nicht-API-Szenarien. Dadurch wird sichergestellt, dass standardmäßig die POST-Aktionen geschützt sind. Die Alternative ist standardmäßig fälschungssicherheitstoken ignoriert werden sollen, es sei denn, `ValidateAntiForgeryToken` auf einzelne Aktionsmethoden angewendet wird. Verlassen die app anfällig für CSRF-Angriffe ungeschützten versehen, eher er in diesem Szenario für eine POST-Aktion-Methode, die verbleiben. Alle Beiträge, sollte das Antifälschungstoken senden.
 
-APIs haben keinen automatischen Mechanismus zum Senden des nicht-Cookie-Teils des Tokens. Die Implementierung hängt wahrscheinlich die Client-Code-Implementierung. Einige Beispiele werden unten gezeigt:
+APIs verfügen nicht über einen automatischen Mechanismus zum Senden des nicht-Cookie-Teils des Tokens. Die Implementierung hängt wahrscheinlich die Client-Code-Implementierung. Nachfolgend einige Beispiele:
 
 Auf Klassenebene-Beispiel:
 
@@ -295,9 +295,9 @@ services.AddMvc(options =>
     options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute()));
 ```
 
-### <a name="override-global-or-controller-antiforgery-attributes"></a>Überschreiben globaler oder antiforgery Attributen für controller
+### <a name="override-global-or-controller-antiforgery-attributes"></a>Globale außer Kraft setzen oder antiforgery Attributen für controller
 
-Die [IgnoreAntiforgeryToken](/dotnet/api/microsoft.aspnetcore.mvc.ignoreantiforgerytokenattribute) Filter wird verwendet, um ein antiforgery Token für eine bestimmte Aktion (oder Domänencontroller) erforderlich. Beim Anwenden dieses Filters überschreibt `ValidateAntiForgeryToken` und `AutoValidateAntiforgeryToken` Filter, die auf einer höheren Ebene angegeben ist (Global oder auf einem Domänencontroller).
+Die [IgnoreAntiforgeryToken](/dotnet/api/microsoft.aspnetcore.mvc.ignoreantiforgerytokenattribute) Filter wird verwendet, um das Antifälschungstoken für eine bestimmte Aktion (oder Controller) erforderlich. Wenn angewendet wird, überschreibt dieser Filter `ValidateAntiForgeryToken` und `AutoValidateAntiforgeryToken` angegebenen Filtern auf einer höheren Ebene (Global oder auf einem Domänencontroller).
 
 ```csharp
 [Authorize]
@@ -315,38 +315,38 @@ public class ManageController : Controller
 
 ## <a name="refresh-tokens-after-authentication"></a>Aktualisierungstoken nach der Authentifizierung
 
-Token sollte aktualisiert werden, nachdem der Benutzer authentifiziert ist, durch Weiterleiten des Benutzers auf eine Sicht oder eine Seite mit Razor-Seiten.
+Token sollte aktualisiert werden, nachdem der Benutzer authentifiziert ist, durch Weiterleiten des Benutzers auf eine Sicht oder Razor Pages-Seite.
 
-## <a name="javascript-ajax-and-spas"></a>JavaScript, AJAX- und SPAs
+## <a name="javascript-ajax-and-spas"></a>JavaScript, AJAX und SPAs
 
-In herkömmlichen HTML-basierte apps werden antiforgery Token an den Server mithilfe von ausgeblendeten Formularfeldern übergeben. Viele Anforderungen werden in modernen JavaScript-basierten apps und SPAs programmgesteuert vorgenommen. Diese AJAX-Anforderungen möglicherweise andere Techniken (z. B. Anforderungsheader oder Cookies) verwenden, um das Token zu senden.
+In herkömmlichen HTML-basierte apps werden fälschungssicherheitstoken mit ausgeblendeten Formularfeldern an den Server übergeben. In modernen apps mit JavaScript-basierten und SPAs werden viele Anforderungen programmgesteuert vorgenommen. Diese AJAX-Anforderungen möglicherweise andere Techniken (z.B. Anforderungsheader oder Cookies) verwenden, um das Token senden zu können.
 
-Wenn Cookies zum Speichern von Authentifizierungstoken und zum Authentifizieren von API-Anforderungen auf dem Server verwendet werden, ist CSRF ein potenzielles Problem hin. Lokaler Speicher zum Speichern von Token verwendet wird, möglicherweise Sicherheitsrisiko FORGERY verringert werden, da die Werte aus dem lokalen Speicher automatisch mit jeder Anforderung an den Server gesendet werden nicht. Daher mit dem lokalen Speicher zum Speichern der antiforgery-Token auf dem Client und Senden des Tokens als ein Anforderungsheader und eine empfohlene Vorgehensweise ist.
+Wenn Cookies zum Speichern von Authentifizierungstoken und zum Authentifizieren der API-Anforderungen auf dem Server verwendet werden, ist CSRF ein potenzielles Problem. Wenn lokaler Speicher verwendet wird, um das Token zu speichern, kann CSRF-Sicherheitsrisiko verringert werden, da die Werte aus dem lokalen Speicher automatisch mit jeder Anforderung an den Server gesendet werden nicht. Daher verwenden lokalen Speicher zum Speichern der Antifälschungstoken auf dem Client und Senden des Tokens, wie ein Anforderungsheader ein empfohlenes Verfahren ist.
 
 ### <a name="javascript"></a>JavaScript
 
-Verwenden von JavaScript mit Sichten, kann das Token erstellt werden mithilfe eines Diensts aus innerhalb der Ansicht. Einfügen der [Microsoft.AspNetCore.Antiforgery.IAntiforgery](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgery) -Dienst in der Ansicht, und rufen [GetAndStoreTokens](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgery.getandstoretokens):
+Verwenden von JavaScript mit Sichten, kann das Token erstellt werden mithilfe eines Diensts aus, in der Ansicht. Einfügen der [Microsoft.AspNetCore.Antiforgery.IAntiforgery](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgery) Dienst in der Ansicht, und rufen [GetAndStoreTokens](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgery.getandstoretokens):
 
 [!code-csharp[](anti-request-forgery/sample/MvcSample/Views/Home/Ajax.cshtml?highlight=4-10,12-13,35-36)]
 
-Dadurch entfällt die Notwendigkeit so behandeln Sie direkt mit dem Festlegen von Cookies auf dem Server, oder sie vom Client gelesen werden.
+Dadurch entfällt das arbeiten direkt mit Cookies vom Server festlegen, oder sie vom Client gelesen werden.
 
-Das obige Beispiel nutzt JavaScript zur Festlegung um den Wert des ausgeblendeten Felds für die AJAX-POST-Header zu lesen.
+Im vorherige Beispiel verwendet JavaScript zum Wert des ausgeblendeten Felds für den AJAX-POST-Header zu lesen.
 
-JavaScript kann auch Zugriffstoken in Cookies und das Cookie Inhalt zum Erstellen eines Headers mit dem Wert des Tokens verwenden.
+JavaScript kann auch Zugriffstoken in Cookies und Inhalt für das Cookie Header mit dem Wert von des Tokens zu erstellen.
 
 ```csharp
 context.Response.Cookies.Append("CSRF-TOKEN", tokens.RequestToken, 
     new Microsoft.AspNetCore.Http.CookieOptions { HttpOnly = false });
 ```
 
-Vorausgesetzt, das Skript zum Senden von Token in einer Kopfzeile namens fordert `X-CSRF-TOKEN`, konfigurieren Sie den antiforgery Dienst gesucht werden soll, für die `X-CSRF-TOKEN` Header:
+Vorausgesetzt, das Skript fordert zum Senden von Token in einer Kopfzeile namens `X-CSRF-TOKEN`, konfigurieren Sie den antiforgery-Dienst auf die Suche nach der `X-CSRF-TOKEN` Header:
 
 ```csharp
 services.AddAntiforgery(options => options.HeaderName = "X-CSRF-TOKEN");
 ```
 
-Im folgende Beispiel nutzt JavaScript zur Festlegung eine AJAX-Anforderung mit den entsprechenden Header vornehmen:
+Im folgenden Beispiel wird JavaScript, um eine AJAX-Anforderung mit den entsprechenden Header zu machen:
 
 ```javascript
 function getCookie(cname) {
@@ -385,12 +385,12 @@ xhttp.send(JSON.stringify({ "newPassword": "ReallySecurePassword999$$$" }));
 
 ### <a name="angularjs"></a>AngularJS
 
-AngularJS verwendet stattdessen eine Konvention CSRF-Adresse. Wenn der Server ein Cookie mit dem Namen sendet `XSRF-TOKEN`, die AngularJS `$http` Dienst einen Header den Cookiewert hinzugefügt, wenn er eine Anforderung an den Server sendet. Dieser Prozess erfolgt automatisch. Der Header muss nicht explizit festgelegt werden. Der Headername wird `X-XSRF-TOKEN`. Der Server sollte dieser Header zu erkennen und seinen Inhalt zu überprüfen.
+AngularJS verwendet eine Konvention gilt CSRF-Adresse. Wenn der Server ein Cookie mit dem Namen sendet `XSRF-TOKEN`, die AngularJS `$http` Service eines Headers den Cookiewert hinzufügt, wenn er eine Anforderung an den Server sendet. Dieser Prozess erfolgt automatisch. Der Header muss nicht explizit festgelegt werden. Der Headername ist `X-XSRF-TOKEN`. Der Server sollte dieser Header zu erkennen und seinen Inhalt zu überprüfen.
 
-Arbeiten Sie mit dieser Konvention für ASP.NET Haupt-API:
+Für ASP.NET Core-API die Arbeit mit dieser Konvention:
 
-* Ihre app so konfigurieren, geben Sie ein Token in einem Cookie aufgerufen `XSRF-TOKEN`.
-* Konfigurieren Sie den antiforgery Dienst zum Suchen nach einem Header mit dem Namen `X-XSRF-TOKEN`.
+* Konfigurieren Ihrer app für ein Token in einem Cookie namens bereitstellen `XSRF-TOKEN`.
+* Konfigurieren den antiforgery-Dienst einen Header mit Namen gesucht `X-XSRF-TOKEN`.
 
 ```csharp
 services.AddAntiforgery(options => options.HeaderName = "X-XSRF-TOKEN");
@@ -398,10 +398,11 @@ services.AddAntiforgery(options => options.HeaderName = "X-XSRF-TOKEN");
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/anti-request-forgery/sample/AngularSample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="extend-antiforgery"></a>Erweitern Sie antiforgery
+## <a name="extend-antiforgery"></a>Erweitern Sie antifälschungsunterstützung
 
-Die [IAntiForgeryAdditionalDataProvider](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider) Typ ermöglicht Entwicklern das Verhalten des Anti-CSRF-Systems durch zusätzliche Round-Tripping-Daten in einzelnen Token zu erweitern. Die [GetAdditionalData](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider.getadditionaldata) Methode wird jedes Mal aufgerufen, wenn ein Token wird generiert, und der Rückgabewert in das generierte Token eingebettet ist. Eine Implementierung konnte einen Zeitstempel, eine Nonce oder ein anderer Wert zurückgeben, und rufen dann [ValidateAdditionalData](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider.validateadditionaldata) dieser Daten validieren, wenn das Token überprüft wird. Der Client Benutzernamen ist bereits in die generierten Token eingebettet, daher keine Notwendigkeit besteht, diese Informationen umfassen. Wenn ein Token ergänzenden Daten, aber keine enthält `IAntiForgeryAdditionalDataProvider` wird konfiguriert, die zusätzlichen Daten wird nicht überprüft.
+Die [IAntiForgeryAdditionalDataProvider](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider) Typ ermöglicht Entwicklern, die das Verhalten des Anti-CSRF-Systems durch zusätzliche Round-Tripping-Daten in jedem Token zu erweitern. Die [GetAdditionalData](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider.getadditionaldata) Methode jedes Mal aufgerufen, wird ein Token generiert und der zurückgegebene Wert in das generierte Token eingebettet ist. Eine Implementierung kann einen Zeitstempel, eine Nonce oder einen anderen Wert zurück, und rufen dann [ValidateAdditionalData](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider.validateadditionaldata) auf diese Daten zu überprüfen, wenn das Token überprüft wird. Den Benutzernamen des Clients ist bereits in das generierte Token, eingebettet, daher keine Notwendigkeit besteht, diese Informationen umfassen. Wenn ein Token, ergänzende Daten, aber keine enthält `IAntiForgeryAdditionalDataProvider` wird konfiguriert, die ergänzenden Daten wird nicht überprüft.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [CSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)) auf [öffnen Webanwendungsprojekt Sicherheit](https://www.owasp.org/index.php/Main_Page) (OWASP).
+* [CSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)) auf [Öffnen der Web Application Security Project](https://www.owasp.org/index.php/Main_Page) (OWASP).
+* <xref:host-and-deploy/web-farm>
