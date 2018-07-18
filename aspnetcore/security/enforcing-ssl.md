@@ -1,16 +1,16 @@
 ---
 title: Erzwingen von HTTPS in ASP.NET Core
 author: rick-anderson
-description: Veranschaulicht, wie HTTPS/TLS in einer ASP.NET Core erfordern Web-app.
+description: Zeigt die Vorgehensweise zum Erzwingen einer HTTPS/TLS, in einer ASP.NET Core-Web-app.
 ms.author: riande
 ms.date: 2/9/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: 6a16bb2253fcb6e81a294f1c484db1a3e80796e2
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 331c17de33b5c13221385ffb4282bc16bde32289
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277269"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095716"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Erzwingen von HTTPS in ASP.NET Core
 
@@ -22,17 +22,17 @@ Dieses Dokument zeigt, wie Sie:
 * Alle HTTP-Anforderungen auf HTTPS umleiten.
 
 > [!WARNING]
-> Führen Sie **nicht** verwenden [RequireHttpsAttribute](/dotnet/api/microsoft.aspnetcore.mvc.requirehttpsattribute) auf Web-APIs, die vertraulichen Informationen zu erhalten. `RequireHttpsAttribute` leitet Browsers per HTTP-Statuscode von HTTP an HTTPS weiter. API-Clients verstehen diese Codes möglicherweise nicht, oder Sie führen keine Weiterleitung von HTTP an HTTPS durch. Dies kann dazu führen, dass solche Clients Daten unverschlüsselt mittels HTTP versenden. Web-APIs sollten daher entweder:
+> Führen Sie **nicht** verwenden [RequireHttpsAttribute](/dotnet/api/microsoft.aspnetcore.mvc.requirehttpsattribute) für Web-APIs, die vertraulichen Informationen zu erhalten. `RequireHttpsAttribute` leitet Browsers per HTTP-Statuscode von HTTP an HTTPS weiter. API-Clients verstehen diese Codes möglicherweise nicht, oder Sie führen keine Weiterleitung von HTTP an HTTPS durch. Dies kann dazu führen, dass solche Clients Daten unverschlüsselt mittels HTTP versenden. Web-APIs sollten daher entweder:
 >
 > * nicht auf HTTP lauschen oder
 > * die Verbindung mit dem Statuscode 400 („Ungültige Anforderung“) schließen und die Anforderung nicht verarbeiten.
 
 <a name="require"></a>
-## <a name="require-https"></a>HTTPS erforderlich
+## <a name="require-https"></a>Anforderung von HTTPS
 
 ::: moniker range=">= aspnetcore-2.1"
 
-Es wird empfohlen, alle Web-apps mit ASP.NET Core aufrufen HTTPS-Umleitung Middleware ([UseHttpsRedirection](/dotnet/api/microsoft.aspnetcore.builder.httpspolicybuilderextensions.usehttpsredirection)) alle HTTP-Anforderungen an HTTPS umgeleitet.
+Es wird empfohlen, alle ASP.NET Core-Web-apps rufen die HTTPS-Umleitung-Middleware ([UseHttpsRedirection](/dotnet/api/microsoft.aspnetcore.builder.httpspolicybuilderextensions.usehttpsredirection)) auf alle HTTP-Anfragen an HTTPS umzuleiten.
 
 Der folgende code ruft `UseHttpsRedirection` in die `Startup` Klasse:
 
@@ -42,31 +42,31 @@ Der folgende code ruft [AddHttpsRedirection](/dotnet/api/microsoft.aspnetcore.bu
 
 [!code-csharp[](enforcing-ssl/sample/Startup.cs?name=snippet2&highlight=14-99)]
 
-Die vorangehenden hervorgehobenen Code hinzu:
+Der oben markierte Code:
 
-* Legt [HttpsRedirectionOptions.RedirectStatusCode](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.redirectstatuscode) zu `Status307TemporaryRedirect`, dies ist der Standardwert. Produktion apps sollten Aufrufen [UseHsts](#hsts).
-* Legt den HTTPS-Port auf 5001 fest. Der Standardwert ist 443.
+* Legt [HttpsRedirectionOptions.RedirectStatusCode](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.redirectstatuscode) zu `Status307TemporaryRedirect`, dies ist der Standardwert. Produktions-apps sollten Aufrufen [UseHsts](#hsts).
+* Legt den HTTPS-Port in 5001 fest. Der Standardwert ist 443.
 
 Die folgenden Mechanismen legen Sie den Port automatisch:
 
-* Die Middleware erkennen, die Ports über [IServerAddressesFeature](/dotnet/api/microsoft.aspnetcore.hosting.server.features.iserveraddressesfeature) wenn Folgendes zutrifft:
-  - Kestrel oder HTTP.sys direkt mit HTTPS-Endpunkte verwendet wird (gilt auch zum Ausführen der app mit Visual Studio Code-Debugger).
+* Die Middleware kann ermitteln, die Ports über [IServerAddressesFeature](/dotnet/api/microsoft.aspnetcore.hosting.server.features.iserveraddressesfeature) wenn Folgendes zutrifft:
+  - Kestrel oder HTTP.sys direkt mit HTTPS-Endpunkte verwendet wird (gilt auch für die app mit Visual Studio Code-Debugger ausgeführt wird).
   - Nur **eine HTTPS-Port** wird von der app verwendet.
 * Visual Studio wird verwendet:
-  - IIS Express umfasst HTTPS aktiviert.
-  - *launchSettings.json* legt die `sslPort` für IIS Express.
+  - IIS Express ist HTTPS-tauglich.
+  - *"launchsettings.JSON"* legt die `sslPort` für IIS Express.
 
 > [!NOTE]
-> Beim Ausführen einer app hinter einem reverse-Proxy (z. B. IIS, IIS Express) `IServerAddressesFeature` ist nicht verfügbar. Der Port muss manuell konfiguriert werden. Wenn der Port nicht festgelegt ist, werden nicht Anforderungen umgeleitet.
+> Wenn eine app ausgeführt wird, hinter einem Reverseproxy (z. B. IIS, IIS Express) `IServerAddressesFeature` ist nicht verfügbar. Der Port muss manuell konfiguriert werden. Wenn der Port nicht festgelegt ist, werden nicht die Anforderungen umgeleitet.
 
 Der Port kann konfiguriert werden, durch Festlegen der:
 
 * Die Umgebungsvariable `ASPNETCORE_HTTPS_PORT`
 * `http_port` Host-Konfigurationsschlüssel (z. B. über *hostsettings.json* oder ein Befehlszeilenargument).
-* [HttpsRedirectionOptions.HttpsPort](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.httpsport). Finden Sie in vorhergehenden Beispiel, das zeigt, wie für den Port 5001 festgelegt.
+* [HttpsRedirectionOptions.HttpsPort](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.httpsport). Finden Sie im vorherige Beispiel, das zeigt, wie Sie den Port in 5001 festgelegt.
 
 > [!NOTE]
-> Der Port kann indirekt konfiguriert werden, durch Festlegen der URL mit der `ASPNETCORE_URLS` -Umgebungsvariablen angegeben. Die Umgebungsvariable konfiguriert den Server, und dann die Middleware indirekt über den HTTPS-Port ermittelt `IServerAddressesFeature`.
+> Der Port kann indirekt konfiguriert werden, durch Festlegen der URL durch die `ASPNETCORE_URLS` -Umgebungsvariablen angegeben. Die Umgebungsvariable konfiguriert den Server, und klicken Sie dann die Middleware indirekt über den HTTPS-Port ermittelt `IServerAddressesFeature`.
 
 Wenn kein Port festgelegt ist:
 
@@ -74,23 +74,23 @@ Wenn kein Port festgelegt ist:
 * Die Middleware protokolliert eine Warnung.
 
 > [!NOTE]
-> Eine Alternative zur Verwendung von HTTPS-Umleitung Middleware (`UseHttpsRedirection`) ist die Verwendung der Neuerstellen von URL-Middleware (`AddRedirectToHttps`). `AddRedirectToHttps` können den Statuscode und den Port auch festlegen, wenn die Umleitung ausgeführt wird. Weitere Informationen finden Sie unter [URL umschreiben Middleware](xref:fundamentals/url-rewriting).
+> Eine Alternative zur Verwendung von HTTPS-Umleitung-Middleware (`UseHttpsRedirection`) ist die Verwendung von URL-Umschreibenden Middleware (`AddRedirectToHttps`). `AddRedirectToHttps` können den Statuscode und den Port auch festlegen, wenn die Umleitung ausgeführt wird. Weitere Informationen finden Sie unter [URL-Umschreibenden Middleware](xref:fundamentals/url-rewriting).
 >
-> Umleiten von ohne zusätzliche umleitungs-Regeln auf HTTPS, empfehlen wir Ihnen mithilfe von HTTPS-Umleitung Middleware (`UseHttpsRedirection`) in diesem Thema beschrieben.
+> Ohne die Notwendigkeit von zusätzlichen umleitungs-Regeln an HTTPS umleiten möchten, empfehlen wir Ihnen unter Verwendung von HTTPS-Umleitung-Middleware (`UseHttpsRedirection`) in diesem Thema beschrieben.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.1"
 
-Die [RequireHttpsAttribute](/dotnet/api/microsoft.aspnetcore.mvc.requirehttpsattribute) wird verwendet, um HTTPS erforderlich ist. `[RequireHttpsAttribute]` ergänzen können, Controllern oder Methoden oder global angewendet werden können. Um das Attribut global anzuwenden, fügen Sie den folgenden Code zum `ConfigureServices` in `Startup`:
+Die [RequireHttpsAttribute](/dotnet/api/microsoft.aspnetcore.mvc.requirehttpsattribute) wird verwendet, um die HTTPS erforderlich ist. `[RequireHttpsAttribute]` ergänzen können, Controllern oder Methoden oder global angewendet werden können. Um das Attribut global anzuwenden, fügen Sie den folgenden Code zur `ConfigureServices` in `Startup`:
 
-[!code-csharp[](authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet2&highlight=4-999)]
+[!code-csharp[](~/security/authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet2&highlight=4-999)]
 
-Die vorherige hervorgehobene Code erfordert, verwenden alle Anforderungen `HTTPS`daher HTTP-Anforderungen werden ignoriert. Die folgende hervorgehobene Code leitet alle HTTP-Anforderungen an HTTPS:
+Der oben markierte Code ist erforderlich, alle Anforderungen verwenden `HTTPS`daher HTTP-Anforderungen werden ignoriert. Der folgende hervorgehobene Code leitet alle HTTP-Anfragen an HTTPS um:
 
 [!code-csharp[](authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet_AddRedirectToHttps&highlight=7-999)]
 
-Weitere Informationen finden Sie unter [URL umschreiben Middleware](xref:fundamentals/url-rewriting). Die Middleware ermöglicht darüber hinaus die app den Statuscode oder den Statuscode und den Port festlegen, wenn die Umleitung ausgeführt wird.
+Weitere Informationen finden Sie unter [URL-Umschreibenden Middleware](xref:fundamentals/url-rewriting). Die Middleware kann außerdem die app, die den Statuscode oder den Statuscode sowie den Port festgelegt, wenn die Umleitung ausgeführt wird.
 
 Das globale Erzwingen der Verwendung von HTTPS (`options.Filters.Add(new RequireHttpsAttribute());`) ist eine bewährte Sicherheitsmethode. Dieser Ansatz gilt im Vergleich zur Anwendung des `[RequireHttps]` -Attributs auf alle Controller und Razor Pages als sicherer. denn Sie können nicht gewährleisten, dass das `[RequireHttps]` -Attribut angewendet wird, wenn neue Controller oder Razor Pages hinzugefügt werden.
 
@@ -99,24 +99,24 @@ Das globale Erzwingen der Verwendung von HTTPS (`options.Filters.Add(new Require
 ::: moniker range=">= aspnetcore-2.1"
 
 <a name="hsts"></a>
-## <a name="http-strict-transport-security-protocol-hsts"></a>HTTP-strikte Sicherheit Transportprotokoll (HSTS)
+## <a name="http-strict-transport-security-protocol-hsts"></a>HTTP Strict Transport Security-Protokoll (HSTS)
 
-Pro [OWASP](https://www.owasp.org/index.php/About_The_Open_Web_Application_Security_Project), [HTTP Strict Transport Sicherheit (HSTS)](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) ist eine opt-in-sicherheitserweiterung, die von einer Webanwendung durch die Verwendung eines speziellen Antwortheaders angegeben wird. Erstellt, sobald ein unterstützter Browser dieser Header empfangen wird dieses Browsers zu verhindern, dass die Kommunikation über HTTP gesendet werden, die der angegebenen Domäne und wird stattdessen die gesamte Kommunikation über HTTPS gesendet. Es wird verhindert, dass HTTPS auf über aufforderungen auf den Browsern.
+Pro [OWASP](https://www.owasp.org/index.php/About_The_Open_Web_Application_Security_Project), [HTTP Strict Transport Security (HSTS)](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) ist eine optionale sicherheitserweiterung, die von einer Webanwendung mithilfe eines speziellen Antwortheaders angegeben wird. Sobald ein unterstützter Browser diesen Header empfängt, diesen Browser wird verhindert, dass Kommunikation über HTTP gesendet werden, die der angegebenen Domäne und sendet die gesamte Kommunikation stattdessen über HTTPS. Es wird verhindert, dass HTTPS clickthrough-aufforderungen von Browsern.
 
-ASP.NET Core 2.1 oder höher implementiert HSTS mit der `UseHsts` -Erweiterungsmethode. Der folgende code ruft `UseHsts` Wenn die app nicht im [-Entwicklungsmodus](xref:fundamentals/environments):
+ASP.NET Core 2.1 oder höher implementiert HSTS mit der `UseHsts` -Erweiterungsmethode. Der folgende code ruft `UseHsts` bei der app nicht im [Entwicklungsmodus](xref:fundamentals/environments):
 
 [!code-csharp[](enforcing-ssl/sample/Startup.cs?name=snippet1&highlight=10)]
 
-`UseHsts` ist nicht in der Entwicklung empfohlen, da der Header HSTS hoch zwischenspeicherbaren von Browsern ist. Standardmäßig `UseHsts` schließt die lokalen Loopback-Adresse.
+`UseHsts` ist nicht in der Entwicklung empfohlen, da der Header des HSTS hohem Maße zwischenspeicherbar ist von Browsern. In der Standardeinstellung `UseHsts` schließt die lokalen Loopback-Adresse.
 
 Der folgende Code
 
 [!code-csharp[](enforcing-ssl/sample/Startup.cs?name=snippet2&highlight=5-12)]
 
-* Legt den Teiler Parameter des Strict-Transport-Security-Headers. Preload ist nicht Teil der [Spezifikation RFC HSTS](https://tools.ietf.org/html/rfc6797), aber von Webbrowsern zum Vorabladen HSTS Websites Neuinstallation unterstützt wird. Weitere Informationen finden Sie unter [https://hstspreload.org/](https://hstspreload.org/).
-* Ermöglicht [IncludeSubDomain](https://tools.ietf.org/html/rfc6797#section-6.1.2), denen Unterdomänen Host die HSTS-Richtlinie gilt. 
-* Legt explizit den Max-Age-Parameter des Strict-Transport-Security-Headers, der auf 60 Tage. Wenn dies nicht festgelegt, der Standardwert ist 30 Tage. Finden Sie unter der [Max-Age-Direktive](https://tools.ietf.org/html/rfc6797#section-6.1.1) für Weitere Informationen.
-* Fügt `example.com` zur Liste der Hosts ausschließen.
+* Legt den preload Parameter des Strict-Transport-Security-Headers. Preload ist nicht Teil der [RFC HSTS Spezifikation](https://tools.ietf.org/html/rfc6797), aber vom Webbrowser zum Vorabladen von HSTS Websites Neuinstallation unterstützt wird. Weitere Informationen finden Sie unter [https://hstspreload.org/](https://hstspreload.org/).
+* Ermöglicht [IncludeSubDomain](https://tools.ietf.org/html/rfc6797#section-6.1.2), denen Unterdomänen der Host die HSTS-Richtlinie gilt. 
+* Explizit festlegt den Max-Age-Parameter des Strict-Transport-Security-Headers auf 60 Tage. Wenn nicht festgelegt, der Standardwert ist 30 Tage. Finden Sie unter den [Max-Age-Direktive](https://tools.ietf.org/html/rfc6797#section-6.1.1) für Weitere Informationen.
+* Fügt `example.com` zur Liste der Hosts zu schließen.
 
 `UseHsts` Schließt die folgenden Loopback-Hosts an:
 
@@ -124,17 +124,17 @@ Der folgende Code
 * `127.0.0.1` : Die IPv4-Loopback-Adresse.
 * `[::1]` : Die IPv6-Loopback-Adresse.
 
-Das vorhergehende Beispiel zeigt, wie Sie weitere Hosts hinzufügen.
+Im vorherige Beispiel veranschaulicht das weitere Hosts hinzufügen möchten.
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
 
 <a name="https"></a>
-## <a name="opt-out-of-https-on-project-creation"></a>Opt-Out-of HTTPS bei projekterstellung
+## <a name="opt-out-of-https-on-project-creation"></a>Deaktivieren von HTTPS bei projekterstellung
 
-Aktivieren Sie die ASP.NET Core 2.1 oder höher Anwendung Webvorlagen (in Visual Studio oder der Befehlszeile Dotnet) [HTTPS-Umleitung](#require) und [HSTS](#hsts). Für Bereitstellungen, die nicht HTTPS erforderlich ist, Sie können von HTTPS teilnehmen. Z. B. einige Back-End-Dienste, in denen HTTPS extern am Netzwerkrand behandelt wird über HTTPS an jedem Knoten, ist nicht erforderlich.
+Aktivieren Sie die ASP.NET Core 2.1 oder höher Webanwendungsvorlagen (von Visual Studio oder der Dotnet-Befehlszeile) [HTTPS-Umleitung](#require) und [HSTS](#hsts). Für Bereitstellungen, die keine HTTPS erforderlich ist, Sie können HTTPS deaktivieren. Z. B. einige Back-End-Dienste, in denen HTTPS extern am Netzwerkrand behandelt wird über HTTPS an jedem Knoten, ist nicht erforderlich.
 
-Um von HTTPS teilnehmen:
+Zum Deaktivieren von HTTPS:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
@@ -158,8 +158,8 @@ dotnet new webapp --no-https
 
 ::: moniker range=">= aspnetcore-2.1"
 
-## <a name="how-to-setup-a-developer-certificate-for-docker"></a>So richten Sie ein entwicklerzertifikat für Docker
+## <a name="how-to-setup-a-developer-certificate-for-docker"></a>Zum Einrichten von einem entwicklerzertifikat für Docker
 
-Finden Sie unter [das GitHub-Problem](https://github.com/aspnet/Docs/issues/6199).
+Finden Sie unter [GitHub-Problem](https://github.com/aspnet/Docs/issues/6199).
 
 ::: moniker-end
