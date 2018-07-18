@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/13/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 96a4403653e474bb056374909b3ee66998bc99be
-ms.sourcegitcommit: 19cbda409bdbbe42553dc385ea72d2a8e246509c
+ms.openlocfilehash: 607bdb7ee830c9a3bbb83ca2aec4661772a285b2
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992814"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095839"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hosten von ASP.NET Core unter Windows mit IIS
 
@@ -168,9 +168,8 @@ Aktivieren Sie die **IIS-Verwaltungskonsole** und die **WWW-Dienste**.
 
 1. Installieren Sie das *Paket „.NET Core Hosting“* im Hostsystem. Das Paket installiert die .NET Core-Runtime, die .NET Core-Bibliothek und das [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module). Das Modul erstellt den Reverseproxy zwischen IIS und dem Kestrel-Server. Wenn das System nicht über eine Internetverbindung verfügt, beziehen und installieren Sie [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840), bevor Sie das Paket „.NET Core Hosting“ installieren.
 
-   1. Navigieren Sie zu der [.NET-Seite „All Downloads“](https://www.microsoft.com/net/download/all).
-   1. Wählen Sie in der Spalte **Runtime** die aktuelle Nicht-Vorschau-.NET Core-Runtime aus der Liste aus (**Downloads von X.Y-Runtime (vX.Y.Z)**). Die aktuelle Runtime weist die Bezeichnung **Aktuell** auf. Vermeiden Sie eine im Linktext mit „preview“ oder „rc“ (Release Candidate) gekennzeichnete Runtime, wenn Sie nicht mit Vorschausoftware arbeiten möchten.
-   1. Wählen Sie auf der Downloadseite der .NET Core-Runtime unter **Windows** den Link zum **Installationsprogramm des Hosting-Pakets** aus, um das Paket *.NET Core Hosting* herunterzuladen.
+   1. Navigieren Sie zur [.NET-Download-Seite](https://www.microsoft.com/net/download/windows).
+   1. Klicken Sie unter **.NET Core** auf die Schaltfläche **Download .NET Core Runtime** (.NET Core Runtime herunterladen) neben **Run Apps** (Apps ausführen). Die ausführbare Datei des Installers enthält das Wort „hosting“ im Dateinamen (z.B. *dotnet-hosting-2.1.2-win.exe*).
    1. Führen Sie das Installationsprogramm auf dem Server aus.
 
    **Wichtig** Wenn das Hosting-Paket vor IIS installiert wird, muss die Paketinstallation repariert werden. Führen Sie nach der Installation von IIS erneut den Installer des Hosting-Pakets aus.
