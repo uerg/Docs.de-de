@@ -369,7 +369,7 @@
 ### [Kompatibilität](xref:security/data-protection/compatibility/index)
 #### [Ersetzen von <machineKey> in ASP.NET](xref:security/data-protection/compatibility/replacing-machinekey)
 ## [Erzwingen von HTTPS](xref:security/enforcing-ssl)
-## [Unterstützung für die Datenschutz-Grundverordnung (GSGVO)](xref:security/gdpr)
+## [Unterstützung für die Datenschutz-Grundverordnung (DSGVO)](xref:security/gdpr)
 ## [Sicheres Speichern geheimer App-Schlüssel in der Entwicklung](xref:security/app-secrets)
 ## [Azure Key Vault-Konfigurationsanbieter](xref:security/key-vault-configuration)
 ## [Anforderungsfälschungssicherheit](xref:security/anti-request-forgery)
