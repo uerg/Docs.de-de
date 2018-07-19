@@ -8,12 +8,12 @@ ms.date: 08/23/2012
 ms.assetid: 5894dc13-5d45-4dad-8096-136499120f1d
 msc.legacyurl: /mvc/overview/performance/bundling-and-minification
 msc.type: authoredcontent
-ms.openlocfilehash: 090bb58f762302e0f58db7b8c005fe584e5ec419
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 4e72804593c07318af8cc577f9d43ab96be4de05
+ms.sourcegitcommit: cb0c27fa0184f954fce591d417e6ab2a51d8bb22
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37827374"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39123787"
 ---
 <a name="bundling-and-minification"></a>Bündelung und Minimierung
 ====================
@@ -69,7 +69,7 @@ Die folgende Tabelle zeigt einige wichtige Unterschiede zwischen alle Objekte ei
 | **KB empfangen** | 388.51 | 530 | 36% |
 | **Ladezeit** | 510 MS | 780 MS | 53% |
 
-Die Bytes gesendet hatte, zu eine erhebliche Reduzierung mit bündeln wie Browser Recht ausführlich mit den HTTP-Headern, die sie für Anforderungen gelten. Die Verringerung der empfangenen Bytes nicht so groß ist. da die größten Dateien (*Scripts\jquery-ui-1.8.11.min.js* und *Scripts\jquery-1.7.1.min.js*) bereits minimiert werden. Hinweis: Die Intervalle für das Beispielprogramm verwendet die [Fiddler](http://www.fiddler2.com/fiddler2/) Tool, um ein langsames Netzwerk zu simulieren. (Von der Fiddler **Regeln** , wählen Sie im Menü **Leistung** dann **simulieren Modem Geschwindigkeit**.)
+Die Bytes gesendet hatte, zu eine erhebliche Reduzierung mit bündeln wie Browser Recht ausführlich mit den HTTP-Headern, die sie für Anforderungen gelten. Die Verringerung der empfangenen Bytes nicht so groß ist. da die größten Dateien (*Skripts\\Jquery-Benutzeroberfläche – 1.8.11.min.js* und *Skripts\\Jquery-1.7.1.min.js*) sind bereits minimiert . Hinweis: Die Intervalle für das Beispielprogramm verwendet die [Fiddler](http://www.fiddler2.com/fiddler2/) Tool, um ein langsames Netzwerk zu simulieren. (Von der Fiddler **Regeln** , wählen Sie im Menü **Leistung** dann **simulieren Modem Geschwindigkeit**.)
 
 ## <a name="debugging-bundled-and-minified-javascript"></a>Debuggen von gebündelten und minimierten JavaScript
 
@@ -79,7 +79,7 @@ Es ist einfach, Ihr JavaScript in einer Entwicklungsumgebung Debuggen (, in dene
 2. Wählen Sie das Paket mit der JavaScript-Funktion, die Sie Debuggen, verwenden die Schaltfläche "Assets" möchten.  
     ![](bundling-and-minification/_static/image4.png)
 3. Formatieren von das minimierte JavaScript durch Auswählen der **Schaltfläche Konfiguration** ![](bundling-and-minification/_static/image5.png), und wählen Sie dann **Format JavaScript**.
-4. In der **Suche Skript** t-Eingabefeld, wählen Sie den Namen der Funktion, die Sie debuggen möchten. In der folgenden Abbildung **AddAltToImg** eingegeben wurde die **Suche Skript** t Eingabefeld.  
+4. In der **Suche Skript** Eingabefeld, wählen Sie den Namen der Funktion, die Sie debuggen möchten. In der folgenden Abbildung **AddAltToImg** eingegeben wurde die **Suche Skript** Eingabefeld.  
     ![](bundling-and-minification/_static/image6.png)
 
 Weitere Informationen zum Debuggen mit den F12-Entwicklertools finden Sie im MSDN-Artikel [Verwendung F12-Entwicklertools zum Debuggen von JavaScript-Fehler](https://msdn.microsoft.com/library/ie/gg699336(v=vs.85).aspx).
@@ -107,15 +107,15 @@ Legen Sie zum Aktivieren von Bündelung und Minimierung der `debug` Wert auf "Fa
 
 In diesem Abschnitt werden wir einer ASP.NET MVC-Projekt untersuchen Bündelung und Minimierung erstellen. Erstellen Sie zunächst ein neues ASP.NET MVC-Internet-Projekt namens **MvcBM** ohne Standardeinstellungen ändern zu müssen.
 
-Öffnen der *App\_Start\BundleConfig.cs* Datei, und sehen die `RegisterBundles` Methode dient zum Erstellen, registrieren und Konfigurieren von Paketen. Der folgende Code zeigt einen Teil der `RegisterBundles` Methode.
+Öffnen der *App\\\_starten\\BundleConfig.cs* Datei, und sehen die `RegisterBundles` Methode dient zum Erstellen, registrieren und Konfigurieren von Paketen. Der folgende Code zeigt einen Teil der `RegisterBundles` Methode.
 
 [!code-csharp[Main](bundling-and-minification/samples/sample5.cs)]
 
 Der vorangehende Code erstellt ein neues JavaScript-Paket mit dem Namen *~/bundles/jquery* , enthält das entsprechende (, jedoch nicht verkleinert oder wird Sie debuggen. *Vsdoc*) Dateien in die *Skripts* Ordner, der die Platzhalter-Zeichenfolge "~/Scripts/jquery-{Version} .js" entsprechen. Für ASP.NET MVC 4, also mit einer Debugkonfiguration, die Datei *Jquery-1.7.1.js* , die dem Paket hinzugefügt. In einer Releasekonfiguration *Jquery-1.7.1.min.js* hinzugefügt werden. Die Bündelung Framework folgt mehrere allgemeine Konventionen wie z.B.:
 
-- Wählen ".min"-Datei für Version, wenn "FileX.min.js" und "FileX.js" vorhanden sind.
+- Auswählen von ".min"-Datei für Version, wenn *FileX.min.js* und *FileX.js* vorhanden sind.
 - Wählen die Version nicht ".min" zum Debuggen.
-- Ignorieren von "-Vsdoc"-Dateien (z. B. Jquery-1.7.1-Beispiel vsdoc.js), die nur von IntelliSense verwendet werden.
+- Wird ignoriert. "-Vsdoc" Dateien (z. B. *Jquery-1.7.1-Beispiel vsdoc.js*), die nur vom IntelliSense verwendet wird.
 
 Die `{version}` Platzhalter übereinstimmende oben wird verwendet, um automatisch ein jQuery-Paket erstellen Sie mit der entsprechenden Version von jQuery in Ihre *Skripts* Ordner. In diesem Beispiel enthält einen Platzhalter die folgenden Vorteile:
 
@@ -134,7 +134,7 @@ Im obigen Code wird aus dem CDN jQuery angefordert werden, während im Release-M
 
 ## <a name="creating-a-bundle"></a>Erstellen eines Pakets
 
-Die [Bundle](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx) Klasse `Include` Methode akzeptiert ein Array von Zeichenfolgen, wobei jede Zeichenfolge ein virtueller Pfad zu der Ressource ist. Der folgende Code aus der RegisterBundles-Methode in der *App\_Start\BundleConfig.cs* Datei zeigt, wie mehrere Dateien auf ein Paket hinzugefügt werden:
+Die [Bundle](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx) Klasse `Include` Methode akzeptiert ein Array von Zeichenfolgen, wobei jede Zeichenfolge ein virtueller Pfad zu der Ressource ist. Der folgende code aus der `RegisterBundles` -Methode in der die *App\\\_starten\\BundleConfig.cs* Datei zeigt, wie mehrere Dateien auf ein Paket hinzugefügt werden:
 
 [!code-csharp[Main](bundling-and-minification/samples/sample8.cs)]
 
@@ -142,7 +142,7 @@ Die [Bundle](https://msdn.microsoft.com/library/system.web.optimization.bundle(v
 
 [!code-csharp[Main](bundling-and-minification/samples/sample9.cs)]
 
-Pakete werden auf die verwiesen wird in Sichten, die mithilfe der Render-Methode ( `Styles.Render` für CSS und `Scripts.Render` für JavaScript). Das folgende Markup aus der *Views\Shared\\"_Layout.cshtml"* -Datei veranschaulicht, wie die standardmäßige ASP.NET Internet Projektansichten CSS- und JavaScript-Pakete verweisen.
+Pakete werden auf die verwiesen wird in Sichten, die mithilfe der Render-Methode (`Styles.Render` für CSS und `Scripts.Render` für JavaScript). Das folgende Markup aus der *Ansichten\\Shared\\\_Layout.cshtml* -Datei veranschaulicht, wie die standardmäßige ASP.NET Internet Projektansichten CSS- und JavaScript-Pakete verweisen.
 
 [!code-cshtml[Main](bundling-and-minification/samples/sample10.cshtml?highlight=5-6,11)]
 
@@ -156,10 +156,10 @@ Die im angegebenen virtuellen Pfad der `Include` -Methode, und suchen Sie die Mu
 
 Angenommen Sie, ein Projekt mit den folgenden JavaScript-Dateien:
 
-- *Scripts\Common\AddAltToImg.js*
-- *Scripts\Common\ToggleDiv.js*
-- *Scripts\Common\ToggleImg.js*
-- *Scripts\Common\Sub1\ToggleLinks.js*
+- *Skripts\\allgemeine\\AddAltToImg.js*
+- *Skripts\\allgemeine\\ToggleDiv.js*
+- *Skripts\\allgemeine\\ToggleImg.js*
+- *Skripts\\allgemeine\\Sub1\\ToggleLinks.js*
 
 ![Dir imag](bundling-and-minification/_static/image7.png)
 
@@ -167,13 +167,13 @@ Die folgende Tabelle zeigt die Dateien, die auf ein Paket mithilfe des Platzhalt
 
 | **Call** | **Dateien, die hinzugefügt oder eine Ausnahme ausgelöst** |
 | --- | --- |
-| Include("~/Scripts/Common/\*.js") | *AddAltToImg.js, ToggleDiv.js, ToggleImg.js* |
+| Include("~/Scripts/Common/\*.js") | *AddAltToImg.js*, *ToggleDiv.js*, *ToggleImg.js* |
 | Include("~/Scripts/Common/T\*.js") | Ausnahme für ungültiges Muster. Das Platzhalterzeichen ist nur für das Präfix oder Suffix zulässig. |
 | Include("~/Scripts/Common/\*og.\*") | Ausnahme für ungültiges Muster. Nur ein Platzhalterzeichen ist zulässig. |
-| "Include("~/Scripts/Common/T\*") | *ToggleDiv.js, ToggleImg.js* |
-| "Include("~/Scripts/Common/\*") | Ausnahme für ungültiges Muster. Ein reines Platzhaltersegment ist ungültig. |
-| IncludeDirectory("~/Scripts/Common", "T\*") | *ToggleDiv.js, ToggleImg.js* |
-| IncludeDirectory("~/Scripts/Common", "T\*",true) | *ToggleDiv.js, ToggleImg.js, ToggleLinks.js* |
+| Enthalten ("~/Scripts/Common/T\*") | *ToggleDiv.js*, *ToggleImg.js* |
+| Enthalten ("~/Scripts/Common/\*") | Ausnahme für ungültiges Muster. Ein reines Platzhaltersegment ist ungültig. |
+| IncludeDirectory("~/Scripts/Common", "T\*") | *ToggleDiv.js*, *ToggleImg.js* |
+| IncludeDirectory ("~/Scripts/Common", "T\*" "true") | *ToggleDiv.js*, *ToggleImg.js*, *ToggleLinks.js* |
 
 Hinzufügen von jeder Datei explizit auf ein Paket ist in der Regel die bevorzugte über Platzhalter-Laden von Dateien aus den folgenden Gründen:
 
@@ -183,7 +183,7 @@ Hinzufügen von jeder Datei explizit auf ein Paket ist in der Regel die bevorzug
 
     [!code-csharp[Main](bundling-and-minification/samples/sample12.cs)]
 
-  Die Platzhalter-Auswahl "\*CSS" wird in jeder CSS-Datei im Ordner "", einschließlich der *Content\themes\base\jquery.ui.all.css* Datei. Die *jquery.ui.all.css* -Datei importiert, andere CSS-Dateien.
+  Die Platzhalter-Auswahl "\*CSS" wird in jeder CSS-Datei im Ordner "", einschließlich der *Content\\Designs\\Basis\\jquery.ui.all.css* Datei. Die *jquery.ui.all.css* -Datei importiert, andere CSS-Dateien.
 
 ## <a name="bundle-caching"></a>Bündeln Sie die Zwischenspeicherung
 
@@ -195,7 +195,7 @@ Die folgende Abbildung zeigt die **Caching** den Fiddler-Fensterbereich "Respons
 
 Die Anforderung   
 `http://localhost/MvcBM_time/bundles/AllMyScripts?v=r0sLDicvP58AIXN_mc3QdyVvVj5euZNzdsa2N1PKvb81`  
- für das Paket wird **AllMyScripts** und enthält zwei Zeichenfolge Abfrage **v r0sLDicvP58AIXN =\_mc3QdyVvVj5euZNzdsa2N1PKvb81**. Die Abfragezeichenfolge **v** verfügt über einen Wert, d. h. einen eindeutigen Bezeichner, der zum Zwischenspeichern verwendeten token. Solange das Paket nicht ändert, fordert die ASP.NET-Anwendung die **AllMyScripts** bündeln mit diesem Token. Wenn alle Dateien im Paket geändert wird, generiert das ASP.NET-Framework für die Optimierung ein neues Tokens garantieren, dass Browseranforderungen für das Paket das neueste Paket erhalten.
+ für das Paket wird **AllMyScripts** und enthält zwei Zeichenfolge Abfrage **v r0sLDicvP58AIXN =\\\_mc3QdyVvVj5euZNzdsa2N1PKvb81**. Die Abfragezeichenfolge **v** verfügt über einen Wert, d. h. einen eindeutigen Bezeichner, der zum Zwischenspeichern verwendeten token. Solange das Paket nicht ändert, fordert die ASP.NET-Anwendung die **AllMyScripts** bündeln mit diesem Token. Wenn alle Dateien im Paket geändert wird, generiert das ASP.NET-Framework für die Optimierung ein neues Tokens garantieren, dass Browseranforderungen für das Paket das neueste Paket erhalten.
 
 Wenn Sie IE9 F12-Entwicklertools ausgeführt, und navigieren Sie zu einem zuvor geladenen Seite, zeigt IE falsch bedingten GET-Anforderungen für jedes Paket und dem Server, die HTTP-304 zurückgeben. Sie erhalten, warum IE9 hat Probleme, die bestimmen, ob eine bedingte Anforderung den Blogeintrag erstellt wurde [CDNs mithilfe von "und" Expires ", Website verbessern der Leistung](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx).
 
@@ -203,13 +203,13 @@ Wenn Sie IE9 F12-Entwicklertools ausgeführt, und navigieren Sie zu einem zuvor 
 
 Die Bündelung und Minimierung-Framework bietet einen Mechanismus zum Verarbeiten von intermediate Sprachen wie z. B. [SCSS](http://sass-lang.com/), [Sass](http://sass-lang.com/), [weniger](http://www.dotlesscss.org/) oder [Coffeescript ](http://coffeescript.org/), und Anwenden von Transformationen, z. B. Minimierung auf das resultierende Paket. Um beispielsweise hinzufügen [less](http://www.dotlesscss.org/) Dateien zu Ihrem MVC 4-Projekt:
 
-1. Erstellen Sie einen Ordner für Ihre weniger Inhalte. Im folgenden Beispiel wird die *Content\MyLess* Ordner.
+1. Erstellen Sie einen Ordner für Ihre weniger Inhalte. Im folgenden Beispiel wird die *Content\\MyLess* Ordner.
 2. Hinzufügen der [less](http://www.dotlesscss.org/) NuGet-Paket **dotless** zu Ihrem Projekt.  
     ![Dotless-NuGet-Installation](bundling-and-minification/_static/image9.png)
 3. Fügen Sie eine Klasse, die implementiert die ["ibundletransform"](https://msdn.microsoft.com/library/system.web.optimization.ibundletransform(VS.110).aspx) Schnittstelle. Fügen Sie den folgenden Code zu Ihrem Projekt hinzu, für die Transformation less.
 
     [!code-csharp[Main](bundling-and-minification/samples/sample13.cs)]
-4. Erstellen Sie eine Zusammenstellung von LESS-Dateien mit der `LessTransform` und ["cssminify"](https://msdn.microsoft.com/library/system.web.optimization.cssminify(VS.110).aspx) transformieren. Fügen Sie den folgenden Code der `RegisterBundles` -Methode in der die *App\_Start\BundleConfig.cs* Datei.
+4. Erstellen Sie eine Zusammenstellung von LESS-Dateien mit der `LessTransform` und ["cssminify"](https://msdn.microsoft.com/library/system.web.optimization.cssminify(VS.110).aspx) transformieren. Fügen Sie den folgenden Code der `RegisterBundles` -Methode in der die *App\\_starten\\BundleConfig.cs* Datei.
 
     [!code-csharp[Main](bundling-and-minification/samples/sample14.cs)]
 5. Fügen Sie den folgenden Code an Sichten, die weniger Paket verweist.
@@ -228,7 +228,7 @@ Die Browser-Einschränkung für sechs gleichzeitige Verbindungen pro jeden Hostn
 
 Pakete müssen von Seiten partitioniert werden, die sie benötigen. Beispielsweise erstellt der ASP.NET MVC-Vorlage für eine internetanwendung ein jQuery-Validierung-Paket von jQuery getrennt. Da die Standardansichten erstellt keine Eingabe haben, und diese Werte nicht veröffentlichen, enthalten sie nicht das Paket für die Überprüfung.
 
-Die `System.Web.Optimization` Namespace in System.Web.Optimization.DLL implementiert wird. Nutzt die WebGrease-Bibliothek (WebGrease.dll) für die Minimierung von Funktionen, die Antlr3.Runtime.dll wiederum verwendet.
+Die `System.Web.Optimization` Namespace wird in implementiert *System.Web.Optimization.dll*. Es nutzt die WebGrease-Bibliothek (*WebGrease.dll*) für die Minimierung von Funktionen, die wiederum verwendet *Antlr3.Runtime.dll*.
 
 *Ich verwende Twitter, erstellen schnell Beiträge und Freigeben von Links. Mein Twitter-Handle ist*: [@RickAndMSFT](http://twitter.com/RickAndMSFT)
 

@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 5c76891d-e515-4885-b576-76bd2c494efe
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/ui_and_navigation
 msc.type: authoredcontent
-ms.openlocfilehash: ef1b226d673d18ec333c35f193dbe6bd21e54225
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 2807560484d03122ed68ee3efb49a50e45150e12
+ms.sourcegitcommit: cb0c27fa0184f954fce591d417e6ab2a51d8bb22
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37842914"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39123800"
 ---
 <a name="ui-and-navigation"></a>Benutzeroberfläche und Navigation
 ====================
@@ -164,7 +164,7 @@ In diesem Tutorial werden Sie Aussehen und Verhalten der Anwendung Wingtip Toys 
 3. Benennen Sie die *bootstrap.min.css* zu *Bootstrap-original.min.css*.
 4. In **Projektmappen-Explorer**, mit der rechten Maustaste die *Content* Ordner, und wählen **Ordner in Datei-Explorer öffnen**.  
    Datei-Explorer wird angezeigt. Sie speichert heruntergeladene bootstrap CSS-Dateien an diesen Speicherort.
-5. Wechseln Sie in Ihrem Browser zu [ http://Bootswatch.com ](http://bootswatch.com/).
+5. Wechseln Sie in Ihrem Browser zu [ https://bootswatch.com/3/ ](https://bootswatch.com/3/).
 6. Scrollen Sie im Browserfenster, bis Sie sehen, dass das Schwachstelle Design. 
 
     ![Benutzeroberfläche und Navigation - Schwachstelle Design](ui_and_navigation/_static/image5.png)
