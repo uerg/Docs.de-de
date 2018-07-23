@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/30/2018
 uid: signalr/configuration
-ms.openlocfilehash: fac0226c939f4cf446c876b1c0b359d6c5b9dfd3
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: f5a345795f17dafd482e359e77a151d5b0a15688
+ms.sourcegitcommit: 8b68e144aab75374af52605a71717c77345a28b2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095401"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39182589"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>ASP.NET Core SignalR-Konfiguration
 
@@ -62,7 +62,7 @@ Die folgende Tabelle beschreibt die Optionen zum Konfigurieren von SignalR-Hubs:
 
 | Option | Beschreibung |
 | ------ | ----------- |
-| `HandshakeTimeout` | Wenn der Client innerhalb dieses Zeitraums eine anfängliche Handshake-Nachricht senden, nicht, wird die Verbindung geschlossen. |
+| `HandshakeTimeout` | Wenn der Client innerhalb dieses Zeitraums eine anfängliche Handshake-Nachricht senden, nicht, wird die Verbindung geschlossen. Dies ist eine erweiterte Einstellung, die nur geändert werden soll, wenn der Handshake-Timeout-Fehlern aufgrund von schweren Netzwerklatenz auftreten. Weitere Einzelheiten für den Handshake-Prozess finden Sie in der [SignalR-Hub-Protokollspezifikation](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
 | `KeepAliveInterval` | Wenn der Server eine Nachricht nicht innerhalb dieses Intervalls gesendet noch nicht, wird eine Ping-Nachricht automatisch gesendet, die Verbindung geöffnet bleiben. |
 | `SupportedProtocols` | Von diesen Hub unterstützten Protokolle. Standardmäßig alle Protokolle, die auf dem Server registriert sind zulässig, aber Protokolle können aus dieser Liste Deaktivieren bestimmter Protokolle für individuelle Hubs entfernt werden. |
 | `EnableDetailedErrors` | Wenn `true`, detaillierte Ausnahme Nachrichten werden an Clients zurückgegeben, wenn in einer hubmethode eine Ausnahme ausgelöst wird. Der Standardwert ist `false`, wie diese ausnahmemeldungen können vertraulichen Informationen enthalten. |
@@ -216,10 +216,10 @@ Zusätzliche Optionen zum Konfigurieren von Timeouts und Keep-alive-Verhalten be
 
 | Option für .NET | JavaScript-Option | Beschreibung |
 | ----------- | ----------------- | ----------- |
-| `ServerTimeout` | `serverTimeoutInMilliseconds` | Timeout für die Serveraktivität. Wenn der Server alle Nachrichten in einem bestimmten Intervall gesendet noch nicht, der Client betrachtet, der Server getrennt und Auslösen der `Closed` Ereignis (`onclose` in JavaScript). |
-| `HandshakeTimeout` | Kann nicht konfiguriert | Timeout für die erstmalige Server-Handshake. Wenn der Server eine Antwort Handshake in einem bestimmten Intervall nicht sendet, wird vom Client abgebrochen, der Handshake und Auslösen der `Closed` Ereignis (`onclose` in JavaScript). |
+| `ServerTimeout` | `serverTimeoutInMilliseconds` | Timeout für die Serveraktivität. Wenn der Server eine Nachricht in einem bestimmten Intervall gesendet noch nicht, der Client betrachtet, der Server getrennt und der Trigger die `Closed` Ereignis (`onclose` in JavaScript). |
+| `HandshakeTimeout` | Kann nicht konfiguriert | Timeout für die erstmalige Server-Handshake. Wenn der Server eine Antwort Handshake in einem bestimmten Intervall nicht sendet, wird vom Client abgebrochen, der Handshake und der Trigger die `Closed` Ereignis (`onclose` in JavaScript). Dies ist eine erweiterte Einstellung, die nur geändert werden soll, wenn der Handshake-Timeout-Fehlern aufgrund von schweren Netzwerklatenz auftreten. Weitere Einzelheiten für den Handshake-Prozess finden Sie in der [SignalR-Hub-Protokollspezifikation](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
 
-Im .NET Client Timeoutwerte angegeben sind, als `TimeSpan` Werte. In JavaScript-Client werden die Timeoutwerte als Zahlen angegeben. Die Zahlen stellen die Zeitwerte in Millisekunden dar.
+Im .NET Client Timeoutwerte angegeben sind, als `TimeSpan` Werte. In JavaScript-Client werden die Timeoutwerte als eine Zahl, der angibt, der Dauer in Millisekunden angegeben.
 
 ### <a name="configure-additional-options"></a>Konfigurieren zusätzlicher Optionen
 
