@@ -1,6 +1,6 @@
 <a name="codegenerator"></a> Die folgende Tabelle zeigt die Details der Parameter des Codegenerators von ASP.NET:
 
-| Parameter               | description|
+| Parameter               | Beschreibung |
 | ----------------- | ------------ |
 | -m  | Der Name des Modells. |
 | -dc  | Der Datenkontext. |

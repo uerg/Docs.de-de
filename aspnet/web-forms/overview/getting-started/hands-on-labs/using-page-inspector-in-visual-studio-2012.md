@@ -333,7 +333,7 @@ In dieser Aufgabe lernen Sie, wie Sie die Funktionen der Seitenprüfung im Konte
     ![Überprüfen die Elemente](using-page-inspector-in-visual-studio-2012/_static/image29.png "Elemente untersuchen")
 
     *Untersuchen von Elementen*
-7. Klicken Sie auf die **ein-/ausschalten Überprüfungsmodus** Schaltfläche (![Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser.] (using-page-inspector-in-visual-studio-2012/_static/image30.png "Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser.") ), befindet sich in der Seitenprüfung Registerkarten, um den Cursor zu deaktivieren.
+7. Klicken Sie auf die **ein-/ausschalten Überprüfungsmodus** Schaltfläche (![Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser.](using-page-inspector-in-visual-studio-2012/_static/image30.png "Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser.") ), befindet sich in der Seitenprüfung Registerkarten, um den Cursor zu deaktivieren.
 8. Wählen Sie die **HTML** Registerkarte zum Anzeigen des HTML-Codes im Browser Seitenprüfung gerendert.
 9. Suchen Sie in der HTML-Code das Listenelement mit dem Koala-Link, und wählen Sie sie.
 

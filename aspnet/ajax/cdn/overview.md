@@ -66,7 +66,7 @@ Das CDN hostet die folgenden Drittanbieter-Skriptbibliotheken, die hochgeladen w
 - jQuery Mobile (www.jquerymobile.com)
 - jQuery-Validierung (www.jquery.com)
 - jQuery-Zyklus (www.malsup.com/jquery/cycle/)
-- jQuery DataTables)http://datatables.net/)
+- jQuery DataTables (http://datatables.net/)
 
 Das Microsoft Ajax CDN umfasst auch die folgenden Bibliotheken, die von Microsoft hochgeladen wurden:
 
@@ -1056,7 +1056,7 @@ Die folgenden Versionen von [getbootstrap.com](http://getbootstrap.com "getboots
 
 ### <a name="bootstrap-touchcarousel-releases-on-the-cdn"></a>Bootstrap TouchCarousel-Versionen für das CDN
 
-Die folgenden Versionen von [ https://github.com/ixisio/bootstrap-touch-carousel ] (https://github.com/ixisio/bootstrap-touch-carousel " https://github.com/ixisio/bootstrap-touch-carousel ") TouchCarousel der Bootstrap-Versionen für das CDN gehostet werden:
+Die folgenden Versionen von [https://github.com/ixisio/bootstrap-touch-carousel](https://github.com/ixisio/bootstrap-touch-carousel "https://github.com/ixisio/bootstrap-touch-carousel") TouchCarousel der Bootstrap-Versionen für das CDN gehostet werden:
 
 #### <a name="bootstrap-touchcarousel-version-080"></a>Bootstrap TouchCarousel Version 0.8.0
 
@@ -1067,7 +1067,7 @@ Die folgenden Versionen von [ https://github.com/ixisio/bootstrap-touch-carousel
 
 ### <a name="hammerjs-releases-on-the-cdn"></a>Hammer.js-Versionen für das CDN
 
-Die folgenden Versionen von [ http://hammerjs.github.io/ ] (http://hammerjs.github.io/ " http://hammerjs.github.io/ ") Hammer.js-Versionen für das CDN gehostet werden:
+Die folgenden Versionen von [http://hammerjs.github.io/](http://hammerjs.github.io/ "http://hammerjs.github.io/") Hammer.js-Versionen für das CDN gehostet werden:
 
 #### <a name="hammerjs-version-204"></a>Hammer.js Version 2.0.4
 

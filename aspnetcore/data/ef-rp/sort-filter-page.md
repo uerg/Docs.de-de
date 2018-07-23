@@ -5,12 +5,12 @@ description: In diesem Tutorial fügen Sie mit ASP.NET Core und Entity Framework
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: fce524a5cb386fbf286907be42e920be13115ca6
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 86321538f02ccf1a36ee9e50729e63e007f10327
+ms.sourcegitcommit: ee2b26c7d08b38c908c668522554b52ab8efa221
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38216277"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39146896"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Razor-Seiten mit EF Core in ASP.NET Core: Sortieren, Filtern, Paging (3 von 8)
 
@@ -210,7 +210,7 @@ Die Methode `PaginatedList.CreateAsync` konvertiert die Studentenabfrage in eine
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage4)]
 
-Die zwei Fragezeichen in `PaginatedList.CreateAsync` stellen den [NULL-Sammeloperator](https://docs.microsoft.com/ dotnet/csharp/language-reference/operators/null-conditional-operator) dar. Der NULL-Sammeloperator definiert einen Standardwert für einen auf NULL festlegbaren Typ. Der Ausdruck `(pageIndex ?? 1)` bedeutet, dass der Wert von `pageIndex` zurückgegeben wird, wenn dieser einen Wert aufweist. Wenn der `pageIndex` keinen Wert aufweist, wird 1 zurückgegeben.
+Die zwei Fragezeichen in `PaginatedList.CreateAsync` stellen den [NULL-Sammeloperator](/dotnet/csharp/language-reference/operators/null-conditional-operator) dar. Der NULL-Sammeloperator definiert einen Standardwert für einen auf NULL festlegbaren Typ. Der Ausdruck `(pageIndex ?? 1)` bedeutet, dass der Wert von `pageIndex` zurückgegeben wird, wenn dieser einen Wert aufweist. Wenn der `pageIndex` keinen Wert aufweist, wird 1 zurückgegeben.
 
 ## <a name="add-paging-links-to-the-student-razor-page"></a>Hinzufügen von Paging-Links zur Razor Page für Studenten
 

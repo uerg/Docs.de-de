@@ -115,7 +115,7 @@ Dieses Verfahren zeigt, wie ein Flash-Video mit dem Namen abgespielt *sample.swf
     [!code-cshtml[Main](10-working-with-video/samples/sample2.cshtml)]
 4. Führen Sie die Seite in einem Browser. (Stellen Sie sicher, dass die Seite ist ausgewählt, der **Dateien** Arbeitsbereich vor der Ausführung.) Die Seite wird angezeigt, und das Video automatisch wiedergegeben. 
 
-    ![[Image] ] (10-working-with-video/_static/image1.jpg "ch08_video-1.jpg")
+    ![[Image]](10-working-with-video/_static/image1.jpg "ch08_video-1.jpg")
 
 Sie können festlegen, die `quality` -Parameter für ein Video mit einer Flash `low`, `autolow`, `autohigh`, `medium`, `high`, und `best`:
 
@@ -145,7 +145,7 @@ Das folgende Verfahren zeigt, wie zur Wiedergabe eines Fensters Media-Videos, di
     [!code-cshtml[Main](10-working-with-video/samples/sample5.cshtml)]
 4. Führen Sie die Seite in einem Browser. Das Video wird geladen und automatisch wiedergegeben. 
 
-    ![[Image] ] (10-working-with-video/_static/image2.jpg "ch08_video-2.jpg")
+    ![[Image]](10-working-with-video/_static/image2.jpg "ch08_video-2.jpg")
 
 Sie können festlegen, `playCount` in eine ganze Zahl, der angibt, wie viele Male automatisch wiedergeben des Videos:
 
@@ -175,7 +175,7 @@ Dieses Verfahren zeigt, wie zur Wiedergabe von Video in Silverlight enthaltenen 
     [!code-cshtml[Main](10-working-with-video/samples/sample10.cshtml)]
 4. Führen Sie die Seite in einem Browser. 
 
-    ![[Image] ] (10-working-with-video/_static/image3.jpg "ch08_video-3.jpg")
+    ![[Image]](10-working-with-video/_static/image3.jpg "ch08_video-3.jpg")
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
