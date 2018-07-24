@@ -1,57 +1,57 @@
 ---
 title: Schlüsselverwaltung in ASP.NET Core
 author: rick-anderson
-description: Erfahren Sie mehr Details zur Implementierung der ASP.NET Core Datenschutz Key Management-APIs.
+description: Erfahren Sie Details zur Implementierung der ASP.NET Core-Datenschutz Key Management-APIs.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/implementation/key-management
-ms.openlocfilehash: be8597a2522c3145056dee709210de065e8cb593
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 431bdf2d3076c83279b78f327ddb647f69e6e584
+ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276629"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219250"
 ---
 # <a name="key-management-in-aspnet-core"></a>Schlüsselverwaltung in ASP.NET Core
 
 <a name="data-protection-implementation-key-management"></a>
 
-Die Datenschutzsystem verwaltet automatisch die Lebensdauer der Master-Schlüssel zum Schützen und Aufheben des Schutzes von Nutzlasten. Jeder Schlüssel kann in einer der vier Phasen vorhanden sein:
+Das System zum Schutz von Daten verwaltet automatisch die Lebensdauer der Hauptschlüssel zum Schützen und Aufheben des Schutzes von Nutzlasten verwendet. Jeder Schlüssel kann in einer von vier Phasen vorhanden sein:
 
-* Erstellt: der Schlüssel im Ring Schlüssel vorhanden ist, jedoch noch nicht aktiviert. Der Schlüssel darf nicht für neue Protect-Vorgänge verwendet werden, bis ausreichend Zeit verstrichen ist, dass der Schlüssel wurde eine Möglichkeit, auf alle Computer weitergegeben werden, die diesen Schlüssel Ring in Anspruch genommen.
+* Erstellt: der Schlüssel vorhanden ist, in dem Schlüsselbund jedoch noch nicht aktiviert wurde. Für neue schützen Vorgänge der Schlüssel sollte nicht verwendet werden, bis genügend Zeit verstrichen ist, dass der Schlüssel Gelegenheit hatten wurde, auf alle Computer verteilt, die diese Schlüsselbund verbrauchen.
 
-* Aktiv – der Schlüssel im Ring Schlüssel vorhanden ist und für alle neuen Protect-Vorgänge verwendet werden soll.
+* Aktiv - der Schlüssel vorhanden ist, in dem Schlüsselbund und sollte für alle neuen schützen Vorgänge verwendet werden.
 
-* Abgelaufen - der Schlüssel Lebensdauer natürliche ausgeführt wurde und nicht mehr für neue Protect-Vorgänge verwendet werden soll.
+* Abgelaufen – der Schlüssel seiner natürlichen Lebensdauer ausgeführt wurde, und sollte nicht mehr für neue schützen Vorgänge verwendet werden.
 
-* Widerrufen - der Schlüssel gefährdet sein und dürfen nicht für neue Protect-Vorgänge verwendet werden.
+* Widerrufen: der Schlüssel gefährdet ist, und darf nicht für neue schützen Vorgänge verwendet werden.
 
-Erstellte, aktiven und abgelaufene Schlüssel möglicherweise alle zum Aufheben des Schutzes von eingehenden Nutzlasten verwendet. Gesperrte Schlüssel standardmäßig dürfen nicht zum Aufheben des Schutzes von Nutzlasten verwendet werden, aber der Anwendungsentwickler kann [dieses Verhalten überschreiben](xref:security/data-protection/consumer-apis/dangerous-unprotect#data-protection-consumer-apis-dangerous-unprotect) bei Bedarf.
+Erstellte, aktive und abgelaufene Schlüssel möglicherweise alle zum Aufheben des Schutzes von eingehenden Nutzlasten verwendet. Widerrufenen Schlüssel in der Standardeinstellung können nicht zum Aufheben des Schutzes von Nutzlasten verwendet werden, aber der Anwendungsentwickler kann [dieses Verhalten überschreiben](xref:security/data-protection/consumer-apis/dangerous-unprotect#data-protection-consumer-apis-dangerous-unprotect) bei Bedarf.
 
 >[!WARNING]
-> Der Entwickler möglicherweise versucht, einen Schlüssel aus dem Schlüssel Ring zu löschen, (z. B. durch die entsprechende Datei aus dem Dateisystem gelöscht). An diesem Punkt alle Daten, die durch den Schlüssel geschützt wird dauerhaft, und es gibt keine Notfall Überschreibung mit gesperrten Schlüssel vorhanden ist. Löschen einen Schlüssel wirklich destruktiven Verhalten ist und daher macht die Datenschutzsystem keine erstrangige-API zum Ausführen des Vorgangs.
+> Der Entwickler möglicherweise versucht, einen Schlüssel aus dem Schlüsselbund (z. B. durch das Löschen der entsprechenden Datei aus dem Dateisystem) zu löschen. An diesem Punkt alle durch den Schlüssel geschützte Daten dauerhaft nicht lesbar ist, und es gibt keine Notfall außer Kraft setzen, wie bei der widerrufenen Schlüssel. Löschen eines Schlüssels ist wirklich destruktive Verhalten, und daher macht System zum Schutz von Daten keine erstklassige API zum Ausführen des Vorgangs.
 
 ## <a name="default-key-selection"></a>Wichtige Standardauswahl
 
-Wenn die Datenschutzsystem des Rings Schlüssel aus dem Repository dahinter liegende liest, wird versucht, einen Schlüssel "Default" aus dem Schlüssel Ring zu suchen. Der Standardschlüssel wird für neue Protect-Vorgänge verwendet.
+Wenn das System zum Schutz von Daten den Schlüsselbund aus dem Repository dahinter liegende liest, wird versucht, einen Schlüssel "Standard" aus dem Schlüsselbund gesucht werden soll. Der Standardschlüssel wird für neue schützen Vorgänge verwendet.
 
-Die allgemeine Heuristik ist, dass die Datenschutzsystem die Taste mit dem letzten Aktivierungsdatum als den Standardschlüssel auswählt. (Es ist eine kleine Mogelfaktor um Server Serveruhr Zeitversatz zu ermöglichen.) Wenn der Schlüssel ist abgelaufen oder gesperrt, und wenn die Anwendung nicht automatisch deaktiviert wurden generieren Schlüssel und dann ein neuer Schlüssel mit sofortigem Aktivierung pro generiert werden die [Schlüssel Ablauf- und parallelen](xref:security/data-protection/implementation/key-management#data-protection-implementation-key-management-expiration) Richtlinie weiter unten.
+Die allgemeine Heuristik ist, dass das System zum Schutz von Daten über die Taste mit dem letzten Aktivierungsdatum als Standardschlüssel auswählt. (Es ist eine kleine Mogelfaktor, um Server-zu-Server Uhr datenschiefe zu ermöglichen.) Wenn der Schlüssel ist abgelaufen oder gesperrt, und wenn die Anwendung nicht automatisch deaktiviert hat schlüsselgenerierung, und klicken Sie dann ein neuer Schlüssel mit unmittelbaren Aktivierung pro generiert werden die [für den Ablauf und parallele](xref:security/data-protection/implementation/key-management#data-protection-implementation-key-management-expiration) Richtlinie weiter unten.
 
-Der Grund der Datenschutzsystem generiert einen neuen Schlüssel sofort anstatt Fallback auf einen anderen Schlüssel besteht darin, dass neue schlüsselgenerierung als eine implizite Ablaufzeit aller Schlüssel behandelt werden sollen, die vor der neue Schlüssel aktiviert wurden. Die Idee ist, dass neue Schlüssel mit verschiedenen Algorithmen oder Verschlüsselung ruhender Mechanismen als die alten Schlüssel konfiguriert wurden können, und das System sollte vorziehen, dass die aktuelle Konfiguration zurückgreifen.
+Der Grund System zum Schutz von Daten generiert einen neuen Schlüssel sofort statt Fallback auf einen anderen Schlüssel besteht darin, dass die Generierung eines neuen Schlüssels als eine implizite Ablauf aller Schlüssel behandelt werden sollen, die vor dem neuen Schlüssel aktiviert wurden. Der Grundgedanke ist, dass neue Schlüssel mit verschiedenen Algorithmen oder Verschlüsselung für ruhende-Mechanismen als alten Schlüssel konfiguriert wurden können, und das System vorziehen sollten, dass die aktuelle Konfiguration zurückgreifen.
 
-Eine Ausnahme ist aufgetreten. Verfügt der Anwendungsentwickler [deaktiviert die automatische Generierung](xref:security/data-protection/configuration/overview#disableautomatickeygeneration), und klicken Sie dann die Datenschutzsystem etwas als den standardmäßigen Schlüssel auswählen muss. In diesem Szenario fallback werden das System, wählen Sie den Schlüssel nicht widerrufen, mit dem letzten Aktivierungsdatum eingeräumt an Schlüsseln, die Zeit an andere Computer im Cluster weitergegeben wurden. Die Fallbacksystem annehmen kann eine abgelaufene Standardschlüssel daher auswählen. Die Fallbacksystem wird nie einen gesperrten Schlüssel als den standardmäßigen Schlüssel auswählen und wenn der Schlüssel Ring leer ist oder jeden Schlüssel wurde gesperrt klicken Sie dann das System erzeugt einen Fehler bei der Initialisierung.
+Es ist eine Ausnahme aus. Wenn der Anwendungsentwickler kann [deaktiviert die automatische Generierung von Schlüsseln](xref:security/data-protection/configuration/overview#disableautomatickeygeneration), und klicken Sie dann das System zum Schutz von Daten etwas als Standardschlüssel auswählen muss. In diesem Szenario fallback wird das System den Schlüssel nicht widerrufen, mit dem das letzte Aktivierungsdatum, wählen Sie eingeräumt an Schlüsseln, die mit anderen Computern im Cluster verteilt werden mussten. Das fallback-System kann am Ende einer abgelaufenen Standardschlüssel daher auswählen. Das Fallbacksystem wählt nie einen widerrufenen Schlüssel als den Standardschlüssel, und wenn dem Schlüsselbund leer ist oder wurde jeder Schlüssel gesperrt klicken Sie dann das System tritt ein Fehler bei der Initialisierung.
 
 <a name="data-protection-implementation-key-management-expiration"></a>
 
-## <a name="key-expiration-and-rolling"></a>Schlüsselablauf und Rollen
+## <a name="key-expiration-and-rolling"></a>Schlüsselablauf und parallele
 
-Wenn ein Schlüssel erstellt wird, hat es automatisch ein Datum der Aktivierung von {Now + 2 Tage} und {Now + 90 Tage} Ablaufdatum erhalten. Die Verzögerung 2 Tagen vor der Aktivierung erhalten die Schlüsselzeit durch das System weitergegeben. Somit ermöglicht es anderen Anwendungen, die auf den in den Sicherungsspeicher beobachten den Schlüssel bei ihrer nächsten Zeitraum für die automatische Aktualisierung daher maximieren die Gefahr, dass bei der Schlüssel ring geworden ist aktiv, die es verteilt wurde für alle Anwendungen, die möglicherweise zum müssen diese verwendet werden.
+Wenn ein Schlüssel erstellt wird, erhält er automatisch ein Aktivierungs- und ein Ablaufdatum von {Now + 90 Tage} von {Now + 2 Tage}. Die Verzögerung von 2 Tagen vor der Aktivierung erhalten die Schlüsselzeit über das System eine Weile dauern. D. h. können sie andere Anwendungen, die auf den in den Sicherungsspeicher, beobachten Sie den Schlüssel an die nächste Aktualisierungsintervall, Maximieren daher die Wahrscheinlichkeit, dass wenn der Schlüssel des ringpufferziels werden wird aktiv, die Gruppe propagiert wurde für alle Anwendungen, die erforderlich sind verwendet werden.
 
-Wenn die Standardschlüssel innerhalb von 2 Tagen abläuft und der Ring Schlüssel einen Schlüssel noch nicht, der nach Ablauf der Standardschlüssel aktiv sind, bleiben die Datenschutzsystem automatisch einen neuen Schlüssel für den Schlüssel Ring. Dieses neuen Schlüssels verfügt über ein Datum der Aktivierung von {Ablaufdatum des Standardschlüssel} und {Now + 90 Tage} Ablaufdatum. Dadurch wird das System die Schlüssel automatisch in regelmäßigen Abständen ohne Unterbrechung des Diensts zurückzusetzen.
+Wenn der Standardschlüssel innerhalb von 2 Tagen ablaufen und den Schlüsselbund nicht bereits einen Schlüssel verfügen, der nach Ablauf des den Standardschlüssel aktiv sind, wird das System zum Schutz von Daten automatisch einen neuen Schlüssel, den Schlüsselbund beibehalten. Dieses neuen Schlüssels verfügt über ein Aktivierungs- und Ablaufdatum {Now + 90 Tage} {Ablaufdatum der Standardschlüssel}. Dadurch kann es sich um das System die Schlüssel automatisch in regelmäßigen Abständen ohne Unterbrechung des Diensts zurückzusetzen.
 
-Es gibt möglicherweise Situationen, in denen ein Schlüssel mit sofortige Aktivierung erstellt wird. Ein Beispiel wäre, wenn die Anwendung noch nicht für eine Zeit ausgeführt und sämtliche Schlüssel in den Schlüssel Ring ist abgelaufen. In diesem Fall wird der Schlüssel ein Datum der Aktivierung von {jetzt} ohne die normalen aktivierungsverzögerung von 2 Tagen angegeben.
+Es gibt möglicherweise Situationen, in dem ein Schlüssel mit der sofortigen Aktivierung erstellt wird. Ein Beispiel wäre, wenn die Anwendung noch nicht für einen Zeitraum ausgeführt, und alle Schlüssel in den Schlüsselbund abgelaufen sind. In diesem Fall erhält der Schlüssel ein Datum der Aktivierung von {jetzt} ohne die normalen aktivierungsverzögerung von 2 Tagen.
 
-Die wichtigsten Standardlebensdauer ist 90 Tage, obwohl dies konfigurierbar, wie im folgenden Beispiel ist.
+Die Lebensdauer der Standard-Schlüssel ist 90 Tage lang auf, wenn dies konfiguriert ist, wie im folgenden Beispiel ist.
 
 ```csharp
 services.AddDataProtection()
@@ -59,27 +59,26 @@ services.AddDataProtection()
        .SetDefaultKeyLifetime(TimeSpan.FromDays(14));
 ```
 
-Ein Administrator kann auch die standardmäßige systemweite, ändern, wenn ein expliziter Aufruf von `SetDefaultKeyLifetime` werden alle systemweite Richtlinie überschrieben. Die Standardlebensdauer für den Schlüssel darf nicht kürzer als 7 Tage sein.
+Ein Administrator kann auch standardmäßig eine systemweite, ändern, wenn ein expliziter Aufruf von `SetDefaultKeyLifetime` wird Richtlinie für eine systemweite außer Kraft gesetzt. Die Lebensdauer der Standard-Schlüssel darf nicht weniger als 7 Tage sein.
 
 ## <a name="automatic-key-ring-refresh"></a>Automatische Schlüsselbund aktualisieren
 
-Wenn die Datenschutzsystem initialisiert wird, liest der Ring Schlüssel aus dem zugrunde liegenden Repository und im Arbeitsspeicher zwischengespeichert. Dieser Cache ermöglicht das schützen und Unprotect-Vorgängen um den Vorgang fortzusetzen, ohne dafür das Sicherungsspeicher. Vom System wird den Sicherungsspeicher für Änderungen automatisch geprüft, ungefähr alle 24 Stunden oder wenn der aktuelle Standardschlüssel abläuft, je nachdem, was zuerst eintritt.
+Wenn das System zum Schutz von Daten initialisiert wird, liest den Schlüsselbund aus dem zugrunde liegenden Repository und im Arbeitsspeicher zwischengespeichert. Dieser Cache ermöglicht schützen und Unprotect-Vorgänge um den Vorgang fortzusetzen, ohne dass dafür auf den Sicherungsspeicher an. Der Sicherungsspeicher für Änderungen wird von vom System automatisch geprüft werden, ungefähr 24 Stunden oder wenn der aktuelle Standardschlüssel abläuft, je nachdem, was zuerst eintritt.
 
 >[!WARNING]
-> Entwickler sollten nur sehr selten (wenn überhaupt) müssen die Schlüssel-APIs direkt verwenden. Die Datenschutzsystem führt automatischen schlüsselverwaltung, wie oben beschrieben.
+> Entwickler sollten nur sehr selten (wenn überhaupt) die Schlüssel-APIs direkt verwenden müssen. Das System zum Schutz von Daten führt automatische schlüsselverwaltung, wie oben beschrieben.
 
-Die Datenschutzsystem stellt eine Schnittstelle `IKeyManager` , um zu überprüfen, und nehmen Sie Änderungen an der Ring Schlüssel verwendet werden kann. Das DI-System, das die Instanz bereitgestellt `IDataProtectionProvider` bietet auch eine Instanz von `IKeyManager` für Ihrer Nutzung. Alternativ können Sie Einziehen der `IKeyManager` direkt aus dem `IServiceProvider` wie im folgenden Beispiel.
+Das System zum Schutz von Daten stellt eine Schnittstelle `IKeyManager` , die verwendet werden kann, um zu überprüfen, und nehmen Sie Änderungen an den Schlüsselbund. Das DI-System, das die Instanz angegebenen `IDataProtectionProvider` bieten auch eine Instanz von `IKeyManager` für den Verbrauch. Alternativ können Sie abrufen, die `IKeyManager` direkt aus der `IServiceProvider` wie im folgenden Beispiel.
 
-Jeder Vorgang, der bestimmt, der Schlüssel Ring (einen neuen Schlüssel explizit erstellen oder Ausführen einer Sperrung) wird der in-Memory-Cache ungültig. Beim nächsten Aufruf von `Protect` oder `Unprotect` führt dazu, dass die Datenschutzsystem liest die Schlüsselbund und erneut erstellen des Caches.
+Jeder Vorgang, der bestimmt, den Schlüsselbund (einen neuen Schlüssel explizit erstellen oder Ausführen einer Sperrung) wird in-Memory-Cache ungültig. Beim nächsten Aufruf von `Protect` oder `Unprotect` bewirkt, dass das System zum Schutz von Daten gebundenes den Schlüsselbund und neu erstellen, den Cache.
 
-Das folgende Beispiel veranschaulicht die Verwendung der `IKeyManager` Schnittstelle, um zu überprüfen und bearbeiten den Schlüssel Ring, einschließlich entziehen vorhandenen Schlüssel und einen neuen Schlüssel manuell zu generieren.
+Das folgende Beispiel veranschaulicht die Verwendung der `IKeyManager` Schnittstelle, um zu überprüfen und ändern den Schlüsselbund, einschließlich entziehen vorhandenen Schlüssel und einen neuen Schlüssel manuell zu generieren.
 
 [!code-csharp[](key-management/samples/key-management.cs)]
 
-## <a name="key-storage"></a>Schlüsselspeicher
+## <a name="key-storage"></a>Speichern von Schlüsseln
 
-Die Datenschutzsystem hat eine heuristische, bei dem Versuch, einen geeigneten Schlüssel Speicherort und die Verschlüsselung auf Rest-Mechanismus automatisch hergeleitet werden. Dies kann auch durch den app-Entwickler. In den folgenden Dokumenten erläutert die integrierten Implementierungen der folgenden Mechanismen:
+Das System zum Schutz von Daten verfügt über eine Heuristik, bei dem versucht wird, einen entsprechenden Schlüssel Speicherort und die Verschlüsselung im Ruhezustand Methode automatisch hergeleitet werden. Der schlüsselpersistenz-Mechanismus kann auch vom app-Entwickler konfiguriert werden. In den folgenden Dokumenten erläutert die integrierten Implementierungen dieser Mechanismen:
 
-* [In-Box-Schlüsselspeicher-Anbieter](xref:security/data-protection/implementation/key-storage-providers#data-protection-implementation-key-storage-providers)
-
-* [Integrierte Schlüsselverschlüsselung zur Rest-Anbieter](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest-providers)
+* <xref:security/data-protection/implementation/key-storage-providers>
+* <xref:security/data-protection/implementation/key-encryption-at-rest>
