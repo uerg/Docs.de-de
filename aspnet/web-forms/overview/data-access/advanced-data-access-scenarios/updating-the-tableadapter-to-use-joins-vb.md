@@ -4,19 +4,16 @@ title: Aktualisieren den TableAdapter, für die Verwendung von Verknüpfungen (V
 author: rick-anderson
 description: Bei der Arbeit mit einer Datenbank ist es üblich, das Abrufen von Daten, die auf mehrere Tabellen verteilt werden. Zum Abrufen von Daten aus zwei verschiedenen Tabellen können wir eine verwenden...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/18/2007
-ms.topic: article
 ms.assetid: e624a3e0-061b-4efc-8b0e-5877f9ff6714
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/updating-the-tableadapter-to-use-joins-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9987d4dab7de4fc19d36625fcebc9d63e21acbe8
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 43e0caf63600858f7f2211f3d2e98aa2c6425820
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377171"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832379"
 ---
 <a name="updating-the-tableadapter-to-use-joins-vb"></a>Aktualisieren den TableAdapter, für die Verwendung von Verknüpfungen (VB)
 ====================
@@ -98,7 +95,7 @@ Während die DataTable, die entsprechenden Spalten verfügt, wird der TableAdapt
 
 Zur Umgehung dieser Schwierigkeit können wir manuell die SQL-Anweisungen und Parameter zum Angeben der `InsertCommand`, `UpdateCommand`, und `DeleteCommand` Eigenschaften über das Fenster "Eigenschaften". Alternativ kann zunächst durch Konfigurieren der TableAdapter der Hauptabfrage s, um *nicht* enthalten `JOIN` s. Dadurch wird die `INSERT`, `UPDATE`, und `DELETE` Anweisungen, die automatisch für uns generiert werden. Nach Abschluss des Assistenten an, wir könnten aktualisieren Sie anschließend manuell die TableAdapter `SelectCommand` im Eigenschaftenfenster, sodass die It enthält die `JOIN` Syntax.
 
-Führendes Prüfer für dieses Tutorial wurden Hilton Geisenow, David Suru und Teresa Murphy. Das bedeutet, dass alle wir später vorgenommenen Anpassungen verloren gehen würden, wenn wir mit der rechten auf den TableAdapter Maustaste, wählen im Kontextmenü der konfigurieren und den Assistenten erneut durchgeführt.
+Dieser Ansatz funktioniert, zwar es ist sehr fehleranfällig beim Verwenden von Ad-hoc-SQL-Abfragen, da jedes Mal, wenn die Hauptabfrage des TableAdapter s neu konfiguriert, über den Assistenten, die automatisch generierte besteht in `INSERT`, `UPDATE`, und `DELETE` Anweisungen neu erstellt werden. Das bedeutet, dass alle wir später vorgenommenen Anpassungen verloren gehen würden, wenn wir mit der rechten auf den TableAdapter Maustaste, wählen im Kontextmenü der konfigurieren und den Assistenten erneut durchgeführt.
 
 Die Fehleranfälligkeit die automatisch generierten TableAdapter `INSERT`, `UPDATE`, und `DELETE` Anweisungen lautet Glücklicherweise auf Ad-hoc-SQL-Anweisungen beschränkt. Wenn gespeicherte Prozeduren in der TableAdapter verwendet wird, können Sie Anpassen der `SelectCommand`, `InsertCommand`, `UpdateCommand`, oder `DeleteCommand` gespeicherte Prozeduren, und führen Sie den TableAdapter-Konfigurations-Assistenten erneut aus, ohne zu befürchten, dass die gespeicherten Prozeduren werden müssen geändert.
 
