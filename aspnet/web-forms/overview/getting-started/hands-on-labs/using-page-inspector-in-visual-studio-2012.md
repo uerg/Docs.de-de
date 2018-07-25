@@ -142,7 +142,7 @@ In dieser Aufgabe lernen Sie, wie Sie die Seitenprüfung im Kontext eines ASP.NE
     ![Inspectingelements](using-page-inspector-in-visual-studio-2012/_static/image6.png)
 
     *Untersuchen von Elementen*
-7. Klicken Sie auf die **ein-/ausschalten Überprüfungsmodus** Schaltfläche (![wählen Sie die Registerkarte "HTML", um den HTML-Code im Browser Seitenprüfung gerendert anzuzeigen.] (using-page-inspector-in-visual-studio-2012/_static/image7.png "Wählen Sie die Registerkarte \"HTML\", um den HTML-Code im Browser Seitenprüfung gerendert anzuzeigen.") ), deaktivieren Sie den Cursor.
+7. Klicken Sie auf die **ein-/ausschalten Überprüfungsmodus** Schaltfläche (![wählen Sie die Registerkarte "HTML", um den HTML-Code im Browser Seitenprüfung gerendert anzuzeigen.](using-page-inspector-in-visual-studio-2012/_static/image7.png "Wählen Sie die Registerkarte \"HTML\", um den HTML-Code im Browser Seitenprüfung gerendert anzuzeigen.") ), deaktivieren Sie den Cursor.
 8. Wählen Sie die **HTML** Registerkarte zum Anzeigen des HTML-Codes im Browser Seitenprüfung gerendert.
 9. Klicken Sie im HTML-Markup suchen Sie das Listenelement mit dem Koala-Link, und wählen Sie sie.
 
