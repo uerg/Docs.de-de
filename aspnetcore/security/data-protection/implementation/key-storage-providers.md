@@ -1,88 +1,84 @@
 ---
-title: In softwareschlüsselspeicher-Anbieter in ASP.NET Core
+title: Softwareschlüsselspeicher-Anbieter in ASP.NET Core
 author: rick-anderson
-description: Informationen Sie zur softwareschlüsselspeicher-Anbieter in ASP.NET Core und wichtige Speicherorte zu konfigurieren.
+description: Informationen Sie zu den softwareschlüsselspeicher-Anbieter in ASP.NET Core und wichtige Speicherorte zu konfigurieren.
 ms.author: riande
-ms.date: 01/14/2017
+ms.date: 07/16/2018
 uid: security/data-protection/implementation/key-storage-providers
-ms.openlocfilehash: 432c2690f216325470bbea9b974ea772bcdc39ed
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 74d62e88b40cfcefb81d699a5aba2665c56ac51a
+ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273768"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219263"
 ---
-# <a name="key-storage-providers-in-aspnet-core"></a><span data-ttu-id="7c14c-103">In softwareschlüsselspeicher-Anbieter in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="7c14c-103">Key storage providers in ASP.NET Core</span></span>
+# <a name="key-storage-providers-in-aspnet-core"></a><span data-ttu-id="07fc8-103">Softwareschlüsselspeicher-Anbieter in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="07fc8-103">Key storage providers in ASP.NET Core</span></span>
 
-<a name="data-protection-implementation-key-storage-providers"></a>
+<span data-ttu-id="07fc8-104">Das System zum Schutz von Daten [Discovery-Mechanismus in der Standardeinstellung setzt](xref:security/data-protection/configuration/default-settings) um zu bestimmen, in denen kryptografische Schlüssel beibehalten werden soll.</span><span class="sxs-lookup"><span data-stu-id="07fc8-104">The data protection system [employs a discovery mechanism by default](xref:security/data-protection/configuration/default-settings) to determine where cryptographic keys should be persisted.</span></span> <span data-ttu-id="07fc8-105">Der Entwickler kann außer Kraft setzen als standardmäßiger Ermittlungsmechanismus verwendet und geben Sie den Speicherort manuell.</span><span class="sxs-lookup"><span data-stu-id="07fc8-105">The developer can override the default discovery mechanism and manually specify the location.</span></span>
 
-<span data-ttu-id="7c14c-104">Standardmäßig die Datenschutzsystem [verwendet eine Heuristik](xref:security/data-protection/configuration/default-settings) um zu bestimmen, wo die kryptografischen schlüsselmaterialien beibehalten werden soll.</span><span class="sxs-lookup"><span data-stu-id="7c14c-104">By default the data protection system [employs a heuristic](xref:security/data-protection/configuration/default-settings) to determine where cryptographic key material should be persisted.</span></span> <span data-ttu-id="7c14c-105">Der Entwickler kann außer Kraft setzen die Heuristik und manuell Geben Sie den Speicherort.</span><span class="sxs-lookup"><span data-stu-id="7c14c-105">The developer can override the heuristic and manually specify the location.</span></span>
+> [!WARNING]
+> <span data-ttu-id="07fc8-106">Wenn Sie einem Standort der explizite schlüsselpersistenz angeben, hebt die System zum Schutz von Daten, sodass Schlüssel nicht mehr im Ruhezustand verschlüsselt sind die wichtigsten standardverschlüsselung auf Rest-Mechanismus, Registrierung.</span><span class="sxs-lookup"><span data-stu-id="07fc8-106">If you specify an explicit key persistence location, the data protection system deregisters the default key encryption at rest mechanism, so keys are no longer encrypted at rest.</span></span> <span data-ttu-id="07fc8-107">Es wird empfohlen, die Sie darüber hinaus [Geben Sie einen Mechanismus für die explizite Schlüsselverschlüsselung](xref:security/data-protection/implementation/key-encryption-at-rest) für produktionsbereitstellungen.</span><span class="sxs-lookup"><span data-stu-id="07fc8-107">It's recommended that you additionally [specify an explicit key encryption mechanism](xref:security/data-protection/implementation/key-encryption-at-rest) for production deployments.</span></span>
 
-> [!NOTE]
-> <span data-ttu-id="7c14c-106">Wenn Sie einen expliziten schlüsselpersistenz-Ort angeben, wird die Datenschutzsystem Aufheben der Registrierung der wichtigsten standardverschlüsselung zur Rest-Mechanismus, der die Heuristik zur Verfügung gestellt, sodass Schlüssel nicht mehr im Ruhezustand verschlüsselt werden.</span><span class="sxs-lookup"><span data-stu-id="7c14c-106">If you specify an explicit key persistence location, the data protection system will deregister the default key encryption at rest mechanism that the heuristic provided, so keys will no longer be encrypted at rest.</span></span> <span data-ttu-id="7c14c-107">Es wird empfohlen, die Sie darüber hinaus [geben den Kommunikationsmechanismus für eine explizite Schlüsselverschlüsselung](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest-providers) für Produktionsanwendungen.</span><span class="sxs-lookup"><span data-stu-id="7c14c-107">It's recommended that you additionally [specify an explicit key encryption mechanism](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest-providers) for production applications.</span></span>
+## <a name="file-system"></a><span data-ttu-id="07fc8-108">Dateisystem</span><span class="sxs-lookup"><span data-stu-id="07fc8-108">File system</span></span>
 
-<span data-ttu-id="7c14c-108">Im Lieferumfang von der Datenschutzsystem sind mehrere integrierte-Schlüsselspeicher-Anbieter.</span><span class="sxs-lookup"><span data-stu-id="7c14c-108">The data protection system ships with several in-box key storage providers.</span></span>
-
-## <a name="file-system"></a><span data-ttu-id="7c14c-109">Dateisystem</span><span class="sxs-lookup"><span data-stu-id="7c14c-109">File system</span></span>
-
-<span data-ttu-id="7c14c-110">Wir erwarten, dass viele apps Datei systembasierten Key-Repository verwendet.</span><span class="sxs-lookup"><span data-stu-id="7c14c-110">We anticipate that many apps will use a file system-based key repository.</span></span> <span data-ttu-id="7c14c-111">Um dies zu konfigurieren, rufen Sie die [PersistKeysToFileSystem](https://github.com/aspnet/DataProtection/blob/rel/1.1.0/src/Microsoft.AspNetCore.DataProtection/DataProtectionBuilderExtensions.cs) Konfiguration Routine, wie unten dargestellt.</span><span class="sxs-lookup"><span data-stu-id="7c14c-111">To configure this, call the [PersistKeysToFileSystem](https://github.com/aspnet/DataProtection/blob/rel/1.1.0/src/Microsoft.AspNetCore.DataProtection/DataProtectionBuilderExtensions.cs) configuration routine as shown below.</span></span> <span data-ttu-id="7c14c-112">Geben Sie einen `DirectoryInfo` verweist auf das Repository, in dem Schlüssel gespeichert werden sollen.</span><span class="sxs-lookup"><span data-stu-id="7c14c-112">Provide a `DirectoryInfo` pointing to the repository where keys should be stored.</span></span>
+<span data-ttu-id="07fc8-109">Um eine Datei systembasierte Key Repository zu konfigurieren, rufen Sie die [PersistKeysToFileSystem](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystofilesystem) Configuration-Routine, wie unten dargestellt.</span><span class="sxs-lookup"><span data-stu-id="07fc8-109">To configure a file system-based key repository, call the [PersistKeysToFileSystem](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystofilesystem) configuration routine as shown below.</span></span> <span data-ttu-id="07fc8-110">Geben Sie einen [DirectoryInfo](/dotnet/api/system.io.directoryinfo) auf das Repository, in dem Schlüssel gespeichert werden soll:</span><span class="sxs-lookup"><span data-stu-id="07fc8-110">Provide a [DirectoryInfo](/dotnet/api/system.io.directoryinfo) pointing to the repository where keys should be stored:</span></span>
 
 ```csharp
-sc.AddDataProtection()
-       // persist keys to a specific directory
-       .PersistKeysToFileSystem(new DirectoryInfo(@"c:\temp-keys\"));
-   ```
-
-<span data-ttu-id="7c14c-113">Die `DirectoryInfo` kann auf ein Verzeichnis auf dem lokalen Computer verweisen, oder kann auf einen Ordner auf einer Netzwerkfreigabe zeigen.</span><span class="sxs-lookup"><span data-stu-id="7c14c-113">The `DirectoryInfo` can point to a directory on the local machine, or it can point to a folder on a network share.</span></span> <span data-ttu-id="7c14c-114">Wenn verweist auf ein Verzeichnis auf dem lokalen Computer (und das Szenario liegt vor, dass nur die Anwendungen auf dem lokalen Computer diesem Repository verwendet müssen), erwägen Sie [Windows DPAPI](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest) zum Verschlüsseln der Schlüssel im Ruhezustand.</span><span class="sxs-lookup"><span data-stu-id="7c14c-114">If pointing to a directory on the local machine (and the scenario is that only applications on the local machine will need to use this repository), consider using [Windows DPAPI](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest) to encrypt the keys at rest.</span></span> <span data-ttu-id="7c14c-115">Erwägen Sie andernfalls mit einem [x. 509-Zertifikat](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest) um ruhende Verschlüsselung.</span><span class="sxs-lookup"><span data-stu-id="7c14c-115">Otherwise consider using an [X.509 certificate](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest) to encrypt keys at rest.</span></span>
-
-## <a name="azure-and-redis"></a><span data-ttu-id="7c14c-116">Azure und Redis</span><span class="sxs-lookup"><span data-stu-id="7c14c-116">Azure and Redis</span></span>
-
-<span data-ttu-id="7c14c-117">Die `Microsoft.AspNetCore.DataProtection.AzureStorage` und `Microsoft.AspNetCore.DataProtection.Redis` Pakete zu ermöglichen, Ihre Data Protection-Schlüssel in Azure-Speicher oder eine Redis-Cache gespeichert.</span><span class="sxs-lookup"><span data-stu-id="7c14c-117">The `Microsoft.AspNetCore.DataProtection.AzureStorage` and `Microsoft.AspNetCore.DataProtection.Redis` packages allow storing your data protection keys in Azure Storage or a Redis cache.</span></span> <span data-ttu-id="7c14c-118">Schlüssel können über mehrere Instanzen von einer Web-app freigegeben werden.</span><span class="sxs-lookup"><span data-stu-id="7c14c-118">Keys can be shared across several instances of a web app.</span></span> <span data-ttu-id="7c14c-119">Ihre app ASP.NET Core kann Authentifizierungscookies oder CSRF-Schutz für mehrere Server freigeben.</span><span class="sxs-lookup"><span data-stu-id="7c14c-119">Your ASP.NET Core app can share authentication cookies or CSRF protection across multiple servers.</span></span> <span data-ttu-id="7c14c-120">Um auf Azure zu konfigurieren, rufen Sie eine von der [PersistKeysToAzureBlobStorage](https://github.com/aspnet/DataProtection/blob/rel/1.1.0/src/Microsoft.AspNetCore.DataProtection.AzureStorage/AzureDataProtectionBuilderExtensions.cs) überlädt, wie unten dargestellt.</span><span class="sxs-lookup"><span data-stu-id="7c14c-120">To configure on Azure, call one of the [PersistKeysToAzureBlobStorage](https://github.com/aspnet/DataProtection/blob/rel/1.1.0/src/Microsoft.AspNetCore.DataProtection.AzureStorage/AzureDataProtectionBuilderExtensions.cs) overloads as shown below.</span></span>
-
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddDataProtection()
+        .PersistKeysToFileSystem(new DirectoryInfo(@"c:\temp-keys\"));
+}
 ```
+
+<span data-ttu-id="07fc8-111">Die `DirectoryInfo` kann in ein Verzeichnis auf dem lokalen Computer, oder es kann auf einen Ordner auf einer Netzwerkfreigabe verweisen.</span><span class="sxs-lookup"><span data-stu-id="07fc8-111">The `DirectoryInfo` can point to a directory on the local machine, or it can point to a folder on a network share.</span></span> <span data-ttu-id="07fc8-112">Wenn ein Verzeichnis auf dem lokalen Computer verweist (und das Szenario ist, dass nur die apps auf dem lokalen Computer Zugriff auf dieses Repository verwenden müssen) in Betracht [Windows DPAPI](xref:security/data-protection/implementation/key-encryption-at-rest) (unter Windows), die Schlüssel im Ruhezustand verschlüsselt.</span><span class="sxs-lookup"><span data-stu-id="07fc8-112">If pointing to a directory on the local machine (and the scenario is that only apps on the local machine require access to use this repository), consider using [Windows DPAPI](xref:security/data-protection/implementation/key-encryption-at-rest) (on Windows) to encrypt the keys at rest.</span></span> <span data-ttu-id="07fc8-113">Erwägen Sie andernfalls die Verwendung einer [x. 509-Zertifikat](xref:security/data-protection/implementation/key-encryption-at-rest) Schlüsseln im ruhenden Zustand verschlüsselt.</span><span class="sxs-lookup"><span data-stu-id="07fc8-113">Otherwise, consider using an [X.509 certificate](xref:security/data-protection/implementation/key-encryption-at-rest) to encrypt keys at rest.</span></span>
+
+## <a name="azure-and-redis"></a><span data-ttu-id="07fc8-114">Azure und Redis</span><span class="sxs-lookup"><span data-stu-id="07fc8-114">Azure and Redis</span></span>
+
+<span data-ttu-id="07fc8-115">Die [Microsoft.AspNetCore.DataProtection.AzureStorage](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.AzureStorage/) und [Microsoft.AspNetCore.DataProtection.Redis](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Redis/) Pakete ermöglichen das Speichern von Data Protection-Schlüssel in Azure Storage oder einem Redis-Cache.</span><span class="sxs-lookup"><span data-stu-id="07fc8-115">The [Microsoft.AspNetCore.DataProtection.AzureStorage](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.AzureStorage/) and [Microsoft.AspNetCore.DataProtection.Redis](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Redis/) packages allow storing data protection keys in Azure Storage or a Redis cache.</span></span> <span data-ttu-id="07fc8-116">Schlüssel können auf mehrere Instanzen einer Web-App gemeinsam genutzt werden.</span><span class="sxs-lookup"><span data-stu-id="07fc8-116">Keys can be shared across several instances of a web app.</span></span> <span data-ttu-id="07fc8-117">Apps können Authentifizierungscookies oder CSRF-Schutz über mehrere Server hinweg freigeben.</span><span class="sxs-lookup"><span data-stu-id="07fc8-117">Apps can share authentication cookies or CSRF protection across multiple servers.</span></span> <span data-ttu-id="07fc8-118">Zum Konfigurieren des Azure Blob Storage-Anbieters rufen Sie eine der der [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage) Überladungen:</span><span class="sxs-lookup"><span data-stu-id="07fc8-118">To configure the Azure Blob Storage provider, call one of the [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage) overloads:</span></span>
+
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddDataProtection()
         .PersistKeysToAzureBlobStorage(new Uri("<blob URI including SAS token>"));
-
-    services.AddMvc();
 }
 ```
 
-<span data-ttu-id="7c14c-121">Siehe auch die [Azure Testcode](https://github.com/aspnet/DataProtection/blob/rel/1.1.0/samples/AzureBlob/Program.cs).</span><span class="sxs-lookup"><span data-stu-id="7c14c-121">See also the [Azure test code](https://github.com/aspnet/DataProtection/blob/rel/1.1.0/samples/AzureBlob/Program.cs).</span></span>
+<span data-ttu-id="07fc8-119">Um auf Redis konfigurieren, rufen Sie eine der der [PersistKeysToRedis](/dotnet/api/microsoft.aspnetcore.dataprotection.redisdataprotectionbuilderextensions.persistkeystoredis) Überladungen:</span><span class="sxs-lookup"><span data-stu-id="07fc8-119">To configure on Redis, call one of the [PersistKeysToRedis](/dotnet/api/microsoft.aspnetcore.dataprotection.redisdataprotectionbuilderextensions.persistkeystoredis) overloads:</span></span>
 
-<span data-ttu-id="7c14c-122">Um auf Redis konfigurieren, rufen Sie eine von der [PersistKeysToRedis](https://github.com/aspnet/DataProtection/blob/rel/1.1.0/src/Microsoft.AspNetCore.DataProtection.Redis/RedisDataProtectionBuilderExtensions.cs) überlädt, wie unten dargestellt.</span><span class="sxs-lookup"><span data-stu-id="7c14c-122">To configure on Redis, call one of the [PersistKeysToRedis](https://github.com/aspnet/DataProtection/blob/rel/1.1.0/src/Microsoft.AspNetCore.DataProtection.Redis/RedisDataProtectionBuilderExtensions.cs) overloads as shown below.</span></span>
-
-```
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
-    // Connect to Redis database.
     var redis = ConnectionMultiplexer.Connect("<URI>");
     services.AddDataProtection()
         .PersistKeysToRedis(redis, "DataProtection-Keys");
-
-    services.AddMvc();
 }
 ```
 
-<span data-ttu-id="7c14c-123">Über die folgenden Links erhalten Sie weitere Informationen:</span><span class="sxs-lookup"><span data-stu-id="7c14c-123">See the following for more information:</span></span>
+<span data-ttu-id="07fc8-120">Weitere Informationen finden Sie unter den folgenden Themen:</span><span class="sxs-lookup"><span data-stu-id="07fc8-120">For more information, see the following topics:</span></span>
 
-- [<span data-ttu-id="7c14c-124">StackExchange.Redis ConnectionMultiplexer</span><span class="sxs-lookup"><span data-stu-id="7c14c-124">StackExchange.Redis ConnectionMultiplexer</span></span>](https://github.com/StackExchange/StackExchange.Redis/blob/master/docs/Basics.md)
-- [<span data-ttu-id="7c14c-125">Azure Redis Cache:</span><span class="sxs-lookup"><span data-stu-id="7c14c-125">Azure Redis Cache</span></span>](https://docs.microsoft.com/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache#connect-to-the-cache)
-- <span data-ttu-id="7c14c-126">[Redis Testcode](https://github.com/aspnet/DataProtection/blob/rel/1.1.0/samples/Redis/Program.cs).</span><span class="sxs-lookup"><span data-stu-id="7c14c-126">[Redis test code](https://github.com/aspnet/DataProtection/blob/rel/1.1.0/samples/Redis/Program.cs).</span></span>
+* [<span data-ttu-id="07fc8-121">"Stackexchange.redis" ConnectionMultiplexer</span><span class="sxs-lookup"><span data-stu-id="07fc8-121">StackExchange.Redis ConnectionMultiplexer</span></span>](https://github.com/StackExchange/StackExchange.Redis/blob/master/docs/Basics.md)
+* [<span data-ttu-id="07fc8-122">Azure Redis Cache</span><span class="sxs-lookup"><span data-stu-id="07fc8-122">Azure Redis Cache</span></span>](/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache#connect-to-the-cache)
+* [<span data-ttu-id="07fc8-123">ASPNET/DataProtection-Beispiele</span><span class="sxs-lookup"><span data-stu-id="07fc8-123">aspnet/DataProtection samples</span></span>](https://github.com/aspnet/DataProtection/samples)
 
-## <a name="registry"></a><span data-ttu-id="7c14c-127">Registrierung</span><span class="sxs-lookup"><span data-stu-id="7c14c-127">Registry</span></span>
+## <a name="registry"></a><span data-ttu-id="07fc8-124">Registrierung</span><span class="sxs-lookup"><span data-stu-id="07fc8-124">Registry</span></span>
 
-<span data-ttu-id="7c14c-128">In einigen Fällen möglicherweise die app nicht Schreibzugriff auf das Dateisystem.</span><span class="sxs-lookup"><span data-stu-id="7c14c-128">Sometimes the app might not have write access to the file system.</span></span> <span data-ttu-id="7c14c-129">Betrachten Sie ein Szenario, in denen eine app als virtuelle Dienstkonto (z. B. die app-Anwendungspoolidentität des W3wp.exe) ausgeführt wird.</span><span class="sxs-lookup"><span data-stu-id="7c14c-129">Consider a scenario where an app is running as a virtual service account (such as w3wp.exe's app pool identity).</span></span> <span data-ttu-id="7c14c-130">In diesen Fällen ist kann der Administrator einen Registrierungsschlüssel bereitgestellt haben, der entsprechenden ACLed für die Dienstidentität für das Konto ist.</span><span class="sxs-lookup"><span data-stu-id="7c14c-130">In these cases, the administrator may have provisioned a registry key that's appropriate ACLed for the service account identity.</span></span> <span data-ttu-id="7c14c-131">Rufen Sie die [PersistKeysToRegistry](https://github.com/aspnet/DataProtection/blob/rel/1.1.0/src/Microsoft.AspNetCore.DataProtection/DataProtectionBuilderExtensions.cs) Konfiguration Routine, wie unten dargestellt.</span><span class="sxs-lookup"><span data-stu-id="7c14c-131">Call the [PersistKeysToRegistry](https://github.com/aspnet/DataProtection/blob/rel/1.1.0/src/Microsoft.AspNetCore.DataProtection/DataProtectionBuilderExtensions.cs) configuration routine as shown below.</span></span> <span data-ttu-id="7c14c-132">Geben Sie einen `RegistryKey` verweist auf den Speicherort, in dem kryptografischen Schlüssel/Werte gespeichert werden sollen.</span><span class="sxs-lookup"><span data-stu-id="7c14c-132">Provide a `RegistryKey` pointing to the location where cryptographic keys/values should be stored.</span></span>
+<span data-ttu-id="07fc8-125">**Gilt nur für Windows-Bereitstellungen.**</span><span class="sxs-lookup"><span data-stu-id="07fc8-125">**Only applies to Windows deployments.**</span></span>
+
+<span data-ttu-id="07fc8-126">Die app möglicherweise manchmal nicht über Schreibzugriff auf das Dateisystem.</span><span class="sxs-lookup"><span data-stu-id="07fc8-126">Sometimes the app might not have write access to the file system.</span></span> <span data-ttu-id="07fc8-127">Stellen Sie sich ein Szenario, in denen eine app als ein virtuelles Dienstkonto ausgeführt wird (z. B. *w3wp.exe*des app-Pool-Identität).</span><span class="sxs-lookup"><span data-stu-id="07fc8-127">Consider a scenario where an app is running as a virtual service account (such as *w3wp.exe*'s app pool identity).</span></span> <span data-ttu-id="07fc8-128">In diesen Fällen kann der Administrator einen Registrierungsschlüssel bereitstellen, der von der dienstkontoidentität zugänglich ist.</span><span class="sxs-lookup"><span data-stu-id="07fc8-128">In these cases, the administrator can provision a registry key that's accessible by the service account identity.</span></span> <span data-ttu-id="07fc8-129">Rufen Sie die [PersistKeysToRegistry](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystoregistry) Erweiterungsmethode wie unten dargestellt.</span><span class="sxs-lookup"><span data-stu-id="07fc8-129">Call the [PersistKeysToRegistry](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystoregistry) extension method as shown below.</span></span> <span data-ttu-id="07fc8-130">Geben Sie einen [RegistryKey](/dotnet/api/microsoft.aspnetcore.dataprotection.repositories.registryxmlrepository.registrykey) verweist auf den Speicherort, in der kryptografischen Schlüssel gespeichert werden soll:</span><span class="sxs-lookup"><span data-stu-id="07fc8-130">Provide a [RegistryKey](/dotnet/api/microsoft.aspnetcore.dataprotection.repositories.registryxmlrepository.registrykey) pointing to the location where cryptographic keys should be stored:</span></span>
 
 ```csharp
-   sc.AddDataProtection()
-       // persist keys to a specific location in the system registry
-       .PersistKeysToRegistry(Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Sample\keys"));
-   ```
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddDataProtection()
+        .PersistKeysToRegistry(Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Sample\keys"));
+}
+```
 
-<span data-ttu-id="7c14c-133">Wenn Sie die Registrierung des Systems als Mechanismus für die Persistenz verwenden, erwägen Sie [Windows DPAPI](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest) zum Verschlüsseln der Schlüssel im Ruhezustand.</span><span class="sxs-lookup"><span data-stu-id="7c14c-133">If you use the system registry as a persistence mechanism, consider using [Windows DPAPI](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest) to encrypt the keys at rest.</span></span>
+> [!IMPORTANT]
+> <span data-ttu-id="07fc8-131">Es wird empfohlen, [Windows DPAPI](xref:security/data-protection/implementation/key-encryption-at-rest) den Schlüsseln im ruhenden Zustand verschlüsselt.</span><span class="sxs-lookup"><span data-stu-id="07fc8-131">We recommend using [Windows DPAPI](xref:security/data-protection/implementation/key-encryption-at-rest) to encrypt the keys at rest.</span></span>
 
-## <a name="custom-key-repository"></a><span data-ttu-id="7c14c-134">Benutzerdefinierte Schlüssel-repository</span><span class="sxs-lookup"><span data-stu-id="7c14c-134">Custom key repository</span></span>
+## <a name="custom-key-repository"></a><span data-ttu-id="07fc8-132">Benutzerdefinierte Schlüssel-repository</span><span class="sxs-lookup"><span data-stu-id="07fc8-132">Custom key repository</span></span>
 
-<span data-ttu-id="7c14c-135">Wenn die integrierten Mechanismen nicht geeignet sind, kann der Entwickler einen eigenen Mechanismus schlüsselpersistenz angeben, durch Bereitstellen eines benutzerdefinierten `IXmlRepository`.</span><span class="sxs-lookup"><span data-stu-id="7c14c-135">If the in-box mechanisms are not appropriate, the developer can specify their own key persistence mechanism by providing a custom `IXmlRepository`.</span></span>
+<span data-ttu-id="07fc8-133">Wenn die integrierte Mechanismen nicht geeignet sind, kann Entwickler ihre eigenen Schlüssel persistenzmechanismus angeben, durch Bereitstellen eines benutzerdefinierten [IXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.repositories.ixmlrepository).</span><span class="sxs-lookup"><span data-stu-id="07fc8-133">If the in-box mechanisms aren't appropriate, the developer can specify their own key persistence mechanism by providing a custom [IXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.repositories.ixmlrepository).</span></span>
