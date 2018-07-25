@@ -8,12 +8,12 @@ ms.date: 01/12/2012
 ms.assetid: 53767e05-c8ab-42e1-a94b-22d906195200
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 9f16c01515bde80d3994618d26818c2d93f69d87
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 6dbffe715990de5c0b3b834e354379e414925816
+ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37828376"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219055"
 ---
 <a name="using-the-dropdownlist-helper-with-aspnet-mvc"></a>Verwenden des DropDownList-Hilfsprogramms mit ASP.NET MVC
 ====================
@@ -190,7 +190,7 @@ Das ausgewählte Plug-in ist enthalten, in der Starter und das vollständige Bei
 
 [!code-cshtml[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample12.cshtml)]
 
-Es wird im obigen Code hinzugefügt, die HTML-Attribut und Attributwert `class = "chzn-select"`. Das @-Zeichen vor Klasse hat nichts mit Razor-ansichtsengine tun. `class` ist eine [c#-Schlüsselwort](https://msdn.microsoft.com/library/x53a06bb.aspx). C#-Schlüsselwörter können nicht als Bezeichner verwendet werden, es sei denn, sie @ als Präfix enthalten. Im obigen Beispiel `@class` ist ein gültiger Bezeichner jedoch **Klasse** ist nicht, da **Klasse** ist ein Schlüsselwort.
+Es wird im obigen Code hinzugefügt, die HTML-Attribut und Attributwert `class = "chzn-select"`. Die \@ vorherigen-Klasse verfügt über keinerlei Bezug zur Razor-ansichtsengine Zeichen. `class` ist eine [c#-Schlüsselwort](https://msdn.microsoft.com/library/x53a06bb.aspx). C#-Schlüsselwörter nicht als Bezeichner verwendet werden, es sei denn, sie enthalten \@ als Präfix. Im obigen Beispiel `@class` ist ein gültiger Bezeichner jedoch **Klasse** ist nicht, da **Klasse** ist ein Schlüsselwort.
 
 Fügen Sie Verweise auf die *Chosen/chosen.jquery.js* und *Chosen/chosen.css* Dateien. Die *Chosen/chosen.jquery.js* und implementiert die Funktionalität des Plug-Ins ausgewählt. Die *Chosen/chosen.css* Datei enthält die Stile. Fügen Sie diese Verweise auf das Ende der *Views\Home\MultiSelectCountry.cshtml* Datei. Der folgende Code zeigt, wie Sie auf das ausgewählte Plug-in zu verweisen.
 
