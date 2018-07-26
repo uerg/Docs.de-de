@@ -4,14 +4,14 @@ author: guardrex
 description: Erfahren Sie, wie Sie ASP.NET Core-Apps in Azure App Service hosten. Entsprechende Informationen werden in diesen nützlichen Ressourcen bereitgestellt.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/29/2018
+ms.date: 07/24/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 83965e69249ca8196d0f226528735444936567ad
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: ece61a3e362ec5e2ff8f415351a0f9257fc72098
+ms.sourcegitcommit: b4c7b1a4c48dec0865f27874275c73da1f75e918
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095612"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39228610"
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Hosten von ASP.NET Core in Azure App Service
 
@@ -44,13 +44,19 @@ Richten Sie ein CI-Build für eine ASP.NET Core-App ein, und erstellen Sie dann 
 [Azure Web App-Sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)  
 Entdecken Sie die Einschränkungen der Azure App Service-Laufzeitausführung, die durch die Azure Apps-Plattform erzwungen werden.
 
+::: moniker range=">= aspnetcore-2.0"
+
 ## <a name="application-configuration"></a>Anwendungskonfiguration
 
-In ASP.NET Core 2.0 und höher bieten drei Pakete im [Metapaket „Microsoft.AspNetCore.All“](xref:fundamentals/metapackage) automatische Protokollierungsfeatures für in Azure App Service bereitgestellte Apps:
+In ASP.NET Core 2.0 und höher umfassen die folgenden NuGet-Pakete automatische Protokollierungsfeatures für Apps, die für Azure App Service bereitgestellt werden.
 
 * [Microsoft.AspNetCore.AzureAppServices.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServices.HostingStartup/) verwendet [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration), um die ASP.NET Core-Lightup-Integration mit Azure App Service bereitzustellen. Die hinzugefügten Protokollierungsfeatures werden vom `Microsoft.AspNetCore.AzureAppServicesIntegration`-Paket bereitgestellt.
 * [Microsoft.AspNetCore.AzureAppServicesIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServicesIntegration/) führt [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) aus, um Anbieter für die Azure App Service-Diagnoseprotokollierung zum Paket `Microsoft.Extensions.Logging.AzureAppServices` hinzuzufügen.
 * [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices/) stellt Protokollierungsimplementierungen bereit, um die Azure App Service-Features für Diagnoseprotokolle und Protokollstreaming zu unterstützen.
+
+Wenn Sie eine Anwendung für .NET Core erstellen und einen Verweis auf das Metapaket [Microsoft.AspNetCore.All](xref:fundamentals/metapackage) herstellen, sind diese Pakete bereits in der Anwendung enthalten. Das neuere Metapaket [Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) ist nicht in den Paketen enthalten. Wenn Sie eine Anwendung für .NET Framework erstellen oder einen Verweis auf das `Microsoft.AspNetCore.App`-Metapaket herstellen, verweisen Sie auch auf die einzelnen Protokollierungspakete.
+
+::: moniker-end
 
 ## <a name="proxy-server-and-load-balancer-scenarios"></a>Proxyserver und Lastenausgleichsszenarien
 

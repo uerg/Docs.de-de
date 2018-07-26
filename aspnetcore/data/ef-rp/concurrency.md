@@ -5,15 +5,13 @@ description: In diesem Tutorial wird gezeigt, wie Sie Konflikte behandeln, wenn 
 ms.author: riande
 ms.date: 11/15/2017
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: c6ec07eb7bf484490bd7730edc44bf2d89e8fb2a
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: ff9e52df63f9c9f47ee659a68beb28b773a114a1
+ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38150482"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39202691"
 ---
-en-US/
-
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>Razor-Seiten mit EF Core in ASP.NET Core: Parallelität (8 von 8)
 
 Von [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra) und [Jon P Smith](https://twitter.com/thereformedprog)
@@ -54,17 +52,21 @@ Die optimistische Nebenläufigkeit umfasst die folgenden Optionen:
 
 * Sie können Nachverfolgen, welche Eigenschaft ein Benutzer geändert hat, und nur die entsprechenden Spalten in der Datenbank aktualisieren.
 
-  In diesem Szenario sollten keine Daten verloren gehen. Von den beiden Benutzern wurden unterschiedliche Eigenschaften aktualisiert. Das nächste Mal, wenn eine Person den englischen Fachbereich durchsucht, sieht diese die Änderungen von Benutzer1 und Benutzer2. Diese Methode der Aktualisierung kann die Anzahl von Konflikten reduzieren, die zu Datenverlust führen können. Dieser Ansatz: * Kann den Datenverlust nicht vermeiden, wenn konkurrierende Änderungen an der gleichen Eigenschaft vollzogen werden.
-        * Ist im Allgemeinen in einer Web-App nicht besonders praktisch. Erfordert, dass der maßgebliche Zustand beibehalten wird, um alle abgerufenen Werte und neuen Werte nachzuverfolgen. Das Verwalten von großen Datenmengen kann den Zustand der App-Leistung beeinträchtigen.
-        * Kann die Anwendungskomplexität erhöhen, im Vergleich zur Parallelitätsermittlung für eine Entität.
+  In diesem Szenario sollten keine Daten verloren gehen. Von den beiden Benutzern wurden unterschiedliche Eigenschaften aktualisiert. Das nächste Mal, wenn eine Person den englischen Fachbereich durchsucht, sieht diese die Änderungen von Benutzer1 und Benutzer2. Diese Methode der Aktualisierung kann die Anzahl von Konflikten reduzieren, die zu Datenverlust führen können. Dieser Ansatz:
+ 
+  * Kann Datenverlust nicht verhindern, wenn konkurrierende Änderungen an der gleichen Eigenschaft gemacht werden.
+  * Ist in einer Web-App in der Regel nicht praktisch. Erfordert, dass der maßgebliche Zustand beibehalten wird, um alle abgerufenen Werte und neuen Werte nachzuverfolgen. Das Verwalten von großen Datenmengen kann den Zustand der App-Leistung beeinträchtigen.
+  * Kann die Anwendungskomplexität im Vergleich zur Parallelitätsermittlung für eine Entität erhöhen.
 
 * Sie können zulassen, dass die Änderungen von Benutzer2 die Änderungen von Benutzer1 überschreiben.
 
   Das nächste Mal, wenn jemand den englischen Fachbereich durchsucht, wird das Datum 9.1.2013 und der wiederhergestellte Wert von 350.000 $ angezeigt. Dieses Ansatz wird *Client gewinnt*- oder *Last in Wins*-Szenario (Letzter gewinnt) genannt. (Alle Werte des Clients haben Vorrang vor dem Datenspeicher.) Wenn Sie keine Codierung für die Parallelitätsbehandlung durchführen, wird automatisch das „Client gewinnt“-Szenario ausgeführt.
 
-* Sie können verhindern, dass die Änderungen von Benutzer2 in die Datenbank aufgenommen werden. In der Regel würde die App: * Eine Fehlermeldung anzeigen.
-        * Den aktuellen Status der Daten anzeigen.
-        * Dem Benutzer ermöglichen, die Änderungen erneut anzuwenden.
+* Sie können verhindern, dass die Änderungen von Benutzer2 in die Datenbank aufgenommen werden. In der Regel würde die App:
+
+  * Eine Fehlermeldung anzeigen
+  * Den aktuellen Datenstatus anzeigen
+  * Dem Benutzer ermöglichen, die Änderungen erneut anzuwenden
 
   Dieses Szenario wird *Store Wins* (Speicher gewinnt) genannt. (Die Werte des Datenspeichers haben Vorrang gegenüber den Werten, die vom Client gesendet werden). In diesem Tutorial implementieren Sie das Szenario „Store Wins“ (Speicher gewinnt). Diese Methode stellt sicher, dass keine Änderungen überschrieben werden, ohne dass ein Benutzer darüber benachrichtigt wird.
 
@@ -144,7 +146,7 @@ Die obenstehenden Befehle haben folgende Konsequenzen:
 * Die Migrationsdatei *Migrations/{Zeitstempel}_RowVersion.cs* wird hinzugefügt.
 * Es wird ein Update für die Datei *Migrations/SchoolContextModelSnapshot.cs* ausgeführt. Über dieses Update wird der `BuildModel`-Methode der folgende hervorgehobene Code hinzugefügt:
 
-[!code-csharp[](intro/samples/cu/Migrations/SchoolContextModelSnapshot2.cs?name=snippet&highlight=14-16)]
+  [!code-csharp[](intro/samples/cu/Migrations/SchoolContextModelSnapshot2.cs?name=snippet&highlight=14-16)]
 
 * Migrationen werden durchgeführt, um die Datenbank zu aktualisieren.
 

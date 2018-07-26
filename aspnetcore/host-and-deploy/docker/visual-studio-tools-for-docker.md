@@ -4,14 +4,14 @@ author: spboyer
 description: Informationen zum Verwenden der Visual Studio 2017-Tools und Docker für Windows, um Ihre ASP.NET Core-App in Container zu packen.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/12/2017
+ms.date: 07/18/2018
 uid: host-and-deploy/docker/visual-studio-tools-for-docker
-ms.openlocfilehash: fd485416ff0fab2508ab8ffd3f0ad309be338723
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: afa7b05820ba021c50d9c23804095f7edd8b71f1
+ms.sourcegitcommit: ee2b26c7d08b38c908c668522554b52ab8efa221
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276853"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39146883"
 ---
 # <a name="visual-studio-tools-for-docker-with-aspnet-core"></a>Visual Studio-Tools für Docker mit ASP.NET Core
 
@@ -35,15 +35,15 @@ Informationen zur Docker-Installation entnehmen Sie dem Artikel [Docker for Wind
 
 ## <a name="add-docker-support-to-an-app"></a>Hinzufügen der Docker-Unterstützung zu einer App
 
-Damit einem ASP.NET Core-Projekt Docker-Unterstützung hinzugefügt wird, muss das Projekt .NET Core als Ziel haben. Sowohl Linux- als auch Windows-Container werden unterstützt.
+Um einem ASP.NET Core-Projekt Docker-Unterstützung hinzuzufügen, muss das Projekt .NET Core als Ziel haben. Sowohl Linux- als auch Windows-Container werden unterstützt.
 
 Wenn Sie Docker-Unterstützung zu einem Projekt hinzufügen, können Sie zwischen einem Windows- oder einem Linux-Container auswählen. Der Docker-Host muss den gleichen Containertyp ausführen. Wenn Sie den Containertyp in der ausgeführten Docker-Instanz ändern möchten, klicken Sie mit der rechten Maustaste auf der Taskleiste auf das Docker-Symbol, und wählen Sie **Switch to Windows containers** (Zu Windows-Containern wechseln) oder **Switch to Linux container** (Zu Linux-Containern wechseln) aus.
 
 ### <a name="new-app"></a>Neue App
 
-Wenn Sie mithilfe der Projektvorlage **ASP.NET Core-Webanwendung** eine neue App erstellen, aktivieren Sie das Feld **Enable Docker Support** (Docker-Unterstützung aktivieren):
+Wenn Sie mithilfe der Projektvorlage **ASP.NET Core-Webanwendung** eine neue App erstellen, aktivieren Sie das Kontrollkästchen **Enable Docker Support** (Docker-Unterstützung aktivieren):
 
-![Aktivieren des Felds „Docker-Unterstützung“](visual-studio-tools-for-docker/_static/enable-docker-support-checkbox.png)
+![Kontrollkästchen „Enable Docker Support“ (Docker-Unterstützung aktivieren)](visual-studio-tools-for-docker/_static/enable-docker-support-check box.png)
 
 Wenn .NET Core das Zielframework ist, können Sie in der Dropdownliste **OS** (Betriebssystem) einen Containertyp auswählen.
 
@@ -56,7 +56,7 @@ Mit den Visual Studio-Tools für Docker können Sie Docker nicht zu einem vorhan
 
 ## <a name="docker-assets-overview"></a>Übersicht über Docker-Objekte
 
-Die Visual Studio-Tools für Docker fügen der Projektmappe ein *Docker Compose*-Projekt mit folgendem Inhalt hinzu:
+Die Visual Studio-Tools für Docker fügen der Lösung ein *docker-compose*-Projekt mit den folgenden Dateien hinzu:
 
 * *.dockerignore*: Enthält eine Liste mit Mustern für Dateien und Verzeichnisse, die beim Generieren eines Buildkontexts ausgeschlossen werden sollen.
 * *docker-compose.yml*: Die [Docker Compose](https://docs.docker.com/compose/overview/)-Basisdatei zum Definieren der Sammlung von Images, die mit `docker-compose build` und `docker-compose run` erstellt bzw. ausgeführt werden soll.
@@ -83,9 +83,9 @@ Wählen Sie in der Symbolleiste im Dropdownmenü „Debuggen“ die Option **Doc
 * Das Runtime-Image *microsoft/aspnetcore* wird geladen (falls es sich nicht bereits im Cache befindet).
 * Das *microsoft/aspnetcore-build* compile/publish image wird geladen (falls es sich nicht bereits im Cache befindet).
 * Die Umgebungsvariable *ASPNETCORE_ENVIRONMENT* wird im Container auf `Development` festgelegt.
-* PORT 80 wird verfügbar gemacht und einem dynamisch zugewiesenen Port für Localhost zugeordnet. Der Port wird vom Docker-Host bestimmt und kann mit dem Befehl `docker ps` abgefragt werden.
+* Port 80 wird verfügbar gemacht und einem dynamisch zugewiesenen Port für Localhost zugewiesen. Der Port wird vom Docker-Host bestimmt und kann mit dem Befehl `docker ps` abgefragt werden.
 * Die App wird in den Container kopiert.
-* Der Standardbrowser wird mit dem dynamisch zugewiesenen Port gestartet, wobei der Debugger an den Container angehängt wird. 
+* Der Standardbrowser wird mit dem dynamisch zugewiesenen Port gestartet, wobei der Debugger an den Container angehängt wird.
 
 Das resultierende Docker-Image ist das *dev*-Image der Anwendung mit den *microsoft/aspnetcore*-Images als Basisimage. Führen Sie im Fenster **Paket-Manager-Konsole** den Befehl `docker images` aus. Die Images auf dem Computer werden angezeigt:
 
@@ -109,9 +109,9 @@ baf9a678c88d        hellodockertools:dev   "C:\\remote_debugge..."   21 seconds 
 
 ## <a name="edit-and-continue"></a>Bearbeiten und Fortfahren
 
-Änderungen an statischen Dateien und Razor-Ansichten werden automatisch aktualisiert, wobei kein Kompilierungsschritt erforderlich ist. Nehmen Sie die Änderung vor, speichern Sie die Datei, und aktualisieren Sie die Browseransicht, um die Aktualisierung anzuzeigen.  
+Änderungen an statischen Dateien und Razor-Ansichten werden automatisch aktualisiert, wobei kein Kompilierungsschritt erforderlich ist. Nehmen Sie die Änderung vor, speichern Sie die Datei, und aktualisieren Sie die Browseransicht, um die Aktualisierung anzuzeigen.
 
-Wenn Sie Änderungen an Codedateien vornehmen, müssen Sie die Dateien kompilieren und Kestrel im Container neu starten. Nachdem Sie die Änderung vorgenommen haben, drücken Sie die Tastenkombination STRG+F5, um den Prozess durchzuführen und die App im Container zu starten. Der Docker-Container wird nicht erneut erstellt oder angehalten. Führen Sie in der Paket-Manager-Konsole den Befehl `docker ps` aus. Beachten Sie, dass der ursprüngliche Container immer noch genau so ausgeführt wird wie vor zehn Minuten:
+Änderungen an Codedateien erfordern eine Kompilierung und einen Neustart von Kestrel im Container. Nachdem Sie die Änderung vorgenommen haben, drücken Sie `CTRL+F5`, um den Prozess durchzuführen und die App im Container zu starten. Der Docker-Container wird nicht erneut erstellt oder angehalten. Führen Sie in der Paket-Manager-Konsole den Befehl `docker ps` aus. Beachten Sie, dass der ursprüngliche Container immer noch genau so ausgeführt wird wie vor zehn Minuten:
 
 ```console
 CONTAINER ID        IMAGE                  COMMAND                   CREATED             STATUS              PORTS                   NAMES
@@ -120,7 +120,7 @@ baf9a678c88d        hellodockertools:dev   "C:\\remote_debugge..."   10 minutes 
 
 ## <a name="publish-docker-images"></a>Veröffentlichen von Docker-Images
 
-Nachdem der Entwicklungs- und Debugzyklus für die App abgeschlossen wurde, kann mit den Visual Studio-Tools für Docker das Produktionsimage der App erstellt werden. Wählen Sie im Dropdownmenü „Konfiguration“ die Option **Release** aus, und erstellen Sie die App. Das Tool erstellt das Image mit dem Tag *latest*, das mittels Push an die private Registrierung oder den Docker-Hub übertragen werden kann. 
+Nachdem der Entwicklungs- und Debugzyklus für die App abgeschlossen wurde, kann mit den Visual Studio-Tools für Docker das Produktionsimage der App erstellt werden. Wählen Sie im Dropdownmenü „Konfiguration“ die Option **Release** aus, und erstellen Sie die App. Das Tool erstellt das Image mit dem Tag *latest*, das mittels Push an die private Registrierung oder den Docker-Hub übertragen werden kann.
 
 Mit dem Befehl `docker images` können Sie die Liste der Images in der Paket-Manager-Konsole anzeigen:
 
@@ -136,3 +136,8 @@ microsoft/aspnetcore         2.0-nanoserver-1709   8872347d7e5d        40 hours 
 > Der Befehl `docker images` gibt Vermittlerimages mit Repositorynamen und -tags zurück, die als *\<none>* gekennzeichnet sind (obenstehend nicht aufgeführt). Diese unbenannten Images werden von der [mehrstufig erstellten](https://docs.docker.com/engine/userguide/eng-image/multistage-build/) *Dockerfile*-Datei erstellt. Sie verbessern die Effizienz der Erstellung des endgültigen Images. D.h., nur die notwendigen Ebenen werden erneut erstellt, wenn Änderungen auftreten. Wenn die Vermittlerimages nicht mehr benötigt werden, löschen Sie sie über den Befehl [docker rmi](https://docs.docker.com/engine/reference/commandline/rmi/).
 
 Möglicherweise wird angenommen, dass das Produktions- oder Releaseimage im Vergleich zum *dev*-Image kleiner ist. Aufgrund der Volumezuordnung wurden der Debugger und die App über den lokalen Computer und nicht innerhalb des Containers ausgeführt. Im *neusten* Image wurde der benötigte App-Code gepackt, um die App auf einem Hostcomputer auszuführen. Aus diesem Grund ist das Delta die Größe des App-Codes.
+
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
+
+* [Problembehandlung bei der Entwicklung von Visual Studio 2017 mit Docker](/azure/vs-azure-tools-docker-troubleshooting-docker-errors)
+* [Visual Studio-Tools für Docker – GitHub-Repository](https://github.com/Microsoft/DockerTools)

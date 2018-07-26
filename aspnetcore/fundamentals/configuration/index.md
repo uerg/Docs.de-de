@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/11/2018
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 70e9e73eeb5d08baf9ef190ebfbda998ace60d77
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 59ab0cd0f6975d15bd01ce7e4128521938182c24
+ms.sourcegitcommit: b4c7b1a4c48dec0865f27874275c73da1f75e918
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278322"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39228623"
 ---
 # <a name="configuration-in-aspnet-core"></a>Konfiguration in ASP.NET Core
 
@@ -34,6 +34,40 @@ Jeder Konfigurationswert ist einem Zeichenfolgenschlüssel zugeordnet. Für die 
 Das Optionsmuster stellt anhand von Optionsklassen Gruppen von zusammengehörigen Einstellungen dar. Weitere Informationen zur Verwendung des Optionsmusters finden Sie im Thema [Optionen](xref:fundamentals/configuration/options).
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/index/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
+
+::: moniker range=">= aspnetcore-2.1"
+
+Für die in diesem Artikel genannten Beispiele müssen folgende Bedingungen erfüllt sein:
+
+* Der Basispfad der App muss mit [SetBasePath](/dotnet/api/microsoft.extensions.configuration.fileconfigurationextensions.setbasepath) festgelegt sein. Die App kann auf `SetBasePath` zugreifen, wenn ein Verweis auf das Paket [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) hergestellt wird.
+* Abschnitte von Konfigurationsdateien müssen mit [GetSection](/dotnet/api/microsoft.extensions.configuration.configurationsection.getsection) aufgelöst werden. Die App kann auf `GetSection` zugreifen, wenn ein Verweis auf das Paket [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) hergestellt wird.
+* Es muss eine Bindungskonfiguration mit [Bind](/dotnet/api/microsoft.extensions.configuration.configurationbinder.bind) hergestellt werden. Die App kann auf `Bind` zugreifen, wenn ein Verweis auf das Paket [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) hergestellt wird.
+
+Diese Pakete sind im Metapaket [Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) enthalten.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+Für die in diesem Artikel genannten Beispiele müssen folgende Bedingungen erfüllt sein:
+
+* Der Basispfad der App muss mit [SetBasePath](/dotnet/api/microsoft.extensions.configuration.fileconfigurationextensions.setbasepath) festgelegt sein. Die App kann auf `SetBasePath` zugreifen, wenn ein Verweis auf das Paket [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) hergestellt wird.
+* Abschnitte von Konfigurationsdateien müssen mit [GetSection](/dotnet/api/microsoft.extensions.configuration.configurationsection.getsection) aufgelöst werden. Die App kann auf `GetSection` zugreifen, wenn ein Verweis auf das Paket [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) hergestellt wird.
+* Es muss eine Bindungskonfiguration mit [Bind](/dotnet/api/microsoft.extensions.configuration.configurationbinder.bind) hergestellt werden. Die App kann auf `Bind` zugreifen, wenn ein Verweis auf das Paket [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) hergestellt wird.
+
+Diese Pakete sind im Metapaket [Microsoft.AspNetCore.All](xref:fundamentals/metapackage) enthalten.
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-1.1"
+
+Für die in diesem Artikel genannten Beispiele müssen folgende Bedingungen erfüllt sein:
+
+* Der Basispfad der App muss mit [SetBasePath](/dotnet/api/microsoft.extensions.configuration.fileconfigurationextensions.setbasepath) festgelegt sein. Die App kann auf `SetBasePath` zugreifen, wenn ein Verweis auf das Paket [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) hergestellt wird.
+* Abschnitte von Konfigurationsdateien müssen mit [GetSection](/dotnet/api/microsoft.extensions.configuration.configurationsection.getsection) aufgelöst werden. Die App kann auf `GetSection` zugreifen, wenn ein Verweis auf das Paket [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) hergestellt wird.
+* Es muss eine Bindungskonfiguration mit [Bind](/dotnet/api/microsoft.extensions.configuration.configurationbinder.bind) hergestellt werden. Die App kann auf `Bind` zugreifen, wenn ein Verweis auf das Paket [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) hergestellt wird.
+
+::: moniker-end
 
 ## <a name="json-configuration"></a>JSON-Konfiguration
 
@@ -388,7 +422,7 @@ Left: 1984
 
 Das erstellte Switchmappingwörterbuch enthält die in der folgenden Tabelle gezeigten Daten:
 
-| Key            | Wert                 |
+| Taste            | Wert                 |
 | -------------- | --------------------- |
 | `-MachineName` | `Profile:MachineName` |
 | `-Left`        | `App:MainWindow:Left` |

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 0d35de827ca6fea530229f1ef263ea7b9351e5ad
-ms.sourcegitcommit: 19cbda409bdbbe42553dc385ea72d2a8e246509c
+ms.openlocfilehash: ea3f26f9377715ea27f19908932d2dcf3cfcbea6
+ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992827"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39202600"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Hinzufügen der Validierung zu einer Razor-Seite in ASP.NET Core
 
@@ -38,7 +38,7 @@ Aktualisieren Sie die `Movie`-Klasse, um die Validierungsattribute `Required`, `
 
 ::: moniker range=">= aspnetcore-2.1"
 
-[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21/Models/MovieDateRatingDA.cs)]
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21/Models/MovieDateRatingDA.cs?name=snippet1)]
 
 ::: moniker-end
 
@@ -157,7 +157,7 @@ Der folgende Code zeigt die Kombination von Attributen in einer Zeile:
 
 Anweisungen zum Veröffentlichen dieser App in Azure finden Sie unter [Veröffentlichen einer ASP.NET Core-Web-App in Azure App Service mit Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs).
 
-Vielen Dank für Ihr Interesse an dieser Einführung in Razor Pages. Wir freuen uns über Ihr Feedback. [Erste Schritte mit MVC und EF Core](xref:data/ef-mvc/intro) ist ein ausgezeichneter Anschlussartikel an dieses Tutorial.
+Vielen Dank für Ihr Interesse an dieser Einführung in Razor Pages. Wir freuen uns über Ihr Feedback. [Erste Schritte mit Razor Pages und EF Core](xref:data/ef-rp/intro) ist ein ausgezeichneter Anschlussartikel an dieses Tutorial.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
