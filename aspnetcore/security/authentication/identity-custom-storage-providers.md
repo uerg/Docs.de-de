@@ -5,12 +5,12 @@ description: Erfahren Sie, wie Sie benutzerdefinierte Speicheranbieter für ASP.
 ms.author: riande
 ms.date: 05/24/2017
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: bdde9b93449c2f3f8d43cc4ff86472ed8a60ed1c
-ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
+ms.openlocfilehash: 7fb64f0b911c11750946697d782488c2107a3637
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37889167"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342522"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Benutzerdefinierte Speicheranbieter für ASP.NET Core Identity
 
@@ -41,7 +41,7 @@ dotnet new webapi -au Individual
 
 ## <a name="the-aspnet-core-identity-architecture"></a>Die ASP.NET Core Identity-Architektur
 
-ASP.NET Core Identity besteht aus Klassen, die aufgerufen wird, Manager und Speicher. *Manager* sind allgemeine Klassen, die app-Entwickler zum Ausführen von Vorgängen, z. B. das Erstellen von eines Identity-Benutzers verwendet. *Speichert* sind Low-Level-Klassen, die angeben, wie Entitäten, z. B. Benutzer und Rollen, beibehalten werden. Führen Sie die Speicher der [Repositorymuster](http://deviq.com/repository-pattern/) und den Dauerhaftigkeitsmechanismus eng gekoppelt sind. Manager sind aus Geschäften, entkoppelt, was bedeutet, dass Sie den persistenzmechanismus ersetzen können, ohne Änderung des Codes der Anwendung (mit Ausnahme der Konfiguration).
+ASP.NET Core Identity besteht aus Klassen, die aufgerufen wird, Manager und Speicher. *Manager* sind allgemeine Klassen, die app-Entwickler zum Ausführen von Vorgängen, z. B. das Erstellen von eines Identity-Benutzers verwendet. *Speichert* sind Low-Level-Klassen, die angeben, wie Entitäten, z. B. Benutzer und Rollen, beibehalten werden. Führen Sie die Speicher der [Repositorymuster](xref:fundamentals/repository-pattern) und den Dauerhaftigkeitsmechanismus eng gekoppelt sind. Manager sind aus Geschäften, entkoppelt, was bedeutet, dass Sie den persistenzmechanismus ersetzen können, ohne Änderung des Codes der Anwendung (mit Ausnahme der Konfiguration).
 
 Das folgende Diagramm zeigt, wie eine Web-app mit Managern, interagiert wird, während Speicher mit der Datenzugriffsebene interagieren.
 
