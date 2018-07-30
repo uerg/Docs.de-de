@@ -5,12 +5,12 @@ description: Erfahren Sie, wie eine ASP.NET Core-App in Azure App Service mit Vi
 ms.author: riande
 ms.date: 12/16/2017
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: b6ff7d4873e6863fe2c64f48952e59fe3593bd9e
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 7211da268c1c52e7b859e6f98ce433fd19b218ff
+ms.sourcegitcommit: 516d0645c35ea784a3ae807be087ae70446a46ee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273896"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39320725"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Veröffentlichen einer ASP.NET Core-App in Azure mit Visual Studio
 
@@ -24,7 +24,7 @@ Informationen zur Behebung von Problemen bei der App Service-Bereitstellung find
 
 ## <a name="set-up"></a>Einrichten
 
-* Eröffnen Sie ein [kostenloses Azure-Konto](https://aka.ms/K5y5yh), wenn Sie noch über kein Konto verfügen. 
+* Eröffnen Sie ein [kostenloses Azure-Konto](https://azure.microsoft.com/free/dotnet/), wenn Sie noch über kein Konto verfügen. 
 
 ## <a name="create-a-web-app"></a>Erstellen einer Web-App
 

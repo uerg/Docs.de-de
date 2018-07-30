@@ -5,12 +5,12 @@ description: Erfahren Sie mehr über das Protokollierungsframework in ASP.NET Co
 ms.author: tdykstra
 ms.date: 07/24/2018
 uid: fundamentals/logging/index
-ms.openlocfilehash: 0181566aeab1fa055435ac90887c019eef52878c
-ms.sourcegitcommit: b4c7b1a4c48dec0865f27874275c73da1f75e918
+ms.openlocfilehash: f629b062afb5c17cd05040a9ef0281aa7121aabc
+ms.sourcegitcommit: 516d0645c35ea784a3ae807be087ae70446a46ee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39228636"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39320751"
 ---
 # <a name="logging-in-aspnet-core"></a>Protokollierung in ASP.NET Core
 
@@ -56,7 +56,7 @@ Um einen Anbieter zu verwenden, rufen Sie die `Add<ProviderName>`-Erweiterungsme
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_ExpandDefault&highlight=16,17)]
 
-Die Standardprojektvorlage ermöglicht die Protokollierung mit der Methode [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder?view=aspnetcore-2.0#Microsoft_AspNetCore_WebHost_CreateDefaultBuilder_System_String___):
+Die Standardprojektvorlage aktiviert die Anbieter der Konsole und der Debugprotokollierung durch einen Aufruf der Erweiterungsmethode [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) in *Program.cs*:
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_TemplateCode&highlight=7)]
 
@@ -77,11 +77,21 @@ Die ASP.NET Core-[Abhängigkeitsinjektion](xref:fundamentals/dependency-injectio
 
 ::: moniker-end
 
-Informationen zu jedem [integrierten Protokollierungsanbieter](#built-in-logging-providers) sowie Links zu [Protokollierungsanbietern von Drittanbietern](#third-party-logging-providers) finden Sie weiter unten in diesem Artikel.
+Informationen zu den [integrierten Protokollierungsanbietern](#built-in-logging-providers) sowie Links zu [Protokollierungsanbietern von Drittanbietern](#third-party-logging-providers) finden Sie weiter unten in diesem Artikel.
 
-## <a name="settings-file-configuration"></a>Konfiguration der Einstellungsdatei
+## <a name="configuration"></a>Konfiguration
 
-In jedem der vorherigen Beispiele im Abschnitt [Hinzufügen von Anbietern](#how-to-add-providers) wird die Protokollanbieterkonfiguration aus dem `Logging`-Abschnitt der Einstellungsdateien für die App geladen. Im folgenden Beispiel werden die Inhalte einer herkömmlichen *appsettings.Development.json*-Datei veranschaulicht:
+Die Konfiguration von Protokollierungsanbietern erfolgt durch mindestens einen Konfigurationsanbieter:
+
+* Dateiformate (INI, JSON und XML)
+* Befehlszeilenargumenten
+* Umgebungsvariablen.
+* Speicherinterne .NET-Objekte
+* Der unverschlüsselte Speicher von [Secret Manager](xref:security/app-secrets).
+* Ein unverschlüsselter Benutzerspeicher, z.B. [Azure Key Vault](xref:security/key-vault-configuration).
+* Benutzerdefinierte Anbieter (installiert oder erstellt).
+
+Die Konfiguration der Protokollierung wird meist vom `Logging`-Abschnitt von Anwendungseinstellungsdateien angegeben. Im folgenden Beispiel werden die Inhalte einer herkömmlichen *appsettings.Development.json*-Datei veranschaulicht:
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -122,6 +132,8 @@ In jedem der vorherigen Beispiele im Abschnitt [Hinzufügen von Anbietern](#how-
 `LogLevel`-Schlüssel stellen Protokollnamen dar. Der `Default`-Schlüssel gilt für Protokolle, die nicht explizit aufgeführt werden. Der Wert entspricht dem auf das jeweilige Protokoll angewendeten [Protokolliergrad](#log-level).
 
 ::: moniker-end
+
+Informationen zur Implementierung von Konfigurationsanbieter finden Sie hier: <xref:fundamentals/configuration/index>.
 
 ## <a name="sample-logging-output"></a>Beispiel einer Protokollierungsausgabe
 
@@ -345,14 +357,14 @@ Die Konfigurationsdaten und der in den vorangegangenen Beispielen gezeigte `AddF
 
 | Anzahl | Anbieter      | Kategorien beginnend mit...          | Mindestprotokolliergrad |
 | :----: | ------------- | --------------------------------------- | ----------------- |
-| 1      | Debuggen         | Alle Kategorien                          | Information       |
+| 1      | Debug         | Alle Kategorien                          | Information       |
 | 2      | Konsole       | Microsoft.AspNetCore.Mvc.Razor.Internal | Warnung           |
-| 3      | Konsole       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Debuggen             |
+| 3      | Konsole       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Debug             |
 | 4      | Konsole       | Microsoft.AspNetCore.Mvc.Razor          | Fehler             |
 | 5      | Konsole       | Alle Kategorien                          | Information       |
-| 6      | Alle Anbieter | Alle Kategorien                          | Debuggen             |
-| 7      | Alle Anbieter | System                                  | Debuggen             |
-| 8      | Debuggen         | Microsoft                               | Ablaufverfolgung             |
+| 6      | Alle Anbieter | Alle Kategorien                          | Debug             |
+| 7      | Alle Anbieter | System                                  | Debug             |
+| 8      | Debug         | Microsoft                               | Ablaufverfolgung             |
 
 Wenn Sie ein `ILogger`-Objekt zum Schreiben von Protokollen erstellen, wählt das `ILoggerFactory`-Objekt eine einzige Regel pro Anbieter aus, die auf diese Protokollierung angewendet wird. Alle über dieses `ILogger`-Objekt geschriebenen Meldungen werden auf Grundlage der ausgewählten Regeln gefiltert. Aus den verfügbaren Regeln wird die für jeden Anbieter und jedes Kategoriepaar spezifischste Regel ausgewählt.
 
@@ -375,7 +387,7 @@ Wenn Sie mit `ILogger` Protokolle für die Kategorie „Microsoft.AspNetCore.Mvc
 Sie können den Typnamen für die Angabe eines Anbieters in der Konfiguration verwenden, aber jeder Anbieter definiert einen kürzeren *Alias*, der einfacher zu verwenden ist. Verwenden Sie für die integrierten Anbieter die folgenden Aliase:
 
 * Konsole
-* Debuggen
+* Debug
 * EventLog
 * AzureAppServices
 * TraceSource
@@ -436,7 +448,7 @@ Der folgende Code aktiviert Bereiche für den Konsolenanbieter:
 > [!NOTE]
 > Um die bereichsbasierte Protokollierung zu aktivieren, muss die Konsolenprotokollierungsoption `IncludeScopes` konfiguriert werden.
 >
-> `IncludeScopes` kann mithilfe der *appsettings*-Konfigurationsdateien konfiguriert werden. Weitere Informationen finden Sie im Abschnitt zur [Konfiguration der Einstellungsdatei](#settings-file-configuration).
+> Weitere Informationen zur Konfiguration finden Sie im Abschnitt [Konfiguration](#Configuration).
 
 ::: moniker-end
 

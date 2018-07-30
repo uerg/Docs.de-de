@@ -5,12 +5,12 @@ description: Erfahren Sie, wie Sie in ASP.NET Core-Apps das App-Verhalten umgebu
 ms.author: riande
 ms.date: 07/03/2018
 uid: fundamentals/environments
-ms.openlocfilehash: 3394113de37da2571ab6398405751961117f12d2
-ms.sourcegitcommit: 19cbda409bdbbe42553dc385ea72d2a8e246509c
+ms.openlocfilehash: eaa6fa44ed90d0c85a11f5e67a4bb9a91e84c196
+ms.sourcegitcommit: c8e62aa766641aa55105f7db79cdf2b27a6e5977
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992872"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39254869"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>Verwenden von mehreren Umgebungen in ASP.NET Core
 
@@ -219,7 +219,7 @@ Wenn Sie den Wert in Windows global festlegen möchten, nutzen Sie eine der folg
   **Eingabeaufforderung**
 
   ```console
-  setx ASPNETCORE_ENVIRONMENT=Development /M
+  setx ASPNETCORE_ENVIRONMENT Development /M
   ```
 
   Mit dem Parameter `/M` wird angegeben, dass die Umgebungsvariable auf Systemebene festgelegt wird. Ohne den Parameter `/M` wird die Umgebungsvariable für das Nutzerkonto festgelegt.
