@@ -5,12 +5,12 @@ description: Zeigt die Vorgehensweise zum Erzwingen einer HTTPS/TLS, in einer AS
 ms.author: riande
 ms.date: 2/9/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: c3d92994c0331b1408e246953454910ca1f4dc43
-ms.sourcegitcommit: c8e62aa766641aa55105f7db79cdf2b27a6e5977
+ms.openlocfilehash: a4ab91ef23a798c919a23a44f5a050bd3c09d56a
+ms.sourcegitcommit: d99a8554c91f626cf5e466911cf504dcbff0e02e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39254830"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39356687"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Erzwingen von HTTPS in ASP.NET Core
 
@@ -64,11 +64,17 @@ Die folgenden Mechanismen legen Sie den Port automatisch:
 > [!NOTE]
 > Wenn eine app ausgeführt wird, hinter einem Reverseproxy (z. B. IIS, IIS Express) `IServerAddressesFeature` ist nicht verfügbar. Der Port muss manuell konfiguriert werden. Wenn der Port nicht festgelegt ist, werden nicht die Anforderungen umgeleitet.
 
-Der Port kann konfiguriert werden, durch Festlegen der:
+Der Port kann konfiguriert werden, durch Festlegen der [Https_port Webhost-Konfigurationseinstellung](xref:fundamentals/host/web-host#https-port):
 
-* Die Umgebungsvariable `ASPNETCORE_HTTPS_PORT`
-* `http_port` Host-Konfigurationsschlüssel (z. B. über *hostsettings.json* oder ein Befehlszeilenargument).
-* [HttpsRedirectionOptions.HttpsPort](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.httpsport). Finden Sie im vorherige Beispiel, das zeigt, wie Sie den Port in 5001 festgelegt.
+**Schlüssel**: Https_port **Typ**: *Zeichenfolge*
+**Standard**: ein Standardwert ist nicht festgelegt.
+**Legen Sie mithilfe von**: `UseSetting` 
+ **Umgebungsvariable**: `<PREFIX_>HTTPS_PORT` (das Präfix ist `ASPNETCORE_` bei Verwendung der Web-Host.)
+
+```csharp
+WebHost.CreateDefaultBuilder(args)
+    .UseSetting("https_port", "8080")
+```
 
 > [!NOTE]
 > Der Port kann indirekt konfiguriert werden, durch Festlegen der URL durch die `ASPNETCORE_URLS` -Umgebungsvariablen angegeben. Die Umgebungsvariable konfiguriert den Server, und klicken Sie dann die Middleware indirekt über den HTTPS-Port ermittelt `IServerAddressesFeature`.
