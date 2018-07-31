@@ -1,16 +1,16 @@
 ---
 title: Migrieren von ASP.NET zu ASP.NET Core 2.0
 author: isaac2004
-description: Leitfaden zum Migrieren von vorhandenen ASP.NET MVC oder Web-API-Anwendungen zu ASP.NET Core 2.0 zu empfangen.
+description: Erhalten Sie Anleitungen zum Migrieren vorhandener ASP.NET MVC- oder Web-API-Anwendungen in ASP.NET Core 2.0.
 ms.author: scaddie
 ms.date: 08/27/2017
 uid: migration/mvc2
-ms.openlocfilehash: 68b00ead1b0bf785211638692cdbeab226a2cb4e
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: d8a3f76bb5125a1ec76d0435ff3317f939a4ec67
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278634"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342256"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core-20"></a>Migrieren von ASP.NET zu ASP.NET Core 2.0
 
@@ -20,12 +20,12 @@ Dieser Artikel dient als Leitfaden zum Migrieren von ASP.NET-Anwendungen zu ASP.
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
-Installieren Sie **eine** von den folgenden Ressourcen auf [.NET Downloads: Windows](https://www.microsoft.com/net/download/windows):
+Installieren Sie **eine** der folgenden Optionen aus [.NET Downloads: Windows](https://www.microsoft.com/net/download/windows):
 
 * .NET Core SDK
 * Visual Studio für Windows
-  * **ASP.NET und zur Webentwicklung** arbeitsauslastung
-  * **.NET Core plattformübergreifende Entwicklung** arbeitsauslastung
+  * Workload **ASP.NET und Webentwicklung**
+  * Workload **Plattformübergreifende .NET Core-Entwicklung**
 
 ## <a name="target-frameworks"></a>Zielframeworks
 ASP.NET Core 2.0-Projekte bieten Entwicklern die Flexibilität, Anwendungen für .NET Core, .NET Framework oder für beide Frameworks zu erstellen. Informationen zur Auswahl eines geeigneten Frameworks finden Sie unter [Wahl zwischen .NET Core und .NET Framework für Server-Apps](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server).
@@ -110,11 +110,12 @@ services.Configure<AppConfiguration>(Configuration.GetSection("AppConfiguration"
 **Hinweis:** Ausführliche Informationen zur ASP.NET Core-Konfiguration finden Sie unter [Configuration in ASP.NET Core (Konfiguration in ASP.NET Core)](xref:fundamentals/configuration/index).
 
 ## <a name="native-dependency-injection"></a>Native Abhängigkeitsinjektion
-Ein wichtiges Ziel bei der Erstellung großer, skalierbarer Anwendungen besteht in der losen Kopplung von Komponenten und Diensten. Die [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) ist hierfür eine beliebte Methode und eine native Komponente von ASP.NET Core.
 
-Zur Implementierung der Abhängigkeitsinjektion greifen Entwickler in ASP.NET-Anwendungen auf Bibliotheken von Drittanbietern zurück. Eine solche Bibliothek ist [Unity](https://github.com/unitycontainer/unity), die von Microsoft Patterns & Practices bereitgestellt wird. 
+Ein wichtiges Ziel bei der Erstellung großer, skalierbarer Anwendungen besteht in der losen Kopplung von Komponenten und Diensten. [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) ist eine beliebte Methode hierfür, und es ist eine native Komponente von ASP.NET Core.
 
-Ein Beispiel für das Einrichten der Abhängigkeitsinjektion mit Unity ist die Implementierung der Schnittstelle `IDependencyResolver`, die einen `UnityContainer` umschließt:
+In ASP.NET-Anwendungen greifen Entwickler in einer Drittanbieter-Bibliothek zum Implementieren von Abhängigkeitsinjektion zurück. Eine solche Bibliothek ist [Unity](https://github.com/unitycontainer/unity), die von Microsoft Patterns & Practices bereitgestellt wird.
+
+Ein Beispiel für das Einrichten der Abhängigkeitsinjektion mit Unity implementiert wird, `IDependencyResolver` , umschließt ein `UnityContainer`:
 
 [!code-csharp[](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample8.cs)]
 
@@ -126,15 +127,16 @@ Fügen Sie bei Bedarf `IProductRepository` ein:
 
 [!code-csharp[](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample5.cs)]
 
-Da die Abhängigkeitsinjektion eine Komponente von ASP.NET Core ist, können Sie Ihren Dienst in *Startup.cs* der Methode `ConfigureServices` hinzufügen:
+Da es sich bei Dependency Injection Teil von ASP.NET Core ist, können Sie Ihren Dienst im Hinzufügen der `Startup.ConfigureServices`:
 
 [!code-csharp[](samples/configure-services.cs)]
 
 Genau wie bei Unity kann auch hier das Repository an einer beliebigen Stelle eingefügt werden.
 
-**Hinweis:** Ausführliche Informationen zur Abhängigkeitsinjektion in ASP.NET Core finden Sie unter [Dependency Injection in ASP.NET Core (Abhängigkeitsinjektion in ASP.NET Core)](xref:fundamentals/dependency-injection#replacing-the-default-services-container).
+Weitere Informationen zur Abhängigkeitsinjektion in ASP.NET Core finden Sie unter [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection).
 
 ## <a name="serving-static-files"></a>Bereitstellen statischer Dateien
+
 Ein wichtiger Teil der Webentwicklung ist die Möglichkeit, statische, clientseitige Objekte bereitzustellen. Die häufigsten Beispiele für statische Dateien sind HTML-, CSS-, JavaScript- und Bilddateien. Diese Dateien müssen am veröffentlichten Speicherort der Anwendung (oder des CDN) gespeichert werden. Außerdem muss auf diese verwiesen werden, damit sie von einer Anforderung geladen werden können. Dieser Prozess wurde in ASP.NET Core geändert.
 
 Statische Dateien werden in ASP.NET in verschiedenen Verzeichnissen gespeichert. Der Verweis auf die Dateien erfolgt in den Ansichten.
@@ -147,7 +149,7 @@ In ASP.NET Core werden statische Dateien im Webstammverzeichnis (*&lt;content ro
 
 Beispielsweise kann ein Browser an einem Speicherort wie `http://<app>/images/<imageFileName>` auf ein Bildobjekt im Ordner *wwwroot/images* zugreifen.
 
-**Hinweis:** eine ausführlichere Referenz zum Bereitstellen statischer Dateien in ASP.NET Core, finden Sie unter [statische Dateien](xref:fundamentals/static-files).
+**Hinweis:** finden Sie ausführliche Informationen zum Bereitstellen statischer Dateien in ASP.NET Core, [statische Dateien](xref:fundamentals/static-files).
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
