@@ -5,12 +5,12 @@ description: Erfahren Sie mehr über das Protokollierungsframework in ASP.NET Co
 ms.author: tdykstra
 ms.date: 07/24/2018
 uid: fundamentals/logging/index
-ms.openlocfilehash: f629b062afb5c17cd05040a9ef0281aa7121aabc
-ms.sourcegitcommit: 516d0645c35ea784a3ae807be087ae70446a46ee
+ms.openlocfilehash: 5d31c5609c0e98a81d76ce0581f1c63f349d14d0
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39320751"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342470"
 ---
 # <a name="logging-in-aspnet-core"></a>Protokollierung in ASP.NET Core
 
@@ -34,7 +34,7 @@ Informationen zur stdout-Protokollierung beim Hosten mit IIS finden Sie unter <x
 
 ## <a name="how-to-create-logs"></a>Erstellen von Protokollen
 
-Um Protokolle zu erstellen, implementieren Sie ein [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger)-Objekt aus dem Container für die [Dependency Injection](xref:fundamentals/dependency-injection):
+Um Protokolle zu erstellen, implementieren Sie ein [ILogger&lt;TCategoryName&gt;](/dotnet/api/microsoft.extensions.logging.ilogger-1)-Objekt aus dem Container für die [Dependency Injection](xref:fundamentals/dependency-injection):
 
 [!code-csharp[](index/sample/Controllers/TodoController.cs?name=snippet_LoggerDI&highlight=7)]
 
