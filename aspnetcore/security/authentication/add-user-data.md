@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 6/16/2018
 uid: security/authentication/add-user-data
-ms.openlocfilehash: ecd0e6d1c71b24309fab70fbb06af7731463bb0e
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 6f583d65460803c816bf1ccd314216952710cd55
+ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38215934"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39378614"
 ---
 # <a name="add-download-and-delete-custom-user-data-to-identity-in-an-aspnet-core-project"></a>Hinzufügen, herunterladen und Löschen von benutzerdefinierten Daten die Identität in einem ASP.NET Core-Projekt
 
@@ -57,12 +57,12 @@ dotnet new webapp -o WebApp1
 * Von **Projektmappen-Explorer**, mit der rechten Maustaste auf das Projekt > **hinzufügen** > **neues Gerüstelement**.
 * Im linken Bereich, der die **Gerüst hinzufügen** wählen Sie im Dialogfeld **Identität** > **hinzufügen**.
 * In der **ADD Identity** Dialog, der die folgenden Optionen:
-  * Wählen Sie Ihre vorhandenen Layoutdatei *~/Pages/Shared/_Layout.cshtml*
+  * Wählen Sie die vorhandenen Layoutdatei *~/Pages/Shared/_Layout.cshtml*
   * Wählen Sie die folgenden Dateien überschreiben:
     * **Konto/registrieren**
     * **Konto / / Index verwalten**
-  * Wählen Sie die **+** Schaltfläche zum Erstellen eines neuen **Datenkontextklasse**. Akzeptieren Sie den Typ (**WebApp1.Models.WebApp1Context** , wenn Sie das Projekt mit dem Namen **"WebApp1"**).
-  * Wählen Sie die **+** Schaltfläche zum Erstellen eines neuen **Benutzerklasse**. Akzeptieren Sie den Typ (**WebApp1User** , wenn Sie das Projekt mit dem Namen **"WebApp1"**) > **hinzufügen**.
+  * Wählen Sie die **+** Schaltfläche zum Erstellen eines neuen **Datenkontextklasse**. Akzeptieren Sie den Typ (**WebApp1.Models.WebApp1Context** Wenn das Projekt den Namen **"WebApp1"**).
+  * Wählen Sie die **+** Schaltfläche zum Erstellen eines neuen **Benutzerklasse**. Akzeptieren Sie den Typ (**WebApp1User** Wenn das Projekt den Namen **"WebApp1"**) > **hinzufügen**.
 * Wählen Sie **hinzufügen**.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core-CLI](#tab/netcore-cli)
