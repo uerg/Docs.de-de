@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: 013c3c26-7dc3-41d1-8064-f233c86008b5
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-6-use-test-driven-development-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 58e1ab5a0a65e65b70a8f8a9f5e45564499efd63
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 4e07b23931d487ba3875bd96606b8329d84485cf
+ms.sourcegitcommit: a25b572eaed21791230c85416f449f66a405ec19
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37830068"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39395986"
 ---
 <a name="iteration-6--use-test-driven-development-c"></a>Iteration #6 – Verwenden der testgesteuerten Entwicklung (c#)
 ====================
@@ -37,7 +37,7 @@ Wir erstellen die Anwendung über mehrere Iterationen. Bei jeder Iteration verbe
 
 - Iteration #3 – Hinzufügen der formularüberprüfung. In der dritten Iteration fügen wir grundlegende formularvalidierung hinzu. Es wird verhindert, dass Personen senden eines Formulars ohne erforderlichen Felder des Formulars abzuschließen. Wir überprüfen auch die e-Mail-Adressen und Telefonnummern.
 
-- Stellen Sie Iteration #4 – lose koppeln der Anwendung. In dieser dritten Iteration nutzen wir einige Entwurfsmuster für Software zu verwalten und ändern Sie die Kontakt-Manager-Anwendung zu vereinfachen. Z. B. gestalten wir unsere Anwendung, die dem Repositorymuster und dem Dependency Injection-Muster verwenden.
+- Stellen Sie Iteration #4 – lose koppeln der Anwendung. In dieser vierten Iteration nutzen wir einige Entwurfsmuster für Software zu verwalten und ändern Sie die Kontakt-Manager-Anwendung zu vereinfachen. Z. B. gestalten wir unsere Anwendung, die dem Repositorymuster und dem Dependency Injection-Muster verwenden.
 
 - Iteration #5 – Erstellen von Komponententests. In der fünften Iteration stellen wir unsere Anwendung einfacher zu verwalten und zu ändern, indem Sie die Komponententests hinzufügen. Wir unsere Data Model-Klassen modellieren und erstellen Sie Komponententests für unseren Controller und die Validierungslogik.
 
