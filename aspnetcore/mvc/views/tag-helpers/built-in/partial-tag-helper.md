@@ -5,14 +5,14 @@ description: Lernen Sie das ASP.NET Core-Hilfsprogramm für Teiltags und die Rol
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 07/06/2018
+ms.date: 07/25/2018
 uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-ms.openlocfilehash: a289a946a6d3eb491a08103dcefdd688eab52072
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: cb63357b1859c3709b2eae9f4e380c4a74e5e448
+ms.sourcegitcommit: c8e62aa766641aa55105f7db79cdf2b27a6e5977
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938338"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39254752"
 ---
 # <a name="partial-tag-helper-in-aspnet-core"></a>Hilfsprogramm für Teiltags in ASP.NET Core
 
@@ -43,7 +43,7 @@ Eine Auflistung der im Hilfsprogramm für Teiltags enthaltenen Attribute folgt.
 
 ## <a name="name"></a>Name
 
-Das `name`-Attribut ist erforderlich. Es gibt den Namen oder den Pfad der Teilansicht an, die gerendert werden soll. Wenn der Name einer Teilansicht bereitgestellt wird, wird der Prozess [Ansichtsermittlung](xref:mvc/views/overview#view-discovery) initiiert. Dieser Prozess wird umgangen, wenn ein expliziter Pfad bereitgestellt wird.
+Das `name`-Attribut ist erforderlich. Es gibt den Namen oder den Pfad der Teilansicht an, die gerendert werden soll. Wenn der Name einer Teilansicht bereitgestellt wird, wird der Prozess [Ansichtsermittlung](xref:mvc/views/overview#view-discovery) initiiert. Dieser Prozess wird umgangen, wenn ein expliziter Pfad bereitgestellt wird. Eine Übersicht über alle verfügbaren `name`-Werte finden Sie unter [Ermitteln von Teilansichten](xref:mvc/views/partial#partial-view-discovery).
 
 Folgendes Markup verwendet einen expliziten Pfad, der angibt, dass *_ProductPartial.cshtml* aus dem Ordner *Shared* (Freigegeben) geladen werden soll. Wenn Sie das Attribut [for](#for) verwenden, wird an Modell zur Bindung an die Teilansicht übergeben.
 

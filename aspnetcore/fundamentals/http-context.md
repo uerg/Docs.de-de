@@ -4,18 +4,18 @@ author: coderandhiker
 description: Anleitung zum Zugreifen auf HttpContext in ASP.NET Core
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/20/2018
+ms.date: 07/27/2018
 uid: fundamentals/httpcontext
-ms.openlocfilehash: b1ff80943db1788b465accd51c70a3c3a3462d5c
-ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
+ms.openlocfilehash: ee185cd30af51fa6ee9a4d23ea60a56ec1b76c8d
+ms.sourcegitcommit: 506a199274e9fe5fb4070b273ba94f29f14cb619
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39202706"
+ms.lasthandoff: 07/28/2018
+ms.locfileid: "39332287"
 ---
 # <a name="access-httpcontext-in-aspnet-core"></a>Zugreifen auf HttpContext in ASP.NET Core
 
-ASP.NET Core-Apps greifen über die [IHttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor)-Schnittstelle und die zugehörige Standardimplementierung [HttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.httpcontextaccessor) auf `HttpContext` zu.
+ASP.NET Core-Apps greifen über die [IHttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor)-Schnittstelle und die zugehörige Standardimplementierung [HttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.httpcontextaccessor) auf `HttpContext` zu. `IHttpContextAccessor` muss nur verwendet werden, wenn Sie auf `HttpContext` innerhalb eines Diensts zugreifen müssen.
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -36,6 +36,16 @@ public class AboutModel : PageModel
 ```
 
 ::: moniker-end
+
+## <a name="use-httpcontext-from-a-razor-view"></a>Verwenden von HttpContext in einer Razor-Ansicht
+
+Razor-Ansichten machen `HttpContext` direkt über die [RazorPage.Context](/dotnet/api/microsoft.aspnetcore.mvc.razor.razorpage.context#Microsoft_AspNetCore_Mvc_Razor_RazorPage_Context)-Eigenschaft in der Ansicht verfügbar. Im folgenden Beispiel wird der aktuelle Benutzernamen in einer Intranet-App abgerufen, die die Windows-Authentifizierung verwendet:
+
+```cshtml
+@{
+    var username = Context.User.Identity.Name;
+}
+```
 
 ## <a name="use-httpcontext-from-a-controller"></a>Verwenden von HttpContext über einen Controller
 

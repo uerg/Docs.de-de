@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/04/2018
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: e9e10b0bc99b2c54bf342121b1a454be5dac66c6
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: 4fd0cc881eff3b1bbdfdf51e223d0fd42051c31d
+ms.sourcegitcommit: 516d0645c35ea784a3ae807be087ae70446a46ee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938196"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39320738"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Hosten von ASP.NET Core in einem Windows-Dienst
 
@@ -221,8 +221,9 @@ Wenn für den benutzerdefinierten `WebHostService`-Code ein Dienst aus der Abhä
 
 ## <a name="proxy-server-and-load-balancer-scenarios"></a>Proxyserver und Lastenausgleichsszenarien
 
-Dienste, die mit Anforderungen aus dem Internet oder einem Unternehmensnetzwerk interagieren und hinter einem Proxy oder Lastenausgleich ausgeführt werden, erfordern möglicherweise zusätzliche Konfigurationen. Weitere Informationen hierzu feinden Sie unter [Konfigurieren von ASP.NET Core zur Verwendung mit Proxyservern und Lastenausgleich](xref:host-and-deploy/proxy-load-balancer).
+Dienste, die mit Anforderungen aus dem Internet oder einem Unternehmensnetzwerk interagieren und hinter einem Proxy oder Lastenausgleich ausgeführt werden, erfordern möglicherweise zusätzliche Konfigurationen. Weitere Informationen finden Sie unter <xref:host-and-deploy/proxy-load-balancer>.
 
-## <a name="kestrel-endpoint-configuration"></a>Kestrel-Endpunktkonfiguration
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-Informationen zur Kestrel-Endpunktkonfiguration, einschließlich HTTPS-Konfiguration und Unterstützung der Servernamensanzeige, finden Sie unter [Kestrel endpoint configuration (Kestrel-Endpunktkonfiguration)](xref:fundamentals/servers/kestrel#endpoint-configuration).
+* [Kestrel-Endpunktkonfiguration](xref:fundamentals/servers/kestrel#endpoint-configuration) (einschließlich HTTPS-Konfiguration und Unterstützung für SNI)
+* <xref:fundamentals/host/web-host>

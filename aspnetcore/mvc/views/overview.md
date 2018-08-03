@@ -5,12 +5,12 @@ description: Informationen zur Verarbeitung der Darstellung von App-Daten und zu
 ms.author: riande
 ms.date: 12/12/2017
 uid: mvc/views/overview
-ms.openlocfilehash: 4d5cb6288711cdef145ebb0b52e4e645c535bdf2
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 276540a5d77b1d65119d1b2104508d77f45d5588
+ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278348"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219367"
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Ansichten in ASP.NET Core MVC
 
@@ -39,7 +39,7 @@ Verwenden Sie [Layouts](xref:mvc/views/layout), damit die Abschnitte der Webseit
 * Die App kann einfacher verwaltet werden, da sie besser organisiert ist. Ansichten werden in der Regel nach App-Features gruppiert. Dadurch können Sie zugehörige Ansichten leichter finden, wenn Sie an einem Feature arbeiten.
 * Die Bestandteile der App sind lose miteinander verknüpft. Sie können die Ansichten der App getrennt von der Geschäftslogik und den Datenzugriffskomponenten erstellen und aktualisieren. Sie können die Ansichten der App verändern, müssen dafür aber nicht unbedingt andere Bestandteile der App aktualisieren.
 * Sie können die Bestandteile der Benutzeroberfläche der App leichter testen, da es sich bei den Ansichten um voneinander getrennte Einheiten handelt.
-* Da die Organisation verbessert wird, ist es unwahrscheinlicher, dass Sie aus Versehen Bereiche der Benutzeroberfläche wiederholen.
+* Durch die verbesserte Organisation sinkt die Wahrscheinlichkeit, dass Sie versehentlich Code für die Benutzeroberfläche wiederholt schreiben.
 
 ## <a name="creating-a-view"></a>Erstellen einer Ansicht
 
@@ -124,8 +124,8 @@ Halten Sie sich an die bewährten Methoden zum Organisieren der Dateistruktur Ih
 
 * Stark typisierte Daten: viewmodel
 * Schwach typisierte Daten
-  - `ViewData` (`ViewDataAttribute`)
-  - `ViewBag`
+  * `ViewData` (`ViewDataAttribute`)
+  * `ViewBag`
 
 ### <a name="strongly-typed-data-viewmodel"></a>Stark typisierte Daten (viewmodel)
 
@@ -133,7 +133,7 @@ Wenn Sie Stabilität wünschen, sollten Sie einen [Modell](xref:mvc/models/model
 
 Wenn Sie ein Ansichtsmodell verwenden, um eine Ansicht zu übergeben, kann die Ansicht die Vorteile der *starken* Typüberprüfung nutzen. Man spricht von *starker Typisierung* (oder *stark typisiert* als Adjektiv), wenn es für jede Variable und jede Konstante einen explizit definierten Typ gibt, z.B. `string`, `int` oder `DateTime`. Die Gültigkeit der in der Ansicht verwendeten Typen wird zur Kompilierzeit überprüft.
 
-[Visual Studio](https://www.visualstudio.com/vs/) und [Visual Studio Code](https://code.visualstudio.com/) erstellen Listen von stark typisierten Klassenmembers mithilfe des Features [IntelliSense](/visualstudio/ide/using-intellisense). Wenn Sie die Eigenschaften eines Ansichtsmodell anzeigen wollen, geben Sie den Namen der Variablen für dieses an, und setzen Sie einen Punkt (`.`). Dadurch können Sie Code schneller schreiben, und Sie machen weniger Fehler.
+[Visual Studio](https://www.visualstudio.com/vs/) und [Visual Studio Code](https://code.visualstudio.com/) erstellen Listen von stark typisierten Klassenmembern mithilfe des Features [IntelliSense](/visualstudio/ide/using-intellisense). Wenn Sie die Eigenschaften eines Ansichtsmodell anzeigen wollen, geben Sie den Namen der Variablen für dieses an, und setzen Sie einen Punkt (`.`). Dadurch können Sie Code schneller schreiben, und Sie machen weniger Fehler.
 
 Geben Sie mithilfe der `@model`-Anweisung ein Modell an. Verwenden Sie das Modell mit `@Model`:
 
@@ -192,7 +192,7 @@ Es ist möglich, für die Ansichtsmodelltypen und Unternehmensmodelltypen diesel
 
 `ViewBag` *ist für die Razor-Seiten nicht verfügbar.*
 
-Ansichten haben nicht nur Zugriff auf stark typisierte Datensammlungen, sondern auch auf *schwach typisierte* (auch als *lose typisiert* bezeichnet). Im Gegensatz zu starken Typen werden bei *schwachen Typen* (oder *losen Typen*) nicht explizit die Datentypen deklariert, die Sie verwenden. Sie können die Sammlung von schwach typisierten Daten verwenden, um kleinere Datenmengen an Controller und Ansichten zu übergeben oder sie ihnen zu entnehmen.
+Ansichten haben nicht nur Zugriff auf stark typisierte Datensammlungen, sondern auch auf *schwach typisierte* (auch als *lose typisiert* bezeichnet). Im Gegensatz zu starken Typen werden bei *schwachen Typen* (oder *losen Typen*) nicht explizit die Datentypen deklariert, die Sie verwenden. Sie können die Sammlung schwach typisierter Daten verwenden, um kleinere Datenmengen an Controller und Ansichten zu übergeben oder sie ihnen zu entnehmen.
 
 | Übergeben von Daten zwischen...                        | Beispiel                                                                        |
 | ------------------------------------------------- | ------------------------------------------------------------------------------ |
@@ -200,7 +200,7 @@ Ansichten haben nicht nur Zugriff auf stark typisierte Datensammlungen, sondern 
 | einer Ansicht und einer [Layoutansicht](xref:mvc/views/layout)   | Festlegen des **\<title>**-Elementinhalts in der Layoutansicht über eine Ansichtsdatei.  |
 | einer [Teilansicht](xref:mvc/views/partial) und einer Ansicht | Ein Widget, das Daten anzeigt, die der Webseite zugrunde liegen, die der Benutzer angefordert hat.      |
 
-Auf diese Sammlung kann entweder über die Eigenschaft `ViewData` oder über die Eigenschaft `ViewBag` auf Controller und Ansichten verwiesen werden. Die `ViewData`-Eigenschaft stellt ein Wörterbuch dar, das aus schwach typisierten Objekten besteht. Bei der `ViewBag`-Eigenschaft handelt es sich um einen Wrapper um `ViewData`, der dynamische Eigenschaften für die zugrunde liegende `ViewData`-Sammlung bereitstellt.
+Auf diese Sammlung kann entweder über die Eigenschaft `ViewData` oder über die Eigenschaft `ViewBag` auf Controller und Ansichten verwiesen werden. Die `ViewData`-Eigenschaft ist ein Wörterbuch, das aus schwach typisierten Objekten besteht. Bei der `ViewBag`-Eigenschaft handelt es sich um einen Wrapper um `ViewData`, der dynamische Eigenschaften für die zugrunde liegende `ViewData`-Sammlung bereitstellt.
 
 `ViewData` und `ViewBag` werden zur Laufzeit dynamisch aufgelöst. Da in diesen Elementen keine Typüberprüfung zur Kompilierzeit enthalten sind, sind beide in der Regel fehleranfälliger als Ansichtsmodelle. Aus diesem Grund verwenden Entwickler `ViewData` und `ViewBag` selten oder nie.
 
@@ -247,6 +247,7 @@ Arbeiten Sie mit den Daten in einer Ansicht:
 ```
 
 ::: moniker range=">= aspnetcore-2.1"
+
 **ViewData-Attribut**
 
 Ein anderer Ansatz zur Verwendung von [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) ist das [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute)-Attribut. Die Werte der Eigenschaften auf Controllern oder Razor-Seiten-Modellen, die mit `[ViewData]` versehen sind, werden in dem Verzeichnis gespeichert und daraus geladen.
@@ -284,6 +285,7 @@ Im Layout wird der Titel aus dem ViewData-Wörterbuch gelesen:
     <title>@ViewData["Title"] - WebApplication</title>
     ...
 ```
+
 ::: moniker-end
 
 **ViewBag**

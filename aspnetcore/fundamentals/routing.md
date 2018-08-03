@@ -3,14 +3,14 @@ title: Routing in ASP.NET Core
 author: ardalis
 description: In diesem Artikel erfahren Sie, wie mithilfe der ASP.NET Core-Routingfunktionalität einem Routenhandler eine eingehende Anforderung zugeordnet wird.
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 07/25/2018
 uid: fundamentals/routing
-ms.openlocfilehash: 4482c865671eb4f5decbd5f1cd6e26f2e68e5c25
-ms.sourcegitcommit: e22097b84d26a812cd1380a6b2d12c93e522c125
+ms.openlocfilehash: 19265ac4d19915462c50628061600b1fde04694b
+ms.sourcegitcommit: c8e62aa766641aa55105f7db79cdf2b27a6e5977
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314135"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39254882"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
@@ -322,17 +322,24 @@ In der folgenden Tabelle werden mehrere Routeneinschränkungen und deren Verhalt
 | `regex(expression)` | `{ssn:regex(^\\d{{3}}-\\d{{2}}-\\d{{4}}$)}` | `123-45-6789` | Die Zeichenfolge muss dem regulären Ausdruck entsprechen (siehe Tipp zum Definieren eines regulären Ausdrucks) |
 | `required`  | `{name:required}` | `Rick` |  Hierdurch wird erzwungen, dass ein Wert, der kein Parameter ist, für die URL-Generierung vorhanden sein muss. |
 
+Auf einen einzelnen Parameter können mehrere durch Doppelpunkte getrennte Einschränkungen angewendet werden. Durch die folgende Einschränkung wird ein Parameter beispielsweise auf einen Integerwert größer oder gleich 1 beschränkt:
+
+```csharp
+[Route("users/{id:int:min(1)}")]
+public User GetUserById(int id) { }
+```
+
 >[!WARNING]
 > Für Routeneinschränkungen, mit denen geprüft wird, ob sich die URL in einen CLR-Typ wie `int` oder `DateTime` konvertieren lässt, wird immer die invariante Kultur verwendet. Es wird also davon ausgegangen, dass die URL nicht lokalisiert werden kann. Die vom Framework bereitgestellten Routeneinschränkungen ändern nicht die Werte, die in Routenwerten gespeichert sind. Alle Routenwerte, die aus der URL analysiert wurden, werden als Zeichenfolgen gespeichert. Durch die [Gleitkomma-Routeneinschränkung](https://github.com/aspnet/Routing/blob/1.0.0/src/Microsoft.AspNetCore.Routing/Constraints/FloatRouteConstraint.cs#L44-L60) wird beispielsweise versucht, den Routenwert in einen Gleitkommawert zu konvertieren. Mit dem konvertierten Wert wird allerdings nur überprüft, ob eine Umwandlung überhaupt möglich ist.
 
-## <a name="regular-expressions"></a>Reguläre Ausdrücke 
+## <a name="regular-expressions"></a>Reguläre Ausdrücke
 
 Im ASP.NET Core-Framework wird dem Konstruktor für reguläre Ausdrücke `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` hinzugefügt. Informationen zu diesen Membern finden Sie unter [RegexOptions Enumeration (RegexOptions-Enumeration)](/dotnet/api/system.text.regularexpressions.regexoptions).
 
-In regulären Ausdrücken werden Trennzeichen und Token verwendet, die auch beim Routing und in der Programmiersprache C# in ähnlicher Weise verwendet werden. Token, die reguläre Ausdrücke enthalten, müssen mit einem Escapezeichen versehen werden. Wenn Sie beispielsweise den regulären Ausdruck `^\d{3}-\d{2}-\d{4}$` mit der Routingfunktionalität verwenden möchten, muss das Zeichen `\` in der C#-Quelldatei in der Form `\\` eingegeben werden, damit die Funktion des Escapezeichens `\` aufgehoben wird (falls keine [ausführlichen Zeichenfolgenliterale](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/string) verwendet werden). Die Zeichen `{`, `}`, „[“ und „]“ müssen durch Verdopplung mit einem Escapezeichen versehen werden. Dadurch werden die Trennzeichen der Routingparameter nicht berücksichtigt.  In der folgenden Tabelle werden reguläre Ausdrücke und Ausdrücke mit den entsprechenden Escapezeichen aufgeführt:
+In regulären Ausdrücken werden Trennzeichen und Token verwendet, die auch beim Routing und in der Programmiersprache C# in ähnlicher Weise verwendet werden. Token, die reguläre Ausdrücke enthalten, müssen mit einem Escapezeichen versehen werden. Wenn Sie beispielsweise den regulären Ausdruck `^\d{3}-\d{2}-\d{4}$` mit der Routingfunktionalität verwenden möchten, muss das Zeichen `\` in der C#-Quelldatei in der Form `\\` eingegeben werden, damit die Funktion des Escapezeichens `\` aufgehoben wird (falls keine [ausführlichen Zeichenfolgenliterale](/dotnet/csharp/language-reference/keywords/string) verwendet werden). Die Zeichen `{`, `}`, „[“ und „]“ müssen durch Verdopplung mit einem Escapezeichen versehen werden. Dadurch werden die Trennzeichen der Routingparameter nicht berücksichtigt.  In der folgenden Tabelle werden reguläre Ausdrücke und Ausdrücke mit den entsprechenden Escapezeichen aufgeführt:
 
 | Ausdruck               | Hinweis |
-| ----------------- | ------------ | 
+| ----------------- | ------------ |
 | `^\d{3}-\d{2}-\d{4}$` | Regulärer Ausdruck |
 | `^\\d{{3}}-\\d{{2}}-\\d{{4}}$` | Mit Escapezeichen versehen  |
 | `^[a-z]{2}$` | Regulärer Ausdruck |
@@ -341,7 +348,7 @@ In regulären Ausdrücken werden Trennzeichen und Token verwendet, die auch beim
 Für das Routing verwendete reguläre Ausdrücke beginnen häufig mit dem Zeichen `^` (Anfangsposition der abzugleichenden Zeichenfolge) und enden mit dem Zeichen `$` (Endposition der abzugleichenden Zeichenfolge). Mit den Zeichen `^` und `$` wird sichergestellt, dass der reguläre Ausdruck mit dem vollständigen Routenparameterwert übereinstimmt. Ohne die Zeichen `^` und `$` werden mit dem regulären Ausdruck alle Teilzeichenfolgen ermittelt, was häufig nicht gewünscht ist. In der folgenden Tabelle finden Sie mehrere Beispiele für reguläre Ausdrücke. Außerdem wird erklärt, warum ein Abgleich erfolgreich ist oder fehlschlägt.
 
 | Ausdruck               | Zeichenfolge | Match | Kommentar |
-| ----------------- | ------------ |  ------------ |  ------------ | 
+| ----------------- | ------------ |  ------------ |  ------------ |
 | `[a-z]{2}` | hello | ja | Teilzeichenfolge stimmt überein |
 | `[a-z]{2}` | 123abc456 | ja | Teilzeichenfolge stimmt überein |
 | `[a-z]{2}` | mz | ja | Ausdruck stimmt überein |

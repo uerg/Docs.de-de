@@ -5,12 +5,12 @@ description: In diesem Tutorial fügen Sie weitere Entitäten und Beziehungen hi
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 6888df174e92ab2ddf8add7b8927250be320bff8
-ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
+ms.openlocfilehash: 88d727b0545f1dacb56ea889e45b02f947867b19
+ms.sourcegitcommit: 6425baa92cec4537368705f8d27f3d0e958e43cd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39202652"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220598"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Razor-Seiten mit EF Core in ASP.NET Core: Datenmodell (5 von 8)
 
@@ -400,9 +400,9 @@ Wenn die Geschäftsregeln erfordern, dass die `InstructorID`-Eigenschaft nicht a
 
 Durch den vorangehenden Code werden kaskadierende Deletes für die Beziehung zwischen „Department“ und „Instructor“ deaktiviert.
 
-## <a name="update-the-enrollment-entityupdate-the-enrollment-entity"></a>Aktualisieren der Entität „Enrollment“
+## <a name="update-the-enrollment-entity"></a>Aktualisieren der Entität „Enrollment“
 
-Ein Anmeldungsdatensatz gilt für einen Kurs, der von einem Studenten besucht wird.
+Ein Enrollment-Datensatz gilt für einen Kurs, der von einem Studenten besucht wird.
 
 ![Entität „Enrollment“](complex-data-model/_static/enrollment-entity.png)
 

@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 07/05/2018
 uid: fundamentals/error-handling
-ms.openlocfilehash: 6aded9525a0abd31dec8441c7fba60d8845c7d93
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: d7e60c0f615841461a17b093bffe5fb3f82f8616
+ms.sourcegitcommit: 506a199274e9fe5fb4070b273ba94f29f14cb619
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938240"
+ms.lasthandoff: 07/28/2018
+ms.locfileid: "39332274"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Fehlerbehandlung in ASP.NET Core
 
@@ -103,11 +103,11 @@ Eine andere Methode verwendet einen Inhaltstyp und eine Formatzeichenfolge:
 app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
 ```
 
-Es gibt auch Erweiterungsmethoden für Umleitungen und erneutes Ausführen. Die Umleitungsmethode sendet den Statuscode *302 Found* (Gefunden) an den Client:
+Es gibt auch Erweiterungsmethoden für Umleitungen und erneutes Ausführen. Die Umleitungsmethode sendet den Statuscode *302 Found* (Gefunden) an den Client und leitet diesen an die bereitgestellte Vorlage für die Speicherort-URL weiter. Die Vorlage kann einen `{0}`-Platzhalter für den Statuscode enthalten. URLs, die mit `~` beginnen, wird der Basispfad vorangestellt. URLs, die nicht mit `~` beginnen, werden ohne Änderungen verwendet.
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
 
-Die andere Methode gibt den ursprünglichen Statuscode an den Client zurück, führt jedoch auch den Handler für die Umleitungs-URL aus:
+Die Methode für die erneute Ausführung gibt den ursprünglichen Statuscode an den Client zurück und legt fest, dass der Antworttext durch die erneute Ausführung der Anforderungspipeline mithilfe eines alternativen Pfads erstellt werden soll. Dieser Pfad kann einen `{0}`-Platzhalter für den Statuscode enthalten:
 
 ```csharp
 app.UseStatusCodePagesWithReExecute("/error/{0}");

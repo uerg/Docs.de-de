@@ -5,14 +5,14 @@ description: Erfahren Sie mehr über die Verwendung der IHttpClientFactory-Schni
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 06/22/2018
+ms.date: 07/23/2018
 uid: fundamentals/http-requests
-ms.openlocfilehash: e56c7a3ed80cc08103f6178859a1a99f1a5ec068
-ms.sourcegitcommit: 79b756ea03eae77a716f500ef88253ee9b1464d2
+ms.openlocfilehash: 87424eaea499ba7ece1e5ef88649fcbb2e297635
+ms.sourcegitcommit: 516d0645c35ea784a3ae807be087ae70446a46ee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36327521"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39320654"
 ---
 # <a name="initiate-http-requests"></a>Initiieren von HTTP-Anforderungen
 
@@ -24,6 +24,12 @@ Von [Glenn Condron](https://github.com/glennc), [Ryan Nowak](https://github.com/
 * Das Konzept der ausgehenden Middleware wird über delegierende Handler in `HttpClient` in Code umgesetzt. Außerdem werden Erweiterungen für auf Polly basierende Middleware bereitgestellt, die dies nutzen.
 * Das Pooling und die Lebensdauer von zugrunde liegenden `HttpClientMessageHandler`-Instanzen werden verwaltet, um gängige DNS-Probleme zu vermeiden, die bei der manuellen Verwaltung der `HttpClient`-Lebensdauer auftreten.
 * Eine konfigurierbare Protokollierungsfunktion wird (über `ILogger`) für alle Anforderungen hinzugefügt, die über Clients gesendet werden, die von der Factory erstellt wurden.
+
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/http-requests/samples) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
+
+## <a name="prerequisites"></a>Erforderliche Komponenten
+
+Für Projekte mit der Zielplattform .NET Framework muss das NuGet-Paket [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) installiert werden. Projekte für .NET Core, die auf das [Metapaket Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) verweisen, enthalten bereits das `Microsoft.Extensions.Http`-Paket.
 
 ## <a name="consumption-patterns"></a>Verbrauchsmuster
 

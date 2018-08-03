@@ -5,12 +5,12 @@ description: In diesem Tutorial wird gezeigt, wie Sie Konflikte behandeln, wenn 
 ms.author: riande
 ms.date: 11/15/2017
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: ff9e52df63f9c9f47ee659a68beb28b773a114a1
-ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
+ms.openlocfilehash: a010e2ed660bea56b112799e850f2fb0ff37579e
+ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39202691"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219393"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>Razor-Seiten mit EF Core in ASP.NET Core: Parallelität (8 von 8)
 
@@ -153,24 +153,23 @@ Die obenstehenden Befehle haben folgende Konsequenzen:
 <a name="scaffold"></a>
 ## <a name="scaffold-the-departments-model"></a>Erstellen des Gerüsts für das Abteilungsmodell
 
-* Beenden Sie Visual Studio.
-* Öffnen Sie ein Befehlsfenster im Projektverzeichnis (das Verzeichnis mit den Dateien *Program.cs*, *Startup.cs*, und *CSPROJ*).
-* Führen Sie den folgenden Befehl aus:
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+
+Führen Sie die Schritte unter [Erstellen des Gerüsts für das Studentenmodell](xref:data/ef-rp/intro#scaffold-the-student-model) aus, und verwenden Sie `Department` für die Modellklasse.
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core-CLI](#tab/netcore-cli)
+
+ Führen Sie den folgenden Befehl aus:
 
   ```console
   dotnet aspnet-codegenerator razorpage -m Department -dc SchoolContext -udl -outDir Pages\Departments --referenceScriptLibraries
   ```
 
+------
+
 Der vorherige Befehl erstellt ein Gerüst für das `Department`-Modell. Öffnen Sie das Projekt in Visual Studio.
 
-Erstellen Sie das Projekt. Der Build generiert z.B. die folgenden Fehler:
-
-`1>Pages/Departments/Index.cshtml.cs(26,37,26,43): error CS1061: 'SchoolContext' does not
- contain a definition for 'Department' and no extension method 'Department' accepting a first
- argument of type 'SchoolContext' could be found (are you missing a using directive or
- an assembly reference?)`
-
- Ändern Sie `_context.Department` allgemein in `_context.Departments` (d.h., fügen Sie ein „s“ zu `Department` hinzu). Der Begriff wurde siebenmal gefunden und aktualisiert.
+Erstellen Sie das Projekt.
 
 ### <a name="update-the-departments-index-page"></a>Aktualisieren der Indexseite für Abteilungen
 

@@ -5,12 +5,12 @@ description: In diesem Tutorial werden verwandte Daten gelesen und angezeigt. Da
 ms.author: riande
 ms.date: 11/05/2017
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: bcea6aa6018a937979b8e0aaa2edcdd96da41559
-ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
+ms.openlocfilehash: bb1d087a5449c6e26c40e572d161dd9644ac2323
+ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39202678"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219341"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Razor-Seiten mit EF Core in ASP.NET Core: Lesen verwandter Daten (6 von 8)
 
@@ -69,14 +69,19 @@ So zeigen Sie den Namen der zugewiesenen Abteilung in einer Kursliste an:
 <a name="scaffold"></a>
 ### <a name="scaffold-the-course-model"></a>Erstellen des Gerüsts für das Kursmodell
 
-* Beenden Sie Visual Studio.
-* Öffnen Sie ein Befehlsfenster im Projektverzeichnis (das Verzeichnis mit den Dateien *Program.cs*, *Startup.cs*, und *CSPROJ*).
-* Führen Sie den folgenden Befehl aus:
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+
+Führen Sie die Schritte unter [Erstellen des Gerüsts für das Studentenmodell](xref:data/ef-rp/intro#scaffold-the-student-model) aus, und verwenden Sie `Course` für die Modellklasse.
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core-CLI](#tab/netcore-cli)
+
+ Führen Sie den folgenden Befehl aus:
 
   ```console
-  dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 2.1.0
   dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
   ```
+
+------
 
 Der vorherige Befehl erstellt ein Gerüst für das `Course`-Modell. Öffnen Sie das Projekt in Visual Studio.
 
@@ -150,21 +155,21 @@ Erstellen Sie im Ordner *SchoolViewModels* die Datei *InstructorIndexData.cs* mi
 
 ### <a name="scaffold-the-instructor-model"></a>Gerüstbau für das Dozentenmodell
 
-* Beenden Sie Visual Studio.
-* Öffnen Sie ein Befehlsfenster im Projektverzeichnis (das Verzeichnis mit den Dateien *Program.cs*, *Startup.cs*, und *CSPROJ*).
-* Führen Sie den folgenden Befehl aus:
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+
+Führen Sie die Schritte unter [Erstellen des Gerüsts für das Studentenmodell](xref:data/ef-rp/intro#scaffold-the-student-model) aus, und verwenden Sie `Instructor` für die Modellklasse.
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core-CLI](#tab/netcore-cli)
+
+ Führen Sie den folgenden Befehl aus:
 
   ```console
   dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages\Instructors --referenceScriptLibraries
   ```
 
-Der vorherige Befehl erstellt ein Gerüst für das `Instructor`-Modell. Öffnen Sie das Projekt in Visual Studio.
+------
 
-Erstellen Sie das Projekt. Der Build generiert Fehler.
-
-Ändern Sie `_context.Instructor` allgemein in `_context.Instructors` (d.h., fügen Sie ein „s“ zu `Instructor` hinzu). Der Begriff wurde siebenmal gefunden und aktualisiert.
-
-Führen Sie die Anwendung aus, und navigieren Sie zur Dozentenseite.
+Der vorherige Befehl erstellt ein Gerüst für das `Instructor`-Modell. Führen Sie die Anwendung aus, und navigieren Sie zur Dozentenseite.
 
 Ersetzen Sie *Pages/Instructors/Index.cshtml.cs* durch den folgenden Code:
 
