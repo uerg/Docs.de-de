@@ -4,14 +4,14 @@ author: zuckerthoben
 description: Erfahren Sie, wie Sie Ihren ASP.NET Core-Web-API-Projekten Swashbuckle hinzufügen, um die Swagger-Benutzeroberfläche zu integrieren.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 06/29/2018
+ms.date: 07/27/2018
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: 70a1503a1ddbfe7f569d12b0034d967b220c9c44
-ms.sourcegitcommit: 2941e24d7f3fd3d5e88d27e5f852aaedd564deda
+ms.openlocfilehash: 06f0ebae70fe43506d7edecbd0508968d1d00635
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37126247"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342314"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Erste Schritte mit Swashbuckle und ASP.NET Core
 
@@ -184,7 +184,7 @@ Das Aktivieren von XML-Kommentaren stellt Debuginformationen zu nicht-dokumentie
 warning CS1591: Missing XML comment for publicly visible type or member 'TodoController.GetAll()'
 ```
 
-Sie können Warnungen unterdrücken, indem Sie in der *CSPROJ*-Datei eine Liste der zu ignorierenden Warnungscodes anlegen, wobei als Trennzeichen ein Semikolon verwendet werden muss. Das Anfügen von Warnungscodes an `$(NoWarn);` gilt auch für die C#-Standardwerte.
+Um Warnungen projektübergreifend zu unterdrücken, definieren Sie eine Liste der zu ignorierenden Warnungscodes (mit Semikolon als Trennzeichen). Das Anfügen von Warnungscodes an `$(NoWarn);` gilt auch für die C#-Standardwerte.
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -197,6 +197,26 @@ Sie können Warnungen unterdrücken, indem Sie in der *CSPROJ*-Datei eine Liste 
 [!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/TodoApi.csproj?name=snippet_SuppressWarnings&highlight=3)]
 
 ::: moniker-end
+
+Um Warnungen nur für bestimmte Member zu unterdrücken, schließen Sie den Code in [#pragma warning](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-pragma-warning)-Präprozessordirektiven ein. Dieser Ansatz eignet sich für Code, der nicht über die API-Dokumentation verfügbar gemacht werden soll. Im folgenden Beispiel wird der Warnungscode CS1591 für die gesamte Klasse `Program` ignoriert. Das Erzwingen des Warnungscodes wird am Ende der Klassendefinition wiederhergestellt. Geben Sie mehrere Warnungscodes in einer kommagetrennten Liste an.
+
+```csharp
+namespace TodoApi
+{
+#pragma warning disable CS1591
+    public class Program
+    {
+        public static void Main(string[] args) =>
+            BuildWebHost(args).Run();
+
+        public static IWebHost BuildWebHost(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>()
+                .Build();
+    }
+#pragma warning restore CS1591
+}
+```
 
 Konfigurieren Sie Swagger, um die generierte XML-Datei verwenden. Bei Linux oder anderen Betriebssystemen als Windows können bei Dateinamen und -pfaden Groß-/Kleinbuchstaben berücksichtigt werden. Die Datei *TodoApi.XML* ist beispielsweise unter Windows, nicht aber unter CentOS gültig.
 

@@ -5,12 +5,12 @@ description: ''
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/crud
-ms.openlocfilehash: bc02ee6933634cc5987dbc3fcf57b0cce5a93bef
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 1c724da918640c514acbc24c390de4e735f8bf49
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38216260"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342431"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>ASP.NET Core MVC mit EF Core − Erweitert (2 von 10)
 
@@ -25,7 +25,7 @@ Die Contoso University-Beispielwebanwendung veranschaulicht, wie ASP.NET Core MV
 Im vorherigen Tutorial haben Sie eine MVC-Anwendung erstellt, die Entity Framework und SQL Server LocalDB verwendet, um Daten zu speichern und anzuzeigen. In diesem Tutorial überprüfen und passen Sie CRUD-Code (Create, Read, Update, Delete) an, der durch den MVC-Gerüstbau automatisch für Ihre Controller und Ansichten erstellt wird.
 
 > [!NOTE]
-> Es ist üblich, dass das Repositorymuster implementiert wird, um eine Abstraktionsebene zwischen Ihrem Controller und der Datenzugriffsebene zu erstellen. In diesen Tutorials werden keine Repositorys verwendet, um die Verwendung des Entity Frameworks einfach und zielorientiert zu erklären. Weitere Informationen über Repositorys mit EF finden Sie im [letzten Tutorial dieser Reihe](advanced.md).
+> Es ist üblich, dass das [Repositorymuster](xref:fundamentals/repository-pattern) implementiert wird, um eine Abstraktionsschicht zwischen Ihrem Controller und der Datenzugriffsschicht zu erstellen. In diesen Tutorials werden keine Repositorys verwendet, um die Verwendung des Entity Frameworks einfach und zielorientiert zu erklären. Weitere Informationen über Repositorys mit EF finden Sie im [letzten Tutorial dieser Reihe](advanced.md).
 
 In diesem Tutorial arbeiten Sie mit den folgenden Webseiten:
 

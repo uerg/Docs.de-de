@@ -4,14 +4,14 @@ author: rick-anderson
 description: Erstellen einer Web-API unter macOS, Linux oder Windows mit ASP.NET Core MVC und Visual Studio Code
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/08/2018
+ms.date: 07/30/2018
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: 4c41c949a9b5ca8db8928a0a53aff928fd7c8a4e
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 4ce808ec4241ab2fc3c2fb81c3fdb15dd853cd90
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38216236"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342275"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-code"></a>Erstellen einer Web-API mit ASP.NET Core und Visual Studio Code
 
@@ -61,15 +61,20 @@ In der [Visual Studio Code-Hilfe](#visual-studio-code-help) finden Sie Tipps zum
 
 ## <a name="add-support-for-entity-framework-core"></a>Hinzufügen der Unterstützung für Entity Framework Core
 
+:::moniker range=">= aspnetcore-2.1"
+
+Durch das Erstellen eines neuen Projekts in ASP.NET Core 2.1 oder höher wird der Paketverweis [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App) der Datei *TodoApi.csproj* hinzugefügt. Fügen Sie das Attribut `Version` hinzu, falls nicht bereits angegeben.
+
+[!code-xml[](first-web-api/samples/2.1/TodoApi/TodoApi.csproj?name=snippet_Metapackage&highlight=2)]
+
+:::moniker-end
+
 :::moniker range="<= aspnetcore-2.0"
+
 Durch das Erstellen eines neuen Projekts in ASP.NET Core 2.0 wird der Paketverweis [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) zur Datei *TodoApi.csproj* hinzugefügt:
 
 [!code-xml[](first-web-api/samples/2.0/TodoApi/TodoApi.csproj?name=snippet_Metapackage&highlight=2)]
-:::moniker-end
-:::moniker range=">= aspnetcore-2.1"
-Durch das Erstellen eines neuen Projekts in ASP.NET Core 2.1 oder höher wird der Paketverweis [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App) der Datei *TodoApi.csproj* hinzugefügt:
 
-[!code-xml[](first-web-api/samples/2.1/TodoApi/TodoApi.csproj?name=snippet_Metapackage&highlight=2)]
 :::moniker-end
 
 Der Datenbankanbieter [Entity Framework Core InMemory](/ef/core/providers/in-memory/) muss nicht separat installiert werden. Dieser Datenbankanbieter ermöglicht, dass Entity Framework Core mit einer In-Memory Database verwendet wird.

@@ -5,12 +5,12 @@ description: In diesem Tutorial wird veranschaulicht, wie mit EF Core Erstellung
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: 0a8d386104d9c62f37d0a94e66344d3f1e23bae9
-ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
+ms.openlocfilehash: e3a0ec2e21ae9e9eeaae1eb7c17f1604897fb6f9
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/15/2018
-ms.locfileid: "39063350"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342457"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>Razor-Seiten mit EF Core in ASP.NET Core: CRUD (2 von 8)
 
@@ -24,7 +24,7 @@ Von [Tom Dykstra](https://github.com/tdykstra), [Jon P. Smith](https://twitter.c
 
 In diesem Tutorial wird der erstellte CRUD-Code (CRUD = Create, Read, Update, Delete; Erstellen, Lesen, Aktualisieren, Löschen) überprüft und angepasst.
 
-Zur Minimierung der Komplexität und damit EF Core im Fokus dieser Tutorials bleibt, wird in den Seitenmodellen EF Core-Code verwendet. Einige Entwickler verwenden eine Dienstschicht oder ein Repositorymuster für die Erstellung einer Abstraktionsschicht zwischen der Benutzeroberfläche (Razor Pages) und der Datenzugriffsschicht.
+Zur Minimierung der Komplexität und damit EF Core im Fokus dieser Tutorials bleibt, wird in den Seitenmodellen EF Core-Code verwendet. Einige Entwickler verwenden eine Dienstschicht oder ein [Repositorymuster](xref:fundamentals/repository-pattern), um eine Abstraktionsschicht zwischen der Benutzeroberfläche (Razor Pages) und der Datenzugriffsschicht zu erstellen.
 
 In diesem Tutorial werden die Razor Pages „Create“ (Erstellen), „Edit“ (Bearbeiten), „Delete“ (Löschen) und „Details“ im Ordner *Student* erläutert.
 
