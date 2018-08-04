@@ -5,12 +5,12 @@ description: Zeigt die Vorgehensweise zum Erzwingen einer HTTPS/TLS, in einer AS
 ms.author: riande
 ms.date: 2/9/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: a4ab91ef23a798c919a23a44f5a050bd3c09d56a
-ms.sourcegitcommit: d99a8554c91f626cf5e466911cf504dcbff0e02e
+ms.openlocfilehash: d8bf11d7d2df8d8b197f001570a8fab1f3262814
+ms.sourcegitcommit: 4e34ce61e1e7f1317102b16012ce0742abf2cca6
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39356687"
+ms.lasthandoff: 08/04/2018
+ms.locfileid: "39514803"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Erzwingen von HTTPS in ASP.NET Core
 
@@ -112,13 +112,15 @@ Das globale Erzwingen der Verwendung von HTTPS (`options.Filters.Add(new Require
 <a name="hsts"></a>
 ## <a name="http-strict-transport-security-protocol-hsts"></a>HTTP Strict Transport Security-Protokoll (HSTS)
 
-Pro [OWASP](https://www.owasp.org/index.php/About_The_Open_Web_Application_Security_Project), [HTTP Strict Transport Security (HSTS)](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) ist eine optionale sicherheitserweiterung, die von einer Webanwendung mithilfe eines speziellen Antwortheaders angegeben wird. Sobald ein unterstützter Browser diesen Header empfängt, diesen Browser wird verhindert, dass Kommunikation über HTTP gesendet werden, die der angegebenen Domäne und sendet die gesamte Kommunikation stattdessen über HTTPS. Es wird verhindert, dass HTTPS clickthrough-aufforderungen von Browsern.
+Pro [OWASP](https://www.owasp.org/index.php/About_The_Open_Web_Application_Security_Project), [HTTP Strict Transport Security (HSTS)](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) ist eine optionale sicherheitserweiterung, die von einer Web-app durch die Verwendung eines speziellen Antwortheaders angegeben wird. Wenn Sie ein Browser, der HSTS unterstützt, diesen Header empfängt, speichert er die Konfiguration für die Domäne, die verhindert, dass eine Kommunikation über HTTP senden und erzwingt stattdessen die gesamte Kommunikation über HTTPS. Es wird außerdem verhindert, dass den Benutzer mithilfe von Zertifikaten für nicht vertrauenswürdig oder ungültig, deaktivieren die Browser-Anweisungen, die einen solches Zertifikat vorübergehend vertrauen Benutzer zu ermöglichen.
 
 ASP.NET Core 2.1 oder höher implementiert HSTS mit der `UseHsts` -Erweiterungsmethode. Der folgende code ruft `UseHsts` bei der app nicht im [Entwicklungsmodus](xref:fundamentals/environments):
 
 [!code-csharp[](enforcing-ssl/sample/Startup.cs?name=snippet1&highlight=10)]
 
 `UseHsts` ist nicht in der Entwicklung empfohlen, da der Header des HSTS hohem Maße zwischenspeicherbar ist von Browsern. In der Standardeinstellung `UseHsts` schließt die lokalen Loopback-Adresse.
+
+Für produktionsumgebungen HTTPS zum ersten Mal implementieren wird den Anfangswert von HSTS auf einen kleinen Wert fest. Legen Sie den Wert von Stunden keine mehr als ein Tag für den Fall, dass Sie die HTTP-HTTPS-Infrastruktur wiederherstellen müssen. Nachdem Sie sich die Nachhaltigkeit der HTTPS-Konfiguration sicher sind, erhöhen Sie den HSTS-Max-Age-Wert; häufig verwendeter Wert ist ein Jahr. 
 
 Der folgende Code
 
