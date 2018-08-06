@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/04/2018
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 4fd0cc881eff3b1bbdfdf51e223d0fd42051c31d
-ms.sourcegitcommit: 516d0645c35ea784a3ae807be087ae70446a46ee
+ms.openlocfilehash: 4aded0b87ca14a5c09844cc378efb1ac0c12a289
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39320738"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342155"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Hosten von ASP.NET Core in einem Windows-Dienst
 
@@ -82,7 +82,7 @@ Die folgenden minimalen Änderungen sind für die Einrichtung eines vorhandenen 
 
      ::: moniker-end
 
-1. Veröffentlichen Sie die App. Verwenden Sie [dotnet publish](/dotnet/articles/core/tools/dotnet-publish) oder ein [Visual Studio-Veröffentlichungsprofil](xref:host-and-deploy/visual-studio-publish-profiles).
+1. Veröffentlichen Sie die App. Verwenden Sie [dotnet publish](/dotnet/articles/core/tools/dotnet-publish) oder ein [Visual Studio-Veröffentlichungsprofil](xref:host-and-deploy/visual-studio-publish-profiles). Wählen Sie **FolderProfile** aus, wenn Sie Visual Studio verwenden.
 
    Führen Sie zum Veröffentlichen der Beispiel-App über die Befehlszeile den folgenden Befehl in einem Konsolenfenster des Projektordners aus:
 
@@ -96,16 +96,19 @@ Die folgenden minimalen Änderungen sind für die Einrichtung eines vorhandenen 
    sc create <SERVICE_NAME> binPath= "<PATH_TO_SERVICE_EXECUTABLE>"
    ```
 
-   Verwenden Sie zum Erstellen eines Diensts, der im Projektordner veröffentlicht wird, den Pfad zum *Veröffentlichungsordner*. Im folgenden Beispiel wird der Dienst
+   Verwenden Sie zum Erstellen eines Diensts, der im Projektordner veröffentlicht wird, den Pfad zum *Veröffentlichungsordner*. Im folgenden Beispiel:
 
-   * Name: **MyService**
-   * und im Ordner *c:\\my_services\\AspNetCoreService\\bin\\Release\\&lt;TARGET_FRAMEWORK&gt;\\publish* veröffentlicht.
-   * Der Dienst wird durch eine ausführbare App-Datei namens *AspNetCoreService.exe* dargestellt.
+   * Das Projekt befindet sich im `c:\my_services\AspNetCoreService`-Ordner.
+   * Das Projekt wird in der `Release`-Konfiguration veröffentlicht.
+   * Der Zielframeworkmoniker (Target Framework Moniker, TFM) ist `netcoreapp2.1`.
+   * Der Runtimebezeichner (RID) ist `win7-x64`.
+   * Der Name der ausführbaren App-Datei lautet *AspNetCoreService.exe*.
+   * Der Dienst heißt **MyService**.
 
-   Öffnen Sie eine Befehlsshell mit Administratorrechten, und führen Sie den folgenden Befehl aus:
+   Beispiel:
 
    ```console
-   sc create MyService binPath= "c:\my_services\AspNetCoreService\bin\Release\<TARGET_FRAMEWORK>\publish\AspNetCoreService.exe"
+   sc create MyService binPath= "c:\my_services\AspNetCoreService\bin\Release\netcoreapp2.1\win7-x64\publish\AspNetCoreService.exe"
    ```
    
    > [!IMPORTANT]
@@ -113,7 +116,7 @@ Die folgenden minimalen Änderungen sind für die Einrichtung eines vorhandenen 
    
    So veröffentlichen und starten Sie den Dienst aus einem anderen Ordner:
    
-   1. Verwenden Sie die Option [--output &lt;OUTPUT_DIRECTORY&gt;](/dotnet/core/tools/dotnet-publish#options) im Befehl `dotnet publish`.
+      1. Verwenden Sie die Option [--output &lt;OUTPUT_DIRECTORY&gt;](/dotnet/core/tools/dotnet-publish#options) im Befehl `dotnet publish`. Wenn Sie Visual Studio verwenden, konfigurieren Sie den **Zielspeicherort** auf der Seite **FolderProfile** der publish-Eigenschaft, bevor Sie auf die Schaltfläche **Veröffentlichen** klicken.
    1. Erstellen Sie den Dienst mit dem Befehl `sc.exe`, indem Sie den Pfad des Ausgabeordners verwenden. Fügen Sie den Namen der ausführbaren Datei des Diensts in dem Pfad hinzu, der für `binPath` bereitgestellt wird.
 
 1. Starten Sie den Dienst mithilfe des Befehls `sc start <SERVICE_NAME>`.
