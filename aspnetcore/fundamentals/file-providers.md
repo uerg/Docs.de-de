@@ -1,154 +1,268 @@
 ---
 title: Dateianbieter in ASP.NET Core
-author: ardalis
+author: guardrex
 description: Erfahren Sie, wie ASP.NET Core Dateisystemzugriff durch die Verwendung von Dateianbietern abstrahiert.
 ms.author: riande
-ms.date: 02/14/2017
+ms.custom: mvc
+ms.date: 08/01/2018
 uid: fundamentals/file-providers
-ms.openlocfilehash: 0d356322ea9f4cc2caead81746bf9ede4a87923f
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 512229cfe7d7efdcd9050fa13dbdbf793be29a0b
+ms.sourcegitcommit: 571d76fbbff05e84406b6d909c8fe9cbea2c8ff1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276238"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39410155"
 ---
 # <a name="file-providers-in-aspnet-core"></a>Dateianbieter in ASP.NET Core
 
-Von [Steve Smith](https://ardalis.com/)
+Von [Steve Smith](https://ardalis.com/) und [Luke Latham](https://github.com/guardrex)
 
-ASP.NET Core abstrahiert Dateisystemzugriff durch die Verwendung von Dateianbietern.
+ASP.NET Core abstrahiert Dateisystemzugriff durch die Verwendung von Dateianbietern. Dateianbieter werden im gesamten ASP.NET Core-Framework verwendet:
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/file-providers/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
+* [IHostingEnvironment](/dotnet/api/microsoft.extensions.hosting.ihostingenvironment) stellt das Inhaltsstammverzeichnis und das Webstammverzeichnis der Anwendung als `IFileProvider`-Typen zur Verfügung.
+* Die [Middleware der statischen Dateien](xref:fundamentals/static-files) verwendet Dateianbieter, um statische Dateien zu suchen.
+* [Razor](xref:mvc/views/razor) verwendet Dateianbieter, um Seiten und Ansichten zu suchen.
+* .NET Core-Tools verwenden Dateianbieter und Globmuster, um anzugeben, welche Dateien veröffentlicht werden sollen.
 
-## <a name="file-provider-abstractions"></a>Dateianbieterabstraktionen
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
-Dateianbieter sind eine Abstraktion über Dateisysteme. Die Hauptschnittstelle ist `IFileProvider`. `IFileProvider` macht Methoden zum Abrufen von Informationen (`IFileInfo`), Verzeichnisinformationen (`IDirectoryContents`) und zum Einrichten von Benachrichtigungen (mithilfe eines `IChangeToken`) verfügbar.
+## <a name="file-provider-interfaces"></a>Dateianbieterschnittstellen
 
-`IFileInfo` stellt Methoden und Eigenschaften einzelner Dateien oder Verzeichnisse zur Verfügung. Sie verfügt über zwei boolesche Eigenschaften, `Exists` und `IsDirectory` sowie über Eigenschaften, die `Name`, `Length` (in Bytes) und das `LastModified`-Datum der Datei beschreiben. Sie können die Datei mithilfe der `CreateReadStream`-Methode lesen.
+Die primäre Schnittstelle ist [IFileProvider](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider). `IFileProvider` stellt Methoden zur Verfügung, zum:
+
+* Abrufen von Dateiinformationen ([IFileInfo](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo)).
+* Abrufen von Verzeichnisinformationen ([IDirectoryContents](/dotnet/api/microsoft.extensions.fileproviders.idirectorycontents)).
+* Einrichten von Änderungsbenachrichtigungen (mithilfe eines [IChangeToken](/dotnet/api/microsoft.extensions.primitives.ichangetoken)).
+
+`IFileInfo` stellt Methoden und Eigenschaften für die Arbeit mit Dateien bereit:
+
+* [Exists](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.exists)
+* [IsDirectory](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.isdirectory)
+* [Name](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.name)
+* [Length](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.length) (in Bytes)
+* [LastModified](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.lastmodified)-Datum
+
+Mithilfe der [IFileInfo.CreateReadStream](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.createreadstream)-Methode können Sie die Datei auslesen.
+
+Die Beispiel-App demonstriert die Konfiguration eines Dateianbieters in `Startup.ConfigureServices` für die Verwendung in der gesamten App über [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection).
 
 ## <a name="file-provider-implementations"></a>Dateianbieterimplementierungen
 
-Es sind drei Implementierungen von `IFileProvider` verfügbar: physische, eingebettete und zusammengesetzte. Der physische Anbieter wird verwendet, um auf die tatsächlichen Systemdateien zuzugreifen. Der eingebettete Anbieter wird verwendet, um auf Dateien zuzugreifen, die in Assemblys eingebettet sind. Der zusammengesetzte Anbieter wird verwendet, um kombinierten Zugriff auf Dateien und Verzeichnisse von einem oder mehreren anderen Anbietern bereitzustellen.
+Es sind drei Implementierungen von `IFileProvider` verfügbar.
+
+::: moniker range=">= aspnetcore-2.0"
+
+| Implementierung | Beschreibung  |
+| -------------- | ----------- |
+| [PhysicalFileProvider](#physicalfileprovider) | Der physische Anbieter wird verwendet, um auf die physischen Systemdateien zuzugreifen. |
+| [ManifestEmbeddedFileProvider](#manifestembeddedfileprovider) | Der eingebettete Manifesanbieter wird verwendet, um auf Dateien zuzugreifen, die in Assemblys eingebettet sind. |
+| [CompositeFileProvider](#compositefileprovider) | Der zusammengesetzte Anbieter wird verwendet, um kombinierten Zugriff auf Dateien und Verzeichnisse von einem oder mehreren anderen Anbietern bereitzustellen. |
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+| Implementierung | Beschreibung  |
+| -------------- | ----------- |
+| [PhysicalFileProvider](#physicalfileprovider) | Der physische Anbieter wird verwendet, um auf die physischen Systemdateien zuzugreifen. |
+| [EmbeddedFileProvider](#embeddedfileprovider) | Der eingebettete Anbieter wird verwendet, um auf Dateien zuzugreifen, die in Assemblys eingebettet sind. |
+| [CompositeFileProvider](#compositefileprovider) | Der zusammengesetzte Anbieter wird verwendet, um kombinierten Zugriff auf Dateien und Verzeichnisse von einem oder mehreren anderen Anbietern bereitzustellen. |
+
+::: moniker-end
 
 ### <a name="physicalfileprovider"></a>PhysicalFileProvider
 
-Der `PhysicalFileProvider` ermöglicht den Zugriff auf das physische Dateisystem. Er dient als Wrapper für den `System.IO.File`-Typ (für den physischen Anbieter). Alle Pfade werden einem Verzeichnis und seinen untergeordneten Elementen zugeordnet. Diese Bereichsdefinition schränkt den Zugriff auf ein bestimmtes Verzeichnis und die untergeordneten Elemente ein, wodurch der Zugriff auf Dateisysteme außerhalb dieses Bereichs verhindert wird. Beim Instanziieren dieses Anbieters müssen Sie einen Verzeichnispfad zur Verfügung stellen, der als Basispfad für alle Anforderungen an diesen Anbieter dient (und den Zugriff außerhalb dieses Pfads beschränkt). In einer ASP.NET Core-Anwendung können Sie einen `PhysicalFileProvider`-Anbieter direkt instanziieren oder einen `IFileProvider` in einem Controller oder Dienstkonstruktor über [Dependeny Injection](dependency-injection.md) anfordern. Der letzte Ansatz ergibt in der Regel eine flexiblere und testbare Lösung.
+Der [PhysicalFileProvider](/dotnet/api/microsoft.extensions.fileproviders.physicalfileprovider) ermöglicht den Zugriff auf das physische Dateisystem. `PhysicalFileProvider` verwendet den [System.IO.File](/dotnet/api/system.io.file)-Typ (für den physischen Anbieter). Alle Pfade werden einem Verzeichnis und seinen untergeordneten Elementen zugeordnet. Diese Zuordnung verhindert den Zugriff auf das Dateisystem außerhalb des angegebenen Verzeichnisses und den untergeordneten Elementen. Beim Instanziieren dieses Anbieters ist ein Verzeichnispfad erforderlich, der als Basispfad für alle Anforderungen über diesen Anbieter dient. Sie können einen `PhysicalFileProvider`-Anbieter direkt instanziieren oder einen `IFileProvider` in einem Konstruktor über [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) anfordern.
 
-Das folgende Beispiel zeigt, wie Sie einen `PhysicalFileProvider` erstellen.
+**Statische Typen**
 
+Der folgende Code zeigt die Erstellung eines `PhysicalFileProvider` und dessen Verwendung zum Abrufen von Verzeichnisinhalten und Dateiinformationen:
 
 ```csharp
-IFileProvider provider = new PhysicalFileProvider(applicationRoot);
-IDirectoryContents contents = provider.GetDirectoryContents(""); // the applicationRoot contents
-IFileInfo fileInfo = provider.GetFileInfo("wwwroot/js/site.js"); // a file under applicationRoot
+var provider = new PhysicalFileProvider(applicationRoot);
+var contents = provider.GetDirectoryContents(string.Empty);
+var fileInfo = provider.GetFileInfo("wwwroot/js/site.js");
 ```
 
-Sie können die Verzeichnisinhalte durchlaufen oder die Informationen für eine bestimmte Datei durch die Bereitstellung eines Unterpfads abrufen.
+Typen im vorherigen Beispiel:
 
-Zur Anbieteranforderung von einem Controller müssen Sie ihn im Konstruktor des Controllers angeben und einem lokalen Feld zuweisen. Verwenden Sie die lokale Instanz aus Ihren Aktionsmethoden:
+* `provider` ist ein `IFileProvider`.
+* `contents` ist ein `IDirectoryContents`.
+* `fileInfo` ist ein `IFileInfo`.
 
-[!code-csharp[](file-providers/sample/src/FileProviderSample/Controllers/HomeController.cs?highlight=5,7,12&range=6-19)]
+Der Dateianbieter kann verwendet werden, um das durch `applicationRoot` angegebene Verzeichnis zu durchlaufen oder `GetFileInfo` aufzurufen, um die Informationen einer Datei anzuzeigen. Der Dateianbieter hat keinen Zugriff außerhalb des `applicationRoot`-Verzeichnisses.
 
-Erstellen Sie dann den Anbieter in der `Startup`-Anwendungsklasse:
+Die Beispiel-App erstellt einen Anbieter in `Startup.ConfigureServices`-Klasse der App mit [IHostingEnvironment.ContentRootFileProvider](/dotnet/api/microsoft.extensions.hosting.ihostingenvironment.contentrootfileprovider):
 
-[!code-csharp[](file-providers/sample/src/FileProviderSample/Startup.cs?highlight=35,40&range=1-43)]
+```csharp
+var physicalProvider = _env.ContentRootFileProvider;
+```
 
-Durchlaufen Sie in der *Index.cshtml*-Ansicht die bereitgestellten `IDirectoryContents`:
+**Abrufen der Dateianbietertypen mit Abhängigkeitsinjektion**
 
-[!code-html[](file-providers/sample/src/FileProviderSample/Views/Home/Index.cshtml?highlight=2,7,9,11,15)]
+Fügen Sie den Anbieter in jeden Klassenkonstruktor ein, und weisen Sie ihn einem lokalen Feld zu. Verwenden Sie das Feld in der Methoden der Klasse für den Dateizugriff.
 
-Das Ergebnis:
+::: moniker range=">= aspnetcore-2.0"
 
-![Die Beispielanwendung des Dateianbieters mit physischen Dateien und Ordnern](file-providers/_static/physical-directory-listing.png)
+In der Beispiel-App erhält die `IndexModel`-Klasse eine `IFileProvider`-Instanz, um Inhalt des Verzeichnisses für die den Basispfad der App zu erhalten.
+
+*Pages/Index.cshtml.cs*:
+
+[!code-csharp[](file-providers/samples/2.x/FileProviderSample/Pages/Index.cshtml.cs?name=snippet1)]
+
+Die `IDirectoryContents` werden auf der Seite durchlaufen.
+
+*Pages/Index.cshtml*:
+
+[!code-cshtml[](file-providers/samples/2.x/FileProviderSample/Pages/Index.cshtml?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+In der Beispiel-App erhält die `HomeController`-Klasse eine `IFileProvider`-Instanz, um Inhalt des Verzeichnisses für die den Basispfad der App zu erhalten.
+
+*Controllers/HomeController.cs*:
+
+[!code-csharp[](file-providers/samples/1.x/FileProviderSample/Controllers/HomeController.cs?name=snippet1)]
+
+Die `IDirectoryContents` werden in der Ansicht durchlaufen.
+
+*Views/Home/Index.cshtml*:
+
+[!code-cshtml[](file-providers/samples/1.x/FileProviderSample/Views/Home/Index.cshtml?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.0"
+
+### <a name="manifestembeddedfileprovider"></a>ManifestEmbeddedFileProvider
+
+Der [ManifestEmbeddedFileProvider](/dotnet/api/microsoft.extensions.fileproviders.manifestembeddedfileprovider) wird verwendet, um auf Dateien zuzugreifen, die in Assemblys eingebettet sind. Der `ManifestEmbeddedFileProvider` verwendet ein in die Assembly kompiliertes Manifest, um die ursprünglichen Pfade der eingebetteten Dateien zu rekonstruieren.
+
+> [!NOTE]
+> Der `ManifestEmbeddedFileProvider` ist in ASP.NET Core 2.1 und höher verfügbar. Informationen zum Zugriff auf Dateien, die in Assemblys in ASP.NET Core 2.0 oder früher eingebettet sind, finden Sie in der Version [ASP.NET Core 1.x dieses Themas](xref:fundamentals/file-providers?view=aspnetcore-1.1).
+
+Um ein Manifest der eingebetteten Dateien zu generieren, legen die `<GenerateEmbeddedFilesManifest>`-Eigenschaft auf `true` fest. Geben Sie die einzubettenden Dateien mit [&lt;EmbeddedResource&gt;](/dotnet/core/tools/csproj#default-compilation-includes-in-net-core-projects) an:
+
+[!code-csharp[](file-providers/samples/2.x/FileProviderSample/FileProviderSample.csproj?highlight=5,13)]
+
+Verwenden Sie [Globmuster](#glob-patterns), um eine oder mehr Dateien anzugeben, die in die Assembly eingebettet werden sollen.
+
+Die Beispiel-App erstellt einen `ManifestEmbeddedFileProvider` und übergibt die aktuell ausgeführte Assembly an den Konstruktor.
+
+*Startup.cs*:
+
+```csharp
+var manifestEmbeddedProvider = 
+    new ManifestEmbeddedFileProvider(Assembly.GetEntryAssembly());
+```
+
+Mit zusätzlichen Überladungen können Sie:
+
+* Einen relativen Dateipfad angeben.
+* Dateien einem zuletzt geänderten Datum zuordnen.
+* Die eingebettete Ressource benennen, die das eingebettete Dateimanifest enthält.
+
+| Überladung | Beschreibung  |
+| -------- | ----------- |
+| [ManifestEmbeddedFileProvider(Assembly, String)](/dotnet/api/microsoft.extensions.fileproviders.manifestembeddedfileprovider.-ctor#Microsoft_Extensions_FileProviders_ManifestEmbeddedFileProvider__ctor_System_Reflection_Assembly_System_String_) | Akzeptiert einen optionalen relativen `root`-Pfadparameter. Geben Sie `root` an, um Aufrufe an [GetDirectoryContents](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider.getdirectorycontents) den Ressourcen im bereitgestellten Pfad zuzuordnen. |
+| [ManifestEmbeddedFileProvider(Assembly, String, DateTimeOffset)](/dotnet/api/microsoft.extensions.fileproviders.manifestembeddedfileprovider.-ctor#Microsoft_Extensions_FileProviders_ManifestEmbeddedFileProvider__ctor_System_Reflection_Assembly_System_String_System_DateTimeOffset_) | Akzeptiert einen optionalen relativen `root`-Pfadparameter und einen `lastModified` ([DateTimeOffset](/dotnet/api/system.datetimeoffset))-Datumsparameter. Das `lastModified`-Datum ordnet das letzte Änderungsdatum für die [IFileInfo](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo)-Instanzen zu, die vom [IFileProvider](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider) zurückgegeben wurden. |
+| [ManifestEmbeddedFileProvider(Assembly, String, String, DateTimeOffset)](/dotnet/api/microsoft.extensions.fileproviders.manifestembeddedfileprovider.-ctor#Microsoft_Extensions_FileProviders_ManifestEmbeddedFileProvider__ctor_System_Reflection_Assembly_System_String_System_String_System_DateTimeOffset_) | Akzeptiert einen optionalen, relativen `root`-Pfad, ein `lastModified`-Datum und `manifestName`-Parameter. `manifestName` stellt den Namen der eingebetteten Ressource dar, die das Manifest enthält. |
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ### <a name="embeddedfileprovider"></a>EmbeddedFileProvider
 
-Der `EmbeddedFileProvider` wird verwendet, um auf Dateien zuzugreifen, die in Assemblys eingebettet sind. Betten Sie Ihre Dateien in .NET Core mit dem `<EmbeddedResource>`-Element in der *CSPROJ*-Datei in eine Assembly ein:
+Der [EmbeddedFileProvider](/dotnet/api/microsoft.extensions.fileproviders.embeddedfileprovider) wird verwendet, um auf Dateien zuzugreifen, die in Assemblys eingebettet sind. Geben Sie die Dateien an, die mit der [&lt;EmbeddedResource&gt;](/dotnet/core/tools/csproj#default-compilation-includes-in-net-core-projects)-Eigenschaft in der Projektdatei eingebettet werden sollen:
 
-[!code-json[](file-providers/sample/src/FileProviderSample/FileProviderSample.csproj?range=13-18)]
+```xml
+<ItemGroup>
+  <EmbeddedResource Include="Resource.txt" />
+</ItemGroup>
+```
 
-Sie können [Globmuster](#globbing-patterns) verwenden, wenn Sie Dateien für die Einbettung in der Assembly angeben. Diese Muster können verwendet werden, um eine oder mehrere Dateien zuzuordnen.
+Verwenden Sie [Globmuster](#glob-patterns), um eine oder mehr Dateien anzugeben, die in die Assembly eingebettet werden sollen.
 
-> [!NOTE]
-> Es ist unwahrscheinlich, dass Sie jemals tatsächlich jede JS-Datei in Ihrem Projekt in die Assembly einbetten möchten. Das obige Beispiel dient nur zu Demonstrationszwecken.
+Die Beispiel-App erstellt einen `EmbeddedFileProvider` und übergibt die aktuell ausgeführte Assembly an den Konstruktor.
 
-Beim Erstellen eines `EmbeddedFileProvider` übergeben Sie die Assembly, die für ihren Konstruktor gelesen wird.
+*Startup.cs*:
 
 ```csharp
 var embeddedProvider = new EmbeddedFileProvider(Assembly.GetEntryAssembly());
 ```
 
-Der obige Codeausschnitt veranschaulicht die Erstellung eines `EmbeddedFileProvider` mit Zugriff auf die gerade ausgeführte Assembly.
+Eingebettete Ressourcen machen keine Verzeichnisse verfügbar. Stattdessen wird der Ressourcenpfad (über dessen Namespace) mithilfe von `.`-Trennzeichen in ihren Dateinamen eingebettet. In der Beispiel-App ist `baseNamespace` `FileProviderSample.`.
 
-Das Aktualisieren der Beispielanwendung für die Verwendung eines `EmbeddedFileProvider` ergibt die folgende Ausgabe:
+Der [EmbeddedFileProvider(Assembly, String)](/dotnet/api/microsoft.extensions.fileproviders.embeddedfileprovider.-ctor#Microsoft_Extensions_FileProviders_EmbeddedFileProvider__ctor_System_Reflection_Assembly_)-Konstruktor akzeptiert einen optionalen `baseNamespace`-Parameter. Geben Sie den Basisnamespace an, um Aufrufe an [GetDirectoryContents](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider.getdirectorycontents) den Ressourcen im bereitgestellten Namespace zuzuordnen.
 
-![Die Beispielanwendung des Dateianbieters mit eingebetteten Dateien](file-providers/_static/embedded-directory-listing.png)
-
-> [!NOTE]
-> Eingebettete Ressourcen machen keine Verzeichnisse verfügbar. Stattdessen wird der Ressourcenpfad (über dessen Namespace) mithilfe von `.`-Trennzeichen in ihren Dateinamen eingebettet.
-
-> [!TIP]
-> Der `EmbeddedFileProvider`-Konstruktor akzeptiert einen optionalen `baseNamespace`-Parameter. Durch diese Angabe werden Aufrufe von `GetDirectoryContents` auf diese Ressourcen unter dem angegebenen Namespace festgelegt.
+::: moniker-end
 
 ### <a name="compositefileprovider"></a>CompositeFileProvider
 
-Der `CompositeFileProvider` kombiniert `IFileProvider`-Instanzen, die eine einzelne Schnittstelle zum Arbeiten mit Dateien von mehreren Anbietern verfügbar machen. Beim Erstellen des `CompositeFileProvider` übergeben Sie eine oder mehrere `IFileProvider`-Instanzen an seinen Konstruktor:
+Der [CompositeFileProvider](/dotnet/api/microsoft.extensions.fileproviders.compositefileprovider) kombiniert `IFileProvider`-Instanzen, die eine einzelne Schnittstelle zum Arbeiten mit Dateien von mehreren Anbietern verfügbar machen. Beim Erstellen des `CompositeFileProvider` übergeben Sie eine oder mehrere `IFileProvider`-Instanzen an seinen Konstruktor.
 
-[!code-csharp[](file-providers/sample/src/FileProviderSample/Startup.cs?highlight=3&range=35-37)]
+::: moniker range=">= aspnetcore-2.0"
 
-Aktualisieren die Beispielanwendung für die Verwendung eines `CompositeFileProvider`. Hier sind zuvor konfigurierte physische und eingebettete Anbieter enthalten. Daraus ergibt sich die folgende Ausgabe:
+In der Beispiel-App stellt ein `PhysicalFileProvider` und ein `ManifestEmbeddedFileProvider` Dateien an ein `CompositeFileProvider`, der im Dienstcontainer der App registriert ist:
 
-![Die Beispielanwendung des Dateianbieters mit physischen Dateien und Ordnern sowie eingebetteten Dateien](file-providers/_static/composite-directory-listing.png)
+[!code-csharp[](file-providers/samples/2.x/FileProviderSample/Startup.cs?name=snippet1)]
 
-## <a name="watching-for-changes"></a>Erkennen von Änderungen
+::: moniker-end
 
-Die `IFileProvider` `Watch`-Methode bietet eine Möglichkeit, eine oder mehrere Dateien oder Verzeichnisse auf Änderungen zu überwachen. Diese Methode akzeptiert eine Pfadzeichenfolge, die [Globmuster](#globbing-patterns) verwenden kann, um mehrere Dateien anzugeben und ein `IChangeToken` zurückzugeben. Dieses Token stellt eine `HasChanged`-Eigenschaft zur Verfügung, die überprüft werden kann, und eine `RegisterChangeCallback`-Methode, die aufgerufen wird, wenn Änderungen der angegebenen Pfadzeichenfolge erkannt werden. Beachten Sie, dass jedes Änderungstoken nur seine zugeordneten Rückrufe als Antwort auf eine einzelne Änderung aufruft. Zur Aktivierung der konstanten Überwachung können Sie wie unten dargestellt eine `TaskCompletionSource` verwenden oder `IChangeToken`-Instanzen als Reaktion auf Änderungen neu erstellen.
+::: moniker range="< aspnetcore-2.0"
 
-Im Beispiel dieses Artikels wird eine Konsolenanwendung konfiguriert, damit sie bei einer Änderung einer Textdatei eine Meldung anzeigt:
+In der Beispiel-App stellt ein `PhysicalFileProvider` und ein `EmbeddedFileProvider` Dateien an ein `CompositeFileProvider`, der im Dienstcontainer der App registriert ist:
 
-[!code-csharp[](file-providers/sample/src/WatchConsole/Program.cs?name=snippet1&highlight=1-2,16,19-20)]
+[!code-csharp[](file-providers/samples/1.x/FileProviderSample/Startup.cs?name=snippet1)]
 
-Das Ergebnis nach mehrmaligem Speichern der Datei:
+::: moniker-end
 
-![Befehlsfenster nach der Ausführung von .NET zeigt die Anwendung, die nach Änderungen in der quotes.txt-Datei Ausschau hält, und dass die Datei fünf Mal geändert wurde.](file-providers/_static/watch-console.png)
+## <a name="watch-for-changes"></a>Überwachen auf Änderungen
 
-> [!NOTE]
-> Einige Dateisysteme, z.B. Docker-Container und Netzwerkfreigaben, senden Änderungsmeldungen möglicherweise nicht zuverlässig . Legen Sie die `DOTNET_USE_POLLINGFILEWATCHER`-Umgebungsvariable auf `1` oder `true` fest, um das Dateisystem alle 4 Sekunden nach Änderungen zu untersuchen.
+Die [IFileProvider.Watch](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider.watch)-Methode bietet ein Szenario, eine oder mehrere Dateien oder Verzeichnisse auf Änderungen zu überwachen. `Watch`akzeptiert eine Pfadzeichenfolge, die [Globmuster](#glob-patterns) verwenden kann, um mehrere Dateien anzugeben. `Watch` gibt ein [IChangeToken](/dotnet/api/microsoft.extensions.primitives.ichangetoken) zurück. Das Änderungstoken macht folgendes verfügbar:
 
-## <a name="globbing-patterns"></a>Globmuster
+* [HasChanged](/dotnet/api/microsoft.extensions.primitives.ichangetoken.haschanged): eine Eigenschaft, die überprüft werden kann, um festzustellen, ob eine Änderung vorgenommen wurde.
+* [RegisterChangeCallback](/dotnet/api/microsoft.extensions.primitives.ichangetoken.registerchangecallback): wird aufgerufen, wenn Änderungen an der angegebenen Pfadzeichenfolge erkannt werden. Jedes Änderungstoken ruft nur seine zugeordneten Rückrufe als Antwort auf eine einzelne Änderung auf. Zur Aktivierung der konstanten Überwachung können Sie wie unten dargestellt eine [TaskCompletionSource](/dotnet/api/system.threading.tasks.taskcompletionsource-1) verwenden oder `IChangeToken`-Instanzen als Reaktion auf Änderungen neu erstellen.
 
-Dateisystempfade verwenden Platzhaltermuster namens *Globmuster*. Diese einfachen Muster können verwendet werden, um Dateigruppen anzugeben. Die zwei Platzhalterzeichen sind `*` und `**`.
+In der Beispiel-App wird die *WatchConsole*-Konsolen-App konfiguriert, damit sie bei einer Änderung einer Textdatei eine Meldung anzeigt:
 
-**`*`**
+::: moniker range=">= aspnetcore-2.0"
 
-   Überprüft alles auf der aktuellen Ordnerebene, jeden Dateinamen und jede Dateierweiterung. Übereinstimmungen werden durch `/`- und `.`-Zeichen im Dateipfad beendet.
+[!code-csharp[](file-providers/samples/2.x/WatchConsole/Program.cs?name=snippet1&highlight=1-2,16,19-20)]
 
-<strong><code>**</code></strong>
+::: moniker-end
 
-   Überprüft alles auf mehrere Verzeichnisebenen. Kann verwendet werden, um rekursiv eine Übereinstimmung für viele Dateien innerhalb einer Verzeichnishierarchie zu finden.
+::: moniker range="< aspnetcore-2.0"
 
-### <a name="globbing-pattern-examples"></a>Beispiele für Globmuster
+[!code-csharp[](file-providers/samples/1.x/WatchConsole/Program.cs?name=snippet1&highlight=1-2,16,19-20)]
 
-**`directory/file.txt`**
+::: moniker-end
 
-   Entspricht einer bestimmten Datei in einem bestimmten Verzeichnis.
+Einige Dateisysteme, z.B. Docker-Container und Netzwerkfreigaben, senden Änderungsmeldungen möglicherweise nicht zuverlässig . Legen Sie die `DOTNET_USE_POLLING_FILE_WATCHER`-Umgebungsvariable auf `1` oder `true` fest, um das Dateisystem alle 4 Sekunden nach Änderungen zu untersuchen (nicht konfigurierbar).
 
-**<code>directory/*.txt</code>**
+## <a name="glob-patterns"></a>Globmuster
 
-   Entspricht allen Dateien mit `.txt`-Erweiterung in einem bestimmten Verzeichnis.
+Dateisystempfade verwenden Platzhaltermuster namens *Globmuster*. Geben Sie Gruppen von Dateien mit diesen Mustern an. Die zwei Platzhalterzeichen sind `*` und `**`:
 
-**`directory/*/bower.json`**
+**`*`**  
+Überprüft alles auf der aktuellen Ordnerebene, jeden Dateinamen oder jede Dateierweiterung. Übereinstimmungen werden durch `/`- und `.`-Zeichen im Dateipfad beendet.
 
-   Entspricht allen `bower.json`-Dateien in Verzeichnissen auf der nächsttieferen Ebene des `directory`-Verzeichnisses.
+**`**`**  
+Überprüft alles auf mehrere Verzeichnisebenen. Kann verwendet werden, um rekursiv eine Übereinstimmung für viele Dateien innerhalb einer Verzeichnishierarchie zu finden.
 
-**<code>directory/&#42;&#42;/&#42;.txt</code>**
+**Beispiele für Globmuster**
 
-   Entspricht allen Dateien mit `.txt`-Erweiterung, die an einer beliebigen Stelle unter dem `directory`-Verzeichnis gefunden werden.
+**`directory/file.txt`**  
+Entspricht einer bestimmten Datei in einem bestimmten Verzeichnis.
 
-## <a name="file-provider-usage-in-aspnet-core"></a>Verwenden des Dateianbieters in ASP.NET Core
+**`directory/*.txt`**  
+Entspricht allen Dateien mit *.txt*-Erweiterung in einem bestimmten Verzeichnis.
 
-Einige Komponenten von ASP.NET Core nutzen Dateianbieter. `IHostingEnvironment` stellt das Inhaltsstammverzeichnis und das Webstammverzeichnis der Anwendung als `IFileProvider`-Typen zur Verfügung. Die Middleware der statischen Dateien verwendet Dateianbieter, um statische Dateien zu suchen. Razor nutzt `IFileProvider` intensiv für die Ansichtssuche. Die Veröffentlichungsfunktion von .NET verwendet Dateianbieter und Globmuster, um anzugeben, welche Dateien veröffentlicht werden sollen.
+**`directory/*/appsettings.json`**  
+Entspricht allen `appsettings.json`-Dateien in Verzeichnissen auf der nächsttieferen Ebene des *directory*-Ordners.
 
-## <a name="recommendations-for-use-in-apps"></a>Verwendungsempfehlungen in Anwendungen
-
-Wenn Ihre ASP.NET Core-Anwendung Dateisystemzugriff erfordert, können Sie über Dependeny Injection eine `IFileProvider`-Instanz anfordern und anschließend die Methoden für den Zugriff verwenden, wie in diesem Beispiel gezeigt. Somit können Sie den Anbieter beim Start der Anwendung einmal konfigurieren und die Anzahl der Implementierungstypen, die von Ihrer Anwendung instanziiert werden, reduzieren.
+**`directory/**/*.txt`**  
+Entspricht allen Dateien mit *.txt*-Erweiterung, die an einer beliebigen Stelle unter dem *directory*-Ordner gefunden werden.

@@ -3,14 +3,14 @@ title: Modellvalidierung im ASP.NET Core MVC
 author: tdykstra
 description: Informationen zur Modellvalidierung im ASP.NET Core MVC
 ms.author: riande
-ms.date: 12/18/2016
+ms.date: 07/31/2018
 uid: mvc/models/validation
-ms.openlocfilehash: 9c2ba1c1fad3ac077a886b3465142acfd4d639af
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: f407903577e40b6501737ef5b78d90e1e3e60c06
+ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095826"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39378666"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>Modellvalidierung im ASP.NET Core MVC
 
@@ -208,11 +208,11 @@ Attribute, die diese Schnittstelle implementieren, können HTML-Attribute zu gen
     id="ReleaseDate" name="ReleaseDate" value="" />
 ```
 
-Die unaufdringliche Validierung verwendet die Daten in den `data-`-Attributen, die die Fehlermeldungen anzeigen sollen. Allerdings kennt „jQuery“ Regeln oder Meldungen erst, wenn Sie sie zum `validator`-Objekt von „jQuery“ hinzugefügt haben. Im nachfolgenden Beispiel wird dargestellt, wie eine Methode mit dem Namen `classicmovie`, die benutzerdefinierten Validierungscode für den Client enthält, zu dem `validator`-Objekt von „jQuery“ hinzugefügt wird. Eine Erläuterung der Methode „unobtrusive.adapters.add“ finden Sie [hier](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-validation.html).
+Die unaufdringliche Validierung verwendet die Daten in den `data-`-Attributen, die die Fehlermeldungen anzeigen sollen. Allerdings kennt „jQuery“ Regeln oder Meldungen erst, wenn Sie sie zum `validator`-Objekt von „jQuery“ hinzugefügt haben. Dies wird im folgenden Beispiel gezeigt, bei dem eine benutzerdefinierte `classicmovie`-Clientvalidierungsmethode zum jQuery-`validator`-Objekt hinzugefügt wird. Eine Erläuterung der `unobtrusive.adapters.add`-Methode finden Sie in [Unobtrusive Client Validation in ASP.NET-MVC](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-validation.html).
 
-[!code-javascript[](validation/sample/Views/Movies/Create.cshtml?range=71-93)]
+[!code-javascript[](validation/sample/Views/Movies/Create.cshtml?name=snippet_UnobtrusiveValidation)]
 
-„jQuery“ verfügt jetzt über die Informationen, die zum Ausführen der benutzerdefinierten JavaScript-Validierung benötigt werden, und die Fehlermeldung, in der angezeigt wird, ob der Validierungscode FALSE zurückgibt.
+Mit dem vorhergehenden Code führt die `classicmovie`-Methode eine clientseitige Validierung am Veröffentlichungsdatum des Films durch. Die Fehlermeldung wird angezeigt, wenn die Methode `false` zurückgibt.
 
 ## <a name="remote-validation"></a>Remotevalidierung
 
@@ -222,11 +222,14 @@ Sie können die Remotevalidierung in zwei Schritten implementieren. Im ersten Sc
 
 [!code-csharp[](validation/sample/User.cs?range=7-8)]
 
-Im zweiten Schritt müssen Sie den Validierungscode in die zugehörige Aktionsmethode übergeben, die im `[Remote]`-Attribut definiert ist. In der Dokumentation zu der [`remote()`](https://jqueryvalidation.org/remote-method/)-Methode von „jQuery Validate“ heißt es:
+Im zweiten Schritt müssen Sie den Validierungscode in die zugehörige Aktionsmethode übergeben, die im `[Remote]`-Attribut definiert ist. Gemäß der jQuery Validate-[remote](https://jqueryvalidation.org/remote-method/)-Methodendokumentation muss die Serverantwort eine JSON-Zeichenfolge sein, die entweder:
 
-> In der serverseitigen Antwort muss eine JSON-Zeichenfolge zurückgegeben werden, die `"true"` für gültige Elemente und `"false"`, `undefined` oder `null` für ungültige Elemente zurückgibt. Dafür soll die Standardfehlermeldung verwendet werden. Wenn die serverseitige Antwort eine Zeichenfolge zurückgibt, z.B. `"That name is already taken, try peter123 instead"`, wird diese Zeichenfolge anstelle der Standardmeldung als benutzerdefinierte Fehlermeldung angezeigt.
+* `"true"` ist für gültige Elemente.
+* `"false"`, `undefined` oder `null` ist für ungültige Elemente. Es wird die Standardfehlermeldung angezeigt.
 
-Die Definition der `VerifyEmail()`-Methode hält sich wie nachfolgend dargestellt an diese Regeln. Sie gibt eine Fehlermeldung für die Validierung zurück, wenn die E-Mail-Adresse bereits vergeben ist, oder `true`, wenn die E-Mail-Adresse frei ist, und umschließt das Ergebnis in einem `JsonResult`-Objekt. Die Clientseite kann dann den Rückgabewert verwenden, um fortzufahren oder den Fehler ggf. anzuzeigen.
+Wenn die Serverantwort eine Zeichenfolge ist (z.B. `"That name is already taken, try peter123 instead"`), wird die Zeichenfolge als benutzerdefinierte Fehlermeldung anstelle der Standardzeichenfolge angezeigt.
+
+Die Definition der `VerifyEmail`-Methode hält sich wie nachfolgend dargestellt an diese Regeln. Sie gibt eine Fehlermeldung für die Validierung zurück, wenn die E-Mail-Adresse bereits vergeben ist, oder `true`, wenn die E-Mail-Adresse frei ist, und umschließt das Ergebnis in einem `JsonResult`-Objekt. Die Clientseite kann dann den Rückgabewert verwenden, um fortzufahren oder den Fehler ggf. anzuzeigen.
 
 [!code-csharp[](validation/sample/UsersController.cs?range=19-28)]
 
@@ -243,7 +246,7 @@ Die `AdditionalFields`-Eigenschaft des `[Remote]`-Attributs ist nützlich für d
 Wenn Benutzer jetzt einen Vor- und einen Nachnamen eingeben, führt JavaScript folgende Vorgänge aus:
 
 * Es führt einen Remoteaufruf durch, um zu überprüfen, ob diese Namenskombination bereits verwendet wurde.
-* Wenn dem so ist, wird eine Fehlermeldung angezeigt. 
+* Wenn dem so ist, wird eine Fehlermeldung angezeigt.
 * Andernfalls kann der Benutzer das Formular übermitteln.
 
 Wenn Sie mindestens zwei weitere Felder mit dem `[Remote]`-Attribut überprüfen müssen, geben Sie sie als eine mit Kommas getrennte Liste an. Wenn Sie z.B. dem Modell eine `MiddleName`-Eigenschaft hinzufügen möchten, legen Sie das `[Remote]`-Attribut wie im folgenden Code veranschaulicht fest:

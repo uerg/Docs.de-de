@@ -5,12 +5,12 @@ description: Informationen zu ASP.NET Core MVC als umfangreiches Framework zum E
 ms.author: riande
 ms.date: 01/08/2018
 uid: mvc/overview
-ms.openlocfilehash: aca34f91e8c7efaa34263ddf830b1662a2518969
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 7f8aab02c0ee37dad49ff224b182ec455e837a7a
+ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272591"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39378637"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Übersicht über ASP.NET Core MVC
 
@@ -165,8 +165,7 @@ Mit der `@inject`-Anweisung kann Ihre App [Dependency Injection auch in Ansichts
 
 ### <a name="filters"></a>Filter
 
-Mit [Filtern](controllers/filters.md) können Entwickler übergreifende Belange kapseln, wie etwa die Ausnahmebehandlung oder die Autorisierung. Filter ermöglichen das Ausführen benutzerdefinierter Vor- und Nachverarbeitungslogik für Aktionsmethoden. Sie können so konfiguriert werden, dass sie für eine angegebene Anforderung an bestimmten Stellen in der Ausführungspipeline ausgeführt werden. Filter können als Attribute auf Controller oder Aktionen angewendet werden (oder sie werden global ausgeführt). Das Framework enthält mehrere Filter (wie z.B. `Authorize`).
-
+Mit [Filtern](controllers/filters.md) können Entwickler übergreifende Belange kapseln, wie etwa die Ausnahmebehandlung oder die Autorisierung. Filter ermöglichen das Ausführen benutzerdefinierter Vor- und Nachverarbeitungslogik für Aktionsmethoden. Sie können so konfiguriert werden, dass sie für eine angegebene Anforderung an bestimmten Stellen in der Ausführungspipeline ausgeführt werden. Filter können als Attribute auf Controller oder Aktionen angewendet werden (oder sie werden global ausgeführt). Das Framework enthält mehrere Filter (wie z.B. `Authorize`). `[Authorize]` ist das Attribut, das zum Erstellen von MVC-Autorisierungsfiltern verwendet wird.
 
 ```csharp
 [Authorize]

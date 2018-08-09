@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 4/13/2018
 uid: fundamentals/startup
-ms.openlocfilehash: 285d74c0d12e3aca4d8c33d39467dfda02712993
-ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
+ms.openlocfilehash: a576f3840e66fc4ed877f7575aa3f3e36b37ae4d
+ms.sourcegitcommit: d99a8554c91f626cf5e466911cf504dcbff0e02e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/15/2018
-ms.locfileid: "39063259"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39356749"
 ---
 # <a name="application-startup-in-aspnet-core"></a>Anwendungsstart in ASP.NET Core
 
@@ -34,10 +34,13 @@ Die `Startup`-Klasse wird mit der Methode [WebHostBuilderExtensions](/dotnet/api
 
 [!code-csharp[](../common/samples/WebApplication1DotNetCore2.0App/Program.cs?name=snippet_Main&highlight=10)]
 
-Der `Startup`-Klassenkonstruktor akzeptiert Abhängigkeiten, die vom Host definiert werden. [Dependency Injection](xref:fundamentals/dependency-injection) wird häufig im Zusammenhang mit der `Startup`-Klasse verwendet, um Folgendes einzufügen:
+Der Web-Host stellt einige Dienste für den `Startup`-Klassenkonstruktor bereit. Die App fügt über `ConfigureServices` zusätzliche Dienste hinzu. Daher sind sowohl die Host- als auch die App-Dienste in `Configure` und über die App verfügbar.
+
+[Dependency Injection](xref:fundamentals/dependency-injection) wird häufig im Zusammenhang mit der `Startup`-Klasse verwendet, um Folgendes einzufügen:
 
 * [IHostingEnvironment](/dotnet/api/Microsoft.AspNetCore.Hosting.IHostingEnvironment), um Dienste nach Umgebung zu konfigurieren.
-* [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration), um die App beim Start zu konfigurieren.
+* [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) zum Lesen der Konfiguration.
+* [Iloggerfactory](/dotnet/api/microsoft.extensions.logging.iloggerfactory) zum Erstellen einer Protokollierung in `Startup.ConfigureServices`.
 
 [!code-csharp[](startup/snapshot_sample/Startup2.cs)]
 
@@ -65,7 +68,7 @@ Für Features, die ein umfangreiches Setup erfordern, sind unter [IServiceCollec
 
 <a name="setcompatibilityversion"></a>
 
-### <a name="setcompatibilityversion-for-aspnet-core-mvc"></a>SetCompatibilityVersion für ASP.NET Core MVC 
+### <a name="setcompatibilityversion-for-aspnet-core-mvc"></a>SetCompatibilityVersion für ASP.NET Core MVC
 
 Die Methode `SetCompatibilityVersion` erlaubt einer App Änderungen im Verhalten, die in ASP.NET MVC Core 2.1 und höher eingeführt werden und potentiell Fehler verursachen, anzunehmen oder abzulehnen. Diese potentiell Fehler verursachenden Änderungen im Verhalten betreffen generell das Verhalten des MVC-Subsystems und die Art, wie **Ihr Code** von der Runtime aufgerufen wird. Wenn Sie sich für die Änderungen entscheiden, erhalten Sie das aktuelle Verhalten und das langfristige Verhalten von ASP.NET Core.
 
@@ -73,14 +76,14 @@ Der folgende Code legt den Kompatibilitätsmodus auf ASP.NET Core 2.1 fest:
 
 [!code-csharp[Main](startup/sampleCompatibility/Startup.cs?name=snippet1)]
 
-Es wird empfohlen, Ihre Anwendung mit der aktuellen Version zu testen (`CompatibilityVersion.Version_2_1`). Wir erwarten, dass bei den meisten Anwendungen mit der aktuellen Version keine Fehler verursachenden Verhaltensänderungen auftreten werden. 
+Es wird empfohlen, Ihre App mit der aktuellen Version zu testen (`CompatibilityVersion.Version_2_1`). Wir erwarten, dass bei den meisten Apps mit der aktuellen Version keine Fehler verursachenden Verhaltensänderungen auftreten werden.
 
-Anwendungen, die `SetCompatibilityVersion(CompatibilityVersion.Version_2_0)` aufrufen, sind vor potentiell Fehler verursachenden Änderungen im Verhalten geschützt, die in ASP.NET Core 2.1 MVC und höheren 2.x-Versionen eingeführt wurden. Dieser Schutz:
+Apps, die `SetCompatibilityVersion(CompatibilityVersion.Version_2_0)` aufrufen, sind vor potentiell Fehler verursachenden Änderungen im Verhalten geschützt, die in ASP.NET Core 2.1 MVC und höheren 2.x-Versionen eingeführt wurden. Dieser Schutz:
 
 * Gilt nicht für alle Änderungen in 2.1 und höher. Das Ziel sind potentiell Fehler verursachende Änderungen im Verhalten der ASP.NET Core-Runtime im MVC-Subsystem.
 * Erstreckt sich nicht auf die nächste Hauptversion.
 
-Die Standard-Kompatibilität für ASP.NET Core 2.1 und höhere 2.x-Anwendungen, die **nicht** `SetCompatibilityVersion` aufrufen, ist 2.0-Kompatibilität. Das bedeutet, `SetCompatibilityVersion` nicht aufzurufen entspricht dem Aufrufen von `SetCompatibilityVersion(CompatibilityVersion.Version_2_0)`.
+Die Standard-Kompatibilität für ASP.NET Core 2.1 und höhere 2.x-Aps, die **nicht** `SetCompatibilityVersion` aufrufen, ist 2.0-Kompatibilität. Das bedeutet, `SetCompatibilityVersion` nicht aufzurufen entspricht dem Aufrufen von `SetCompatibilityVersion(CompatibilityVersion.Version_2_0)`.
 
 Der folgende Code legt den Kompatibilitätsmodus auf ASP.NET Core 2.1 fest, mit Ausnahme des folgenden Verhaltens:
 
@@ -96,13 +99,9 @@ Bei Apps, bei denen Fehler verursachende Änderungen auftreten, können Sie die 
 
 In den Quellkommentaren für die Klasse [MvcOptions](https://github.com/aspnet/Mvc/blob/master/src/Microsoft.AspNetCore.Mvc.Core/MvcOptions.cs) finden Sie eine gute Erklärung, was sich geändert hat und welche Änderungen eine Verbesserung für die meisten Benutzer darstellen.
 
-Zu einem späteren Zeitpunkt wird es eine [ASP.NET Core 3.0-Version](https://github.com/aspnet/Home/wiki/Roadmap) geben. Altes Verhalten, das von Kompatibilitätsoptionen unterstützt wird, wird in der 3.0-Version entfernt. Beinahe alle Benutzer werden von diesen positiven Änderungen profitieren. Dadurch, dass die Änderungen bereits jetzt eingeführt werden, können die meisten Apps auch jetzt davon profitieren, und die anderen bekommen Zeit, ihre Anwendungen zu aktualisieren.
+Zu einem späteren Zeitpunkt wird es eine [ASP.NET Core 3.0-Version](https://github.com/aspnet/Home/wiki/Roadmap) geben. Altes Verhalten, das von Kompatibilitätsoptionen unterstützt wird, wird in der 3.0-Version entfernt. Beinahe alle Benutzer werden von diesen positiven Änderungen profitieren. Dadurch, dass die Änderungen bereits jetzt eingeführt werden, können die meisten Apps auch jetzt davon profitieren, und die anderen bekommen Zeit, ihre Apps zu aktualisieren.
 
 ::: moniker-end
-
-## <a name="services-available-in-startup"></a>Beim Start verfügbare Dienste
-
-Der Web-Host stellt einige Dienste für den `Startup`-Klassenkonstruktor bereit. Die App fügt über `ConfigureServices` zusätzliche Dienste hinzu. Daher können die `Configure`-Methode und die gesamte Anwendung sowohl auf die Host- als auch auf die App-Dienste zugreifen.
 
 ## <a name="the-configure-method"></a>Die Configure-Methode
 
@@ -161,9 +160,9 @@ Mit einer [IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingsta
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Hosting](xref:fundamentals/host/index)
-* [Verwenden mehrerer Umgebungen](xref:fundamentals/environments)
-* [Middleware](xref:fundamentals/middleware/index)
-* [Logging (Protokollierung)](xref:fundamentals/logging/index)
-* [Konfiguration](xref:fundamentals/configuration/index)
+* <xref:fundamentals/host/index>
+* <xref:fundamentals/environments>
+* <xref:fundamentals/middleware/index>
+* <xref:fundamentals/logging/index>
+* <xref:fundamentals/configuration/index>
 * [StartupLoader class: FindStartupType method (reference source) (StartupLoader-Klasse: FindStartupType-Methode (Referenzquelle))](https://github.com/aspnet/Hosting/blob/rel/2.0.0/src/Microsoft.AspNetCore.Hosting/Internal/StartupLoader.cs#L66-L116)
