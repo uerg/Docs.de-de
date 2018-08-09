@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 07/31/2018
 uid: signalr/configuration
-ms.openlocfilehash: 32c0ad94fba09fa099c2ab4a6b1d6d79a5542d7f
-ms.sourcegitcommit: a25b572eaed21791230c85416f449f66a405ec19
+ms.openlocfilehash: eac1202828edbcd295d7e52aa424cd625ee70e34
+ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39396061"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722463"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>ASP.NET Core SignalR-Konfiguration
 
@@ -234,7 +234,7 @@ Zusätzliche Optionen können konfiguriert werden, der `WithUrl` (`withUrl` in J
 | `Credentials` | Nicht konfigurierbar * | Empty | Die Anmeldeinformationen mit jeder HTTP-Anforderung senden. |
 | `CloseTimeout` | Nicht konfigurierbar * | 5 Sekunden | Nur WebSockets. Die maximale Zeitspanne wartet der Client nach dem Schließen für den Server die Anforderung schließende bestätigt. Wenn der Server das Schließen nicht innerhalb dieses Zeitraums bestätigt nicht, trennt den Client. |
 | `Headers` | Nicht konfigurierbar * | Empty | Ein Wörterbuch von zusätzlichen HTTP-Header mit jeder HTTP-Anforderung senden. |
-| `HttpMessageHandlerFactory` | Nicht konfigurierbar * | `null` | Ein Delegat, der verwendet werden kann, um zu konfigurieren, oder Ersetzen Sie die `HttpMessageHandler` zum Senden von HTTP-Anforderungen verwendet. WebSocket-Verbindungen verwendet nicht. Dieser Delegat muss einen Wert ungleich Null zurückgeben, und den Standardwert als Parameter erhält. Ändern Sie die Einstellungen auf dieser Standardwert und zurückgeben oder ein komplett neues zurückgeben `HttpMessageHandler` Instanz. |
+| `HttpMessageHandlerFactory` | Nicht konfigurierbar * | `null` | Ein Delegat, der verwendet werden kann, um zu konfigurieren, oder Ersetzen Sie die `HttpMessageHandler` zum Senden von HTTP-Anforderungen verwendet. WebSocket-Verbindungen verwendet nicht. Dieser Delegat muss einen Wert ungleich Null zurückgeben, und den Standardwert als Parameter erhält. Ändern Sie die Einstellungen auf dieser Standardwert und zurückgeben oder ein neues zurückgeben `HttpMessageHandler` Instanz. **Beim Ersetzen der Handler, stellen Sie sicher, kopieren Sie die Einstellungen, die Sie aus der bereitgestellte Handler beibehalten möchten, anwenden nicht die konfigurierten Optionen (z. B. Cookies und Header), andernfalls auf den neuen Handler.** |
 | `Proxy` | Nicht konfigurierbar * | `null` | Ein HTTP-Proxy beim Senden von HTTP-Anforderungen verwendet werden soll. |
 | `UseDefaultCredentials` | Nicht konfigurierbar * | `false` | Legen Sie diese boolescher Wert, um die Standardanmeldeinformationen für HTTP und WebSockets-Anforderungen zu senden. Dadurch wird die Verwendung der Windows-Authentifizierung. |
 | `WebSocketConfiguration` | Nicht konfigurierbar * | `null` | Ein Delegat, der so konfigurieren Sie zusätzliche "WebSocket"-Optionen verwendet werden kann. Empfängt eine Instanz von [ClientWebSocketOptions](/dotnet/api/system.net.websockets.clientwebsocketoptions) , die verwendet werden kann, um Optionen zu konfigurieren. |

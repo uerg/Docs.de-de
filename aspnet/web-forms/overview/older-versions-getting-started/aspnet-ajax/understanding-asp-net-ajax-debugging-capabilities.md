@@ -8,12 +8,12 @@ ms.date: 03/28/2008
 ms.assetid: 7f9380c6-19f7-4c82-a019-916ec6dffc9c
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-debugging-capabilities
 msc.type: authoredcontent
-ms.openlocfilehash: 9d420a41f50d06541d04a1dd3cb78a2e6beaaa9a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 95c2487f26109cbdd8c76dc6f269f37264f5e34b
+ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37813827"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39655445"
 ---
 <a name="understanding-aspnet-ajax-debugging-capabilities"></a>Grundlegendes zu Debuggingfunktionen von ASP.NET-AJAX
 ====================
@@ -55,8 +55,8 @@ Abbildung 1 zeigt, welche im erweiterten Dialogfeld Internet Explorer sollte aus
 
 Sobald das Debuggen aktiviert wurde, sehen Sie ein neues Menüelement im Menü "Ansicht" mit dem Namen Script-Debugger angezeigt werden. Es hat zwei Optionen zur Verfügung, einschließlich öffnen und die Unterbrechung an die nächste Anweisung. Beim Öffnen aktiviert ist, werden Sie aufgefordert werden zum Debuggen der Seite in Visual Studio 2008 (Beachten Sie, dass Visual Web Developer Express für das Debuggen auch verwendet werden kann). Wenn Visual Studio .NET ausgeführt wird, können Sie diese Instanz verwenden oder erstellen eine neue Instanz auswählen. Wenn Unterbrechung am nächsten Anweisung ausgewählt ist, werden Sie aufgefordert werden auf die Seite zu debuggen, wenn JavaScript-Code ausgeführt wird. Wenn JavaScript-Code in das OnLoad-Ereignis der Seite ausgeführt wird, können Sie die Seite, um das Auslösen einer Debugsitzung aktualisieren. Wenn JavaScript-Code ausgeführt wird, nachdem eine Schaltfläche geklickt wird führt der Debugger dann sofort, nachdem Sie die Schaltfläche geklickt wird.
 
-> *> [!NOTE] Wenn Sie, unter Windows Vista mit User Access Control (UAC ausgeführt werden) aktiviert und Visual Studio 2008 als Administrator ausgeführt haben, kann Visual Studio nicht an den Prozess angefügt werden soll, wenn Sie, zum Anfügen aufgefordert werden. Um dieses Problem zu umgehen, starten Sie Visual Studio zuerst, und verwenden Sie diese Instanz zum Debuggen.*
-
+> [!NOTE]
+> Wenn Sie in Windows Vista mit User Access Control (UAC) aktiviert, und Sie haben Visual Studio 2008, die zur Ausführung als Administrator, kann Visual Studio nicht an den Prozess angefügt werden soll, wenn Sie aufgefordert werden, um anzufügen. Um dieses Problem zu umgehen, starten Sie Visual Studio zuerst, und verwenden Sie diese Instanz zum Debuggen.
 
 Obwohl im nächste Abschnitt zum Debuggen einer ASP.NET AJAX-Seite direkt aus Visual Studio 2008 veranschaulicht wird, ist mit der Script-Debugger von Internet Explorer-Option hilfreich, wenn eine Seite bereits geöffnet ist, und Sie es genauer zu untersuchen möchten.
 
@@ -98,8 +98,8 @@ Nach eine Debugsitzung gestartet wird und Sie beginnen mit der F11-Taste standar
 
 Dieses Dialogfeld wird angezeigt, da Sie sicher, dass Visual Studio .NET-Gewusst wie: Abrufen des Quellcodes einige Skripts verwiesen wird, von der Seite nicht. Dies kann sehr frustrierend sein zunächst eine einfache Lösung besteht. Nachdem Sie eine Debugsitzung gestartet und einen Haltepunkt erreicht haben, wechseln Sie zum Debuggen von Windows-Skript-Explorer-Fenster auf das Menü "Visual Studio 2008", oder verwenden Sie den Hotkey Strg + Alt + N.
 
-> *> [!NOTE] Wenn Sie nicht, dass die Skript-Explorer im Menü aufgelistet sehen, finden Sie unter Extras* *anpassen* *Befehle im Menü von Visual Studio .NET. Suchen Sie den Debug-Eintrag im Abschnitt Kategorien aus, und klicken Sie darauf, um alle im Kontextmenü verfügbaren Einträge anzuzeigen. In der Liste der Befehle, scrollen Sie zum Skript-Explorer, und klicken Sie dann auf das Debuggen nach oben ziehen* *Windows im Menü oben genannten. Dadurch wird den Eintrag der Skript-Explorer-Menü jedes Mal zur Verfügung, wenn Sie Visual Studio .NET ausführen.*
-
+> [!NOTE]
+> Wenn Sie nicht, dass die Skript-Explorer im Menü aufgelistet sehen, fahren Sie mit **Tools** > **anpassen** > **Befehle** im Visual Studio .NET auf. Suchen Sie die **Debuggen** Eintrag in die Kategorien aus, und klicken Sie darauf, um alle im Kontextmenü verfügbaren Einträge anzuzeigen. Scrollen Sie zum Skript-Explorer, und ziehen sie Sie auf das Debuggen von Windows im Menü oben erwähnt, in der Liste der Befehle. Dadurch wird den Eintrag der Skript-Explorer-Menü jedes Mal zur Verfügung, wenn Sie Visual Studio .NET ausführen.
 
 Die Skript-Explorer kann verwendet werden, zeigen Sie alle Skripts, die auf einer Seite verwendet, und sie im Code-Editor zu öffnen. Doppelklicken Sie auf der ASPX-Seite, die gerade gedebuggt werden, um sie im Code-Editor-Fenster zu öffnen, nach dem Skript-Explorer öffnen. Führen Sie die gleiche Aktion für alle anderen Skripts in den Skript-Explorer angezeigt. Nachdem alle Skripts im Code-Fenster geöffnet sind Sie können drücken Sie F11 (und verwenden Sie die anderen Debug-Hotkeys), um den Code schrittweise. Abbildung 3 zeigt ein Beispiel für die Skript-Explorer. Die aktuelle Datei im Debugmodus befindlichen (Demo.aspx) aufgeführt sowie zwei benutzerdefinierte Skripts und zwei Skripts, die dynamisch vom ASP.NET AJAX ScriptManager auf der Seite eingefügt.
 

@@ -5,12 +5,12 @@ description: Informationen Sie zum Erstellen einer ASP.NET Core-app mit e-Mail-B
 ms.author: riande
 ms.date: 7/11/2018
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 84eb3580107572f66f0c3b565b8e76ba401c0ddb
-ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
+ms.openlocfilehash: 3ca6d014245bb2a9bc4b1c90285f47eec7cefe84
+ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219406"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39655471"
 ---
 ::: moniker range="<= aspnetcore-2.0"
 
@@ -78,24 +78,11 @@ Befolgen Sie die Anweisungen in [Aktivieren der Authentifizierung](xref:security
 
 Die app auszuführen, wählen Sie die **registrieren** verknüpfen, und registrieren Sie einen Benutzer. Die ausschließliche Überprüfung der auf die e-Mail-Adresse an diesem Punkt ist, mit der [[EmailAddress]](/dotnet/api/system.componentmodel.dataannotations.emailaddressattribute) Attribut. Nach der Übermittlung der Registrierungs, werden Sie bei der app angemeldet. Weiter unten in diesem Tutorial wird der Code aktualisiert, damit neue Benutzer können sich nicht anmelden, bis ihre e-Mail-Adresse überprüft wird.
 
-## <a name="view-the-identity-database"></a>Abrufen der Identität-Datenbank
-
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
-
-* Von der **Ansicht** , wählen Sie im Menü **Objekt-Explorer von SQL Server** (SSOX).
-* Navigieren Sie zu **(Localdb) MSSQLLocalDB (SQLServer-13)**. Mit der rechten Maustaste auf **Dbo. "Aspnetusers"** > **zeigen Daten**:
-
-![Über das Kontextmenü für die Tabelle "aspnetusers" im Objekt-Explorer von SQL Server](accconfirm/_static/ssox.png)
+[!INCLUDE[](~/includes/view-identity-db.md)]
 
 Beachten Sie die Tabelle `EmailConfirmed` Feld `False`.
 
 Sie möchten möglicherweise verwenden Sie diese e-Mail erneut im nächsten Schritt, wenn die app eine Bestätigung per e-Mail sendet. Mit der rechten Maustaste auf die Zeile, und wählen **löschen**. Löschen den e-Mail-Alias erleichtert es in den folgenden Schritten.
-
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core-CLI](#tab/netcore-cli)
-
-Finden Sie unter [arbeiten mit SQLite in einem ASP.NET Core MVC-Projekt](xref:tutorials/first-mvc-app-xplat/working-with-sql) Anweisungen zum Anzeigen der SQLite-Datenbank.
-
-------
 
 <a name="prevent-login-at-registration"></a>
 ## <a name="require-email-confirmation"></a>E-Mail-Bestätigung erforderlich
@@ -113,8 +100,6 @@ Update *Areas/Identity/IdentityHostingStartup.cs* eine bestätigte e-Mail-Adress
 ### <a name="configure-email-provider"></a>Konfigurieren von e-Mail-Anbieter
 
 In diesem Tutorial [SendGrid](https://sendgrid.com) wird verwendet, um e-Mail zu senden. Sie benötigen eine SendGrid-Konto und einen Schlüssel zum Senden von e-Mails. Sie können andere e-Mail-Anbieter verwenden. ASP.NET Core 2.x enthält `System.Net.Mail`, wodurch Sie zum Senden von e-Mail-Adresse aus Ihrer app. Es wird empfohlen, dass Sie über SendGrid oder eine andere e-Mail-Dienst verwenden, um e-Mail zu senden. SMTP ist schwierig, sichere und ordnungsgemäß eingerichtet.
-
-Die [optionsmuster](xref:fundamentals/configuration/options) wird verwendet, um die benutzereinstellungen für Konto und den Schlüssel zugreifen. Weitere Informationen finden Sie unter [Konfiguration](xref:fundamentals/configuration/index).
 
 Erstellen Sie eine Klasse, um den Schlüssel für sichere e-Mails abrufen. In diesem Beispiel erstellen *Services/AuthMessageSenderOptions.cs*:
 
@@ -143,6 +128,8 @@ Den Inhalt der *secrets.json* Datei sind nicht verschlüsselt. Die *secrets.json
     "SendGridKey": "<key removed>"
   }
   ```
+ 
+Weitere Informationen finden Sie unter den [optionsmuster](xref:fundamentals/configuration/options) und [Konfiguration](xref:fundamentals/configuration/index).
 
 ### <a name="install-sendgrid"></a>Installieren von SendGrid
 

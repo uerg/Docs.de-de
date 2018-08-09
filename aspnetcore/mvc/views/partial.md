@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/06/2018
 uid: mvc/views/partial
-ms.openlocfilehash: 983f3caae34b21b46d8f556e70673cf3c97abbd3
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: 7cb20fc30609adad83cb40e91316da115817f035
+ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938458"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39378682"
 ---
 # <a name="partial-views-in-aspnet-core"></a>Verwenden von Teilansichten in ASP.NET Core
 
 Von [Steve Smith](https://ardalis.com/), [Maher JENDOUBI](https://twitter.com/maherjend), [Rick Anderson](https://twitter.com/RickAndMSFT) und [Scott Sauber](https://twitter.com/scottsauber)
 
-ASP.NET Core MVC unterstützt Teilansichten, die nützlich zum gemeinsamen Verwenden wiederverwendbarer Teile von Webseiten für unterschiedliche Ansichten sind.
+ASP.NET Core unterstützt Teilansichten. Teilansichten werden verwendet, um wiederverwendbare Teile von Webseiten für verschiedene Ansichten freizugeben.
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/partial/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
@@ -35,8 +35,7 @@ Teilansichten stellen eine effektive Möglichkeit dar, große Ansichten in klein
 
 Auf einer komplexen Seite, die aus mehreren logischen Bestandteilen besteht, ist es hilfreich, mit jedem Bestandteil als einzelne Teilansicht zu arbeiten. Jeder Bestandteil der Seite kann isoliert vom Rest der Seite angezeigt werden. Die Ansicht der Seite selbst wird einfacher, da sie nur aus der allgemeinen Seitenstruktur sowie Aufrufen zum Rendern der Teilansichten besteht.
 
-> [!TIP]
-> Halten Sie sich in Ihren Ansichten an das [Don’t Repeat Yourself-Prinzip](https://deviq.com/don-t-repeat-yourself/).
+ASP.NET Core-MVC-Controller verfügen über eine [PartialView](/dotnet/api/microsoft.aspnetcore.mvc.controller.partialview#Microsoft_AspNetCore_Mvc_Controller_PartialView)-Methode, die von einer Aktionsmethode aufgerufen wird. Razor Pages haben keine entsprechende `PartialView`-Methode.
 
 ## <a name="declare-partial-views"></a>Deklarieren von Teilansichten
 
