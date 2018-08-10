@@ -35,7 +35,7 @@
 ## [Erstellen von Web-APIs](xref:web-api/index)
 ### [Erstellen einer Web-API in Visual Studio Code](xref:tutorials/web-api-vsc)
 ### [Erstellen einer Web-API in Visual Studio für Mac](xref:tutorials/first-web-api-mac)
-### [Erstellen einer Web-API in Visual Studio für Windows](xref:tutorials/first-web-api)
+### [Erstellen einer Web-API in Visual Studio](xref:tutorials/first-web-api)
 ### [Erstellen von Back-End-Diensten für native mobile Apps](xref:mobile/native-mobile-backend)
 ### [Hilfeseiten mit Swagger](xref:tutorials/web-api-help-pages-using-swagger)
 #### [Erste Schritte mit NSwag](xref:tutorials/get-started-with-nswag)
@@ -218,7 +218,7 @@
 ## [Debuggen von Momentaufnahmen in Visual Studio](/visualstudio/debugger/debug-live-azure-applications)
 ## [Problembehandlung](xref:test/troubleshoot)
 
-# [Datenzugriff mit Entity Framework Core und Azure](data/index.md)
+# [Datenzugriff mit Entity Framework Core](xref:data/index)
 ## [Erste Schritte mit Razor Pages und Entity Framework Core unter Verwendung von Visual Studio](xref:data/ef-rp/intro)
 ## [Erste Schritte mit ASP.NET Core und Entity Framework Core mithilfe von Visual Studio](data/ef-mvc/index.md)
 ## [ASP.NET Core mit EF Core – neue Datenbank](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db)
@@ -229,6 +229,15 @@
 ### [Erste Schritte mit Blob-Speicher und verbundenen Visual Studio-Diensten](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)
 ### [Erste Schritte mit Queue Storage und verbundenen Visual Studio-Diensten](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
 ### [Erste Schritte mit Table Storage und verbundenen Visual Studio-Diensten](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
+
+# [Anleitungen für Azure](xref:azure/index)
+## DevOps mit ASP.NET Core und Azure
+### [Introduction (Einführung)](xref:azure/devops/index)
+### [Tools und Downloads](xref:azure/devops/tools-and-downloads)
+### [Bereitstellen in App Service](xref:azure/devops/deploy-to-app-service)
+### [Continuous Integration und Continuous Deployment](xref:azure/devops/cicd)
+### [Monitor und Problembehandlung](xref:azure/devops/monitor)
+### [Nächste Schritte](xref:azure/devops/next-steps)
 
 # [Clientseitige Entwicklung](xref:client-side/index)
 ## [Verwenden von Gulp](xref:client-side/using-gulp)
