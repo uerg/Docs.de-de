@@ -39,7 +39,7 @@ Hier sehen Sie eine HTTP-Beispielantwort für die Methode `GetAll`:
 ]
 ```
 
-Später in diesem Tutorial sehen Sie, wie die HTTP-Antwort mit [Postman](https://www.getpostman.com/) oder [cURL](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/curl.1.html) angezeigt werden kann.
+Später in diesem Tutorial sehen Sie, wie die HTTP-Antwort mit [Postman](https://www.getpostman.com/) oder [cURL](https://curl.haxx.se/docs/manpage.html) angezeigt werden kann.
 
 ### <a name="routing-and-url-paths"></a>Routing und URL-Pfade
 
