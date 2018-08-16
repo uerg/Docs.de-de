@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/06/2018
 uid: mvc/views/partial
-ms.openlocfilehash: 7cb20fc30609adad83cb40e91316da115817f035
-ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
+ms.openlocfilehash: 2223f3c6e42927def4b91ff9da58c228e5904756
+ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39378682"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39655322"
 ---
 # <a name="partial-views-in-aspnet-core"></a>Verwenden von Teilansichten in ASP.NET Core
 
@@ -35,7 +35,7 @@ Teilansichten stellen eine effektive Möglichkeit dar, große Ansichten in klein
 
 Auf einer komplexen Seite, die aus mehreren logischen Bestandteilen besteht, ist es hilfreich, mit jedem Bestandteil als einzelne Teilansicht zu arbeiten. Jeder Bestandteil der Seite kann isoliert vom Rest der Seite angezeigt werden. Die Ansicht der Seite selbst wird einfacher, da sie nur aus der allgemeinen Seitenstruktur sowie Aufrufen zum Rendern der Teilansichten besteht.
 
-ASP.NET Core-MVC-Controller verfügen über eine [PartialView](/dotnet/api/microsoft.aspnetcore.mvc.controller.partialview#Microsoft_AspNetCore_Mvc_Controller_PartialView)-Methode, die von einer Aktionsmethode aufgerufen wird. Razor Pages haben keine entsprechende `PartialView`-Methode.
+ASP.NET Core-MVC-Controller verfügen über eine [PartialView](/dotnet/api/microsoft.aspnetcore.mvc.controller.partialview#Microsoft_AspNetCore_Mvc_Controller_PartialView)-Methode, die von einer Aktionsmethode aufgerufen wird. Razor Pages haben keine entsprechende `PartialView`-Methode im [PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel).
 
 ## <a name="declare-partial-views"></a>Deklarieren von Teilansichten
 

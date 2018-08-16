@@ -1,19 +1,19 @@
 ---
-title: Erstellen einer Web-API mit ASP.NET Core und Visual Studio für Windows
+title: Erstellen einer Web-API mit ASP.NET Core und Visual Studio
 author: rick-anderson
 description: Erstellen einer Web-API mit ASP.NET Core MVC und Visual Studio für Windows
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/17/2018
 uid: tutorials/first-web-api
-ms.openlocfilehash: 3da22cbbbe0db7771656997a13587521e182fb2a
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 2694388324cdbd246aad6c88d8439171704dfe89
+ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38164599"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722515"
 ---
-# <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>Erstellen einer Web-API mit ASP.NET Core und Visual Studio für Windows
+# <a name="create-a-web-api-with-aspnet-core-and-visual-studio"></a>Erstellen einer Web-API mit ASP.NET Core und Visual Studio
 
 Von [Rick Anderson](https://twitter.com/RickAndMSFT) und [Mike Wasson](https://github.com/mikewasson)
 
