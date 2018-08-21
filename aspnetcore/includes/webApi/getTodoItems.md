@@ -6,7 +6,12 @@ Der vorherige Code beschreibt eine API-Controllerklasse ohne Methoden. In den n�
 ::: moniker range=">= aspnetcore-2.1"
 [!code-csharp[](../../tutorials/first-web-api/samples/2.1/TodoApi/Controllers/TodoController2.cs?name=snippet_todo1)]
 
-Der vorherige Code beschreibt eine API-Controllerklasse ohne Methoden. In den nächsten Abschnitten werden Methoden zum Implementieren der API hinzugefügt. Die Klasse wird mit einem `[ApiController]`-Attribut versehen, um einige praktische Features zu aktivieren. Informationen zu den Features, die durch das Attribut aktiviert werden, finden Sie unter [Kommentieren einer Klasse mithilfe von ApiControllerAttribute](xref:web-api/index#annotate-class-with-apicontrollerattribute).
+Der vorangehende Code führt Folgendes aus:
+
+* Er definiert eine API-Controllerklasse ohne Methoden.
+* Er erstellt ein neues Todo-Element, wenn `TodoItems` leer ist. Sie können nicht alle Todo-Elemente löschen, weil der Konstruktor ein neues erstellt, wenn `TodoItems` leer ist.
+
+In den nächsten Abschnitten werden Methoden zum Implementieren der API hinzugefügt. Die Klasse wird mit einem `[ApiController]`-Attribut versehen, um einige praktische Features zu aktivieren. Informationen zu den Features, die durch das Attribut aktiviert werden, finden Sie unter [Kommentieren einer Klasse mithilfe von ApiControllerAttribute](xref:web-api/index#annotate-class-with-apicontrollerattribute).
 ::: moniker-end
 
 Der Konstruktor des Controllers verwendet [Dependency Injection](xref:fundamentals/dependency-injection) zum Einfügen des Datenbankkontexts (`TodoContext`) in den Controller. Der Datenbankkontext wird in den einzelnen [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete)-Methoden im Controller verwendet. Der Konstruktor fügt ein Element der In-Memory Database hinzu, falls es nicht vorhanden ist.

@@ -6,7 +6,7 @@ In diesem Abschnitt fügen Sie Validierungslogik zum `Movie`-Modell hinzu und st
 
 ## <a name="keeping-things-dry"></a>Einhalten des DRY-Prinzips
 
-Einer der Entwurfsgrundsätze von MVC ist [DRY](https://wikipedia.org/wiki/Don%27t_repeat_yourself) (Don't Repeat Yourself, keine Wiederholungen). In ASP.NET MVC werden Sie aufgefordert, Funktionalität und Verhalten nur einmal anzugeben und dann auf die gesamte App zu übertragen. Dadurch reduziert sich der Umfang an Code, den Sie schreiben müssen. Und der Code, den Sie schreiben, ist weniger fehleranfällig, leichter zu testen und einfacher zu verwalten.
+Einer der Entwurfsgrundsätze von MVC ist [DRY](https://wikipedia.org/wiki/Don%27t_repeat_yourself) (Don't Repeat Yourself, keine Wiederholungen). ASP.NET Core MVC unterstützt Sie dabe, Funktionalität und Verhalten nur einmal anzugeben und dann auf die gesamte App zu übertragen. Dadurch reduziert sich der Umfang an Code, den Sie schreiben müssen. Und der Code, den Sie schreiben, ist weniger fehleranfällig, leichter zu testen und einfacher zu verwalten.
 
 Die von MVC und Entity Framework Core Code First angebotene Unterstützung der Validierung ist ein gutes Beispiel für den Einsatz des DRY-Prinzips. Sie können deklarativ Validierungsregeln an zentraler Stelle (in der Modellklasse) angegeben, und die Regeln werden überall in der App erzwungen.
 
@@ -25,7 +25,7 @@ Aktualisieren Sie die `Movie`-Klasse, um die integrierten Validierungsattribute 
 
 Die Validierungsattribute geben das Verhalten an, das Sie in den Modelleigenschaften erzwingen möchten, auf die sie angewendet werden. Die Attribute `Required` und `MinimumLength` geben an, dass eine Eigenschaft einen Wert haben muss. Ein Benutzer kann allerdings ein Leerzeichen eingeben, um diese Validierung zu erfüllen. Das Attribut `RegularExpression` wird verwendet, um einzuschränken, welche Zeichen eingegeben werden dürfen. Im oben angegebenen Code sind für `Genre` und `Rating` nur Buchstaben (keine Großschreibung des ersten Buchstabens, Leerzeichen, Zahlen und Sonderzeichen) erlaubt. Das Attribut `Range` schränkt einen Wert auf einen bestimmten Bereich ein. Mit dem Attribut `StringLength` können Sie die maximale Länge einer Zeichenfolgeneigenschaft und optional die minimale Länge festlegen. Werttypen (wie `decimal`, `int`, `float`, `DateTime`) sind grundsätzlich erforderlich und benötigen nicht das Attribut `[Required]`.
 
-Dadurch, dass Validierungsregeln von ASP.NET automatisch erzwungen werden, wird Ihre App stabiler. Darüber hinaus wird sichergestellt, dass Sie die Validierung nicht vergessen und nicht versehentlich falsche Daten in die Datenbank übernehmen.
+Indem Validierungsregeln von ASP.NET Core automatisch erzwungen werden, wird Ihre App stabiler. Darüber hinaus wird sichergestellt, dass Sie die Validierung nicht vergessen und nicht versehentlich falsche Daten in die Datenbank übernehmen.
 
 ## <a name="validation-error-ui-in-mvc"></a>Benutzeroberfläche für Validierungsfehler in MVC
 
