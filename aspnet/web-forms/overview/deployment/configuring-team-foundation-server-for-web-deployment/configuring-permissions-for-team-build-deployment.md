@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-de
 title: Konfigurieren von Berechtigungen für Team-Buildbereitstellung | Microsoft-Dokumentation
 author: jrjlee
 description: In diesem Thema wird beschrieben, wie so konfigurieren Sie Berechtigungen zum Aktivieren des Buildservers zum Bereitstellen von Inhalt auf Webserver und Datenbankserver als Teil eines automatisierten b wird...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 2488a91e-b0a8-465a-b874-3233f724b56b
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: b577d887b4a4476b6796ae9f1df538d16eededa3
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0142be694a4e7d601625022f6fbfe39971823d03
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37820359"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826041"
 ---
 <a name="configuring-permissions-for-team-build-deployment"></a>Konfigurieren von Berechtigungen für Team-Buildbereitstellung
 ====================

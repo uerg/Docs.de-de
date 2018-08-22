@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/controllers-and-routing/adding-dynamic-conten
 title: Hinzufügen von dynamischen Inhalten zu einer zwischengespeicherten Seite (VB) | Microsoft-Dokumentation
 author: microsoft
 description: Erfahren Sie, wie dynamische und zwischengespeicherte Inhalte auf der gleichen Seite zu kombinieren. Ersetzung nach dem Zwischenspeichern können Sie dynamischen Inhalt, z. B. Banner Ankündigungen o anzuzeigen...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/27/2009
 ms.assetid: 68acd884-fb57-4486-a1be-aaa93e380780
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/adding-dynamic-content-to-a-cached-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 802b712cffd0584d984a1b17e8b6b0c70c3db7c7
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 121a3a35c8255f1423d7008930315f76bbb8e8f9
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37832181"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41825899"
 ---
 <a name="adding-dynamic-content-to-a-cached-page-vb"></a>Hinzufügen von dynamischen Inhalten zu einer zwischengespeicherten Seite (VB)
 ====================

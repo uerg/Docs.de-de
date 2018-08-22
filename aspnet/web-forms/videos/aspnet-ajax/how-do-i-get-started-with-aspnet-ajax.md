@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-ajax/how-do-i-get-started-with-aspnet-ajax
 title: '[Gewusst wie:] Erste Schritte mit ASP.NET-AJAX | Microsoft-Dokumentation'
 author: JoeStagner
 description: Beachten Sie, dass ASP.NET AJAX als Bestandteil von .NET 3.5, ist damit die Installation-Teil dieses Video nur relevant ist, wenn Sie .NET Framework Version 2 verwenden...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/23/2007
 ms.assetid: 75707a81-244f-4fdc-aab3-eaefd9300e43
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-get-started-with-aspnet-ajax
 msc.type: video
-ms.openlocfilehash: 81dd5f89c39e0016faf132d3d7a284e1e811d573
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 01e72295ab45e6c01794306f587a5725647fb261
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37834477"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827417"
 ---
 <a name="how-do-i-get-started-with-aspnet-ajax"></a>[Gewusst wie:] Erste Schritte mit ASP.NET-AJAX
 ====================

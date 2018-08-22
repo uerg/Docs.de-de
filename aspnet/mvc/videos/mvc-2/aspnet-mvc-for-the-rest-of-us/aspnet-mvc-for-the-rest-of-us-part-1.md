@@ -3,17 +3,17 @@ uid: mvc/videos/mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-u
 title: 'ASP.NET MVC für alle: Teil 1 | Microsoft-Dokumentation'
 author: JoeStagner
 description: In diesem baut Video Microsofts Joe Stagner eine 'Kontakt'-Funktion für eine ASP.NET MVC-Anwendung eine Ansicht, Controllerlogik und eines benutzerdefinierten Modells in t...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/22/2010
 ms.assetid: c56355c3-821f-43e2-9058-9499a1d63f80
 msc.legacyurl: /mvc/videos/mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-1
 msc.type: video
-ms.openlocfilehash: 77dfb28fccb25fb217cf1298c6032214d085197f
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3e7d874c322e6461dcc030814de455318c9dd902
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37830635"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826163"
 ---
 <a name="aspnet-mvc-for-the-rest-of-us-part-1"></a>ASP.NET MVC für alle: Teil 1
 ====================

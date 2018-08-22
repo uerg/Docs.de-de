@@ -3,17 +3,17 @@ uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/advanced-ent
 title: Erweiterte Entity Framework 6-Szenarien für eine MVC-5-Web-Anwendung (12 von 12) | Microsoft-Dokumentation
 author: tdykstra
 description: Die Contoso University-Beispielwebanwendung veranschaulicht, wie ASP.NET MVC 5-Anwendungen, die mit dem Entity Framework 6 Code First "und" Visual Studio...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/08/2014
 ms.assetid: f35a9b0c-49ef-4cde-b06d-19d1543feb0b
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 82fe650712d39558668ab02b7cc410ab0540d00f
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 39a06f40e51b57c0ccdd0c701b58b83c6a6be9b5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37836693"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826974"
 ---
 <a name="advanced-entity-framework-6-scenarios-for-an-mvc-5-web-application-12-of-12"></a>Erweiterte Entity Framework 6-Szenarien für eine MVC-5-Web-Anwendung (12 von 12)
 ====================
@@ -252,7 +252,7 @@ Beim Aufrufen der `SaveChanges` -Methode, wird standardmäßig das Entity Framew
 
 ![EF im Kontextmenü](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image14.png)
 
-![Wenn Sie die Datenbank manuell gelöscht haben, ändern Sie den Namen der Datenbank in der Konstruktionszeichenfolge.](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image15.png)
+![EF-Diagramm](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image15.png)
 
 <a id="source"></a>
 ## <a name="entity-framework-source-code"></a>Entity Framework-Quellcode

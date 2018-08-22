@@ -3,17 +3,17 @@ uid: web-pages/overview/ui-layouts-and-themes/validating-user-input-in-aspnet-we
 title: Überprüfen der Benutzereingabe in der ASP.NET Web Pages (Razor) Sites | Microsoft-Dokumentation
 author: tfitzmac
 description: In diesem Artikel wird erläutert, wie Informationen zu überprüfen, Sie von Benutzern erhalten &mdash; , also stellen Sie sicher, dass die Benutzer geben Sie gültige Informationen in HTML forms in einem Auftragsschritt...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2014
 ms.assetid: 4eb060cc-cf14-41ae-bab1-14a2c15332d0
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites
 msc.type: authoredcontent
-ms.openlocfilehash: d412f3fa4ca144a8a9107c971279f7bf2663cfe5
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 761d6965883f46e1253f1fb0105cb0d4539fcf9d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37819261"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41823752"
 ---
 <a name="validating-user-input-in-aspnet-web-pages-razor-sites"></a>Überprüfen der Benutzereingabe in ASP.NET Web Pages (Razor)-Websites
 ====================

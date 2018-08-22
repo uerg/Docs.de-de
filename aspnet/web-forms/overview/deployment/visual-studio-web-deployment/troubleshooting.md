@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting
 title: 'ASP.NET-webbereitstellung mithilfe von Visual Studio: Problembehandlung | Microsoft-Dokumentation'
 author: tdykstra
 description: Dieser tutorialreihe erfahren Sie, wie bereitzustellende (veröffentlichen) aus einer ASP.NET web-Anwendung auf Azure App Service-Web-Apps oder bei einem Hostinganbieter von Drittanbietern, indem Warnungsprovider...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/01/2015
 ms.assetid: c0090595-ab3b-4b9b-9e16-7a1891e8cb2f
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: b2be5d2f5aa0b7628f7b9338c860593660ef5893
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 65cd5cd9f7d1f9c5fdaea9b0d16bdfd84259efdd
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37830891"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829278"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-troubleshooting"></a>ASP.NET-webbereitstellung mithilfe von Visual Studio: Problembehandlung
 ====================
@@ -219,27 +219,27 @@ Sie haben angegeben, benutzerdefinierte SQL-Skripts, die während der Bereitstel
 
 Die Ausführung mehrerer Skripts, die verschiedene Modi kann zu Timeout-Fehlern führen. Standardmäßig automatisch generierten Skripts, die in einer Transaktion ausgeführt, aber nicht für benutzerdefinierte Skripts. Bei Auswahl der **Daten und/oder Schema aus einer vorhandenen Datenbank extrahieren** option die **SQL packen/veröffentlichen** Registerkarte, wenn Sie ein benutzerdefinierte SQL-Skript hinzufügen, müssen Sie für das Transaktionsprotokoll auf einige Skripts ändern, damit Alle Skripts verwenden die gleichen transaktionseinstellungen. Weitere Informationen finden Sie unter [Vorgehensweise: Bereitstellen einer Datenbank mit einem Webanwendungsprojekt](https://msdn.microsoft.com/library/dd465343.aspx).
 
-Wenn Sie für das Transaktionsprotokoll konfiguriert haben, sodass alle identisch sind, aber weiterhin diese Fehlermeldung erhalten, ist eine mögliche problemumgehung, um die Skripts einzeln auszuführen. Paketinstallation Fügt ein Skript nach dem Erstellen, kopieren Sie die systemeigenen Assemblys in **amd64** und **X86**. Damit für diese bereitgestellt werden kann müssen Sie jedoch manuell in das Projekt aufgenommen. Weitere Informationen finden Sie unter den Bereitstellen von SQL Server Compact Tutorial. Fehler nach dem Bereitstellen einer Entity Framework Code First-Anwendung "Pfad ist nicht gültig."
+Wenn Sie für das Transaktionsprotokoll konfiguriert haben, sodass alle identisch sind, aber weiterhin diese Fehlermeldung erhalten, ist eine mögliche problemumgehung, um die Skripts einzeln auszuführen. In der **Datenbankskripts** Raster in der **packen/veröffentlichen** SQL Registerkarte die **Include** für das Skript, das den Timeoutfehler bewirkt, dass das Kontrollkästchen klicken Sie dann das Projekt veröffentlichen. Wechseln Sie zurück in die **Datenbankskripts** Raster auswählen des Skripts **Include** Kontrollkästchen, und Deaktivieren der **einschließen** Kontrollkästchen für die anderen Skripts. Veröffentlichen Sie das Projekt dann erneut. Dieses Mal, wenn Sie veröffentlicht haben, wird nur die ausgewählten benutzerdefinierten Skripts ausgeführt.
 
-## <a name="stream-data-of-site-manifest-is-not-yet-available"></a>Bereitstellung einer Anwendung, die Entity Framework Code First-Migrationen und ein DBMS wie SQL Server Compact verwendet, die die Datenbank in eine Datei in der App gespeichertDatenordner.
+## <a name="stream-data-of-site-manifest-is-not-yet-available"></a>Stream-Daten von Website-Manifest ist noch nicht verfügbar
 
 ### <a name="scenario"></a>Szenario
 
 Wenn Sie Installieren eines Pakets mithilfe der *"Deploy.cmd"* Datei mit der Option t (Test), die Sie sehen der folgende Fehlermeldung angezeigt:
 
-Um das Problem zu beheben, speichern Sie eine Platzhalterdatei, z. B. einer TXT-Datei in die @pathAppDaten Ordner stellen Sie sicher, dass Sie keine Ausschließen von AppDaten ausgewählt, und stellen Sie erneut bereit.
+Fehler: Das Streamen von Daten von ' Sitemanifest/DbFullSql [@path= 'C:\TEMP\AdventureWorksGrant.sql']/sqlScript' ist noch nicht verfügbar.
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Wenn Sie die Anwendung ausführen, erhalten Sie eine Fehlermeldung wie im folgenden Beispiel: Allerdings kann den Befehl ausführen, bei der Verwendung der Option y (tatsächlichen Installation). Entweder Sie alle Dateien in haben nicht die AppDaten Ordner, wenn Sie bereitgestellt haben, oder Sie ausgewählt Ausschließen von AppDaten auf der Web packen/veröffentlichen Registerkarte die Projekteigenschaften Fenster.
+Die Fehlermeldung bedeutet, dass der Befehl erstellt einen Testbericht kann nicht an. Allerdings kann den Befehl ausführen, bei der Verwendung der Option y (tatsächlichen Installation). Die Meldung gibt es nur an, dass ein Problem mit dem Befehl im Testmodus vorliegt.
 
-## <a name="this-application-requires-managedruntimeversion-v40"></a>Während des Bereitstellungsvorgangs wird keinen Ordner auf dem Server erstellen, wenn keine Dateien vorhanden sind, in dem Ordner auf dem Server kopiert werden sollen.
+## <a name="this-application-requires-managedruntimeversion-v40"></a>Diese Anwendung erfordert ManagedRuntimeVersion v4. 0
 
 ### <a name="scenario"></a>Szenario
 
-Wenn Sie bereits die Datenbank, die auf der Website eingerichtet haben, werden während des Bereitstellungsvorgangs der Dateien gelöscht und die AppDaten Ordner selbst bei Auswahl entfernen weiterer Dateien am Ziel in Das Veröffentlichungsprofil.
+Wenn Sie versuchen, bereitzustellen, die folgende Fehlermeldung angezeigt:
 
-"COM-Objekt, das vom zugrunde liegenden RCW getrennt wurde kann nicht verwendet werden." Sie wurden erfolgreich mit nur einem Klick zum Bereitstellen Ihrer Anwendung zu veröffentlichen und starten dann dieser Fehler angezeigt:
+Der Anwendungspool, den Sie verwenden möchten, hat die 'ManagedRuntimeVersion'-Eigenschaft auf 'v2. 0' festgelegt. Diese Anwendung erfordert "v4. 0".
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
@@ -247,19 +247,19 @@ ASP.NET 4 ist in IIS nicht installiert. Wenn der Server für die Bereitstellung 
 
 [!code-console[Main](troubleshooting/samples/sample10.cmd)]
 
-## <a name="unable-to-cast-microsoftwebdeploymentdeploymentprovideroptions"></a>Schließen und Neustart von Visual Studio ist in der Regel alles, die was erforderlich ist, um diesen Fehler zu beheben.
+## <a name="unable-to-cast-microsoftwebdeploymentdeploymentprovideroptions"></a>Kann nicht Microsoft.Web.Deployment.DeploymentProviderOptions umgewandelt.
 
 ### <a name="scenario"></a>Szenario
 
-Bereitstellung schlägt fehl, da Benutzer Anmeldeinformationen zum Veröffentlichen, müssen keine SetACL Autorität
+Wenn Sie ein Paket bereitstellen, sehen Sie die folgende Fehlermeldung angezeigt:
 
 Wandelt ein Objekt vom Typ "Microsoft.Web.Deployment.DeploymentProviderOptions', 'Microsoft.Web.Deployment.DeploymentProviderOptions' nicht möglich.
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Veröffentlichung tritt ein, mit der ein Fehler, Sie haben keine Autorität zum Einrichten von Berechtigungen für Ordner (das Benutzerkonto an, das Sie verwenden keine SetACL Authority). Standardmäßig legt der Visual Studio Leseberechtigungen für den Stammordner der Website und Schreibberechtigungen für die App**Datenordner. Wenn Sie wissen, dass die Standardberechtigungen für Website-Ordner richtig sind und müssen nicht festgelegt werden soll, deaktivieren Sie dieses Verhalten durch Hinzufügen von  IncludeSetACLProviderOn Ziel"false"/ IncludeSetACLProviderOnDestination  der veröffentlichungsprofildatei (um die Auswirkung auf die ein einzelnes Profil) oder der wpp.targets-Datei (für alle Profile gelten). Deaktivieren Sie die Verbindung, und beginnen, IIS-Manager zu schließen und neu zu starten Sie durch Eingabe von Inetmgr/reset an der Eingabeaufforderung.) Wenn eine der Funktionen aufgeführt ist **Webbenutzeroberfläche bereitstellen**, und eine Versionsnummer kleiner als 8 hat, hat des Servers, die Sie bereitstellen, möglicherweise 1.1 und 2.0-Versionen von Web Deploy installiert. Ihre Anwendungsfehler, wenn versucht wird, erstellen oder Bearbeiten einer Datei in einen von der Anwendung, da sie nicht über die Autorität für die Schreibzugriff für diesen Ordner verfügt. Wenn die Anwendung über Schreibzugriff auf einen untergeordneten Ordner benötigt, können Sie Berechtigungen für diesen Ordner festlegen, siehe die Festlegen von Ordnerberechtigungen und in der Produktionsumgebung bereitstellen Tutorials.
+Sie versuchen, zum Bereitstellen von IIS-Manager über die Bereitstellung 1.1 Benutzeroberfläche auf einem Server mit Web Deploy 2.0 installiert. Wenn Sie im IIS-Remotezugriff-Verwaltungstool zum Bereitstellen von Importieren eines Pakets, überprüfen Sie verwenden die **neue Features verfügbar** im Dialogfeld, wenn Sie die Verbindung herstellen. (Dieses Dialogfeld können Sie möglicherweise nur einmal angezeigt, wenn die Verbindung erstmalig eingerichtet wird. Deaktivieren Sie die Verbindung, und beginnen, IIS-Manager zu schließen und neu zu starten Sie durch Eingabe von Inetmgr/reset an der Eingabeaufforderung.) Wenn eine der Funktionen aufgeführt ist **Webbenutzeroberfläche bereitstellen**, und eine Versionsnummer kleiner als 8 hat, hat des Servers, die Sie bereitstellen, möglicherweise 1.1 und 2.0-Versionen von Web Deploy installiert. Zum Bereitstellen von von einem Client, der 2.0 installiert ist, muss der Server nur Web Deploy 2.0 installiert haben. Sie müssen Ihr Hostinganbieter, um dieses Problem zu beheben. Wenden Sie sich an.
 
-## <a name="unable-to-load-the-native-components-of-sql-server-compact"></a>Wenn Ihre Anwendung über Schreibzugriff auf den Stammordner der Website erfordert, müssen Sie schreibgeschützten Zugriff auf den Stammordner festlegen, durch das Hinzufügen verhindert  IncludeSetACLProviderOn Ziel"false"/ IncludeSetACLProviderOnDestination  der veröffentlichungsprofildatei (um die Auswirkung auf die ein einzelnes Profil) oder der wpp.targets-Datei (für alle Profile gelten).
+## <a name="unable-to-load-the-native-components-of-sql-server-compact"></a>Kann nicht geladen werden die systemeigenen Komponenten von SQL Server Compact
 
 ### <a name="scenario"></a>Szenario
 
@@ -269,19 +269,19 @@ Fehler beim Laden der systemeigenen Komponenten von SQL Server Compact, die ADO.
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Fehler bei der Konfiguration - TargetFramework-Attributs verweist auf eine Version, die älter als die installierte Version von .NET Framework Sie wurde erfolgreich veröffentlicht ein Webprojekt, das auf ASP.NET 4.5 abzielt, aber wenn Sie die Anwendung ausführen (mit der * -Modus auf "in der Datei" Web.config "off" festgelegt) erhalten Sie die folgende Fehlermeldung: Die Quelle Fehlermeldungsfeld der Fehlerseite hebt die folgende Zeile aus "Web.config" als Ursache des Fehlers: Der Server unterstützt nicht ASP.NET 4.5. Wenden Sie sich an den Hostinganbieter, um zu bestimmen, wann und ob die Unterstützung für ASP.NET 4.5 hinzugefügt werden kann. Wenn Sie den Server ein Upgrade nicht möglich ist, müssen Sie ein Webprojekt bereitstellen, die auf ASP.NET 4 oder früher abzielt stattdessen. Wenn Sie eine ASP.NET 4 oder früher Webprojekt für dasselbe Ziel bereitstellen, wählen Sie die [entfernen weiterer Dateien am Ziel](../../older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md) auf das Kontrollkästchen der Einstellungen Registerkarte die "Web veröffentlichen"Assistenten.
+Die bereitgestellte Website verfügt nicht über *amd64* und *X86* Unterordner mit die systemeigenen Assemblys in der sie in der Anwendung *Bin* Ordner. Bei einem Computer, SQL Server Compact installiert ist, befinden sich die systemeigenen Assemblys *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private*. Die beste Möglichkeit, die richtigen Dateien in den richtigen Ordnern in einem Visual Studio-Projekt zu erhalten, ist zum Installieren des Pakets von NuGet SqlServerCompact. Paketinstallation Fügt ein Skript nach dem Erstellen, kopieren Sie die systemeigenen Assemblys in *amd64* und *X86*. Damit für diese bereitgestellt werden kann müssen Sie jedoch manuell in das Projekt aufgenommen. Weitere Informationen finden Sie unter den [Bereitstellen von SQL Server Compact](../../older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md) Tutorial.
 
-## <a name="path-is-not-valid-error-after-deploying-an-entity-framework-code-first-application"></a>Wenn Sie nicht auswählen entfernen weiterer Dateien am Ziel, wird weiterhin die Fehler bei der Konfiguration-Seite.
+## <a name="path-is-not-valid-error-after-deploying-an-entity-framework-code-first-application"></a>Fehler nach dem Bereitstellen einer Entity Framework Code First-Anwendung "Pfad ist nicht gültig."
 
 ### <a name="scenario"></a>Szenario
 
-Das Projekt \_Eigenschaften Windows enthält die Dropdownliste für eine Ziel-Framework, aber dieses Problem kann nicht aufgelöst werden, indem Sie einfach, die von .NET Framework 4.5 zu .NET Framework 4. Wenn Sie das Zielframework in einer früheren Frameworkversion ändern, wird das Projekt wird immer noch Verweise auf die neuere Frameworkversion-Assemblys und wird nicht ausgeführt. Sie müssen manuell ändern Sie diese Verweise, oder Erstellen eines neuen Projekts, das auf .NET Framework 4 oder früher abzielt.
+Bereitstellung einer Anwendung, die Entity Framework Code First-Migrationen und ein DBMS wie SQL Server Compact verwendet, die die Datenbank in eine Datei in der App gespeichert\_Datenordner. Sie verfügen über Code First-Migrationen so konfiguriert, dass um die Datenbank nach der ersten Bereitstellung zu erstellen. Wenn Sie die Anwendung ausführen, erhalten Sie eine Fehlermeldung wie im folgenden Beispiel:
 
 Der Pfad ist ungültig. Überprüfen Sie das Verzeichnis für die Datenbank an. [Path = c:\inetpub\wwwroot\App\_Data\DatabaseName.sdf]
 
 ### <a name="possible-cause-and-solution"></a>Mögliche Ursache und Lösung
 
-Weitere Informationen finden Sie unter \_.NET Framework als Ziel für Websites. Entweder Sie alle Dateien in haben nicht die *App\_Daten* Ordner, wenn Sie bereitgestellt haben, oder Sie ausgewählt **Ausschließen von App\_Daten** auf der **Web packen/veröffentlichen** Fenster "Projekteigenschaften" auf der Registerkarte. Während des Bereitstellungsvorgangs wird keinen Ordner auf dem Server erstellen, wenn keine Dateien vorhanden sind, in dem Ordner auf dem Server kopiert werden sollen. Wenn Sie bereits die Datenbank, die auf der Website eingerichtet haben, werden während des Bereitstellungsvorgangs der Dateien gelöscht und die *App\_Daten* Ordner selbst bei Auswahl **entfernen weiterer Dateien am Ziel** in Das Veröffentlichungsprofil. Um das Problem zu beheben, speichern Sie eine Platzhalterdatei, z. B. einer TXT-Datei in die *App\_Daten* Ordner stellen Sie sicher, dass Sie keine **Ausschließen von App\_Daten** ausgewählt, und stellen Sie erneut bereit.
+Code wird zuerst die Datenbank, aber die App zu erstellen versucht\_Data-Ordner ist nicht vorhanden. Entweder Sie alle Dateien in haben nicht die *App\_Daten* Ordner, wenn Sie bereitgestellt haben, oder Sie ausgewählt **Ausschließen von App\_Daten** auf der **Web packen/veröffentlichen** Fenster "Projekteigenschaften" auf der Registerkarte. Während des Bereitstellungsvorgangs wird keinen Ordner auf dem Server erstellen, wenn keine Dateien vorhanden sind, in dem Ordner auf dem Server kopiert werden sollen. Wenn Sie bereits die Datenbank, die auf der Website eingerichtet haben, werden während des Bereitstellungsvorgangs der Dateien gelöscht und die *App\_Daten* Ordner selbst bei Auswahl **entfernen weiterer Dateien am Ziel** in Das Veröffentlichungsprofil. Um das Problem zu beheben, speichern Sie eine Platzhalterdatei, z. B. einer TXT-Datei in die *App\_Daten* Ordner stellen Sie sicher, dass Sie keine **Ausschließen von App\_Daten** ausgewählt, und stellen Sie erneut bereit.
 
 ## <a name="com-object-that-has-been-separated-from-its-underlying-rcw-cannot-be-used"></a>"COM-Objekt, das vom zugrunde liegenden RCW getrennt wurde kann nicht verwendet werden."
 

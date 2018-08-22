@@ -3,17 +3,17 @@ uid: web-api/overview/security/authentication-and-authorization-in-aspnet-web-ap
 title: Authentifizierung und Autorisierung in ASP.NET Web-API | Microsoft-Dokumentation
 author: MikeWasson
 description: Bietet eine allgemeine Übersicht über Authentifizierung und Autorisierung in ASP.NET Web-API.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/27/2012
 ms.assetid: 6dfb51ea-9f4d-4e70-916c-8ef8344a88d6
 msc.legacyurl: /web-api/overview/security/authentication-and-authorization-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: f882a9bb2922d0eb28eee7cdba0896bdc5318c2a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a78606a74b2149e68e3b01f4fe204f4a13edf4b5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37812833"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827293"
 ---
 <a name="authentication-and-authorization-in-aspnet-web-api"></a>Authentifizierung und Autorisierung in ASP.NET Web-API
 ====================
@@ -117,6 +117,6 @@ Das folgende Diagramm zeigt die Klassenhierarchie für die **AuthorizeAttribute*
 
 ### <a name="authorization-inside-a-controller-action"></a>Autorisierung in eine Controlleraktion
 
-In einigen Fällen können Sie eine Anforderung zum Fortfahren, aber ändern das Verhalten basierend auf dem Prinzipal ermöglichen. Beispielsweise kann die Informationen, die Sie zurückgeben abhängig von der Benutzerrolle ändern. Einer Controllermethode, erhalten Sie das Prinzip das aktuelle von der **ApiController.User** Eigenschaft.
+In einigen Fällen können Sie eine Anforderung zum Fortfahren, aber ändern das Verhalten basierend auf dem Prinzipal ermöglichen. Beispielsweise kann die Informationen, die Sie zurückgeben abhängig von der Benutzerrolle ändern. Innerhalb einer Controllermethode erhalten Sie den aktuellen Prinzipal aus der **ApiController.User** Eigenschaft.
 
 [!code-csharp[Main](authentication-and-authorization-in-aspnet-web-api/samples/sample7.cs)]

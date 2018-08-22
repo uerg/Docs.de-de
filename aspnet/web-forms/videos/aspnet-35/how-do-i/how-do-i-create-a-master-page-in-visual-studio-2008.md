@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-35/how-do-i/how-do-i-create-a-master-page-in-visual
 title: '[Gewusst wie:] Erstellen einer Masterseite in Visual Studio 2008 | Microsoft-Dokumentation'
 author: rick-anderson
 description: In diesem Video zeige ich ihnen, wie Sie eine einfache Masterseite mithilfe von .NET 3.5 in Visual Studio 2008 zu erstellen.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/14/2008
 ms.assetid: b0a08145-5569-482c-abca-18df242628ec
 msc.legacyurl: /web-forms/videos/aspnet-35/how-do-i/how-do-i-create-a-master-page-in-visual-studio-2008
 msc.type: video
-ms.openlocfilehash: 7a70608e2545576682df21016588da2f575cae17
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0e660fce7536ebc44587faa192605cb6e990bf85
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37831598"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41823758"
 ---
 <a name="how-do-i-create-a-master-page-in-visual-studio-2008"></a>[Gewusst wie:] Erstellen einer Masterseite in Visual Studio 2008
 ====================

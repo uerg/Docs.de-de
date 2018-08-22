@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspi
 title: 'Teil 6: ASP.NET-Mitgliedschaft | Microsoft-Dokumentation'
 author: JoeStagner
 description: Dieser tutorialreihe werden alle Schritte ausgeführt, um die beispielanwendung Tailspin Spyworks erstellen. Teil 6 fügt ASP.NET-Mitgliedschaft hinzu.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/21/2010
 ms.assetid: f70a310c-9557-4743-82cb-655265676d39
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: 303c1edf548db1da9ef61d94bdd8157d6afbb2e4
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c847db058bc03115210f12eeb0c3c76fecc8a31e
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37804419"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826449"
 ---
 <a name="part-6-aspnet-membership"></a>Teil 6: ASP.NET-Mitgliedschaft
 ====================

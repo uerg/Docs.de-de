@@ -3,17 +3,17 @@ uid: whitepapers/aspnet-data-access-content-map
 title: 'ASP.NET: Datenzugriff – empfohlene Ressourcen | Microsoft-Dokumentation'
 author: rick-anderson
 description: Dieses Thema enthält Links zu Dokumentationsressourcen zur Verwendung für den Datenzugriff in ASP.NET-Webanwendungen wird in erster Linie mithilfe des Entity Framework und SQL-Se...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/25/2013
 ms.assetid: f8157be1-4ab9-469e-ad3a-0ccc80b56c00
 msc.legacyurl: /whitepapers/aspnet-data-access-content-map
 msc.type: content
-ms.openlocfilehash: fb0cea94d82cc8f59ec56a5445ee84d38325995e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 6993c17c8de890cbaa40c619bcd20f494bfd2f90
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37832499"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826573"
 ---
 <a name="aspnet-data-access---recommended-resources"></a>ASP.NET: Datenzugriff – empfohlene Ressourcen
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/numericupdown/creating-a-numeric-up
 title: Erstellen eine numerische hoch-/Herunterskalieren-Steuerelement mit einer Web-Dienst-Back-End (VB) | Microsoft-Dokumentation
 author: wenz
 description: Anstatt einen Benutzer aus, geben Sie einen Wert in ein Kontrollkästchen, kann ein numerischen UpAndDown-Steuerelement (das unter Windows und anderen Betriebssystemen vorhanden) als weitere c Beweisen...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: afa59dfa-fef1-43d3-8fdd-aea3be36ed3c
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/numericupdown/creating-a-numeric-up-down-control-with-a-web-service-backend-vb
 msc.type: authoredcontent
-ms.openlocfilehash: bebf70093dacb81331c009c6642c2f2d649b8567
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: bf69b3e6932df528e8ccd2348ffa6f13132f99f8
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805372"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41823895"
 ---
 <a name="creating-a-numeric-updown-control-with-a-web-service-backend-vb"></a>Erstellen einen numerischen UpAndDown-Steuerelement mit einer Web-Dienst-Back-End (VB)
 ====================

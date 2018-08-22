@@ -3,17 +3,17 @@ uid: signalr/overview/releases/upgrading-signalr-1x-projects-to-20
 title: Aktualisieren von SignalR 1.x-Projekte auf Version 2 | Microsoft-Dokumentation
 author: pfletcher
 description: In diesem Thema wird beschrieben, wie Sie ein vorhandenes SignalR 1.x-Projekt auf SignalR aktualisieren 2.x, und Beheben von Problemen, die während des Upgrades auftreten können...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/10/2014
 ms.assetid: adcfef99-9bc5-489d-a91b-9b7c2bc35e04
 msc.legacyurl: /signalr/overview/releases/upgrading-signalr-1x-projects-to-20
 msc.type: authoredcontent
-ms.openlocfilehash: 393beb1ef696bd2dfae25789f79a67157780a219
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 84155a4c171a2ac2149dbbf4237b6561d2814aa0
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37824162"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41833537"
 ---
 <a name="upgrading-signalr-1x-projects-to-version-2"></a>Aktualisieren von SignalR 1.x-Projekte auf Version 2
 ====================

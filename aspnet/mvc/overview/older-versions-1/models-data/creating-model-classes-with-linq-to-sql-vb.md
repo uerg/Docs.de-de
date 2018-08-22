@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-
 title: Erstellen von Modellklassen mit LINQ to SQL (VB) | Microsoft-Dokumentation
 author: microsoft
 description: Das Ziel in diesem Tutorial wird eine Methode zum Erstellen von Modellklassen für eine ASP.NET MVC-Anwendung beschrieben. In diesem Tutorial erfahren Sie, wie Sie das Modell c erstellen...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/07/2008
 ms.assetid: a4a25a75-d71f-4509-98b4-df72e748985a
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2073ef716763f746f315a2131c4aa049bbdeec22
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 168fbb914b54f88a78db63c16b03c55cc59c4a11
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37841353"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827364"
 ---
 <a name="creating-model-classes-with-linq-to-sql-vb"></a>Erstellen von Modellklassen mit LINQ to SQL (VB)
 ====================

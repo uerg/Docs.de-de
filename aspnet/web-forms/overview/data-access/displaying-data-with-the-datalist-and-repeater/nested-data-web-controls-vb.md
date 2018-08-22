@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeat
 title: Geschachtelte Web-Steuerelementen (VB) | Microsoft-Dokumentation
 author: rick-anderson
 description: In diesem Lernprogramm aus, die wir untersuchen werden mit einem Wiederholungssteuerelement in einer anderen Repeater geschachtelt. In den Beispielen werden dem inneren Repeater beide d Auffüllen veranschaulicht...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 09/13/2006
 ms.assetid: 8b7fcf7b-722b-498d-a4e4-7c93701e0c95
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 45e460edb09fe9398d204e0f280dfb088a44946d
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 297d76da5bf049ec68a351562f96f3587b059b55
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803177"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827150"
 ---
 <a name="nested-data-web-controls-vb"></a>Geschachtelte Datenwebsteuerelemente (VB)
 ====================

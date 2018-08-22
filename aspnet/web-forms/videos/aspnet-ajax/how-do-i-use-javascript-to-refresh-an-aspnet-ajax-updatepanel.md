@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-ajax/how-do-i-use-javascript-to-refresh-an-aspnet-a
 title: '[Gewusst wie:] Verwenden Sie JavaScript, um ein UpdatePanel von ASP.NET AJAX zu aktualisieren? | Microsoft-Dokumentation'
 author: JoeStagner
 description: In diesem Video lernen wir zwei unterschiedliche Arten der Verwendung von JavaScript-Logik, die um den Inhalt eines UpdatePanel von ASP.NET AJAX-Steuerelements zu aktualisieren. Die erste Möglichkeit ist, Hinzufügen einer...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/25/2007
 ms.assetid: b4d5b7ce-c322-4313-985d-455df98d619a
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-use-javascript-to-refresh-an-aspnet-ajax-updatepanel
 msc.type: video
-ms.openlocfilehash: 51875f1dde1ed2ac1d8e0928a9ffe73c6005fde9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 93a39765abac7affa36c55ff191a1e9a023d80e6
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37823244"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827268"
 ---
 <a name="how-do-i-use-javascript-to-refresh-an-aspnet-ajax-updatepanel"></a>[Gewusst wie:] Verwenden Sie JavaScript, um ein UpdatePanel von ASP.NET AJAX zu aktualisieren?
 ====================

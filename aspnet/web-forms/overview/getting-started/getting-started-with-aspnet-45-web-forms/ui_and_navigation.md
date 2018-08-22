@@ -3,17 +3,17 @@ uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms
 title: Benutzeroberfläche und Navigation | Microsoft-Dokumentation
 author: Erikre
 description: Diese lernprogrammreihe vermittelt Ihnen die Grundlagen zum Erstellen einer ASP.NET Web Forms-Anwendung mithilfe von ASP.NET 4.5 und Microsoft Visual Studio Express 2013 für wir...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 09/08/2014
 ms.assetid: 5c76891d-e515-4885-b576-76bd2c494efe
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/ui_and_navigation
 msc.type: authoredcontent
-ms.openlocfilehash: 2807560484d03122ed68ee3efb49a50e45150e12
-ms.sourcegitcommit: cb0c27fa0184f954fce591d417e6ab2a51d8bb22
+ms.openlocfilehash: 55c659cbaf48dbb02dc34e013242443d4fbd8845
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39123800"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826334"
 ---
 <a name="ui-and-navigation"></a>Benutzeroberfläche und Navigation
 ====================

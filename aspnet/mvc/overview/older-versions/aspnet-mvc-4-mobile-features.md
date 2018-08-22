@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 title: Mobile ASP.NET MVC 4-Features | Microsoft-Dokumentation
 author: Rick-Anderson
 description: Es gibt jetzt eine MVC 5-Version dieses Tutorials mit Codebeispielen, unter dem Bereitstellen einer ASP.NET MVC 5 Mobile-Webanwendung auf Azure-Websites.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/15/2012
 ms.assetid: 27dc4fc8-1b51-43b0-933f-fc1b52476523
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
-ms.openlocfilehash: c852f4a853d14badb6c9a1c2c1ddb7b069bc3441
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a3cb2414775b2c29617296dcf0c2dc5729153cdd
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37806584"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826539"
 ---
 <a name="aspnet-mvc-4-mobile-features"></a>ASP.NET MVC 4-Funktionen für mobile Geräte
 ====================
@@ -212,7 +212,7 @@ Der folgende Code zeigt die vollständige *"Global.asax"* Datei.
 [!code-csharp[Main](aspnet-mvc-4-mobile-features/samples/sample11.cs?highlight=26)]
 
 > [!NOTE]
-> Wenn Sie Internet Explorer 9 verwenden und nicht angezeigt der `BundleMobileConfig` Zeile oben in der gelbe Hervorhebung, klicken Sie auf die [Schaltfläche](https://windows.microsoft.com/windows7/How-to-use-Compatibility-View-in-Internet-Explorer-9)![Überblick über die Schaltfläche (deaktiviert)] (http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg " Schaltfläche \"Kompatibilitätsansicht\" (deaktiviert)") in Internet Explorer auf das Symbol, ändern Sie in einer Gliederung vornehmen ![Überblick über die Schaltfläche (deaktiviert)](http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg "Überblick über die Schaltfläche (deaktiviert) ") auf eine Volltonfarbe ![(Anmelden) Schaltfläche "Kompatibilitätsansicht"](http://res1.windows.microsoft.com/resbox/en/Windows 7/main/156805ff-3130-481b-a12d-4d3a96470f36_14.jpg "(Anmelden) Schaltfläche \"Kompatibilitätsansicht\""). Alternativ können Sie in diesem Tutorial in FireFox oder Chrome anzeigen.
+> Wenn Sie Internet Explorer 9 verwenden und nicht angezeigt der `BundleMobileConfig` Zeile oben in der gelbe Hervorhebung, klicken Sie auf die [Schaltfläche](https://windows.microsoft.com/windows7/How-to-use-Compatibility-View-in-Internet-Explorer-9)![Überblick über die Schaltfläche (deaktiviert)](http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg " Schaltfläche \"Kompatibilitätsansicht\" (deaktiviert)") in Internet Explorer auf das Symbol, ändern Sie in einer Gliederung vornehmen ![Überblick über die Schaltfläche (deaktiviert)](http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg "Überblick über die Schaltfläche (deaktiviert) ") auf eine Volltonfarbe ![(Anmelden) Schaltfläche "Kompatibilitätsansicht"](http://res1.windows.microsoft.com/resbox/en/Windows 7/main/156805ff-3130-481b-a12d-4d3a96470f36_14.jpg "(Anmelden) Schaltfläche \"Kompatibilitätsansicht\""). Alternativ können Sie in diesem Tutorial in FireFox oder Chrome anzeigen.
 
 
 Öffnen der *MvcMobile\Views\Shared\\_Layout.Mobile.cshtml* Datei, und fügen Sie das folgende Markup direkt nach der `Html.Partial` aufrufen:

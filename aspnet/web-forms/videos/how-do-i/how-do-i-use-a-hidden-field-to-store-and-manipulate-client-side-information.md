@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-use-a-hidden-field-to-store-and-manipula
 title: '[Gewusst wie:] Verwenden Sie ein ausgeblendetes Feld clientseitigen Informationen zu Store | Microsoft-Dokumentation'
 author: rick-anderson
 description: In diesem Video zeigen Chris Pels, wie Sie ein ausgeblendetes Feld als ein Ansatz für die einfache Verwaltung auf einer ASP.NET-Seite und für die clientseitige Kommunikation verwenden...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/24/2008
 ms.assetid: 576ede31-e83a-4222-8f82-0aabb1dafe6a
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information
 msc.type: video
-ms.openlocfilehash: 84cb7ff3005eca8eaaed665d2a9cdcaa675a14d4
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 64d3b6f7e817624b4fc329d3fc6548088f2a5f2d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37842178"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827343"
 ---
 <a name="how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information"></a>[Gewusst wie:] Verwenden Sie ein ausgeblendetes Feld clientseitigen Informationen zu Store
 ====================

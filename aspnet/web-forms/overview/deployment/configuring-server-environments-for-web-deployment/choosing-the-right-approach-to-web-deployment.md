@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/configuring-server-environments-for-web-deplo
 title: Auswählen der richtigen Vorgehensweise zur Webbereitstellung | Microsoft-Dokumentation
 author: jrjlee
 description: Wenn Sie mit der Internet Information Services (IIS)-Webbereitstellungstool (Web Deploy) 2.0 oder höher arbeiten, stehen die drei wichtigsten Ansätze, die Sie verwenden können, um zu erhalten...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 787a53fd-9901-4a11-9d58-61e0509cda45
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: eb1b7d50e5d7461d760ad7a963cc70369b7a4513
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0b21852a1db2862a8452e332021b55ce7f1db423
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37807050"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41830328"
 ---
 <a name="choosing-the-right-approach-to-web-deployment"></a>Auswählen der richtigen Vorgehensweise zur Webbereitstellung
 ====================
@@ -36,7 +36,7 @@ Diese Tabelle zeigt die wichtigsten vor- und Nachteile der einzelnen Bereitstell
 | Ansatz | Vorteile | Nachteile | Typische Szenarien |
 | --- | --- | --- | --- |
 | Remote-Agent | Es ist einfach einzurichten. Es eignet sich für regelmäßige Updates auf Webanwendungen und Inhalt. | Der Benutzer muss ein Administrator auf dem Zielserver sein. der Benutzer kann nicht auf alternative Anmeldeinformationen angeben. | Entwicklungsumgebungen. Testumgebungen. |
-| Temp-Agent | Es ist nicht erforderlich, Web Deploy auf dem Zielcomputer installieren. Die neueste Version von Web Deploy wird automatisch verwendet. | Der Benutzer muss ein Administrator auf dem Zielserver sein. Der Benutzer kann nicht auf alternative Anmeldeinformationen angeben. | Entwicklungsumgebungen. Testumgebungen. |
+| Temp-Agent | Es ist nicht erforderlich, Web Deploy auf dem Zielcomputer installieren. Die neueste Version von Web Deploy wird automatisch verwendet. | Der Benutzer muss ein Administrator auf dem Zielserver sein. der Benutzer kann nicht auf alternative Anmeldeinformationen angeben. | Entwicklungsumgebungen. Testumgebungen. |
 | Web Deploy-Handler | Benutzer ohne Administratorrechte können Inhalte bereitstellen. Es eignet sich für regelmäßige Updates auf Webanwendungen und Inhalt. | Es ist sehr viel komplizierter eingerichtet wird. | Stagingumgebungen. Intranet-produktionsumgebungen. Gehostete Umgebungen. |
 | Offline-Bereitstellung | Es ist sehr einfach einrichten. Es ist für isolierte Umgebungen geeignet. | Der Serveradministrator muss manuell kopieren und importieren das Webpaket jedes Mal. | Internetzugriff von produktionsumgebungen. Isolierten netzwerkumgebungen. |
   

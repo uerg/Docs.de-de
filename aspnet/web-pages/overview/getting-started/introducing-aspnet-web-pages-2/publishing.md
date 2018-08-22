@@ -3,17 +3,17 @@ uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/publishin
 title: 'Einführung in ASP.NET Web Pages: Veröffentlichen einer Website mit WebMatrix | Microsoft-Dokumentation'
 author: tfitzmac
 description: Dieses Tutorial ist die letzte Folge der tutorialreihe, die ASP.NET Web Pages und Microsoft WebMatrix eingeführt werden. Es wird erläutert, wie zum Veröffentlichen Ihrer Website t...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/28/2015
 ms.assetid: 7e85c70e-1a88-4408-8b3d-29611c7713ed
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/publishing
 msc.type: authoredcontent
-ms.openlocfilehash: a20adc0b42d39424abf301e0b0f4094ef04932fb
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 58e3e8dc681571e833ec54c2668295c77a58c896
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37836984"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826942"
 ---
 <a name="introducing-aspnet-web-pages---publishing-a-site-by-using-webmatrix"></a>Einführung in ASP.NET Web Pages - Veröffentlichen einer Website mit WebMatrix
 ====================
