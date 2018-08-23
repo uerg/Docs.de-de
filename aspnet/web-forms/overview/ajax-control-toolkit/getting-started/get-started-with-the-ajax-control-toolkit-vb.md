@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/getting-started/get-started-with-th
 title: Erste Schritte mit dem AJAX Control Toolkit (VB) | Microsoft-Dokumentation
 author: microsoft
 description: Erfahren Sie, Sie müssen wissen, erste Schritte mit dem AJAX Control Toolkit.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/12/2009
 ms.assetid: 9f8fa166-49a2-402c-b236-20caef0c658f
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started/get-started-with-the-ajax-control-toolkit-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 65743c9eb8eb1b02c6cf87da53222af1312f4445
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: bbf90d65a0be0eeb4150609aca9cf192f516abf3
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37822078"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836787"
 ---
 <a name="get-started-with-the-ajax-control-toolkit-vb"></a>Erste Schritte mit dem AJAX Control Toolkit (VB)
 ====================

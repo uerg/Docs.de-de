@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding
 title: Grundlegendes zu Teilupdates für Seiten mit ASP.NET-AJAX aktualisiert | Microsoft-Dokumentation
 author: scottcate
 description: Das sichtbarste Feature von ASP.NET AJAX Extensions ist vielleicht die Möglichkeit, eine Seite teilweise oder inkrementelle Updates vorzunehmen, ohne ein vollständiges Postback in t...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/28/2008
 ms.assetid: 54d9df99-1161-4899-b4e8-2679c85915e7
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax
 msc.type: authoredcontent
-ms.openlocfilehash: 8ec4df5ffeaab4490eaea0f0093d543d517bd5f4
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 2e0b1e1d4cbb282e7fd4b27e0a93ba1b9702edea
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805271"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827883"
 ---
 <a name="understanding-partial-page-updates-with-aspnet-ajax"></a>Grundlegendes zu Teilupdates für Seiten aktualisiert mit ASP.NET-AJAX
 ====================

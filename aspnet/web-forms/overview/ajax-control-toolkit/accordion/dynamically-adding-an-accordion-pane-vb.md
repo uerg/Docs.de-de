@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/accordion/dynamically-adding-an-acc
 title: Dynamisches Hinzufügen von einem des Accordion-Bereichs (VB) | Microsoft-Dokumentation
 author: wenz
 description: Das ' Accordion '-Steuerelement im AJAX Control Toolkit bietet mehrere Bereiche und ermöglicht dem Benutzer eine von ihnen zu einem Zeitpunkt angezeigt. Bereiche werden in der Regel deklariert, w...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: fae968c9-1902-487d-b053-86a46dd52c3f
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/accordion/dynamically-adding-an-accordion-pane-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1fdb95ee1ee93bc011a257e4e21c876dbbc7d2a9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: b0ac0919e64fb6494bd9c7c5f00a5f69274799ed
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37820025"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835263"
 ---
 <a name="dynamically-adding-an-accordion-pane-vb"></a>Dynamisches Hinzufügen von einem des Accordion-Bereichs (VB)
 ====================

@@ -3,17 +3,17 @@ uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-clou
 title: Erstellen realer Cloud-Apps mit Azure | Microsoft-Dokumentation
 author: MikeWasson
 description: Dieses e-Book führt Sie durch einen musterbasierten Ansatz zum Erstellen von realitätsgetreuen Cloud-Lösungen. Die Muster gelten für den Entwicklungsprozess als auch ein...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/12/2014
 ms.assetid: accfa16a-ab15-4c26-9ad4-babdc2a77d2e
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: 11388b9c58d2d21c7a337a343c10d33c7257ccf1
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: eade14bc27e2bface84fb0bdd2f3c5bf8ef28432
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37840497"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829281"
 ---
 <a name="building-real-world-cloud-apps-with-azure"></a>Erstellen realer Cloud-Apps mit Azure
 ====================

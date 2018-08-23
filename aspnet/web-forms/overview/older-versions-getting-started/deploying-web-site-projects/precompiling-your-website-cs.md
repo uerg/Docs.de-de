@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: Vorkompilieren Ihrer Website (c#) | Microsoft-Dokumentation
 author: rick-anderson
 description: 'Visual Studio bietet ASP.NET-Entwicklern zwei Projekttypen: Web Application Projects (WAPs) und Websiteprojekten (WSPs). Eines der wichtigsten Unterschiede Betwe...'
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/09/2009
 ms.assetid: ecd5a4de-beb7-4d1d-bbbb-e31003633267
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/precompiling-your-website-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1227c28600444ed1f2710ba1b5e021aae59fe098
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: af11b8f13979eb4613195d1fa30f2c1adf508187
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37840299"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827438"
 ---
 <a name="precompiling-your-website-c"></a>Vorkompilieren Ihrer Website (c#)
 ====================

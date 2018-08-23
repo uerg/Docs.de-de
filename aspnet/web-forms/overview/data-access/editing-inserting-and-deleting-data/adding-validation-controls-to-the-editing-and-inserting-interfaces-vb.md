@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-v
 title: Hinzufügen von Validierungssteuerelementen zu bearbeiten und Einfügen von Schnittstellen (VB) | Microsoft-Dokumentation
 author: rick-anderson
 description: In diesem Tutorial sehen wir, wie einfach es ist das EditItemTemplate und InsertItemTemplate eines Daten-Websteuerelement, geben Sie eine Überprüfungssteuerelemente hinzufügen...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/17/2006
 ms.assetid: e3d7028a-7a22-4a4f-babe-d53afc41c0e2
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a9527cad45e506268a9d5f19a445cae939345540
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d06408717bdf5e7446597ae4330ffb32cf943e7f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37839975"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835301"
 ---
 <a name="adding-validation-controls-to-the-editing-and-inserting-interfaces-vb"></a>Hinzufügen von Validierungssteuerelementen zu bearbeiten und Einfügen von Schnittstellen (VB)
 ====================

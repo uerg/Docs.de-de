@@ -3,17 +3,17 @@ uid: web-pages/overview/ui-layouts-and-themes/installing-helpers
 title: Installieren eines Hilfsprogramms in einer ASP.NET Web Pages (Razor) Standort | Microsoft-Dokumentation
 author: tfitzmac
 description: Dieser Artikel beschreibt, wie Sie eine Hilfsprogramm auf einer Website für ASP.NET Web Pages (Razor) zu installieren. Ein Hilfsprogramm ist eine wiederverwendbare Komponente, die Code und Markup pro enthält...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/18/2014
 ms.assetid: 5e968ead-906a-45ea-ac2a-c70e57e1a9b1
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/installing-helpers
 msc.type: authoredcontent
-ms.openlocfilehash: db3dff9f2d70577bb0618335c0100b9899e87727
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 8629d91e1e297244228898e28f70616c7ccf1acf
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37838613"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836486"
 ---
 <a name="installing-a-helper-in-an-aspnet-web-pages-razor-site"></a>Installieren eines Hilfsprogramms in einer ASP.NET Web Pages (Razor)-Website
 ====================

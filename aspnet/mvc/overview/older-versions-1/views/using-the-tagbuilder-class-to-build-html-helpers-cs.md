@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/views/using-the-tagbuilder-class-to-build-htm
 title: Verwenden der TagBuilder-Klasse zum Erstellen von HTML-Hilfsprogrammen (c#) | Microsoft-Dokumentation
 author: StephenWalther
 description: Stephen Walther stellt ein hilfreiches Dienstprogramm-Klasse in ASP.NET MVC-Framework mit dem Namen der TagBuilder-Klasse. Sie können die TagBuilder-Klasse, um problemlos verwenden...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/02/2009
 ms.assetid: 3975a52f-bd15-4edd-8f3d-1df93672515b
 msc.legacyurl: /mvc/overview/older-versions-1/views/using-the-tagbuilder-class-to-build-html-helpers-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9990fc7ad8093643a564a5e02ff65264d4a7fe15
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9759ea9b05ba5eba268901d3d2d1a15b2afe6202
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37813225"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827446"
 ---
 <a name="using-the-tagbuilder-class-to-build-html-helpers-c"></a>Verwenden der TagBuilder-Klasse zum Erstellen von HTML-Hilfsprogrammen (c#)
 ====================

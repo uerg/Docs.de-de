@@ -3,17 +3,17 @@ uid: identity/overview/migrations/migrating-an-existing-website-from-sql-members
 title: Migrieren einer vorhandenen Website aus SQL-Mitgliedschaftsanbieter nach ASP.NET Identity | Microsoft-Dokumentation
 author: Rick-Anderson
 description: In diesem Tutorial werden die Schritte zum Migrieren einer vorhandenen Webanwendung mit Benutzer- und Rolle mithilfe von SQL-Mitgliedschaft in der neuen ASP.NET Identity s erstellt...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/19/2014
 ms.assetid: 220d3d75-16b2-4240-beae-a5b534f06419
 msc.legacyurl: /identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 4acb8c82c9b05de9d587466170f8fac4ef9b6dde
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 51b97ee413ea0304177d5963b5fd9d7253778d4f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37812250"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827823"
 ---
 <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>Migrieren einer vorhandenen Website aus SQL-Mitgliedschaftsanbieter nach ASP.NET Identity
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: Protokollieren von Fehlerdetails mit ELMAH (VB) | Microsoft-Dokumentation
 author: rick-anderson
 description: Fehler beim Protokollieren Module und Handler (ELMAH) bietet ein weiteres Verfahren zum Protokollieren von Laufzeitfehlern in einer produktionsumgebung. ELMAH ist ein kostenfreies open Source-Fehler...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/09/2009
 ms.assetid: a5f0439f-18b2-4c89-96ab-75b02c616f46
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-vb
 msc.type: authoredcontent
-ms.openlocfilehash: dafb1facb0e2b1828eb990c423fbf5b1af0731d7
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ef87ae342f660a84c9359c7a1674001ed578a68e
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37821676"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835815"
 ---
 <a name="logging-error-details-with-elmah-vb"></a>Protokollieren von Fehlerdetails mit ELMAH (VB)
 ====================

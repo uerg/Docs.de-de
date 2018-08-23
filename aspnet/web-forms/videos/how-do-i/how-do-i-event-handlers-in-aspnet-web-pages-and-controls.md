@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-event-handlers-in-aspnet-web-pages-and-c
 title: '[Gewusst wie:] -Ereignishandler in ASP.NET Web Pages und-Steuerelementen | Microsoft-Dokumentation'
 author: rick-anderson
 description: 'In diesem video Chris Pels zeige Gewusst wie: Erstellen von Ereignishandlern für ASP.NET-Webseiten und Webserver-Steuerelemente. Zuerst erfahren Sie, wie Sie die Seite Ereignisse auf Serverebene f erstellen...'
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/17/2007
 ms.assetid: c18095ae-fe16-4bf9-98cd-460631af021f
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-event-handlers-in-aspnet-web-pages-and-controls
 msc.type: video
-ms.openlocfilehash: fdb656ffeba6c91c6944f68f93ea0b293980c9d3
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 394808660cb68f8a44a00a149e82710f067f5049
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37834119"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41833633"
 ---
 <a name="how-do-i-event-handlers-in-aspnet-web-pages-and-controls"></a>[Gewusst wie:] -Ereignishandler in ASP.NET Web Pages und-Steuerelementen
 ====================

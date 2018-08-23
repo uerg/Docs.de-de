@@ -3,17 +3,17 @@ uid: whitepapers/ms03-32-issue
 title: Fehlerbehebung für "Serveranwendung nicht verfügbar" Fehler nach dem Anwenden von Sicherheitsupdates für IE | Microsoft-Dokumentation
 author: rick-anderson
 description: In diesem Artikel wird beschrieben, den Patch an, der ein Problem mit dem MS03-32-Sicherheitsupdate für Internet Explorer behoben werden, die ASP.NET 1.0-Anwendungen, die unter WLAN wirkt sich auf...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/10/2010
 ms.assetid: 1365eebb-bdf7-4a05-8d18-7f200531be55
 msc.legacyurl: /whitepapers/ms03-32-issue
 msc.type: content
-ms.openlocfilehash: 1a289379229335a9841dec48e577c19173419891
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ce2d705a93577b0c6d28f86069873c6ecd891db6
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37836722"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828069"
 ---
 <a name="fix-for-server-application-unavailable-error-after-applying-security-update-for-ie"></a>Korrektur für "Server nicht verfügbar" Anwendungsfehler, nach dem Anwenden von Sicherheitsupdates für IE
 ====================

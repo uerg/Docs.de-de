@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspi
 title: 'Teil 4: Auflisten von Produkten | Microsoft-Dokumentation'
 author: JoeStagner
 description: Dieser tutorialreihe werden alle Schritte ausgeführt, um die beispielanwendung Tailspin Spyworks erstellen. Teil 4 enthält die Auflistung von Produkten mit der GridView-Vertr....
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/21/2010
 ms.assetid: 4fab47d5-a6ec-4fdc-91f0-651a093a24b9
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: ec349a2564a63fd950ca5f6a171e6ffd1199c28a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ca7eccd684473d9a1ec4a8adfd8690b291fe702f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37813072"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827456"
 ---
 <a name="part-4-listing-products"></a>Teil 4: Auflistung von Produkten
 ====================

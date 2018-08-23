@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-use-the-fixednames-option-with-the-compi
 title: '[Gewusst wie:] Verwenden die Fixednames-Option mit dem Hilfsprogramm für Compiler für maximale Flexibilität | Microsoft-Dokumentation'
 author: rick-anderson
 description: In diesem video Chris Pels zeigen, wie Sie die Fixednames-Option mit dem aspnet_compiler.exe-Hilfsprogramm verwenden, um eine konsistente Dateinamen in Kompilierung Organisationseinheit zu erstellen...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/24/2008
 ms.assetid: e332a1e0-226d-40ad-be99-96f13ecaec24
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-the-fixednames-option-with-the-compiler-utility-for-maximum-flexibility
 msc.type: video
-ms.openlocfilehash: 456e495aba5d705a6d8c29eb4742e649a6b41679
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 07fa077f75034e5bb52e85e202b26b32e3822b77
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37837625"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828261"
 ---
 <a name="how-do-i-use-the-fixednames-option-with-the-compiler-utility-for-maximum-flexibility"></a>[Gewusst wie:] Verwenden der Fixednames-Option mit dem Hilfsprogramm für Compiler für maximale Flexibilität
 ====================

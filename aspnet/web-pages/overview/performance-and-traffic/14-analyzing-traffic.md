@@ -3,17 +3,17 @@ uid: web-pages/overview/performance-and-traffic/14-analyzing-traffic
 title: Die Überwachungsinformationen Besucher (Analytics) für eine ASP.NET-Webseiten (Razor) Standort | Microsoft-Dokumentation
 author: tfitzmac
 description: Nachdem Sie Ihre Website jetzt gelangt sind, empfiehlt es sich um Ihre Website-Datenverkehr zu analysieren.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/17/2014
 ms.assetid: 360bc6e1-84c5-4b8e-a84c-ea48ab807aa4
 msc.legacyurl: /web-pages/overview/performance-and-traffic/14-analyzing-traffic
 msc.type: authoredcontent
-ms.openlocfilehash: 4e065e5223d2f996779ab47de4823962a9aa852e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: aabe3177ba9479bfafafe81e1ea99a58f29d5271
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37831095"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828912"
 ---
 <a name="tracking-visitor-information-analytics-for-an-aspnet-web-pages-razor-site"></a>Überwachungsinformationen Besucher (Analytics) für eine ASP.NET Web Pages (Razor)
 ====================
