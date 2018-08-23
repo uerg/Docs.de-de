@@ -5,26 +5,34 @@ description: Ein Leitfaden, der End-to-End-Anleitungen zum Erstellen einer DevOp
 ms.author: casoper
 ms.date: 08/07/2018
 uid: azure/devops/index
-ms.openlocfilehash: 09ca835e908e81c6f38f9430fb40638ba6dc3350
-ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
+ms.openlocfilehash: f2eb2499a61ce639457f30f4d182dac6ff677a0f
+ms.sourcegitcommit: 6d02e26748a09eabeb0e11740a398cc2bc90b098
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722537"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41746067"
 ---
 # <a name="devops-with-aspnet-core-and-azure"></a>DevOps mit ASP.NET Core und Azure
 
-Willkommen zum Leitfaden für den Azure-Entwicklungslebenszyklus für .NET! In diesem Leitfaden werden die grundlegenden Konzepte zum Erstellen eines Entwicklungslebenszyklus für Azure mithilfe von .NET-Tools und -Prozessen vorgestellt. Nach Abschluss dieses Leitfadens können Sie die Vorteile einer ausgereiften DevOps-Toolkette nutzen.
+[![Titelbild](./media/cover-large.png)](https://aka.ms/devopsbook)
+
+Von [Cam Soper](https://twitter.com/camsoper) und [Scott Addie](https://twitter.com/scottaddie)
+
+Dieser Leitfaden ist als [herunterladbares E-Book im PDF-Format](https://aka.ms/devopsbook) verfügbar.
+
+## <a name="welcome"></a>Willkommen 
+
+Willkommen zum Leitfaden für den Azure-Entwicklungslebenszyklus für .NET. In diesem Leitfaden werden die grundlegenden Konzepte zum Erstellen eines Entwicklungslebenszyklus für Azure mithilfe von .NET-Tools und -Prozessen vorgestellt. Nach Abschluss dieses Leitfadens können Sie die Vorteile einer ausgereiften DevOps-Toolkette nutzen.
 
 ## <a name="who-this-guide-is-for"></a>Für wen ist dieser Leitfaden gedacht?
 
-Sie sollten ein erfahrener ASP.NET-Entwickler (auf Ebene 200–300) sein. Sie müssen nicht mit Azure vertraut sein, da dieses Thema in der Einführung behandelt wird. DevOps-Techniker, die sich eher auf die Vorgänge als auf die Entwicklung konzentrieren, können ebenso von diesem Leitfaden profitieren.
+Sie sollten ein erfahrener ASP.NET Core-Entwickler (auf Ebene 200–300) sein. Sie müssen nicht mit Azure vertraut sein, da dieses Thema in der Einführung behandelt wird. DevOps-Techniker, die sich eher auf die Vorgänge als auf die Entwicklung konzentrieren, können ebenso von diesem Leitfaden profitieren.
 
 Dieser Leitfaden ist für Windows-Entwickler konzipiert. Linux und macOS werden jedoch vollständig von .NET Core unterstützt. Um diesen Leitfaden für Linux bzw. macOS zu nutzen, beachten Sie die Anzeigen für Linux-/macOS-Unterschiede.
 
 ## <a name="what-this-guide-doesnt-cover"></a>Was in diesem Leitfaden nicht behandelt wird
 
-Er bezieht sich auf eine kontinuierliche End-to-End-Bereitstellungserfahrung für .NET-Entwickler. Es handelt sich nicht um eine vollständige Anleitung für alle Azure-Themen sowie für .NET-APIs für Azure-Dienste. Der Schwerpunkt liegt vor allem bei der Continuous Integration, der Bereitstellung, der Überwachung und dem Debuggen. Gegen Ende dieses Leitfadens finden Sie Empfehlungen für weitere Schritte. Darin enthalten sind Azure-Plattformdienste, die für ASP.NET-Entwickler nützlich sind.
+Er bezieht sich auf eine kontinuierliche End-to-End-Bereitstellungserfahrung für .NET-Entwickler. Es handelt sich nicht um eine vollständige Anleitung für alle Azure-Themen sowie für .NET-APIs für Azure-Dienste. Der Schwerpunkt liegt vor allem bei der Continuous Integration, der Bereitstellung, der Überwachung und dem Debuggen. Gegen Ende dieses Leitfadens finden Sie Empfehlungen für weitere Schritte. Darin enthalten sind Azure-Plattformdienste, die für ASP.NET Core-Entwickler nützlich sind.
 
 ## <a name="whats-in-this-guide"></a>In diesem Handbuch
 
@@ -48,18 +56,9 @@ Verwenden Sie Azure-Tools zum Überwachen, Optimieren und für die Problembehand
 
 Andere Lernpfade für die ASP.NET Core-Entwickler, die sich mit Azure vertraut machen.
 
-## <a name="acknowledgments"></a>Danksagungen
+## <a name="additional-introductory-reading"></a>Weiterführende einführende Literatur
 
-Vielen Dank an die Personen in der .NET-Community, die zu diesem Leitfaden mit nützlichen Vorschlägen beigetragen haben. Wir möchten besonders den folgenden Communitymitgliedern danken, die bei der letzten Überprüfung dieses Materials mitgearbeitet haben:
-
-* [Sam Wronski](https://www.youtube.com/c/worldofzerodevelopment)
-* [Jeffrey Palermo](https://twitter.com/jeffreypalermo)
-
-## <a name="conclusion"></a>Schlussbemerkung
-
-Dieser Leitfaden bereitet Sie auf die Erstellung eines Continuous Integration-Entwicklungslebenszyklus vor, der auf ASP.NET Core und Azure App Service basiert.
-
-## <a name="additional-reading"></a>Weiterführende Literatur
+Wenn Sie zum ersten Mal mit Cloud Computing arbeiten, können Sie in folgenden Artikeln die Grundlagen dazu nachlesen.
 
 * [Was ist Cloud Computing?](https://azure.microsoft.com/overview/what-is-cloud-computing/)
 * [Examples of Cloud Computing (Beispiele für Cloud Computing)](https://azure.microsoft.com/overview/examples-of-cloud-computing/)

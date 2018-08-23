@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/masterdetail/master-detail-filtering-across-
 title: Master/Detail-Filtern über zwei Seiten (VB) | Microsoft-Dokumentation
 author: rick-anderson
 description: In diesem Tutorial werden wir dieses Muster implementieren, mit einer GridView-Ansicht die Lieferanten in der Datenbank aufgelistet. Jede Zeile Lieferanten in den GridView-Ansicht enthält eine Vie...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: 361d6a44-3f1f-4daf-85df-d4c2b8bf065d
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-across-two-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 88bd06c8b9e4a4b369c538c902b213e444ad6790
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 290c4eba6f77a6006d424c3f05b77c1c128026b3
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37810714"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837764"
 ---
 <a name="masterdetail-filtering-across-two-pages-vb"></a>Master/Detail-Filtern über zwei Seiten (VB)
 ====================

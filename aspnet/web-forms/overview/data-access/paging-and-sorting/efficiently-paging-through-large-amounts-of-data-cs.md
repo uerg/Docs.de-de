@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/paging-and-sorting/efficiently-paging-throug
 title: Effizientes Auslagern von großen Datenmengen (c#) | Microsoft-Dokumentation
 author: rick-anderson
 description: Die Standardoption für die Auslagerung des Steuerelements eine Präsentation ist ungeeignet, bei der Arbeit mit großen Mengen von Daten, wie die zugrunde liegenden Data Source Control Retriev...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/15/2006
 ms.assetid: 59c01998-9326-4ecb-9392-cb9615962140
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/efficiently-paging-through-large-amounts-of-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: bb10524e7973894ea60663da3813673742ae4ab4
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: feebee845a19a7cb462127a893a30ac7e0761965
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37825839"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828328"
 ---
 <a name="efficiently-paging-through-large-amounts-of-data-c"></a>Effizientes Auslagern von großen Datenmengen (c#)
 ====================
@@ -352,7 +352,7 @@ Leider gibt es s auf keine dieselbe Größe jedem passt alle hier beantwortet. D
 Einen Artikel, [benutzerdefiniertes Paging in ASP.NET 2.0 mit SQL Server 2005](http://aspnet.4guysfromrolla.com/articles/031506-1.aspx), enthält Sie einige Webleistungstests, die ich ausgeführt wurde, um die Unterschiede zwischen diesen beiden Paging Verfahren aus, wenn paging durch eine Datenbanktabelle mit aufweisen 50.000 Datensätze. In diesen Tests, die ich überprüft sowohl die Zeit zum Ausführen der Abfrage auf der SQL Server-Ebene (mit [SQL Profiler](https://msdn.microsoft.com/library/ms173757.aspx)) und auf der Seite mit ASP.NET [ASP.NET s Ablaufverfolgungsfunktionen](https://msdn.microsoft.com/library/y13fw6we.aspx). Bedenken Sie, dass diese Tests auf meinem Entwicklungscomputer mit einem einzelnen aktiven Benutzer, die ausgeführt wurden und daher unwissenschaftlichen und typische Website Auslastungsmuster ist nicht imitieren. Unabhängig davon, veranschaulichen die Ergebnisse die relativen Unterschiede bei der Ausführungszeit für Standard- und benutzerdefinierte Paginierung, bei der Arbeit mit ausreichend große Mengen von Daten.
 
 
-|  | **Durchschn. Dauer (s)** | **Lesevorgänge** |
+|  | **Durchschn. Dauer (s)** | **Reads** |
 | --- | --- | --- |
 | **Standardmäßig Paging SQL Profiler** | 1.411 | 383 |
 | **Benutzerdefiniertes Paging SQL Profiler** | 0.002 | 29 |

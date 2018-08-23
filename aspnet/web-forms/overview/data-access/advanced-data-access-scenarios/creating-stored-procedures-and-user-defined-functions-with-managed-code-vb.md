@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/advanced-data-access-scenarios/creating-stor
 title: Erstellen von gespeicherten Prozeduren und benutzerdefinierten Funktionen mit verwaltetem Code (VB) | Microsoft-Dokumentation
 author: rick-anderson
 description: Microsoft SQL Server 2005 ist in der .NET Common Language Runtime, die Entwicklern ermöglichen, Erstellen von Datenbankobjekten mithilfe von verwaltetem Code integriert. In diesem Tutorial...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/03/2007
 ms.assetid: 8be9a51b-ea6b-46c7-bfa2-476d9b14c24c
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: dcbd55185e7d5e3910b4f74f11554bae100057cc
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 438ebfa474ab510d90738c4a3ee40e172d838dcb
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37806166"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41833947"
 ---
 <a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-vb"></a>Verwenden von gespeicherten Prozeduren und benutzerdefinierte Funktionen mit verwaltetem Code (VB)
 ====================

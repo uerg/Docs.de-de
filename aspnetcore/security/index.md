@@ -5,12 +5,12 @@ description: Erfahren Sie mehr über die Grundlagen der Authentifizierung, Autor
 ms.author: tdykstra
 ms.date: 11/01/2017
 uid: security/index
-ms.openlocfilehash: ed64594c85d555d8417903947fc3ce927dc04cec
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 3a1c1ea1ad28fccbe5ae91b0be193938b095f60b
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095761"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41749888"
 ---
 # <a name="overview-of-aspnet-core-security"></a>Übersicht über die ASP.NET Core-Sicherheit
 
@@ -35,9 +35,9 @@ ASP.NET Core und EF enthalten Features, die Ihnen helfen, Ihre Anwendungen zu sc
 * [Websiteübergreifende Anforderungsfälschung (CSRF)](xref:security/anti-request-forgery)
 * [Offene Weiterleitungsangriffe](xref:security/preventing-open-redirects)
 
-Es gibt weitere Sicherheitsrisiken, die Sie kennen sollten. Weitere Informationen finden Sie im Abschnitt *ASP.NET Sicherheitsdokumentation* dieses Dokuments.
+Es gibt weitere Sicherheitsrisiken, die Sie kennen sollten. Weitere Informationen finden Sie im Abschnitt *ASP.NET Core-Sicherheitsdokumentation* dieses Dokuments.
 
-## <a name="aspnet-security-documentation"></a>ASP.NET-Sicherheitsdokumentation
+## <a name="aspnet-core-security-documentation"></a>ASP.NET Core-Sicherheitsdokumentation
 
 *   [Authentifizierung](xref:security/authentication/index)
     *   [Einführung in Identity](xref:security/authentication/identity)

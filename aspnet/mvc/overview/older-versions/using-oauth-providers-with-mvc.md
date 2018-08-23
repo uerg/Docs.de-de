@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/using-oauth-providers-with-mvc
 title: Verwenden von OAuth-Anbietern mit MVC 4 | Microsoft-Dokumentation
 author: tfitzmac
 description: In diesem Tutorial erfahren Sie, wie Sie eine ASP.NET MVC 4-Webanwendung erstellen, die Benutzern ermöglicht, melden Sie sich mit den Anmeldeinformationen von einem externen Anbieter, z. B. Facebo...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/19/2013
 ms.assetid: 7a87f16f-0e19-4f15-a88a-094ae866c4a2
 msc.legacyurl: /mvc/overview/older-versions/using-oauth-providers-with-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 15f6b45706c0711d68b0780a7474d4c939a85fba
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9b0db2775db5c74762bdc55328ad44ef7ebe75ce
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37823325"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41825952"
 ---
 <a name="using-oauth-providers-with-mvc-4"></a>Verwenden von OAuth-Anbietern mit MVC 4
 ====================
@@ -164,42 +164,42 @@ Fügen Sie in der Klasse UsersContext des hervorgehobenen Codes unten, um eine "
 
 [!code-csharp[Main](using-oauth-providers-with-mvc/samples/sample6.cs?highlight=9)]
 
-Abrufen von Zugriffstoken Die meisten externen Anbieter übergeben ein Zugriffstoken für den wieder, nachdem die Anmeldeinformationen des Benutzers überprüft werden.
+Sie sind jetzt bereit, die neue Tabelle zu erstellen. Öffnen Sie die Paket-Manager-Konsole erneut, und dieses Mal:
 
-1. Dieses Zugriffstoken ist sehr wichtig, weil dadurch, dass Sie zum Aufrufen von Vorgängen, die nur für authentifizierte Benutzer verfügbar sind.**
+1. Führen Sie den Befehl **AddExtraUserInformation der hinzufügen-Migration**
 2. Führen Sie den Befehl **Datenbank aktualisieren**
 
-Aus diesem Grund unbedingt abrufen und speichern das Zugriffstoken, wenn Sie weitere Funktionen bereitstellen möchten.
+Die neue Tabelle, die jetzt in der Datenbank vorhanden ist.
 
-## <a name="retrieve-the-additional-data"></a>Abhängig von der externe Anbieter kann das Zugriffstoken für nur einen begrenzten Zeitraum gültig sein.
+## <a name="retrieve-the-additional-data"></a>Die zusätzlichen Daten abrufen
 
-Um sicherzustellen, dass Sie ein gültiges Zugangstoken verfügen, werden Sie abrufen, es jedes Mal, die der Benutzer anmeldet, und speichern ihn als einen Sitzungswert statt in einer Datenbank speichern. In der ExternalLoginCallback -Methode, das Zugriffstoken auch wieder in übergeben die ExtraData Eigenschaft der AuthenticationResult Objekt. Fügen Sie den hervorgehobenen Code ExternalLoginCallback , speichern Sie das Zugriffstoken in der Sitzung Objekt. Dieser Code ausgeführt wird, jedes Mal, wenn der Benutzer mit einer Facebook-Konto anmeldet. Obwohl in diesem Beispiel ein Zugriffstoken von Facebook abgerufen werden, können Sie das Zugriffstoken von einem externen Anbieter abrufen, über den gleichen Schlüssel, die mit dem Namen Accesstoken. Der Standardwert Abmeldung -Methode meldet den Benutzer von Ihrer Anwendung, aber den Benutzer bei der externe Anbieter werden nicht protokolliert.
+Es gibt zwei Möglichkeiten, um zusätzliche Daten abzurufen. Die erste Möglichkeit ist Benutzerdaten beibehalten werden sollen, die während der Authentifizierungsanforderung zurück, in der Standardeinstellung übergeben wird. Die zweite Möglichkeit ist, insbesondere die Anbieter-API aufrufen und Weitere Informationen anfordern. Werte für "FullName" und Verbindungen werden automatisch von Facebook übergeben. Ein Wert, der angibt, ob es sich bei Facebook das Konto bestätigt wurde, wird durch einen Aufruf an die Facebook-API abgerufen. Zuerst, füllen Sie Werte für "FullName" und der Link, und klicken Sie dann später erhalten Sie den überprüften Wert.
 
-Um den Benutzer bei Facebook anmelden und zu verhindern, dass das Token beibehalten, nachdem der Benutzer abgemeldet hat, Sie können den folgenden hervorgehobenen Code zum Hinzufügen der **Abmeldung** -Methode in der AccountController-Komponente.
+Um die zusätzlichen Daten abzurufen, öffnen Sie die **AccountController.cs** Datei die **Controller** Ordner.
 
-Der Wert in der  Parameter ist die URL verwenden, nachdem der Benutzer aus Facebook angemeldet hat. Wenn Sie auf dem lokalen Computer testen möchten, würden Sie die richtige Portnummer für den lokalen Standort bereitstellen. In einer produktionsumgebung würden Sie eine Standardseite, z. B. "contoso.com" angeben. Abrufen von Benutzerinformationen, mit denen das Zugriffstoken ist erforderlich.
+Diese Datei enthält die Logik für die Protokollierung, das Registrieren und Verwalten von Konten. Beachten Sie insbesondere die aufgerufenen Methoden **ExternalLoginCallback** und **ExternalLoginConfirmation**. In diesen Methoden können Sie Code zum Anpassen der externen Anmeldung Vorgänge für Ihre Anwendung hinzufügen. Die erste Zeile der **ExternalLoginCallback** Methode enthält:
 
 [!code-csharp[Main](using-oauth-providers-with-mvc/samples/sample7.cs)]
 
-Nun, dass Sie das Zugriffstoken gespeichert und das Paket C# Facebook-SDK installiert, können diese zusammen Sie zusätzliche Benutzerinformationen von Facebook angefordert. In der **ExternalLoginConfirmation** -Methode, erstellen Sie eine Instanz von der FacebookClient Klasse übergibt den Wert des Zugriffstokens.
+Zusätzliche Benutzerdaten werden wieder in übergeben die **ExtraData** Eigenschaft der **AuthenticationResult** von zurückgegebene Objekt der **VerifyAuthentication** Methode. Der Facebook-Client enthält die folgenden Werte in der **ExtraData** Eigenschaft:
 
 - ID
 - Name
 - aus
-- Den Wert der Anforderung der überprüft -Eigenschaft für den aktuellen authentifizierten Benutzer.
-- Die überprüft Eigenschaft gibt an, ob es sich bei Facebook, das Konto über andere Weise, wie z. B. das Senden einer Nachricht an ein Mobiltelefon überprüft wurde.
+- Geschlecht
+- accesstoken
 
-Speichern Sie diesen Wert in der Datenbank.
+Andere Anbieter müssen ähnliche, aber leicht unterschiedliche Daten in der ExtraData-Eigenschaft.
 
-Sie müssen es löschen Sie die Datensätze in der Datenbank für den Benutzer oder ein anderes Facebook-Konto verwenden. Führen Sie die Anwendung, und registrieren Sie den neuen Benutzer. Sehen Sie sich die ExtraUserInformation Tabelle, um den Wert für die überprüfte Eigenschaft anzuzeigen.
+Wenn der Benutzer noch nicht mit Ihrer Website ist, Sie einige der zusätzlichen Daten abrufen und diese Daten übergeben, um die Anzeige der Bestätigung. Der letzte Codeblock in der Methode ausgeführt wird, nur dann, wenn der Benutzer noch nicht mit Ihrer Website ist. Ersetzen Sie die folgende Zeile:
 
 [!code-csharp[Main](using-oauth-providers-with-mvc/samples/sample8.cs)]
 
-In diesem Tutorial haben Sie eine Website, die in Facebook, für die Benutzerauthentifizierung und Registrierungsdaten integriert ist erstellt.
+Durch diese Zeile:
 
 [!code-csharp[Main](using-oauth-providers-with-mvc/samples/sample9.cs)]
 
-Sie haben über die das Standardverhalten, das für MVC 4-Webanwendung, und wie Sie das Standardverhalten anpassen eingerichtet ist.
+Diese Änderung umfasst lediglich die Werte für die Eigenschaften "FullName" und Link.
 
 In der **ExternalLoginConfirmation** -Methode, ändern Sie den Code wie unten, um die zusätzliche Benutzerinformationen zu speichern.
 
