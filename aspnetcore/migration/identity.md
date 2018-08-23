@@ -1,30 +1,30 @@
 ---
-title: Migrieren von Authentifizierung und Identität zu ASP.NET Core
+title: Migrieren von Authentifizierungs- und Identitätseinstellungen zu ASP.NET Core
 author: ardalis
-description: Erfahren Sie, wie Authentifizierung und Identität von eines ASP.NET MVC-Projekts zu ASP.NET Core MVC-Projekt zu migrieren.
+description: Erfahren Sie, wie Authentifizierung und Identität in einem ASP.NET MVC-Projekt zu einem ASP.NET Core MVC-Projekt zu migrieren.
 ms.author: riande
 ms.date: 10/14/2016
 uid: migration/identity
-ms.openlocfilehash: e05d72ca78c7b8191a47f78cda31ee40e04d0706
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 72e62e78e37325ec47d54abbc11a875ae87fb63a
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275696"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827717"
 ---
-# <a name="migrate-authentication-and-identity-to-aspnet-core"></a>Migrieren von Authentifizierung und Identität zu ASP.NET Core
+# <a name="migrate-authentication-and-identity-to-aspnet-core"></a>Migrieren von Authentifizierungs- und Identitätseinstellungen zu ASP.NET Core
 
 Von [Steve Smith](https://ardalis.com/)
 
-In der vorherigen Artikel wir [Konfiguration eines ASP.NET MVC-Projekts zu ASP.NET Core MVC migriert](xref:migration/configuration). In diesem Artikel wird die Registrierung, Anmeldung und Benutzer Verwaltungsfunktionen migriert werden.
+Im vorherigen Artikel wir [Konfiguration eines ASP.NET MVC-Projekts zu ASP.NET Core MVC migriert](xref:migration/configuration). In diesem Artikel migrieren wir die Registrierung, Anmeldung und Benutzer-Verwaltungsfunktionen.
 
-## <a name="configure-identity-and-membership"></a>Konfigurieren von Identität und Mitgliedschaft
+## <a name="configure-identity-and-membership"></a>Konfigurieren der Identitäts- und Mitgliedschaftsinformationen
 
-In ASP.NET MVC-Authentifizierung und Identität Funktionen werden konfiguriert mit ASP.NET Identity in *Startup.Auth.cs* und *IdentityConfig.cs*befindet sich im die *App_Start* Ordner. Diese Funktionen werden in ASP.NET-MVC Core in konfiguriert *Startup.cs*.
+In ASP.NET MVC-Authentifizierung und Identität Features sind konfiguriert mit ASP.NET Identity in *Startup.Auth.cs* und *IdentityConfig.cs*befindet sich in der *App_Start* Ordner. Diese Funktionen werden in ASP.NET Core MVC in konfiguriert *"Startup.cs"*.
 
-Installieren der `Microsoft.AspNetCore.Identity.EntityFrameworkCore` und `Microsoft.AspNetCore.Authentication.Cookies` NuGet-Pakete.
+Installieren Sie die `Microsoft.AspNetCore.Identity.EntityFrameworkCore` und `Microsoft.AspNetCore.Authentication.Cookies` NuGet-Pakete.
 
-Öffnen Sie dann *Startup.cs* und aktualisieren Sie die `Startup.ConfigureServices` Methode zur Verwendung von Entity Framework und Identität Diensten:
+Öffnen Sie dann *"Startup.cs"* und aktualisieren Sie die `Startup.ConfigureServices` zu Entity Framework und Identitätsdienste zu verwendende Methode:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -41,7 +41,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Zu diesem Zeitpunkt stehen zwei Typen, die im obigen Code, die noch nicht wir noch aus dem ASP.NET MVC-Projekt migriert verwiesen: `ApplicationDbContext` und `ApplicationUser`. Erstellen Sie ein neues *Modelle* Ordner, in dem ASP.NET Core Projekt, und fügen Sie zwei Klassen hinzu, die diese Typen entspricht. Die Versionen dieser Klassen in ASP.NET MVC finden */Models/IdentityModels.cs*, aber es wird eine Datei pro Klasse im migrierten Projekt verwenden, da es sich bei, die mehr klar ist.
+An diesem Punkt es gibt zwei Typen, die auf die verwiesen wird im obigen Code, die wir aus dem ASP.NET MVC-Projekt noch nicht noch migriert: `ApplicationDbContext` und `ApplicationUser`. Erstellen Sie ein neues *Modelle* Ordner in die ASP.NET Core-Projekt, und fügen Sie zwei Klassen hinzu, die diese Typen. Sehen Sie die ASP.NET MVC-Versionen dieser Klassen in */Models/IdentityModels.cs*, aber wir werden eine Datei pro Klasse im migrierten Projekt verwenden, da dies klarer ist.
 
 *ApplicationUser.cs*:
 
@@ -74,17 +74,17 @@ namespace NewMvcProject.Models
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            // Customize the ASP.NET Identity model and override the defaults if needed.
-            // For example, you can rename the ASP.NET Identity table names and more.
+            // Customize the ASP.NET Core Identity model and override the defaults if needed.
+            // For example, you can rename the ASP.NET Core Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
         }
     }
 }
 ```
 
-Core MVC Starter ASP.NET-Webprojekt nicht viel Anpassung von Benutzern, schließen oder die `ApplicationDbContext`. Bei der Migration einer wirkliche app müssen Sie auch alle benutzerdefinierten Eigenschaften und Methoden der Benutzer Ihrer app zu migrieren und `DbContext` Klassen sowie andere Modellklassen, Ihre app verwendet. Z. B. Wenn Ihr `DbContext` hat eine `DbSet<Album>`, müssen Sie zum Migrieren der `Album` Klasse.
+Das ASP.NET Core MVC-Starter-Web-Projekt beinhaltet keine anpassungsspielraum von Benutzern oder `ApplicationDbContext`. Wenn eine echte Anwendung migrieren möchten, müssen Sie auch alle benutzerdefinierten Eigenschaften und Methoden von Ihrer app Benutzer zu migrieren und `DbContext` Klassen sowie alle anderen Modellklassen Ihrer app verwendet. Beispielsweise wenn Ihre `DbContext` verfügt über eine `DbSet<Album>`, müssen Sie migrieren die `Album` Klasse.
 
-Mit diesen Dateien direkt in die *Startup.cs* Datei aktualisieren kompilieren gestellt werden seine `using` Anweisungen:
+Mit diesen Dateien vorhanden die *"Startup.cs"* Datei kann auf die Aktualisierung der Kompilierung erfolgen die `using` Anweisungen:
 
 ```csharp
 using Microsoft.AspNetCore.Builder;
@@ -95,13 +95,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 ```
 
-Dieser app ist jetzt bereit zur Unterstützung der Authentifizierung und Identitätsdienste. Es muss nur diese Funktionen für Benutzer verfügbar gemacht haben.
+Unsere app ist jetzt bereit für die Authentifizierung und Identitätsdienste zu unterstützen. Es muss lediglich diese Funktionen für Benutzer verfügbar gemacht zu haben.
 
-## <a name="migrate-registration-and-login-logic"></a>Migrieren Sie die Logik für Registrierung und Anmeldung
+## <a name="migrate-registration-and-login-logic"></a>Migrieren von Logik für Registrierung und Anmeldung
 
-Identitätsdienste für die app konfiguriert und den Datenzugriff mithilfe von Entity Framework und SQL Server konfiguriert können wir Unterstützung für die Registrierung und Anmeldung für die app hinzufügen. Bedenken Sie, dass [weiter oben in der Migrationsprozess](xref:migration/mvc#migrate-the-layout-file) wir einen Verweis auf auskommentiert *_LoginPartial* in *_Layout.cshtml*. Jetzt ist es Zeit, um diesen Code zurückgeben, kommentieren Sie es, und fügen in den erforderlichen Controllern und Ansichten, um Anmeldung Funktionen zu unterstützen.
+Identitätsdienste für die app konfiguriert und Datenzugriff mit Entity Framework und SQL Server konfiguriert können wir Unterstützung für die Registrierung und Anmeldung für die app hinzuzufügen. Zur Erinnerung: [weiter oben in der Migrationsprozess](xref:migration/mvc#migrate-the-layout-file) wir einen Verweis auf auskommentiert *_LoginPartial* in *"_Layout.cshtml"*. Jetzt ist es Zeit, die mit diesem Code zurückgeben, kommentieren Sie es aus, und fügen in der erforderlichen Controller und Ansichten zur Unterstützung der Anmeldefunktionalität ermöglichen.
 
-Heben Sie die auskommentierung der `@Html.Partial` in Zeile *_Layout.cshtml*:
+Heben Sie die auskommentierung der `@Html.Partial` in Zeile *"_Layout.cshtml"*:
 
 ```cshtml
       <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
@@ -111,7 +111,7 @@ Heben Sie die auskommentierung der `@Html.Partial` in Zeile *_Layout.cshtml*:
 </div>
 ```
 
-Sie nun eine neue Razor-Ansicht mit der *_LoginPartial* auf die *Ansichten/freigegeben* Ordner:
+Nun, hinzufügen eine neue Razor-Ansicht namens *_LoginPartial* auf die *Views/Shared* Ordner:
 
 Update *_LoginPartial.cshtml* durch den folgenden Code (ersetzen Sie seinen gesamten Inhalt):
 
@@ -141,8 +141,8 @@ else
 }
 ```
 
-An diesem Punkt sollten Sie die Website in Ihrem Browser aktualisieren können.
+An diesem Punkt sollten Sie die Website in Ihrem Browser zu aktualisieren können.
 
 ## <a name="summary"></a>Zusammenfassung
 
-ASP.NET Core führt Änderungen auf die ASP.NET Identity-Funktionen. In diesem Artikel wurde gezeigt, wie die Authentifizierung und Benutzer-Verwaltungsfunktionen von ASP.NET Identity zu ASP.NET Core migrieren.
+ASP.NET Core umfasst Änderungen an die ASP.NET Identity-Funktionen. In diesem Artikel wurde gezeigt, wie die Funktionen der Authentifizierung und der Verwaltung von ASP.NET Identity zu ASP.NET Core zu migrieren.

@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-configure-an-aspnet-web-site-for-a-net-f
 title: '[Gewusst wie:] Konfigurieren einer ASP.NET-Website für eine Version von .NET Framework | Microsoft-Dokumentation'
 author: rick-anderson
 description: 'In diesem video Chris Pels zeige Vorgehensweise: Konfigurieren einer ASP.NET-Website auf, um eine bestimmte Version von ASP.NET/.NET-Framework verwenden. Zunächst erfahren Sie, wie welche v identifiziert...'
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/20/2008
 ms.assetid: 7b814965-aae2-4436-941c-710804557b67
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-configure-an-aspnet-web-site-for-a-net-framework-version
 msc.type: video
-ms.openlocfilehash: 92b243b26f4cd6548c42611104dffe282c32c99d
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 709f4e3993abed79d9f934668db6fee515089402
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37840903"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836230"
 ---
 <a name="how-do-i-configure-an-aspnet-web-site-for-a-net-framework-version"></a>[Gewusst wie:] Konfigurieren einer ASP.NET-Website für eine Version von .NET Framework
 ====================

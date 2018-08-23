@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report
 title: Auslagern und Sortieren von Berichtsdaten (VB) | Microsoft-Dokumentation
 author: rick-anderson
 description: Paginierung und Sortierung sind zwei sehr allgemeine Funktionen zum Anzeigen von Daten in einer online-Anwendung. In diesem Tutorial werden wir einen ersten Blick auf das Hinzufügen einer Sortierung dauern und...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/15/2006
 ms.assetid: b895e37e-0e69-45cc-a7e4-17ddd2e1b38d
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e8e33bc11074815b5beacd92c49c95f8ea9da2c0
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 2e1cc844122b0fdebbc0be09f88baa11a461ab8e
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37808459"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838020"
 ---
 <a name="paging-and-sorting-report-data-vb"></a>Auslagern und Sortieren von Berichtsdaten (VB)
 ====================

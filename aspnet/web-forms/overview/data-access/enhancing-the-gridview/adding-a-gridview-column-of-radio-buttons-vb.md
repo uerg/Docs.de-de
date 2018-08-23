@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-col
 title: Hinzufügen einer GridView-Spalte mit Optionsfeldern (VB) | Microsoft-Dokumentation
 author: rick-anderson
 description: In diesem Tutorial dargestellt, wie eine Spalte mit Optionsfeldern zu einem GridView-Steuerelement, sodass den Benutzer mit einer stärker intuitive Möglichkeit der Auswahl einer einzelnen Zeile der hinzufügen...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/06/2007
 ms.assetid: 2e31b60b-8723-4f14-b7ee-37859454dc3b
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-radio-buttons-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 56aa37392ab51306112f934f8dbff4151f232d35
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 76b3dbd502eff7c97f57fdacd120ac2312aaceae
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37835611"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836829"
 ---
 <a name="adding-a-gridview-column-of-radio-buttons-vb"></a>Hinzufügen einer GridView-Spalte mit Optionsfeldern (VB)
 ====================

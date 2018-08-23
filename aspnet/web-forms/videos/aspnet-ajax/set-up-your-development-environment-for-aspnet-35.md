@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-ajax/set-up-your-development-environment-for-aspnet
 title: Einrichten Ihrer Entwicklungsumgebung für ASP.NET 3.5 | Microsoft-Dokumentation
 author: JoeStagner
 description: In diesem Video erfahren Sie, wie zum Einrichten Ihrer Entwicklungsumgebung zum Entwickeln von ASP.NET AJAX-Anwendungen, wenn Sie ASP.NET 3.5 verwenden.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/13/2009
 ms.assetid: 00c0a4c9-5c25-413f-938c-8b77814ad2bd
 msc.legacyurl: /web-forms/videos/aspnet-ajax/set-up-your-development-environment-for-aspnet-35
 msc.type: video
-ms.openlocfilehash: 80ff1eb071d2b3fda4ffcca9b74804167f3d8080
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d1cff6c088b527b282e01e40987fe9ea9c9ac6b3
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37801754"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838074"
 ---
 <a name="set-up-your-development-environment-for-aspnet-35"></a>Richten Sie Ihrer Entwicklungsumgebung für ASP.NET 3.5 ein
 ====================

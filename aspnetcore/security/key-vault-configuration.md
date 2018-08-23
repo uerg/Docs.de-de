@@ -5,12 +5,12 @@ description: Erfahren Sie, wie Sie mit der Azure Key Vault-Konfigurationsanbiete
 ms.author: riande
 ms.date: 08/01/2018
 uid: security/key-vault-configuration
-ms.openlocfilehash: 6474b9f5cb9e441854565a7891c4aac7f781c810
-ms.sourcegitcommit: 571d76fbbff05e84406b6d909c8fe9cbea2c8ff1
+ms.openlocfilehash: 829c6c7e2750879b51bf3ce8225c6e472900f2ad
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39410129"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828331"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Azure Key Vault-Konfigurationsanbieter in ASP.NET Core
 
@@ -155,7 +155,7 @@ Deaktiviert und abgelaufene Geheimnisse Auslösen einer `KeyVaultClientException
 
 ## <a name="troubleshooting"></a>Problembehandlung
 
-Bei die app ein Fehler beim Laden der Konfiguration, die mithilfe des Anbieters auftritt, wird eine Fehlermeldung geschrieben, auf die [ASP.NET Protokollierung Infrastruktur](xref:fundamentals/logging/index). Die folgenden Bedingungen werden verhindert, dass die Konfiguration geladen:
+Bei die app ein Fehler beim Laden der Konfiguration, die mithilfe des Anbieters auftritt, wird eine Fehlermeldung geschrieben, auf die [Infrastruktur von ASP.NET Core-Protokollierung](xref:fundamentals/logging/index). Die folgenden Bedingungen werden verhindert, dass die Konfiguration geladen:
 
 * Die app ist nicht ordnungsgemäß in Azure Active Directory konfiguriert.
 * Die Key Vault-Instanz ist in Azure Key Vault nicht vorhanden.

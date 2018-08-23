@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/advanced-data-access-scenarios/updating-the-
 title: Aktualisieren den TableAdapter, für die Verwendung von Verknüpfungen (VB) | Microsoft-Dokumentation
 author: rick-anderson
 description: Bei der Arbeit mit einer Datenbank ist es üblich, das Abrufen von Daten, die auf mehrere Tabellen verteilt werden. Zum Abrufen von Daten aus zwei verschiedenen Tabellen können wir eine verwenden...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/18/2007
 ms.assetid: e624a3e0-061b-4efc-8b0e-5877f9ff6714
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/updating-the-tableadapter-to-use-joins-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 43e0caf63600858f7f2211f3d2e98aa2c6425820
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d5a7b61d447631f5e65ca8a3dfac9c58c108643f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37832379"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837408"
 ---
 <a name="updating-the-tableadapter-to-use-joins-vb"></a>Aktualisieren den TableAdapter, für die Verwendung von Verknüpfungen (VB)
 ====================

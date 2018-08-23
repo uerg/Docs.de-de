@@ -1,47 +1,47 @@
 ---
-title: Open Umleitung Angriffe in ASP.NET Core
+title: Verhindern von Angriffen durch offene umleitungen in ASP.NET Core
 author: ardalis
-description: Zeigt, wie open umleitungs-Angriffe gegen eine ASP.NET Core-app zu verhindern
+description: Zeigt, wie zum Verhindern von Angriffen durch offene umleitungen für eine ASP.NET Core-app
 ms.author: riande
 ms.date: 07/07/2017
 uid: security/preventing-open-redirects
-ms.openlocfilehash: 75591e37753c24bc959b3a96a54abebb51728364
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 0896189d2caaccb19647eb7c6d57f29dfc0290dd
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278297"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827921"
 ---
-# <a name="prevent-open-redirect-attacks-in-aspnet-core"></a>Open Umleitung Angriffe in ASP.NET Core
+# <a name="prevent-open-redirect-attacks-in-aspnet-core"></a>Verhindern von Angriffen durch offene umleitungen in ASP.NET Core
 
-Eine Web-app, die an eine URL umleitet, die über die Anforderung, z. B. die Abfragezeichenfolge oder Formular Daten angegeben wird kann potenziell mit manipuliert werden, um Benutzer an eine externe, böswillige URL weiterzuleiten. Diese Manipulation wird einen öffnen-Redirect-Angriff bezeichnet.
+Eine Web-app, die an eine URL umleitet, die über die Anforderung wie z. B. die Abfragezeichenfolge oder Form-Daten angegeben wird kann möglicherweise manipuliert werden Benutzer auf eine externe, böswillige URL umgeleitet. Diese Manipulation wird einen offene umleitungen-Angriff bezeichnet.
 
-Wenn Sie die Anwendungslogik zu einer angegebenen URL umleitet, müssen Sie sicherstellen, dass die umleitungs-URL nicht manipuliert wurde. ASP.NET Core verfügt über integrierte Funktionalität zu apps öffnen Umleitung (auch bekannt als open-Umleitung) Angriffen zu schützen.
+Wenn Ihre Anwendungslogik an eine angegebene URL umgeleitet wird, müssen Sie sicherstellen, dass die umleitungs-URL nicht manipuliert wurde. ASP.NET Core verfügt über integrierte Funktionen, die apps vor Angriffen durch offene umleitungen (auch bekannt als offene umleitungen) zu schützen.
 
-## <a name="what-is-an-open-redirect-attack"></a>Was ist ein Angriff öffnen Umleitung?
+## <a name="what-is-an-open-redirect-attack"></a>Was ist ein Angriff offene umleitungen?
 
-Webanwendungen Umleiten von Benutzern häufig zu einer Anmeldeseite beim Zugriff auf Ressourcen, die eine Authentifizierung erfordern. Die Umleitung Typlically umfasst eine `returnUrl` Querystring-Parameter, damit der Benutzer an die ursprünglich angeforderte URL zurückgegeben werden kann, nachdem sie erfolgreich angemeldet haben. Nachdem der Benutzer authentifiziert hat, sind sie mit der URL umgeleitet, die sie ursprünglich angefordert hatten.
+Web-Anwendungen umleiten häufig Benutzer zu einer Anmeldeseite beim Zugriff auf Ressourcen, die eine Authentifizierung erfordern. Die Umleitung in der Regel enthält eine `returnUrl` Querystring-Parameter, damit der Benutzer zur ursprünglich angeforderten URL zurückgegeben werden kann, nachdem sie sich erfolgreich angemeldet haben. Nachdem der Benutzer authentifiziert hat, sind sie an die URL umgeleitet, die er ursprünglich angefordert hatte.
 
-Da der Ziel-URL in die Abfragezeichenfolge der Anforderung angegeben ist, kann ein böswilliger Benutzer Querystring manipulieren. Ein manipuliertes Querystring kann die Website zum Umleiten des Benutzers auf eine externe, schädlichen Website ermöglichen. Diese Technik ist einen open Umleitung (oder der Umleitung)-Angriff bezeichnet.
+Da die Ziel-URL in der Abfragezeichenfolge der Anforderung angegeben ist, könnte ein böswilliger Benutzer mit der Abfragezeichenfolge manipulieren. Eine manipulierte Abfragezeichenfolge kann die Website Umleiten des Benutzers an eine externe, bösartige Website ermöglichen. Dieses Verfahren ist einen open Redirect (oder die Umleitung)-Angriff bezeichnet.
 
 ### <a name="an-example-attack"></a>Ein Beispiel-Angriff
 
-Ein böswilliger Benutzer könnte einen Angriff den böswilliger Benutzerzugriff auf eines Benutzers Anmeldeinformationen oder vertrauliche Informationen in Ihrer app zu ermöglichen entwickeln. Um das Risiko eines Angriffs zu beginnen, ermöglichen sie den Benutzer einen Link zur Anmeldeseite für Ihre Website, und klicken Sie auf eine `returnUrl` Querystring-Wert zur URL hinzugefügt. Z. B. die [NerdDinner.com](http://nerddinner.com) beispielanwendung (für ASP.NET MVC geschrieben) schließt solche eine Anmeldeseite hier: `http://nerddinner.com/Account/LogOn?returnUrl=/Home/About`. Der Angriff führt dann folgende Schritte aus:
+Ein böswilliger Benutzer kann einen Angriff, bestimmt der böswillige Benutzer Zugriff auf Anmeldeinformationen oder vertrauliche Informationen eines Benutzers entwickeln. Um den Angriff zu starten, überredet der böswillige Benutzer den Benutzer auf einen Link zu Ihrer Website-Anmeldeseite mit einem `returnUrl` Querystring-Wert, der URL hinzugefügt. Betrachten Sie beispielsweise eine app im `contoso.com` , umfasst eine Anmeldeseite auf `http://contoso.com/Account/LogOn?returnUrl=/Home/About`. Der Angriff: Diese Schritte aus
 
-1. Benutzer klickt auf einen Link zur `http://nerddinner.com/Account/LogOn?returnUrl=http://nerddiner.com/Account/LogOn` (Beachten Sie, dass zweiten URL ist Nerddi**n**mputerkonto, nicht Nerddi**Nn**mputerkonto).
+1. Der Benutzer klickt auf einen bösartigen Link zu `http://contoso.com/Account/LogOn?returnUrl=http://contoso1.com/Account/LogOn` (die zweite URL dient "Contoso**1**.com", nicht "contoso.com").
 2. Der Benutzer anmeldet erfolgreich.
-3. Der Benutzer umgeleitet wird (durch den Standort) `http://nerddiner.com/Account/LogOn` (bösartige Website, die echte Website aussieht).
-4. Der Benutzer wieder anmeldet (Vergabe böswillige Standort ihrer Anmeldeinformationen) und wieder an die wirkliche Website umgeleitet werden.
+3. Der Benutzer wird (von der Website) umgeleitet, um `http://contoso1.com/Account/LogOn` (eine schädliche Website, die genau wie die wirkliche Website aussieht).
+4. Der Benutzer wieder anmeldet (sodass böswillige Standort ihrer Anmeldeinformationen) und wieder an die wirkliche Website umgeleitet wird.
 
-Der Benutzer wird wahrscheinlich glauben, dass ihre ersten Versuch, melden Sie sich Fehler, und die zweiten Ausdruck erfolgreich war. Sehr wahrscheinlich werden Sie unabhängig von deren bleiben ihre Anmeldeinformationen beschädigt wurden.
+Der Benutzer wahrscheinlich ist der Auffassung, dass ihre erste Anmeldung ist fehlgeschlagen und der zweite Versuch erfolgreich ist. Der Benutzer bleibt in den meisten Fällen merkt nicht, dass ihre Anmeldeinformationen kompromittiert werden.
 
-![Open-Angriff-Weiterleitung](preventing-open-redirects/_static/open-redirection-attack-process.png)
+![Offene Umleitungen Angriff Prozess](preventing-open-redirects/_static/open-redirection-attack-process.png)
 
-Geben Sie zusätzlich zu den Anmeldungsseiten einige Websites Umleitung Seiten oder Endpunkte. Stellen Sie sich vor Ihrer app hat eine Seite mit einer geöffneten Umleitung `/Home/Redirect`. Ein Angreifer könnte erstellen, z. B. einen Link in einer e-Mail, die auf geht `[yoursite]/Home/Redirect?url=http://phishingsite.com/Home/Login`. Ein normaler Benutzer wird an der URL suchen und feststellen, dass er mit dem Standortnamen Ihres beginnt. Sie werden als vertrauenswürdig festlegen, die, auf den Link klicken. Öffnen umleiten den Benutzer klicken Sie dann auf die Phishingwebsite identisch mit Ihren Instanzen-aussieht, senden und der Benutzer wahrscheinlich würden, was sie meinen Anmeldung ist Ihr Standort.
+Geben Sie zusätzlich zu Anmeldeseiten einige Websites umleitungs-Seiten oder Endpunkte. Angenommen, Ihre app verfügt über eine Seite mit einer open-Umleitung `/Home/Redirect`. Ein Angreifer könnte erstellen, z. B. einen Link per e-Mail, der zum führt `[yoursite]/Home/Redirect?url=http://phishingsite.com/Home/Login`. Ein typischer Benutzer wird sehen Sie sich die URL, und sehen, dass sie durch den Standortnamen Ihres beginnt. Gewähren von vertrauen, die, werden sie auf den Link klicken. Klicken Sie dann würde der offene Umleitung den Benutzer senden, auf die Phishing-Website, die mit Ihnen identisch ist, und der Benutzer wahrscheinlich melden Sie sich, was ihrer Meinung nach wird Ihre Website.
 
-## <a name="protecting-against-open-redirect-attacks"></a>Schutz vor Angriffen öffnen umleiten
+## <a name="protecting-against-open-redirect-attacks"></a>Schutz vor Angriffen durch offene umleitungen
 
-Wenn Sie Webanwendungen zu entwickeln, behandeln Sie alle Benutzer bereitgestellten Daten als nicht vertrauenswürdig. Wenn die Anwendung Funktionen, die den Benutzer basierend auf den Inhalt der URL umleitet verfügt, stellen Sie sicher, dass solche leitet nur lokal ausgeführt werden, innerhalb Ihrer app (oder eine bekannte URL, aber keine URL, die in der Abfragezeichenfolge angegeben werden kann).
+Bei der Entwicklung von Webanwendungen, behandeln Sie alle Benutzer bereitgestellten Daten als nicht vertrauenswürdig. Wenn Ihre Anwendung Funktionen, der den Benutzer basierend auf den Inhalt der URL umleitet verfügt, stellen Sie sicher, dass solche leitet nur lokal ausgeführt werden, in Ihrer app (oder an eine bekannte URL, die nicht zu einer URL, die in der Abfragezeichenfolge angegeben werden kann).
 
 ### <a name="localredirect"></a>LocalRedirect
 
@@ -54,13 +54,13 @@ public IActionResult SomeAction(string redirectUrl)
 }
 ```
 
-`LocalRedirect` Wenn eine nicht lokale-URL angegeben ist, wird eine Ausnahme ausgelöst. Andernfalls verhält sich ebenso wie die `Redirect` Methode.
+`LocalRedirect` Wenn eine nicht lokale URL angegeben ist, wird eine Ausnahme ausgelöst. Anderenfalls verhält sich genau wie die `Redirect` Methode.
 
 ### <a name="islocalurl"></a>IsLocalUrl
 
-Verwenden der [IsLocalUrl](/dotnet/api/Microsoft.AspNetCore.Mvc.IUrlHelper?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_IUrlHelper_IsLocalUrl_System_String_) Methode zum Testen von URLs vor der Umleitung:
+Verwenden der [IsLocalUrl](/dotnet/api/Microsoft.AspNetCore.Mvc.IUrlHelper?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_IUrlHelper_IsLocalUrl_System_String_) Methode, um vor dem Umleiten von URLs zu testen:
 
-Das folgende Beispiel zeigt, wie zu überprüfen, ob vor der Umleitung für eine URL lokal ist.
+Das folgende Beispiel zeigt, wie Sie überprüfen, ob eine URL, die vor der Umleitung lokal ist.
 
 ```csharp
 private IActionResult RedirectToLocal(string returnUrl)
@@ -76,4 +76,4 @@ private IActionResult RedirectToLocal(string returnUrl)
 }
 ```
 
-Die `IsLocalUrl` Methode verhindert, dass Benutzer versehentlich an eine bösartige Website umgeleitet wird. Sie können die Details der URL protokollieren, die bereitgestellt wurde, wird eine nicht lokale-URL in einer Situation bereitgestellt, in dem Sie eine lokale URL erwartet. Protokollierung Umleitung können URLs bei der Diagnose von Umleitung Angriffe.
+Die `IsLocalUrl` Methode verhindert, dass Benutzer versehentlich an eine schädliche Website umgeleitet wird. Sie können die Details der URL protokollieren, die bereitgestellt wurde, wenn eine nicht lokale URL in einer Situation angegeben wird, wenn Sie eine lokale URL erwartet. Protokollierung Redirect können URLs bei der Diagnose von Umleitung-Angriffe.

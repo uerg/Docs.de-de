@@ -1,60 +1,60 @@
 ---
-title: Verwalten von Client-Side-Paketen mit Bower in ASP.NET Core
+title: Verwalten von clientseitigen Paketen mit Bower in ASP.NET Core
 author: rick-anderson
-description: Verwalten von Client-Side-Paketen mit Bower.
+description: Verwalten von clientseitigen Paketen mit Bower.
 ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.date: 02/14/2017
+ms.date: 08/09/2018
 uid: client-side/bower
-ms.openlocfilehash: 23f3dcd06f012f3cf8d9509280b91c4bd1dc84e1
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 8606c21596a5d9d6ada9c60b55b2f54da21c601b
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272516"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41902718"
 ---
-# <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>Verwalten von Client-Side-Paketen mit Bower in ASP.NET Core
+# <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>Verwalten von clientseitigen Paketen mit Bower in ASP.NET Core
 
-Durch [Rick Anderson](https://twitter.com/RickAndMSFT), [Noel Reis](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/), und [Scott Addie](https://scottaddie.com) 
+Durch [Rick Anderson](https://twitter.com/RickAndMSFT), [Noel Reis](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/), und [Scott Addie](https://scottaddie.com)
 
 > [!IMPORTANT]
-> Während Bower verwaltet wird, wird seine Maintainer mithilfe einer anderen Lösung empfohlen. [Hilfebibliotheks-Manager](https://blogs.msdn.microsoft.com/webdev/2018/04/18/what-happened-to-bower/) (LibMan kurz) ist Visual Studio neue clientseitigen statischen Inhaltsverwaltungssystem (Visual Studio 15,8 oder höher). Weitere Informationen finden Sie unter [Hilfebibliotheks-Manager: clientseitige Inhalts-Manager für Web-apps](https://blogs.msdn.microsoft.com/webdev/2018/04/17/library-manager-client-side-content-manager-for-web-apps/). Bower wird durch Version 15.5 in Visual Studio unterstützt.
+> Während der Bower verwaltet wird, wird empfohlen, die Verwalter eine andere Lösung. [Hilfebibliotheks-Manager](https://blogs.msdn.microsoft.com/webdev/2018/04/18/what-happened-to-bower/) (kurz LibMan) ist Visual Studio neue clientseitige Bibliothek Lizenzerwerbs-Tool (Visual Studio 15,8 oder höher). Weitere Informationen finden Sie unter <xref:client-side/libman/index>. Bower ist in Visual Studio bis Version 15.5 unterstützt.
 >
-> Yarn mit Webpaketdatei ist eine beliebte Alternative für die [migrationsanweisungen](https://bower.io/blog/2017/how-to-migrate-away-from-bower/) verfügbar sind. 
+> Yarn mit Webpack ist eine weit verbreitete Alternative für die [migrationsanweisungen](https://bower.io/blog/2017/how-to-migrate-away-from-bower/) stehen zur Verfügung.
 
-[Bower](https://bower.io/) ruft sich selbst "Eine Paketmanager für das Web". Innerhalb der Umgebung .NET füllt die "void", um NuGet Funktion zum Übermitteln von Dateien mit statischer Inhalt nach links. Für ASP.NET Core, sind dies statischen Dateien clientseitige Bibliotheken wie inhärenten [jQuery](http://jquery.com/) und [Bootstrap](http://getbootstrap.com/). Für die .NET-Bibliotheken, verwenden Sie immer noch [NuGet](https://www.nuget.org/) Paket-Manager.
+[Bower](https://bower.io/) ruft sich selbst "Paket-Manager für das Web". Innerhalb des Ökosystems .NET füllt die "void", um NuGets-Fehler zum Übermitteln von Dateien mit statischer Inhalt nach links. Diese statischen Dateien für ASP.NET Core-Projekte sind Bestandteil der clientseitige Bibliotheken wie [jQuery](http://jquery.com/) und [Bootstrap](http://getbootstrap.com/). Für .NET Bibliotheken verwenden, verwenden Sie immer noch [NuGet](https://www.nuget.org/) -Paket-Manager.
 
-Prozess zur Erstellung neuer Projekte, die mit den richten Sie die clientseitige ASP.NET Core-Projektvorlagen erstellt. [jQuery](http://jquery.com/) und [Bootstrap](http://getbootstrap.com/) installiert sind, und Bower wird unterstützt.
+Buildprozess für neue Projekte, die mit der richten Sie die clientseitige ASP.NET Core-Projektvorlagen erstellt wurden. [jQuery](http://jquery.com/) und [Bootstrap](http://getbootstrap.com/) installiert sind, und Bower wird unterstützt.
 
-Die clientseitige Pakete werden aufgeführt, der *"bower.JSON"* Datei. Konfiguriert die Projektvorlagen für ASP.NET Core *"bower.JSON"* mit jQuery, jQuery-Validierung und Bootstrap.
+Clientseitigen Paketen finden Sie in der *"bower.JSON"* Datei. Konfiguriert die ASP.NET Core-Projektvorlagen *"bower.JSON"* mit Bootstrap, jQuery und jQuery-Validierung.
 
-In diesem Lernprogramm fügen wir Unterstützung für [Schriftart Awesome](http://fontawesome.io). Bower Pakete können installiert werden, wobei die **Bower-Pakete verwalten** UI oder manuell in die *"bower.JSON"* Datei.
+In diesem Tutorial fügen wir Unterstützung für [Font Awesome](http://fontawesome.io). Bower-Pakete installiert werden können, mit der **Bower-Pakete verwalten** UI oder manuell in die *"bower.JSON"* Datei.
 
 ### <a name="installation-via-manage-bower-packages-ui"></a>Installation über Bower-Pakete verwalten UI
 
-* Erstellen Sie eine neue ASP.NET Core Web-app mit der **ASP.NET-Webanwendung für Core (.NET Core)** Vorlage. Wählen Sie **-Webanwendung** und **keine Authentifizierung**.
+* Erstellen einer neuen ASP.NET Core-Web-app mit der **ASP.NET Core-Webanwendung ((.NET Core)** Vorlage. Wählen Sie **Webanwendung** und **keine Authentifizierung**.
 
-* Mit der rechten Maustaste des Projekts im Projektmappen-Explorer, und wählen Sie **Bower-Pakete verwalten** (Alternativ im Hauptmenü **Projekt** > **Bower-Pakete verwalten**).
+* Mit der rechten Maustaste in des Projekts im Projektmappen-Explorer, und wählen Sie **Bower-Pakete verwalten** (Alternativ im Hauptmenü **Projekt** > **Bower-Pakete verwalten**).
 
 * In der **Bower: \<Projektname\>**  , klicken Sie auf der Registerkarte "Durchsuchen", und klicken Sie dann die Pakete durch Eingabe Filterliste `font-awesome` in das Suchfeld:
 
   ![Bower-Pakete verwalten](bower/_static/manage-bower-packages.png)
 
-* Überprüfen Sie, ob die "Speichern Sie die Änderungen *" bower.JSON "*" aktiviert ist. Wählen Sie eine Version aus der Dropdown-Liste, und klicken Sie auf die **installieren** Schaltfläche. Die **Ausgabe** Fenster zeigt die Details zur Installation.
+* Überprüfen Sie, ob die "Änderungen in *" bower.JSON "*" aktiviert ist. Wählen Sie eine Version aus der Dropdown-Liste, und klicken Sie auf die **installieren** Schaltfläche. Die **Ausgabe** Fenster zeigt die Details zur Installation.
 
 ### <a name="manual-installation-in-bowerjson"></a>Manuelle Installation in "bower.JSON"
 
-Öffnen der *"bower.JSON"* Datei und die Abhängigkeiten hinzuzufügen "Schriftart awesome". IntelliSense zeigt die verfügbaren Pakete. Wenn ein Paket ausgewählt ist, werden die verfügbaren Versionen angezeigt. Die folgenden Bilder sind ältere und nicht überein, was Sie sehen.
+Öffnen der *"bower.JSON"* Datei, und fügen Sie "Font awesome" den Abhängigkeiten hinzu. IntelliSense zeigt die verfügbaren Pakete. Wenn ein Paket ausgewählt ist, werden die verfügbaren Versionen angezeigt. Die Bilder unten älter und wird nicht übereinstimmen, was Sie sehen.
 
-![IntelliSense von Bower Paket-explorer](bower/_static/add-package.png)
+![IntelliSense von Bower-Paket-explorer](bower/_static/add-package.png)
 
-![Bower Version IntelliSense](bower/_static/version-intelliSense.png)
+![Bower-Version IntelliSense](bower/_static/version-intelliSense.png)
 
-Bower verwendet [semantischer versionsverwaltung](http://semver.org/) , Abhängigkeiten zu organisieren. Semantische versionsverwaltung, auch bekannt als SemVer, identifiziert die Pakete mit den Nummerierungsschema \<wichtigen >.\< kleinere >. \<Patch >. IntelliSense vereinfacht semantischen versionsverwaltung, indem nur einige allgemeine Optionen angezeigt. Das oberste Element in der IntelliSense-Liste (4.6.3 im obigen Beispiel) wird die neueste stabile Version des Pakets betrachtet. Das Caretzeichen (^) Symbol entspricht der aktuellsten Hauptversion und die Tilde (~) entspricht der aktuellsten Nebenversion.
+Bower-verwendet [semantische Versionierung](http://semver.org/) zum Organisieren von Abhängigkeiten. Semantischer versionsverwaltung, auch bekannt als SemVer, identifiziert die Pakete mit den Nummerierungsschema \<wichtigen >.\< kleinere >. \<Patch >. IntelliSense vereinfacht semantische Versionierung, indem Sie nur einige gängige Optionen angezeigt. Das oberste Element in der IntelliSense-Liste (4.6.3 im obigen Beispiel), gilt die neueste stabile Version des Pakets. Das Caretzeichen (^) Symbol entspricht, die aktuellste Version, und die Tilde (~) entspricht der aktuellsten Nebenversion.
 
-Speichern Sie die *"bower.JSON"* Datei. Visual Studio wird überwacht, ob die *"bower.JSON"* -Datei für die Änderungen. Beim Speichern der *Bower Installation* Befehl ausgeführt wird. Finden Sie im Ausgabefenster **Bower/Npm** Ansicht für den exakten Befehl ausgeführt.
+Speichern Sie die *"bower.JSON"* Datei. Visual Studio wird überwacht, ob die *"bower.JSON"* -Datei für die Änderungen. Beim Speichern der *Bower Install* Befehl ausgeführt wird. Finden Sie im Ausgabefenster **Bower-/Npm** Ansicht für den genauen, ausgeführten Befehl.
 
-Öffnen der *".bowerrc"* Datei unter *"bower.JSON"*. Die `directory` -Eigenschaftensatz auf *"Wwwroot" / Lib* gibt den Speicherort Bower an die Medienobjekte Paket installiert.
+Öffnen der *".bowerrc"* Datei *"bower.JSON"*. Die `directory` -Eigenschaftensatz auf *Wwwroot/Lib* gibt an den Speicherort von Bower installiert die Paketressourcen.
 
 ```json
 {
@@ -62,64 +62,64 @@ Speichern Sie die *"bower.JSON"* Datei. Visual Studio wird überwacht, ob die *"
 }
 ```
 
-Sie können das Suchfeld im Projektmappen-Explorer verwenden, suchen und Anzeigen der Schriftart awesome Paket.
+Sie können das Suchfeld im Projektmappen-Explorer verwenden, suchen und Anzeigen der Font awesome Paket.
 
-Öffnen der *Views\Shared\_Layout.cshtml* Datei, und fügen Sie die Schriftart awesome CSS-Datei mit der Umgebung [Tag Helper](xref:mvc/views/tag-helpers/intro) für `Development`. Klicken Sie im Projektmappen-Explorer ziehen, und legen Sie *Schriftart awesome.css* innerhalb der `<environment names="Development">` Element.
+Öffnen der *Views\Shared\_Layout.cshtml* Datei und hinzufügen die Font awesome CSS-Datei in der Umgebung [Taghilfsprogramm](xref:mvc/views/tag-helpers/intro) für `Development`. Klicken Sie im Projektmappen-Explorer ziehen, und legen Sie *Schriftart-awesome.css* innerhalb der `<environment names="Development">` Element.
 
 [!code-html[](bower/sample/_Layout.cshtml?highlight=4&range=9-13)]
 
-Fügen Sie in einer Produktions-app *Schriftart awesome.min.css* für die Umgebung Tags Hilfe für `Staging,Production`.
+In einer Produktions-app hinzufügen *Schriftart-awesome.min.css* auf die Environment-taghilfsprogramm für `Staging,Production`.
 
-Ersetzen Sie den Inhalt von der *Views\Home\About.cshtml* Razor-Datei durch Folgendes Markup:
+Ersetzen Sie den Inhalt von der *Views\Home\About.cshtml* Razor-Datei mit folgendem Markup:
 
 [!code-html[](bower/sample/About.cshtml)]
 
-Führen Sie die app, und navigieren Sie zu der Info-Ansicht, um zu überprüfen, ob die Schriftart awesome Paket funktioniert.
+Führen Sie die app aus, und navigieren Sie zu der Ansicht "Info", um zu überprüfen, ob die Schriftart-awesome Paket funktioniert.
 
-## <a name="exploring-the-client-side-build-process"></a>Untersuchen des clientseitigen Build-Prozesses
+## <a name="exploring-the-client-side-build-process"></a>Untersuchen die Client-Side-Buildprozess
 
-Die meisten ASP.NET Core-Projektvorlagen sind bereits mithilfe von Bower konfiguriert. Diese weiter Exemplarische Vorgehensweise beginnt mit einem leeren ASP.NET Core-Projekt und Transformationsprozesses manuell hinzugefügt, sodass Sie einen Eindruck darüber abrufen können, wie Bower in einem Projekt verwendet wird. Sie können sehen, was geschieht mit der Projektstruktur und die Common Language Runtime, die Ausgabe wie für jede konfigurationsänderung vorgenommen wird.
+Die meisten ASP.NET Core-Projektvorlagen sind bereits konfiguriert, um die Nutzung von bower beginnen. Dieser nächste exemplarische Vorgehensweise beginnt mit einem leeren ASP.NET Core-Projekt und jedes Datenelement manuell hinzugefügt, sodass Sie ein Gefühl für die Verwendung von Bower in einem Projekt abrufen können. Sie können sehen, was geschieht mit der Projektstruktur und die Laufzeit auszugeben, wenn jede konfigurationsänderung vorgenommen wird.
 
 Die allgemeinen Schritte des Buildprozesses für die clientseitige mit Bower verwendet werden:
 
-* Definieren Sie die Pakete im Projekt verwendet. <!-- once defined, you don't need to download them, VS does -->
-* Referenzpaketen von Webseiten.
+* Definieren Sie in Ihrem Projekt verwendeten Pakete. <!-- once defined, you don't need to download them, VS does -->
+* Die referenzpakete von Ihren Webseiten.
 
 ### <a name="define-packages"></a>Definieren von Paketen
 
-Nachdem Sie Pakete in Auflisten der *"bower.JSON"* Visual Studio-Datei laden sie herunter. Im folgenden Beispiel wird Bower jQuery und Bootstrap zum Laden der *"Wwwroot"* Ordner.
+Nachdem Sie Pakete in Auflisten der *"bower.JSON"* Visual Studio-Datei laden sie herunter. Im folgenden Beispiel wird Bower, jQuery und Bootstrap zum Laden der *"Wwwroot"* Ordner.
 
-* Erstellen Sie eine neue ASP.NET Core Web-app mit der **ASP.NET-Webanwendung für Core (.NET Core)** Vorlage. Wählen Sie die **leere** -Projektvorlage, und klicken Sie auf **OK**.
+* Erstellen einer neuen ASP.NET Core-Web-app mit der **ASP.NET Core-Webanwendung ((.NET Core)** Vorlage. Wählen Sie die **leere** Projektvorlage aus, und klicken Sie auf **OK**.
 
-* Im Projektmappen-Explorer mit der Maustaste des Projekts > **neues Element hinzufügen** , und wählen Sie **Bower Konfigurationsdatei**. Hinweis: Ein *".bowerrc"* Datei wird ebenfalls hinzugefügt.
+* Klicken Sie im Projektmappen-Explorer mit der Maustaste des Projekts > **neues Element hinzufügen** , und wählen Sie **Bower-Konfigurationsdatei**. Hinweis: Ein *".bowerrc"* Datei wird ebenfalls hinzugefügt.
 
-* Open *"bower.JSON"*, Jquery und fügen auf das Bootstrapping der `dependencies` Abschnitt. Das resultierende *"bower.JSON"* Datei wird im folgenden Beispiel aussehen. Die Versionen mit der Zeit ändert und die folgenden Abbildung möglicherweise nicht überein.
+* Öffnen *"bower.JSON"*, Hinzufügen von Jquery und bootstrap auf dem `dependencies` Abschnitt. Die resultierende *"bower.JSON"* sieht die Datei wie im folgenden Beispiel. Die Versionen ändert sich im Laufe der Zeit und entsprechen möglicherweise nicht die folgenden Abbildung.
 
 [!code-json[](bower/sample/bower.json?highlight=5,6)]
 
 * Speichern Sie die *"bower.JSON"* Datei.
 
-  Überprüfen Sie das Projekt enthält die *bootstrap* und *jQuery* Verzeichnisse in *"Wwwroot" / Lib*. Bower verwendet die *".bowerrc"* -Datei zum Installieren von der Objekten in *"Wwwroot" / Lib*.
+  Überprüfen Sie das Projekt enthält die *bootstrap* und *jQuery* Verzeichnisse im *Wwwroot/Lib*. Bower-verwendet die *".bowerrc"* Datei zum Installieren der Objekte in *Wwwroot/Lib*.
 
-  Hinweis: Die Benutzeroberfläche "Bower-Pakete verwalten" bietet eine Alternative zum manuellen bearbeiten.
+  Hinweis: Die Benutzeroberfläche "Bower-Pakete verwalten" bietet eine Alternative zum manuellen-Datei bearbeitet wird.
 
-### <a name="enable-static-files"></a>Statische Dateien aktivieren
+### <a name="enable-static-files"></a>Aktivieren Sie die statische Dateien
 
 * Hinzufügen der `Microsoft.AspNetCore.StaticFiles` NuGet-Paket zum Projekt.
-* Aktivieren Sie die statische Dateien mit versorgt werden die [Middleware für statische Dateien](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions). Fügen Sie einen Aufruf von [UseStaticFiles](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions) auf die `Configure` Methode `Startup`.
+* Aktivieren Sie statische Dateien mit verarbeitet die [Middleware für statische Dateien](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions). Fügen Sie einen Aufruf von [UseStaticFiles](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions) auf die `Configure` -Methode der `Startup`.
 
 [!code-csharp[](bower/sample/Startup.cs?highlight=9)]
 
-### <a name="reference-packages"></a>Referenzpaketen
+### <a name="reference-packages"></a>Referenzpakete
 
-In diesem Abschnitt erstellen Sie eine HTML-Seite, um sicherzustellen, dass er die bereitgestellten Pakete zugreifen kann.
+In diesem Abschnitt erstellen Sie eine HTML-Seite, um sicherzustellen, dass sie die bereitgestellten Pakete zugreifen kann.
 
-* Fügen Sie eine neue HTML-Seite mit dem Namen *"Index.HTML"* auf die *"Wwwroot"* Ordner. Hinweis: Sie müssen die HTML-Datei zum Hinzufügen der *"Wwwroot"* Ordner. Standardmäßig kann nicht außerhalb statische Inhalte bereitgestellt werden *"Wwwroot"*. Finden Sie unter [statische Dateien](xref:fundamentals/static-files) für Weitere Informationen.
+* Hinzufügen einer neuen HTML-Seite, die mit dem Namen *"Index.HTML"* auf die *"Wwwroot"* Ordner. Hinweis: Sie müssen die HTML-Datei zum Hinzufügen der *"Wwwroot"* Ordner. Standardmäßig kann nicht außerhalb statischer Inhalt verarbeitet werden *"Wwwroot"*. Finden Sie unter [statische Dateien](xref:fundamentals/static-files) für Weitere Informationen.
 
-  Ersetzen Sie den Inhalt des *"Index.HTML"* durch Folgendes Markup:
+  Ersetzen Sie den Inhalt der *"Index.HTML"* mit folgendem Markup:
 
 [!code-html[](bower/sample/Index.html)]
 
-* Führen Sie die app, und navigieren Sie zu `http://localhost:<port>/Index.html`. Alternativ können Sie mit *"Index.HTML"* geöffnet haben, drücken Sie `Ctrl+Shift+W`. Stellen Sie sicher, dass die Formatvorlage Jumbotron angewendet wird, die jQuery-Code reagiert werden soll, wenn die Schaltfläche geklickt wird, und die Schaltfläche "Bootstrap" Zustand ändert.
+* Führen Sie die app, und navigieren Sie zu `http://localhost:<port>/Index.html`. Sie können auch mit *"Index.HTML"* geöffnet haben, drücken Sie die `Ctrl+Shift+W`. Stellen Sie sicher, dass der Jumbotron-Stil angewendet wird, der jQuery-Code reagiert werden soll, wenn die Schaltfläche geklickt wird und die Schaltfläche "Bootstrap" Zustand ändert.
 
-  ![Jumbotron-Formatvorlage](bower/_static/jumbotron.png)
+  ![angewendete Jumbotron-Stil](bower/_static/jumbotron.png)

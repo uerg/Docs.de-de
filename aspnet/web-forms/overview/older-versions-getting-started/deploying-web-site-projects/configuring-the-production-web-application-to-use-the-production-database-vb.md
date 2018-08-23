@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: Konfigurieren der Produktionswebanwendung mithilfe der Produktionsdatenbank (VB) | Microsoft-Dokumentation
 author: rick-anderson
 description: Wie in den vorherigen Tutorials erwähnt, ist es nicht ungewöhnlich, dass Informationen zu den Umgebungen für Entwicklungs- und produktionsumgebungen unterscheiden. Dies ist es...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/23/2009
 ms.assetid: a64a7aa0-6608-449e-83bf-1ef8cceee504
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 952bdafd06143ce24e9e8beb0d6e6343400ffdc6
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3d6e25de44a7c84ef0919d1cfd8ab4c6b368e0ea
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37840699"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837432"
 ---
 <a name="configuring-the-production-web-application-to-use-the-production-database-vb"></a>Konfigurieren der Produktionswebanwendung mithilfe der Produktionsdatenbank (VB)
 ====================

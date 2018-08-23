@@ -3,17 +3,17 @@ uid: identity/overview/extensibility/overview-of-custom-storage-providers-for-as
 title: Übersicht über benutzerdefinierte Speicheranbieter für ASP.NET Identity | Microsoft-Dokumentation
 author: tfitzmac
 description: ASP.NET Identity ist ein erweiterbares System auf das diese Weise können Sie Ihren eigenen Anbieter erstellen und es in Ihre Anwendung einbinden, ohne die anwendungse erneut verarbeitet werden...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/13/2014
 ms.assetid: 681a9204-462e-4260-9a0b-19f0644d6ad7
 msc.legacyurl: /identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 35c8986024279bf66f239dbd969fba5ca02f3d01
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c92084265ff821bcec25244195a3511b71714836
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37831733"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837731"
 ---
 <a name="overview-of-custom-storage-providers-for-aspnet-identity"></a>Übersicht über benutzerdefinierte Speicheranbieter für ASP.NET Identity
 ====================

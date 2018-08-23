@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 09/22/2017
 uid: client-side/using-browserlink
-ms.openlocfilehash: 5ab15c841c472e6c9d47bad70fcf5e0c6dc3010f
-ms.sourcegitcommit: ea7ec8d47f94cfb8e008d771f647f86bbb4baa44
+ms.openlocfilehash: 452ba5149563c186750466f471c7b950f0017614
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37894178"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829605"
 ---
 # <a name="browser-link-in-aspnet-core"></a>Browserlink in ASP.NET Core
 
@@ -139,7 +139,7 @@ Wenn die automatische CSS-Synchronisierung aktiviert ist, werden die verbundene 
 
 ## <a name="how-it-works"></a>So funktioniert es
 
-Browserverknüpfung verwendet SignalR, um einen Kommunikationskanal zwischen Visual Studio und den Browser zu erstellen. Wenn Browser Link aktiviert ist, fungiert Visual Studio als SignalR-Server, dem mehrere Clients (Browser) herstellen können. Browserverknüpfung registriert auch eine middlewarekomponente in der ASP.NET-Pipeline für die Anforderung. Diese Komponente fügt spezielle `<script>` verweisen in jede Anforderung einer Seite vom Server. Sie sehen die Skriptverweise dazu **Quelltext anzeigen** im Browser, und scrollen bis zum Ende der `<body>` Inhalte:
+Browserverknüpfung verwendet SignalR, um einen Kommunikationskanal zwischen Visual Studio und den Browser zu erstellen. Wenn Browser Link aktiviert ist, fungiert Visual Studio als SignalR-Server, dem mehrere Clients (Browser) herstellen können. Browserverknüpfung registriert auch eine middlewarekomponente in der ASP.NET Core-Anforderungspipeline. Diese Komponente fügt spezielle `<script>` verweisen in jede Anforderung einer Seite vom Server. Sie sehen die Skriptverweise dazu **Quelltext anzeigen** im Browser, und scrollen bis zum Ende der `<body>` Inhalte:
 
 ```html
     <!-- Visual Studio Browser Link -->

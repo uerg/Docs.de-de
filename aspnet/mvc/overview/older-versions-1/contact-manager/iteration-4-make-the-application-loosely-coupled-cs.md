@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-applicat
 title: 'Iteration #4 – Optimieren der Anwendung, die lose verknüpft wird (c#) | Microsoft-Dokumentation'
 author: microsoft
 description: In dieser vierten Iteration nutzen wir einige Entwurfsmuster für Software zu verwalten und ändern Sie die Kontakt-Manager-Anwendung zu vereinfachen. Für ...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2009
 ms.assetid: 829f589f-e201-4f6e-9ae6-08ae84322065
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7c06609afd6f1adf930a377c99d66937885f78e7
-ms.sourcegitcommit: a25b572eaed21791230c85416f449f66a405ec19
+ms.openlocfilehash: 955991c148d48020c66cbc63ec6da45e3a9cc282
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39396028"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838942"
 ---
 <a name="iteration-4--make-the-application-loosely-coupled-c"></a>Iteration #4 – Optimieren der Anwendung, die lose verknüpft wird (c#)
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-work-with-master-pages-declaratively-and
 title: '[Gewusst wie:] Arbeiten mit Masterseiten, deklaratives und Programmgesteuertes | Microsoft-Dokumentation'
 author: rick-anderson
 description: In diesem video Chris Pels zeigt mehrere Aspekte des definieren und Verwenden von Masterseiten in einer ASP.NET-Website. Zunächst erfahren Sie, wie Masterseiten Declarati erstellen...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/21/2008
 ms.assetid: 4f5f7805-373f-4dc3-b7f6-219edf7e66a3
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-work-with-master-pages-declaratively-and-programmatically
 msc.type: video
-ms.openlocfilehash: dc0569a457e2aea378a0fa49e80d9f1e794c256f
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 961a616480db6bd1f632996c27856798c9e92a43
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37802421"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838633"
 ---
 <a name="how-do-i-work-with-master-pages-declaratively-and-programmatically"></a>[Gewusst wie:] Arbeiten Sie mit Masterseiten, deklarativ und programmgesteuert
 ====================

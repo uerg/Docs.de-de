@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-
 title: Bereitstellen von Datenbankrollenmitgliedschaften in Testumgebungen | Microsoft-Dokumentation
 author: jrjlee
 description: Dieses Thema beschreibt, wie Sie Benutzerkonten, Datenbankrollen, die als Teil einer Bereitstellung in einer testumgebung hinzufügen. Beim Bereitstellen einer Lösung mit...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 9b2af539-7ad9-47aa-b66e-873bd9906e79
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments
 msc.type: authoredcontent
-ms.openlocfilehash: a690d99df7a19c422fb217544ec183c311d1796f
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 07442b7a016ce2a32b1c9e7f44010517e40d7189
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37828032"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828978"
 ---
 <a name="deploying-database-role-memberships-to-test-environments"></a>Bereitstellen von Datenbankrollenmitgliedschaften in Testumgebungen
 ====================
@@ -63,14 +63,14 @@ Können Sie ein Transact-SQL-Skript in viele verschiedene Arten erstellen, und w
 2. Mit der rechten Maustaste die **Skripts** Ordner, zeigen Sie auf **hinzufügen**, und klicken Sie dann auf **neuer Ordner**.
 3. Typ **Test** als Name des Ordners aus, und drücken Sie dann die EINGABETASTE.
 4. Mit der rechten Maustaste die **Test** Ordner, zeigen Sie auf **hinzufügen**, und klicken Sie dann auf **Skript**.
-5. Dies ist in der Regel hilfreich, wenn Sie regelmäßig neu, eine Datenbank in einer testumgebung erstellen, aber es in der Regel vermieden werden, sollte Wenn Sie Datenbanken in Staging-oder produktionsumgebung bereitstellen.
+5. In der **neues Element hinzufügen** Dialogfeld gewähren Sie Ihr Skript einen aussagekräftigen Namen (z. B. **AddRoleMemberships.sql**), und klicken Sie dann auf **hinzufügen**.
 
     ![](deploying-database-role-memberships-to-test-environments/_static/image1.png)
-6. Daher sollten Sie sicherstellen, dass Sie die erforderliche bedingte Logik verwenden, sodass Datenbankbenutzer und Rollenmitgliedschaften nur erstellt werden, wenn es dazu geeignet ist.
+6. In der *AddRoleMemberships.sql* hinzufügen Transact-SQL-Anweisungen, die:
 
-    1. Weitere Informationen zur Verwendung von VSDBCMD Datenbankprojekte bereitstellen, finden Sie unter Bereitstellen von Datenbankprojekten.
-    2. Anleitungen zum Anpassen von datenbankbereitstellungen für unterschiedliche zielumgebungen finden Sie unter Anpassen von Datenbankbereitstellungen für mehrere Umgebungen.
-7. Weitere Informationen zu benutzerdefinierte MSBuild-Projektdateien verwenden, um den Bereitstellungsprozess zu steuern, finden Sie unter Grundlegendes zur Projektdatei und Verständnis des Prozesses erstellen.
+    1. Erstellen Sie einen Datenbankbenutzer für die SQL Server-Anmeldung, die Ihre Datenbank zugreifen.
+    2. Den Datenbankbenutzer und alle erforderlichen Datenbankrollen hinzugefügt.
+7. Die Datei sollte diesem ähneln:
 
     [!code-sql[Main](deploying-database-role-memberships-to-test-environments/samples/sample1.sql)]
 8. Speichern Sie die Datei.

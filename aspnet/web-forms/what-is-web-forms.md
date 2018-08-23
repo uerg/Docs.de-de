@@ -3,17 +3,17 @@ uid: web-forms/what-is-web-forms
 title: Was ist, dass Web Forms | Microsoft-Dokumentation
 author: rick-anderson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/21/2014
 ms.assetid: 5fa1daf9-1161-4cfa-bd4c-658f48b2c229
 msc.legacyurl: /web-forms/what-is-web-forms
 msc.type: content
-ms.openlocfilehash: 06dfc642f2903be1e4928391806fd815d763c903
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ccb0e6096b0281e5ef8af63bfd84b172e7f209b9
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37823948"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41839011"
 ---
 <a name="what-is-web-forms"></a>Was ist Web Forms
 ====================
@@ -55,9 +55,9 @@ Programmierung von Webanwendungen Herausforderungen, die bei der Programmierung 
 - **Komplikationen bei Datenzugriff** -lesen und Schreiben in eine Datenquelle in herkömmlichen Webanwendungen können kompliziert und ressourcenintensiv sein.
 - **Komplikationen bei der Skalierbarkeit** – In vielen Fällen nicht Webanwendungen, die speziell für die vorhandenen Methoden skalierungsziele aufgrund des Mangels an Kompatibilität zwischen den verschiedenen Komponenten der Anwendung zu erfüllen. Dies ist oft einen gemeinsamen Fehlerpunkt für Anwendungen unter einem Zyklus hoher Zuwachs.
 
-Erfüllt diese Herausforderungen für Webanwendungen kann sehr viel Zeit und Aufwand erfordern. Er verwendet ein Frontcontroller-Schema, das webanwendungsanforderungen durch einen einzelnen Controller verarbeitet.
+Erfüllt diese Herausforderungen für Webanwendungen kann sehr viel Zeit und Aufwand erfordern. ASP.NET Web Forms und ASP.NET-Framework Herausforderungen diese auf folgende Weise:
 
-- **Dadurch können Sie eine Anwendung entwerfen, die eine umfangreiche Routinginfrastruktur unterstützen. Weitere Informationen finden Sie unter FrontcontrollerFrontcontroller auf der MSDN-Website. Es bietet bessere Unterstützung für testgesteuerte Entwicklung (TDD). Es eignet sich gut für Webanwendungen, die unterstützt werden, indem große Teams, die von Entwicklern und Web-Designer, die ein hohes Maß an Kontrolle über das Verhalten der Anwendung benötigen.
+- **Intuitive und konsistentes Objektmodell** -das ASP.NET-Seitenframework stellt ein Objektmodell, das Ihnen ermöglicht, Ihre Formulare als eine Einheit und nicht als separate Teile von Client und Server vorstellen. In diesem Modell können Sie die Seite in einer intuitiver Weise als in herkömmlichen Webanwendungen, einschließlich der Möglichkeit, legen Sie Eigenschaften für Elemente und reagieren auf Ereignisse programmieren. Darüber hinaus sind die ASP.NET-Serversteuerelemente eine Abstraktion von physischen Inhalt einer HTML-Seite und der direkten Interaktion zwischen Browser und Server. Im Allgemeinen können Steuerelemente die Möglichkeit Sie, die Sie möglicherweise verwenden von Steuerelementen in einer Clientanwendung und nicht kümmern, wie Sie den HTML-Code vorhanden und verarbeiten die Steuerelemente und deren Inhalt erstellen.
 - **Ereignisgesteuertes Programmiermodell** -ASP.NET Web Forms nutzen Sie das vertraute Modell das Schreiben von Ereignishandlern für Ereignisse, die auftreten, auf dem Client oder Server für Web-Anwendungen. Das ASP.NET-Seitenframework abstrahiert dieses Modell so, dass der zugrunde liegende Mechanismus für das Erfassen eines Ereignisses auf dem Client, übertragen es an den Server und Aufrufen der entsprechenden Methode alle automatisch und unsichtbar bleibt, ist. Das Ergebnis ist eine klare und einfache Weise geschriebenen Codestruktur, die das ereignisgesteuerte-Entwicklung unterstützt.
 - **Intuitive Zustandsverwaltung** – das ASP.NET-Seitenframework behandelt automatisch die Aufgabe der Verwaltung des Ihrer Seite und ihre Steuerelemente und bietet Ihnen eine explizite Möglichkeiten, den Status einer anwendungsspezifischen Informationen beibehalten. Dies wird erreicht, ohne die intensiven Gebrauch von Serverressourcen und kann implementiert werden, mit oder ohne Cookies an den Browser senden.
 - **Browser-unabhängigen Anwendungen** -Framework für die ASP.NET-Seiten können Sie die gesamte Anwendungslogik auf dem Server, und Sie müssen explizit für die Unterschiede in Browsern code zu erstellen. Allerdings können immer noch Sie nutzen Browser-spezifischen Funktionen durch clientseitigen Code zum verbesserten Leistung und ein umfangreicheres Clientbenutzerszenario bereitstellen.

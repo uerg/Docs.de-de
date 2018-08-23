@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/13/2018
 uid: signalr/hubcontext
-ms.openlocfilehash: 6b955c2064d7d6a045594e56326e2f7df282675f
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: a02588dc98283a375e9deb7c8561c59f6d886eb0
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095306"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827923"
 ---
 # <a name="send-messages-from-outside-a-hub"></a>Senden von Nachrichten von außerhalb eines Hubs
 
@@ -27,7 +27,7 @@ Der SignalR-Hub ist die Core-Abstraktion zum Senden von Nachrichten für Clients
 In ASP.NET Core SignalR und kann auf eine Instanz des `IHubContext` über Dependency Injection. Fügen Sie eine Instanz von `IHubContext` in einen Controller, Middleware oder andere DI-Dienst. Verwenden Sie die Instanz, um Nachrichten an Clients zu senden.
 
 > [!NOTE]
-> Dies unterscheidet sich von ASP.NET SignalR GlobalHost verwendet wird, Zugriff auf die `IHubContext`. ASP.NET Core verfügt über einen Dependency Injection-Framework, die die Notwendigkeit dieses globale Singleton entfernt.
+> Dies unterscheidet sich von ASP.NET 4.x SignalR GlobalHost verwendet wird, Zugriff auf die `IHubContext`. ASP.NET Core verfügt über einen Dependency Injection-Framework, die die Notwendigkeit dieses globale Singleton entfernt.
 
 ### <a name="inject-an-instance-of-ihubcontext-in-a-controller"></a>Eine Instanz von `IHubContext` in einem Controller
 

@@ -3,17 +3,17 @@ uid: web-pages/readme/overview
 title: WebMatrix Readme | Microsoft Docs
 author: rick-anderson
 description: WebMatrix und ASP.NET Web Pages (Razor) Version 1.0-Infodatei
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/06/2011
 ms.assetid: 36c5beeb-45a7-48a0-9c30-f82cdf5c5f5f
 msc.legacyurl: /web-pages/readme
 msc.type: content
-ms.openlocfilehash: 8aa0eedb3156ca33905c106b72d5fa553a917b16
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: aa852e7bbd93622154d59e0d0a13ffa680812df2
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37822861"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838697"
 ---
 <a name="webmatrix-readme"></a>WebMatrix-Infodatei
 ====================
@@ -119,7 +119,7 @@ ms.locfileid: "37822861"
 
 Dieser Abschnitt des Dokuments Beschreibt neue Features, Änderungen und bekannte Probleme mit der Version 1.0 von ASP.NET Web Pages mit Razor-Syntax.
 
-- [Neue features](#NewFeatures)
+- [Neue Features](#NewFeatures)
 - [Änderungen](#Changes)
 - [Probleme](#Issues)
 
@@ -359,9 +359,9 @@ In diesem Abschnitt des Dokuments beschreibt bekannte Probleme bei der WebMatrix
 > Dies ist beabsichtigt. Sie müssen nicht den Namen des primären Schlüssels auf der Primärschlüsseltabelle eingeben.
 
 
-#### <a name="issue-intellisense-is-not-available-in-webmatrix-for-razor-syntax-c-or-visual-basic"></a>Sollte möglichst die Website erneut zu veröffentlichen (oder dessen Veröffentlichung) mit nicht-Administrator-Anmeldeinformationen für die Datenbank.
+#### <a name="issue-intellisense-is-not-available-in-webmatrix-for-razor-syntax-c-or-visual-basic"></a>Problem: IntelliSense ist nicht in WebMatrix für Razor-Syntax, c# oder Visual Basic verfügbar sind
 
-> Weitere Informationen zu WebMatrix 1.0 finden Sie unter den folgenden Websites: Allerdings ist sie nicht für andere Sprachen verfügbar. 
+> IntelliSense für HTML- und CSS in WebMatrix unterstützt. Allerdings ist sie nicht für andere Sprachen verfügbar. 
 > 
 > **Dieses Problem zu umgehen**   
 > Keine

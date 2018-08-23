@@ -3,17 +3,17 @@ uid: web-forms/videos/vs-2005/introduction-to-managing-and-running-tests-with-te
 title: Einführung in die Sie verwalten und Ausführen von Tests mit TeamSystem | Microsoft-Dokumentation
 author: rick-anderson
 description: In diesem Video sehen wir, wie Sie alle verwalten können, oder den verschiedenen Testfälle, die mithilfe der Test-Management-Funktionen von Visual Studio Team System. Wir sehen auch...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/09/2007
 ms.assetid: e262ca69-55e5-4ec2-b278-78ee129b4649
 msc.legacyurl: /web-forms/videos/vs-2005/introduction-to-managing-and-running-tests-with-team-system
 msc.type: video
-ms.openlocfilehash: 9a3a4a2248ef9c350980c7cb4541749474b1299a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 1b9ea5277253395ba16b3a4480b61fb522327d75
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805947"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838710"
 ---
 <a name="introduction-to-managing-and-running-tests-with-team-system"></a>Verwalten und Ausführen von Tests mit TeamSystem – Einführung
 ====================
