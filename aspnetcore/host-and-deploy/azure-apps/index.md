@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/24/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: ece61a3e362ec5e2ff8f415351a0f9257fc72098
-ms.sourcegitcommit: b4c7b1a4c48dec0865f27874275c73da1f75e918
+ms.openlocfilehash: 9a7d20378cac597b748d8a60eb0f0bf17c9ba082
+ms.sourcegitcommit: d27317c16f113e7c111583042ec7e4c5a26adf6f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39228610"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41749893"
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Hosten von ASP.NET Core in Azure App Service
 
@@ -99,7 +99,7 @@ Weitere Informationen finden Sie unter [Schlüsselspeicheranbieter](xref:securit
 ASP.NET Core-Vorschau-Apps können mit den folgenden Vorgehensweisen für Azure App Service bereitgestellt werden:
 
 * [Installieren der Websiteerweiterung (Vorschau)](#install-the-preview-site-extension)
-* [Bereitstellung der App als eigenständige App](#deploy-the-app-self-contained)
+<!-- * [Deploy the app self-contained](#deploy-the-app-self-contained) -->
 * [Verwenden von Docker mit Web-Apps für Container](#use-docker-with-web-apps-for-containers)
 
 Sollte ein Problem mit dem Verwenden der Vorschau der Websiteerweiterung auftreten, erstellen Sie ein Problem auf [GitHub](https://github.com/aspnet/azureintegration/issues/new).
@@ -138,14 +138,16 @@ Wenn Sie eine ARM-Vorlage zum Erstellen und Bereitstellen von Anwendungen verwen
 
 [!code-json[Main](index/sample/arm.json?highlight=2)]
 
-### <a name="deploy-the-app-self-contained"></a>Bereitstellen der App als eigenständige App
+<!--
+### Deploy the app self-contained
 
-Eine [eigenständige App](/dotnet/core/deploying/#self-contained-deployments-scd), die die Vorschau-Runtime während der Bereitstellung enthält, kann bereitgestellt werden. Wenn Sie eine eigenständige App bereitstellen, gilt Folgendes:
+A [self-contained app](/dotnet/core/deploying/#self-contained-deployments-scd) can be deployed that carries the preview runtime in the deployment. When deploying a self-contained app:
 
-* Die Website muss nicht vorbereitet werden.
-* Die App muss anders als beim Veröffentlichen für eine frameworkabhängige Bereitstellung mit der freigegebenen Runtime und dem Host auf dem Server bereitgestellt werden.
+* The site doesn't need to be prepared.
+* The app must be published differently than when publishing for a framework-dependent deployment with the shared runtime and host on the server.
 
-Eigenständige Apps sind eine Option für alle ASP.NET Core-Anwendungen.
+Self-contained apps are an option for all ASP.NET Core apps.
+-->
 
 ### <a name="use-docker-with-web-apps-for-containers"></a>Verwenden von Docker mit Web-Apps für Container
 
