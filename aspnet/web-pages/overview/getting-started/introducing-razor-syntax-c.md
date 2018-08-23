@@ -3,17 +3,17 @@ uid: web-pages/overview/getting-started/introducing-razor-syntax-c
 title: Einführung in ASP.NET-Webprogrammierung mithilfe der Razor-Syntax (c#) | Microsoft-Dokumentation
 author: tfitzmac
 description: Dieses Kapitel bietet Ihnen einen Überblick über die Programmierung mit ASP.NET Web Pages mit Razor-Syntax. ASP.NET ist Microsoft Technologie für die dynamische Pa ausgeführt...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/07/2014
 ms.assetid: aa67d304-583b-4bf8-a231-195656cfb587
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-c
 msc.type: authoredcontent
-ms.openlocfilehash: 22985b71d39d93b8ad42ee923b872846f2fafa99
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 347e5ddbc02866887d3f422ecc291e5e3dfacaaf
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37814300"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838110"
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Einführung in ASP.NET-Webprogrammierung mithilfe der Razor-Syntax (c#)
 ====================
@@ -340,84 +340,248 @@ Um die Werte in ganzen Zahlen zu konvertieren, rufen Sie die `AsInt` Methode. We
 
 Die folgende Tabelle enthält einige allgemeine Konvertierung und Test-Methoden für die Variablen an.
 
-::: Zeile:::::: Spalte::: <strong>Methode</strong> ::: Spalte-End-:::::: Spalte::: <strong>Beschreibung</strong> ::: Spalte-End-:::::: Spalte::: <strong>Beispiel</strong> ::: Spalte-End-:::::: Zeilenende:::
+:::row:::
+    :::column:::
+        <strong>Methode</strong>
+    :::column-end:::
+    :::column:::
+        <strong>Beschreibung</strong>
+    :::column-end:::
+    :::column:::
+        <strong>Beispiel</strong>
+    :::column-end:::
+:::row-end:::
 * * *
-::: Zeile:::::: Spalte::: `AsInt(), IsInt()` ::: Spalte-End-:::::: Spalte::: konvertiert eine Zeichenfolge, die eine ganze Zahl (z. B. "593") in eine ganze Zahl darstellt.
-::: Spalte-End-:::::: Spalte::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample28.cs)]
-    ::: Spalte-End-:::::: Zeilenende:::
+:::row:::
+    :::column:::
+        `AsInt(), IsInt()`
+    :::column-end:::
+    :::column:::
+        Konvertiert eine Zeichenfolge, die eine ganze Zahl (z. B. "593") in eine ganze Zahl darstellt.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample28.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: Zeile:::::: Spalte::: `AsBool(), IsBool()` ::: Spalte-End-:::::: Spalte::: konvertiert eine Zeichenfolge wie &quot;"true"&quot; oder &quot;"false"&quot; auf einen booleschen Typ.
-::: Spalte-End-:::::: Spalte::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample29.cs)]
-    ::: Spalte-End-:::::: Zeilenende:::
+:::row:::
+    :::column:::
+        `AsBool(), IsBool()`
+    :::column-end:::
+    :::column:::
+        Konvertiert eine Zeichenfolge wie &quot;"true"&quot; oder &quot;"false"&quot; auf einen booleschen Typ.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample29.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: Zeile:::::: Spalte::: `AsFloat(), IsFloat()` ::: Spalte-End-:::::: Spalte::: konvertiert eine Zeichenfolge, die einen decimal-Wert wie &quot;1.3&quot; oder &quot;7.439&quot; in eine Gleitkommazahl.
-::: Spalte-End-:::::: Spalte::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample30.cs)]
-    ::: Spalte-End-:::::: Zeilenende:::
+:::row:::
+    :::column:::
+        `AsFloat(), IsFloat()`
+    :::column-end:::
+    :::column:::
+        Konvertiert eine Zeichenfolge, die einen decimal-Wert wie &quot;1.3&quot; oder &quot;7.439&quot; in eine Gleitkommazahl.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample30.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: Zeile:::::: Spalte::: `AsDecimal(), IsDecimal()` ::: Spalte-End-:::::: Spalte::: konvertiert eine Zeichenfolge, die einen decimal-Wert wie &quot;1.3&quot; oder &quot;7.439&quot; in eine Dezimalzahl. (In ASP.NET ist eine Dezimalzahl genauer als eine Gleitkommazahl.) ::: Spalte-End-:::::: Spalte::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample31.cs)]
-    ::: Spalte-End-:::::: Zeilenende:::
+:::row:::
+    :::column:::
+        `AsDecimal(), IsDecimal()`
+    :::column-end:::
+    :::column:::
+        Konvertiert eine Zeichenfolge, die einen decimal-Wert wie &quot;1.3&quot; oder &quot;7.439&quot; in eine Dezimalzahl. (In ASP.NET ist eine Dezimalzahl genauer als eine Gleitkommazahl.) :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample31.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: Zeile:::::: Spalte::: `AsDateTime(), IsDateTime()` ::: Spalte-End-:::::: Spalte::: konvertiert eine Zeichenfolge, die einen Wert für Datum und Uhrzeit der ASP.NET darstellt `DateTime` Typ.
-::: Spalte-End-:::::: Spalte::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample32.cs)]
-    ::: Spalte-End-:::::: Zeilenende:::
+:::row:::
+    :::column:::
+        `AsDateTime(), IsDateTime()`
+    :::column-end:::
+    :::column:::
+        Konvertiert eine Zeichenfolge, die einen Wert für Datum und Uhrzeit der ASP.NET darstellt `DateTime` Typ.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample32.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: Zeile:::::: Spalte::: `ToString()` ::: Spalte-End-:::::: Spalte::: einen anderen Datentyp in eine Zeichenfolge konvertiert.
-::: Spalte-End-:::::: Spalte::: [!code-javascript[Main](introducing-razor-syntax-c/samples/sample33.js)]
-    ::: Spalte-End-:::::: Zeilenende:::
+:::row:::
+    :::column:::
+        `ToString()`
+    :::column-end:::
+    :::column:::
+        Konvertiert einen anderen Datentyp in eine Zeichenfolge an.
+    :::column-end:::
+    :::column:::
+        [!code-javascript[Main](introducing-razor-syntax-c/samples/sample33.js)]
+    :::column-end:::
+:::row-end:::
 
 ## <a name="operators"></a>Operatoren
 
 Ein Operator ist ein Schlüsselwort oder das Zeichen, das ASP.NET darüber informiert, welche Art von Befehl aus, um in einem Ausdruck durchgeführt werden. Der C#-Sprache (und die Razor-Syntax, die darauf basieren) unterstützt viele Operatoren müssen Sie nur ein Paar für den Einstieg zu erkennen. In der folgende Tabelle werden die am häufigsten verwendeten Operatoren zusammengefasst.
 
 
-::: Zeile:::::: Spalte::: <strong>Operator</strong> ::: Spalte-End-:::::: Spalte::: <strong>Beschreibung</strong> ::: Spalte-End-:::::: Spalte::: <strong>Beispiele</strong> ::: Spalte-End-:::::: Zeilenende:::
+:::row:::
+    :::column:::
+        <strong>Operator</strong>
+    :::column-end:::
+    :::column:::
+        <strong>Beschreibung</strong>
+    :::column-end:::
+    :::column:::
+        <strong>Beispiele</strong>
+    :::column-end:::
+:::row-end:::
 * * *
-::: Zeile:::::: Spalte::: `+` `-` `*` `/` ::: Spalte-End-:::::: Spalte::: mathematische Operatoren, die in numerischen Ausdrücken verwendet.
-::: Spalte-End-:::::: Spalte::: [!code-css[Main](introducing-razor-syntax-c/samples/sample34.css)]
-    ::: Spalte-End-:::::: Zeilenende:::
+:::row:::
+    :::column:::
+        `+` `-` `*` `/`
+    :::column-end:::
+    :::column:::
+        Mathematische Operatoren, die in numerischen Ausdrücken verwendet.
+    :::column-end:::
+    :::column:::
+        [!code-css[Main](introducing-razor-syntax-c/samples/sample34.css)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: Zeile:::::: Spalte::: `=` ::: Spalte-End-:::::: Spalte::: Zuweisung. Weist den Wert auf der rechten Seite einer Anweisung, um das Objekt auf der linken Seite.
-::: Spalte-End-:::::: Spalte::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample35.cs)]
-    ::: Spalte-End-:::::: Zeilenende:::
+:::row:::
+    :::column:::
+        `=`
+    :::column-end:::
+    :::column:::
+        Zuweisung. Weist den Wert auf der rechten Seite einer Anweisung, um das Objekt auf der linken Seite.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample35.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: Zeile:::::: Spalte::: `==` ::: Spalte-End-:::::: Spalte::: auf Gleichheit. Gibt `true` , wenn die Werte gleich sind. (Beachten Sie, dass den Unterschied zwischen der `=` Operator und die `==` Operator)::: Spalte-End-:::::: Spalte::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample36.cs)]
-    ::: Spalte-End-:::::: Zeilenende:::
+:::row:::
+    :::column:::
+        `==`
+    :::column-end:::
+    :::column:::
+        Gleichheit. Gibt `true` , wenn die Werte gleich sind. (Beachten Sie, dass den Unterschied zwischen der `=` Operator und die `==` Operator.) :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample36.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: Zeile:::::: Spalte::: `!=` ::: Spalte-End-:::::: Spalte::: Ungleichheit. Gibt `true` , wenn die Werte nicht gleich sind.
-::: Spalte-End-:::::: Spalte::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample37.cs)]
-    ::: Spalte-End-:::::: Zeilenende:::
+:::row:::
+    :::column:::
+        `!=`
+    :::column-end:::
+    :::column:::
+        Ungleichheit. Gibt `true` , wenn die Werte nicht gleich sind.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample37.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: Zeile:::::: Spalte::: `< > <= >=` ::: Spalte-End-:::::: Spalte::: kleiner-als, größer-als, kleiner-als-oder-gleich und größer-als-oder-gleich.
-::: Spalte-End-:::::: Spalte::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample38.cs)]
-    ::: Spalte-End-:::::: Zeilenende:::
+:::row:::
+    :::column:::
+        `< > <= >=`
+    :::column-end:::
+    :::column:::
+        Kleiner-als, größer-als, kleiner-als-oder-gleich und größer-als-oder-gleich.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample38.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: Zeile:::::: Spalte::: `+` ::: Spalte-End-:::::: Spalte::: Verkettung, die zum Verketten von Zeichenfolgen verwendet wird. ASP.NET ist den Unterschied zwischen diesen Operator und der Additionsoperator, basierend auf den Datentyp des Ausdrucks bekannt.
-::: Spalte-End-:::::: Spalte::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample39.cs)]
-    ::: Spalte-End-:::::: Zeilenende:::
+:::row:::
+    :::column:::
+        `+`
+    :::column-end:::
+    :::column:::
+        Verkettung, die zum Verketten von Zeichenfolgen verwendet wird. ASP.NET ist den Unterschied zwischen diesen Operator und der Additionsoperator, basierend auf den Datentyp des Ausdrucks bekannt.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample39.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: Zeile:::::: Spalte::: `+=` `-=` ::: Spalte-End-:::::: Spalte::: die Inkrement- und Dekrement-Operatoren, die Addition und Subtraktion 1 (bzw.) aus einer Variablen.
-::: Spalte-End-:::::: Spalte::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample40.cs)]
-    ::: Spalte-End-:::::: Zeilenende:::
+:::row:::
+    :::column:::
+        `+=` `-=`
+    :::column-end:::
+    :::column:::
+        Die Inkrement- und Dekrement-Operatoren, die Addition und Subtraktion 1 (bzw.) aus einer Variablen.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample40.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: Zeile:::::: Spalte::: `.` ::: Spalte-End-:::::: Spalte::: Punkt. Verwendet, um Objekte und deren Eigenschaften und Methoden zu unterscheiden.
-::: Spalte-End-:::::: Spalte::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample41.cs)]
-    ::: Spalte-End-:::::: Zeilenende:::
+:::row:::
+    :::column:::
+        `.`
+    :::column-end:::
+    :::column:::
+        Punkt. Verwendet, um Objekte und deren Eigenschaften und Methoden zu unterscheiden.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample41.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: Zeile:::::: Spalte::: `()` ::: Spalte-End-:::::: Spalte::: Klammern. Verwendet, um Ausdrücke zu gruppieren und zum Übergeben von Parametern zu Methoden.
-::: Spalte-End-:::::: Spalte::: [!code-javascript[Main](introducing-razor-syntax-c/samples/sample42.js)]
-    ::: Spalte-End-:::::: Zeilenende:::
+:::row:::
+    :::column:::
+        `()`
+    :::column-end:::
+    :::column:::
+        Klammern. Verwendet, um Ausdrücke zu gruppieren und zum Übergeben von Parametern zu Methoden.
+    :::column-end:::
+    :::column:::
+        [!code-javascript[Main](introducing-razor-syntax-c/samples/sample42.js)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: Zeile:::::: Spalte::: `[]` ::: Spalte-End-:::::: Spalte::: Klammern. Für den Zugriff auf Werte in Arrays oder Auflistungen verwendet.
-::: Spalte-End-:::::: Spalte::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample43.cs)]
-    ::: Spalte-End-:::::: Zeilenende:::
+:::row:::
+    :::column:::
+        `[]`
+    :::column-end:::
+    :::column:::
+        Eckige Klammern. Für den Zugriff auf Werte in Arrays oder Auflistungen verwendet.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample43.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: Zeile:::::: Spalte::: `!` ::: Spalte-End-:::::: Spalte::: nicht. Kehrt eine `true` Wert `false` und umgekehrt. In der Regel als eine schnelle Möglichkeit zum Testen verwendet `false` (d. h. für nicht `true`).
-::: Spalte-End-:::::: Spalte::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample44.cs)]
-    ::: Spalte-End-:::::: Zeilenende:::
+:::row:::
+    :::column:::
+        `!`
+    :::column-end:::
+    :::column:::
+        Nicht. Kehrt eine `true` Wert `false` und umgekehrt. In der Regel als eine schnelle Möglichkeit zum Testen verwendet `false` (d. h. für nicht `true`).
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample44.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: Zeile:::::: Spalte::: `&&` <code>&#124;&#124;</code> ::: Spalte-End-:::::: Spalte::: logische und und zusammen Bedingungen, die verwendet werden, um zu verknüpfen.
-::: Spalte-End-:::::: Spalte::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample45.cs)]
-    ::: Spalte-End-:::::: Zeilenende:::
+:::row:::
+    :::column:::
+        `&&` <code>&#124;&#124;</code>
+    :::column-end:::
+    :::column:::
+        Logisches AND und zusammen Bedingungen, die verwendet werden, um zu verknüpfen.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample45.cs)]
+    :::column-end:::
+:::row-end:::
 
 <a id="ID_WorkingWithFileAndFolderPaths"></a>
 ## <a name="working-with-file-and-folder-paths-in-code"></a>Arbeiten mit Datei- und Ordnerpfade in Code

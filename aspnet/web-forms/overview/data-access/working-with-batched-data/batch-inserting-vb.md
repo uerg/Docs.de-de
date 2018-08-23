@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/working-with-batched-data/batch-inserting-vb
 title: Batch einfügen (VB) | Microsoft-Dokumentation
 author: rick-anderson
 description: Erfahren Sie, wie Sie mehrere Datenbankdatensätze in einem einzigen Vorgang einfügen. In der Benutzeroberflächenebene erweitern wir die GridView, damit der Benutzer zur Eingabe von mehreren n kann...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/26/2007
 ms.assetid: 48e2a4ae-77ca-4208-a204-c38c690ffb59
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-inserting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0ec5c35417f4f986c662201da58ca3441e8944ca
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 58338d8bfdd782167aafaa440f2d549d6eeb838e
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37824295"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41823781"
 ---
 <a name="batch-inserting-vb"></a>Batch einfügen (VB)
 ====================

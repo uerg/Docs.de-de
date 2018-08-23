@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/working-with-batched-data/wrapping-database-
 title: Umschließen von Datenbankänderungen innerhalb einer Transaktion (c#) | Microsoft-Dokumentation
 author: rick-anderson
 description: Dieses Tutorial ist der erste von vier, die untersucht aktualisieren, löschen und Einfügen von Batches von Daten. In diesem Tutorial wird erläutert, wie Transaktionen zulassen...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/26/2007
 ms.assetid: b45fede3-c53a-4ea1-824b-20200808dbae
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/wrapping-database-modifications-within-a-transaction-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a87ba758abd6b3e89be4f5aa64d658b734f99d9e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ab1ffa147545ab0d4fa0a3cce6f7dca91dfe3ffb
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37810925"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41833590"
 ---
 <a name="wrapping-database-modifications-within-a-transaction-c"></a>Umschließen von Datenbankänderungen innerhalb einer Transaktion (c#)
 ====================
