@@ -3,17 +3,17 @@ uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-18-creati
 title: 'ASP.NET MVC Storefront, Teil 18: Eine Benutzeroberfläche zum Erstellen | Microsoft-Dokumentation'
 author: robconery
 description: In dieser Episode arbeite ich auf sämtliche technischen Bestandteile zusammen, um eine kohärente "benutzerfreundlichkeit" für die Einkäufer zu bilden.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/16/2008
 ms.assetid: 1636464e-900e-4926-bd5a-88adb5315ff9
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-18-creating-an-experience
 msc.type: video
-ms.openlocfilehash: fd061364bfc5419e43fa4b4cba15c013ccf07310
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 464753512b592baea96098e25690b7fc0e947c5d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37804331"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41831566"
 ---
 <a name="aspnet-mvc-storefront-part-18-creating-an-experience"></a>ASP.NET MVC Storefront, Teil 18: Erstellen einer Benutzeroberfläche
 ====================

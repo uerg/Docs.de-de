@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-7
 title: 'Teil 7: Mitgliedschaft und Autorisierung | Microsoft-Dokumentation'
 author: jongalloway
 description: Dieser tutorialreihe werden alle Schritte ausgeführt, um die ASP.NET MVC Music Store-beispielanwendung zu erstellen. Teil 7 behandelt die Mitgliedschaft und Autorisierung.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/13/2010
 ms.assetid: c8511ebe-68bc-4240-87c3-d5ced84a3f37
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: 1f2ad9de3a21366931efe6ca2466f4efc23a6192
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 44205f0ef59e00ad9fb1c45fdc0ba8934b5804cc
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37802538"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835219"
 ---
 <a name="part-7-membership-and-authorization"></a>Teil 7: Mitgliedschaft und Autorisierung
 ====================

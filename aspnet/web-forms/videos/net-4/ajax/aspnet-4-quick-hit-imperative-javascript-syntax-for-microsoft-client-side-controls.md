@@ -3,17 +3,17 @@ uid: web-forms/videos/net-4/ajax/aspnet-4-quick-hit-imperative-javascript-syntax
 title: Visual Studio 2010 schnell Treffer - Imperative JavaScript-Syntax für Microsoft Client-seitige Steuerelemente | Microsoft-Dokumentation
 author: JoeStagner
 description: In diesem Video lernen Sie die imperative JavaScript-Syntax für Microsoft-Client-Seite-Steuerelemente.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/16/2009
 ms.assetid: d4df6c61-9ca2-4e7c-8b65-749847f15d2c
 msc.legacyurl: /web-forms/videos/net-4/ajax/aspnet-4-quick-hit-imperative-javascript-syntax-for-microsoft-client-side-controls
 msc.type: video
-ms.openlocfilehash: 9c00958a9832a393492b67fef198d9cd9b8fe2c5
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 844f08e8008ae5ef4d0ccb79bb56dd6dee756b1b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37836680"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41833993"
 ---
 <a name="aspnet-4-quick-hit---imperative-javascript-syntax-for-microsoft-client-side-controls"></a>ASP.NET 4 steuert die "Schnelle Hit" - Imperative JavaScript-Syntax für Microsoft die Clientseite
 ====================

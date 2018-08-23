@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sor
 title: Erstellen eine benutzerdefinierte Sortierung-Benutzeroberfläche (VB) | Microsoft-Dokumentation
 author: rick-anderson
 description: Wenn Daten mit einer langen Liste sortiert werden, es kann sehr hilfreich sein, gruppieren Sie verknüpfte Daten durch die Einführung von Trennzeichen für Zeilen. In diesem Tutorial sehen, dass wie ASK erstellen...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/15/2006
 ms.assetid: f3897a74-cc6a-4032-8f68-465f155e296a
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8e94bbda0ca89b409515db1e223637e3a554cd31
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: b12baa5075b4e67018d8a98a92e807d1778737c8
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37835867"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832134"
 ---
 <a name="creating-a-customized-sorting-user-interface-vb"></a>Erstellen eine benutzerdefinierte Sortierung-Benutzeroberfläche (VB)
 ====================

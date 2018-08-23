@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/running-wi
 title: Ausführen von Windows PowerShell-Skripts aus MSBuild-Projektdateien | Microsoft-Dokumentation
 author: jrjlee
 description: In diesem Thema wird beschrieben, wie ein Windows PowerShell-Skript als Teil eines Build & Deployment-Prozesses ausgeführt wird. Sie können ein Skript lokal ausführen (das heißt, auf die b...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 55f1ae45-fcb5-43a9-8415-fa5b935fc9c9
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/running-windows-powershell-scripts-from-msbuild-project-files
 msc.type: authoredcontent
-ms.openlocfilehash: faedcee480b6c50dc560055206fedbe7af4d5f67
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 018a962c3bac774a770b83b2fd1f44f72b6f5b09
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803148"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832684"
 ---
 <a name="running-windows-powershell-scripts-from-msbuild-project-files"></a>Ausführen von Windows PowerShell-Skripts aus MSBuild-Projektdateien
 ====================
@@ -80,7 +80,7 @@ Der Inhalt der Projektmappenordner werden zum Erstellen von Servern als Quellcod
 
 In einigen Szenarien möchten möglicherweise Windows PowerShell-Skripts auf dem Computer ausgeführt wird, in dem Ihre Projekte erstellt. Beispielsweise können Sie ein Windows PowerShell-Skript verwenden, die Buildordner bereinigen oder Einträge in eine benutzerdefinierte Protokolldatei geschrieben.
 
-In Bezug auf Syntax ist ein Windows PowerShell-Skript aus einer MSBuild-Projektdatei ausführen dasselbe wie das Ausführen eines Windows PowerShell-Skripts über eine reguläre Eingabeaufforderung. Wenn Sie dies an einer Eingabeaufforderung ausführen, müssen Sie die Windows PowerShell, die ausführbare Datei aufrufen und Verwenden der **– Befehl** Parameter, um Ihre Anweisungen bereitzustellen: Wie zuvor müssen Sie einige zusätzliche Schalter angeben und reservierten XML-Zeichen als Escapezeichen, beim Ausführen des Befehls aus MSBuild: Zum Schluss wie zuvor können Sie die Exec Aufgabe in einem benutzerdefinierten MSBuild-Ziel zum Ausführen des Befehls:
+In Bezug auf Syntax ist ein Windows PowerShell-Skript aus einer MSBuild-Projektdatei ausführen dasselbe wie das Ausführen eines Windows PowerShell-Skripts über eine reguläre Eingabeaufforderung. Sie müssen die ausführbare Datei powershell.exe aufrufen und Verwenden der **– Befehl** wechseln, geben Sie die Befehle, die Windows PowerShell ausgeführt werden sollen. (In Windows PowerShell v2 können Sie auch die **– Datei** wechseln). Der Befehl sollte dieses Format akzeptieren:
 
 
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample3.cmd)]
@@ -92,13 +92,13 @@ Zum Beispiel:
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample4.cmd)]
 
 
-Wenn Sie dieses Ziel im Rahmen des Buildprozesses ausführen, führt Windows PowerShell das Skript auf dem Computer, die Sie, in angegeben der – Computername Argument. In diesem Thema beschrieben, wie Sie ein Windows PowerShell-Skript über eine MSBuild-Projektdatei ausführen.
+Wenn der Pfad zu Ihrem Skript Leerzeichen enthält, müssen Sie den Dateipfad in einfache Anführungszeichen, die nach einem kaufmännischen und-Zeichen einschließen. Sie können nicht doppelte Anführungszeichen verwenden, da Sie bereits sie verwendet haben, schließen Sie den Befehl:
 
 
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample5.cmd)]
 
 
-Sie können diesen Ansatz verwenden, um ein Windows PowerShell-Skript, entweder lokal oder auf einem Remotecomputer befindet, als Teil eines automatisierten oder Schritt für Schritt Build & Deployment-Prozesses ausgeführt. Anleitungen zum Signieren von Windows PowerShell-Skripts, und Verwalten von Ausführungsrichtlinien finden Sie unter **Ausführen von Windows PowerShell-Skripts**. Anleitungen zum Ausführen von Windows PowerShell-Befehle von einem Remotecomputer finden Sie unter **Ausführen von Remotebefehlen**. Weitere Informationen zu benutzerdefinierte MSBuild-Projektdateien verwenden, um den Bereitstellungsprozess zu steuern, finden Sie unter Grundlegendes zur Projektdatei und Verständnis des Prozesses erstellen. Sie können über diese Argumentwerte auswählen:
+Es gibt einige zusätzliche Überlegungen, wenn Sie diesen Befehl von MSBuild aufrufen. Sie sollten zunächst einschließen der **– NonInteractive** Flag, um sicherzustellen, dass das Skript im stillen Modus ausgeführt wird. Sie sollten als Nächstes einschließen der **-ExecutionPolicy** Flag mit dem entsprechenden Argumentwert. Hiermit wird die Ausführungsrichtlinie, dass Windows PowerShell für das Skript gelten und ermöglicht Ihnen, die standardausführungsrichtlinie, überschreiben die Ausführung Ihres Skripts verhindern kann. Sie können über diese Argumentwerte auswählen:
 
 - Der Wert **uneingeschränkt** ermöglicht Windows PowerShell zum Ausführen des Skripts, unabhängig davon, ob das Skript signiert ist.
 - Der Wert **"RemoteSigned"** ermöglicht Windows PowerShell zum Ausführen von nicht signierten Skripts, die auf dem lokalen Computer erstellt wurden. Allerdings müssen Skripts, die an anderer Stelle erstellt wurden, signiert werden. (In der Praxis können Sie sehr wahrscheinlich nicht zu einem Windows PowerShell-Skript lokal auf einem Buildserver erstellt haben).

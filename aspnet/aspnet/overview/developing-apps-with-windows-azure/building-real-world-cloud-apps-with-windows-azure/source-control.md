@@ -3,17 +3,17 @@ uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-clou
 title: Datenquellen-Steuerelement (erstellen realer Cloud-Apps mit Azure) | Microsoft-Dokumentation
 author: MikeWasson
 description: Die Building Real World Cloud Apps mit Azure-e-Book basiert auf einer Präsentation von Scott Guthrie entwickelt wurde. Es wird erläutert, 13 Muster und Vorgehensweisen, die er können...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/23/2015
 ms.assetid: 2a0370d3-c2fb-4bf3-88b8-aad5a736c793
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 msc.type: authoredcontent
-ms.openlocfilehash: 045dc654057802be4ad96f5ecc3ed6c3d7a1ccb1
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 8402b73f5f9d063d958df39f98267468e4aef746
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37823312"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41833609"
 ---
 <a name="source-control-building-real-world-cloud-apps-with-azure"></a>Datenquellen-Steuerelement (erstellen realer Cloud-Apps mit Azure)
 ====================

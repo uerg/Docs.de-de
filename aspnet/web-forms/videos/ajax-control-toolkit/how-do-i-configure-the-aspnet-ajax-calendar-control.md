@@ -3,17 +3,17 @@ uid: web-forms/videos/ajax-control-toolkit/how-do-i-configure-the-aspnet-ajax-ca
 title: '[Gewusst wie:] Konfigurieren Sie das ASP.NET AJAX-Kalender-Steuerelement? | Microsoft-Dokumentation'
 author: JoeStagner
 description: In diesem Video sehen Sie ein Beispiel der Vielzahl von Optionen zur Verfügung, so konfigurieren Sie die Darstellung und das Verhalten der Calendar-Extender-Steuerelement von t...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/30/2007
 ms.assetid: bee087cc-7fed-4dce-8b52-19987f2d38a6
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-configure-the-aspnet-ajax-calendar-control
 msc.type: video
-ms.openlocfilehash: a60b60a25016f0779a821c3dbb50b061e0002530
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c5ed82a0c02a3f88e2da3067ca73e66e87bbc7e9
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37826879"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41831475"
 ---
 <a name="how-do-i-configure-the-aspnet-ajax-calendar-control"></a>[Gewusst wie:] Konfigurieren Sie das ASP.NET AJAX-Kalender-Steuerelement?
 ====================

@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/controllers-and-routing/creating-custom-route
 title: Erstellen von benutzerdefinierten Routen (VB) | Microsoft-Dokumentation
 author: microsoft
 description: Erfahren Sie, wie Sie benutzerdefinierte Routen zu einer ASP.NET MVC-Anwendung hinzufügen. In diesem Tutorial erfahren Sie, wie die Standardroutingtabelle in der Datei "Global.asax" zu ändern.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/16/2009
 ms.assetid: 6ac5758b-6199-42af-adcb-21954b864951
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-custom-routes-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3d6125f93d99acc695be319bd000ff65ab4a1159
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: cd7ad46161b3f44d915bc4b2fa201606b00d194a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37829699"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41834855"
 ---
 <a name="creating-custom-routes-vb"></a>Erstellen von benutzerdefinierten Routen (VB)
 ====================

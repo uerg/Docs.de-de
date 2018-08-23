@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-dynamic-data/how-do-i-display-unknown-datatypes
 title: Wie führe ich die Anzeige von unbekannten Datentypen? | Microsoft-Dokumentation
 author: shanselman
 description: In diesem Video erfahren Sie, wie so konfigurieren Sie dynamische Daten, um einen völlig Unbekannter benutzerdefinierten Datentyp zu behandeln, der in der Datenbank als ein binäres BLOB gespeichert wird.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/08/2008
 ms.assetid: ce7a9af6-d01b-46a7-8b47-e1024b693830
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/how-do-i-display-unknown-datatypes
 msc.type: video
-ms.openlocfilehash: b042af437fdc623057a031090afecf06246d17af
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d100450999d34f36b38d4423baf2727428fca2a7
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37839395"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41831927"
 ---
 <a name="how-do-i-display-unknown-datatypes"></a>Wie führe ich die Anzeige von unbekannten Datentypen?
 ====================

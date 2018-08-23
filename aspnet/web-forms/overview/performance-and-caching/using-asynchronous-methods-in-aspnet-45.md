@@ -3,17 +3,17 @@ uid: web-forms/overview/performance-and-caching/using-asynchronous-methods-in-as
 title: Verwenden asynchroner Methoden in ASP.NET 4.5 | Microsoft-Dokumentation
 author: Rick-Anderson
 description: In diesem Tutorial lernen Sie die Grundlagen der Erstellung einer asynchronen ASP.NET Web Forms-Anwendung mithilfe von Visual Studio Express 2012 für Web, das ein kostenloses...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/06/2012
 ms.assetid: a585c9a2-7c8e-478b-9706-90f3739c50d1
 msc.legacyurl: /web-forms/overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 94adc03eeba61310d60ca88a0495c5a2e5dc4cf6
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 5e5fe83e802980a5783c3d77454d5fb0ee7d5a91
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37819301"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41834724"
 ---
 <a name="using-asynchronous-methods-in-aspnet-45"></a>Verwenden asynchroner Methoden in ASP.NET 4.5
 ====================

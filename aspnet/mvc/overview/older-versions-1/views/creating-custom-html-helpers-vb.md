@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/views/creating-custom-html-helpers-vb
 title: Erstellen von benutzerdefinierten HTML-Hilfsprogrammen (VB) | Microsoft-Dokumentation
 author: microsoft
 description: Das Ziel in diesem Tutorial wird veranschaulicht, wie Sie benutzerdefinierte HTML-Hilfsprogramme erstellen können, die Sie in Ihren MVC-Ansichten verwenden können. Durch die Nutzung von HTML-Hilfsobjekt...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/07/2008
 ms.assetid: f96f4800-19ef-44c0-b457-55e777eb5de8
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-custom-html-helpers-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ed3f86d3f316d3e1630c6008c20c72c31d7864da
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e62e47bceddc516af7aa18fc66ed4ca4d704d277
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37821524"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835222"
 ---
 <a name="creating-custom-html-helpers-vb"></a>Erstellen von benutzerdefinierten HTML-Hilfsprogrammen (VB)
 ====================

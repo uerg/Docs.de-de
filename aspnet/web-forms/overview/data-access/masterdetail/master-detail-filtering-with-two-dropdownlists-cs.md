@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/masterdetail/master-detail-filtering-with-tw
 title: Master/Detail-Filtern mit zwei DropDownList-Steuerelementen (c#) | Microsoft-Dokumentation
 author: rick-anderson
 description: In diesem Tutorial wird die Master/Detail-Beziehung zum Hinzufügen einer dritten Ebene, mit zwei DropDownList-Steuerelementen zum Auswählen der gewünschten übergeordneten und der zweiten übergeordneten Ebene s erweitert...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: ac4b0d77-4816-4ded-afd0-88dab667aedd
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-with-two-dropdownlists-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f8f216689494e0f80902c42f425883558c1e21ce
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 2a310df0871820e864b02f28b7d2c46d82b7ad63
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37842256"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41834854"
 ---
 <a name="masterdetail-filtering-with-two-dropdownlists-c"></a>Master/Detail-Filtern mit zwei DropDownList-Steuerelementen (c#)
 ====================

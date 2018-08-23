@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/views/passing-data-to-view-master-pages-cs
 title: Übergeben von Daten an Ansichtsmasterseiten (c#) | Microsoft-Dokumentation
 author: microsoft
 description: Das Ziel in diesem Tutorial wird beschrieben, wie Sie Daten von einem Controller an eine Masterseite für die Ansicht übergeben können. Betrachten wir zwei Strategien für die Übergabe von Daten an eine Ansicht m...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/16/2008
 ms.assetid: 5fee879b-8bde-42a9-a434-60ba6b1cf747
 msc.legacyurl: /mvc/overview/older-versions-1/views/passing-data-to-view-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: bd2d3e85ac518a066d72541d40ab87543b1a70d1
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e04a9b274b735af05a8e08dc7d8f34f0d83605be
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37818981"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832161"
 ---
 <a name="passing-data-to-view-master-pages-c"></a>Übergeben von Daten an Ansichtsmasterseiten (c#)
 ====================

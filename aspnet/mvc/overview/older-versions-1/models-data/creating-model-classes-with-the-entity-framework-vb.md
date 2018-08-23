@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/models-data/creating-model-classes-with-the-e
 title: Erstellen von Modellklassen mit dem Entitätsframework (VB) | Microsoft-Dokumentation
 author: microsoft
 description: In diesem Tutorial erfahren Sie, wie Sie ASP.NET MVC mit dem Microsoft Entity Framework zu verwenden. Erfahren Sie, wie mit dem Assistenten für Entity ein ADO.NET Entity Da erstellen...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/27/2009
 ms.assetid: ff8322c9-12f3-4e24-aba6-a38046b9bb0d
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-the-entity-framework-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 15415547763cfcd48dc845827d8c6b12afd18d75
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c1f64f57d4c23fe225a8268042104254e17dc456
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37810403"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41833512"
 ---
 <a name="creating-model-classes-with-the-entity-framework-vb"></a>Erstellen von Modellklassen mit dem Entitätsframework (VB)
 ====================
@@ -69,10 +69,10 @@ Führen Sie folgende Schritte aus:
 2. In der **neues Element hinzufügen** Dialogfeld Wählen Sie die Kategorie der Daten (siehe Abbildung 1).
 3. Wählen Sie die **ADO.NET Entity Data Model** -Vorlage aus, nennen Sie das Entity Data Model MoviesDBModel.edmx, und klicken Sie auf die **hinzufügen** Schaltfläche. Klicken auf die **hinzufügen** Data Model-Assistenten wird gestartet.
 4. In der **auswählen des Modellinhalts** Schritt, wählen Sie die **aus einer Datenbank generieren** aus, und klicken Sie auf die **Weiter** Schaltfläche (siehe Abbildung 2).
-5. Als Nächstes erfahren Sie, wie Sie LINQ to Entities verwenden, um einen Satz von Datenbank-Datensätzen aus einer Datenbanktabelle zu abzurufen.
-6. Schließlich können wir das Entity Framework verwendet, um einfügen, aktualisieren und Löschen von Datenbankdatensätzen.
+5. In der **wählen Sie Ihre Datenverbindung** Schritt die MoviesDB.mdf-datenbankverbindung aus, geben Sie die Entitäten, die Verbindungseinstellungen MoviesDBEntities benennen, und klicken Sie auf die **Weiter** Schaltfläche (siehe Abbildung 3).
+6. In der **Datenbankobjekte auswählen** Schritt, wählen Sie die Tabelle "Movie"-Datenbank aus, und klicken Sie auf die **Fertig stellen** Schaltfläche (siehe Abbildung 4).
 
-Schließlich können wir das Entity Framework verwendet, um einfügen, aktualisieren und Löschen von Datenbankdatensätzen.
+Nachdem Sie diese Schritte abgeschlossen haben, wird der ADO.NET Entity Data Model-Designer (Entity Designer) geöffnet.
 
 **Abbildung 1 – erstellen ein neues Entity Data Model**
 

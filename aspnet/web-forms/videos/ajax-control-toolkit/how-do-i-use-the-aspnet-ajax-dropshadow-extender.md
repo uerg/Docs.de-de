@@ -3,17 +3,17 @@ uid: web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-dropshad
 title: '[Gewusst wie:] Verwenden Sie die ASP.NET AJAX-Extender-DropShadow-Steuerelements? | Microsoft-Dokumentation'
 author: JoeStagner
 description: Erfahren Sie, wie die Darstellung von ASP.NET-Sites zu verbessern, indem Sie mit, dass die DropShadow für AJAX-Extender-Steuerelement nicht transparenten, gerundet angrenzt Schlagschatten Bereiche o hinzufügen...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/01/2007
 ms.assetid: bd700813-f302-4e42-a697-b8cab68cdb55
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-dropshadow-extender
 msc.type: video
-ms.openlocfilehash: ef383b9a74c59b5aeec0f057dd454034a28d8194
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 366b4e3a409e880f3006c0103aa0f91cf0daba8a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37823183"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41831286"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-dropshadow-extender"></a>[Gewusst wie:] Verwenden Sie die ASP.NET AJAX-Extender-DropShadow-Steuerelements?
 ====================

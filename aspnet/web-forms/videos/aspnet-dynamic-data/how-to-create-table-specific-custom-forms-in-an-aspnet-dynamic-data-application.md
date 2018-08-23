@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-dynamic-data/how-to-create-table-specific-custom-fo
 title: 'Vorgehensweise: Erstellen von tabellenspezifischen benutzerdefinierten Formularen in eine ASP.NET Dynamic Data-Anwendung | Microsoft-Dokumentation'
 author: JoeStagner
 description: In einigen Fällen müssen wir von der Standardbenutzeroberfläche in unserer ASP.NET Dynamic Data-Anwendung abweichen. In diesem Video erfahren Sie, wie wir dies tun können, und wie wir deaktivieren können...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/11/2008
 ms.assetid: 14d3a727-8a1a-4950-8e8f-ce97f5b2ec1f
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/how-to-create-table-specific-custom-forms-in-an-aspnet-dynamic-data-application
 msc.type: video
-ms.openlocfilehash: 0f23131754cdf2bbb874cec6fffcce554b4e5bda
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: cc6fa8e4305bec7a31c61b2191b158f16667a7a1
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37840997"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41831544"
 ---
 <a name="how-to-create-table-specific-custom-forms-in-an-aspnet-dynamic-data-application"></a>Vorgehensweise: Erstellen von tabellenspezifischen benutzerdefinierten Formularen in eine ASP.NET Dynamic Data-Anwendung
 ====================

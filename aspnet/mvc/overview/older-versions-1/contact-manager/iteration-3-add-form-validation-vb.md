@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validati
 title: 'Iteration #3 – Hinzufügen der formularüberprüfung (VB) | Microsoft-Dokumentation'
 author: microsoft
 description: In der dritten Iteration fügen wir grundlegende formularvalidierung hinzu. Es wird verhindert, dass Personen senden eines Formulars ohne erforderlichen Felder des Formulars abzuschließen. Wir überprüfen außerdem Emai...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2009
 ms.assetid: 4805e75a-7911-46e3-b11b-229a6eed245e
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a02178bfb662f180343ad32a6453b910e8e70471
-ms.sourcegitcommit: a25b572eaed21791230c85416f449f66a405ec19
+ms.openlocfilehash: b44aaab45f04f736e4171a43a8b24b71aaedca2f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39396207"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41833362"
 ---
 <a name="iteration-3--add-form-validation-vb"></a>Iteration #3 – Hinzufügen der formularüberprüfung (VB)
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/configuring-server-environments-for-web-deplo
 title: Konfigurieren eines Webservers für das Web Deploy-Veröffentlichung (Web Deploy-Handler) | Microsoft-Dokumentation
 author: jrjlee
 description: In diesem Thema wird beschrieben, wie ein Webserver für Internetinformationsdienste (Internet Information Services, IIS) zur Unterstützung von Webpublishing und die Bereitstellung mithilfe der IIS Web bereitstellen Han konfiguriert...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 90ebf911-1c46-4470-b876-1335bd0f590f
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler
 msc.type: authoredcontent
-ms.openlocfilehash: 3296bb9b6460bbe80782746c9d398aa67815dcee
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 13e4fdf77daf26abe837a90db9c11ecbe1957823
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37833330"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41833904"
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler"></a>Konfigurieren eines Webservers für das Web Deploy-Veröffentlichung (Web Deploy-Handler)
 ====================

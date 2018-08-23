@@ -3,17 +3,17 @@ uid: web-pages/overview/getting-started/11-adding-email-to-your-web-site
 title: Senden von E-Mails von einer ASP.NET Web Pages (Razor) Standort | Microsoft-Dokumentation
 author: tfitzmac
 description: In diesem Kapitel wird erläutert, wie Sie eine automatisierte e-Mail-Nachricht von einer Website zu senden.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2014
 ms.assetid: fc49bcb9-f1a9-4048-8c3f-b60951853200
 msc.legacyurl: /web-pages/overview/getting-started/11-adding-email-to-your-web-site
 msc.type: authoredcontent
-ms.openlocfilehash: e94cba91da43101ef1c058b49be746821bb0fe16
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 4429b9df0a6bc689eb3549c13aee598353c438af
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37841470"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832349"
 ---
 <a name="sending-email-from-an-aspnet-web-pages-razor-site"></a>Senden von E-Mails von einem Standort der ASP.NET Web Pages (Razor)
 ====================

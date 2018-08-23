@@ -3,17 +3,17 @@ uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/async-and-st
 title: Asynchrone und gespeicherte Prozeduren mit dem Entitätsframework in einer ASP.NET MVC-Anwendung | Microsoft-Dokumentation
 author: tdykstra
 description: Die Contoso University-Beispielwebanwendung veranschaulicht, wie ASP.NET MVC 5-Anwendungen, die mit dem Entity Framework 6 Code First "und" Visual Studio...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/07/2014
 ms.assetid: 27d110fc-d1b7-4628-a763-26f1e6087549
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 211c9c8c66f3eed15121b4dd425fa728c39b7de3
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c665ff3bd4ce5173ee17ab7e0c4591f72b439eeb
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37802048"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41834404"
 ---
 <a name="async-and-stored-procedures-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Asynchrone und gespeicherte Prozeduren mit dem Entitätsframework in einer ASP.NET MVC-Anwendung
 ====================

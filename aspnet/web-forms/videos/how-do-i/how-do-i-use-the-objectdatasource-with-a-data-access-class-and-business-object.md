@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-use-the-objectdatasource-with-a-data-acc
 title: '[Gewusst wie:] Verwenden von ObjectDataSource mit einer Datenzugriffsklasse und einem Geschäftsobjekt | Microsoft-Dokumentation'
 author: rick-anderson
 description: In diesem Video zeigt Chris Pels, wie Sie mit dem ObjectDataSource-Steuerelement als die Zwischenschicht zwischen datengebundene Elemente der Benutzeroberfläche und eine benutzerdefinierte Daten Konto...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/21/2008
 ms.assetid: 8a47e438-3d8c-4a70-803c-56536a868bd9
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-the-objectdatasource-with-a-data-access-class-and-business-object
 msc.type: video
-ms.openlocfilehash: 582d656efe4ec0f33c24c8c217b7f834fb4d5b78
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 1b0a992b0eeb7d2f753fa5cd92e5bf806f242881
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37804620"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41834342"
 ---
 <a name="how-do-i-use-the-objectdatasource-with-a-data-access-class-and-business-object"></a>[Gewusst wie:] Verwenden von ObjectDataSource mit einer Datenzugriffsklasse und einem Geschäftsobjekt
 ====================

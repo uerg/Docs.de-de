@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-dynamic-data/how-to-implement-custom-field-validati
 title: 'Gewusst wie: Implementieren der Überprüfung von benutzerdefinierten Feldern mit imperativer Logik in VB oder c# | Microsoft-Dokumentation'
 author: JoeStagner
 description: In diesem Video werden für die feldvalidierung von deklarativen, die wir in unserem vorherigen dynamischen Daten Video implementiert und benutzerdefinierte Programmlogik hinzufügen, um unsere Val...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/11/2008
 ms.assetid: 22fb5270-7685-4f3a-919b-c23e180efe49
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/how-to-implement-custom-field-validation-with-imperative-logic-in-vb-or-c
 msc.type: video
-ms.openlocfilehash: 52cd90ddbe48e42e8043ca3d1c79db5e85796c46
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: cd6a97f1c31cbb0c19b2cbfb867cd983144ffa8c
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37802798"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41831994"
 ---
 <a name="how-to-implement-custom-field-validation-with-imperative-logic-in-vb-or-c"></a>Gewusst wie: Implementieren der Überprüfung von benutzerdefinierten Feldern mit imperativer Logik in VB oder c#
 ====================

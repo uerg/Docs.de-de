@@ -3,17 +3,17 @@ uid: web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-dropdown
 title: '[Gewusst wie:] Verwenden Sie das DropDown-Steuerelement von ASP.NET AJAX? | Microsoft-Dokumentation'
 author: JoeStagner
 description: Mit dem DropDown-Steuerelement-Extender aus dem ASP.NET AJAX Control Toolkit können Sie den Benutzer mit einer Dropdown-Liste der Optionen darstellen, die eine teilweise-Pa auslösen...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/30/2007
 ms.assetid: a997a9f8-9f71-4b9e-b7ed-f8e3a0daa576
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-dropdown-control
 msc.type: video
-ms.openlocfilehash: 6394818f52509a8784c8d12b54965710f4ece057
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 8e253f4213af4a1ffe5e5ee133dec931fcf4a46d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37833196"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832799"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-dropdown-control"></a>[Gewusst wie:] Verwenden Sie das DropDown-Steuerelement von ASP.NET AJAX?
 ====================

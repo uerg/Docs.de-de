@@ -3,17 +3,17 @@ uid: mvc/overview/getting-started/database-first-development/enhancing-data-vali
 title: 'EF Database First mit ASP.NET MVC: Optimieren der Datenüberprüfung | Microsoft-Dokumentation'
 author: tfitzmac
 description: Verwenden MVC, Entity Framework und ASP.NET-Gerüstbau, können Sie eine Webanwendung erstellen, die eine Schnittstelle für eine vorhandene Datenbank bereitstellt. Dieses Tutorial Seri...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/29/2014
 ms.assetid: 0ed5e67a-34c0-4b57-84a6-802b0fb3cd00
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/enhancing-data-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 9a7c6e200caa72aea61a80d6496ec1a1569e5e48
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: dbff33a1c4f47474adda82e796d9c292392142f2
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37816317"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832387"
 ---
 <a name="ef-database-first-with-aspnet-mvc-enhancing-data-validation"></a>EF Database First mit ASP.NET MVC: Optimieren der Datenüberprüfung
 ====================

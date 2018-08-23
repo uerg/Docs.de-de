@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: Bestimmen, welche Dateien werden müssen (VB) bereitgestellten | Microsoft-Dokumentation
 author: rick-anderson
 description: Was müssen Dateien aus der Entwicklungsumgebung bereitgestellt werden, in der produktionsumgebung hängt zum Teil, ob die ASP.NET-Anwendung uns erstellt wurde...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/01/2009
 ms.assetid: ea918f62-c9d6-4a7f-9bc6-e054d3764b2c
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 52ba518ec1c911b2eb659c0b36a2a718fbdd0c36
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 22461b681ea195225c6b7b0306b6f49956a2890b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37825699"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41831379"
 ---
 <a name="determining-what-files-need-to-be-deployed-vb"></a>Bestimmen, welche Dateien müssen sein bereitgestellt (VB)
 ====================
