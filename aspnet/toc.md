@@ -1227,7 +1227,8 @@
 #### [Verwenden der Seitenprüfung in ASP.NET MVC](mvc/videos/mvc-4/using-page-inspector-in-aspnet-mvc.md)
 #### [ASP.NET MVC 4](mvc/videos/mvc-4/aspnet-mvc-4.md)
 ### [ASP.NET MVC 3](mvc/videos/mvc-3/index.md)
-#### [MVC 3 – Razor-Anzeigemodul](mvc/videos/mvc-3/mvc-3-razor-view-engine.md)
+#### 
+  [MVC 3 – Razor-Anzeige-Engine](mvc/videos/mvc-3/mvc-3-razor-view-engine.md)
 #### [MVC 3 – Razor-Hilfsprogramme](mvc/videos/mvc-3/mvc-3-razor-helpers.md)
 ### [ASP.NET MVC 2](mvc/videos/mvc-2/index.md)
 #### [Gewusst wie](mvc/videos/mvc-2/how-do-i/index.md)
@@ -1640,7 +1641,8 @@
 
 
 
-
+# [Visual Studio 2017](visual-studio/overview/2017/index.md)
+## [Optimieren der Buildleistung für die Projektmappe](xref:visual-studio/overview/2017/optimize-build-perf)
 
 # [Visual Studio 2013](visual-studio/overview/2013/index.md)
 ## [Erstellen von ASP.NET-Webprojekten in Visual Studio 2013](visual-studio/overview/2013/creating-web-projects-in-visual-studio.md)
