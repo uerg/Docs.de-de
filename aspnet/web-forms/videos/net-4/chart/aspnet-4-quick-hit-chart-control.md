@@ -3,25 +3,25 @@ uid: web-forms/videos/net-4/chart/aspnet-4-quick-hit-chart-control
 title: Diagramm-Steuerelement | Microsoft-Dokumentation
 author: JoeStagner
 description: In diesem Video lernen Sie, wie Sie mit, dass das Diagrammsteuerelement für ASP.NET erstellen, einfache, intuitive und visuell ansprechende Diagramme.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/05/2009
 ms.assetid: b93334e7-2167-4efb-a92d-e0ef5d98ac06
 msc.legacyurl: /web-forms/videos/net-4/chart/aspnet-4-quick-hit-chart-control
 msc.type: video
-ms.openlocfilehash: 24b6f012fa0485ddc95a57065b8f4558663107eb
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 43e6e7665543e8127444b1511c2a975878555cb1
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37842269"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832094"
 ---
-<a name="aspnet-4-quick-hit---chart-control"></a><span data-ttu-id="f3534-103">ASP.NET 4 "Schnelles drücken" - Diagramm-Steuerelement</span><span class="sxs-lookup"><span data-stu-id="f3534-103">ASP.NET 4 "Quick Hit" - Chart Control</span></span>
+<a name="aspnet-4-quick-hit---chart-control"></a><span data-ttu-id="28032-103">ASP.NET 4 "Schnelles drücken" - Diagramm-Steuerelement</span><span class="sxs-lookup"><span data-stu-id="28032-103">ASP.NET 4 "Quick Hit" - Chart Control</span></span>
 ====================
-<span data-ttu-id="f3534-104">durch [Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="f3534-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="28032-104">durch [Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="28032-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="f3534-105">In diesem Video lernen Sie, wie Sie mit, dass das Diagrammsteuerelement für ASP.NET erstellen, einfache, intuitive und visuell ansprechende Diagramme.</span><span class="sxs-lookup"><span data-stu-id="f3534-105">In this video you will learn how to use the ASP.NET Chart Control to create simple, intuitive, and visually compelling charts.</span></span> 
+<span data-ttu-id="28032-105">In diesem Video lernen Sie, wie Sie mit, dass das Diagrammsteuerelement für ASP.NET erstellen, einfache, intuitive und visuell ansprechende Diagramme.</span><span class="sxs-lookup"><span data-stu-id="28032-105">In this video you will learn how to use the ASP.NET Chart Control to create simple, intuitive, and visually compelling charts.</span></span> 
 
-[<span data-ttu-id="f3534-106">&#9654;Sehen Sie sich Video (2 Minuten)</span><span class="sxs-lookup"><span data-stu-id="f3534-106">&#9654; Watch video (2 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-4-quick-hit-chart-control)
+[<span data-ttu-id="28032-106">&#9654;Sehen Sie sich Video (2 Minuten)</span><span class="sxs-lookup"><span data-stu-id="28032-106">&#9654; Watch video (2 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-4-quick-hit-chart-control)
 
 > [!div class="step-by-step"]
-> [<span data-ttu-id="f3534-107">Nächste</span><span class="sxs-lookup"><span data-stu-id="f3534-107">Next</span></span>](aspnet-4-how-do-i-introducing-the-new-chart-control-in-visual-studio-2010.md)
+> [<span data-ttu-id="28032-107">Nächste</span><span class="sxs-lookup"><span data-stu-id="28032-107">Next</span></span>](aspnet-4-how-do-i-introducing-the-new-chart-control-in-visual-studio-2010.md)
