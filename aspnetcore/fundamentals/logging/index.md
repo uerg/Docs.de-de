@@ -4,14 +4,14 @@ author: ardalis
 description: Erfahren Sie mehr über das Protokollierungsframework in ASP.NET Core. Lernen Sie die integrierten Anbieter für die Protokollierung kennen, und erfahren Sie mehr über beliebte Anbieter von Drittanbietern.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 08/21/2018
+ms.date: 08/27/2018
 uid: fundamentals/logging/index
-ms.openlocfilehash: 38a395a97e9a0b7ccb0bfef0d1947ef379bf748c
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: c6e9aae06df6ebec373b1296f86e37380bf08b15
+ms.sourcegitcommit: 847cc1de5526ff42a7303491e6336c2dbdb45de4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41886761"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43055760"
 ---
 # <a name="logging-in-aspnet-core"></a>Protokollierung in ASP.NET Core
 
@@ -756,6 +756,7 @@ Protokollierungsframeworks von Drittanbietern aufgeführt, die mit ASP.NET Core 
 * [elmah.io](https://elmah.io/) ([GitHub-Repository](https://github.com/elmahio/Elmah.Io.Extensions.Logging))
 * [Gelf](http://docs.graylog.org/en/2.3/pages/gelf.html) ([GitHub-Repository](https://github.com/mattwcole/gelf-extensions-logging))
 * [JSNLog](http://jsnlog.com/) ([GitHub-Repository](https://github.com/mperdeck/jsnlog))
+* [KissLog.net](https://kisslog.net/) ([GitHub repo](https://github.com/catalingavan/KissLog-net))
 * [Loggr](http://loggr.net/) ([GitHub-Repository](https://github.com/imobile3/Loggr.Extensions.Logging))
 * [NLog](http://nlog-project.org/) ([GitHub-Repository](https://github.com/NLog/NLog.Extensions.Logging))
 * [Serilog](https://serilog.net/) ([GitHub-Repository](https://github.com/serilog/serilog-extensions-logging))

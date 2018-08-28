@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/21/2018
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 9ba77561ab4f6a8668c480d6e81f2ce7e0193c73
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: e6dc76b7cb80e0dfda102df5aefb5d9ce9b821ed
+ms.sourcegitcommit: 847cc1de5526ff42a7303491e6336c2dbdb45de4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41870946"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43055805"
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core-Middleware
 
@@ -131,7 +131,9 @@ public void Configure(IApplicationBuilder app)
 
 ::: moniker-end
 
-Im obigen Code ist <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> die erste Middlewarekomponente, die der Pipeline hinzugefügt wird. Aus diesem Grund fängt die Middleware für den Ausnahmehandler alle Ausnahmen ab, die in späteren Aufrufen auftreten.
+Im vorhergehenden Beispielcode wird jede Middleware-Erweiterungsmethode in <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder> über den <xref:Microsoft.AspNetCore.Builder?displayProperty=fullName>-Namespace verfügbar gemacht.
+
+<xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> ist die erste Middlewarekomponente, die der Pipeline hinzugefügt wird. Aus diesem Grund fängt die Middleware für den Ausnahmehandler alle Ausnahmen ab, die in späteren Aufrufen auftreten.
 
 Die Middleware für statische Dateien wird am Anfang der Pipeline aufgerufen, damit sie Anforderungen und Kurzschlüsse verarbeiten kann, ohne dass die verbleibenden Komponenten durchlaufen werden müssen. Die Middleware für statische Dateien stellt **keine** Autorisierungsüberprüfungen bereit. Alle Dateien, die von ihr bearbeitet werden, Dateien unter *wwwroot* inbegriffen, sind öffentlich verfügbar. Informationen zum Sichern statischer Dateien finden Sie unter <xref:fundamentals/static-files>.
 
