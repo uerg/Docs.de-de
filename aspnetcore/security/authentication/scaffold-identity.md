@@ -4,14 +4,14 @@ author: rick-anderson
 description: Erfahren Sie, wie Sie die Identität in einem ASP.NET Core-Projekt zu erstellen.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 5/16/2018
+ms.date: 08/16/2018
 uid: security/authentication/scaffold-identity
-ms.openlocfilehash: 07163941d0bd1fea6f9b3d9867536580d8a9e9d8
-ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
+ms.openlocfilehash: e35836fa9c20729da7c857243410833749b3a595
+ms.sourcegitcommit: 847cc1de5526ff42a7303491e6336c2dbdb45de4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/15/2018
-ms.locfileid: "39063272"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43055847"
 ---
 # <a name="scaffold-identity-in-aspnet-core-projects"></a>Gerüst-Identität in ASP.NET Core-Projekten
 
@@ -26,6 +26,9 @@ Obwohl der gerüstbauer größte Teil des erforderlichen Codes generiert, müsse
 Wenn der Identity-gerüstbauer ausgeführt wird, eine *ScaffoldingReadme.txt* Datei wird im Projektverzeichnis erstellt. Die *ScaffoldingReadme.txt* -Datei enthält allgemeine Anweisungen, für welche Anforderungen für die Identity-Gerüstbau-Aktualisierung abgeschlossen ist. Dieses Dokument enthält ausführlichere Anweisungen als die *ScaffoldingReadme.txt* Datei.
 
 Es empfiehlt sich ein Quellcodeverwaltungssystem, die Unterschiede zwischen zeigt und lässt sich aus Änderungen zurück. Überprüfen Sie die Änderungen nach dem Ausführen der gerüstbauer Identität.
+
+> [!NOTE]
+> Dienste sind erforderlich, wenn mit [zweistufige Authentifizierung](xref:security/authentication/identity-enable-qrcodes), [Konto Bestätigung und Wiederherstellung](xref:security/authentication/accconfirm), und andere Sicherheitsfunktionen, mit der Identität. Dienste oder Dienst-Stubs werden nicht generiert werden, wenn Gerüstbau für Identität. Dienste zum Aktivieren dieser Funktionen müssen manuell hinzugefügt werden. Beispielsweise finden Sie unter [müssen e-Mail-Bestätigung](xref:security/authentication/accconfirm#require-email-confirmation).
 
 ## <a name="scaffold-identity-into-an-empty-project"></a>Gerüst-Identität in ein leeres Projekt
 
@@ -94,7 +97,8 @@ dotnet aspnet-codegenerator identity -dc RPauth.Data.ApplicationDbContext --file
 [!INCLUDE[](~/includes/webapp-alias-notice.md)]
 -->
 
-[!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg-auth.md)] Einige identitätsoptionen in konfiguriert *Areas/Identity/IdentityHostingStartup.cs*. Weitere Informationen finden Sie unter [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).
+[!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg-auth.md)]
+Einige identitätsoptionen in konfiguriert *Areas/Identity/IdentityHostingStartup.cs*. Weitere Informationen finden Sie unter [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).
 
 ## <a name="scaffold-identity-into-an-mvc-project-without-existing-authorization"></a>Gerüst-Identität in einem MVC-Projekt ohne vorhandene Autorisierung
 

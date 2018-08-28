@@ -8,12 +8,12 @@ ms.date: 02/21/2014
 ms.assetid: 5fa1daf9-1161-4cfa-bd4c-658f48b2c229
 msc.legacyurl: /web-forms/what-is-web-forms
 msc.type: content
-ms.openlocfilehash: ccb0e6096b0281e5ef8af63bfd84b172e7f209b9
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: e135cfa2945b9e7e5269eb436ff0c1dff20aacdf
+ms.sourcegitcommit: 847cc1de5526ff42a7303491e6336c2dbdb45de4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41839011"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43055711"
 ---
 <a name="what-is-web-forms"></a>Was ist Web Forms
 ====================
@@ -21,7 +21,7 @@ ASP.NET Web Forms ist ein Bestandteil von ASP.NET Web Application Framework und 
 
 Web Forms sind Seiten, die Ihre Benutzer anfordern, über einen Browser. Diese Seiten können mit einer Kombination aus HTML-Code geschrieben werden Clientskript-Steuerelemente und Servercode. Wenn Benutzer eine Seite anfordern, wird sie kompiliert, die durch das Framework auf dem Server ausgeführt, und klicken Sie dann das Framework generiert das HTML-Markup, das im Browser rendern kann. Eine ASP.NET Web Forms-Seite enthält Informationen für den Benutzer in einem beliebigen Browser oder Client-Gerät.
 
-ASP.NET Web Forms können Sie mithilfe von Visual Studio erstellen. Die Visual Studio integrierte Entwicklungsumgebung (IDE) können Sie die Drag & drop-Steuerelemente zum Anordnen der Web Forms-Seite. Sie können dann problemlos Eigenschaften, Methoden und Ereignisse für Steuerelemente auf der Seite oder für die Seite Dateiprotokoll festlegen. Diese Eigenschaften, Methoden und Ereignisse werden verwendet, um die Webseite Verhalten, Aussehen und Verhalten usw. zu definieren. Zum Schreiben von Servercode, um die Logik für die Seite zu verarbeiten, können Sie eine .NET-Sprache verwendet wie Visual Basic oder c# verwenden.
+ASP.NET Web Forms können Sie mithilfe von Visual Studio erstellen. Die Visual Studio integrierte Entwicklungsumgebung (IDE) können Sie die Drag & drop-Steuerelemente zum Anordnen der Web Forms-Seite. Sie können dann problemlos Eigenschaften, Methoden und Ereignisse für Steuerelemente auf der Seite oder für die Seite selbst festlegen. Diese Eigenschaften, Methoden und Ereignisse werden verwendet, um die Webseite Verhalten, Aussehen und Verhalten usw. zu definieren. Zum Schreiben von Servercode, um die Logik für die Seite zu verarbeiten, können Sie eine .NET-Sprache verwendet wie Visual Basic oder c# verwenden.
 
 > [!NOTE] 
 > 
