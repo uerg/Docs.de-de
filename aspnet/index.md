@@ -2,14 +2,15 @@
 uid: index
 layout: HubPage
 ms.topic: hub-page
+ms.author: riande
 title: ASP.NET-Dokumentation | Microsoft-Dokumentation
-description: ''
-ms.openlocfilehash: cc887183fba9d3c46fbb1068d13d612a3e1806e6
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+description: Erfahren Sie, wie Sie ASP.NET-Anwendungen und -Webanwendungen erstellen. Rufen Sie die Dokumentation, den Beispielcode, Tutorial und noch viel mehr ab.
+ms.openlocfilehash: 9b63e7a708e1b0551e1f48cea2080528d29bdfa9
+ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30866814"
+ms.lasthandoff: 08/25/2018
+ms.locfileid: "42927922"
 ---
 <div id="main" class="v2">
     <div class="container">
