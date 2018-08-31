@@ -5,12 +5,12 @@ description: Informationen Sie zum Erstellen einer Razor-Seiten-app mit Benutzer
 ms.author: riande
 ms.date: 7/24/2018
 uid: security/authorization/secure-data
-ms.openlocfilehash: ba59e8d6243965188397c4ba7a130eec42acfb91
-ms.sourcegitcommit: 847cc1de5526ff42a7303491e6336c2dbdb45de4
+ms.openlocfilehash: 9f264daa4a6b63478077cadb06a697f274014199
+ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43055879"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336010"
 ---
 ::: moniker range="<= aspnetcore-1.1"
 
@@ -19,7 +19,7 @@ Finden Sie unter [dieses PDF-Dokument](https://github.com/aspnet/Docs/tree/maste
 
 ::: moniker range="= aspnetcore-2.0"
 
-Finden Sie unter den [Diese PDF-Datei] ()https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/asp.net_repo_pdf_July16_18.pdf)
+Finden Sie unter [dieses PDF-Dokument](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/asp.net_repo_pdf_July16_18.pdf)
 
 ::: moniker-end
 
@@ -75,7 +75,13 @@ In diesem Tutorial wird verschoben. Sie sollten mit vertraut sein:
 * [Autorisierung](xref:security/authorization/index)
 * [Entity Framework Core](xref:data/ef-mvc/intro)
 
-Der Download-Code für dieses Tutorial ist ASP.NET Core-2.2-Preview 1 oder höher erforderlich. Finden Sie unter [GitHub-Problem](https://github.com/aspnet/Identity/issues/1813#issuecomment-394543909) für das Problem zu umgehen.
+::: moniker-end
+::: moniker range="= aspnetcore-2.1"
+
+In ASP.NET Core 2.1 `User.IsInRole` schlägt fehl, wenn `AddDefaultIdentity`. Dieses Tutorial verwendet `AddDefaultIdentity` und benötigt deshalb das ASP.NET Core-2.2-Preview 1 oder höher. Finden Sie unter [GitHub-Problem](https://github.com/aspnet/Identity/issues/1813#issuecomment-394543909) für das Problem zu umgehen.
+
+::: moniker-end
+::: moniker range=">= aspnetcore-2.1"
 
 ## <a name="the-starter-and-completed-app"></a>Die Starter und die fertige app
 

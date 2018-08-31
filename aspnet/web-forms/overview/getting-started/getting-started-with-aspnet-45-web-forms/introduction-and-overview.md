@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 9b96eaa1-8ef0-4338-a2e8-e0f970bfaf68
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
-ms.openlocfilehash: ad5e97cd596e146f742c4c5e882d3938005070d1
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 8e3ae964dafc73bdf703cd7cbab430bbc99a6188
+ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41831329"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336023"
 ---
 <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2013"></a>Erste Schritte mit ASP.NET 4.5 Web Forms und Visual Studio 2013
 ====================
@@ -21,9 +21,7 @@ durch [Erik Reitan](https://github.com/Erikre)
 
 [Herunterladen der Wingtip Toys-Beispielprojekts (c#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) oder [E-Book (PDF) herunterladen](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
-> Diese detaillierte lernprogrammreihe vermittelt Ihnen die Grundlagen zum Erstellen einer ASP.NET Web Forms-Anwendung mithilfe von ASP.NET 4.5 und Microsoft Visual Studio Express 2013 für Web. [ASP.NET Web Forms-Quiz](http://quizapp.cloudapp.net/?quiz=ASP.NET)  
-> Testen Sie Ihr Wissen und verstärken Sie wichtige Konzepte mithilfe der ASP.NET Web Forms-Quiz zu. Dieses Quiz wurde speziell von Inhalt in dieser Reihe von Tutorials entwickelt. Jede Frage, im Quiz erläutert sowie Links zu weiteren Anleitungen.
-
+Diese detaillierte lernprogrammreihe vermittelt Ihnen die Grundlagen zum Erstellen einer ASP.NET Web Forms-Anwendung mithilfe von ASP.NET 4.5 und Microsoft Visual Studio Express 2013 für Web. [ASP.NET Web Forms-Quiz](http://quizapp.cloudapp.net/?quiz=ASP.NET)  
 
 ## <a name="introduction"></a>Einführung
 

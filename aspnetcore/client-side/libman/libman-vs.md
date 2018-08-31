@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/20/2018
 uid: client-side/libman/libman-vs
-ms.openlocfilehash: b44769f1d0925f38523d6570858de17f37e32c2b
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: a653b1a5c07feca8672ba38e0cda3ddc30482c5a
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41909927"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312178"
 ---
 # <a name="use-libman-with-aspnet-core-in-visual-studio"></a>LibMan mit ASP.NET Core in Visual Studio verwenden
 
@@ -100,7 +100,7 @@ Mit der folgenden Manifestdatei ruft LibMan Dateien gemäß der Konfiguration de
 
 * Eine Teilmenge der [jQuery](https://jquery.com/) Version 3.3.1 wird vom Anbieter CDNJS abgerufen. Die Teilmenge wird definiert, der `files` Eigenschaft&mdash;*"jQuery.Min.js"*, *"jQuery.js"*, und *jquery.min.map*. Die Dateien des Projekts platziert sind *Wwwroot/Lib/Jquery* Ordner.
 * Während des gesamten Entwicklungsprozesses [Bootstrap](https://getbootstrap.com/) Version 4.1.3 wird abgerufen und in einem *Wwwroot/Lib/Bootstrap* Ordner. Das Objektliteral `provider` -Eigenschaft überschreibt den `defaultProvider` -Eigenschaftswert. LibMan Ruft die Bootstrap-Dateien aus der Unpkg Anbieter ab.
-* Eine Teilmenge der [Lodash](https://lodash.com/) , die von einem Governanceorgane innerhalb der Organisation genehmigt wurde. Die *lodash.js* und *lodash.min.js* Dateien werden abgerufen, aus dem lokalen Dateisystem auf *C:\\Tmp\\*. Die Dateien des Projekts kopiert werden *Wwwroot/Lib/Lodash* Ordner.
+* Eine Teilmenge der [Lodash](https://lodash.com/) , die von einem Governanceorgane innerhalb der Organisation genehmigt wurde. Die *lodash.js* und *lodash.min.js* Dateien werden abgerufen, aus dem lokalen Dateisystem auf *C:\\Temp\\Lodash\\*. Die Dateien des Projekts kopiert werden *Wwwroot/Lib/Lodash* Ordner.
 
 [!code-json[](samples/LibManSample/libman.json)]
 
@@ -193,7 +193,7 @@ Clean libraries operation completed
 2 libraries were successfully deleted in 1.91 secs
 ```
 
-Der Bereinigungsvorgang werden nur Dateien aus dem Projekt gelöscht. Bibliotheksdateien bleiben im Cache für schnelleren Zugriff auf zukünftige Wiederherstellungsvorgänge. Verwenden Sie die LibMan-CLI, zum Verwalten von Bibliotheksdateien, die im Cache mit dem lokalen Computer gespeichert.
+Der Bereinigungsvorgang werden nur Dateien aus dem Projekt gelöscht. Bibliotheksdateien bleiben im Cache für schnelleren Zugriff auf zukünftige Wiederherstellungsvorgänge. Verwenden Sie zum Verwalten der Bibliotheksdateien, die aus dem Cache mit dem lokalen Computer die [LibMan CLI](xref:client-side/libman/libman-cli).
 
 ## <a name="uninstall-library-files"></a>Deinstallieren Sie Bibliotheksdateien
 
@@ -231,4 +231,5 @@ Ein Downgrade auf eine ältere Bibliotheksversion manuell bearbeiten, die *libma
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [LibMan-GitHub-repository](https://github.com/aspnet/LibraryManager)
+* <xref:client-side/libman/libman-cli>
+* [GitHub-Repository für LibMan](https://github.com/aspnet/LibraryManager)
