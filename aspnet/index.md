@@ -1,16 +1,18 @@
 ---
 uid: index
 layout: HubPage
-ms.topic: hub-page
+ms.topic: conceptual
+author: Rick-Anderson
 ms.author: riande
-title: ASP.NET-Dokumentation | Microsoft-Dokumentation
+title: ASP.NET Core-Dokumentation
+ms.date: 08/24/2018
 description: Erfahren Sie, wie Sie ASP.NET-Anwendungen und -Webanwendungen erstellen. Rufen Sie die Dokumentation, den Beispielcode, Tutorial und noch viel mehr ab.
-ms.openlocfilehash: 9b63e7a708e1b0551e1f48cea2080528d29bdfa9
-ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
+ms.openlocfilehash: a89dc9c28303ab60314663caf6750cf096f5f052
+ms.sourcegitcommit: 847cc1de5526ff42a7303491e6336c2dbdb45de4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2018
-ms.locfileid: "42927922"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43055773"
 ---
 <div id="main" class="v2">
     <div class="container">
