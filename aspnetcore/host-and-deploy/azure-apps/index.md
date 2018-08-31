@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/24/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 9a7d20378cac597b748d8a60eb0f0bf17c9ba082
-ms.sourcegitcommit: d27317c16f113e7c111583042ec7e4c5a26adf6f
+ms.openlocfilehash: 42775bf4d3e88893260a5973f6f7bc9d3a006b5a
+ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41749893"
+ms.lasthandoff: 08/25/2018
+ms.locfileid: "42927827"
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Hosten von ASP.NET Core in Azure App Service
 
@@ -57,6 +57,14 @@ In ASP.NET Core 2.0 und höher umfassen die folgenden NuGet-Pakete automatische 
 Wenn Sie eine Anwendung für .NET Core erstellen und einen Verweis auf das Metapaket [Microsoft.AspNetCore.All](xref:fundamentals/metapackage) herstellen, sind diese Pakete bereits in der Anwendung enthalten. Das neuere Metapaket [Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) ist nicht in den Paketen enthalten. Wenn Sie eine Anwendung für .NET Framework erstellen oder einen Verweis auf das `Microsoft.AspNetCore.App`-Metapaket herstellen, verweisen Sie auch auf die einzelnen Protokollierungspakete.
 
 ::: moniker-end
+
+## <a name="override-app-configuration-using-the-azure-portal"></a>Überschreiben der App-Konfiguration im Azure-Portal
+
+Im Bereich **App-Einstellungen** auf dem Blatt **Anwendungseinstellungen** können Sie die Umgebungsvariablen für die App festlegen. Umgebungsvariablen können von [Umgebungsvariablen-Konfigurationsanbietern](xref:fundamentals/configuration/index#environment-variables-configuration-provider) verarbeitet werden.
+
+Wenn eine App den [Webhost](xref:fundamentals/host/web-host) verwendet und den Host mit [WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) erstellt, verwenden Umgebungsvariablen, die den Host konfigurieren, das Präfix `ASPNETCORE_`. Weitere Informationen finden Sie unter <xref:fundamentals/host/web-host> und unter [Umgebungsvariablen-Konfigurationsanbieter](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
+
+Wenn eine App den [generischen Host](xref:fundamentals/host/generic-host) verwendet, werden Umgebungsvariablen nicht standardmäßig in die App-Konfiguration geladen, und der Konfigurationsanbieter muss vom Entwickler hinzugefügt werden. Der Entwickler legt das Präfix der Umgebungsvariablen fest, wenn der Konfigurationsanbieter hinzugefügt wird. Weitere Informationen finden Sie unter <xref:fundamentals/host/generic-host> und unter [Umgebungsvariablen-Konfigurationsanbieter](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
 
 ## <a name="proxy-server-and-load-balancer-scenarios"></a>Proxyserver und Lastenausgleichsszenarien
 
