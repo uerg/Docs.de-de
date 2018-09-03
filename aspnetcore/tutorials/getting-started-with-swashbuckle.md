@@ -4,14 +4,14 @@ author: zuckerthoben
 description: Erfahren Sie, wie Sie Ihren ASP.NET Core-Web-API-Projekten Swashbuckle hinzufügen, um die Swagger-Benutzeroberfläche zu integrieren.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 07/27/2018
+ms.date: 08/20/2018
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: 06f0ebae70fe43506d7edecbd0508968d1d00635
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: daaf26d927fa8134c02426ee40db1784d027b487
+ms.sourcegitcommit: 15d7bd0b2c4e6fe9ac335d658bab71a45ca5bc72
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342314"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41751761"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Erste Schritte mit Swashbuckle und ASP.NET Core
 
@@ -96,6 +96,8 @@ Importieren Sie den folgenden Namespace zur Verwendung der `Info`-Klasse:
 Aktivieren Sie die Middleware in der `Startup.Configure`-Methode, um das generierte JSON-Dokument und die Swagger-Benutzeroberfläche bereitzustellen:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup2.cs?name=snippet_Configure&highlight=4,8-11)]
+
+Der obige `UseSwaggerUI`-Methodenaufruf aktiviert die [Middleware für statische Dateien](xref:fundamentals/static-files). Wenn .NET Framework oder .NET Core 1.x die Zielkomponente ist, müssen Sie Ihrem Projekt das NuGet-Paket [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) hinzufügen.
 
 Starten Sie die App, und navigieren Sie zu `http://localhost:<port>/swagger/v1/swagger.json`. Das generierte Dokument mit der Beschreibung der Endpunkte wird entsprechend der [Swagger-Spezifikation (swagger.json)](xref:tutorials/web-api-help-pages-using-swagger#swagger-specification-swaggerjson) angezeigt.
 

@@ -5,12 +5,12 @@ description: Erfahren Sie, wie Ansichtskomponenten in ASP.NET Core verwendet wer
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/views/view-components
-ms.openlocfilehash: 2b196d8d46942604d1c85eb5f2f073661e5acb30
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: c4e4de6e4ffb634a636bccdb2a929a524baebecf
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278361"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751463"
 ---
 # <a name="view-components-in-aspnet-core"></a>Ansichtskomponenten in ASP.NET Core
 
@@ -75,8 +75,9 @@ Eine Ansichtskomponente definiert Ihre Logik in einer `InvokeAsync`-Methode, die
 
 Die Runtime sucht in den folgenden Pfaden nach der Ansicht:
 
-   * Views/\<controllername>/Components/\<ansichtskomponentenname>/\<ansichtsname>
-   * Views/Shared/Components/\<ansichtskomponentenname>/\<ansichtsname>
+* /Pages/Components/<component name>/\<view_name>
+* Views/\<controllername>/Components/\<ansichtskomponentenname>/\<ansichtsname>
+* Views/Shared/Components/\<ansichtskomponentenname>/\<ansichtsname>
 
 Der Standardansichtsname für die Ansichtskomponente ist *Default*. Dies bedeutet, dass Ihre Ansichtsdatei normalerweise *Default.cshtml* heißt. Sie können einen anderen Ansichtsnamen angeben, wenn Sie die Ansichtskomponentenergebnisse erstellen oder die `View`-Methode aufrufen.
 

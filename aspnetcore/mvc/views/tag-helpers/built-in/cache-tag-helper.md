@@ -5,12 +5,12 @@ description: Veranschaulicht die Arbeit mit dem Cache-Taghilfsprogramm
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 969716e21211513053f52049368a0a7190ffba47
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 425d8c2235f0070665bc0c967d2498f2cff2a4a6
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276551"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751631"
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Cache-Taghilfsprogramm im ASP.NET Core MVC
 
@@ -181,7 +181,7 @@ routes.MapRoute(
 | Zeichenfolge            | ".AspNetCore.Identity.Application"                |
 |                   | ".AspNetCore.Identity.Application,HairColor" |
 
-Akzeptiert einen einzelnen Headerwert oder eine durch Kommas getrennte Liste von Headerwerten, die eine Cacheaktualisierung auslösen, wenn diese geändert werden. Das folgende Beispiel überprüft das Cookie, das der ASP.NET Identity zugeordnet ist. Wenn ein Benutzer authentifiziert wird, muss der Anforderungscookie festgelegt werden. Dadurch wird eine Cacheaktualisierung ausgelöst.
+Akzeptiert einen einzelnen Headerwert oder eine durch Kommas getrennte Liste von Headerwerten, die eine Cacheaktualisierung auslösen, wenn diese geändert werden. Das folgende Beispiel überprüft das Cookie, das der ASP.NET Core Identity zugeordnet ist. Wenn ein Benutzer authentifiziert wird, muss der Anforderungscookie festgelegt werden. Dadurch wird eine Cacheaktualisierung ausgelöst.
 
 Beispiel:
 

@@ -5,12 +5,12 @@ description: In diesem Tutorial werden wichtige Themen eingeführt, um Grundkenn
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: be44ef115ce72e1571bbdea2c609ea6c53792c59
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 25916365b4e682a8e296e0affbcddd4f1e5846b1
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38194041"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755598"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---advanced---10-of-10"></a>ASP.NET Core MVC mit EF Core: Erweitert (10 von 10)
 
@@ -187,7 +187,7 @@ Das [dritte Tutorial dieser Reihe](sort-filter-page.md) zeigt, wie Sie LINQ-Code
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Dies schließt diese Tutorialreihe zur Verwendung von Entity Framework Core in einer ASP.NET MVC-Anwendung ab.
+Dies schließt die verschiedenen Tutorials zur Verwendung von Entity Framework Core in einer ASP.NET Core MVC-Anwendung ab.
 
 Weitere Informationen zu EF Core finden Sie in der [Dokumentation zu Entity Framework Core](https://docs.microsoft.com/ef/core). Ein Buch ist ebenfalls verfügbar: [Entity Framework Core in Aktion](https://www.manning.com/books/entity-framework-core-in-action).
 

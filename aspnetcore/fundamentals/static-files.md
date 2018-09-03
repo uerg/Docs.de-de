@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/18/2018
 uid: fundamentals/static-files
-ms.openlocfilehash: 7ecbcc81423af20f8da79ebc026b1ac01a250b90
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 33fad930e617c74d9a8c07f850764a6b81fa8ab5
+ms.sourcegitcommit: 2c158fcfd325cad97ead608a816e525fe3dcf757
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36279216"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41751440"
 ---
 # <a name="static-files-in-aspnet-core"></a>Statische Dateien in ASP.NET Core
 
@@ -102,7 +102,7 @@ Mit einem [StaticFileOptions](/dotnet/api/microsoft.aspnetcore.builder.staticfil
 
 Die Methode [HeaderDictionaryExtensions.Append](/dotnet/api/microsoft.aspnetcore.http.headerdictionaryextensions.append) ist im Paket [Microsoft.AspNetCore.Http](https://www.nuget.org/packages/Microsoft.AspNetCore.Http/) enthalten.
 
-Die Dateien wurden 10 Minuten lang (600 Sekunden) öffentlich zwischenspeicherbar gemacht:
+Die Dateien wurden 10 Minuten lang (600 Sekunden) in der Entwicklungsumgebung öffentlich zwischenspeicherbar gemacht:
 
 ![Antwortheader mit dem Cache-Control-Header wurden hinzugefügt](static-files/_static/add-header.png)
 

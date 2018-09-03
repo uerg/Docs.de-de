@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/17/2018
 uid: mvc/views/view-compilation
-ms.openlocfilehash: 9355d467ca819ea8c6292963b31367ad5ca36d55
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: 05ebc2b51401f8ce8d76d7d121e351cd9ca42c80
+ms.sourcegitcommit: 67a0a04ebb3b21c826e5b9600bacfc897abd6a46
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938536"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42899856"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>Kompilieren einer Razor-Datei in ASP.NET Core
 
@@ -39,9 +39,12 @@ Im Folgenden werden Nebeneffekte der Vorkompilierung von Razor-Dateien aufgefüh
 ## <a name="deploy-precompiled-files"></a>Bereitstellen vorkompilierter Dateien
 
 ::: moniker range=">= aspnetcore-2.1"
+
 Die Kompilierung zur Erstellung und Veröffentlichung von Razor-Dateien wird standardmäßig vom Razor SDK aktiviert. Das Bearbeiten von Razor-Dateien, nachdem sie aktualisiert wurden, wird zum Zeitpunkt der Erstellung unterstützt. Standardmäßig wird nur die kompilierte Datei *Views.dll*, ohne *CSHTML*-Dateien, mit Ihrer App bereitgestellt.
 
 > [!IMPORTANT]
+> Das Vorkompilierungstool wird in ASP.NET Core 3.0 entfernt. Wir empfehlen die Migration zu [Razor Sdk](xref:razor-pages/sdk).
+>
 > Das Razor SDK ist nur dann wirksam, wenn keine für die Vorkompilierung spezifischen Eigenschaften in der Projektdatei festgelegt sind. Durch Festlegen der Eigenschaft `MvcRazorCompileOnPublish` der *CSPROJ*-Datei auf `true` wird das Razor SDK beispielsweise deaktiviert.
 ::: moniker-end
 
@@ -55,6 +58,8 @@ Wenn Ihr Paket für .NET Core gedacht ist, sind keine Änderungen erforderlich.
 Mit den Projektvorlagen von ASP.NET Core 2.x wird die Eigenschaft `MvcRazorCompileOnPublish` standardmäßig explizit auf `true` festgelegt. Dieses Element kann folglich sicher aus der *CSPROJ*-Datei entfernt werden.
 
 > [!IMPORTANT]
+> Das Vorkompilierungstool wird in ASP.NET Core 3.0 entfernt. Wir empfehlen die Migration zu [Razor Sdk](xref:razor-pages/sdk).
+>
 > Die Vorkompilierung von Razor-Dateien steht aktuell beim Durchführen einer [eigenständigen Bereitstellung (Self-Contained Deployment, SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) in ASP.NET Core 2.0 nicht zur Verfügung.
 ::: moniker-end
 

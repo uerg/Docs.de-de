@@ -6,23 +6,43 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/28/2017
 uid: fundamentals/configuration/options
-ms.openlocfilehash: ef6b0117b88c4c79771f0280267bd99993028ac8
-ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
+ms.openlocfilehash: 6258530beedced9570111478fea630b1556e1a1e
+ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39655419"
+ms.lasthandoff: 08/25/2018
+ms.locfileid: "42927957"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Optionsmuster in ASP.NET Core
 
 Von [Luke Latham](https://github.com/guardrex)
 
-Das Optionsmuster verwendet Klassen, um Gruppen von zusammengehörigen Einstellungen darzustellen. Wenn Konfigurationseinstellungen nach Feature in separate Klassen isoliert werden, entspricht die Anwendung zwei wichtigen Prinzipien der Softwareentwicklung:
+Das Optionsmuster verwendet Klassen, um Gruppen von zusammengehörigen Einstellungen darzustellen. Wenn [Konfigurationseinstellungen](xref:fundamentals/configuration/index) nach Szenario in separate Klassen isoliert werden, entspricht die Anwendung zwei wichtigen Prinzipien der Softwareentwicklung:
 
-* Das [Schnittstellentrennungsprinzip (ISP)](http://deviq.com/interface-segregation-principle/): Features (Klassen), die von Konfigurationseinstellungen abhängen, sind nur von den Konfigurationseinstellungen abhängig, die sie verwenden.
+* Das [Schnittstellentrennungsprinzip (ISP)](http://deviq.com/interface-segregation-principle/): Szenarios (Klassen), die von Konfigurationseinstellungen abhängen, sind nur von den Konfigurationseinstellungen abhängig, die sie verwenden.
 * [Trennung von Bereichen](http://deviq.com/separation-of-concerns/): Einstellungen für die verschiedenen Teile der Anwendung hängen nicht voneinander ab und sind nicht gekoppelt.
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample)) Dieser Artikel kann mit der Beispielanwendung einfacher gelesen werden.
+
+## <a name="prerequisites"></a>Erforderliche Komponenten
+
+::: moniker range=">= aspnetcore-2.1"
+
+Verweisen Sie auf das [Microsoft.AspNetCore.App-Metapaket](xref:fundamentals/metapackage-app), oder fügen Sie einen Paketverweis auf das Paket [Microsoft.Extensions.Options.ConfigurationExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Options.ConfigurationExtensions/) hinzu.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+Verweisen Sie auf das [Microsoft.AspNetCore.All-Metapaket](xref:fundamentals/metapackage), oder fügen Sie einen Paketverweis auf das Paket [Microsoft.Extensions.Options.ConfigurationExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Options.ConfigurationExtensions/) hinzu.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+Fügen Sie einen Paketverweis auf das Paket [Microsoft.Extensions.Options.ConfigurationExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Options.ConfigurationExtensions/) hinzu.
+
+::: moniker-end
 
 ## <a name="basic-options-configuration"></a>Grundlegende Optionskonfiguration
 
@@ -102,7 +122,7 @@ delegate_option1 = value1_configured_by_delgate, delegate_option2 = 500
 
 Das Konfigurieren von Unteroptionen wird als Beispiel &num;3 in der [Beispielanwendung](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample) veranschaulicht.
 
-Anwendungen sollten Optionsklassen erstellen, die für bestimmte Featuregruppen (Klassen) in der Anwendung gelten. Die Komponenten der Anwendung, die Konfigurationswerte erfordern, sollten nur über Zugriff auf die Konfigurationswerte verfügen, die sie verwenden.
+Anwendungen sollten Optionsklassen erstellen, die für bestimmte Szenariogruppen (Klassen) in der Anwendung gelten. Die Komponenten der Anwendung, die Konfigurationswerte erfordern, sollten nur über Zugriff auf die Konfigurationswerte verfügen, die sie verwenden.
 
 Beim Binden von Optionen zur Konfiguration ist jede Eigenschaft im Optionstyp an einen Konfigurationsschlüssel des `property[:sub-property:]`-Formulars gebunden. Die `MyOptions.Option1`-Eigenschaft ist beispielsweise an den Schlüssel `Option1` gebunden, der von der `option1`-Eigenschaft in *appsettings.json* gelesen wird.
 

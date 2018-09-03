@@ -5,18 +5,18 @@ description: Erfahren Sie, wie man gängige Layouts verwendet, Anweisungen von m
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/views/layout
-ms.openlocfilehash: a99b239a0aeeb14492b1eee962dc1149f056f0eb
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: ad0b339572f387be8a636204015ffc361947acb8
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274117"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751570"
 ---
 # <a name="layout-in-aspnet-core"></a>Layout in ASP.NET Core
 
 Von [Steve Smith](https://ardalis.com/)
 
-Ansichten beinhalten häufig sowohl visuelle als auch programmgesteuerte Elemente. In diesem Artikel erfahren Sie, wie man gängige Layouts verwendet, Anweisungen von mehreren Ansichten gemeinsam nutzen lässt und man Programmcode vor dem Rendern der Ansichten in der ASP.NET-App ausführt.
+Ansichten beinhalten häufig sowohl visuelle als auch programmgesteuerte Elemente. In diesem Artikel erfahren Sie, wie man gängige Layouts verwendet, Anweisungen von mehreren Ansichten gemeinsam nutzen lässt und man Programmcode vor dem Rendern der Ansichten in der ASP.NET Core-App ausführt.
 
 ## <a name="what-is-a-layout"></a>Was ist ein Layout?
 
@@ -26,7 +26,7 @@ Die meisten Web-Apps haben ein gebräuchliches Layout, das dem Benutzer beim Nav
 
 Gängige HTML-Strukturen wie Skripts und Stylesheets werden häufig von vielen Seiten in einer App verwendet. Alle diese gemeinsamen Elemente werden in einer *Layoutdatei* definiert, auf die dann von jeder Ansicht einer App verwiesen werden kann. Layouts minimieren Codeduplikate in Ansichten, sodass das [DRY-Prinzip (Don‘t Repeat Yourself)](http://deviq.com/don-t-repeat-yourself/) eingehalten wird.
 
-Gemäß Konvention ist `_Layout.cshtml` das Standardlayout für eine ASP.NET-App. Die Visual Studio ASP.NET Core MVC-Projektvorlage enthält diese Layoutdatei im Ordner `Views/Shared`:
+Gemäß Konvention ist `_Layout.cshtml` das Standardlayout für eine ASP.NET Core-App. Die Visual Studio ASP.NET Core MVC-Projektvorlage enthält diese Layoutdatei im Ordner `Views/Shared`:
 
 ![Ordner „Views“ (Ansichten) im Projektmappen-Explorer](layout/_static/web-project-views.png)
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/02/2018
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 861370dc689e2420838f639ea0b1fb8f73927e16
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: b9c322e56c0902c2a78bbbf2563dd01ce79fdc9a
+ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342418"
+ms.lasthandoff: 08/25/2018
+ms.locfileid: "42927896"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Dependency Injection in ASP.NET Core
 
@@ -55,7 +55,7 @@ public class IndexModel : PageModel
 
     public async Task OnGetAsync()
     {
-        await _myDependency.WriteMessage(
+        await _dependency.WriteMessage(
             "IndexModel.OnGetAsync created this message.");
     }
 }
@@ -74,7 +74,7 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Index()
     {
-        await _myDependency.WriteMessage(
+        await _dependency.WriteMessage(
             "HomeController.Index created this message.");
 
         return View();
@@ -143,7 +143,7 @@ In der Beispiel-App ist der Dienst `IMyDependency` mit dem konkreten Typ `MyDepe
 ::: moniker-end
 
 > [!NOTE]
-> Jede Erweiterungsmethode vom Typ `services.Add<ServiceName>` fügt Dienste hinzu (und konfiguriert diese möglicherweise). So fügt beispielsweise `services.AddMvc()` die erforderlichen Dienste Razor Pages und MVC hinzu. Es wird empfohlen, dass Apps dieser Konvention folgen. Platzieren Sie Erweiterungsmethoden im Namespace [Microsoft.Extensions.DependencyInjection](/dotnet/api/microsoft.extensions.dependencyinjection), um Gruppen von Dienstregistrierungen zu kapseln.
+> Jede Erweiterungsmethode vom Typ `services.Add{SERVICE_NAME}` fügt Dienste hinzu (und konfiguriert diese möglicherweise). So fügt beispielsweise `services.AddMvc()` die erforderlichen Dienste Razor Pages und MVC hinzu. Es wird empfohlen, dass Apps dieser Konvention folgen. Platzieren Sie Erweiterungsmethoden im Namespace [Microsoft.Extensions.DependencyInjection](/dotnet/api/microsoft.extensions.dependencyinjection), um Gruppen von Dienstregistrierungen zu kapseln.
 
 Wenn für den Dienstkonstruktor ein Grundtyp erforderlich ist, z. B. `string`, kann dieser über [Konfiguration](xref:fundamentals/configuration/index) und das [Optionsmuster](xref:fundamentals/configuration/options) eingefügt werden:
 
@@ -198,7 +198,7 @@ Die Methode `Startup.ConfigureServices` definiert die von der App verwendeten Di
 | [System.Diagnostics.DiagnosticSource](https://docs.microsoft.com/dotnet/core/api/system.diagnostics.diagnosticsource) | Singleton |
 | [System.Diagnostics.DiagnosticListener](https://docs.microsoft.com/dotnet/core/api/system.diagnostics.diagnosticlistener) | Singleton |
 
-Wenn eine Dienstsammlungs-Erweiterungsmethode verfügbar ist, um einen Dienst (und ggf. seine abhängigen Dienste) zu registrieren, ist die Konvention, eine einzige `Add<ServiceName>`-Erweiterungsmethode zu verwenden, um alle von diesem Dienst benötigten Dienste zu registrieren. Der folgende Code ist ein Beispiel für das Hinzufügen zusätzlicher Dienste zum Container mit den Erweiterungsmethoden [AddDbContext](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext), [AddIdentity](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionextensions.addidentity) und [AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc):
+Wenn eine Dienstsammlungs-Erweiterungsmethode verfügbar ist, um einen Dienst (und ggf. seine abhängigen Dienste) zu registrieren, ist die Konvention, eine einzige `Add{SERVICE_NAME}`-Erweiterungsmethode zu verwenden, um alle von diesem Dienst benötigten Dienste zu registrieren. Der folgende Code ist ein Beispiel für das Hinzufügen zusätzlicher Dienste zum Container mit den Erweiterungsmethoden [AddDbContext](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext), [AddIdentity](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionextensions.addidentity) und [AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc):
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -480,14 +480,24 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="default-service-container-replacement"></a>Ersetzen von Standarddienstcontainern
 
-Der integrierte Dienstcontainer dient dazu, die grundlegenden Anforderungen des Frameworks und der meisten darin integrierten Consumeranwendungen zu erfüllen. Entwickler können den integrierten Container jedoch durch ihren bevorzugten Container ersetzen. Die `Startup.ConfigureServices`-Methode gibt normalerweise `void`zurück. Wenn die Signatur der Methode so geändert wird, dass [IServiceProvider](/dotnet/api/system.iserviceprovider) zurückgegeben wird, kann ein anderer Container konfiguriert und zurückgegeben werden. Für .NET sind viele IoC-Container verfügbar. Im folgenden Beispiel wird der [Autofac](https://autofac.org/)-Container verwendet:
+Der integrierte Dienstcontainer dient dazu, die Anforderungen des Frameworks und der meisten Consumer-Apps zu erfüllen. Die Verwendung der integrierten Container wird empfohlen, es sei denn, Sie benötigen ein bestimmtes Feature, das nicht unterstützt wird. Im Folgenden werden einige der Features aufgeführt, die von Containern von Drittanbietern unterstützt werden, aber nicht im integrierten Container enthalten sind:
 
-1. Installieren Sie das entsprechende Containerpaket bzw. die entsprechenden Containerpakete:
+* Eigenschaftsinjektion
+* Auf Namen basierende Injektion
+* Untergeordnete Container
+* Benutzerdefinierte Verwaltung der Lebensdauer
+* `Func<T>`-Unterstützung für die verzögerte Initialisierung
+
+Eine Liste einiger Container, die Adapter unterstützen, finden Sie in der [Datei „readme.md“ zur Dependency Injection](https://github.com/aspnet/DependencyInjection#using-other-containers-with-microsoftextensionsdependencyinjection).
+
+Im folgenden Beispiel wird der integrierte Container durch [Autofac](https://autofac.org/) ersetzt:
+
+* Installieren Sie das entsprechende Containerpaket bzw. die entsprechenden Containerpakete:
 
     * [Autofac](https://www.nuget.org/packages/Autofac/)
     * [Autofac.Extensions.DependencyInjection](https://www.nuget.org/packages/Autofac.Extensions.DependencyInjection/)
 
-2. Konfigurieren Sie den Container in `Startup.ConfigureServices`, und geben Sie einen `IServiceProvider`-Wert zurück:
+* Konfigurieren Sie den Container in `Startup.ConfigureServices`, und geben Sie einen `IServiceProvider`-Wert zurück:
 
     ```csharp
     public IServiceProvider ConfigureServices(IServiceCollection services)
@@ -506,7 +516,7 @@ Der integrierte Dienstcontainer dient dazu, die grundlegenden Anforderungen des 
 
     Um einen Drittanbietercontainer zu verwenden, muss `Startup.ConfigureServices` `IServiceProvider` zurückgeben.
 
-3. Konfigurieren Sie Autofac in `DefaultModule`:
+* Konfigurieren Sie Autofac in `DefaultModule`:
 
     ```csharp
     public class DefaultModule : Module

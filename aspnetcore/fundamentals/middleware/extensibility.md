@@ -2,16 +2,17 @@
 title: Factorybezogene Middlewareaktivierung in ASP.NET Core
 author: guardrex
 description: Informationen zur Verwendung von stark typisierter Middleware mit einer factorybezogenen Aktivierungsimplementierung von ASP.NET Core.
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/29/2018
+ms.date: 08/14/2018
 uid: fundamentals/middleware/extensibility
-ms.openlocfilehash: 44987dbc20b0419865a23e64b60a5dc3f436743a
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 346f5e7b28a9cd17a03a864772ed8b2e4be9455b
+ms.sourcegitcommit: 2c158fcfd325cad97ead608a816e525fe3dcf757
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277071"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41751456"
 ---
 # <a name="factory-based-middleware-activation-in-aspnet-core"></a>Factorybezogene Middlewareaktivierung in ASP.NET Core
 
@@ -47,7 +48,7 @@ Die Middlewareimplementierungen funktionieren auf identische Weise und erfassen 
 
 Über `MiddlewareFactory` aktivierte Middleware:
 
-[!code-csharp[](extensibility/sample/Middleware/IMiddlewareMiddleware.cs?name=snippet1)]
+[!code-csharp[](extensibility/sample/Middleware/FactoryActivatedMiddleware.cs?name=snippet1)]
 
 Für Middlewares werden Erweiterungen erstellt:
 
@@ -56,11 +57,11 @@ Für Middlewares werden Erweiterungen erstellt:
 Es ist nicht möglich, Objekte mit `UseMiddleware` an eine Middleware zu übergeben, die über eine Factory aktiviert wurde:
 
 ```csharp
-public static IApplicationBuilder UseIMiddlewareMiddleware(
+public static IApplicationBuilder UseFactoryActivatedMiddleware(
     this IApplicationBuilder builder, bool option)
 {
     // Passing 'option' as an argument throws a NotSupportedException at runtime.
-    return builder.UseMiddleware<IMiddlewareMiddleware>(option);
+    return builder.UseMiddleware<FactoryActivatedMiddleware>(option);
 }
 ```
 
@@ -70,15 +71,15 @@ Die Middleware, die über eine Factory aktiviert wurde, wird dem integrierten Co
 
 Beide Middlewares werden in der Anforderungsverarbeitungspipeline in `Configure` registriert:
 
-[!code-csharp[](extensibility/sample/Startup.cs?name=snippet2&highlight=13-14)]
+[!code-csharp[](extensibility/sample/Startup.cs?name=snippet2&highlight=14-15)]
 
 ## <a name="imiddlewarefactory"></a>IMiddlewareFactory
 
 Die [IMiddlewareFactory](/dotnet/api/microsoft.aspnetcore.http.imiddlewarefactory)-Instanz stellt Methoden zur Verfügung, um Middleware zu erstellen. Die Implementierung der Middlewarefactory wird im Container als bereichsbezogener Dienst registriert.
 
-Die Standardimplementierung von `IMiddlewareFactory`, [MiddlewareFactory](/dotnet/api/microsoft.aspnetcore.http.middlewarefactory), befindet sich im Paket [Microsoft.AspNetCore.Http](https://www.nuget.org/packages/Microsoft.AspNetCore.Http/) ([Verweisquelle](https://github.com/aspnet/HttpAbstractions/blob/release/2.0/src/Microsoft.AspNetCore.Http/MiddlewareFactory.cs)).
+Die Standardimplementierung von `IMiddlewareFactory`, [MiddlewareFactory](/dotnet/api/microsoft.aspnetcore.http.middlewarefactory), befindet sich im Paket [Microsoft.AspNetCore.Http](https://www.nuget.org/packages/Microsoft.AspNetCore.Http/).
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Middleware](xref:fundamentals/middleware/index)
-* [Middlewareaktivierung mit einem Drittanbietercontainer](xref:fundamentals/middleware/extensibility-third-party-container)
+* <xref:fundamentals/middleware/index>
+* <xref:fundamentals/middleware/extensibility-third-party-container>

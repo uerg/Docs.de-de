@@ -5,22 +5,16 @@ description: Informationen zum Testen von Controllerlogik in ASP.NET Core mit Mo
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/controllers/testing
-ms.openlocfilehash: fc5f10b4d5947a6af114bf00f8b1d955b083a44d
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: d0b2a25d00187c088671be147844aa892f824c6e
+ms.sourcegitcommit: 64c2ca86fff445944b155635918126165ee0f8aa
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273922"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41751552"
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>Testen von Controllerlogik in ASP.NET Core
 
 Von [Steve Smith](https://ardalis.com/)
-
-Controller in ASP.NET MVC-Apps sollten möglichst klein sein und sich überwiegend mit Aspekten der Benutzeroberfläche befassen. Große Controller, die sich mit anderen Belangen als der Benutzeroberfläche befassen, können schwerer getestet und verwaltet werden.
-
-[Beispiel anzeigen oder von GitHub herunterladen](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/testing/sample).
-
-## <a name="testing-controllers"></a>Testen von Controllern
 
 Controller sind ein zentraler Bestandteil jeder ASP.NET Core MVC-Anwendung. Daher sollten Sie auch darauf vertrauen können, dass sie in Ihrer App wie beabsichtigt funktionieren. Automatisierte Tests können Ihnen dieses Vertrauen vermitteln. Sie können zudem dabei helfen, Fehler aufzudecken, bevor diese die Produktion erreichen. Sie sollten auf keinen Fall unnötige Aufgaben innerhalb der Controller platzieren. Zudem sollten die Tests ausschließlich auf die Controlleraufgaben ausgerichtet sein.
 
@@ -35,11 +29,13 @@ Typische Aufgaben des Controllers:
 * Speichern der Geschäftsentität im Persistenzspeicher
 * Zurückgeben eines entsprechenden `IActionResult`
 
-## <a name="unit-testing"></a>Unittest
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/testing/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
-Ein [Komponententest](/dotnet/articles/core/testing/unit-testing-with-dotnet-test) beinhaltet das Testen einer App-Komponente isoliert von ihrer Infrastruktur und ihren Abhängigkeiten. Bei einem Komponententest der Controllerlogik werden nur die Inhalte einer einzelnen Aktion getestet, nicht das Verhalten ihrer Abhängigkeiten oder des Frameworks selbst. Konzentrieren Sie sich bei der Durchführung eines Komponententests für Ihre Controlleraktionen daher nur auf deren Verhalten. Bei einem Komponententest des Controllers werden z.B. [Filter](filters.md), [Routing](../../fundamentals/routing.md), [Modellbindung](../models/model-binding.md) o.Ä. vermieden. Durch die Fokussierung auf nur einen Aspekt sind Komponententests in der Regel einfach zu schreiben und schnell in der Ausführung. Gut geschriebene Komponententests können häufig ohne großen Mehraufwand ausgeführt werden. Komponententests erkennen jedoch keine Probleme bei der Interaktion zwischen den Komponenten. Dazu dienen [Integrationstests](xref:mvc/controllers/testing#integration-testing).
+## <a name="unit-tests-of-controller-logic"></a>Komponententests der Controllerlogik
 
-Wenn Sie benutzerdefinierte Filter, Routen usw. schreiben, sollten Sie für diese einen Komponententest durchführen. Er sollte jedoch nicht Bestandteil eines Tests für eine bestimmte Controlleraktion sein. Die Tests sollten vielmehr isoliert ausgeführt werden.
+[Komponententests](/dotnet/articles/core/testing/unit-testing-with-dotnet-test) beinhalten das Testen einer App-Komponente isoliert von ihrer Infrastruktur und ihren Abhängigkeiten. Bei einem Komponententest der Controllerlogik werden nur die Inhalte einer einzelnen Aktion getestet, nicht das Verhalten ihrer Abhängigkeiten oder des Frameworks selbst. Konzentrieren Sie sich bei der Durchführung eines Komponententests für Ihre Controlleraktionen daher nur auf deren Verhalten. Bei einem Komponententest des Controllers werden z.B. [Filter](xref:mvc/controllers/filters), [Routing](xref:fundamentals/routing), [Modellbindung](xref:mvc/models/model-binding) o.Ä. vermieden. Durch die Fokussierung auf nur einen Aspekt sind Komponententests in der Regel einfach zu schreiben und schnell in der Ausführung. Gut geschriebene Komponententests können häufig ohne großen Mehraufwand ausgeführt werden. Komponententests erkennen jedoch keine Probleme bei der Interaktion zwischen den Komponenten. Dazu dienen [Integrationstests](xref:test/integration-tests).
+
+Wenn Sie benutzerdefinierte Filter und Routen schreiben, sollten Sie für diese isoliert einen Komponententest durchführen, der nicht Bestandteil eines Tests für eine bestimmte Controlleraktion ist.
 
 > [!TIP]
 > [Erstellen und Ausführen von Komponententests mit Visual Studio](/visualstudio/test/unit-test-your-code).
@@ -62,7 +58,7 @@ Ein ungültiger Modellstatus kann getestet werden, indem mithilfe von `AddModelE
 
 [!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=8,15-16,37-39&range=35-75)]
 
-Im ersten Test wird bestätigt, dass bei ungültigem `ModelState` das gleiche `ViewResult` zurückgegeben wird wie für eine `GET`-Anforderung. Beachten Sie, dass der Test für ein ungültiges Modell gar nicht erfolgreich durchgeführt werden soll. Da die Modellbindung nicht ausgeführt wird, wäre dies ohnehin nicht möglich (obwohl bei einem [Integrationstest](xref:mvc/controllers/testing#integration-testing) eine Trainingsmodellbindung verwendet wird). In diesem Fall wird nicht die Modellbindung getestet. Bei diesen Komponententests wird nur das Verhalten des Codes in der Aktionsmethode getestet.
+Im ersten Test wird bestätigt, dass bei ungültigem `ModelState` das gleiche `ViewResult` zurückgegeben wird wie für eine `GET`-Anforderung. Beachten Sie, dass der Test für ein ungültiges Modell gar nicht erfolgreich durchgeführt werden soll. Da die Modellbindung nicht ausgeführt wird, wäre dies ohnehin nicht möglich (obwohl bei einem [Integrationstest](xref:test/integration-tests) eine Trainingsmodellbindung verwendet wird). In diesem Fall wird nicht die Modellbindung getestet. Bei diesen Komponententests wird nur das Verhalten des Codes in der Aktionsmethode getestet.
 
 Im zweiten Test wird überprüft, ob bei gültigem `ModelState` eine neue `BrainstormSession` (über das Repository) hinzugefügt wird. Die Methode gibt ein `RedirectToActionResult` mit den erwarteten Eigenschaften zurück. Simulierte Aufrufe, die nicht aufgerufen werden, werden normalerweise ignoriert. Durch Aufrufen von `Verifiable` am Ende des Einrichtungsaufrufs können sie im Test jedoch überprüft werden. Dies erfolgt mit dem Aufruf `mockRepo.Verify`. Damit schlägt der Test fehl, wenn die erwartete Methode nicht aufgerufen wurde.
 
@@ -79,8 +75,6 @@ Die Controlleraktion verfügt über drei Fälle, die getestet werden können, un
 
 Die App stellt Funktionen als Web-API bereit (eine Liste mit Ideen, die einer Brainstormingsitzung zugeordnet werden, sowie eine Methode zum Hinzufügen von neuen Ideen zu einer Sitzung):
 
-<a name="ideas-controller"></a>
-
 [!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Api/IdeasController.cs?highlight=21,22,27,30,31,32,33,34,35,36,41,42,46,52,65)]
 
 Die `ForSession`-Methode gibt eine Liste von `IdeaDTO`-Typen zurück. Geben Sie Ihre Geschäftsdomänenentitäten nicht direkt über API-Aufrufe zurück, da sie häufig mehr Daten enthalten, als die Client-API anfordert. Außerdem verknüpfen sie unnötigerweise das interne Domänenmodell Ihrer App mit der extern zur Verfügung gestellten API. Die Zuordnung zwischen Domänenentitäten und den Typen, die Sie über das Netzwerk zurückgeben, kann manuell ausgeführt werden (wie hier gezeigt mithilfe von LINQ-`Select`) oder mithilfe einer Bibliothek wie etwa [AutoMapper](https://github.com/AutoMapper/AutoMapper).
@@ -95,53 +89,6 @@ Der zweite Test hängt davon ab, ob das Repository NULL zurückgibt. Daher wird 
 
 Im letzten Test wird überprüft, ob die `Update`-Methode des Repositorys aufgerufen wird. Wie schon zuvor wird das Pseudoobjekt mit `Verifiable` aufgerufen. Anschließend wird die `Verify`-Methode des Pseudorepositorys aufgerufen, um zu bestätigen, dass die überprüfbare Methode ausgeführt wurde. Es gehört nicht zu den Aufgaben eines Komponententests sicherzustellen, dass die Daten von der `Update`-Methode gespeichert wurden. Dies kann mit einem Integrationstest durchgeführt werden.
 
-## <a name="integration-testing"></a>Integrationstests
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-Mit [Integrationstests](xref:test/integration-tests) soll sichergestellt werden, dass die separaten Module innerhalb einer App korrekt zusammenarbeiten. Alle Aspekte, die Sie mit einem Komponententest testen können, können in der Regel auch mit einem Integrationstest getestet werden. Umgekehrt gilt diese Aussage jedoch nicht. Integrationstests sind jedoch meist viel langsamer als Komponententests. Daher sollten Sie wann immer möglich Komponententests durchführen und Integrationstests nur für Szenarios verwenden, an denen mehrere Mitwirkende beteiligt sind.
-
-Auch wenn sie manchmal nützlich sein können, werden Pseudoobjekte selten in Integrationstests verwendet. In Komponententests kann mit Pseudoobjekten effektiv überprüft werden, wie sich Mitwirkende außerhalb der getesteten Komponente zu Testzwecken verhalten sollten. In einem Integrationstest sollen echte Mitwirkende bestätigen, dass das gesamte Subsystem korrekt zusammenarbeitet.
-
-### <a name="application-state"></a>Status der Anwendung
-
-Ein wichtiger Aspekt beim Ausführen von Integrationstests ist die Festlegung des Status der Anwendung. Tests müssen unabhängig voneinander ausgeführt werden. Daher sollte sich die App zu Beginn jedes Tests in einem bekannten Zustand befinden. Dies ist kein Problem, wenn Ihre App eine Datenbank oder einen Persistenzspeicher verwendet. Die meisten echten Apps speichern ihren Status in der Praxis jedoch auf einem Datenspeicher. Daher könnte jede Änderung durch einen Test Auswirkungen auf weitere Tests besitzen, sofern der Datenspeicher nicht zurückgesetzt wird. Wenn Sie den integrierten `TestServer` verwenden, können Sie in den Integrationstests auf einfache Weise ASP.NET Core-Apps hosten. Doch damit erhalten Sie nicht unbedingt Zugriff auf die verwendeten Daten. Wenn Sie eine tatsächliche Datenbank verwenden, können Sie beispielsweise eine Verbindung zwischen der App und einer Testdatenbank herstellen, auf die die Tests Zugriff haben. So wird sichergestellt, dass die App in einen bekannten Zustand zurückgesetzt wird, bevor der nächste Test ausgeführt wird.
-
-In dieser Beispielanwendung wird die Unterstützung der InMemoryDatabase von Entity Framework Core verwendet. Daher kann für das Testprojekt nicht einfach eine Verbindung hergestellt werden. Stattdessen wird eine `InitializeDatabase`-Methode aus der `Startup`-Klasse der App bereitgestellt, die beim Starten der App aufgerufen wird, wenn sie sich in der `Development`-Umgebung befindet. Die Integrationstests profitieren hiervon automatisch, solange die Umgebung auf `Development` festgelegt ist. So müssen Sie nicht an das Zurücksetzen der Datenbank denken, da die InMemoryDatabase bei jedem Starten der App zurückgesetzt wird.
-
-Die `Startup`-Klasse:
-
-[!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Startup.cs?highlight=19,20,34,35,43,52)]
-
-Die in Integrationstests häufig verwendete `GetTestSession`-Methode wird weiter unten gezeigt.
-
-### <a name="accessing-views"></a>Zugreifen auf Ansichten
-
-In jeder Integrationstestklasse wird der `TestServer` konfiguriert, der die ASP.NET Core-App ausführt. Standardmäßig hostet der `TestServer` die Web-App in dem Ordner, in dem sie ausgeführt wird – in diesem Fall dem Testprojektordner. Wenn Sie versuchen, Controlleraktionen zu testen, die `ViewResult` zurückgeben, wird Ihnen daher möglicherweise der folgende Fehler angezeigt:
-
-```
-The view 'Index' wasn't found. The following locations were searched:
-(list of locations)
-```
-
-Zum Beheben dieses Problems müssen Sie das Inhaltsstammverzeichnis des Servers so konfigurieren, dass es die Ansichten für das getestete Projekt finden kann. Rufen Sie hierzu wie folgt `UseContentRoot` in der `TestFixture`-Klasse auf:
-
-[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/TestFixture.cs?highlight=30,33)]
-
-Die `TestFixture`-Klasse dient zum Konfigurieren und Erstellen des `TestServer` sowie zum Einrichten eines `HttpClient` zur Kommunikation mit dem `TestServer`. Jeder Integrationstest verwendet die `Client`-Eigenschaft, um eine Verbindung zum Testserver herzustellen und eine Anforderung zu senden.
-
-[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/HomeControllerTests.cs?highlight=20,26,29,30,31,35,38,39,40,41,44,47,48)]
-
-Im ersten Test weiter oben enthält `responseString` den tatsächlich gerenderten HTML-Code aus der Ansicht. Dieser kann überprüft werden, um sicherzustellen, dass er die erwarteten Ergebnisse enthält.
-
-Im zweiten Test wird eine Formularbereitstellung mit einem eindeutigen Sitzungsnamen erstellt und für die App bereitgestellt. Dann wird überprüft, ob die erwartete Umleitung zurückgegeben wird.
-
-### <a name="api-methods"></a>API-Methoden
-
-Stellt Ihrer App Web-APIs bereit, sollten Sie mit automatisierten Tests bestätigen lassen, dass diese erwartungsgemäß ausgeführt werden. Der integrierte `TestServer` erleichtert das Testen von Web-APIs. Wenn Ihre API-Methoden Modellbindung verwenden, sollten Sie `ModelState.IsValid` immer überprüfen. Integrationstests eignen sich hervorragend dazu, das korrekte Funktionieren der Modellvalidierung zu überprüfen.
-
-Die folgenden Tests beziehen sich auf die `Create`-Methode in der oben gezeigten [IdeasController](xref:mvc/controllers/testing#ideas-controller)-Klasse:
-
-[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/ApiIdeasControllerTests.cs)]
-
-Im Gegensatz zu den Integrationstests für Aktionen, die HTML-Ansichten zurückgeben, können Web-API-Methoden, die Ergebnisse zurückgeben, in der Regel wie im letzten Test oben gezeigt als stark typisierte Objekte deserialisiert werden. In diesem Fall deserialisiert der Test das Ergebnis in eine `BrainstormSession`-Instanz und bestätigt, dass die Idee der Liste von Ideen korrekt hinzugefügt wurde.
-
-Weitere Beispiele für Integrationstests finden Sie im [Beispielprojekt](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/testing/sample) für diesen Artikel.
+* <xref:test/integration-tests>

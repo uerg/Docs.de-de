@@ -2,16 +2,16 @@
 title: Implementierung des Http.sys-Webservers in ASP.NET Core
 author: guardrex
 description: Erfahren Sie mehr über HTTP.sys. einen Webserver für ASP.NET Core unter Windows. HTTP.sys basiert auf dem HTTP.sys-Kernelmodustreiber, stellt eine Alternative zu Kestrel dar und kann zum Herstellen einer direkten Verbindung mit dem Internet ohne Internetinformationsdienste (IIS) verwendet werden.
+monikerRange: '>= aspnetcore-2.0'
 ms.author: tdykstra
-ms.custom: mvc
-ms.date: 03/13/2018
+ms.date: 08/15/2018
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: aabfd99b7a28e80c665798fab86264b2b11954c2
-ms.sourcegitcommit: 7097dba14d5b858e82758ee031ac62dbe3611339
+ms.openlocfilehash: 58f71596b8ad54dd500699265ab022dc57c4f7a3
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39138570"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755599"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Implementierung des Http.sys-Webservers in ASP.NET Core
 
@@ -54,7 +54,11 @@ HTTP.sys eignet sich für Bereitstellungen, auf die Folgendes zutrifft:
 
   ![HTTP.sys kommuniziert direkt mit dem internen Netzwerk](httpsys/_static/httpsys-to-internal.png)
 
-Bei HTTP.sys handelt es sich um eine ausgereifte Technologie, die Schutz vor vielen Arten von Angriffen bietet und zudem die Stabilität, Sicherheit und Skalierbarkeit eines Webservers mit vollem Funktionsumfang bereitstellt. IIS selbst wird auf HTTP.sys als HTTP-Listener ausgeführt. 
+Bei HTTP.sys handelt es sich um eine ausgereifte Technologie, die Schutz vor vielen Arten von Angriffen bietet und zudem die Stabilität, Sicherheit und Skalierbarkeit eines Webservers mit vollem Funktionsumfang bereitstellt. IIS selbst wird auf HTTP.sys als HTTP-Listener ausgeführt.
+
+## <a name="kernel-mode-authentication-with-kerberos"></a>Kernelmodusauthentifizierung mit Kerberos
+
+HTTP.sys delegiert zur Kernelmodusauthentifizierung mit dem Kerberos-Authentifizierungsprotokoll. Die Benutzermodusauthentifizierung wird nicht von Kerberos und HTTP.sys unterstützt. Das Computerkonto muss zum Entschlüsseln des Kerberos-Tokens/-Tickets verwendet werden, das von Active Directory abgerufen und zur Authentifizierung des Benutzers vom Client an den Server weitergeleitet wird. Registrieren Sie den Dienstprinzipalnamen (SPN) für den Host, nicht für den Benutzer der App.
 
 ## <a name="how-to-use-httpsys"></a>Empfohlene Verwendung von HTTP.sys
 

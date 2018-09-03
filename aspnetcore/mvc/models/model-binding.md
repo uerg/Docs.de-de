@@ -4,14 +4,14 @@ author: tdykstra
 description: Erfahren Sie, wie die Modellbindung in ASP.NET Core MVC Aktionsmethodenparametern Daten aus HTTP-Anforderungen zuordnet.
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: tdykstra
-ms.date: 01/22/2018
+ms.date: 08/14/2018
 uid: mvc/models/model-binding
-ms.openlocfilehash: 200e2c22e02ec9e24b7cdb3883cf6f2f93f2f4b7
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 0ce20a8040c6b19da1f57e1c053a7ef81d8bcb23
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095732"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751711"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Modellbindung in ASP.NET Core
 
@@ -99,6 +99,31 @@ MVC enthält mehrere Attribute, mit denen Sie das Standardverhalten der Modellbi
 
 Attribute sind sehr nützliche Tools, wenn Sie das Standardverhalten der Modellbindung überschreiben möchten.
 
+## <a name="customize-model-binding-and-validation-globally"></a>Globales Anpassen der Modellbindung und der Überprüfung
+
+Das Verhalten des Systems für die Modellbindung und Überprüfung wird durch die Klasse [ModelMetadata](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.modelmetadata) gesteuert, die Folgendes beschreibt:
+
+* Wie ein Modell gebunden werden soll.
+* Wie die Überprüfung für den Typ und dessen Eigenschaften erfolgt.
+
+Die Aspekte des Systemverhaltens können durch Hinzufügen eines Detailanbieters zu [MvcOptions.ModelMetadataDetailsProviders](/dotnet/api/microsoft.aspnetcore.mvc.mvcoptions.modelmetadatadetailsproviders#Microsoft_AspNetCore_Mvc_MvcOptions_ModelMetadataDetailsProviders) global konfiguriert werden. MVC enthält einige integrierte Detailanbieter, die das Konfigurieren des Verhalten wie das Deaktivieren der Modellbindung oder der Überprüfung für bestimmte Typen ermöglichen.
+
+Fügen Sie [ExcludeBindingMetadataProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.metadata.excludebindingmetadataprovider) in `Startup.ConfigureServices` hinzu, um die Modellbindung für alle Modelle eines bestimmten Typs zu deaktivieren. Beispielsweise können Sie die Modellbindung für alle Modelle vom Typ `System.Version` wie folgt deaktivieren:
+
+```csharp
+services.AddMvc().AddMvcOptions(options =>
+    options.ModelMetadataDetailsProviders.Add(
+        new ExcludeBindingMetadataProvider(typeof(System.Version))));
+```
+
+Fügen Sie [SuppressChildValidationMetadataProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.suppresschildvalidationmetadataprovider) in `Startup.ConfigureServices` hinzu, um die Überprüfung von Eigenschaften eines bestimmten Typs zu deaktivieren. Beispielsweise können Sie die Überprüfung von Eigenschaften vom Typ `System.Guid` wie folgt deaktivieren:
+
+```csharp
+services.AddMvc().AddMvcOptions(options =>
+    options.ModelMetadataDetailsProviders.Add(
+        new SuppressChildValidationMetadataProvider(typeof(System.Guid))));
+```
+
 ## <a name="bind-formatted-data-from-the-request-body"></a>Binden formatierter Daten aus dem Anforderungstext
 
 Anforderungsdaten können in einer Vielzahl von Formaten wie JSON und XML vorliegen. Wenn Sie mit dem Attribut [FromBody] angeben, dass Sie einen Parameter an Daten im Anforderungstext binden möchten, verwendet MVC einige konfigurierte Formatierer, um die Daten basierend auf deren Inhaltstyp zu verarbeiten. MVC umfasst standardmäßig eine `JsonInputFormatter`-Klasse für die Verarbeitung von JSON-Daten. Sie können jedoch zusätzliche Formatierer für die Verarbeitung von XML und anderen benutzerdefinierten Formaten hinzufügen.
@@ -109,7 +134,7 @@ Anforderungsdaten können in einer Vielzahl von Formaten wie JSON und XML vorlie
 > [!NOTE]
 > `JsonInputFormatter` ist der Standardformatierer und basiert auf [Json.NET](https://www.newtonsoft.com/json).
 
-ASP.NET wählt Eingabeformatierer basierend auf dem Header [Content-Type](https://www.w3.org/Protocols/rfc1341/4_Content-Type.html) und dem Parametertyp aus, es sei denn, es wird ein Attribut darauf angewendet, das etwas anderes angibt. Wenn Sie XML-Code oder ein anderes Format verwenden möchten, müssen Sie es in der Datei *Startup.cs* konfigurieren. Zunächst müssen Sie jedoch ggf. einen Verweis auf `Microsoft.AspNetCore.Mvc.Formatters.Xml` mithilfe von NuGet abrufen. Der Startcode sollte in etwa folgendermaßen aussehen:
+ASP.NET Core wählt Eingabeformatierer basierend auf dem Header [Content-Type](https://www.w3.org/Protocols/rfc1341/4_Content-Type.html) und dem Parametertyp aus, es sei denn, es wird ein Attribut darauf angewendet, das etwas anderes angibt. Wenn Sie XML-Code oder ein anderes Format verwenden möchten, müssen Sie es in der Datei *Startup.cs* konfigurieren. Zunächst müssen Sie jedoch ggf. einen Verweis auf `Microsoft.AspNetCore.Mvc.Formatters.Xml` mithilfe von NuGet abrufen. Der Startcode sollte in etwa folgendermaßen aussehen:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -119,7 +144,7 @@ public void ConfigureServices(IServiceCollection services)
    }
 ```
 
-Der Code in der Datei *Startup.cs* enthält eine `ConfigureServices`-Methode mit einem `services`-Argument, mit dem Sie Dienste für Ihre ASP.NET-App erstellen können. In diesem Beispiel werden wir einen XML-Formatierer als Dienst hinzufügen, den MVC für diese App bereitstellt. Mit dem an die `AddMvc`-Methode übergebenen `options`-Argument können Sie Filter, Formatierer und andere Systemoptionen von MVC beim Start der App hinzufügen und verwalten. Wenden Sie dann das `Consumes`-Attribut auf Controllerklassen oder Aktionsmethoden an, damit sie mit allen Formaten funktionieren.
+Der Code in der Datei *Startup.cs* enthält eine `ConfigureServices`-Methode mit einem `services`-Argument, mit dem Sie Dienste für Ihre ASP.NET Core-App erstellen können. In diesem Beispiel werden wir einen XML-Formatierer als Dienst hinzufügen, den MVC für diese App bereitstellt. Mit dem an die `AddMvc`-Methode übergebenen `options`-Argument können Sie Filter, Formatierer und andere Systemoptionen von MVC beim Start der App hinzufügen und verwalten. Wenden Sie dann das `Consumes`-Attribut auf Controllerklassen oder Aktionsmethoden an, damit sie mit allen Formaten funktionieren.
 
 ### <a name="custom-model-binding"></a>Benutzerdefinierte Modellbindung
 

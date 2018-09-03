@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2018
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: cbbdee6849768004476d94c58be4a0e7cc2d6f9e
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: f22914c9b0d6d1902dd37c9b21b80a18894c97e7
+ms.sourcegitcommit: d1c4580f56656b503cf528ec9f5ba570d790b57d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938471"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41751477"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>Problembehandlung bei ASP.NET Core in IIS
 
@@ -97,6 +97,7 @@ So aktivieren Sie stdout-Protokolle und zeigen diese an:
 1. Navigieren Sie zum Bereitstellungsordner der Website auf dem Hostsystem.
 1. Erstellen Sie den Ordner *logs*, wenn dieser nicht vorhanden ist. Anweisungen zum Aktivieren von MSBuild für die automatische Erstellung des Ordners *logs* in der Bereitstellung finden Sie im Thema [Verzeichnisstruktur](xref:host-and-deploy/directory-structure).
 1. Bearbeiten Sie die Datei *web.config*. Legen Sie **stdoutLogEnabled** auf `true` fest, und ändern Sie den Pfad von **stdoutLogFile** so, dass auf den Ordner *logs* verwiesen wird (Beispiel: `.\logs\stdout`). `stdout` im Pfad ist das Präfix des Protokolldateinamens. Ein Zeitstempel, eine Prozess-ID und eine Dateierweiterung werden bei der Protokollerstellung automatisch hinzugefügt. Mit `stdout` als Präfix des Dateinamens wird eine typische Protokolldatei als *stdout_20180205184032_5412.log* benannt. 
+1. Stellen Sie sicher, dass die Identität des Anwendungspools über Schreibberechtigungen für den Ordner *Protokolle* verfügt.
 1. Speichern Sie die aktualisierte Datei *web.config*.
 1. Führen Sie eine Anforderung an die App aus.
 1. Navigieren Sie zu dem Ordner *logs*. Suchen und öffnen Sie das aktuelle stdout-Protokoll.

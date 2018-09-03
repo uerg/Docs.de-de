@@ -5,12 +5,12 @@ description: ''
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 1c724da918640c514acbc24c390de4e735f8bf49
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: 626b828e2391d3982ff2cf393f0c9e0748c12810
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342431"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751694"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>ASP.NET Core MVC mit EF Core − Erweitert (2 von 10)
 
@@ -117,7 +117,7 @@ Bearbeiten Sie die HttpPost-Methode `Create` in *StudentsController.cs*, indem S
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Create&highlight=4,6-7,14-21)]
 
-Dieser Code fügt die Entität „Student“ (Schüler) der Entitätenmenge „Students“ hinzu, die durch die ASP.NET MVC-Modellbindung erstellt wurde, und speichert die Änderungen in der Datenbank. (Die Modellbindung ist eine Funktionalität von ASP.NET MVC, die Ihnen die Arbeit mit Daten vereinfacht, die über ein Formular übermittelt wurden. Eine Modellbindung konvertiert übermittelte Formularwerte in CLR-Typen und übergibt diese als Parameter an die Aktionsmethode. In diesem Fall instanziiert die Modellbindung für Sie eine Entität „Student“, mithilfe von Eigenschaftswerten aus der Formularauflistung.)
+Dieser Code fügt die Entität „Student“ (Schüler) der Entitätenmenge „Students“ hinzu, die durch die ASP.NET Core MVC-Modellbindung erstellt wurde, und speichert die Änderungen in der Datenbank. (Die Modellbindung ist eine Funktionalität von ASP.NET Core MVC, die Ihnen die Arbeit mit Daten vereinfacht, die über ein Formular übermittelt wurden. Eine Modellbindung konvertiert übermittelte Formularwerte in CLR-Typen und übergibt diese als Parameter an die Aktionsmethode. In diesem Fall instanziiert die Modellbindung für Sie eine Entität „Student“, mithilfe von Eigenschaftswerten aus der Formularauflistung.)
 
 Sie haben `ID` aus dem Attribut `Bind` entfernt, da ID der primäre Schlüsselwert ist, den SQL Server automatisch festlegt, wenn die Zeile eingefügt wird. Der ID-Wert wird nicht über Eingabe vom Benutzer festgelegt.
 
@@ -273,7 +273,7 @@ Klicken Sie auf **Löschen**. Die Indexseite wird ohne den gelöschten Student a
 
 Sobald Sie mit ihr fertig sind, muss die Kontextinstanz so bald wie möglich entfernt werden, um die Ressourcen der Datenbankverbindung freizugeben. Die in ASP.NET Core eingebaute [Dependency Injection](../../fundamentals/dependency-injection.md) erledigt diese Aufgabe für Sie.
 
-Rufen Sie die [Erweiterungsmethode AddDbContext](https://github.com/aspnet/EntityFrameworkCore/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs) in der Datei *Startup.cs* auf, um die Klasse `DbContext` in dem ASP.NET DI-Container bereitzustellen. Diese Methode legt die Lebensdauer des Diensts standardgemäß auf `Scoped` fest. `Scoped` bedeutet, dass die Lebensdauer des Kontextobjekts mit der Lebensdauer der Webanforderung übereinstimmt, und die Methode `Dispose` wird am Ende der Webanforderung automatisch aufgerufen.
+Rufen Sie die [Erweiterungsmethode AddDbContext](https://github.com/aspnet/EntityFrameworkCore/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs) in der Datei *Startup.cs* auf, um die Klasse `DbContext` in dem ASP.NET Core DI-Container bereitzustellen. Diese Methode legt die Lebensdauer des Diensts standardgemäß auf `Scoped` fest. `Scoped` bedeutet, dass die Lebensdauer des Kontextobjekts mit der Lebensdauer der Webanforderung übereinstimmt, und die Methode `Dispose` wird am Ende der Webanforderung automatisch aufgerufen.
 
 ## <a name="handling-transactions"></a>Verarbeiten von Transaktionen
 

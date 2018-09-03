@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2018
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: be75667f34eed7ba601eee331e3451c5738ef223
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: c2af9099fe439e1cdbf9ba86ffae3b2b0f67391e
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273568"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751479"
 ---
 # <a name="tag-helpers-in-aspnet-core"></a>Taghilfsprogramme in ASP.NET Core
 
@@ -130,7 +130,7 @@ Für `@addTagHelper` gelten dieselben Hierarchieregeln wie für `@tagHelperPrefi
 
 ## <a name="intellisense-support-for-tag-helpers"></a>IntelliSense-Unterstützung für Taghilfsprogramme
 
-Wenn Sie eine neue ASP.NET-Web-App in Visual Studio erstellen, wird das NuGet-Paket „Microsoft.AspNetCore.Razor.Tools“ hinzugefügt. Dabei handelt es sich um das Paket, das Taghilfsprogramme hinzufügt.
+Wenn Sie eine neue ASP.NET Core-Web-App in Visual Studio erstellen, wird das NuGet-Paket „Microsoft.AspNetCore.Razor.Tools“ hinzugefügt. Dabei handelt es sich um das Paket, das Taghilfsprogramme hinzufügt.
 
 Sie sollten ein HTML-`<label>`-Element schreiben. Wenn Sie `<l` im Visual Studio-Editor eingeben, zeigt IntelliSense passende Elemente an:
 

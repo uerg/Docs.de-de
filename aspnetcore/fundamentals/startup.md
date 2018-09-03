@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 4/13/2018
 uid: fundamentals/startup
-ms.openlocfilehash: a576f3840e66fc4ed877f7575aa3f3e36b37ae4d
-ms.sourcegitcommit: d99a8554c91f626cf5e466911cf504dcbff0e02e
+ms.openlocfilehash: 465d33cc1f19428d5189b3a6fa7088ac402a9751
+ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39356749"
+ms.lasthandoff: 08/25/2018
+ms.locfileid: "42927970"
 ---
 # <a name="application-startup-in-aspnet-core"></a>Anwendungsstart in ASP.NET Core
 
@@ -64,50 +64,11 @@ Für Features, die ein umfangreiches Setup erfordern, sind unter [IServiceCollec
 
 [!code-csharp[](../common/samples/WebApplication1/Startup.cs?highlight=4,7,11&start=40&end=55)]
 
-::: moniker range=">= aspnetcore-2.1"
-
-<a name="setcompatibilityversion"></a>
-
-### <a name="setcompatibilityversion-for-aspnet-core-mvc"></a>SetCompatibilityVersion für ASP.NET Core MVC
-
-Die Methode `SetCompatibilityVersion` erlaubt einer App Änderungen im Verhalten, die in ASP.NET MVC Core 2.1 und höher eingeführt werden und potentiell Fehler verursachen, anzunehmen oder abzulehnen. Diese potentiell Fehler verursachenden Änderungen im Verhalten betreffen generell das Verhalten des MVC-Subsystems und die Art, wie **Ihr Code** von der Runtime aufgerufen wird. Wenn Sie sich für die Änderungen entscheiden, erhalten Sie das aktuelle Verhalten und das langfristige Verhalten von ASP.NET Core.
-
-Der folgende Code legt den Kompatibilitätsmodus auf ASP.NET Core 2.1 fest:
-
-[!code-csharp[Main](startup/sampleCompatibility/Startup.cs?name=snippet1)]
-
-Es wird empfohlen, Ihre App mit der aktuellen Version zu testen (`CompatibilityVersion.Version_2_1`). Wir erwarten, dass bei den meisten Apps mit der aktuellen Version keine Fehler verursachenden Verhaltensänderungen auftreten werden.
-
-Apps, die `SetCompatibilityVersion(CompatibilityVersion.Version_2_0)` aufrufen, sind vor potentiell Fehler verursachenden Änderungen im Verhalten geschützt, die in ASP.NET Core 2.1 MVC und höheren 2.x-Versionen eingeführt wurden. Dieser Schutz:
-
-* Gilt nicht für alle Änderungen in 2.1 und höher. Das Ziel sind potentiell Fehler verursachende Änderungen im Verhalten der ASP.NET Core-Runtime im MVC-Subsystem.
-* Erstreckt sich nicht auf die nächste Hauptversion.
-
-Die Standard-Kompatibilität für ASP.NET Core 2.1 und höhere 2.x-Aps, die **nicht** `SetCompatibilityVersion` aufrufen, ist 2.0-Kompatibilität. Das bedeutet, `SetCompatibilityVersion` nicht aufzurufen entspricht dem Aufrufen von `SetCompatibilityVersion(CompatibilityVersion.Version_2_0)`.
-
-Der folgende Code legt den Kompatibilitätsmodus auf ASP.NET Core 2.1 fest, mit Ausnahme des folgenden Verhaltens:
-
-* [AllowCombiningAuthorizeFilters](https://github.com/aspnet/Mvc/blob/master/src/Microsoft.AspNetCore.Mvc.Core/MvcOptions.cs)
-* [InputFormatterExceptionPolicy](https://github.com/aspnet/Mvc/blob/master/src/Microsoft.AspNetCore.Mvc.Core/MvcOptions.cs)
-
-[!code-csharp[Main](startup/sampleCompatibility/Startup2.cs?name=snippet1)]
-
-Bei Apps, bei denen Fehler verursachende Änderungen auftreten, können Sie die geeigneten Kompatibilitätsoptionen verwenden, um Folgendes zu erreichen:
-
-* Sie können das aktuelle Release verwenden und spezifische Fehler verursachende Änderungen im Verhalten vermeiden.
-* Sie bekommen die Gelegenheit, Ihre App zu aktualisieren, damit Sie mit den neuesten Änderungen funktioniert.
-
-In den Quellkommentaren für die Klasse [MvcOptions](https://github.com/aspnet/Mvc/blob/master/src/Microsoft.AspNetCore.Mvc.Core/MvcOptions.cs) finden Sie eine gute Erklärung, was sich geändert hat und welche Änderungen eine Verbesserung für die meisten Benutzer darstellen.
-
-Zu einem späteren Zeitpunkt wird es eine [ASP.NET Core 3.0-Version](https://github.com/aspnet/Home/wiki/Roadmap) geben. Altes Verhalten, das von Kompatibilitätsoptionen unterstützt wird, wird in der 3.0-Version entfernt. Beinahe alle Benutzer werden von diesen positiven Änderungen profitieren. Dadurch, dass die Änderungen bereits jetzt eingeführt werden, können die meisten Apps auch jetzt davon profitieren, und die anderen bekommen Zeit, ihre Apps zu aktualisieren.
-
-::: moniker-end
-
 ## <a name="the-configure-method"></a>Die Configure-Methode
 
 Die [Configure](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configure)-Methode wird verwendet, um festzulegen, wie die App auf HTTP-Anforderungen reagiert. Sie konfigurieren die Anforderungspipeline, indem Sie [Middleware](xref:fundamentals/middleware/index)-Komponenten zu einer [IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder)-Instanz hinzufügen. Die `Configure`-Methode kann auf `IApplicationBuilder` zugreifen, wird aber nicht im Dienstcontainer registriert. Über das Hosting wird ein `IApplicationBuilder` erstellt, der an `Configure` übergeben wird ([Referenzquelle](https://github.com/aspnet/Hosting/blob/release/2.0.0/src/Microsoft.AspNetCore.Hosting/Internal/WebHost.cs#L179-L192)).
 
-Die Pipeline wird über [ASP.NET Core-Vorlagen](/dotnet/core/tools/dotnet-new) konfiguriert, die folgende Komponenten unterstützen: eine Ausnahmeseite für Entwickler, [BrowserLink](http://vswebessentials.com/features/browserlink), Fehlerseiten, statische Dateien und ASP.NET MVC:
+Die Pipeline wird über [ASP.NET Core-Vorlagen](/dotnet/core/tools/dotnet-new) konfiguriert, die folgende Komponenten unterstützen: eine Ausnahmeseite für Entwickler, [BrowserLink](http://vswebessentials.com/features/browserlink), Fehlerseiten, statische Dateien und ASP.NET Core MVC:
 
 [!code-csharp[](../common/samples/WebApplication1DotNetCore2.0App/Startup.cs?range=28-48&highlight=5,6,10,13,15)]
 
@@ -129,7 +90,7 @@ Die Hilfsmethoden [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.i
 
 Verwenden Sie [IStartupFilter](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter), um Middleware am Anfang und am Ende der [Configure](#the-configure-method)-Middlewarepipeline einer App zu konfigurieren. `IStartupFilter` ist nützlich, wenn Sie sicherstellen wollen, dass eine Middleware vor oder nach einer Middleware ausgeführt wird, die von Bibliotheken am Anfang oder am Ende der App-Pipeline hinzufügt wurden, die Anforderungen verarbeitet.
 
-`IStartupFilter` implementiert nur die Methode [Configure](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter.configure), die `Action<IApplicationBuilder>` empfängt und zurückgibt. [IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder) definiert Klassen, um die Anforderungspipeline einer App zu konfigurieren. Weitere Informationen finden Sie unter [Erstellen einer Middlewarepipeline mit IApplicationBuilder](xref:fundamentals/middleware/index#creating-a-middleware-pipeline-with-iapplicationbuilder).
+`IStartupFilter` implementiert nur die Methode [Configure](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter.configure), die `Action<IApplicationBuilder>` empfängt und zurückgibt. [IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder) definiert Klassen, um die Anforderungspipeline einer App zu konfigurieren. Weitere Informationen finden Sie unter [Erstellen einer Middlewarepipeline mit IApplicationBuilder](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder).
 
 Jede `IStartupFilter`-Schnittstelle implementiert mindestens eine Middleware in die Anforderungspipeline. Die Filter werden in der Reihenfolge aufgerufen, in der sie zum Dienstcontainer hinzugefügt wurden. Über Filter kann Middleware hinzugefügt werden, bevor oder nachdem dem nächsten Filter die Kontrolle erteilt wird. D.h., sie wird am Anfang oder am Ende einer App-Pipeline hinzugefügt.
 
@@ -154,7 +115,7 @@ Die Reihenfolge der Ausführung der Middleware ist von der Reihenfolge der `ISta
 * Es kann sein, dass mehrere Implementierungen von `IStartupFilter` mit denselben Objekten interagieren. Wenn die Reihenfolge für Sie wichtig ist, sollten Sie die `IStartupFilter`-Dienstregistrierungen der Implementierungen in der Reihenfolge anordnen, in der die Middleware ausgeführt werden soll.
 * Bibliotheken fügen möglicherweise Middleware mit mindestens einer `IStartupFilter`-Implementierung hinzu, die vor oder nach anderer App-Middleware ausgeführt wird, die über `IStartupFilter` registriert wurde. Wenn Sie eine `IStartupFilter`-Middleware vor einer Middleware aufrufen möchten, die über die `IStartupFilter` einer Bibliothek hinzugefügt wurde, positionieren Sie die Dienstregistrierung, bevor die Bibliothek zum Dienstcontainer hinzugefügt wird. Wenn Sie diese danach aufrufen möchten, positionieren Sie die Dienstregistrierung, nachdem die Bibliothek hinzugefügt wurde.
 
-## <a name="adding-configuration-at-startup-from-an-external-assembly"></a>Hinzufügen von Konfigurationen aus einer externen Assembly beim Start
+## <a name="add-configuration-at-startup-from-an-external-assembly"></a>Hinzufügen von Konfigurationen aus einer externen Assembly beim Start
 
 Mit einer [IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup)-Implementierung können einer App beim Start von einer externen Assemblys aus, die sich außerhalb der `Startup`-Klasse der App befindet, Erweiterungen hinzugefügt werden Weitere Informationen finden Sie im Artikel zum [Erweitern einer App von einer externen Assembly aus](xref:fundamentals/configuration/platform-specific-configuration).
 

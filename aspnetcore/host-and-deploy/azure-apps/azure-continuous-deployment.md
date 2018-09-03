@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/14/2016
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
-ms.openlocfilehash: 0a9a2d9d0de25a4eaab704680c627c1216d146e3
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 3470d9278574a95115b14f25b90a0a93bb3b8a67
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275482"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751588"
 ---
 # <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a>Continuous Deployment in Azure mit Visual Studio und Git mit ASP.NET Core
 
@@ -46,7 +46,7 @@ Dieses Tutorial setzt voraus, dass folgende Software installiert ist:
 
 1. Wählen Sie im Dialogfeld **Neues ASP.NET Core-Projekt** die ASP.NET Core-Vorlage **Leer** aus, und klicken Sie dann auf **OK**.
 
-   ![Dialogfeld „Neues ASP.NET-Projekt“](azure-continuous-deployment/_static/02-web-site-template.png)
+   ![Dialogfeld „Neues ASP.NET Core-Projekt“](azure-continuous-deployment/_static/02-web-site-template.png)
 
 > [!NOTE]
 > Das neueste Release von .NET Core ist 2.0.

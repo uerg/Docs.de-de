@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 07/05/2018
 uid: fundamentals/error-handling
-ms.openlocfilehash: d7e60c0f615841461a17b093bffe5fb3f82f8616
-ms.sourcegitcommit: 506a199274e9fe5fb4070b273ba94f29f14cb619
+ms.openlocfilehash: ff04ebeb6a682ec924afe896fd6716010a63f7cd
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/28/2018
-ms.locfileid: "39332274"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751677"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Fehlerbehandlung in ASP.NET Core
 
@@ -195,7 +195,7 @@ Das Hosting kann nur dann eine Fehlerseite für einen erfassten Fehler beim Star
 
 Wenn sie auf [IIS](/iis) oder [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) ausgeführt wird, wird ein *Prozessfehler 502.5* vom [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module) zurückgegeben, wenn der Prozess nicht gestartet werden kann. Weitere Informationen zum Beheben von Startproblemen beim Hosten mit den IIS finden Sie unter <xref:host-and-deploy/iis/troubleshoot>. Weitere Informationen zum Beheben von Startproblemen mit Azure App Service finden Sie unter <xref:host-and-deploy/azure-apps/troubleshoot>.
 
-## <a name="aspnet-mvc-error-handling"></a>ASP.NET MVC-Fehlerbehandlung
+## <a name="aspnet-core-mvc-error-handling"></a>ASP.NET Core MVC-Fehlerbehandlung
 
 [MVC](xref:mvc/overview)-Apps verfügen über einige zusätzliche Optionen für die Fehlerbehandlung, z.B. das Konfigurieren von Ausnahmefiltern und das Durchführen einer Modellvalidierung.
 

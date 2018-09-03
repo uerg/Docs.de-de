@@ -5,12 +5,12 @@ description: Informationen zu ASP.NET Core MVC als umfangreiches Framework zum E
 ms.author: riande
 ms.date: 01/08/2018
 uid: mvc/overview
-ms.openlocfilehash: 7f8aab02c0ee37dad49ff224b182ec455e837a7a
-ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
+ms.openlocfilehash: d2a50e48c20fe69b1fe691bfc9c91a27d4219922
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39378637"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41902598"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Übersicht über ASP.NET Core MVC
 
@@ -251,3 +251,9 @@ Taghilfsprogramme bieten HTML-freundliche Entwicklungsmöglichkeiten sowie eine 
 ### <a name="view-components"></a>Ansichtskomponenten
 
 Mit [Ansichtskomponenten](views/view-components.md) können Sie Renderinglogik packen und in der gesamten Anwendung wiederverwenden. Ansichtskomponenten ähneln [Teilansichten](views/partial.md), enthalten jedoch zugeordnete Logik.
+
+## <a name="compatibility-version"></a>Kompatibilitätsversion
+
+Durch die Methode <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> kann eine App Änderungen im Verhalten annehmen oder ablehnen, die in ASP.NET Core MVC 2.1 und höher eingeführt werden und potentiell Fehler verursachen.
+
+Weitere Informationen finden Sie unter <xref:mvc/compatibility-version>.

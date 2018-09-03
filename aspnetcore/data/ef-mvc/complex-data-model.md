@@ -5,12 +5,12 @@ description: In diesem Tutorial fügen Sie weitere Entitäten und Beziehungen hi
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 1d3c69c8c658b5ca2f0253b790b0dc75d44d3064
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: c97acd2b943e1d4c466c060247220b3b8bab6d6b
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38194090"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751759"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a>ASP.NET Core MVC mit Entity Framework Core: Datenmodell (5 von 10)
 
@@ -66,7 +66,7 @@ Führen Sie die App aus, und wechseln Sie zur Indexseite „Studenten“, um fes
 
 ### <a name="the-stringlength-attribute"></a>Das StringLength-Attribut
 
-Sie können ebenfalls Regeln für die Datenvalidierung und Meldungen für Validierungsfehler mithilfe von Attributen angeben. Das `StringLength`-Attribut legt die maximale Länge in der Datenbank fest und stellt die clientseitige und serverseitige Validierung für ASP.NET MVC bereit. Sie können ebenfalls die mindestens erforderliche Zeichenfolgenlänge in diesem Attribut angeben, dieser Wert hat jedoch keine Auswirkung auf das Datenbankschema.
+Sie können ebenfalls Regeln für die Datenvalidierung und Meldungen für Validierungsfehler mithilfe von Attributen angeben. Das `StringLength`-Attribut legt die maximale Länge in der Datenbank fest und stellt die clientseitige und serverseitige Validierung für ASP.NET Core MVC bereit. Sie können ebenfalls die mindestens erforderliche Zeichenfolgenlänge in diesem Attribut angeben, dieser Wert hat jedoch keine Auswirkung auf das Datenbankschema.
 
 Angenommen, Sie möchten sicherstellen, dass Benutzer nicht mehr als 50 Zeichen für einen Namen eingeben. Fügen Sie zum Hinzufügen dieser Einschränkung wie im folgenden Beispiel dargestellt `StringLength`-Attribute zu den `LastName`- und `FirstMidName`-Eigenschaften hinzu:
 

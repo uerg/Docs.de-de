@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/04/2018
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: b156cd0755d7918d5f8433fcbe5c870ad04ac13e
-ms.sourcegitcommit: a25b572eaed21791230c85416f449f66a405ec19
+ms.openlocfilehash: 68afe77b05a717cffecc32188f18e9fde208b81f
+ms.sourcegitcommit: 3ca20ed63bf1469f4365f0c1fbd00c98a3191c84
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39396220"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41751591"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Hosten von ASP.NET Core in einem Windows-Dienst
 
@@ -72,7 +72,7 @@ Die folgenden minimalen Änderungen sind für die Einrichtung eines vorhandenen 
 
      ::: moniker range=">= aspnetcore-2.0"
 
-     [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=ServiceOnly&highlight=8-9,12)]
+     [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=ServiceOnly&highlight=8-9,16)]
 
      ::: moniker-end
 
@@ -205,7 +205,7 @@ Nehmen Sie zum Behandeln von [OnStarting](/dotnet/api/microsoft.aspnetcore.hosti
 
    ::: moniker range=">= aspnetcore-2.0"
 
-   [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=HandleStopStart&highlight=14)]
+   [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=HandleStopStart&highlight=17)]
 
    > [!NOTE]
    > `isService` wird nicht von `Main` an `CreateWebHostBuilder` übergeben. Die Signatur von `CreateWebHostBuilder` muss `CreateWebHostBuilder(string[])` sein, damit die [Integrationstests](xref:test/integration-tests) korrekt ablaufen.
@@ -229,6 +229,13 @@ Dienste, die mit Anforderungen aus dem Internet oder einem Unternehmensnetzwerk 
 ## <a name="configure-https"></a>HTTPS konfigurieren
 
 Geben Sie einen [Kestrel-Server-HTTPS-Endpunktkonfiguration](xref:fundamentals/servers/kestrel#endpoint-configuration) ein.
+
+## <a name="current-directory-and-content-root"></a>Aktuelles Verzeichnis und Inhaltsstammverzeichnis
+
+Das aktuelle Arbeitsverzeichnis, das durch Aufrufen von `Directory.GetCurrentDirectory()` für einen Windows-Dienst zurückgegeben wird, ist der Ordner *C:\WINDOWS\system32*. Der Ordner *system32* ist kein geeigneter Speicherort für die Dateien eines Diensts (z.B. Einstellungsdateien). Verwenden Sie einen der folgenden Ansätze, um die Ressourcen und Einstellungsdateien eines Diensts mit [FileConfigurationExtensions.SetBasePath](/dotnet/api/microsoft.extensions.configuration.fileconfigurationextensions.setbasepath) zu verwalten und auf diese zuzugreifen, wenn Sie [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder) verwenden:
+
+* Verwenden Sie den Inhaltsstammpfad. `IHostingEnvironment.ContentRootPath` entspricht dem gleichen Pfad, der für das Argument `binPath` bereitgestellt wird, wenn der Dienst erstellt wird. Anstatt `Directory.GetCurrentDirectory()` zum Erstellen von Pfaden zu Einstellungsdateien zu verwenden, verwenden Sie den Inhaltsstammpfad, und verwalten Sie die Dateien im Inhaltsstammverzeichnis der App.
+* Speichern Sie die Dateien an einem geeigneten Speicherort auf dem Datenträger. Geben Sie mit `SetBasePath` einen absoluten Pfad zu dem Ordner an, der die Dateien enthält.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
