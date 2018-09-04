@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/04/2018
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: 1ff0fdcaae066b493eeebf6a061e383f88c81052
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 40af94f9cbb83f27f22d90b6b0f2854090687d34
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272736"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312345"
 ---
 # <a name="iis-modules-with-aspnet-core"></a>IIS-Module mit ASP.NET Core
 
@@ -30,7 +30,7 @@ Die Tabelle enthält native IIS-Module, die bei Reverseproxyanforderungen an ASP
 | **Authentifizierung durch Clientzertifikatszuordnung**<br>`CertificateMappingAuthenticationModule` | Ja | |
 | **CGI**<br>`CgiModule` | Nein | |
 | **Konfigurationsvalidierung**<br>`ConfigurationValidationModule` | Ja | |
-| **HTTP-Fehler**<br>`CustomErrorModule` | Nein | [Middleware für Statuscodeseiten](xref:fundamentals/error-handling#configuring-status-code-pages) |
+| **HTTP-Fehler**<br>`CustomErrorModule` | Nein | [Middleware für Statuscodeseiten](xref:fundamentals/error-handling#configure-status-code-pages) |
 | **Benutzerdefinierte Protokollierung**<br>`CustomLoggingModule` | Ja | |
 | **Standarddokument**<br>`DefaultDocumentModule` | Nein | [Middleware für Standarddateien](xref:fundamentals/static-files#serve-a-default-document) |
 | **Hashwertauthentifizierung**<br>`DigestAuthenticationModule` | Ja | |
