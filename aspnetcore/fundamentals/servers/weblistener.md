@@ -2,15 +2,16 @@
 title: Implementierung des Webservers WebListener in ASP.NET Core
 author: rick-anderson
 description: Erfahren Sie mehr über WebListener, einen Webserver für ASP.NET Core unter Windows, der für die direkte Verbindung mit dem Internet ohne IIS verwendet werden kann.
+monikerRange: < aspnetcore-2.0
 ms.author: riande
-ms.date: 03/13/2018
+ms.date: 08/15/2018
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: 68aea99d6ce6af12655ef5fdb13130e9279e448a
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 5602c1ddbe76879587de12bcd82722c103dee03f
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274868"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751462"
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>Implementierung des Webservers WebListener in ASP.NET Core
 
@@ -45,11 +46,15 @@ Der WebListener unterstützt Sie bei Bereitstellungen in Rahmen derer Sie ohne I
 
 ![WebListener kommuniziert direkt mit dem Internet](weblistener/_static/weblistener-to-internet.png)
 
-Da der WebListener auf HTTP.sys basiert, ist kein Reverseproxyserver für den Schutz gegen Angriffe erforderlich. Bei Http.Sys handelt es sich um eine ausgereifte Technologie, die einen Schutz gegen viele Arten von Angriffen darstellt, und die Stabilität, Sicherheit und Skalierbarkeit eines vollständigen Webservers bereitstellt. IIS wird neben Http.Sys auch als HTTP-Listener ausgeführt. 
+Da der WebListener auf HTTP.sys basiert, ist kein Reverseproxyserver für den Schutz gegen Angriffe erforderlich. Bei Http.Sys handelt es sich um eine ausgereifte Technologie, die einen Schutz gegen viele Arten von Angriffen darstellt, und die Stabilität, Sicherheit und Skalierbarkeit eines vollständigen Webservers bereitstellt. IIS wird neben Http.Sys auch als HTTP-Listener ausgeführt.
 
 Der WebListener bietet außerdem eine gute Möglichkeit zur internen Bereitstellung, wenn Sie eins der im Lieferumfang enthaltenen Features benötigen, die Kestrel nicht anbietet.
 
 ![WebListener kommuniziert direkt mit Ihrem internen Netzwerk](weblistener/_static/weblistener-to-internal.png)
+
+## <a name="kernel-mode-authentication-with-kerberos"></a>Kernelmodusauthentifizierung mit Kerberos
+
+WebListener delegiert zur Kernelmodusauthentifizierung mit dem Kerberos-Authentifizierungsprotokoll. Die Benutzermodusauthentifizierung wird nicht von Kerberos und WebListener unterstützt. Das Computerkonto muss zum Entschlüsseln des Kerberos-Tokens bzw. -Tickets verwendet werden, das von Active Directory abgerufen und zur Authentifizierung des Benutzers vom Client an den Server weitergeleitet wird. Registrieren Sie den Dienstprinzipalnamen (SPN) für den Host, nicht für den Benutzer der App.
 
 ## <a name="how-to-use-weblistener"></a>Verwendung des WebListeners
 
