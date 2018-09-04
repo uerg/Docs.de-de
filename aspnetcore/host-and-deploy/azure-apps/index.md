@@ -4,14 +4,14 @@ author: guardrex
 description: Erfahren Sie, wie Sie ASP.NET Core-Apps in Azure App Service hosten. Entsprechende Informationen werden in diesen nützlichen Ressourcen bereitgestellt.
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/24/2018
+ms.date: 08/29/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 42775bf4d3e88893260a5973f6f7bc9d3a006b5a
-ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
+ms.openlocfilehash: bc2a686c5ddc44fded135c9eed5caf676218773a
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2018
-ms.locfileid: "42927827"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312069"
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Hosten von ASP.NET Core in Azure App Service
 
@@ -110,35 +110,55 @@ ASP.NET Core-Vorschau-Apps können mit den folgenden Vorgehensweisen für Azure 
 <!-- * [Deploy the app self-contained](#deploy-the-app-self-contained) -->
 * [Verwenden von Docker mit Web-Apps für Container](#use-docker-with-web-apps-for-containers)
 
-Sollte ein Problem mit dem Verwenden der Vorschau der Websiteerweiterung auftreten, erstellen Sie ein Problem auf [GitHub](https://github.com/aspnet/azureintegration/issues/new).
-
 ### <a name="install-the-preview-site-extension"></a>Installieren der Websiteerweiterung (Vorschau)
+
+Sollte ein Problem mit dem Verwenden der Vorschau der Websiteerweiterung auftreten, erstellen Sie ein Problem auf [GitHub](https://github.com/aspnet/azureintegration/issues/new).
 
 1. Navigieren Sie im Azure-Portal zum Blatt „App Service“.
 1. Wählen Sie die Web-App aus.
-1. Geben Sie „ex“ in das Suchfeld ein, oder scrollen Sie in der Liste der Verwaltungsbereiche nach unten bis **ENTWICKLUNGSTOOLS**.
+1. Geben Sie „ex“ in das Suchfeld ein, oder scrollen Sie in der Liste der Verwaltungsabschnitte bis zu **ENTWICKLUNGSTOOLS** nach unten.
 1. Wählen Sie **ENTWICKLUNGSTOOLS** > **Erweiterungen** aus.
 1. Wählen Sie **Hinzufügen** aus.
-
-   ![Blatt für Azure-Apps mit vorangehenden Schritten](index/_static/x1.png)
-
-1. Wählen Sie **ASP.NET Core-Erweiterungen** aus.
+1. Wählen Sie die Erweiterung **ASP.NET Core &lt;x.y&gt; (x86) Runtime** aus der Liste aus. Dabei ist `<x.y>` die ASP.NET Core-Vorschauversion (z.B. **ASP.NET Core 2.2 (x86) Runtime**). Die x86 Runtime eignet sich für [frameworkabhängige Bereitstellungen](/dotnet/core/deploying/#framework-dependent-deployments-fdd), die Out-of-Process-Hosting durch das ASP.NET Core-Modul verwenden.
 1. Klicken Sie auf **OK**, um die rechtlichen Bedingungen zu akzeptieren.
 1. Wählen Sie **OK** aus, um die Erweiterung zu installieren.
 
-Nach Abschluss der Hinzufügevorgänge wird die neueste .NET Core-Vorschauversion installiert. Überprüfen Sie, ob die Installation erfolgreich war, indem Sie `dotnet --info` in der Konsole ausführen. Führen Sie Folgendes auf dem Blatt **App Service** durch:
+Nach Abschluss dieses Vorgangs wird die neueste .NET Core-Vorschauversion installiert. Überprüfen Sie die Installation:
 
-1. Geben Sie „con“ in das Suchfeld ein, oder scrollen Sie in der Liste der Verwaltungsbereiche nach unten bis **ENTWICKLUNGSTOOLS**.
-1. Wählen Sie **ENTWICKLUNGSTOOLS** > **Konsole** aus.
-1. Geben Sie `dotnet --info` in der Konsole ein.
+1. Wählen Sie **Erweiterte Tools** unter **ENTWICKLUNGSTOOLS** aus.
+1. Wählen Sie **Start** auf dem Blatt **Erweiterte Tools** aus.
+1. Wählen Sie das Menüelement **Debugkonsole** > **PowerShell** aus.
+1. Führen Sie in der PowerShell-Eingabeaufforderung den folgenden Befehl aus. Ersetzen Sie im Befehl die ASP.NET Core-Runtimeversion für `<x.y>`:
 
-Wenn es sich bei Version `2.1.300-preview1-008174` um die aktuelle Vorschauversion handelt, wird durch Ausführen von `dotnet --info` in der Eingabeaufforderung folgende Ausgabe abgerufen:
+   ```powershell
+   Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.<x.y>.x86\
+   ```
+   Wenn die installierte Vorschauruntime für ASP.NET Core 2.2 vorgesehen ist, lautet der Befehl folgendermaßen:
+   ```powershell
+   Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.2.2.x86\
+   ```
+   Der Befehl gibt `True` zurück, wenn die x64-Vorschauruntime installiert ist.
 
-![Blatt für Azure-Apps mit vorangehenden Schritten](index/_static/cons.png)
+::: moniker range=">= aspnetcore-2.2"
 
-Bei der im vorangehenden Bild dargestellten Version von ASP.NET Core, `2.1.300-preview1-008174`, handelt es sich um ein Beispiel. Die aktuelle Vorschauversion von ASP.NET Core zum Zeitpunkt der Konfiguration der Websiteerweiterung wird angezeigt, wenn Sie `dotnet --info` ausführen.
+> [!NOTE]
+> Die Plattformarchitektur (x86/x64) einer App Services-App wird auf dem Blatt **Anwendungseinstellungen** unter **Allgemeine Einstellungen** für Apps festgelegt, die auf einer Computeebene der A-Serie oder einer besseren Hostingebene gehostet werden. Wenn die Anwendung im In-Process-Modus ausgeführt wird und die Plattformarchitektur für 64-Bit (x64) konfiguriert ist, verwendet das ASP.NET Core-Modul die 64-Bit-Vorschauruntime, falls vorhanden. Installieren Sie die Erweiterung **ASP.NET Core &lt;x.y&gt; (x64) Runtime** (z.B. **ASP.NET Core 2.2 (x64) Runtime**).
+>
+> Nach der Installation der x64-Vorschauruntime führen Sie den folgenden Befehl im Kudu PowerShell-Befehlsfenster aus, um die Installation zu überprüfen. Ersetzen Sie im Befehl die ASP.NET Core-Runtimeversion für `<x.y>`:
+>
+> ```powershell
+> Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.<x.y>.x64\
+> ```
+> Wenn die installierte Vorschauruntime für ASP.NET Core 2.2 vorgesehen ist, lautet der Befehl folgendermaßen:
+> ```powershell
+> Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.2.2.x64\
+> ```
+> Der Befehl gibt `True` zurück, wenn die x64-Vorschauruntime installiert ist.
 
-`dotnet --info` zeigt den Pfad zu der Websiteerweiterung an, wo die Vorschauversion installiert wurde. Es ist zu sehen, dass die App aus der Websiteerweiterung statt aus dem Standardspeicherort *ProgramFiles* ausgeführt wird. Wenn *ProgramFiles* angezeigt wird, starten Sie die Website neu, und führen Sie `dotnet --info` aus.
+::: moniker-end
+
+> [!NOTE]
+> **ASP.NET Core-Erweiterungen** aktivieren zusätzliche Funktionen für ASP.NET Core in Azure App Services, z.B. Azure-Protokollierung. Die Erweiterung wird automatisch installiert, wenn die Bereitstellung aus Visual Studio erfolgt. Wenn die Erweiterung nicht installiert ist, installieren Sie sie für die App.
 
 **Verwenden der Vorschau-Websiteerweiterung mit einer ARM-Vorlage**
 
