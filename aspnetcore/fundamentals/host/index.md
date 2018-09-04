@@ -4,14 +4,14 @@ author: guardrex
 description: Erfahren Sie mehr über den Webhost von ASP.NET Core und den generischen Host von .NET, die für das Starten von Apps und das Verwalten der Lebensdauer verantwortlich sind.
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/16/2018
+ms.date: 08/28/2018
 uid: fundamentals/host/index
-ms.openlocfilehash: 365c679e789c07818c6eb007f40f6aef43b82c44
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 9927722b5080beb94e5628d9e7b54e6d50a5bff8
+ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276616"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336049"
 ---
 # <a name="host-in-aspnet-core"></a>Hosten in ASP.NET Core
 
@@ -20,4 +20,10 @@ ms.locfileid: "36276616"
 * [Web Host](xref:fundamentals/host/web-host): eignet sich für das Hosten von Web-Apps
 * [Generischer Host](xref:fundamentals/host/generic-host) (ASP.NET Core 2.1 oder höher): eignet sich für das Hosten von anderen Apps als Web-Apps (z.B. Apps, die Hintergrundaufgaben ausführen) In einem zukünftigen Release eignet sich der generische Host zum Hosten von jeder Art von Anwendung, einschließlich Web-Apps. Der generische Host wird den Webhost später einmal ersetzen.
 
-Um ASP.NET Core-*Web-Apps* zu hosten, sollten Entwickler den auf [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) basierenden Webhost verwenden. Für *alle anderen Apps* sollten Entwickler den generischen, auf [HostBuilder](/dotnet/api/microsoft.extensions.hosting.hostbuilder) basierenden Host verwenden.
+Um ASP.NET Core-*Web-Apps* zu hosten, sollten Entwickler den auf <xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder> basierenden Webhost verwenden. Für *alle anderen Apps* sollten Entwickler den generischen, auf <xref:Microsoft.Extensions.Hosting.HostBuilder> basierenden Host verwenden.
+
+<xref:fundamentals/host/hosted-services>  
+Erfahren Sie, wie Sie Hintergrundtasks mit gehosteten Diensten in ASP.NET Core implementieren.
+
+<xref:fundamentals/configuration/platform-specific-configuration>  
+Erfahren Sie, wie Sie eine ASP.NET Core-App aus einer Assembly mit Verweisen oder ohne Verweise mithilfe einer Implementierung von <xref:Microsoft.AspNetCore.Hosting.IHostingStartup> erweitern.
