@@ -5,12 +5,12 @@ description: Erfahren Sie mehr über die Grundlagen der Authentifizierung, Autor
 ms.author: tdykstra
 ms.date: 11/01/2017
 uid: security/index
-ms.openlocfilehash: 3a1c1ea1ad28fccbe5ae91b0be193938b095f60b
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: d371d37690b6d641f8e584f5e51dcc074a581622
+ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41749888"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44040081"
 ---
 # <a name="overview-of-aspnet-core-security"></a>Übersicht über die ASP.NET Core-Sicherheit
 
@@ -104,3 +104,4 @@ Es gibt weitere Sicherheitsrisiken, die Sie kennen sollten. Weitere Informatione
 *   [Verhindern von siteübergreifendem Scripting](xref:security/cross-site-scripting)
 *   [Aktivieren ursprungsübergreifender Anforderungen (CORS)](xref:security/cors)
 *   [Freigeben von Cookies für mehrere Apps](xref:security/cookie-sharing)
+*   [Liste sicherer IP-Adressen](xref:security/ip-safelist)

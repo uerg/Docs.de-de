@@ -4,14 +4,14 @@ author: tdykstra
 description: Erfahren Sie mehr über ASP.NET Core SignalR.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
-ms.date: 07/03/2018
+ms.date: 08/30/2018
 uid: signalr/index
-ms.openlocfilehash: b150ec08638503db5b377b4357516d64e49ed653
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: a26acad61c09a0c58ede313bfbcd88e2c87ff45c
+ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095365"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43893032"
 ---
 # <a name="aspnet-core-signalr"></a>ASP.NET Core SignalR
 
@@ -24,11 +24,11 @@ ms.locfileid: "39095365"
   * [Benutzer und Gruppen](xref:signalr/groups)
   * [Veröffentlichen in Azure](xref:signalr/publish-to-azure-web-app)
 * [Clients](xref:signalr/javascript-client)
-  * [JavaScript-Client](xref:signalr/javascript-client)
   * [.NET-Client](xref:signalr/dotnet-client)
-  * [WebPack und TypeScript](xref:tutorials/signalr-typescript-webpack)
+  * [Java-Client](xref:signalr/java-client)
+  * [JavaScript-Client](xref:signalr/javascript-client)
   * [JavaScript-API](/javascript/api/?view=signalr-js-latest)
-
+  * [WebPack und TypeScript](xref:tutorials/signalr-typescript-webpack)
 * [Konfiguration](xref:signalr/configuration)
 * [Authentifizierung und Autorisierung](xref:signalr/authn-and-authz)
 * [Überlegungen zur Sicherheit](xref:signalr/security)
