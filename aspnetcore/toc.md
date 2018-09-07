@@ -393,6 +393,7 @@
 ## [Verhindern von siteübergreifendem Scripting](xref:security/cross-site-scripting)
 ## [Aktivieren ursprungsübergreifender Anforderungen (CORS)](xref:security/cors)
 ## [Freigeben von Cookies für mehrere Apps](xref:security/cookie-sharing)
+## [Liste sicherer IP-Adressen](xref:security/ip-safelist)
 
 # [Leistung](xref:performance/index)
 ## [Zwischenspeichern von Antworten](xref:performance/caching/index)
