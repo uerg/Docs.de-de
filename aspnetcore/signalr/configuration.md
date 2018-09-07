@@ -5,14 +5,14 @@ description: Erfahren Sie, wie Sie ASP.NET Core SignalR-apps konfigurieren.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 07/31/2018
+ms.date: 09/06/2018
 uid: signalr/configuration
-ms.openlocfilehash: eac1202828edbcd295d7e52aa424cd625ee70e34
-ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
+ms.openlocfilehash: fee6e3382c14e818dff408f95770e711603f769d
+ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722463"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44039990"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>ASP.NET Core SignalR-Konfiguration
 
@@ -63,7 +63,7 @@ Die folgende Tabelle beschreibt die Optionen zum Konfigurieren von SignalR-Hubs:
 | Option | Standardwert | Beschreibung |
 | ------ | ------------- | ----------- |
 | `HandshakeTimeout` | 15 Sekunden | Wenn der Client innerhalb dieses Zeitraums eine anfängliche Handshake-Nachricht senden, nicht, wird die Verbindung geschlossen. Dies ist eine erweiterte Einstellung, die nur geändert werden soll, wenn der Handshake-Timeout-Fehlern aufgrund von schweren Netzwerklatenz auftreten. Weitere Einzelheiten für den handshakeprozess finden Sie in der [SignalR-Hub-Protokollspezifikation](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
-| `KeepAliveInterval` | 15 Sekunden | Wenn der Server eine Nachricht nicht innerhalb dieses Intervalls gesendet noch nicht, wird eine Ping-Nachricht automatisch gesendet, die Verbindung geöffnet bleiben. |
+| `KeepAliveInterval` | 15 Sekunden | Wenn der Server eine Nachricht nicht innerhalb dieses Intervalls gesendet noch nicht, wird eine Ping-Nachricht automatisch gesendet, die Verbindung geöffnet bleiben. Wenn Sie `KeepAliveInterval`, Ändern der `ServerTimeout` / `serverTimeoutInMilliseconds` auf dem Client festlegen. Die empfohlene `ServerTimeout` / `serverTimeoutInMilliseconds` Wert double der `KeepAliveInterval` Wert.  |
 | `SupportedProtocols` | Alle installierten Protokolle | Von diesen Hub unterstützten Protokolle. Standardmäßig alle Protokolle, die auf dem Server registriert sind zulässig, aber Protokolle können aus dieser Liste Deaktivieren bestimmter Protokolle für individuelle Hubs entfernt werden. |
 | `EnableDetailedErrors` | `false` | Wenn `true`, detaillierte Ausnahme Nachrichten werden an Clients zurückgegeben, wenn in einer hubmethode eine Ausnahme ausgelöst wird. Der Standardwert ist `false`, wie diese ausnahmemeldungen können vertraulichen Informationen enthalten. |
 
@@ -216,7 +216,7 @@ Zusätzliche Optionen zum Konfigurieren von Timeouts und Keep-alive-Verhalten be
 
 | Option für .NET | JavaScript-Option | Standardwert | Beschreibung |
 | ----------- | ----------------- | ------------- | ----------- |
-| `ServerTimeout` | `serverTimeoutInMilliseconds` | 30 Sekunden (30.000 Millisekunden) | Timeout für die Serveraktivität. Wenn der Server eine Nachricht in einem bestimmten Intervall gesendet noch nicht, der Client betrachtet, der Server getrennt und der Trigger die `Closed` Ereignis (`onclose` in JavaScript). |
+| `ServerTimeout` | `serverTimeoutInMilliseconds` | 30 Sekunden (30.000 Millisekunden) | Timeout für die Serveraktivität. Wenn der Server eine Nachricht in einem bestimmten Intervall gesendet noch nicht, der Client betrachtet, der Server getrennt und der Trigger die `Closed` Ereignis (`onclose` in JavaScript). Dieser Wert muss groß genug für eine Ping-Nachricht, die vom Server gesendet werden **und** innerhalb des Timeoutintervalls vom Client empfangenen. Der empfohlene Wert ist einer Zahl mindestens doppelt auf dem Server `KeepAliveInterval` Wert fest, damit Zeit für Ping-Nachrichten eingehen. |
 | `HandshakeTimeout` | Kann nicht konfiguriert | 15 Sekunden | Timeout für die erstmalige Server-Handshake. Wenn der Server eine Antwort Handshake in einem bestimmten Intervall nicht sendet, wird vom Client abgebrochen, der Handshake und der Trigger die `Closed` Ereignis (`onclose` in JavaScript). Dies ist eine erweiterte Einstellung, die nur geändert werden soll, wenn der Handshake-Timeout-Fehlern aufgrund von schweren Netzwerklatenz auftreten. Weitere Einzelheiten für den Handshake-Prozess finden Sie in der [SignalR-Hub-Protokollspezifikation](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
 
 Im .NET Client Timeoutwerte angegeben sind, als `TimeSpan` Werte. In JavaScript-Client werden die Timeoutwerte als eine Zahl, der angibt, der Dauer in Millisekunden angegeben.
