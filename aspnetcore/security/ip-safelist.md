@@ -6,21 +6,22 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: security/ip-safelist
-ms.openlocfilehash: 40fe7b67359efd1692490099c3fb529ba4a6148f
-ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
+ms.openlocfilehash: 362d1ded00bda3f328e029fb467f2b3eeaa01396
+ms.sourcegitcommit: 8268cc67beb1bb1ca470abb0e28b15a7a71b8204
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44040109"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44126708"
 ---
 # <a name="client-ip-safelist-for-aspnet-core"></a>Client-IP-Listen sicherer Adressen für ASP.NET Core
 
 Durch [Damien Bowden](https://twitter.com/damien_bod) und [Tom Dykstra](https://github.com/tdykstra)
  
-Dieser Artikel zeigt zwei Möglichkeiten, eine IP-Listen sicherer Adressen (auch bekannt als eine Whitelist) zu implementieren:
+In diesem Artikel zeigt drei Möglichkeiten, eine IP-Listen sicherer Adressen (auch bekannt als eine Whitelist) in einer ASP.NET Core-app zu implementieren. Sie können Folgendes verwenden:
 
-* Mithilfe von ASP.NET Core-Middleware die remote IP-Adresse jeder Anforderung überprüfen.
-* Mithilfe von ASP.NET Core-Aktionsfilter um die Anforderungen für bestimmte Aktionsmethoden remote IP-Adresse zu überprüfen.
+* Die Middleware die remote IP-Adresse jeder Anforderung überprüfen.
+* Aktionsfilter, um die Anforderungen für bestimmte Controller oder Aktionsmethoden remote IP-Adresse zu überprüfen.
+* Razor-Seiten-Filter, überprüfen Sie die remote IP-Adresse von Anforderungen für Razor-Seiten.
 
 Die Beispiel-app zeigt beide Ansätze. In jedem Fall wird eine Zeichenfolge, die genehmigte Client-IP-Adressen in einer app-Einstellung gespeichert. Die Middleware oder Filter analysiert die Zeichenfolge in eine Liste, und überprüft, ob die remote-IP in der Liste ist. Wenn dies nicht der Fall ist, ein HTTP 403 Verboten-Statuscode zurückgegeben.
 
