@@ -5,12 +5,12 @@ description: Anweisungen zum Migrieren vorhandener ASP.NET MVC- oder Web-API-App
 ms.author: scaddie
 ms.date: 08/27/2017
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 2f42ca6f9da8d9941e5bab40afc36c95360c3550
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: 4d71621e5d4a9ef7bfb8020acc2d4a5d3774514f
+ms.sourcegitcommit: 1a2fc47fb5d3da0f2a3c3269613ab20eb3b0da2c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342184"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44373357"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core"></a>Migration von ASP.NET zu ASP.NET Core
 
@@ -32,7 +32,7 @@ Wenn das Zielframework .NET Core ist, können Sie mit dem [Metapaket](xref:funda
 
 ```xml
 <ItemGroup>
-  <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+  <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.3" />
 </ItemGroup>
 ```
 
@@ -70,7 +70,7 @@ In `Startup` muss die `Configure`-Methode enthalten sein. Fügen Sie in `Configu
 * Fehlerseiten
 * Statische Dateien
 * ASP.NET Core MVC
-* Identität
+* Identity
 
 [!code-csharp[](../../common/samples/WebApplication1/Startup.cs?highlight=8,9,10,14,17,19,21&start=58&end=84)]
 

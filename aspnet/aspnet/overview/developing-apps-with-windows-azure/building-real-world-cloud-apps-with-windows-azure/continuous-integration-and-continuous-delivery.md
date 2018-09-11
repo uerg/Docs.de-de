@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: eaece9f5-f80c-428b-b771-5db66d275b7d
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
 msc.type: authoredcontent
-ms.openlocfilehash: 787aacfd843f5f72e567670d601fb036a2c474bc
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 7a92a68ce8bbeec604a22e082975d33f9f3377c1
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41832793"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340068"
 ---
 <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>Continuous Integration und Continuous Delivery (erstellen realer Cloud-Apps mit Azure)
 ====================
@@ -40,9 +40,9 @@ Im folgenden Diagramm aus [ein Microsoft Patterns and Practices e-Book Informati
 
 Es ist einfach, diese Prozesse in Azure automatisieren. Da Sie alles, was in der Cloud ausführen, müssen Sie erwerben oder Verwalten von Servern für Ihre Builds oder Ihren testumgebungen. Und Sie nicht warten, bis ein Server für Ihre Tests auf verfügbar sein. Sie können mit jedem Build, die Sie ausführen, richten Sie eine testumgebung in Azure unter Verwendung Ihres Automatisierungsskripts, ausführen Akzeptanztests oder Weitere ausführliche Tests für diese und dann danach einfach beenden sie. Und wenn Sie diesen Server nur für 2 Stunden, 8 Stunden oder einen Tag ausführen, die den Geldbetrag, die Sie dafür bezahlen ist minimal, da Sie nur für den Zeitraum bezahlen, die ein Computer tatsächlich ausgeführt wird. Z. B. erforderlich die Umgebung für die Korrektur, dass die Anwendung im Grunde ungefähr 1 Cent pro Stunde Kosten einer fehlklassifizierung einer Ebene wird von der kostenfreien Version steigt. Im Verlauf eines Monats wird, wenn Sie nur die Umgebung pro Stunde zu einem Zeitpunkt ausgeführt wurde würde Ihre testumgebung wahrscheinlich kleiner als die Latte Kosten, die Sie bei Starbucks kaufen.
 
-## <a name="visual-studio-team-services-vsts"></a>Visual Studio Team Services (VSTS)
+## <a name="azure-devops-services"></a>Azure DevOps-Dienste 
 
-VSTS bietet eine Reihe von Funktionen, die Ihnen bei der Anwendungsentwicklung aus Planen der Bereitstellung helfen.
+Azure DevOps-Dienste bietet eine Reihe von Funktionen, die Ihnen bei der Anwendungsentwicklung aus Planen der Bereitstellung helfen.
 
 - Es unterstützt (verteilt) Git- und TFVC (zentralisiert) Datenquellen-Steuerelement.
 - Es bietet einen Dienst für elastische Datenbanken erstellen, was bedeutet es dynamisch Buildservern erstellt, wenn sie benötigt werden und sie nach unten, wenn sie fertig sind. Sie können automatisch einen Build starten, wenn jemand Änderungen am Quellcode checkt, und Sie müssen keine zugeordnet haben, und Zahlen Sie für Ihre eigenen Buildserver, die sich im Leerlauf in den meisten Fällen. Der Builddienst ist kostenlos, solange Sie eine bestimmte Anzahl von Builds nicht überschreiten. Wenn Sie erwarten, dass Sie eine große Anzahl von Builds, können Sie ein wenig zusätzliche reservierte Buildservern Zahlen.
@@ -52,9 +52,9 @@ VSTS bietet eine Reihe von Funktionen, die Ihnen bei der Anwendungsentwicklung a
 - Agile-projektverwaltung unterstützt.
 
 
-Weitere Informationen zu continuous Integration und Continuous Delivery-Funktionen von VSTS zu erhalten, finden Sie unter [Visual Studio Team Services](https://www.visualstudio.com/team-services/).
+Weitere Informationen zu continuous Integration und Continuous Delivery-Funktionen von Azure DevOps-Dienste zu erhalten, finden Sie unter [der Dokumentation zu Azure DevOps](/azure/devops/index).
 
-Wenn Sie für eine sofort einsetzbare Projektmanagement, Zusammenarbeit im Team und Source-Control-Lösung, sehen Sie sich VSTS suchen. Der Dienst ist für bis zu 5 Benutzer kostenlos, und Sie können für zu registrieren [Visual Studio Team Services](https://www.visualstudio.com/team-services/).
+Wenn Sie für eine sofort einsetzbare Projektmanagement, Zusammenarbeit im Team und Source-Control-Lösung, sehen Sie sich Azure DevOps-Dienste suchen. Melden Sie sich bei [Azure DevOps-Dienste](https://dev.azure.com/).
 
 ## <a name="summary"></a>Zusammenfassung
 

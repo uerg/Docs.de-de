@@ -5,12 +5,12 @@ description: Ein Leitfaden, der End-to-End-Anleitungen zum Erstellen einer DevOp
 ms.author: casoper
 ms.date: 08/07/2018
 uid: azure/devops/tools-and-downloads
-ms.openlocfilehash: a63e97d9ab9eb0ed2fbd30e8c2e033f0c048d33e
-ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.openlocfilehash: 5529068b83db475315784571fbf4151d7ecd0d5d
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312300"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340159"
 ---
 # <a name="tools-and-downloads"></a>Tools und downloads
 
@@ -21,7 +21,7 @@ Azure verfügt über mehrere Schnittstellen für die Bereitstellung und Verwaltu
 Die folgenden Abonnements sind erforderlich:
 
 * Azure &mdash; , wenn Sie nicht über ein Konto verfügen [erhalten eine kostenlose Testversion](https://azure.microsoft.com/free/).
-* Visual Studio Team Services (VSTS) &mdash; dieses Konto wird erstellt, in Kapitel 4.
+* Azure DevOps-Dienste &mdash; wird Ihr Azure DevOps-Abonnement und Ihre Organisation erstellt, in Kapitel 4.
 * GitHub &mdash; , wenn Sie nicht über ein Konto verfügen [melden Sie sich jetzt](https://github.com/join).
 
 Die folgenden Tools sind erforderlich:
