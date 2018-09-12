@@ -5,12 +5,12 @@ description: Erfahren Sie, wie Sie Klassen für das Verwalten von Filmen mithilf
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 9e0fd0ee98c84bb2336749640b2a3c103e4639b6
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: fb3a287725fa68ff9feb9935d7e6c5c2b8316517
+ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938325"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43893119"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Hinzufügen eines Modells zu einer App mit Razor-Seiten in ASP.NET Core
 
@@ -103,14 +103,14 @@ Add-Migration Initial
 Update-Database
 ```
 
-Alternativ können folgende Befehle der .NET Core-CLI verwendet werden:
+Alternativ können die folgenden .NET Core-CLI-Befehle vom Projektordner aus verwendet werden:
 
 ```console
 dotnet ef migrations add Initial
 dotnet ef database update
 ```
 
-Die folgende Warnmeldung können Sie ignorieren, diese wird im nächsten Tutorial behoben:
+Die folgende Warnmeldung können Sie ignorieren, Sie werden dies in einem späteren Tutorial beheben:
 
 `Microsoft.EntityFrameworkCore.Model.Validation[30000]`
 

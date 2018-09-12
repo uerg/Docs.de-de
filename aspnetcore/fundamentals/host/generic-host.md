@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/16/2018
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: de9044875c8ebc62c80a129d721e7d37be5d846d
-ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
+ms.openlocfilehash: e19a8a78b4c02fbae3d3acd23ee357c6003c35cf
+ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2018
-ms.locfileid: "42927808"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44039964"
 ---
 # <a name="net-generic-host"></a>Generischer .NET-Host
 
@@ -196,16 +196,32 @@ Verwenden Sie die Factory, und konfigurieren Sie den benutzerdefinierten Dienstc
 
 ## <a name="extensibility"></a>Erweiterungen
 
-Die Erweiterung des Hosts wird mit der Erweiterungsmethode in `IHostBuilder` durchgeführt. Im folgenden Beispiel wird dargestellt, wie eine Erweiterungsmethode eine `IHostBuilder`-Implementierung mit [RabbitMQ](https://www.rabbitmq.com/) erweitert. Die Erweiterungsmethode (an anderer Stelle in der App) registriert eine `IHostedService`-Schnittstelle von RabbitMQ:
+Die Erweiterung des Hosts wird mit der Erweiterungsmethode in `IHostBuilder` durchgeführt. Im folgenden Beispiel wird dargestellt, wie eine Erweiterungsmethode eine `IHostBuilder`-Implementierung mit dem [TimedHostedService](xref:fundamentals/host/hosted-services#timed-background-tasks)-Beispiel erweitert, das in <xref:fundamentals/host/hosted-services> gezeigt wird.
 
 ```csharp
-// UseRabbitMq is an extension method that sets up RabbitMQ to handle incoming
-// messages.
 var host = new HostBuilder()
-    .UseRabbitMq<MyMessageHandler>()
+    .UseHostedService<TimedHostedService>()
     .Build();
 
 await host.StartAsync();
+```
+
+Eine App richtet die `UseHostedService`-Erweiterungsmethode zum Registrieren des in `T` übergebenen gehosteten Diensts ein:
+
+```csharp
+using System;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
+public static class Extensions
+{
+    public static IHostBuilder UseHostedService<T>(this IHostBuilder hostBuilder)
+        where T : class, IHostedService, IDisposable
+    {
+        return hostBuilder.ConfigureServices(services =>
+            services.AddHostedService<T>());
+    }
+}
 ```
 
 ## <a name="manage-the-host"></a>Verwalten des Hosts
