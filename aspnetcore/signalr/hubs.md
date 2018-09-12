@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 05/01/2018
 uid: signalr/hubs
-ms.openlocfilehash: be39666373e2b099054bb71f4a7fcf17aeb9a01c
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: e583676ab0eed45aeaf6391d8cdf8c1485aa914e
+ms.sourcegitcommit: e7e1e531b80b3f4117ff119caadbebf4dcf5dcb7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095280"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44510336"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>Verwenden von Hubs in SignalR für ASP.NET Core
 
@@ -42,9 +42,29 @@ Erstellen Sie einen Hub durch Deklarieren einer Klasse, die von erbt `Hub`, und 
 
 Sie können einen Rückgabetyp und Parameter, einschließlich von komplexen Typen und Arrays, wie in jeder C#-Methode angeben. SignalR verarbeitet die Serialisierung und Deserialisierung von komplexen Objekten und Arrays in Ihre Parameter und Rückgabewerte.
 
+## <a name="the-context-object"></a>Das Context-Objekt
+
+Die `Hub` -Klasse verfügt über eine `Context` Eigenschaft, die mit Informationen über die Verbindung die folgenden Eigenschaften enthält:
+
+| Eigenschaft | Beschreibung |
+| ------ | ----------- |
+| `ConnectionId` | Ruft die eindeutige ID für die Verbindung von SignalR zugewiesen. Eine Verbindungs­id für jede Verbindung ist vorhanden.|
+| `UserIdentifier` | Ruft die [Benutzerbezeichner](xref:signalr/groups). SignalR verwendet standardmäßig die `ClaimTypes.NameIdentifier` aus der `ClaimsPrincipal` der Verbindung als die Benutzer-ID zugeordnet. |
+| `User` | Ruft die `ClaimsPrincipal` mit dem aktuellen Benutzer verknüpft ist. |
+| `Items` | Ruft eine Auflistung von Schlüssel-Wert, die zum Freigeben von Daten innerhalb des Bereichs dieser Verbindung verwendet werden kann. Daten können in dieser Auflistung gespeichert werden, und bleiben für die Verbindung in anderen hubmethodenaufrufe. |
+| `Features` | Ruft die Auflistung der verfügbaren Funktionen für die Verbindung ab. Vorerst ist nicht dieser Auflistung in den meisten Szenarien erforderlich, damit noch ausführlich dokumentiert ist nicht. |
+| `ConnectionAborted` | Ruft eine `CancellationToken` , die benachrichtigt werden, wenn die Verbindung abgebrochen wird. |
+
+`Hub.Context` Außerdem enthält die folgenden Methoden:
+
+| Methode | Beschreibung |
+| ------ | ----------- |
+| `GetHttpContext` | Gibt die `HttpContext` für die Verbindung oder `null` , wenn die Verbindung nicht mit einer HTTP-Anforderung verknüpft ist. Für HTTP-Verbindungen können Sie diese Methode zum Abrufen von Informationen wie z. B. HTTP-Header und Abfragezeichenfolgen. |
+| `Abort` | Bricht die Verbindung ab. |
+
 ## <a name="the-clients-object"></a>Das Objekt des Clients
 
-Jede Instanz der `Hub` -Klasse verfügt über eine Eigenschaft namens `Clients` , enthält die folgenden Elemente für die Kommunikation zwischen Server und Client:
+Die `Hub` -Klasse verfügt über eine `Clients` -Eigenschaft, die folgenden Eigenschaften für die Kommunikation zwischen Server und Client enthält:
 
 | Eigenschaft | Beschreibung |
 | ------ | ----------- |
@@ -53,7 +73,7 @@ Jede Instanz der `Hub` -Klasse verfügt über eine Eigenschaft namens `Clients` 
 | `Others` | Ruft eine Methode für alle verbundenen Clients mit Ausnahme des Clients, die die Methode aufgerufen hat. |
 
 
-Darüber hinaus `Hub.Clients` enthält die folgenden Methoden:
+`Hub.Clients` Außerdem enthält die folgenden Methoden:
 
 | Methode | Beschreibung |
 | ------ | ----------- |

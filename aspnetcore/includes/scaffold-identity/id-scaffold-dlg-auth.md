@@ -19,7 +19,7 @@ Hinweis: Wenn Sie einen neuen Benutzerkontext erstellen, müssen Sie eine Datei 
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core-CLI](#tab/netcore-cli)
 
-Wenn Sie der gerüstbauer ASP.NET noch nicht installiert haben, installieren Sie es jetzt:
+Wenn Sie die ASP.NET Core-gerüstbauer noch nicht installiert haben, installieren Sie es jetzt:
 
 ```cli
 dotnet tool install -g dotnet-aspnet-codegenerator
@@ -44,4 +44,9 @@ Führen Sie im Projektordner der gerüstbauer Identität, mit der gewünschten O
 dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files Account.Register
 ```
 
+PowerShell arbeitet mit Semikolon als Befehlstrennzeichen. Wenn Sie Powershell verwenden, wird versehen Sie die Semikolon in der Liste mit Escapezeichen, oder fügen Sie die Liste der Dateien in doppelte Anführungszeichen. Zum Beispiel:
+
+```cli
+dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
+```
 -------------

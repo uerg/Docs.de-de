@@ -11,7 +11,7 @@ Führen Sie die Identity-gerüstbauer:
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core-CLI](#tab/netcore-cli)
 
-Wenn Sie der gerüstbauer ASP.NET noch nicht installiert haben, installieren Sie es jetzt:
+Wenn Sie die ASP.NET Core-gerüstbauer noch nicht installiert haben, installieren Sie es jetzt:
 
 ```cli
 dotnet tool install -g dotnet-aspnet-codegenerator
