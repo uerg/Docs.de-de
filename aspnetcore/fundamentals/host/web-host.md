@@ -4,14 +4,14 @@ author: guardrex
 description: Erfahren Sie mehr über den Webhost in ASP.NET Core, der für das Starten der App und das Verwalten der Lebensdauer verantwortlich ist.
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/19/2018
+ms.date: 09/01/2018
 uid: fundamentals/host/web-host
-ms.openlocfilehash: dfef2bf21f325f11d147379f75a8d81a8bd05eec
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: 7440ab26534840b190a346614f645860fc2b7d78
+ms.sourcegitcommit: 7211ae2dd702f67d36365831c490d6178c9a46c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41886745"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44089898"
 ---
 # <a name="aspnet-core-web-host"></a>ASP.NET Core-Webhost
 
@@ -80,6 +80,25 @@ Die durch `CreateDefaultBuilder` definierte Konfiguration kann von [ConfigureApp
         ...
     ```
 
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+* Der folgende Aufruf von `ConfigureKestrel` überschreibt den Standardwert von 30.000.000 Bytes von [Limits.MaxRequestBodySize](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.maxrequestbodysize), der festgelegt wurde, als Kestrel durch `CreateDefaultBuilder` konfiguriert wurde:
+
+    ```csharp
+    WebHost.CreateDefaultBuilder(args)
+        .ConfigureKestrel((context, options) =>
+        {
+            options.Limits.MaxRequestBodySize = 20000000;
+        });
+        ...
+    ```
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0 || aspnetcore-2.1"
+
 * Der folgende Aufruf von [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel) überschreibt den Standardwert von 30.000.000 Bytes von [Limits.MaxRequestBodySize](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.maxrequestbodysize), der festgelegt wurde, als Kestrel durch `CreateDefaultBuilder` konfiguriert wurde:
 
     ```csharp
@@ -90,6 +109,10 @@ Die durch `CreateDefaultBuilder` definierte Konfiguration kann von [ConfigureApp
         });
         ...
     ```
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.0"
 
 Das *Inhaltsstammverzeichnis* bestimmt, wo der Host nach Inhaltsdateien (z.B. MVC-Ansichtsdateien) sucht. Wenn die App aus dem Stammordner des Projekts gestartet wird, wird dieser als Inhaltsstammverzeichnis verwendet. Dies ist die Standardeinstellung in [Visual Studio](https://www.visualstudio.com/) und für [neue .NET-Vorlagen](/dotnet/core/tools/dotnet-new).
 
@@ -338,6 +361,23 @@ Legen Sie den HTTPS-Umleitungsport fest. Wird in [Erzwingen von HTTPS](xref:secu
 ```csharp
 WebHost.CreateDefaultBuilder(args)
     .UseSetting("https_port", "8080")
+```
+
+### <a name="hosting-startup-exclude-assemblies"></a>Auszuschließende Hostingstartassemblys
+
+DESCRIPTION
+
+**Schlüssel**: hostingStartupExcludeAssemblies  
+**Typ:** *Zeichenfolge*  
+**Standard:** Leere Zeichenfolge  
+**Festlegen mit:** `UseSetting`  
+**Umgebungsvariable:** `ASPNETCORE_HOSTINGSTARTUPEXCLUDEASSEMBLIES`
+
+Eine durch Semikolons getrennte Zeichenfolge der Hostingstartassemblys, die beim Start ausgeschlossen werden sollen.
+
+```csharp
+WebHost.CreateDefaultBuilder(args)
+    .UseSetting(WebHostDefaults.HostingStartupExcludeAssembliesKey, "assembly1;assembly2")
 ```
 
 ::: moniker-end

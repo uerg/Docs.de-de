@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 07/05/2018
 uid: fundamentals/error-handling
-ms.openlocfilehash: ff04ebeb6a682ec924afe896fd6716010a63f7cd
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: df7af9fd05c19c42357989bbd8a81da062a564cc
+ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751677"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43893102"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Fehlerbehandlung in ASP.NET Core
 
@@ -45,8 +45,8 @@ Verwenden Sie die *Seite mit Ausnahmen für Entwickler*, um eine App so zu konfi
 
 Fügen Sie den Aufruf von [UseDeveloperExceptionPage](/dotnet/api/microsoft.aspnetcore.builder.developerexceptionpageextensions.usedeveloperexceptionpage) vor Middleware ein, vor der Sie Ausnahmen abfangen möchten, z.B. `app.UseMvc`.
 
->[!WARNING]
-> Aktivieren Sie die Seite mit Ausnahmen für Entwickler **nur, wenn die App in der Entwicklungsumgebung ausgeführt wird**. Wenn die App in der Produktionsumgebung ausgeführt wird, sollten Sie keine detaillierten Ausnahmeinformationen öffentlich teilen. [Weitere Informationen zum Konfigurieren von Umgebungen](xref:fundamentals/environments).
+> [!WARNING]
+> Aktivieren Sie die Seite mit Ausnahmen für Entwickler **nur dann, wenn die App in der Entwicklungsumgebung ausgeführt wird**. Wenn die App in der Produktionsumgebung ausgeführt wird, sollten Sie keine detaillierten Ausnahmeinformationen öffentlich teilen. [Weitere Informationen zum Konfigurieren von Umgebungen](xref:fundamentals/environments).
 
 Wenn Sie die Seite mit Ausnahmen für Entwickler anzeigen möchten, führen Sie die Beispiel-App mit der auf `Development` festgelegten Umgebung aus, und fügen Sie `?throw=true` zur Basis-URL der App hinzu. Die Seite enthält mehrere Registerkarten mit Informationen zu der Ausnahme und der Anforderung. Die erste Registerkarte enthält eine Stapelüberwachung:
 
@@ -60,13 +60,13 @@ Wenn die Anforderung Cookies besitzt, werden diese auf der Registerkarte **Cooki
 
 ![Header](error-handling/_static/developer-exception-page-headers.png)
 
-## <a name="configuring-a-custom-exception-handling-page"></a>Konfigurieren einer benutzerdefinierten Seite zur Ausnahmebehandlung
+## <a name="configure-a-custom-exception-handling-page"></a>Konfigurieren einer benutzerdefinierten Seite zur Ausnahmebehandlung
 
 Konfigurieren Sie eine Seite zur Ausnahmebehandlung, die verwendet werden kann, wenn die App nicht in der `Development`-Umgebung ausgeführt wird:
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_DevExceptionPage&highlight=11)]
 
-In einer Razor Pages-App enthält die Vorlage [dotnet new](/dotnet/core/tools/dotnet-new) von Razor Pages im Ordner *Pages* eine Fehlerseite und eine `ErrorModel`-Seitenmodellklasse.
+In einer Razor Pages-App enthält die Vorlage [dotnet new](/dotnet/core/tools/dotnet-new) von Razor Pages eine Fehlerseite und die Fehlerklasse `PageModel` im Ordner *Pages*.
 
 Die Aktionsmethode zur Fehlerbehandlung wird in einer MVC-App nicht durch HTTP-Methodenattribute wie `HttpGet` ergänzt. Durch explizite Verben könnte bei einigen Anforderungen verhindert werden, dass diese Methode zum Einsatz kommt. Lassen Sie den anonymen Zugriff auf die Methode zu, damit nicht authentifizierte Benutzer die Fehleransicht empfangen können.
 
@@ -81,13 +81,35 @@ public IActionResult Error()
 }
 ```
 
-## <a name="configuring-status-code-pages"></a>Konfigurieren von Statuscodeseiten
+## <a name="configure-status-code-pages"></a>Konfigurieren von Statuscodeseiten
 
-Ihre App stellt für HTTP-Statuscodes wie *404 – Nicht gefunden* standardmäßig keine ausführliche Statuscodeseite zur Verfügung. Um Statuscodeseiten bereitzustellen, muss die Middleware „Status Code Pages“ durch Hinzufügen einer Zeile zu `Startup.Configure` konfiguriert werden:
+Ihre App stellt für HTTP-Statuscodes wie *404 – Nicht gefunden* standardmäßig keine ausführliche Statuscodeseite zur Verfügung. Verwenden Sie zum Bereitstellen von Statuscodeseiten Middleware für Statuscodeseiten.
+
+::: moniker range=">= aspnetcore-2.1"
+
+Die Middleware wird vom [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/)-Paket zur Verfügung gestellt. Dieses ist im [Microsoft.AspNetCore.App-Metapaket](xref:fundamentals/metapackage-app) enthalten.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+Die Middleware wird vom [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/)-Paket zur Verfügung gestellt. Dieses ist im [Microsoft.AspNetCore.All-Metapaket](xref:fundamentals/metapackage) enthalten.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+Die Middleware wird durch Hinzufügen eines Paketverweises auf das [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/)-Paket in der Projektdatei verfügbar gemacht.
+
+::: moniker-end
+
+Fügen Sie der `Startup.Configure`-Methode eine Zeile hinzu:
 
 ```csharp
 app.UseStatusCodePages();
 ```
+
+<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> sollte vor Middleware für die Anforderungsverarbeitung in der Pipeline aufgerufen werden (z.B. Middleware für statische Dateien und MVC-Middleware).
 
 Standardmäßig fügt die Middleware „Satus Code Pages“ Handler im Textformat für gängige Statuscodes wie 404 hinzu:
 
