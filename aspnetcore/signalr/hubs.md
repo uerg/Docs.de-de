@@ -5,14 +5,14 @@ description: Erfahren Sie, wie Sie mit Hubs in ASP.NET Core SignalR.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 05/01/2018
+ms.date: 09/12/2018
 uid: signalr/hubs
-ms.openlocfilehash: e583676ab0eed45aeaf6391d8cdf8c1485aa914e
-ms.sourcegitcommit: e7e1e531b80b3f4117ff119caadbebf4dcf5dcb7
+ms.openlocfilehash: 17e3ee23967bc1097a3121b3e3e5b58cebe3887d
+ms.sourcegitcommit: a742b55e4b8276a48b8b4394784554fecd883c84
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44510336"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45538361"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>Verwenden von Hubs in SignalR für ASP.NET Core
 
@@ -94,6 +94,22 @@ Jede Eigenschaft oder Methode in den vorhergehenden Tabellen gibt ein Objekt mit
 Um Aufrufe von bestimmten Clients zu machen, verwenden Sie die Eigenschaften der `Clients` Objekt. Im folgenden Beispiel die `SendMessageToCaller` -Methode demonstriert, Senden einer Nachricht an die Verbindung, die die hubmethode aufgerufen hat. Die `SendMessageToGroups` Methode sendet eine Nachricht an die Gruppen, die in gespeicherten eine `List` mit dem Namen `groups`.
 
 [!code-csharp[Send messages](hubs/sample/hubs/chathub.cs?range=15-24)]
+
+## <a name="strongly-typed-hubs"></a>Stark typisierte hubs
+
+Ein Nachteil der Verwendung von `SendAsync` besteht darin, dass dabei auf magische Zeichenfolge an die Methode aufgerufen werden. Dadurch wird Code öffnen, um Laufzeitfehler, wenn Sie der Methodennamen falsch geschrieben ist, oder auf dem Client fehlt.
+
+Eine Alternative zur Verwendung `SendAsync` stark typisiert werden die `Hub` mit <xref:Microsoft.AspNetCore.SignalR.Hub`1>. Im folgenden Beispiel die `ChatHub` Clientmethoden wurden, in eine Schnittstelle namens extrahiert `IChatClient`.  
+
+[!code-csharp[Interface for IChatClient](hubs/sample/hubs/ichatclient.cs?name=snippet_IChatClient)]
+
+Diese Schnittstelle kann verwendet werden, auf der vorherigen Umgestalten `ChatHub` Beispiel.
+
+[!code-csharp[Strongly typed ChatHub](hubs/sample/hubs/StronglyTypedChatHub.cs?range=8-18,36)]
+
+Mithilfe von `Hub<IChatClient>` ermöglicht während der Kompilierung der Clientmethoden überprüfen. Dies verhindert, dass Probleme verursacht werden, da mit der Magic-Zeichenfolgen, `Hub<T>` können nur Zugriff auf die in der Schnittstelle definierten Methoden bereitstellen.
+
+Verwenden eines stark typisierten `Hub<T>` deaktiviert die Möglichkeit, verwenden Sie `SendAsync`.
 
 ## <a name="handle-events-for-a-connection"></a>Behandeln von Ereignissen für eine Verbindung
 
