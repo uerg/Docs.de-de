@@ -5,12 +5,12 @@ description: Informationen Sie zum Erstellen einer Razor-Seiten-app mit Benutzer
 ms.author: riande
 ms.date: 7/24/2018
 uid: security/authorization/secure-data
-ms.openlocfilehash: a263b092194763ae4ff3360fc0d76e8ee494b5a6
-ms.sourcegitcommit: e7e1e531b80b3f4117ff119caadbebf4dcf5dcb7
+ms.openlocfilehash: e4a54c95aa8131441d29a835751ce6241aac2ed3
+ms.sourcegitcommit: 70fb7c9d5f2ddfcf4747382a9f7159feca7a6aa7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44510362"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45601768"
 ---
 ::: moniker range="<= aspnetcore-1.1"
 
@@ -269,9 +269,12 @@ Aktualisieren Sie das Seitenmodell Details an:
 
 [!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Details.cshtml.cs?name=snippet)]
 
-## <a name="add-a-user-to-a-role"></a>Hinzufügen eines Benutzers zu einer Rolle
+## <a name="add-or-remove-a-user-to-a-role"></a>Hinzufügen oder Entfernen eines Benutzers zu einer Rolle
 
-Rollen werden in der Identity-Cookie gespeichert. Änderungen an Rollen werden auf das Cookie nicht beibehalten, bis das Cookie neu generiert wird oder der Benutzer meldet sich ab und meldet sich an. Anwendungen, die Benutzer einer Rolle hinzufügen sollten Aufrufen `SignInManager.RefreshSignInAsync(user)` das Cookie zu aktualisieren.
+Finden Sie unter [dieses Problem](https://github.com/aspnet/Docs/issues/8502) Informationen auf:
+
+* Entfernen Berechtigungen eines Benutzers ein. Stummschaltung z. B. einen Benutzer in einem Chat-app ein.
+* Hinzufügen von Berechtigungen für einen Benutzer aus.
 
 ## <a name="test-the-completed-app"></a>Testen Sie die fertige app
 
