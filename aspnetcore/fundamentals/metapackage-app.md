@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 09/20/2017
 uid: fundamentals/metapackage-app
-ms.openlocfilehash: e82c219635bbbebe1d6f5639308490c37361b286
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: d27c3aa53d6edd235006dc136f09558395e15b6e
+ms.sourcegitcommit: a742b55e4b8276a48b8b4394784554fecd883c84
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952954"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45538452"
 ---
 # <a name="microsoftaspnetcoreapp-metapackage-for-aspnet-core-21"></a>Das Metapaket „Microsoft.AspNetCore.App“ für ASP.NET Core 2.1
 
@@ -45,7 +45,7 @@ Die folgende Projektdatei verweist auf das Metapaket `Microsoft.AspNetCore.App` 
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.4" />
   </ItemGroup>
 
 </Project>
@@ -53,6 +53,15 @@ Die folgende Projektdatei verweist auf das Metapaket `Microsoft.AspNetCore.App` 
 
 Mit der Versionsnummer im Verweis `Microsoft.AspNetCore.App` ist **nicht** garantiert, dass diese Version des freigegebenen Frameworks verwendet wird. Es kann zum Beispiel sein, dass die Version `2.1.1` angegeben ist, aber bereits Version `2.1.3` installiert wurde. In diesem Fall verwendet die App die Version `2.1.3`. Sie können das Rollforwardverhalten für Patches und/oder kleinere Updates deaktivieren. Dies wird jedoch nicht empfohlen. Weitere Informationen zum Rollforwardverhalten von Paketversionen finden Sie unter [dotnet host-Rollforward](https://github.com/dotnet/core-setup/blob/master/Documentation/design-docs/roll-forward-on-no-candidate-fx.md).
 
+## <a name="update-aspnet-core"></a>Aktualisieren von ASP.NET Core
+
 Das [Metapaket](/dotnet/core/packages#metapackages) `Microsoft.AspNetCore.App` zählt nicht zu den herkömmlichen Paketen, die über NuGet aktualisiert werden. Ähnlich wie bei `Microsoft.NETCore.App` stellt `Microsoft.AspNetCore.App` eine freigegebene Runtime dar, die über eine spezielle Semantik für die Versionsverwaltung verfügt, die außerhalb von NuGet behandelt wird. Weitere Informationen finden Sie unter [Pakete, Metapakete und Frameworks](/dotnet/core/packages).
+
+So aktualisieren Sie ASP.NET Core:
+
+* Auf den Entwicklungscomputern und Buildservern: Laden Sie das [.NET Core SDK](https://www.microsoft.com/net/download) herunter, und installieren Sie es.
+* Auf Bereitstellungsservern: Laden Sie die [.NET Core-Runtime](https://www.microsoft.com/net/download) herunter, und installieren Sie sie.
+
+ Für Anwendungen wird beim Neustart der Anwendungen ein Rollforward auf die neueste installierte Version ausgeführt. Die Versionsnummer von `Microsoft.AspNetCore.App` muss in der Projektdatei nicht aktualisiert werden. Weitere Informationen finden Sie unter [Von Frameworks abhängige Apps führen einen Rollforward aus](/dotnet/core/versions/selection#framework-dependent-apps-roll-forward).
 
 Wenn Ihre Anwendung zuvor `Microsoft.AspNetCore.All` verwendet hat, finden Sie weitere Informationen unter [Migrieren von Microsoft.AspNetCore.All zu Microsoft.AspNetCore.App](xref:fundamentals/metapackage#migrate).
