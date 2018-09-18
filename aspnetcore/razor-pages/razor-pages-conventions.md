@@ -4,14 +4,14 @@ author: guardrex
 description: Erfahren Sie, wie Konventionen für Routen- und App-Modellanbieter Sie beim Steuern von Seitenrouting, Ermittlung und Verarbeitung unterstützen können.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 04/12/2018
+ms.date: 09/17/2018
 uid: razor-pages/razor-pages-conventions
-ms.openlocfilehash: 5a5d580b4260767e411571ccacc19d6e8fe12559
-ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
+ms.openlocfilehash: ea4f785dc8a64b430e312fd122a4d3184b61949e
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "42909853"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011861"
 ---
 # <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>Razor-Seiten: Routen- und App-Konventionen in ASP.NET Core
 
@@ -69,6 +69,26 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+## <a name="route-order"></a>Reihenfolge
+
+Routen geben eine <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> für die Verarbeitung (Route übereinstimmend).
+
+| Reihenfolge            | Verhalten |
+| :--------------: | -------- |
+| -1               | Die Route wird verarbeitet, bevor andere Routen verarbeitet werden. |
+| 0                | Reihenfolge nicht angegeben ist (Standardwert). Kein Zuweisen von `Order` (`Order = null`) wird standardmäßig die Route `Order` auf 0 (null) für die Verarbeitung. |
+| 1, 2, &hellip; n | Gibt die Verarbeitungsreihenfolge für die Route an. |
+
+Die Verarbeitung Route wird gemäß der Konvention hergestellt:
+
+* Routen werden in sequenzieller Reihenfolge verarbeitet (-1, 0, 1, 2, &hellip; n).
+* Wenn die Routen haben die gleiche `Order`, wird die bestimmte Route zuerst gefolgt von weniger spezifische Routen abgeglichen wird.
+* Wenn Routen mit dem gleichen `Order` und die gleiche Anzahl von Parametern mit eine Anforderungs-URL übereinstimmen, Routen werden in der Reihenfolge verarbeitet, die hinzugefügt werden die <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection>.
+
+Vermeiden Sie wenn möglich, je nach einem etablierten Route Verarbeitungsreihenfolge. Im Allgemeinen wird beim routing mit URL-Zuordnung die richtige Route ausgewählt. Wenn Sie, Route festlegen müssen `Order` Eigenschaften zum Weiterleiten von Anforderungen ordnungsgemäß routing der app-Schema ist wahrscheinlich für Clients verwirrend und fehleranfälliger zu verwalten. Suchen Sie zur Vereinfachung der app-routing-Schema. Die Beispiel-app erfordert eine explizite Route Verarbeitungsreihenfolge mehrere Routingszenarien verwenden eine einzelne app veranschaulicht. Allerdings sollten Sie versuchen, vermeiden Sie die Methode der Einstellung Route `Order` in Produktions-apps.
+
+Razor-Seiten, routing und routing für MVC-Controller, Freigabe eine Implementierung. Informationen zur Reihenfolge der MVC-Themen finden Sie unter [Routing zu Controlleraktionen: Ordnen der attributrouten](xref:mvc/controllers/routing#ordering-attribute-routes).
+
 ## <a name="model-conventions"></a>Modellkonventionen
 
 Fügen Sie einen Delegaten für [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) hinzu, um [Modellkonventionen](xref:mvc/controllers/application-model#conventions) hinzuzufügen, die auf Razor-Seiten anwendbar sind.
@@ -81,8 +101,13 @@ Die Beispielanwendung fügt dann zu allen Seiten der App eine `{globalTemplate?}
 
 [!code-csharp[](razor-pages-conventions/sample/Conventions/GlobalTemplatePageRouteModelConvention.cs?name=snippet1)]
 
-> [!NOTE]
-> Die Eigenschaft `Order` ist für das `AttributeRouteModel` auf `-1` festgelegt. Dadurch wird sichergestellt, dass diese Vorlage in Bezug auf die erste Position für einen Routendatenwert Priorität erhält, wenn nur ein einziger Routenwert angegeben wird. Außerdem wird die Priorität über automatisch generierte Routen für Razor-Seiten sichergestellt. Beispielsweise wird durch die Beispielanwendung weiter unten in diesem Artikel eine `{aboutTemplate?}`-Routenvorlage hinzugefügt. Die Vorlage `{aboutTemplate?}` erhält den `Order` von `1`. Wenn die Seite „Info“ unter `/About/RouteDataValue` angefordert wird, wird „RouteDataValue“ in die Vorlage `RouteData.Values["globalTemplate"]` geladen (`Order = -1`) und nicht in `RouteData.Values["aboutTemplate"]` (`Order = 1`), da die Eigenschaft `Order` auf null festgelegt wurde.
+Die Eigenschaft <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> ist für das <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> auf `1` festgelegt. Dadurch wird die folgende Route Vergleichsverhalten in der Beispiel-app:
+
+* Eine routenvorlage für `TheContactPage/{text?}` wird später im Thema hinzugefügt. Die Seite "Kontakt"-Route hat eine Standardreihenfolge der `null` (`Order = 0`), bevor Sie entsprechend der `{globalTemplate?}` routenvorlage.
+* Ein `{aboutTemplate?}` routenvorlage wird später im Thema hinzugefügt. Die Vorlage `{aboutTemplate?}` erhält den `Order` von `2`. Wenn die Seite „Info“ unter `/About/RouteDataValue` angefordert wird, wird „RouteDataValue“ in die Vorlage `RouteData.Values["globalTemplate"]` geladen (`Order = 1`) und nicht in `RouteData.Values["aboutTemplate"]` (`Order = 2`), da die Eigenschaft `Order` auf null festgelegt wurde.
+* Ein `{otherPagesTemplate?}` routenvorlage wird später im Thema hinzugefügt. Die Vorlage `{otherPagesTemplate?}` erhält den `Order` von `2`. Wenn eine Seite der *Seiten/OtherPages* Ordner mit einem Routenparameter angefordert wird (z. B. `/OtherPages/Page1/RouteDataValue`), wird "RouteDataValue" in den geladen `RouteData.Values["globalTemplate"]` (`Order = 1`) und nicht `RouteData.Values["otherPagesTemplate"]` (`Order = 2`) aufgrund der Einstellung der `Order` Eigenschaft.
+
+Wo immer dies möglich ist, legen Sie nicht die `Order`, was dazu führt `Order = 0`. Wählen Sie die richtige Route routing nutzen.
 
 Optionen für Razor-Seiten, z.B. das Hinzufügen von [Conventions (Konventionen)](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions), werden hinzugefügt, wenn MVC der Dienstauflistung in `Startup.ConfigureServices` hinzugefügt wird. In der [Beispiel-App](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/sample/) finden Sie ein Beispiel hierfür.
 
@@ -111,6 +136,7 @@ Fordern Sie die Seite „Info“ der Beispielanwendung unter `localhost:5000/Abo
 ![Antwortheader der Seite „Info“ zeigen an, dass „GlobalHeader“ hinzugefügt wurde.](razor-pages-conventions/_static/about-page-global-header.png)
 
 ::: moniker range=">= aspnetcore-2.1"
+
 **Hinzufügen einer Handlermodellkonvention zu allen Seiten**
 
 Verwenden Sie [Conventions](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions) zum Erstellen und Hinzufügen einer [IPageHandlerModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipagehandlermodelconvention) zur Auflistung der Instanzen von [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention), die während der Erstellung von Seitenhandlermodellen eingesetzt werden.
@@ -135,6 +161,7 @@ services.AddMvc()
             options.Conventions.Add(new GlobalPageHandlerModelConvention());
         });
 ```
+
 ::: moniker-end
 
 ## <a name="page-route-action-conventions"></a>Konventionen für Seitenroutenaktionen
@@ -149,8 +176,9 @@ Die Beispielanwendung verwendet `AddFolderRouteModelConvention`, um eine `{other
 
 [!code-csharp[](razor-pages-conventions/sample/Startup.cs?name=snippet3)]
 
-> [!NOTE]
-> Die Eigenschaft `Order` ist für das `AttributeRouteModel` auf `1` festgelegt. Dadurch wird sichergestellt, dass die Vorlage für `{globalTemplate?}`, die weiter oben in diesem Artikel festgelegt wurde, in Bezug auf die erste Position für einen Routendatenwert vorgezogen wird, wenn nur ein einziger Routenwert angegeben wurde. Falls die Seite „Seite1“ unter `/OtherPages/Page1/RouteDataValue` angefordert wird, wird „RouteDataValue“ in die Vorlage `RouteData.Values["globalTemplate"]` geladen (`Order = -1`) und nicht in `RouteData.Values["otherPagesTemplate"]` (`Order = 1`), da die Eigenschaft `Order` auf null festgelegt wurde.
+Die Eigenschaft <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> ist für das <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> auf `2` festgelegt. Dadurch wird sichergestellt, dass die Vorlage für `{globalTemplate?}` (Legen Sie weiter oben in das Thema `1`) Bezug auf die erste Routendaten Position Wert, wenn ein einziger routenwert angegeben wird. Wenn eine Seite in der *Seiten/OtherPages* Ordner mit einem routenparameterwert angefordert wird (z. B. `/OtherPages/Page1/RouteDataValue`), wird "RouteDataValue" in den geladen `RouteData.Values["globalTemplate"]` (`Order = 1`) und nicht `RouteData.Values["otherPagesTemplate"]` (`Order = 2`) aufgrund der Einstellung der `Order` Eigenschaft.
+
+Wo immer dies möglich ist, legen Sie nicht die `Order`, was dazu führt `Order = 0`. Wählen Sie die richtige Route routing nutzen.
 
 Fordern Sie die Seite „Seite1“ der Beispielanwendung unter `localhost:5000/OtherPages/Page1/GlobalRouteValue/OtherPagesRouteValue` an, und prüfen Sie das Ergebnis:
 
@@ -164,8 +192,9 @@ Die Beispielanwendung verwendet `AddPageRouteModelConvention`, um eine `{aboutTe
 
 [!code-csharp[](razor-pages-conventions/sample/Startup.cs?name=snippet4)]
 
-> [!NOTE]
-> Die Eigenschaft `Order` ist für das `AttributeRouteModel` auf `1` festgelegt. Dadurch wird sichergestellt, dass die Vorlage für `{globalTemplate?}`, die weiter oben in diesem Artikel festgelegt wurde, in Bezug auf die erste Position für einen Routendatenwert vorgezogen wird, wenn nur ein einziger Routenwert angegeben wurde. Falls die Seite „Info“ unter `/About/RouteDataValue` angefordert wird, wird „RouteDataValue“ in die Vorlage `RouteData.Values["globalTemplate"]` geladen (`Order = -1`) und nicht in `RouteData.Values["aboutTemplate"]` (`Order = 1`), da die Eigenschaft `Order` auf null festgelegt wurde.
+Die Eigenschaft <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> ist für das <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> auf `2` festgelegt. Dadurch wird sichergestellt, dass die Vorlage für `{globalTemplate?}` (Legen Sie weiter oben in das Thema `1`) Bezug auf die erste Routendaten Position Wert, wenn ein einziger routenwert angegeben wird. Wenn die Seite "Info" angefordert wird, mit dem Route-Parameterwert an `/About/RouteDataValue`, wird "RouteDataValue" in den geladen `RouteData.Values["globalTemplate"]` (`Order = 1`) und nicht `RouteData.Values["aboutTemplate"]` (`Order = 2`) aufgrund der Einstellung der `Order` Eigenschaft.
+
+Wo immer dies möglich ist, legen Sie nicht die `Order`, was dazu führt `Order = 0`. Wählen Sie die richtige Route routing nutzen.
 
 Fordern Sie die Seite „Info“ der Beispielanwendung unter `localhost:5000/About/GlobalRouteValue/AboutRouteValue` an, und prüfen Sie das Ergebnis:
 

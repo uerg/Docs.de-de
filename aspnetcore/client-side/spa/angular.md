@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/21/2018
 uid: spa/angular
-ms.openlocfilehash: 811e28af2b67c356ff038d8d673e2164bb56578e
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 763b4fff7c64432328af660c66e6ff3f8f697f71
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36291463"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011353"
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>Verwenden der Angular-Projektvorlage mit ASP.NET Core
 
@@ -34,9 +34,10 @@ Mit der Vorlage können Sie ein ASP.NET Core-Projekt, das als API-Back-End fungi
 Stellen Sie bei Verwendung von ASP.NET Core 2.0 sicher, dass Sie [die aktualisierte React-Projektvorlage installiert](xref:spa/index#installation) haben.
 
 ::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
 
-Wenn Sie ASP.NET Core 2.1 installiert haben, ist es nicht erforderlich, installieren die Angular-Projektvorlage.
+Wenn ASP.NET Core 2.1 auf Ihrem Computer installiert ist, müssen Sie die Vorlage für Angular-Projekte nicht installieren.
 
 ::: moniker-end
 

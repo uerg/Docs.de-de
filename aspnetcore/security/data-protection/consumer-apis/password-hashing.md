@@ -5,12 +5,12 @@ description: Erfahren Sie, wie Hashing von Kennwörtern mit ASP.NET Core Datensc
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/consumer-apis/password-hashing
-ms.openlocfilehash: 882ac9b256b0cdf5fd19dc4bd2757cac7e8ecad3
-ms.sourcegitcommit: a742b55e4b8276a48b8b4394784554fecd883c84
+ms.openlocfilehash: 70301ffffbaaf3c5ff0642b19b80e40be83aa438
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45538375"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46010961"
 ---
 # <a name="hash-passwords-in-aspnet-core"></a>Hasherstellung für Kennwörter in ASP.NET Core
 
@@ -26,4 +26,4 @@ Das Paket bietet derzeit eine Methode `KeyDerivation.Pbkdf2` , sodass hashing, e
 
 [!code-csharp[](password-hashing/samples/passwordhasher.cs)]
 
-Finden Sie unter [Source Code] (https://github.com/aspnet/Identity/blob/master/src/Core/PasswordHasher.cs) für ASP.NET Core Identity `PasswordHasher` Typ für einen echten Anwendungsfall.
+Finden Sie unter den [Quellcode](https://github.com/aspnet/Identity/blob/master/src/Core/PasswordHasher.cs) für ASP.NET Core Identity `PasswordHasher` Typ für einen echten Anwendungsfall.
