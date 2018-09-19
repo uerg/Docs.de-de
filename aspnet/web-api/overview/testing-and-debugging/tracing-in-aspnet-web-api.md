@@ -8,12 +8,12 @@ ms.date: 02/25/2014
 ms.assetid: 66a837e9-600b-4b72-97a9-19804231c64a
 msc.legacyurl: /web-api/overview/testing-and-debugging/tracing-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 697e7e91ae2d9d5712d9306a291635793063117b
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 02805eda4f8dceb467547fa4e00aef8ea956f228
+ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41834014"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46292283"
 ---
 <a name="tracing-in-aspnet-web-api-2"></a>Ablaufverfolgung in ASP.NET Web-API 2
 ====================
@@ -114,7 +114,7 @@ Nur eine Ablaufverfolgungs-Writer kann aktiv sein. Web-API legt standardmäßig 
 
 ## <a name="how-web-api-tracing-works"></a>Wie Web-API-Ablaufverfolgung funktioniert
 
-Ablaufverfolgung in Web-API verwendet, die in Web-API verwendet einen *Fassade* Muster: Wenn die Ablaufverfolgung aktiviert ist, Web-API dient als Wrapper für verschiedene Teile der Pipeline mit Klassen, die Trace-Aufrufe ausführen.
+Die Ablaufverfolgung in Web-API verwendet einen *Fassade* Muster: Wenn die Ablaufverfolgung aktiviert ist, Web-API dient als Wrapper für verschiedene Teile der Pipeline mit Klassen, die Trace-Aufrufe ausführen.
 
 Z. B. Wenn Sie einen Controller auswählen, die die Pipeline verwendet die **IHttpControllerSelector** Schnittstelle. Mit aktivierter Ablaufverfolgung, fügt die Pipleline eine Klasse, die implementiert **IHttpControllerSelector** aber Eigenschaftenaufrufe an die tatsächliche Implementierung:
 
