@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informationen Sie zum Zwischenspeichern von Daten im Arbeitsspeicher in ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 7/22/2018
+ms.date: 09/15/2018
 uid: performance/caching/memory
-ms.openlocfilehash: 091d00ca7a30b61bdd83618e055bf23e0f2753c4
-ms.sourcegitcommit: 67a0a04ebb3b21c826e5b9600bacfc897abd6a46
+ms.openlocfilehash: 2570ad7d939d67530b3de8cd0147815c2e25ecc8
+ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42899843"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46482982"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Zwischenspeichern in Speicher in ASP.NET Core
 
@@ -31,7 +31,19 @@ Die `IMemoryCache` Cache-Cacheeinträge Einträge im Cache nicht genügend Arbei
 
 In-Memory-Cache kann jedes beliebige Objekt speichern. die Schnittstelle für verteilte Caches ist auf `byte[]`.
 
-### <a name="cache-guidelines"></a>Cache-Richtlinien
+## <a name="systemruntimecachingmemorycache"></a>System.Runtime.Caching/MemoryCache
+
+<xref:System.Runtime.Caching>/<xref:System.Runtime.Caching.MemoryCache> ([NuGet-Paket](https://www.nuget.org/packages/System.Runtime.Caching/)) mit verwendet werden kann:
+
+* .NET Standard 2.0 oder höher.
+* Alle [.NET Implementierung](/dotnet/standard/net-standard#net-implementation-support) , die auf .NET Standard 2.0 oder höher. Beispiel: ASP.NET Core 2.0 oder höher.
+* .NET Framework 4.5 oder höher.
+
+["Microsoft.Extensions.Caching.Memory"](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/) / `IMemoryCache` (in diesem Thema beschrieben) wird empfohlen, `System.Runtime.Caching` / `MemoryCache` da es besser in ASP.NET Core integriert ist. Z. B. `IMemoryCache` funktioniert nativ in ASP.NET Core [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection).
+
+Verwendung `System.Runtime.Caching` / `MemoryCache` als Brücke Kompatibilität beim Portieren von Code von ASP.NET 4.x zu ASP.NET Core.
+
+## <a name="cache-guidelines"></a>Cache-Richtlinien
 
 * Code sollte immer eine Fallbackoption zum Abrufen von Daten aufweisen und **nicht** richten sich nach der ein zwischengespeicherter Wert, der nicht verfügbar sind.
 * Der Cache verwendet eine wertvolle Ressource, die Arbeitsspeicher. Cache Wachstum zu beschränken:

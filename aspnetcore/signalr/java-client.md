@@ -7,12 +7,12 @@ ms.author: mimengis
 ms.custom: mvc
 ms.date: 09/06/2018
 uid: signalr/java-client
-ms.openlocfilehash: f110f5391ac34f5cb4a72f64c16d86c8a37369a2
-ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
+ms.openlocfilehash: 0eba59a05ea6fd3fed46fcab86ac20caf40ebb65
+ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43995414"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46482917"
 ---
 # <a name="aspnet-core-signalr-java-client"></a>ASP.NET Core SignalR-Java-Client
 
@@ -26,12 +26,12 @@ In diesem Artikel erwähnten Beispiel Java-Konsolenanwendung verwendet die Signa
 
 ## <a name="install-the-signalr-java-client-package"></a>Installieren Sie das Paket der SignalR-Java-client
 
-Die *Signalr-0.1.0-preview1-35029* JAR-Datei ermöglicht Clients, die mit SignalR-Hubs herstellen. Die letzte Versionsnummer der JAR-Datei finden Sie unter den [Maven-Suchergebnissen](https://search.maven.org/search?q=g:com.microsoft.aspnet%20AND%20a:signalr&core=gav).
+Die *Signalr-0.1.0-Preview 2-35174* JAR-Datei ermöglicht Clients, die mit SignalR-Hubs herstellen. Die letzte Versionsnummer der JAR-Datei finden Sie unter den [Maven-Suchergebnissen](https://search.maven.org/search?q=g:com.microsoft.aspnet%20AND%20a:signalr&core=gav).
 
 Wenn Sie Gradle verwenden zu können, fügen Sie die folgende Zeile in der `dependencies` Teil Ihrer *build.gradle* Datei:
 
 ```gradle
-implementation 'com.microsoft.aspnet:signalr:0.1.0-preview1-35029'
+implementation 'com.microsoft.aspnet:signalr:0.1.0-preview2-35174'
 ```
 
 Wenn Sie mit Maven den folgenden Zeilen hinzufügen der `<dependencies>` Element Ihrer *"pom.xml"* Datei:
@@ -63,12 +63,12 @@ Dies ist eine frühe Vorabversion des Java-Clients. Es gibt viele Features, die 
 * Nur primitive Typen als Parameter akzeptiert werden können und Rückgabetypen.
 * Die APIs sind synchron.
 * Der Aufruftyp "Senden" wird zu diesem Zeitpunkt unterstützt. "Aufrufen", und der Rückgabewerte streaming werden nicht unterstützt.
-* Der Client derzeit nicht unterstützt die [Azure SignalR Service](/azure/azure-signalr/).
 * Es wird nur das JSON-Protokoll unterstützt.
 * Nur die WebSockets-Übertragung wird unterstützt.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
+* [Java-API-Referenz](/java/api/com.microsoft.aspnet.signalr?view=aspnet-signalr-java)
 * <xref:signalr/hubs>
 * <xref:signalr/javascript-client>
 * <xref:signalr/publish-to-azure-web-app>
