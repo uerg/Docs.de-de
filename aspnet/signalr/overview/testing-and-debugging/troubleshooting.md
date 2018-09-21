@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: 4b559e6c-4fb0-4a04-9812-45cf08ae5779
 msc.legacyurl: /signalr/overview/testing-and-debugging/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: 77eedeb962bed06f1375284bcf05c4e4ffcdde3b
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 9ef69ece2558260f0409e9388751f77ac84a06f1
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826504"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523076"
 ---
 <a name="signalr-troubleshooting"></a>Problembehandlung für SignalR
 ====================
@@ -157,7 +157,7 @@ Eine Verbindung in einer .NET Client-Anwendung, die Sicherheit der Domäne verwe
 
 ## <a name="configuring-iis-websockets-to-pingpong-to-detect-a-dead-client"></a>Konfigurieren von IIS-Websockets, Ping/Pingpong zum Erkennen eines inaktiven Clients
 
-SignalR-Server weiß nicht, wenn der Client ist die Warteschlange für unzustellbare Nachrichten oder nicht, und sie verlassen sich auf Benachrichtigung von der zugrunde liegenden Websocket für Verbindungsfehler, d. h. die OnClose-Rückruf. Eine Lösung für dieses Problem ist so konfigurieren Sie IIS-Websockets für Sie hierzu die Ping-Pong/an. Dadurch wird sichergestellt, dass die Verbindung geschlossen wird, wenn es unerwartet unterbrochen. Weitere Informationen finden Sie unter [diesem Stackoverflow-Beitrag](http://stackoverflow.com/questions/19502755/websocket-clients-state-not-changing-on-network-loss).
+SignalR-Server weiß nicht, wenn der Client ist die Warteschlange für unzustellbare Nachrichten oder nicht, und sie verlassen sich auf Benachrichtigung von der zugrunde liegenden Websocket für Verbindungsfehler, d. h. die `OnClose` Rückruf. Eine Lösung für dieses Problem ist so konfigurieren Sie IIS-Websockets für Sie hierzu die Ping-Pong/an. Dadurch wird sichergestellt, dass die Verbindung geschlossen wird, wenn es unerwartet unterbrochen. Weitere Informationen finden Sie unter [diesem Stackoverflow-Beitrag](http://stackoverflow.com/questions/19502755/websocket-clients-state-not-changing-on-network-loss).
 
 <a id="other"></a>
 

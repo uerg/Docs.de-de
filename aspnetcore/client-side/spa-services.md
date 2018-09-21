@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: H1Hack27Feb2017
 ms.date: 08/02/2017
 uid: client-side/spa-services
-ms.openlocfilehash: 6ac922d82e5c93343cd0e9df312719c6df121dcb
-ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
+ms.openlocfilehash: 6d6a92427d5d4b853248e60a12625573c4375515
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37433999"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523297"
 ---
 # <a name="use-javascriptservices-to-create-single-page-applications-in-aspnet-core"></a>Verwenden von JavaScriptServices zum Erstellen von einseitigen Anwendungen in ASP.NET Core
 
@@ -19,20 +19,20 @@ Durch [Scott Addie](https://github.com/scottaddie) und [Fiyaz Hasan](http://fiya
 
 Eine Single-Page-Anwendung (SPA) ist ein Webanwendungstyp, der aufgrund seiner hohen Servicequalität und Leistungsstärke sehr beliebt ist. Die Integration clientseitiger SPA-Frameworks oder -Bibliotheken wie [Angular](https://angular.io/) oder [React](https://facebook.github.io/react/) mit serverseitigen Frameworks wie ASP.NET Core schwierig sein kann. [JavaScriptServices](https://github.com/aspnet/JavaScriptServices) wurde entwickelt, um Inkonsistenzen im Integrationsprozess zu reduzieren. Hierdurch wird ein reibungsloser Betrieb verschiedener Client- und Servertechnologiestapel möglich.
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/client-side/spa-services/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
-
 <a name="what-is-js-services"></a>
 
-## <a name="what-is-javascriptservices"></a>Was ist JavaScriptServices?
+## <a name="what-is-javascriptservices"></a>Was ist JavaScriptServices
 
 JavaScriptServices ist eine Sammlung von clientseitigen Technologien für ASP.NET Core. Das Ziel ist, die ASP.NET Core als Entwickler bevorzugte serverseitige Plattform zum Erstellen von SPAs zu positionieren.
 
 JavaScriptServices besteht aus drei unterschiedlichen NuGet-Pakete:
+
 * [Microsoft.AspNetCore.NodeServices](https://www.nuget.org/packages/Microsoft.AspNetCore.NodeServices/) (NodeServices)
 * [Microsoft.AspNetCore.SpaServices](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) (SpaServices)
 * [Microsoft.AspNetCore.SpaTemplates](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaTemplates/) (SpaTemplates)
 
 Diese Pakete sind nützlich, wenn Sie:
+
 * JavaScript auf dem Server ausgeführt.
 * Verwenden Sie eine SPA-Framework oder der Bibliothek
 * Erstellen Sie eine clientseitige-Assets mit Webpack
@@ -41,11 +41,12 @@ Den Schwerpunkt in diesem Artikel befindet sich auf die mithilfe des SpaServices
 
 <a name="what-is-spa-services"></a>
 
-## <a name="what-is-spaservices"></a>Was ist SpaServices?
+## <a name="what-is-spaservices"></a>Was ist SpaServices
 
 SpaServices wurde erstellt, um ASP.NET Core als Entwickler bevorzugte serverseitige Plattform zum Erstellen von SPAs zu positionieren. SpaServices ist nicht erforderlich, um der SPAs mit ASP.NET Core zu entwickeln, und es nicht in einem bestimmten Clientframework gesperrt.
 
 SpaServices bietet nützliche Infrastruktur wie z.B.:
+
 * [Serverseitige prerendering](#server-prerendering)
 * [Webpack-Dev-Middleware](#webpack-dev-middleware)
 * [Der Austausch eines "Hot"](#hot-module-replacement)
@@ -58,6 +59,7 @@ Erweitern diese Infrastrukturkomponenten zusammen, sowohl für den Entwicklungsw
 ## <a name="prerequisites-for-using-spaservices"></a>Voraussetzungen für die Verwendung von SpaServices
 
 Zum Arbeiten mit SpaServices installieren Sie die folgenden Schritte aus:
+
 * [Node.js](https://nodejs.org/) (Version 6 oder höher) mit Npm
   * Um diese Komponenten werden installiert, und finden Sie zu überprüfen, führen Sie Folgendes über die Befehlszeile ein:
 
@@ -84,6 +86,7 @@ ASP.NET Core [Taghilfsprogramme](xref:mvc/views/tag-helpers/intro) gebotenen Spa
 ### <a name="prerequisites"></a>Erforderliche Komponenten
 
 Installieren Sie Folgendes:
+
 * [ASPNET-Prerendering](https://www.npmjs.com/package/aspnet-prerendering) Npm-Paket:
 
     ```console
@@ -136,11 +139,14 @@ Die `postList` Array definiert, die innerhalb der `globals` Objekt angefügt ist
 
 [Webpack-Dev-Middleware](https://webpack.github.io/docs/webpack-dev-middleware.html) bietet einen optimierte Entwicklung-Workflow, bei dem Webpack Ressourcen bei Bedarf erstellt. Die Middleware automatisch kompiliert und clientseitige Ressourcen dient, wenn eine Seite im Browser geladen wird. Der alternative Ansatz ist Webpack über Npm-Buildskript des Projekts manuell aufrufen, wenn eine Drittanbieter Abhängigkeit oder den benutzerdefinierten Code geändert wird. Ein Npm-Buildskript die *"Package.JSON"* Datei ist im folgenden Beispiel dargestellt:
 
-[!code-json[](../client-side/spa-services/sample/SpaServicesSampleApp/package.json?range=5)]
+```json
+"build": "npm run build:vendor && npm run build:custom",
+```
 
 ### <a name="prerequisites"></a>Erforderliche Komponenten
 
 Installieren Sie Folgendes:
+
 * [ASPNET-Webpack](https://www.npmjs.com/package/aspnet-webpack) Npm-Paket:
 
     ```console
@@ -168,6 +174,7 @@ Stellen Sie sich den Webpack ["Hot" Austausch eines Controllermoduls](https://we
 ### <a name="prerequisites"></a>Erforderliche Komponenten
 
 Installieren Sie Folgendes:
+
 * [Webpack-hot-Middleware](https://www.npmjs.com/package/webpack-hot-middleware) Npm-Paket:
 
     ```console
@@ -205,6 +212,7 @@ Betrachten Sie das Szenario, in dem eine Route ohne Erweiterung `/some/page` ver
 ### <a name="prerequisites"></a>Erforderliche Komponenten
 
 Installieren Sie Folgendes:
+
 * Das routing Npm-Paket für die clientseitige. Verwenden von Angular als Beispiel:
 
     ```console
@@ -250,12 +258,13 @@ dotnet new angular
 ### <a name="set-the-runtime-configuration-mode"></a>Legen Sie den Modus der Common Language Runtime-Konfiguration
 
 Zwei Modi der primären Common Language Runtime-Konfiguration vorhanden sein:
+
 * **Entwicklung**:
-    * Enthält quellzuordnungen zur Erleichterung des Debuggings.
-    * Der clientseitige Code für die Leistung nicht optimiert werden.
+  * Enthält quellzuordnungen zur Erleichterung des Debuggings.
+  * Der clientseitige Code für die Leistung nicht optimiert werden.
 * **Produktion**:
-    * Schließt quellzuordnungen an.
-    * Optimiert den clientseitigen Code über Bündelung und Minimierung.
+  * Schließt quellzuordnungen an.
+  * Optimiert den clientseitigen Code über Bündelung und Minimierung.
 
 ASP.NET Core verwendet eine Umgebungsvariable namens `ASPNETCORE_ENVIRONMENT` zum Speichern von des Konfigurationsmodus zu wechseln. Finden Sie unter **[legen Sie die Umgebung](xref:fundamentals/environments#set-the-environment)** für Weitere Informationen.
 
@@ -277,7 +286,7 @@ Starten der Anwendung auf "localhost", gemäß der [Common Language Runtime-Konf
 
 ### <a name="running-with-visual-studio-2017"></a>Mit Visual Studio 2017 ausgeführt wird
 
-Öffnen der *csproj* von generierten Datei das [Dotnet neue](/dotnet/core/tools/dotnet-new) Befehl. Die erforderlichen NuGet und Npm-Pakete werden automatisch auf dem geöffneten Projekt wiederhergestellt. Dieser Wiederherstellungsprozess kann einige Minuten dauern, und die Anwendung ist bereit, die ausgeführt werden, wenn der Vorgang abgeschlossen ist. Klicken Sie auf die grüne Schaltfläche "ausführen", oder drücken Sie `Ctrl + F5`, und der Browser zur Startseite der Anwendung geöffnet wird. Die Anwendung ausgeführt wird, auf "localhost", gemäß der [Common Language Runtime-Konfigurationsmodus](#runtime-config-mode). 
+Öffnen der *csproj* von generierten Datei das [Dotnet neue](/dotnet/core/tools/dotnet-new) Befehl. Die erforderlichen NuGet und Npm-Pakete werden automatisch auf dem geöffneten Projekt wiederhergestellt. Dieser Wiederherstellungsprozess kann einige Minuten dauern, und die Anwendung ist bereit, die ausgeführt werden, wenn der Vorgang abgeschlossen ist. Klicken Sie auf die grüne Schaltfläche "ausführen", oder drücken Sie `Ctrl + F5`, und der Browser zur Startseite der Anwendung geöffnet wird. Die Anwendung ausgeführt wird, auf "localhost", gemäß der [Common Language Runtime-Konfigurationsmodus](#runtime-config-mode).
 
 <a name="app-testing"></a>
 
@@ -308,6 +317,7 @@ Kombinieren die generierte clientseitige Ressourcen und die veröffentlichte Ele
 [!code-xml[](../client-side/spa-services/sample/SpaServicesSampleApp/SpaServicesSampleApp.csproj?range=31-45)]
 
 Das MSBuild-Ziel hat die folgenden Verantwortungen:
+
 1. Die Npm-Pakete wiederherstellen
 1. Erstellen Sie einen Build Produktionsniveau von Drittanbietern, clientseitige Ressourcen
 1. Erstellen Sie einen Build Produktionsniveau benutzerdefinierte clientseitige Ressourcen
