@@ -5,12 +5,12 @@ description: In diesem Tutorial werden wichtige Themen eingeführt, um Grundkenn
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 25916365b4e682a8e296e0affbcddd4f1e5846b1
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 5cdba79c0b8edd9b865bda8328c86356cbe6a0a2
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755598"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46010922"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---advanced---10-of-10"></a>ASP.NET Core MVC mit EF Core: Erweitert (10 von 10)
 
@@ -244,6 +244,7 @@ Fehlermeldung:
 Projektmappe:
 
 Überprüfen Sie die Verbindungszeichenfolge. Wenn Sie die Datenbankdatei manuell gelöscht haben, ändern Sie den Namen der Datenbank in der Konstruktionszeichenfolge, um mit einer neuen Datenbank zu beginnen.
+
 ::: moniker-end
 
 > [!div class="step-by-step"]

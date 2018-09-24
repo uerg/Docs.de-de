@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/08/2018
 uid: tutorials/first-web-api-mac
-ms.openlocfilehash: 4caa6d9057de8d0e821c4abefe22985f43ff95ad
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 40f9bd9c57b97826edfddeb00cb4fb38a026d46e
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38156139"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011624"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-mac"></a>Erstellen einer Web-API mit ASP.NET Core und Visual Studio für Mac
 
@@ -126,14 +126,19 @@ Fügen Sie Methoden `Create`, `Update` und `Delete` zum Controller hinzu. Bei di
 ### <a name="create"></a>Erstellen
 
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](first-web-api/samples/2.0/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
 Die zuvor aufgeführte Methode reagiert auf eine HTTP POST-Anforderung, die vom Attribut [[HttpPost]](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute) angegeben wird. Das [[FromBody]](/dotnet/api/microsoft.aspnetcore.mvc.frombodyattribute)-Attribut weist MVC an, den Wert des To-Do-Elements aus dem Text der HTTP-Anforderung abzurufen.
+
 ::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](first-web-api/samples/2.1/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
 Die zuvor aufgeführte Methode reagiert auf eine HTTP POST-Anforderung, die vom Attribut [[HttpPost]](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute) angegeben wird. MVC ruft den Wert des To-Do-Elements aus dem Text der HTTP-Anforderung ab.
+
 ::: moniker-end
 
 Die `CreatedAtRoute`-Methode gibt eine 201-Antwort zurück. Dies ist die Standardantwort für eine HTTP POST-Methode, die eine neue Ressource auf dem Server erstellt. `CreatedAtRoute` fügt der Antwort außerdem einen Adressheader hinzu. Der Adressheader gibt den URI des neu erstellten To-Do-Elements zurück. Siehe [10.2.2 201 Created](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
@@ -162,8 +167,10 @@ Die `CreatedAtRoute`-Methode gibt eine 201-Antwort zurück. Dies ist die Standar
 * Klicken Sie auf die Schaltfläche **Senden**.
 
 ::: moniker range=">= aspnetcore-2.1"
+
 > [!TIP]
 > Wenn nach dem Klicken auf **Senden** keine Antwort angezeigt wird, deaktivieren Sie die Option **SSL certification verification** (Überprüfung der SSL-Zertifizierung). Diese finden Sie unter **Datei** > **Einstellungen**. Klicken Sie erneut auf die Schaltfläche **Senden**, nachdem Sie diese Einstellung deaktiviert haben.
+
 ::: moniker-end
 
 Klicken Sie auf die Registerkarte **Header** im Bereich **Antwort**, und kopieren Sie den Headerwert von **Location** (Speicherort):
@@ -179,10 +186,15 @@ Sie können den Adressheader-URI verwenden, um auf die Ressource zuzugreifen, di
 ### <a name="update"></a>Update
 
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](first-web-api/samples/2.0/TodoApi/Controllers/TodoController.cs?name=snippet_Update)]
+
 ::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](first-web-api/samples/2.1/TodoApi/Controllers/TodoController.cs?name=snippet_Update)]
+
 ::: moniker-end
 
 `Update` ähnelt `Create`, verwendet aber HTTP PUT. Die Antwort ist [204 (Kein Inhalt)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). Gemäß der HTTP-Spezifikation erfordert eine PUT-Anforderung, dass der Client die gesamte aktualisierte Entität und nicht nur die Deltas sendet. Verwenden Sie HTTP PATCH, um Teilupdates zu unterstützen.

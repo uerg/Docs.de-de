@@ -5,12 +5,12 @@ description: Erfahren Sie mehr über die Controllermethode und Ansicht „Detail
 ms.author: riande
 ms.date: 03/07/2017
 uid: tutorials/first-mvc-app/details
-ms.openlocfilehash: f7f9a369e3e612542140fcf1091b21037e530a91
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: c3fb7ae9507d13f3b8c7d366e333151dc7a7a6d3
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278647"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011424"
 ---
 # <a name="examine-the-details-and-delete-methods-of-an-aspnet-core-app"></a>Untersuchen der Methoden „Details“ und „Delete“ einer ASP.NET Core-App
 
@@ -19,10 +19,13 @@ Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 Öffnen Sie den „Movie“-Controller, und untersuchen Sie die `Details`-Methode.
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](start-mvc/sample/MvcMovie21/Controllers/MoviesController.cs?name=snippet_details)]
 
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_details)]
 
 ::: moniker-end
@@ -36,10 +39,13 @@ EF erleichtert das Suchen nach Daten mithilfe der `SingleOrDefaultAsync`-Methode
 Untersuchen Sie die Methoden `Delete` und `DeleteConfirmed`.
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](start-mvc/sample/MvcMovie21/Controllers/MoviesController.cs?name=snippet_delete)]
 
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_delete)]
 
 ::: moniker-end

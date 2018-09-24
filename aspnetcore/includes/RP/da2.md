@@ -1,4 +1,5 @@
 ::: moniker range=">= aspnetcore-2.1"
+
 Klicken Sie mit der rechten Maustaste auf eine rote Wellenlinie, und klicken Sie dann auf **Schnellaktionen und Refactorings** für das Attribut `[Column]`. Wählen Sie anschließend `using System.ComponentModel.DataAnnotations.Schema;` aus.
 
 Die Datenanmerkung `[Column(TypeName = "decimal(18, 2)")]` ist erforderlich, damit Entity Framework Core `Price` ordnungsgemäß einer Währung in der Datenbank zuordnen kann. Weitere Informationen finden Sie unter [Datentypen](/ef/core/modeling/relational/data-types).
@@ -75,11 +76,13 @@ Code in Produktionsumgebungen erkennt normalerweise Parallelitätskonflikte, wen
 Sehen Sie sich die Datei *Pages/Movies/Edit.cshtml.cs* an:
 
 ::: moniker range="= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit.cshtml.cs?name=snippet2)]
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit21.cshtml.cs?name=snippet2)]
 
 ::: moniker-end

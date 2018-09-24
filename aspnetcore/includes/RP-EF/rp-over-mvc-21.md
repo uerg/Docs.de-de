@@ -14,4 +14,5 @@ Im Tutorial für Version 2.0 erfahren Sie die Grundlagen zu ASP.NET Core MVC und
 * Ist die bevorzugte Methode für die Entwicklung neuer Anwendungen.
 
 Wenn Sie sich für dieses Tutorial statt für das Tutorial zu [Razor Pages](xref:data/ef-rp/intro) entschieden haben, nennen Sie uns in [dieser GitHub-Diskussion](https://github.com/aspnet/Docs/issues/6146) den Grund dafür.
+
 ::: moniker-end

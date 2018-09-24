@@ -5,12 +5,12 @@ description: In diesem Tutorial fügen Sie mit ASP.NET Core und Entity Framework
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: ee5a0dae41ba0afba518f0bd6fbd379fdbbfb1c1
-ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
+ms.openlocfilehash: 668d6e54a64022dda948170f72538f6d4cd9a49f
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39202613"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011637"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Razor-Seiten mit EF Core in ASP.NET Core: Sortieren, Filtern, Paging (3 von 8)
 
@@ -281,6 +281,7 @@ Wenn nicht zu lösende Probleme auftreten, laden Sie die [abgeschlossene Anwendu
 * [Debuggen von ASP.NET Core 2.x-Quellcode](https://github.com/aspnet/Docs/issues/4155)
 
 Im nächsten Tutorial verwendet die App Migrationen zum Aktualisieren des Datenmodells.
+
 ::: moniker-end
 
 > [!div class="step-by-step"]

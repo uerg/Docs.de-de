@@ -5,12 +5,12 @@ description: Fügen Sie ein Modell zu einer einfachen ASP.NET Core-App hinzu.
 ms.author: riande
 ms.date: 12/8/2017
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 28a63498bc1a3c7b6ad6be038209dacdb49e44ee
-ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
+ms.openlocfilehash: 5a820789ee3a761025d09aa78f3c42e59fc5fa38
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960667"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011377"
 ---
 [!INCLUDE [adding-model](~/Includes/mvc-intro/adding-model1.md)]
 
@@ -102,6 +102,7 @@ In diesem Abschnitt führen Sie folgende Aktionen mit der Paket-Manager-Konsole 
 Geben Sie in der PMC die folgenden Befehle ein:
 
 ::: moniker range=">= aspnetcore-2.1"
+
 ``` PMC
 Add-Migration Initial
 Update-Database
@@ -113,6 +114,7 @@ Sie können die folgende Fehlermeldung ignorieren, diese wird im nächsten Tutor
       *Für die Spalte „Preis“ mit Dezimalwerten beim Entitätstyp „Movie“ wurde kein Typ angegeben. Dadurch werden Werte automatisch abgeschnitten, falls diese nicht der Standardgenauigkeit und -skalierung entsprechen. Geben Sie den Spaltentyp von SQL-Server an, der durch „ForHasColumnType()“ sämtliche Werte unterstützen kann.*
 
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
 
 ``` PMC
@@ -152,10 +154,15 @@ In diesem Fall haben Sie `dotnet ef database update` vermutlich nicht ausgeführ
 [!INCLUDE [adding-model](~/Includes/mvc-intro/adding-model3.md)]
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Startup.cs?name=ConfigureServices&highlight=13-99)]
+
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=ConfigureServices&highlight=6-7)]
+
 ::: moniker-end
 
 [!INCLUDE [adding-model](~/Includes/mvc-intro/adding-model4.md)]
