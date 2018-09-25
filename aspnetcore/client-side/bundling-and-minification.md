@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 01/10/2018
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: bab2f288f3c6956e44ff929bfd2e257301a5806a
-ms.sourcegitcommit: d99a8554c91f626cf5e466911cf504dcbff0e02e
+ms.openlocfilehash: 45200d34974cbbb44787616eba7508458882416c
+ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39356700"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47028140"
 ---
 # <a name="bundle-and-minify-static-assets-in-aspnet-core"></a>Bündelung und Minimierung von statischen Objekten in ASP.NET Core
 
@@ -201,7 +201,7 @@ Zu verkleinernde *custom.css* und zu bündeln mit *"Site.CSS"* in einem *site.mi
 > Alternativ könnte die folgenden Platzhaltermuster verwendet werden:
 >
 > ```json
-> "inputFiles": ["wwwroot/**/*(*.css|!(*.min.css)"]
+> "inputFiles": ["wwwroot/**/*(*.css|!(*.min.css))"]
 > ```
 >
 > Dieses Platzhaltermuster für die Verwendung von entspricht allen CSS-Dateien und schließt die minimierte Dateien-Muster.

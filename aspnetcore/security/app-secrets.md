@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informationen Sie zum Speichern und Abrufen von vertraulichen Informationen wie app-Geheimnissen während der Entwicklung von ASP.NET Core-Apps.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 08/16/2018
+ms.date: 09/24/2018
 uid: security/app-secrets
-ms.openlocfilehash: 35c316230c19aa69a0dac26ec25a6e017f102237
-ms.sourcegitcommit: 1cf65c25ed16495e27f35ded98b3952a30c68f36
+ms.openlocfilehash: 1ecd9b87b9e4aa2c511349fe407c0cea9dc9f921
+ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41836258"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47028270"
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>Sichere Speicherung von app-Geheimnissen bei der Entwicklung in ASP.NET Core
 
@@ -19,7 +19,7 @@ Durch [Rick Anderson](https://twitter.com/RickAndMSFT), [Daniel Roth](https://gi
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/app-secrets/samples) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
-Dieses Dokument erläutert die Verfahren zum Speichern und Abrufen von sensiblen Daten während der Entwicklung von ASP.NET Core-Apps. Sie sollten niemals Kennwörter oder andere sensiblen Daten im Quellcode speichern, und Sie sollte nicht verwenden produktionsgeheimnisse in Entwicklungs- oder test-Modus. Sie können Azure-Test- und -Produktionsgeheimnisse mit dem [Konfigurationsanbieter Azure Key Vault](xref:security/key-vault-configuration) speichern und schützen.
+Dieses Dokument erläutert die Verfahren zum Speichern und Abrufen von sensiblen Daten während der Entwicklung von ASP.NET Core-Apps. Speichern Sie niemals Kennwörter oder andere sensiblen Daten im Quellcode. Produktionsgeheimnisse sollten nicht verwendet werden zu Entwicklungs- oder Testzwecken. Sie können Azure-Test- und -Produktionsgeheimnisse mit dem [Konfigurationsanbieter Azure Key Vault](xref:security/key-vault-configuration) speichern und schützen.
 
 ## <a name="environment-variables"></a>Umgebungsvariablen
 
