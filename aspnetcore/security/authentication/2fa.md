@@ -1,58 +1,59 @@
 ---
 title: Zweistufige Authentifizierung mit SMS in ASP.NET Core
 author: rick-anderson
-description: Informationen Sie zum Einrichten der zweistufigen Authentifizierung (2FA) mit einer app ASP.NET Core.
+description: Erfahren Sie, wie Sie die zweistufige Authentifizierung (2FA) mit einer ASP.NET Core-app einrichten.
 monikerRange: < aspnetcore-2.0
 ms.author: riande
-ms.date: 08/15/2017
+ms.date: 09/22/2018
 uid: security/authentication/2fa
-ms.openlocfilehash: 0308b05ebcda1af7f6850549d7a33f1df1a912a0
-ms.sourcegitcommit: 1faf2525902236428dae6a59e375519bafd5d6d7
+ms.openlocfilehash: 19cc4b5326e8359afd47dd75aca3d661c3f92a30
+ms.sourcegitcommit: 9bdba90b2c97a4016188434657194b2d7027d6e3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37089983"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47402119"
 ---
 # <a name="two-factor-authentication-with-sms-in-aspnet-core"></a>Zweistufige Authentifizierung mit SMS in ASP.NET Core
 
-Durch [Rick Anderson](https://twitter.com/RickAndMSFT) und [Schweiz-Entwickler](https://github.com/Swiss-Devs)
+Durch [Rick Anderson](https://twitter.com/RickAndMSFT) und [Schweizer-Entwickler](https://github.com/Swiss-Devs)
 
- Zwei Faktor-Authentifizierung (2FA) Authentifikator-apps, mit der eine zeitbasierte zum einmaligen Kennwort Algorithmus (TOTP), sind die empfohlene Vorgehensweise für 2FA Branche. 2FA TOTP mit SMS 2FA bevorzugt wird. Weitere Informationen finden Sie unter [aktivieren QR-Code-Generierung für TOTP Authentifikator-apps in ASP.NET Core](xref:security/authentication/identity-enable-qrcodes) für ASP.NET Core 2.0 und höher.
+>[!WARNING]
+> Zwei Faktor-Authentifizierung (2FA) Authentifikator-apps, verwenden eine zeitbasierte Einmalkennwort Kennwort Algorithmus (TOTP), sind der empfohlene Ansatz für 2FA Branche. 2FA TOTP mit SMS 2FA vorzuziehen ist. Weitere Informationen finden Sie unter [QR-Code aktivieren-Generierung für Authentifikator-apps in ASP.NET Core TOTP](xref:security/authentication/identity-enable-qrcodes) für ASP.NET Core 2.0 und höher.
 
-Dieses Lernprogramm zeigt, wie zum Einrichten der zweistufigen Authentifizierung (2FA) mithilfe von SMS. Anweisungen werden bestimmte für [Twilio](https://www.twilio.com/) und [ASPSMS](https://www.aspsms.com/asp.net/identity/core/testcredits/), aber Sie können andere SMS-Anbieter verwenden. Es wird empfohlen [Kontobestätigung und Kennwortwiederherstellung](xref:security/authentication/accconfirm) vor dem Starten dieses Lernprogramms.
+In diesem Tutorial veranschaulicht das Einrichten der zweistufigen Authentifizierung (2FA) mithilfe von SMS. Anweisungen werden vorgestellt, für das [Twilio](https://www.twilio.com/) und [ASPSMS](https://www.aspsms.com/asp.net/identity/core/testcredits/), aber Sie können alle anderen SMS-Anbieter verwenden. Es wird empfohlen [Kontobestätigung und Kennwortwiederherstellung](xref:security/authentication/accconfirm) vor Beginn dieses Tutorials.
 
-Anzeigen der [abgeschlossenen Beispiel](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/2fa/sample/Web2FA). [Zum Herunterladen von](xref:tutorials/index#how-to-download-a-sample).
+Anzeigen der [abgeschlossene Beispiel](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/2fa/sample/Web2FA). [Zum Herunterladen](xref:tutorials/index#how-to-download-a-sample).
 
 ## <a name="create-a-new-aspnet-core-project"></a>Erstellen eines neuen ASP.NET Core-Projekts
 
-Erstellen eine neue ASP.NET Core-Web-app mit dem Namen `Web2FA` mit einzelnen Benutzerkonten. Befolgen Sie die Anweisungen in [Erzwingen von SSL in einer ASP.NET Core app](xref:security/enforcing-ssl) einrichten und SSL erforderlich.
+Erstellen Sie eine neue ASP.NET Core-Web-app mit dem Namen `Web2FA` mit individuellen Benutzerkonten. Befolgen Sie die Anweisungen in [Erzwingen von SSL in einer ASP.NET Core app](xref:security/enforcing-ssl) einrichten und SSL erforderlich ist.
 
-### <a name="create-an-sms-account"></a>Erstellen Sie ein SMS-Konto
+### <a name="create-an-sms-account"></a>Erstellen Sie eine SMS-Dienstkonto
 
-Erstellen Sie ein SMS-Konto, z. B. von [Twilio](https://www.twilio.com/) oder [ASPSMS](https://www.aspsms.com/asp.net/identity/core/testcredits/). Zeichnen Sie die Anmeldeinformationen für die Authentifizierung (für Twilio: AccountSid und AuthToken, für ASPSMS: Userkey und Kennwort).
+Erstellen Sie eine SMS-Dienstkonto, z. B. aus [Twilio](https://www.twilio.com/) oder [ASPSMS](https://www.aspsms.com/asp.net/identity/core/testcredits/). Notieren Sie die Anmeldeinformationen für die Authentifizierung (für Twilio: AccountSid "und" AuthToken, für die ASPSMS: Userkey und ein Kennwort).
 
-#### <a name="figuring-out-sms-provider-credentials"></a>Eng zusammenliegen, SMS-Anbieter-Anmeldeinformationen
+#### <a name="figuring-out-sms-provider-credentials"></a>Ermitteln Anmeldeinformationen für die SMS-Anbieter
 
-**Twilio:** aus Ihrem Twilio-Konto in der Registerkarte Dashboard Kopieren der **Konto-SID** und **autorisierungstokens**.
+**Twilio:** auf der Registerkarte Dashboard für Ihr Twilio-Konto kopieren der **Konto-SID** und **Authentifizierungstoken**.
 
-**ASPSMS:** navigieren Sie zu Ihrer kontoeinstellungen **Userkey** und kopieren Sie sie zusammen mit Ihrem **Kennwort**.
+**ASPSMS:** navigieren Sie in Ihren kontoeinstellungen zu **Userkey** und kopieren Sie ihn zusammen mit Ihrer **Kennwort**.
 
-Speichern wir diese Werte mit dem geheimen Schlüssel-Manager-Tool innerhalb der Schlüssel später `SMSAccountIdentification` und `SMSAccountPassword`.
+Wir werden später speichern diese Werte sich mit dem Geheimnis-Manager-Tool in den Schlüsseln `SMSAccountIdentification` und `SMSAccountPassword`.
 
-#### <a name="specifying-senderid--originator"></a>Angeben von "SenderID" / Absender
+#### <a name="specifying-senderid--originator"></a>Angeben der Absender-ID / Ersteller
 
-**Twilio:** aus der Registerkarte ' Zahlen ' Kopieren Ihrer Twilio **Telefonnummer**.
+**Twilio:** kopieren Sie Ihre Twilio auf der Registerkarte Zahlen **Telefonnummer**.
 
 **ASPSMS:** im entsperren Urheber-Menü, entsperren Sie eine oder mehrere Urheber, oder wählen Sie eine alphanumerische Absender (von allen Netzwerken nicht unterstützt).
 
-Wir werden später speichern den Wert mit dem geheimen Schlüssel-Manager-Tool im Schlüssel `SMSAccountFrom`.
+Wir werden später speichern Sie diesen Wert mit dem Geheimnis-Manager-Tool im Schlüssel `SMSAccountFrom`.
 
 
 ### <a name="provide-credentials-for-the-sms-service"></a>Geben Sie Anmeldeinformationen für den SMS-Dienst
 
-Wir verwenden die [Optionen Muster](xref:fundamentals/configuration/options) auf die Benutzer Konto- und Schlüsselauthentifizierung Einstellungen zugreifen.
+Wir verwenden die [optionsmuster](xref:fundamentals/configuration/options) auf die Benutzer-Konto und dieser Schlüssel Einstellungen zugreifen.
 
-   * Erstellen Sie eine Klasse zum Abrufen von SMS-Sicherheitsschlüssel. Für dieses Beispiel die `SMSoptions` Klasse wird erstellt, der *Services/SMSoptions.cs* Datei.
+   * Erstellen Sie eine Klasse zum Abrufen der sicheren SMS-Clientschlüssel. In diesem Beispiel die `SMSoptions` Klasse wird erstellt, der *Services/SMSoptions.cs* Datei.
 
 [!code-csharp[](2fa/sample/Web2FA/Services/SMSoptions.cs)]
 
@@ -62,7 +63,7 @@ Legen Sie die `SMSAccountIdentification`, `SMSAccountPassword` und `SMSAccountFr
 C:/Web2FA/src/WebApp1>dotnet user-secrets set SMSAccountIdentification 12345
 info: Successfully saved SMSAccountIdentification = 12345 to the secret store.
 ```
-* Fügen Sie das NuGet-Paket für den SMS-Anbieter. Aus der Paket-Manager-Konsole (PMC) ausführen:
+* Fügen Sie das NuGet-Paket für den SMS-Anbieter hinzu. Über die Paket-Manager-Konsole (PMC) ausführen:
 
 **Twilio:**
 `Install-Package Twilio`
@@ -71,44 +72,44 @@ info: Successfully saved SMSAccountIdentification = 12345 to the secret store.
 `Install-Package ASPSMS`
 
 
-* Fügen Sie Code in der *Services/MessageServices.cs* Datei SMS zu aktivieren. Verwenden Sie die Twilio oder Abschnitt ASPSMS:
+* Fügen Sie Code in die *Services/MessageServices.cs* Datei, die SMS zu aktivieren. Verwenden Sie entweder die Twilio oder Abschnitt ASPSMS:
 
 
 **Twilio:** [!code-csharp[](2fa/sample/Web2FA/Services/MessageServices_twilio.cs)]
 
 **ASPSMS:** [!code-csharp[](2fa/sample/Web2FA/Services/MessageServices_ASPSMS.cs)]
 
-### <a name="configure-startup-to-use-smsoptions"></a>Konfigurieren Sie starten auf, wenn verwenden `SMSoptions`
+### <a name="configure-startup-to-use-smsoptions"></a>Konfigurieren Sie beim Start verwenden `SMSoptions`
 
-Hinzufügen `SMSoptions` in dem Dienstcontainer den `ConfigureServices` Methode in der *Startup.cs*:
+Hinzufügen `SMSoptions` zum Dienstcontainer in die `ConfigureServices` -Methode in der die *"Startup.cs"*:
 
 [!code-csharp[](2fa/sample/Web2FA/Startup.cs?name=snippet1&highlight=4)]
 
-### <a name="enable-two-factor-authentication"></a>Zweistufige Authentifizierung aktivieren
+### <a name="enable-two-factor-authentication"></a>Zwei-Faktor-Authentifizierung aktivieren
 
-Öffnen der *Views/Manage/Index.cshtml* Razor-Datei, und entfernen Sie der Kommentar Zeichen (damit kein Markup auskommentiert ist).
+Öffnen der *Views/Manage/Index.cshtml* Razor-Ansichtsdatei und entfernen, die der Kommentar Zeichen (also kein Markup auskommentiert ist).
 
 ## <a name="log-in-with-two-factor-authentication"></a>Melden Sie sich mit einer zweistufigen Authentifizierung
 
-* Die app auszuführen und einen neuen Benutzer registrieren
+* Die app ausführen und einen neuen Benutzer registrieren
 
-![-Webanwendung Register Ansicht öffnen Sie in Microsoft Edge](2fa/_static/login2fa1.png)
+![Web Application-Register-Ansicht in Microsoft Edge öffnen](2fa/_static/login2fa1.png)
 
-* Tippen Sie auf Ihren Benutzernamen, das aktiviert wird, die `Index` Aktionsmethode im Controller verwalten. Tippen Sie dann auf die Telefonnummer **hinzufügen** Link.
+* Tippen Sie auf Ihren Benutzernamen, das aktiviert wird, die `Index` Aktionsmethode im Controller der verwalten. Tippen Sie dann auf die Telefonnummer **hinzufügen** Link.
 
 ![Verwalten von anzeigen](2fa/_static/login2fa2.png)
 
-* Hinzufügen einer Telefonnummer, die den Prüfcode empfangen wird, und tippen Sie auf **senden Prüfcode**.
+* Fügen Sie eine Telefonnummer, die den Überprüfungscode erhalten, und tippen Sie auf **Überprüfungscode senden**.
 
-![Seite "Phone Number" hinzufügen](2fa/_static/login2fa3.png)
+![Telefonnummer an-Seite hinzufügen](2fa/_static/login2fa3.png)
 
-* Sie erhalten eine SMS mit der Überprüfungscode. Geben Sie ihn, und tippen Sie auf **senden**
+* Sie erhalten eine Textnachricht mit dem Überprüfungscode. Geben Sie ihn, und tippen Sie auf **senden**
 
-![Überprüfen Sie die Seite "Phone Number"](2fa/_static/login2fa4.png)
+![Überprüfen Sie die Seite "Telefonnummer"](2fa/_static/login2fa4.png)
 
-Wenn Sie eine Textnachricht nicht erhalten, finden Sie unter Seite für Twilio-Protokoll.
+Wenn Sie keine SMS erhalten, finden Sie unter protokollseite Twilio.
 
-* Die Ansicht verwalten zeigt, dass Ihre Telefonnummer wurde erfolgreich hinzugefügt wurde.
+* Die Ansicht "verwalten" zeigt, dass Ihre Telefonnummer wurde erfolgreich hinzugefügt wurde.
 
 ![Verwalten von anzeigen](2fa/_static/login2fa5.png)
 
@@ -122,23 +123,23 @@ Wenn Sie eine Textnachricht nicht erhalten, finden Sie unter Seite für Twilio-P
 
 * Anmelden.
 
-* Das Benutzerkonto verfügt über zweistufige Authentifizierung aktiviert, daher Sie die zweite Stufe der Authentifizierung bereitzustellen müssen. In diesem Lernprogramm haben Sie die Überprüfung per Bürotelefon aktiviert. Die integrierten Vorlagen ermöglichen außerdem das Einrichten von e-Mail als zweiter Faktor. Sie können zusätzliche zweite Faktoren für die Authentifizierung, z. B. QR-Codes einrichten. Tippen Sie auf **übermitteln**.
+* Das Benutzerkonto verfügt über zwei-Faktor-Authentifizierung aktiviert, müssen Sie die zweite Stufe der Authentifizierung bereitzustellen. In diesem Tutorial haben Sie die Überprüfung per Telefon aktiviert. Die integrierten Vorlagen ermöglichen Ihnen das Einrichten von e-Mail als zweiter authentifizierungsfaktor auch. Sie können die zweite Faktoren für die Authentifizierung wie z. B. QR-Codes einrichten. Tippen Sie auf **übermitteln**.
 
 ![Überprüfungscode senden](2fa/_static/login2fa7.png)
 
-* Geben Sie den Code, den Sie per SMS-Textnachricht erhalten.
+* Geben Sie den Code, den Sie in der SMS-Nachricht erhalten.
 
-* Durch Klicken auf die **Denken Sie daran Browser** Kontrollkästchen nehmen Sie nicht zu 2FA für die Anmeldung bei Verwendung der gleichen Geräte und Browser verwenden. 2FA aktivieren und dann auf **Denken Sie daran Browser** werden Ihnen starken 2FA Schutz vor böswilligen Benutzern, die auf Ihr Konto zugreifen möchten, solange sie keinen Zugriff auf Ihr Gerät haben. Sie können auf einem privaten Gerät so vorgehen, die Sie regelmäßig verwenden. Durch Festlegen von **Denken Sie daran Browser**, erhalten Sie die zusätzliche Sicherheit des 2FA von Geräten, die Sie nicht regelmäßig verwenden und erhalten Sie die Vorteile nicht auf Ihren eigenen Geräten 2FA durchlaufen muss.
+* Durch Klicken auf die **diesen Browser merken** das Kontrollkästchen schließen Sie 2FA verwenden, melden Sie sich, wenn Sie den gleichen Browser und Geräte verwenden müssen. 2FA aktiviert und auf **diesen Browser merken** erhalten Sie starke 2FA Schutz vor böswilligen Benutzern, die Ihr Konto zugreifen möchten, solange sie keinen Zugriff auf Ihr Gerät haben. Sie können auf allen privaten Geräten dazu, die Sie regelmäßig verwenden. Durch Festlegen von **diesen Browser merken**, Sie erhalten die Erhöhung der Sicherheit der 2FA von Geräten, die Sie nicht regelmäßig verwenden und Sie erhalten die Vorteile nicht auf Ihren eigenen Geräten 2FA durchlaufen haben.
 
-![Vergewissern Sie sich anzeigen](2fa/_static/login2fa8.png)
+![Überprüfen Sie die Ansicht](2fa/_static/login2fa8.png)
 
-## <a name="account-lockout-for-protecting-against-brute-force-attacks"></a>Kontosperrung zum Schutz vor Brute-Force-Angriffen
+## <a name="account-lockout-for-protecting-against-brute-force-attacks"></a>Sperre zum Schutz vor brute-Force-Angriffen
 
-Kontosperrung wird bei 2FA empfohlen. Sobald ein Benutzer über ein lokales Konto oder soziale Konto anmeldet, wird jedem fehlgeschlagenen Versuch zur 2FA gespeichert. Wenn die maximale zugriffsversuchsfehlern erreicht ist, wird der Benutzer gesperrt (Standardeinstellung: 5-Minuten-Sperre nach 5 Zugriffsversuchen fehlgeschlagen). Eine erfolgreiche Authentifizierung setzt die Anzahl der fehlgeschlagenen Zugriffe Versuche und setzt die Uhr. Die maximale Anzahl fehlgeschlagener Zugriffsversuche und Dauer der Sperrung kann festgelegt werden, mit [MaxFailedAccessAttempts](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.maxfailedaccessattempts) und [DefaultLockoutTimeSpan](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.defaultlockouttimespan). Der folgende Code konfiguriert die kontosperrung für 10 Minuten nach 10 Zugriffsversuche nicht:
+Kontosperrung wird mit 2FA empfohlen. Sobald ein Benutzer über ein lokales Konto oder ein Konto für soziales Netzwerk anmeldet, wird jeder fehlerhafte Versuch am 2FA gespeichert. Wenn die maximale zugriffsversuchsfehlern erreicht ist, wird der Benutzer gesperrt ist (Standardwert: 5-minütige Sperre nach 5 Versuche fehlgeschlagen). Eine erfolgreiche Authentifizierung setzt die Anzahl der fehlgeschlagenen Zugriffe Versuche und setzt die Uhr. Die maximale Anzahl von fehlgeschlagenen Zugriffsversuchen und Dauer der Sperrung kann festgelegt werden, mit [MaxFailedAccessAttempts](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.maxfailedaccessattempts) und [DefaultLockoutTimeSpan](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.defaultlockouttimespan). Der folgende Code konfiguriert kontosperrung nach 10 Minuten nach 10 Versuche nicht erfolgreichen:
 
 [!code-csharp[](2fa/sample/Web2FA/Startup.cs?name=snippet2&highlight=13-17)]
 
-Überprüfen Sie, ob [PasswordSignInAsync](/dotnet/api/microsoft.aspnetcore.identity.signinmanager-1.passwordsigninasync) legt `lockoutOnFailure` auf `true`:
+Überprüfen Sie, ob [PasswordSignInAsync](/dotnet/api/microsoft.aspnetcore.identity.signinmanager-1.passwordsigninasync) legt `lockoutOnFailure` zu `true`:
 
 ```csharp
 var result = await _signInManager.PasswordSignInAsync(
