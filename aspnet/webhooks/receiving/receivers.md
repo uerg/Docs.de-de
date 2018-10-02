@@ -6,12 +6,12 @@ description: ASP.NET WebHooks Empfänger
 ms.author: riande
 ms.date: 01/17/2012
 ms.assetid: 6cdea089-15b2-4732-8c68-921ca561a8f1
-ms.openlocfilehash: 376cb3e3fdc0bc7bd248da1f57e1064fb27b3cef
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: d771a588b23abcd7b1b33e694af17b219683fc48
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826858"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47860913"
 ---
 # <a name="aspnet-webhooks-receivers"></a>ASP.NET WebHooks Empfänger
 
@@ -33,7 +33,7 @@ https://<host>/api/webhooks/incoming/<receiver>/{id}
 
 Aus Gründen der Sicherheit erfordern viele WebHook-Empfänger, dass der URI eine *Https* URI und in einigen Fällen müssen sie auch einen zusätzliche Abfragezeichenfolgen-Parameter dient zum erzwingen, dass nur die vorgesehene Partei WebHooks an den oben aufgeführten URI senden kann enthalten .
 
-Die <em> <receiver> </em> Komponente ist der Name des Empfängers, z. B. <em>Github</em> oder <em>Slack</em>.
+Die `<receiver>` Komponente ist der Name des Empfängers, z. B. `github` oder `slack`.
 
 Die *{Id}* ist ein optionaler Bezeichner, die verwendet werden kann, um eine bestimmte Konfiguration des WebHook-Empfänger zu identifizieren. Dies kann verwendet werden, um N WebHooks mit einem bestimmten Empfänger zu registrieren. Beispielsweise kann die folgenden drei URIs verwendet werden, für die drei unabhängige WebHooks registrieren:
 

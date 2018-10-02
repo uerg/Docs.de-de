@@ -5,12 +5,12 @@ description: Verwenden Sie Identität mit einer ASP.NET Core-app. Erfahren Sie, 
 ms.author: riande
 ms.date: 08/08/2018
 uid: security/authentication/identity
-ms.openlocfilehash: ca83d07f7d93bd0cc61cd17cc373096b8e6aa2e1
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: d427932bb175c09105534379be4d71760f4e04e5
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010974"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47860952"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Einführung in die Identität in ASP.NET Core
 
@@ -45,7 +45,7 @@ Erstellen Sie ein Projekt für die ASP.NET Core-Webanwendung mit einzelnen Benut
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Wählen Sie **Datei** > **Neu** > **Projekt** aus. 
+* Wählen Sie **Datei** > **Neu** > **Projekt** aus.
 * Wählen Sie **ASP.NET Core-Webanwendung** aus. Nennen Sie das Projekt **"WebApp1"** haben denselben Namespace aufweist wie das Projekt zum Herunterladen. Klicken Sie auf **OK**.
 * Wählen Sie eine ASP.NET Core **Webanwendung** für ASP.NET Core 2.1, wählen Sie dann **Authentifizierung ändern**.
 * Wählen Sie **einzelne Benutzerkonten** , und klicken Sie auf **OK**.
@@ -119,15 +119,12 @@ Führen Sie die [Gerüst Identity in einer Razor-Projekt mit Autorisierung](xref
 
 Fügen Sie die Dateien registrieren, Anmeldung und Abmeldung hinzu.
 
-
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core-CLI](#tab/netcore-cli)
 
 Wenn Sie das Projekt mit dem Namen erstellt **"WebApp1"**, führen Sie die folgenden Befehle. Verwenden Sie andernfalls den richtigen Namespace für die `ApplicationDbContext`:
 
-
 ```cli
 dotnet aspnet-codegenerator identity -dc WebApp1.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
-
 ```
 
 PowerShell arbeitet mit Semikolon als Befehlstrennzeichen. Wenn Sie PowerShell verwenden, versehen Sie die Semikolons aus der Datei mit Escapezeichen, oder fügen Sie die Liste der Dateien in doppelte Anführungszeichen, wie im vorherigen Beispiel gezeigt.
@@ -163,7 +160,7 @@ PowerShell arbeitet mit Semikolon als Befehlstrennzeichen. Wenn Sie PowerShell v
 Das Anmeldeformular wird angezeigt, wenn:
 
 * Die **melden Sie sich bei** Link ausgewählt wird.
-* Wenn ein Benutzer greift auf eine Seite, in denen sie nicht authentifiziert **oder** autorisiert ist, werden sie zur Anmeldeseite umgeleitet. 
+* Wenn ein Benutzer greift auf eine Seite, in denen sie nicht authentifiziert **oder** autorisiert ist, werden sie zur Anmeldeseite umgeleitet.
 
 Wenn das Formular auf der Anmeldeseite gesendet wird, die `OnPostAsync` Aktion aufgerufen wird. `PasswordSignInAsync` wird aufgerufen, auf die `_signInManager` Objekt (bereitgestellt durch Dependency Injection).
 
@@ -254,7 +251,6 @@ Finden Sie unter [Konfiguration](#pw) für ein Beispiel, das die Anforderungen f
 * <xref:security/authorization/secure-data>
 * <xref:security/authentication/add-user-data>
 * <xref:security/authentication/identity-enable-qrcodes>
-* [Konfigurieren Sie die Identität, Primärschlüssel-Datentyp](xref:security/authentication/identity-primary-key-configuration).
 * <xref:migration/identity>
 * <xref:security/authentication/accconfirm>
 * <xref:security/authentication/2fa>
