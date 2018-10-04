@@ -1,30 +1,26 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/textboxwatermark/index
-title: TextBoxWatermark | Microsoft Docs
+title: TextBoxWatermark | Microsoft-Dokumentation
 author: rick-anderson
-description: Dieses Lernprogramm veranschaulicht, wie die TextBoxWatermark-Steuerelement verwenden, um ein Textfeld mit einer Meldung angezeigt, die nicht mehr angezeigt wird, wenn der Benutzer startet darin eingeben.
-ms.author: aspnetcontent
-manager: wpickett
+description: Dieses Tutorial veranschaulicht, wie die TextBoxWatermark-Steuerelement verwenden, um ein Textfeld mit einer Meldung angezeigt, der verschwindet, wenn Benutzer beginnen, es einzugeben.
+ms.author: riande
 ms.date: 11/14/2011
-ms.topic: article
 ms.assetid: ee920155-b136-4f87-9545-8b5777ade9f3
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/textboxwatermark
 msc.type: chapter
-ms.openlocfilehash: b1285b7f6e3b174a61d4c850c3b54c45da4f802e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 1cfd57569766e01511f62dd225b23cf5c881b6e2
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26511699"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255696"
 ---
-<a name="textboxwatermark"></a>TextBoxWatermark
+<a name="textboxwatermark"></a>"TextBoxWatermark"
 ====================
-> Dieses Lernprogramm veranschaulicht, wie die TextBoxWatermark-Steuerelement verwenden, um ein Textfeld mit einer Meldung angezeigt, die nicht mehr angezeigt wird, wenn der Benutzer startet darin eingeben.
+> Dieses Tutorial veranschaulicht, wie die TextBoxWatermark-Steuerelement verwenden, um ein Textfeld mit einer Meldung angezeigt, der verschwindet, wenn Benutzer beginnen, es einzugeben.
 
 
-- [Verwenden von TextBoxWatermark in einem FormView (c#)](using-textboxwatermark-in-a-formview-cs.md)
-- [Verwenden von TextBoxWatermark mit Validierungssteuerelemente (c#)](using-textboxwatermark-with-validation-controls-cs.md)
-- [Verwenden von TextBoxWatermark in einem FormView (VB)](using-textboxwatermark-in-a-formview-vb.md)
-- [Verwenden von TextBoxWatermark mit Validierungssteuerelemente (VB)](using-textboxwatermark-with-validation-controls-vb.md)
+- [Verwenden von TextBoxWatermark in einem FormView-Steuerelement (C#)](using-textboxwatermark-in-a-formview-cs.md)
+- [Verwenden von TextBoxWatermark mit Validierungssteuerelementen (C#)](using-textboxwatermark-with-validation-controls-cs.md)
+- [Verwenden von TextBoxWatermark in einem FormView-Steuerelement (VB)](using-textboxwatermark-in-a-formview-vb.md)
+- [Verwenden von TextBoxWatermark mit Validierungssteuerelementen (VB)](using-textboxwatermark-with-validation-controls-vb.md)

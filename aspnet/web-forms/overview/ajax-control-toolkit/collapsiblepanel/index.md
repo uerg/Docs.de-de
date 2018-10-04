@@ -1,28 +1,24 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/collapsiblepanel/index
-title: CollapsiblePanel | Microsoft Docs
+title: CollapsiblePanel | Microsoft-Dokumentation
 author: rick-anderson
-description: Dieses Lernprogramm zeigt, wie das CollapsiblePanel-Steuerelement, damit Benutzer Sie erweitern und Reduzieren von Bereichen auf der Seite.
-ms.author: aspnetcontent
-manager: wpickett
+description: Dieses Tutorial veranschaulicht, wie das CollapsiblePanel-Steuerelement verwenden, um Benutzer zu erweitern und Reduzieren von Bereichen auf der Seite.
+ms.author: riande
 ms.date: 11/14/2011
-ms.topic: article
 ms.assetid: 3bdbb6ea-917e-4fff-a1cc-f194606a7869
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/collapsiblepanel
 msc.type: chapter
-ms.openlocfilehash: eb511e4c0f126fc54aad7b64473bd40eccf335a6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 019896c58258254f7906ebd965ae521ab05e122c
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26509339"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48253604"
 ---
 <a name="collapsiblepanel"></a>CollapsiblePanel
 ====================
-> Dieses Lernprogramm zeigt, wie das CollapsiblePanel-Steuerelement, damit Benutzer Sie erweitern und Reduzieren von Bereichen auf der Seite.
+> Dieses Tutorial veranschaulicht, wie das CollapsiblePanel-Steuerelement verwenden, um Benutzer zu erweitern und Reduzieren von Bereichen auf der Seite.
 
 
-- [Reduzieren und erweitern ein Panel aus JavaScript (c#)](collapsing-and-expanding-a-panel-from-javascript-cs.md)
-- [Reduzieren und erweitern ein Panel aus JavaScript (VB)](collapsing-and-expanding-a-panel-from-javascript-vb.md)
+- [Reduzieren und Erweitern eines Bereichs über JavaScript (C#)](collapsing-and-expanding-a-panel-from-javascript-cs.md)
+- [Reduzieren und Erweitern eines Bereichs über JavaScript (VB)](collapsing-and-expanding-a-panel-from-javascript-vb.md)

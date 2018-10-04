@@ -1,36 +1,32 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/index
-title: Ältere Versionen – ASP.NET 2.0 | Microsoft Docs
+title: Ältere Versionen – ASP.NET 2.0 | Microsoft-Dokumentation
 author: rick-anderson
-description: Wie 1.x ASP.NET-Anwendungen in ASP.NET 2.0 zu migrieren.
-ms.author: aspnetcontent
-manager: wpickett
+description: Informationen zum Migrieren von ASP.NET 1.x-Anwendungen zu ASP.NET 2.0.
+ms.author: riande
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: d4287e40-272a-412f-b0e9-59a5d97421bd
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20
 msc.type: chapter
-ms.openlocfilehash: bccb47a23b4a43ccc02e1bbc8b5fb480c24fd0af
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: ccccb2610e040cf709099b44d1e583eae0848365
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26516689"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256104"
 ---
 <a name="older-versions---aspnet-20"></a>Ältere Versionen – ASP.NET 2.0
 ====================
-> Wie 1.x ASP.NET-Anwendungen in ASP.NET 2.0 zu migrieren.
+> Informationen zum Migrieren von ASP.NET 1.x-Anwendungen zu ASP.NET 2.0.
 
 
 - [Verbesserungen in Visual Studio 2005](improvements-in-visual-studio-2005.md)
-- [ASP.NET 2.0-Seite-Modells](the-asp-net-2-0-page-model.md)
+- [ASP.NET 2.0-Seitenmodell](the-asp-net-2-0-page-model.md)
 - [Serversteuerelemente](server-controls.md)
 - [Masterseiten](master-pages.md)
-- [Datenquellen-Steuerelementen](data-source-controls.md)
+- [Datenquellen-Steuerelemente](data-source-controls.md)
 - [Datengebundene Steuerelemente](data-bound-controls.md)
 - [Zwischenspeichern](caching.md)
 - [Mitgliedschaft](membership.md)
-- [Konfiguration und -Instrumentation](configuration-and-instrumentation.md)
+- [Konfiguration und Instrumentierung](configuration-and-instrumentation.md)
 - [Profile, Designs und Webparts](profiles-themes-and-web-parts.md)

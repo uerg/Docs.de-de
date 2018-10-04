@@ -1,34 +1,30 @@
 ---
 uid: web-forms/overview/data-access/working-with-batched-data/index
-title: Arbeiten mit Daten im Batch | Microsoft Docs
+title: Arbeiten mit Batchdaten | Microsoft-Dokumentation
 author: rick-anderson
-description: Mit diesen Lernprogrammen sehen Sie sich aktualisieren, löschen und Einfügen von Batches von Daten mithilfe von Transaktionen.
-ms.author: aspnetcontent
-manager: wpickett
+description: Betrachten Sie aktualisieren, löschen und Einfügen von Batches von Daten mithilfe von Transaktionen in diesen Tutorials.
+ms.author: riande
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: 95a1d7d3-7fc2-44ac-b27b-912e0e045ee5
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data
 msc.type: chapter
-ms.openlocfilehash: 1a6af028c2d4ac8b6085a34bec16893d1e1632af
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 6f62a21af3b85bc341c202b7b44d6703c2da655c
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26514759"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255556"
 ---
-<a name="working-with-batched-data"></a>Arbeiten mit Daten im Batch
+<a name="working-with-batched-data"></a>Arbeiten mit Batchdaten
 ====================
-> Mit diesen Lernprogrammen sehen Sie sich aktualisieren, löschen und Einfügen von Batches von Daten mithilfe von Transaktionen.
+> Betrachten Sie aktualisieren, löschen und Einfügen von Batches von Daten mithilfe von Transaktionen in diesen Tutorials.
 
 
-- [Umbruch Datenbankänderungen innerhalb einer Transaktion (c#)](wrapping-database-modifications-within-a-transaction-cs.md)
-- [Batchaktualisierung (c#)](batch-updating-cs.md)
-- [Batch löschen (c#)](batch-deleting-cs.md)
-- [Batch eingefügt (c#)](batch-inserting-cs.md)
-- [Umbruch Datenbankänderungen innerhalb einer Transaktion (VB)](wrapping-database-modifications-within-a-transaction-vb.md)
-- [Batchaktualisierung (VB)](batch-updating-vb.md)
-- [Batch löschen (VB)](batch-deleting-vb.md)
-- [Batch eingefügt (VB)](batch-inserting-vb.md)
+- [Umschließen von Datenbankänderungen innerhalb einer Transaktion (C#)](wrapping-database-modifications-within-a-transaction-cs.md)
+- [Aktualisieren in Batches (C#)](batch-updating-cs.md)
+- [Löschen in Batches (C#)](batch-deleting-cs.md)
+- [Einfügen in Batches (C#)](batch-inserting-cs.md)
+- [Umschließen von Datenbankänderungen innerhalb einer Transaktion (VB)](wrapping-database-modifications-within-a-transaction-vb.md)
+- [Aktualisieren in Batches (VB)](batch-updating-vb.md)
+- [Löschen in Batches (VB)](batch-deleting-vb.md)
+- [Einfügen in Batches (VB)](batch-inserting-vb.md)

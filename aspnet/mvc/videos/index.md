@@ -1,23 +1,19 @@
 ---
 uid: mvc/videos/index
-title: Videos | Microsoft Docs
+title: Videos | Microsoft-Dokumentation
 author: rick-anderson
 description: ''
-ms.author: aspnetcontent
-manager: wpickett
+ms.author: riande
 ms.date: 06/24/2011
-ms.topic: article
 ms.assetid: e618c37c-68f3-49aa-9fda-f86cb3b578b9
-ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos
 msc.type: book
-ms.openlocfilehash: 03e8129816a2fb8b9261618207b0e1795fb7cf23
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
-ms.translationtype: HT
+ms.openlocfilehash: 1f284bb52bb45880d656592f173b3e57fbc47118
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2018
-ms.locfileid: "29152962"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255861"
 ---
 <a name="videos"></a>Videos
 ====================
@@ -27,7 +23,7 @@ ms.locfileid: "29152962"
     - [ASP.NET MVC 4](mvc-4/aspnet-mvc-4.md)
 - [ASP.NET MVC 3](mvc-3/index.md)
 
-    - [MVC 3 – Razor-Anzeigemodul](mvc-3/mvc-3-razor-view-engine.md)
+    - [MVC 3 – Razor-Anzeige-Engine](mvc-3/mvc-3-razor-view-engine.md)
     - [MVC 3 – Razor-Hilfsprogramme](mvc-3/mvc-3-razor-helpers.md)
 - [ASP.NET MVC 2](mvc-2/index.md)
 
@@ -50,7 +46,7 @@ ms.locfileid: "29152962"
         - [ASP.NET MVC: Vorgehensweise (10-minütiges technisches Video für Entwickler)](mvc-2/how-do-i/aspnet-mvc-how-10-minute-technical-video-for-developers.md)
         - [Zurückgeben von formatierten JSON-Daten für einen AJAX-Aufruf in einer ASP.NET MVC-Webanwendung](mvc-2/how-do-i/how-do-i-return-json-formatted-data-for-an-ajax-call-in-an-aspnet-mvc-web-application.md)
         - [Arbeiten mit Daten in ASP.NET MVC-Teilansichten](mvc-2/how-do-i/how-do-i-work-with-data-in-aspnet-mvc-partial-views.md)
-        - [Implementieren Sie die Modelle anzeigen, um Daten für ASP.NET MVC-Ansichten verwalten](mvc-2/how-do-i/how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views.md)
+        - [Implementieren Sie die Modelle anzeigen, um Daten für ASP.NET MVC-Ansichten zu verwalten.](mvc-2/how-do-i/how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views.md)
         - [Erstellen eines benutzerdefinierten HTML-Hilfsprogramms für eine MVC-Anwendung](mvc-2/how-do-i/how-do-i-create-a-custom-html-helper-for-an-mvc-application.md)
         - [Arbeiten mit Modellbindungen in einer MVC-Anwendung](mvc-2/how-do-i/how-do-i-work-with-model-binders-in-an-mvc-application.md)
         - [Verwenden von HttpVerbs-Attributen in einer MVC-Anwendung](mvc-2/how-do-i/how-do-i-use-httpverbs-attributes-in-an-mvc-application.md)
@@ -95,7 +91,7 @@ ms.locfileid: "29152962"
         - [ASP.NET MVC Storefront, Teil 16: Wiederherstellen der Mitgliedschaft mit OpenID](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-16-membership-redo-with-openid.md)
         - [ASP.NET MVC Storefront, Teil 17: Diskussion zum Bezahlvorgang mit Jeff Atwood](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-17-checkout-with-jeff-atwood.md)
         - [ASP.NET MVC Storefront, Teil 18: Schaffung eines ganzheitlichen Benutzererlebnisses](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-18-creating-an-experience.md)
-        - [Storefront ASP.NET-MVC-Teil 19: Verarbeiten von Aufträgen mit dem Windows Workflow](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
+        - [ASP.NET Storefront, Teil 19: Verarbeiten von Bestellungen mit Windows Workflow](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
         - [ASP.NET MVC Storefront, Teil 19a: Windows Workflow – Nachverfolgung](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19a-windows-workflow-followup.md)
         - [ASP.NET MVC Storefront, Teil 20: Protokollierung](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-20-logging.md)
         - [ASP.NET MVC Storefront, Teil 21: Auftrags-Manager und Personalisierung](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-21-order-manager-and-personalization.md)

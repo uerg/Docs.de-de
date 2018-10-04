@@ -1,29 +1,25 @@
 ---
 uid: web-pages/overview/security/index
-title: Sicherheit | Microsoft Docs
+title: Sicherheit | Microsoft-Dokumentation
 author: rick-anderson
-description: Zum Hinzufügen von Funktionen der Anmeldung zu einer ASP.NET Web Pages-Anwendung, und die Anwendung von Bots schützen.
-ms.author: aspnetcontent
-manager: wpickett
+description: Zum Hinzufügen von Anmeldung Funktionen zu einer ASP.NET Web Pages-Anwendung, und wie Sie die Anwendung von Bots zu schützen.
+ms.author: riande
 ms.date: 09/08/2014
-ms.topic: article
 ms.assetid: 58187ddb-bd53-406d-88be-8908905d726c
-ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/security
 msc.type: chapter
-ms.openlocfilehash: 6b493fb9afaa894ec805ebd6684180c33a33b1b0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 363073d11e380d789426ec4296ba8052165d2658
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26529529"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256253"
 ---
 <a name="security"></a>Sicherheit
 ====================
-> Zum Hinzufügen von Funktionen der Anmeldung zu einer ASP.NET Web Pages-Anwendung, und die Anwendung von Bots schützen.
+> Zum Hinzufügen von Anmeldung Funktionen zu einer ASP.NET Web Pages-Anwendung, und wie Sie die Anwendung von Bots zu schützen.
 
 
-- [Hinzufügen von Mitgliedschaft und Sicherheit](16-adding-security-and-membership.md)
-- [Aktivieren der Anmeldung von externen Standorten in einer ASP.NET Web Pages-Website](enabling-login-from-external-sites-in-an-aspnet-web-pages-site.md)
-- [Ein CAPTCHA verwenden, um zu verhindern, dass automatisiert Programme (Bots) verwenden Sie Ihre ASP.NET-Website](using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site.md)
+- [Erweiterung der Sicherheits- und Mitgliedschaftsberechtigungen](16-adding-security-and-membership.md)
+- [Aktivieren der Anmeldung über externe Websites einer ASP.NET Web Pages-Website](enabling-login-from-external-sites-in-an-aspnet-web-pages-site.md)
+- [Schützen der ASP.NET-Website vor automatisierten Programmen (Bots) durch ein CAPTCHA](using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site.md)

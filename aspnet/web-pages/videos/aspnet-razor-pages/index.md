@@ -3,21 +3,17 @@ uid: web-pages/videos/aspnet-razor-pages/index
 title: ASP.NET Razor Pages | Microsoft Docs
 author: rick-anderson
 description: Die Videos können Sie anzeigen, um einen Drilldown in Web Pages und WebMatrix.
-ms.author: aspnetcontent
-manager: wpickett
+ms.author: riande
 ms.date: 05/18/2012
-ms.topic: article
 ms.assetid: ffad842d-548c-40c6-84c5-10858133e972
-ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages
 msc.type: chapter
-ms.openlocfilehash: c2656e666e3267895ced67562e0b3e6292d83d3d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: e0c0c719ef628a4e5050e908d45421d5bfd6d983
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26529929"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48253669"
 ---
 <a name="aspnet-web-pages"></a>ASP.NET Web Pages
 =================
@@ -25,9 +21,9 @@ ms.locfileid: "26529929"
 
 
 - [Erste Schritte mit WebMatrix und ASP.NET Web Pages](getting-started-with-webmatrix-and-aspnet-web-pages.md)
-- [Einführung in ASP.NET Web-Programmierung Razor-Syntax](introduction-to-aspnet-web-programming-using-the-razor-syntax.md)
-- [Erstellen ein konsistentes Erscheinungsbild (Teil 1)](creating-a-consistent-look-part-1.md)
-- [Erstellen ein konsistentes Erscheinungsbild (Teil 2)](creating-a-consistent-look-part-2.md)
+- [Einführung zur Programmierung von ASP.NET-Webseiten mit der Razor-Syntax](introduction-to-aspnet-web-programming-using-the-razor-syntax.md)
+- [Erstellen einer konsistenten Gestaltung (Teil 1)](creating-a-consistent-look-part-1.md)
+- [Erstellen einer konsistenten Gestaltung (Teil 2)](creating-a-consistent-look-part-2.md)
 - [Arbeiten mit Formularen (Teil 1)](working-with-forms-part-1.md)
 - [Arbeiten mit Formularen (Teil 2)](working-with-forms-part-2.md)
 - [Arbeiten mit Daten (Teil 1)](working-with-data-part-1.md)
@@ -37,7 +33,7 @@ ms.locfileid: "26529929"
 - [Anzeigen von Daten in einem Diagramm (Teil 2)](displaying-data-in-a-chart-part-2.md)
 - [Working with Files (Arbeiten mit Dateien)](working-with-files.md)
 - [Working with Images (Arbeiten mit Bildern)](working-with-images.md)
-- [Arbeiten mit Video](working-with-video.md)
-- [E-Mail mit Ihrer Website hinzuzufügen.](adding-email-to-your-web-site.md)
-- [Suche auf Ihre Website hinzufügen](adding-search-to-your-web-site.md)
-- [Hinzufügen von sozialen Netzwerken zu Ihrer Website](adding-social-networking-to-your-website.md)
+- [Arbeiten mit Videos](working-with-video.md)
+- [Hinzufügen der Funktion zum Senden von E-Mails zu Ihrer Website](adding-email-to-your-web-site.md)
+- [Hinzufügen der Suchfunktion zu Ihrer Website](adding-search-to-your-web-site.md)
+- [Hinzufügen von Links sozialer Netzwerke zu Ihrer Website](adding-social-networking-to-your-website.md)

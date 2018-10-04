@@ -1,28 +1,26 @@
 ---
 uid: identity/overview/migrations/index
-title: Migrieren zu ASP.NET Identity | Microsoft Docs
+title: Migration nach ASP.NET Identity | Microsoft-Dokumentation
 author: rick-anderson
-description: Migration zu ASP.NET Identity von anderen Mitgliedschaftsanbietern
-ms.author: aspnetcontent
-manager: wpickett
+description: Migration nach ASP.NET Identity von anderen Mitgliedschaftsanbietern
+ms.author: riande
 ms.date: 10/02/2013
-ms.topic: article
 ms.assetid: 4a54fee1-d064-4d67-837a-87143a9205fd
-ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /identity/overview/migrations
 msc.type: chapter
-ms.openlocfilehash: 7e7b3d999bac106959017e5c9562f81fad03a7b1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 27f5913631ed2fc12c53c7dcb027512c51c1a97d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26497919"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255156"
 ---
-<a name="migrating-to-aspnet-identity"></a>Migrieren zu ASP.NET Identity
+<a name="migrating-to-aspnet-identity"></a>Migration nach ASP.NET Identity
 ====================
-> Migration zu ASP.NET Identity von anderen Mitgliedschaftsanbietern
+> Migration nach ASP.NET Identity von anderen Mitgliedschaftsanbietern
 
 
-- [Migration von einer vorhandenen Website von SQL-Mitgliedschaft zu ASP.NET Identity](migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
-- [Migrieren von universellen Anbieterdaten Mitgliedschaft und Benutzerprofilen zu ASP.NET Identity (c#)](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)
+- [Migrieren einer vorhandenen Website von einem SQL-Mitgliedschaftsanbieter nach ASP.NET Identity](migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
+- [Migrieren von Daten eines universellen Anbieters in Bezug auf Mitgliedschaften und Benutzerprofilen nach ASP.NET Identity (C#)](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)
+
+[!INCLUDE[](../../../includes/identity/alter-command-exception.md)]

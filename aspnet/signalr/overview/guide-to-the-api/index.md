@@ -1,32 +1,28 @@
 ---
 uid: signalr/overview/guide-to-the-api/index
-title: SignalR-Handbuch für die-API | Microsoft Docs
+title: SignalR-Leitfaden für die API | Microsoft-Dokumentation
 author: rick-anderson
-description: Die Dokumentation für die Verwendung der SignalR-Hubs-API. Autorisierung API finden Sie auf der Registerkarte "Sicherheit".
-ms.author: aspnetcontent
-manager: wpickett
+description: Dokumentation zur Verwendung der SignalR-Hubs-API. API-Autorisierung finden Sie unter der Registerkarte "Sicherheit".
+ms.author: riande
 ms.date: 09/19/2014
-ms.topic: article
 ms.assetid: af69e8d2-efdd-4d0b-9bbc-95353a65c0db
-ms.technology: dotnet-signalr
-ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/guide-to-the-api
 msc.type: chapter
-ms.openlocfilehash: 119b21af75576c269b5d81769897281bd05b2986
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: e93751041d84a5b3cbdd5d4df6ee91187f2fd305
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26503859"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48253376"
 ---
-<a name="signalr-guide-to-the-api"></a>SignalR-Anleitung für die API
+<a name="signalr-guide-to-the-api"></a>SignalR-Leitfaden für die API
 ====================
-> Die Dokumentation für die Verwendung der SignalR-Hubs-API. Autorisierung API finden Sie auf der Registerkarte "Sicherheit".
+> Dokumentation zur Verwendung der SignalR-Hubs-API. API-Autorisierung finden Sie unter der Registerkarte "Sicherheit".
 
 
-- [Handbuch für Hubs-API - Server (c#)](hubs-api-guide-server.md)
-- [Handbuch für Hubs-API - JavaScript-Client](hubs-api-guide-javascript-client.md)
-- [Hubs-API - Handbuchs, .NET Client (c#)](hubs-api-guide-net-client.md)
-- [Verstehen und Behandeln von Lebensdauer Verbindungsereignisse in SignalR](handling-connection-lifetime-events.md)
+- [Leitfaden für die Hubs-API – Server (C#)](hubs-api-guide-server.md)
+- [Leitfaden für die Hubs-API – JavaScript-Client](hubs-api-guide-javascript-client.md)
+- [Leitfaden für die Hubs-API – .NET-Client (C#)](hubs-api-guide-net-client.md)
+- [Überblick und Behandeln von Ereignissen im Zusammenhang mit der Verbindungslebensdauer in SignalR](handling-connection-lifetime-events.md)
 - [Arbeiten mit Gruppen in SignalR](working-with-groups.md)
 - [Zuordnen von SignalR-Benutzern zu Verbindungen](mapping-users-to-connections.md)

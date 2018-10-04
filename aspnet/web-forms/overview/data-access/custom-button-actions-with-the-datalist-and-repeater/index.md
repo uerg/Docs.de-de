@@ -1,28 +1,24 @@
 ---
 uid: web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/index
-title: Benutzerdefinierte Aktionen mit dem DataList und Repeater | Microsoft Docs
+title: Benutzerdefinierte Schaltflächenaktionen mit dem DataList- und Wiederholungssteuerelement | Microsoft-Dokumentation
 author: rick-anderson
-description: Diese Lernprogramme zeigen, wie die verschiedenen Steuerelemente hinzufügen von benutzerdefinierten Funktionen Schaltflächen hinzu.
-ms.author: aspnetcontent
-manager: wpickett
+description: In diesen Tutorials veranschaulichen die DataList und Repeater-Steuerelemente zum Hinzufügen von benutzerdefinierten Funktionen Schaltflächen hinzufügen.
+ms.author: riande
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: d017f36f-0152-43c7-ac44-6c7c755ea79a
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater
 msc.type: chapter
-ms.openlocfilehash: b9ec5df400ce445e703119b398e9f7a26d3f5446
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 4156ab56cda4e88caa883cf8968dca319109e59f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26512679"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256189"
 ---
-<a name="custom-button-actions-with-the-datalist-and-repeater"></a>Benutzerdefinierte Aktionen mit dem DataList und Repeater
+<a name="custom-button-actions-with-the-datalist-and-repeater"></a>Benutzerdefinierte Schaltflächenaktionen mit dem DataList- und Wiederholungssteuerelement
 ====================
-> Diese Lernprogramme zeigen, wie die verschiedenen Steuerelemente hinzufügen von benutzerdefinierten Funktionen Schaltflächen hinzu.
+> In diesen Tutorials veranschaulichen die DataList und Repeater-Steuerelemente zum Hinzufügen von benutzerdefinierten Funktionen Schaltflächen hinzufügen.
 
 
-- [Benutzerdefinierte Schaltflächen im DataList und Repeater (c#)](custom-buttons-in-the-datalist-and-repeater-cs.md)
-- [Benutzerdefinierte Schaltflächen im DataList und Repeater (VB)](custom-buttons-in-the-datalist-and-repeater-vb.md)
+- [Benutzerdefinierte Schaltflächen im DataList- oder Wiederholungssteuerelement (C#)](custom-buttons-in-the-datalist-and-repeater-cs.md)
+- [Benutzerdefinierte Schaltflächen im DataList- oder Wiederholungssteuerelement (VB)](custom-buttons-in-the-datalist-and-repeater-vb.md)

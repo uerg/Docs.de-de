@@ -1,32 +1,28 @@
 ---
 uid: web-forms/overview/older-versions-security/admin/index
-title: ASP.NET 3.5 - Sicherheitsverwaltung | Microsoft Docs
+title: ASP.NET 3.5 – Sicherheitsverwaltung | Microsoft-Dokumentation
 author: rick-anderson
-description: Diese Reihe von Lernprogrammen wird gezeigt, eine Möglichkeit, eine Seite "Verwaltung" erstellen, die Sie Benutzer und Rollen verwalten können.
-ms.author: aspnetcontent
-manager: wpickett
+description: Dieser tutorialreihe erfahren Sie, eine Möglichkeit, eine Seite "Verwaltung" zu erstellen, die Sie Benutzern und Rollen verwalten können.
+ms.author: riande
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: b715c4ec-6f4b-4f7e-8ee3-b1613477ce61
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/admin
 msc.type: chapter
-ms.openlocfilehash: 8a280ab8b6a7ee6d4c0a43592512976b89d1b723
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: dde25fe54cf7ba56790979328e7bc8b8a3301226
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26519039"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48253325"
 ---
-<a name="aspnet-35---security-administration"></a>ASP.NET 3.5 - Sicherheitsverwaltung
+<a name="aspnet-35---security-administration"></a>ASP.NET 3.5 – Sicherheitsverwaltung
 ====================
-> Diese Reihe von Lernprogrammen wird gezeigt, eine Möglichkeit, eine Seite "Verwaltung" erstellen, die Sie Benutzer und Rollen verwalten können.
+> Dieser tutorialreihe erfahren Sie, eine Möglichkeit, eine Seite "Verwaltung" zu erstellen, die Sie Benutzern und Rollen verwalten können.
 
 
-- [Erstellen eine Schnittstelle zum Auswählen eines Benutzerkontos aus vielen (c#)](building-an-interface-to-select-one-user-account-from-many-cs.md)
-- [Wiederherstellen und Ändern von Kennwörtern (c#)](recovering-and-changing-passwords-cs.md)
-- [Entsperren und Genehmigen von Benutzerkonten (c#)](unlocking-and-approving-user-accounts-cs.md)
-- [Erstellen eine Schnittstelle bereit, wählen Sie ein Benutzerkonto aus vielen (VB)](building-an-interface-to-select-one-user-account-from-many-vb.md)
+- [Erstellen eine Schnittstelle zum Auswählen eines Benutzerkontos aus vielen (C#)](building-an-interface-to-select-one-user-account-from-many-cs.md)
+- [Wiederherstellen und Ändern von Kennwörtern (C#)](recovering-and-changing-passwords-cs.md)
+- [Entsperren und Genehmigen von Benutzerkonten (C#)](unlocking-and-approving-user-accounts-cs.md)
+- [Erstellen eine Schnittstelle zum Auswählen eines Benutzerkontos aus vielen (VB)](building-an-interface-to-select-one-user-account-from-many-vb.md)
 - [Wiederherstellen und Ändern von Kennwörtern (VB)](recovering-and-changing-passwords-vb.md)
 - [Entsperren und Genehmigen von Benutzerkonten (VB)](unlocking-and-approving-user-accounts-vb.md)

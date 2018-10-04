@@ -1,23 +1,19 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/index
-title: Erstellen von Real-World Cloud Apps with Azure | Microsoft Docs
+title: Erstellen von Real-World Cloud Apps with Azure | Microsoft-Dokumentation
 author: rick-anderson
 description: Real-World Cloud Apps with Azure erstellen
-ms.author: aspnetcontent
-manager: wpickett
+ms.author: riande
 ms.date: 10/23/2013
-ms.topic: article
 ms.assetid: b452a3af-4157-4056-a181-569d1735c239
-ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure
 msc.type: chapter
-ms.openlocfilehash: 1fe91e84c81b8c80aab0053e26f077401343eaa4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 9c2149fb8195e6b660331e18a975a5571b9652fb
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26497679"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255486"
 ---
 <a name="building-real-world-cloud-apps-with-azure"></a>Real-World Cloud Apps with Azure erstellen
 ====================
@@ -25,18 +21,18 @@ ms.locfileid: "26497679"
 
 
 - [Introduction (Einführung)](introduction.md)
-- [Alles, was zu automatisieren.](automate-everything.md)
+- [Ganzheitliche Automatisierung](automate-everything.md)
 - [Quellcodeverwaltung](source-control.md)
-- [Fortlaufende Integration und Bereitstellung](continuous-integration-and-continuous-delivery.md)
-- [Web Development Best Practices](web-development-best-practices.md)
+- [Continuous Integration und Continuous Delivery](continuous-integration-and-continuous-delivery.md)
+- [Best Practices für die Webentwicklung](web-development-best-practices.md)
 - [Einmaliges Anmelden](single-sign-on.md)
-- [Optionen für die Speicherung von Daten](data-storage-options.md)
-- [Partitionierungsstrategien Daten](data-partitioning-strategies.md)
-- [Unstrukturierte Blob-Speicher](unstructured-blob-storage.md)
-- [Entwurf, diesen Zwischenfall zu überstehen von Fehlern](design-to-survive-failures.md)
+- [Datenspeicheroptionen](data-storage-options.md)
+- [Datenpartitionierungsstrategien](data-partitioning-strategies.md)
+- [Unstrukturiertes Blob Storage](unstructured-blob-storage.md)
+- [Entwurf mit Blick auf Bewältigung von Fehlern](design-to-survive-failures.md)
 - [Überwachung und Telemetrie](monitoring-and-telemetry.md)
 - [Behandlung vorübergehender Fehler](transient-fault-handling.md)
 - [Verteiltes Caching](distributed-caching.md)
-- [Warteschlange anwendungsorientierte Arbeit-Muster](queue-centric-work-pattern.md)
-- [Weitere Muster und Anleitungen](more-patterns-and-guidance.md)
-- [Anhang: Korrigieren sie Beispielanwendung](the-fix-it-sample-application.md)
+- [Warteschlangenorientiertes Muster](queue-centric-work-pattern.md)
+- [Weitere Muster und Leitfäden](more-patterns-and-guidance.md)
+- [Anhang: Fix It-Beispielanwendung](the-fix-it-sample-application.md)

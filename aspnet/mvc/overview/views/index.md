@@ -1,28 +1,24 @@
 ---
 uid: mvc/overview/views/index
-title: ASP.NET MVC UI, Layouts und Designs | Microsoft Docs
+title: ASP.NET MVC Benutzeroberflächen, Layouts und Designs | Microsoft-Dokumentation
 author: rick-anderson
-description: Der Razor-Syntax und wie Sie es in Ihren Ansichten (die in MVC V) verwendet, um Informationen anzuzeigen.
-ms.author: aspnetcontent
-manager: wpickett
+description: Die Razor-Syntax und wie es in Ansichten (die in MVC V) verwenden, um Informationen anzuzeigen.
+ms.author: riande
 ms.date: 08/10/2011
-ms.topic: article
 ms.assetid: 786e452d-c0d6-45fb-85eb-22c820304667
-ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/views
 msc.type: chapter
-ms.openlocfilehash: 914820b5d086f2f194881ec9d47da2e5db9732a7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 258746b494410b5bf10dccefaba244088b6bdbeb
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26503279"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48253687"
 ---
-<a name="aspnet-mvc-ui-layouts-and-themes"></a>ASP.NET MVC UI, Layouts und Designs
+<a name="aspnet-mvc-ui-layouts-and-themes"></a>ASP.NET MVC Benutzeroberflächen, Layouts und Designs
 ====================
-> Der Razor-Syntax und wie Sie es in Ihren Ansichten (die in MVC V) verwendet, um Informationen anzuzeigen.
+> Die Razor-Syntax und wie es in Ansichten (die in MVC V) verwenden, um Informationen anzuzeigen.
 
 
 - [Verwenden der Seitenprüfung in ASP.NET MVC](using-page-inspector-in-aspnet-mvc.md)
-- [Dynamische V. Stark typisierte Ansichten](dynamic-v-strongly-typed-views.md)
+- [Dynamische vs. stark typisierte Ansichten](dynamic-v-strongly-typed-views.md)

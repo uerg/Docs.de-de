@@ -1,28 +1,24 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/rating/index
-title: Bewertung | Microsoft Docs
+title: Bewertung | Microsoft-Dokumentation
 author: rick-anderson
-description: Dieses Lernprogramm veranschaulicht, wie mithilfe des Steuerelements für die Bewertung um Bewertungen Elementen von Artikeln und geben Sie Benutzern zu ermöglichen.
-ms.author: aspnetcontent
-manager: wpickett
+description: Dieses Tutorial veranschaulicht, wie das Steuerelement für Bewertungen zu verwenden, um Bewertungen Elementen von Artikeln und geben Sie Benutzern zu ermöglichen.
+ms.author: riande
 ms.date: 11/14/2011
-ms.topic: article
 ms.assetid: 2af1ffb5-c6a6-40fa-b431-1e03190dedfd
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/rating
 msc.type: chapter
-ms.openlocfilehash: cabc043fd4be36d5d81563fa2f4b7e46a08fcad8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 7be078db8821e876cb860ae642f86a289a3fa744
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26511609"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255456"
 ---
 <a name="rating"></a>Bewertung
 ====================
-> Dieses Lernprogramm veranschaulicht, wie mithilfe des Steuerelements für die Bewertung um Bewertungen Elementen von Artikeln und geben Sie Benutzern zu ermöglichen.
+> Dieses Tutorial veranschaulicht, wie das Steuerelement für Bewertungen zu verwenden, um Bewertungen Elementen von Artikeln und geben Sie Benutzern zu ermöglichen.
 
 
-- [Erstellen eines Steuerelements Bewertung (c#)](creating-a-rating-control-cs.md)
-- [Erstellen eines Steuerelements Bewertung (VB)](creating-a-rating-control-vb.md)
+- [Erstellen eines Bewertungssteuerelements (C#)](creating-a-rating-control-cs.md)
+- [Erstellen eines Bewertungssteuerelements (VB)](creating-a-rating-control-vb.md)

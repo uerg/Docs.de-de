@@ -1,35 +1,31 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/index
-title: Erste Schritte mit ASP.NET MVC 3 (VB.NET) | Microsoft Docs
+title: Erste Schritte mit ASP.NET MVC 3 (VB.NET) | Microsoft-Dokumentation
 author: rick-anderson
-description: Die Grundlagen der Erstellung einer ASP.NET MVC-Web-Anwendung mithilfe von Microsoft Visual Web Developer 2010 Express VB.NET verwenden.
-ms.author: aspnetcontent
-manager: wpickett
+description: Die Grundlagen der Erstellung einer ASP.NET MVC-Web-Anwendung mithilfe von Microsoft Visual Web Developer 2010 Express Visual Basic.NET verwenden.
+ms.author: riande
 ms.date: 04/12/2012
-ms.topic: article
 ms.assetid: c2f134f3-fc6b-4603-823f-d1eabe55bba2
-ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb
 msc.type: chapter
-ms.openlocfilehash: 564f4557b2a3a77d9977a194ebd0a2cda9ccdef6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: e8096554caf3bbb746b2102c43b2727369799c16
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26501619"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48253514"
 ---
 <a name="getting-started-with-aspnet-mvc-3-vbnet"></a>Erste Schritte mit ASP.NET MVC 3 (VB.NET)
 ====================
-> Die Grundlagen der Erstellung einer ASP.NET MVC-Web-Anwendung mithilfe von Microsoft Visual Web Developer 2010 Express VB.NET verwenden.
+> Die Grundlagen der Erstellung einer ASP.NET MVC-Web-Anwendung mithilfe von Microsoft Visual Web Developer 2010 Express Visual Basic.NET verwenden.
 
 
-- [Einführung in ASP.NET MVC 3 (VB)](intro-to-aspnet-mvc-3.md)
+- [Einführung zu ASP.NET MVC 3 (VB)](intro-to-aspnet-mvc-3.md)
 - [Hinzufügen eines Controllers (VB)](adding-a-controller.md)
 - [Hinzufügen einer Ansicht (VB)](adding-a-view.md)
 - [Hinzufügen eines Modells (VB)](adding-a-model.md)
-- [Zugriff auf das Modell Daten aus einem Controller (VB)](accessing-your-models-data-from-a-controller.md)
-- [Prüfen der Methoden bearbeiten und die Bearbeitungsansicht (VB)](examining-the-edit-methods-and-edit-view.md)
-- [Hinzufügen eines neuen Felds, das Movie-Modell und die Datenbanktabelle (VB)](adding-a-new-field.md)
-- [Hinzufügen einer Validierung für das Modell (VB)](adding-validation-to-the-model.md)
-- [Verbessern die Details und Delete-Methoden (VB)](improving-the-details-and-delete-methods.md)
+- [Zugreifen auf Modelldaten anhand eines Controllers (VB)](accessing-your-models-data-from-a-controller.md)
+- [Überprüfen der Edit-Methoden und -Ansicht (VB)](examining-the-edit-methods-and-edit-view.md)
+- [Hinzufügen eines neuen Felds zum Modell und zur Datenbanktabelle eines Films (VB)](adding-a-new-field.md)
+- [Hinzufügen der Überprüfung zum Modell (VB)](adding-validation-to-the-model.md)
+- [Optimieren der Methoden „Details“ und „Delete“ (VB)](improving-the-details-and-delete-methods.md)

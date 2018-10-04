@@ -1,31 +1,27 @@
 ---
 uid: web-api/overview/testing-and-debugging/index
-title: Testen und Debuggen von ASP.NET Web-API | Microsoft Docs
+title: Testen und Debuggen von ASP.NET Web-API | Microsoft-Dokumentation
 author: rick-anderson
 description: Testen und Debuggen von ASP.NET Web-API
-ms.author: aspnetcontent
-manager: wpickett
+ms.author: riande
 ms.date: 05/12/2012
-ms.topic: article
 ms.assetid: 31f2a034-e4d0-401b-be29-209a274a192e
-ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/testing-and-debugging
 msc.type: chapter
-ms.openlocfilehash: 567fe8f790d5f7684b74018503f97ea8caabccc9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 1d9e55d5ccd21d730b24b503017697b46c653722
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26508259"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255676"
 ---
 <a name="testing-and-debugging-aspnet-web-api"></a>Testen und Debuggen von ASP.NET Web-API
 ====================
 > Testen und Debuggen von ASP.NET Web-API
 
 
-- [In der Web-API 2-Ablaufverfolgung](tracing-in-aspnet-web-api.md)
-- [Unit Testing Web-API 2](unit-testing-with-aspnet-web-api.md)
-- [UnitTests Controller in ASP.NET Web API 2](unit-testing-controllers-in-web-api.md)
-- [Simulieren von Entity Framework beim Web-API 2-Komponententests](mocking-entity-framework-when-unit-testing-aspnet-web-api-2.md)
-- [Problembehandlung bei HTTP 405 Fehler nach der Veröffentlichung Web-API 2-Anwendungen](troubleshooting-http-405-errors-after-publishing-web-api-applications.md)
+- [Ablaufverfolgung in der Web-API 2](tracing-in-aspnet-web-api.md)
+- [Komponententests für die Web-API 2](unit-testing-with-aspnet-web-api.md)
+- [Komponententests für Controller in der ASP.NET-Web-API 2](unit-testing-controllers-in-web-api.md)
+- [Simulieren des Entity Framework bei Komponententests der Web-API 2](mocking-entity-framework-when-unit-testing-aspnet-web-api-2.md)
+- [Behandeln von HTTP 405-Fehlern nach der Veröffentlichung von Web-API 2-Anwendungen](troubleshooting-http-405-errors-after-publishing-web-api-applications.md)

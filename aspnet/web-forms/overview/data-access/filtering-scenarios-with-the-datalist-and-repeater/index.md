@@ -1,32 +1,28 @@
 ---
 uid: web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/index
-title: Filtern von Szenarien mit dem DataList und Repeater | Microsoft Docs
+title: Filtern von Szenarien mit dem DataList- und Wiederholungssteuerelement | Microsoft-Dokumentation
 author: rick-anderson
-description: In diesen Lernprogrammen sehen Sie, wie mit dem Master/Detail-Berichte, die mithilfe von Dropdownlisten für die master-Datensätze und einem DataList-Steuerelement für die Details angezeigt.
-ms.author: aspnetcontent
-manager: wpickett
+description: In diesen Tutorials erfahren Sie, wie um Master-/Detail-Berichten, die mit dem Dropdown-Listen für die Masterdatensätze und einem DataList-Steuerelement für die Details anzuzeigen.
+ms.author: riande
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: 80b17464-8395-4b82-8f11-5d8ee1351d53
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater
 msc.type: chapter
-ms.openlocfilehash: a8a1c2301dc287b49149bc5afe85a7dedad54d58
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 12d8faeb9c1087cbb67812eba5b2cca7854205be
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26514099"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255673"
 ---
-<a name="filtering-scenarios-with-the-datalist-and-repeater"></a>Filtern von Szenarien mit dem DataList und Repeater
+<a name="filtering-scenarios-with-the-datalist-and-repeater"></a>Filtern von Szenarien mit dem DataList- und Wiederholungssteuerelement
 ====================
-> In diesen Lernprogrammen sehen Sie, wie mit dem Master/Detail-Berichte, die mithilfe von Dropdownlisten für die master-Datensätze und einem DataList-Steuerelement für die Details angezeigt.
+> In diesen Tutorials erfahren Sie, wie um Master-/Detail-Berichten, die mit dem Dropdown-Listen für die Masterdatensätze und einem DataList-Steuerelement für die Details anzuzeigen.
 
 
-- [Master/Detail-Filtern mit einer DropDownList (c#)](master-detail-filtering-with-a-dropdownlist-datalist-cs.md)
-- [Master/Detail-Filterung über zwei Seiten (c#)](master-detail-filtering-acess-two-pages-datalist-cs.md)
-- [Master/Detail-verwenden eine Aufzählung der Master-Datensätze mit einem DataList Details (c#)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md)
-- [Master/Detail-Filtern mit einer DropDownList (VB)](master-detail-filtering-with-a-dropdownlist-datalist-vb.md)
-- [Master/Detail-Filterung über zwei Seiten (VB)](master-detail-filtering-acess-two-pages-datalist-vb.md)
-- [Master/Detail-verwenden eine Aufzählung der Master-Datensätze mit Details DataList (VB)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb.md)
+- [Filtern von Master-/Detailberichten mit einem DropDownList-Steuerelement (C#)](master-detail-filtering-with-a-dropdownlist-datalist-cs.md)
+- [Filtern von Master-/Detailberichten über zwei Seiten (C#)](master-detail-filtering-acess-two-pages-datalist-cs.md)
+- [Master-/Detailbericht mit einer Aufzählung der Masterdatensätze und einem DataList-Steuerelement für die Details (C#)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md)
+- [Filtern von Master-/Detailberichten mit einem DropDownList-Steuerelement (VB)](master-detail-filtering-with-a-dropdownlist-datalist-vb.md)
+- [Filtern von Master-/Detailberichten über zwei Seiten (VB)](master-detail-filtering-acess-two-pages-datalist-vb.md)
+- [Master-/Detailbericht mit einer Aufzählung der Masterdatensätze und einem DataList-Steuerelement für die Details (VB)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb.md)

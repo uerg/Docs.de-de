@@ -1,23 +1,19 @@
 ---
 uid: mvc/overview/index
-title: ASP.NET MVC-Leitfaden | Microsoft Docs
+title: ASP.NET MVC-Leitfaden | Microsoft-Dokumentation
 author: rick-anderson
 description: ''
-ms.author: aspnetcontent
-manager: wpickett
+ms.author: riande
 ms.date: 06/23/2011
-ms.topic: article
 ms.assetid: 946574c5-b5cb-423b-a6e1-a2cfb506ecf9
-ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview
 msc.type: book
-ms.openlocfilehash: da7640ae8661d0affe798cd5f3d664179bb6bfc2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: bbd4b121820c79d891d95905a8a8d8d0b4e17f2d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26499199"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255984"
 ---
 <a name="aspnet-mvc-guidance"></a>ASP.NET MVC-Leitfaden
 ====================
@@ -26,7 +22,7 @@ ms.locfileid: "26499199"
 - [Sicherheit, Authentifizierung und Autorisierung](security/index.md)
 - [Bereitstellung](deployment/index.md)
 - [Leistung](performance/index.md)
-- [Internationalisierung und Weiterführende Themen](advanced/index.md)
+- [Internationalisierung und weiterführende Themen](advanced/index.md)
 - [Freigaben](releases/index.md)
-- [Ältere Versionen - MVC 3 und 4](older-versions/index.md)
-- [Ältere Versionen - MVC 1 und 2](older-versions-1/index.md)
+- [Ältere Versionen – MVC 3 und 4](older-versions/index.md)
+- [Ältere Versionen – MVC 1 und 2](older-versions-1/index.md)

@@ -1,30 +1,26 @@
 ---
 uid: web-api/overview/web-api-routing-and-actions/index
-title: Routing der Web-API | Microsoft Docs
+title: Web-API-Routing | Microsoft-Dokumentation
 author: rick-anderson
-description: Wie ASP.NET Web-API-HTTP-Anforderungen an Controllern und Aktionen weiterleitet.
-ms.author: aspnetcontent
-manager: wpickett
+description: Wie leitet ASP.NET Web-API die HTTP-Anforderungen für Controller und Aktionen.
+ms.author: riande
 ms.date: 01/26/2012
-ms.topic: article
 ms.assetid: 8447679a-2556-4411-b758-bbe55cfa4805
-ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions
 msc.type: chapter
-ms.openlocfilehash: eee9d853e67cf8e13541a8ae570108a3564f8a51
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: cb38906e33d5c32dada35d72bb646aad1e5a0907
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26508979"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48253320"
 ---
-<a name="web-api-routing"></a>Routing der Web-API
+<a name="web-api-routing"></a>Routing von Web-API
 ====================
-> Wie ASP.NET Web-API-HTTP-Anforderungen an Controllern und Aktionen weiterleitet.
+> Wie leitet ASP.NET Web-API die HTTP-Anforderungen für Controller und Aktionen.
 
 
 - [Routing in der Web-API](routing-in-aspnet-web-api.md)
-- [Routing und Aktionsauswahl in Web-API](routing-and-action-selection.md)
-- [Routing in der Web-API 2-Attribut](attribute-routing-in-web-api-2.md)
-- [Erstellen Sie eine REST-API mit Routing in der Web-API 2-Attribut](create-a-rest-api-with-attribute-routing.md)
+- [Routing- und Aktionsauswahl in der Web-API](routing-and-action-selection.md)
+- [Attributrouting in der Web-API 2](attribute-routing-in-web-api-2.md)
+- [Erstellen einer REST-API mit Attributrouting in der Web-API 2](create-a-rest-api-with-attribute-routing.md)

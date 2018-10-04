@@ -1,55 +1,51 @@
 ---
 uid: web-forms/videos/vs-2005/index
-title: Visual Studio 2005 | Microsoft Docs
+title: Visual Studio 2005 | Microsoft-Dokumentation
 author: rick-anderson
-description: Das Arbeiten mit Visual Studio 2005 Team System und -add-ins zum Testen, Bereitstellung und andere Aufgaben ausführen.
-ms.author: aspnetcontent
-manager: wpickett
+description: Wie Sie mit Visual Studio 2005 Team System und -add-ins zum Ausführen von Tests, Bereitstellung und andere Aufgaben zu arbeiten.
+ms.author: riande
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: 1bcf9a1c-ed34-4ed0-ab91-253df08fc6ff
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/vs-2005
 msc.type: chapter
-ms.openlocfilehash: e3918119baf1e2fb0f1fb9d56627e7b7894f33fe
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 0085424743ad2592dd06c58adba801bd676f2c0f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26528509"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256144"
 ---
 <a name="visual-studio-2005"></a>Visual Studio 2005
 ====================
-> Das Arbeiten mit Visual Studio 2005 Team System und -add-ins zum Testen, Bereitstellung und andere Aufgaben ausführen.
+> Wie Sie mit Visual Studio 2005 Team System und -add-ins zum Ausführen von Tests, Bereitstellung und andere Aufgaben zu arbeiten.
 
 
-- [Einführung in Komponententests, die mit TeamSystem](introduction-to-unit-testing-with-team-system.md)
-- [Einführung in die Tests mit TeamSystem-Webanwendungen](introduction-to-testing-web-applications-with-team-system.md)
-- [Einführung in die Tests mit TeamSystem-Webanwendungen zu laden.](introduction-to-load-testing-web-applications-with-team-system.md)
-- [Einführung in manuellen Tests mit TeamSystem](introduction-to-manual-testing-with-team-system.md)
-- [Einführung in das Verwalten und Ausführen von Tests mit TeamSystem](introduction-to-managing-and-running-tests-with-team-system.md)
-- [Messen Sie den Geschäftswert AJAX](measuring-the-business-value-of-ajax.md)
+- [Einführung zu Komponententests mit Team System](introduction-to-unit-testing-with-team-system.md)
+- [Einführung zum Testen von Webanwendungen mit Team System](introduction-to-testing-web-applications-with-team-system.md)
+- [Einführung zu Auslastungstests für Webanwendungen mit Team System](introduction-to-load-testing-web-applications-with-team-system.md)
+- [Einführung zum manuellen Testen mit Team System](introduction-to-manual-testing-with-team-system.md)
+- [Einführung zum Verwalten und Ausführen von Tests mit Team System](introduction-to-managing-and-running-tests-with-team-system.md)
+- [Messen des geschäftlichen Nutzens von AJAX](measuring-the-business-value-of-ajax.md)
 - [Code Coverage von automatisierten Tests](code-coverage-of-automated-tests.md)
 - [Benutzerdefinierte Extraktionsregeln und codierte Webtests](custom-extraction-rules-and-coded-web-tests.md)
 - [Auswirkungen der Zwischenspeicherung](the-effects-of-caching.md)
-- [Auslastungstest-Agent](using-the-load-test-agent.md)
-- [Auswirkungen der "ViewState" Speichern](the-effects-of-viewstate.md)
-- [Integrieren Sie Fehler, die mit der Tests nachverfolgen](how-do-i-integrate-defect-tracking-with-testing.md)
-- [Erstellen Sie eigene Fehlerarbeitsaufgabe](how-do-i-create-my-own-bug-work-item.md)
-- [Schreiben Sie Code schneller und mit Komponententests](how-do-i-write-code-more-quickly-with-unit-tests.md)
-- [Übung testorientierte Entwicklung](how-do-i-practice-test-driven-development.md)
-- [Auslastungstest eine Webanwendung](how-do-i-load-test-a-web-application.md)
-- [Optimieren der Leistung der Webanwendung für die Profilerstellung](how-do-i-tune-web-application-performance-with-profiling.md)
-- [Einrichten der verteilten Auslastungstests für hohes Volumen-Tests](how-do-i-set-up-distributed-load-testing-for-high-volume-tests.md)
-- [Erzwingen Sie die Codierungsstandards mit der Codeanalyse](how-do-i-enforce-coding-standards-with-code-analysis.md)
-- [Verwenden Sie generische Tests](how-do-i-use-generic-tests.md)
-- [Veröffentlichen und Analysieren von Testergebnissen](how-do-i-publish-and-analyze-test-results.md)
-- [Ermitteln Sie die Anwendungsänderungen vor der Bereitstellung](how-do-i-discover-application-changes-prior-to-deployment.md)
-- [Implementieren Sie die fortlaufende Integration mit Team Foundation](how-do-i-implement-continuous-integration-with-team-foundation.md)
-- [Automatisieren von Tests mit Team Build](how-do-i-automate-testing-using-team-build.md)
+- [Durchführen eines Auslastungstests für den Agent](using-the-load-test-agent.md)
+- [Auswirkungen von ViewState](the-effects-of-viewstate.md)
+- [Integrieren der Fehlernachverfolgung in Tests](how-do-i-integrate-defect-tracking-with-testing.md)
+- [Erstellen von eigenen Fehlerarbeitselementen](how-do-i-create-my-own-bug-work-item.md)
+- [Schnelleres Schreiben von Codes mit Komponententests](how-do-i-write-code-more-quickly-with-unit-tests.md)
+- [Testen der testgesteuerten Entwicklung](how-do-i-practice-test-driven-development.md)
+- [Durchführen eines Auslastungstests für eine Webanwendung](how-do-i-load-test-a-web-application.md)
+- [Optimieren der Webanwendungsleistung durch Profilerstellung](how-do-i-tune-web-application-performance-with-profiling.md)
+- [Einrichten von verteilten umfangreichen Auslastungstests](how-do-i-set-up-distributed-load-testing-for-high-volume-tests.md)
+- [Erzwingen von Codierungsstandards durch die Codeanalyse](how-do-i-enforce-coding-standards-with-code-analysis.md)
+- [Verwenden von generischen Tests](how-do-i-use-generic-tests.md)
+- [Veröffentlichen und Analysieren der Testergebnisse](how-do-i-publish-and-analyze-test-results.md)
+- [Ermitteln von Anwendungsänderungen vor der Bereitstellung](how-do-i-discover-application-changes-prior-to-deployment.md)
+- [Implementieren der Continuous Integration mit Team Foundation](how-do-i-implement-continuous-integration-with-team-foundation.md)
+- [Automatisieren von Tests mit einem Teambuild](how-do-i-automate-testing-using-team-build.md)
 - [Bereitstellen einer Webanwendung während eines Teambuilds](how-do-i-deploy-a-web-application-during-a-team-build.md)
 - [Ausführen von Komponententests für eine bereitgestellte Datenbank](how-do-i-run-unit-tests-against-a-deployed-database.md)
-- [Aktivieren Sie Code Coverage und die Profilerstellung in Produktionsanwendungen](how-do-i-enable-code-coverage-and-profiling-in-production-applications.md)
-- [Web-Bereitstellungsprojekte](web-deployment-projects.md)
-- [Webanwendungsprojekte & Webprojekte für die Bereitstellung](web-application-projects-web-deployment-projects.md)
+- [Aktivieren der Code Coverage und Profilerstellung in Produktionsanwendungen](how-do-i-enable-code-coverage-and-profiling-in-production-applications.md)
+- [Webbereitstellungsprojekte](web-deployment-projects.md)
+- [Webanwendungs- und Webbereitstellungsprojekte](web-application-projects-web-deployment-projects.md)

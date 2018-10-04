@@ -1,42 +1,38 @@
 ---
 uid: web-forms/videos/building-35-applications/index
-title: Erstellen von 3,5 Anwendungen | Microsoft Docs
+title: Erstellen von Anwendungen der Version 3.5 | Microsoft-Dokumentation
 author: rick-anderson
 description: Die Grundlagen der Erstellung von ASP.NET Web Forms-Anwendungen.
-ms.author: aspnetcontent
-manager: wpickett
+ms.author: riande
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: 20060b05-3c1b-41ca-9621-4434ba233adc
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/building-35-applications
 msc.type: chapter
-ms.openlocfilehash: 3a0c07ec2b8bd47e37dcce750a003ac6c0e824d8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 0c70223c81f598c83cc39c28d97364f5c8b1e92b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26526399"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48253507"
 ---
-<a name="building-35-applications"></a>Erstellen von 3.5-Anwendungen
+<a name="building-35-applications"></a>Erstellen von Anwendungen der Version 3.5
 ====================
 > Die Grundlagen der Erstellung von ASP.NET Web Forms-Anwendungen.
 
 
-- [Einführung in Visual Web Developer](intro-to-visual-web-developer.md)
+- [Einführung zu Visual Web Developer](intro-to-visual-web-developer.md)
 - [IntelliSense](intellisense.md)
-- [Einführung in WebForms](intro-to-web-forms.md)
+- [Einführung zu Web Forms](intro-to-web-forms.md)
 - [Seitenlayout](page-layout.md)
-- [Seite "-Lebenszyklusereignisse](page-lifecycle-events.md)
-- [Einführung in ASP.NET-Steuerelemente](intro-to-aspnet-controls.md)
+- [Seitenlebenszyklus-Ereignisse](page-lifecycle-events.md)
+- [Einführung zu ASP.NET-Steuerelementen](intro-to-aspnet-controls.md)
 - [Senden und Postback](submit-and-postback.md)
-- [Ebene Anwendungsobjekte](application-level-objects.md)
-- [Session-Objekte auf Serverebene](session-level-objects.md)
+- [Objekte auf Anwendungsebene](application-level-objects.md)
+- [Objekte auf Sitzungsebene](session-level-objects.md)
 - [Debuggen](debugging.md)
 - [CSS](css.md)
-- [Masterseiten](masterpages.md)
-- [Einführung in SOAP-basierte Webdienste mit Visual Web Developer 2008](an-introduction-to-soap-based-web-services-with-visual-web-developer-2008.md)
-- [AJAX-Stil-Diensten mit Microsoft Visual Web Developer 2008](ajax-style-services-with-microsoft-visual-web-developer-2008.md)
+- [MasterPages](masterpages.md)
+- [Einführung zu SOAP-basierten Webdiensten mit Visual Web Developer 2008](an-introduction-to-soap-based-web-services-with-visual-web-developer-2008.md)
+- [Diensten im AJAX-Stil mit Microsoft Visual Web Developer 2008](ajax-style-services-with-microsoft-visual-web-developer-2008.md)
 - [Validierung](validation.md)
-- [Anmeldesteuerelementen](login-controls.md)
+- [login-Steuerelemente](login-controls.md)

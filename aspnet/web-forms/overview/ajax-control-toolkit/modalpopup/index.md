@@ -1,34 +1,30 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/modalpopup/index
-title: ModalPopup | Microsoft Docs
+title: ModalPopup-Steuerelements | Microsoft-Dokumentation
 author: rick-anderson
-description: Dieses Lernprogramm zeigt, wie das Steuerelement ModalPopup verwendet wird, das das Äquivalent zu einem modalen Dialogfeld erstellen können.
-ms.author: aspnetcontent
-manager: wpickett
+description: In diesem Tutorial wird gezeigt, wie Sie mit dem ModalPopup-Steuerelement, das Sie die Darstellung eines modalen Dialogfelds erstellen können.
+ms.author: riande
 ms.date: 11/14/2011
-ms.topic: article
 ms.assetid: db4eca5d-b625-4e67-8e5b-a844639d4354
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup
 msc.type: chapter
-ms.openlocfilehash: 6cf39ad54a0aa85036f5d37e223672e0059b7ed0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 3b859ce51df5b55b236fb8fbafa94ab2530558b1
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26510819"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255043"
 ---
-<a name="modalpopup"></a>ModalPopup
+<a name="modalpopup"></a>"ModalPopup"
 ====================
-> Dieses Lernprogramm zeigt, wie das Steuerelement ModalPopup verwendet wird, das das Äquivalent zu einem modalen Dialogfeld erstellen können.
+> In diesem Tutorial wird gezeigt, wie Sie mit dem ModalPopup-Steuerelement, das Sie die Darstellung eines modalen Dialogfelds erstellen können.
 
 
-- [Starten ein modales Popupdialogfeld-Fenster von Servercode (c#)](launching-a-modal-popup-window-from-server-code-cs.md)
-- [Verwenden ModalPopup mit einem Wiederholungsmodul-Steuerelement (c#)](using-modalpopup-with-a-repeater-control-cs.md)
-- [Behandlung von Postbacks aus einem ModalPopup (c#)](handling-postbacks-from-a-modalpopup-cs.md)
-- [Positionieren ein ModalPopup (c#)](positioning-a-modalpopup-cs.md)
-- [Starten ein modales Popupfenster von Servercode (VB)](launching-a-modal-popup-window-from-server-code-vb.md)
-- [Verwenden ModalPopup mit einem Wiederholungsmodul-Steuerelement (VB)](using-modalpopup-with-a-repeater-control-vb.md)
-- [Behandlung von Postbacks aus einem ModalPopup (VB)](handling-postbacks-from-a-modalpopup-vb.md)
-- [Positionieren ein ModalPopup (VB)](positioning-a-modalpopup-vb.md)
+- [Starten eines modalen Popupfensters über den Servercode (C#)](launching-a-modal-popup-window-from-server-code-cs.md)
+- [Verwenden von ModalPopup mit einem Wiederholungssteuerelement (C#)](using-modalpopup-with-a-repeater-control-cs.md)
+- [Verarbeiten von Postbacks über ein ModalPopup-Steuerelement (C#)](handling-postbacks-from-a-modalpopup-cs.md)
+- [Positionieren eines ModalPopup-Steuerelements (C#)](positioning-a-modalpopup-cs.md)
+- [Starten eines modalen Popupfensters über den Servercode (VB)](launching-a-modal-popup-window-from-server-code-vb.md)
+- [Verwenden von ModalPopup mit einem Wiederholungssteuerelement (VB)](using-modalpopup-with-a-repeater-control-vb.md)
+- [Verarbeiten von Postbacks über ein ModalPopup-Steuerelement (VB)](handling-postbacks-from-a-modalpopup-vb.md)
+- [Positionieren eines ModalPopup-Steuerelements (VB)](positioning-a-modalpopup-vb.md)

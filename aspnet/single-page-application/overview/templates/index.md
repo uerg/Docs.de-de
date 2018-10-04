@@ -1,31 +1,27 @@
 ---
 uid: single-page-application/overview/templates/index
-title: Vorlagen | Microsoft Docs
+title: Vorlagen | Microsoft-Dokumentation
 author: rick-anderson
-description: Einführung in die Verwendung von Vorlagen einseitigen-Anwendung
-ms.author: aspnetcontent
-manager: wpickett
+description: Einführung in die Verwendung der einzelseitenanwendungsvorlagen
+ms.author: riande
 ms.date: 01/14/2013
-ms.topic: article
 ms.assetid: 93d4cdda-1ecc-40cc-be06-efe72c34116f
-ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/templates
 msc.type: chapter
-ms.openlocfilehash: 095f6a92191b535c985e172a695ae524d974b210
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: c3c4f065b1882219b425d1cbacae8f2c02e73fbe
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26506459"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48253526"
 ---
 <a name="templates"></a>Vorlagen
 ====================
-> Einführung in die Verwendung von Vorlagen einseitigen-Anwendung
+> Einführung in die Verwendung der einzelseitenanwendungsvorlagen
 
 
-- [Backbone-Vorlage](backbonejs-template.md)
-- [Kinderspiel/Angular-Vorlage](breezeangular-template.md)
-- [Kinderspiel/Knockout-Vorlage](breezeknockout-template.md)
-- [EmberJS-Vorlage](emberjs-template.md)
-- [Während des Betriebs Handtuch-Vorlage](hottowel-template.md)
+- [Backbone.js-Vorlage](backbonejs-template.md)
+- [Breeze.js-/Angular.js-Vorlage](breezeangular-template.md)
+- [Breeze.js-/Knockout.js-Vorlage](breezeknockout-template.md)
+- [Ember.js-Vorlage](emberjs-template.md)
+- [Hot Towel-Vorlage](hottowel-template.md)

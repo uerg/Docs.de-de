@@ -1,43 +1,39 @@
 ---
 uid: web-forms/videos/aspnet-dynamic-data/index
-title: ASP.NET Dynamic Data | Microsoft Docs
+title: ASP.NET Dynamic Data | Microsoft-Dokumentation
 author: rick-anderson
-description: Wie ASP.NET Dynamic Data Gerüstbau Anwendungen erstellen, die automatisch wissen, wie auf Daten zugreift.
-ms.author: aspnetcontent
-manager: wpickett
+description: Gewusst wie ASP.NET Dynamic Data zu verwenden, um die erstellte Anwendungen erstellen, die automatisch weiß, wie auf Daten zugreift.
+ms.author: riande
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: cd51e6c4-6ff9-419d-8ac8-a39b79d63c78
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data
 msc.type: chapter
-ms.openlocfilehash: a2fc937d18572ac2e1bc41cd28b98569a2490a61
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 2b9bf121e9eced28a91616a8d7515e1fb563f304
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26522509"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48253396"
 ---
 <a name="aspnet-dynamic-data"></a>ASP.NET Dynamic Data
 ====================
-> Wie ASP.NET Dynamic Data Gerüstbau Anwendungen erstellen, die automatisch wissen, wie auf Daten zugreift.
+> Gewusst wie ASP.NET Dynamic Data zu verwenden, um die erstellte Anwendungen erstellen, die automatisch weiß, wie auf Daten zugreift.
 
 
-- [Die erste Gerüst Projektmappen und Neuigkeiten dynamische Daten](your-first-scaffold-and-what-is-dynamic-data.md)
-- [Aktivieren Sie Inline-GridView bearbeiten](how-do-i-enable-inline-gridview-editing.md)
-- [Ändern Sie, wie meine Felder Rendern](how-do-i-change-how-my-fields-render.md)
-- [Behandeln von Ausnahmen für Business-Logik](how-do-i-handle-business-logic-exceptions.md)
-- [Stellen Sie benutzerdefinierte Seiten](how-do-i-make-custom-pages.md)
-- [Unbekannte Datentypen anzuzeigen](how-do-i-display-unknown-datatypes.md)
-- [Verwenden Sie eine DynamicControl im ListView-Steuerelement und DetailsView-Steuerelementen](how-do-i-use-a-dynamiccontrol-in-listview-and-detailsview-controls.md)
-- [Erste Schritte mit dynamischen Daten](getting-started-with-dynamic-data.md)
-- [Mit dem beginnen Sie Bearbeiten von Vorlagen in ASP.NET Dynamic Data-Anwendungen](begin-editing-the-templates-in-aspnet-dynamic-data-applications.md)
-- [Beginnen Sie ändern von Dynamic Data-Anwendungen mit URL-Routing](begin-modifying-dynamic-data-applications-with-url-routing.md)
-- [Aktivieren Sie Inline-Bearbeitung in ASP.NET Dynamic Data-Anwendungen](enable-in-line-editing-in-aspnet-dynamic-data-applications.md)
-- [Aktivieren Sie Tabelle bestimmte Routing in Dynamic Data-Anwendungen](how-to-enable-table-specific-routing-in-dynamic-data-applications.md)
-- [Verwenden von Attribut-Validierung in ASP.NET Dynamic Data-Anwendungen](how-to-use-attribute-validation-in-aspnet-dynamic-data-applications.md)
-- [Implementieren von benutzerdefinierten Feldvalidierung mit imperativem Logik in VB oder c#](how-to-implement-custom-field-validation-with-imperative-logic-in-vb-or-c.md)
-- [Entfernen von Spalten aus der DynamicData Datenblätter](how-to-remove-columns-from-your-dynamicdata-data-grids.md)
-- [Erstellen Sie bestimmte benutzerdefinierte Formulare Tabelle in eine ASP.NET Dynamic Data-Anwendung](how-to-create-table-specific-custom-forms-in-an-aspnet-dynamic-data-application.md)
-- [ASP.NET Dynamic Data benutzerdefiniertes Formular Formatierung](aspnet-dynamic-data-custom-form-formatting.md)
+- [Informationen zum ersten Gerüst und zu Dynamic Data](your-first-scaffold-and-what-is-dynamic-data.md)
+- [Aktivieren der GridView-Inlinebearbeitung](how-do-i-enable-inline-gridview-editing.md)
+- [Ändern der Methode zum Rendering von Feldern](how-do-i-change-how-my-fields-render.md)
+- [Verarbeiten von Ausnahmen für die Geschäftslogik](how-do-i-handle-business-logic-exceptions.md)
+- [Erstellen von benutzerdefinierten Seiten](how-do-i-make-custom-pages.md)
+- [Anzeigen von unbekannten Datentypen](how-do-i-display-unknown-datatypes.md)
+- [Verwenden von DynamicControl im ListView- und DetailsView-Steuerelement](how-do-i-use-a-dynamiccontrol-in-listview-and-detailsview-controls.md)
+- [Erste Schritte mit Dynamic Data](getting-started-with-dynamic-data.md)
+- [Erste Schritte mit der Bearbeitung von Vorlagen in ASP.NET Dynamic Data-Anwendungen](begin-editing-the-templates-in-aspnet-dynamic-data-applications.md)
+- [Erste Schritte mit der Änderung von Dynamic Data-Anwendungen durch URL-Routing](begin-modifying-dynamic-data-applications-with-url-routing.md)
+- [Aktivieren der Inlinebearbeitung in ASP.NET Dynamic Data-Anwendungen](enable-in-line-editing-in-aspnet-dynamic-data-applications.md)
+- [Aktivieren des tabellenspezifischen Routings in Dynamic Data-Anwendungen](how-to-enable-table-specific-routing-in-dynamic-data-applications.md)
+- [Durchführung von Attributüberprüfungen in ASP.NET Dynamic Data-Anwendungen](how-to-use-attribute-validation-in-aspnet-dynamic-data-applications.md)
+- [Implementieren der Überprüfung von benutzerdefinierten Feldern mit imperativer Logik in VB oder C#](how-to-implement-custom-field-validation-with-imperative-logic-in-vb-or-c.md)
+- [Entfernen von Spalten aus DynamicData-Datenrastern](how-to-remove-columns-from-your-dynamicdata-data-grids.md)
+- [Erstellen von tabellenspezifischen benutzerdefinierten Formularen in einer ASP.NET Dynamic Data-Anwendung](how-to-create-table-specific-custom-forms-in-an-aspnet-dynamic-data-application.md)
+- [Formatierung von benutzerdefinierten ASP.NET Dynamic Data-Formularen](aspnet-dynamic-data-custom-form-formatting.md)

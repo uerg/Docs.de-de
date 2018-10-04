@@ -1,22 +1,19 @@
 ---
 uid: webhooks/diagnostics/index
-title: ASP.NET WebHooks Diagnose | Microsoft Docs
+title: Diagnose für ASP.NET-WebHooks | Microsoft-Dokumentation
 author: rick-anderson
-description: Artikel zur ASP.NET WebHooks Diagnose
+description: Artikel zu ASP.NET WebHooks-Diagnose
 ms.author: riande
-manager: wpickett
 ms.date: 10/14/2016
-ms.topic: article
 ms.assetid: b5f3d8b0-6964-47a4-954e-c7722e88707b
-ms.prod: .net-framework
-ms.openlocfilehash: dbea60c55ac549c6140918aa58ebe338ba30022a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 8c9c24d29f968f7a6e5f2c61c459098af689c5c6
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26529679"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "39293186"
 ---
-# <a name="aspnet-webhooks-diagnostics"></a>ASP.NET WebHooks-Diagnose
+# <a name="aspnet-webhooks-diagnostics"></a>Diagnose für ASP.NET-WebHooks
 
 * [Logging (Protokollierung)](logging.md)
 * [Debuggen](debugging.md)
