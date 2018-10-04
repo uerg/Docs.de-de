@@ -8,12 +8,12 @@ ms.date: 01/20/2014
 ms.assetid: 979d6c9f-0129-4e5b-ae56-4507b281b86d
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: f13720c5e9de99fb4ae5b27a757c257cac881f89
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 35cf3bf555218b6b49b30f48186e4c67aff4ff7b
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41835240"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795550"
 ---
 <a name="attribute-routing-in-aspnet-web-api-2"></a>Attribut-Routing in ASP.NET Web-API 2
 ====================
@@ -25,10 +25,9 @@ Das frühere Format des Routings, aufgerufen wird, auf Konventionen basierendes 
 
 In diesem Thema wird gezeigt, wie das attributrouting aktivieren und beschreibt die verschiedenen Optionen für die Attribut-routing. Ein End-to-End-Lernprogramm, das das attributrouting verwendet, finden Sie unter [erstellen Sie eine REST-API mit Attributrouting in der Web-API 2](create-a-rest-api-with-attribute-routing.md).
 
+## <a name="prerequisites"></a>Vorraussetzungen
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
-
-[Visual Studio 2017](https://www.visualstudio.com/vs/) Community, Professional oder Enterprise Edition
+[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) Community, Professional oder Enterprise Edition
 
 Alternativ verwenden Sie NuGet-Paket-Manager, um die erforderlichen Pakete zu installieren. Von der **Tools** in Visual Studio, wählen Sie im Menü **Bibliothekspaket-Manager**, und wählen Sie dann **-Paket-Manager-Konsole**. Geben Sie im Fenster Paket-Manager-Konsole den folgenden Befehl ein:
 
@@ -55,21 +54,21 @@ Hier sind einige andere Muster, die Attribut einfach routing macht.
 
 In diesem Beispiel "/ api/v1/Produkte" wäre weitergeleitet, auf einen anderen Controller als "/ api/v2/Produkte".
 
-`/api/v1/products`  
+`/api/v1/products`
 `/api/v2/products`
 
 **Überladene URI-Segmente**
 
 In diesem Beispiel ist "1" ist eine Bestellnummer, aber "Ausstehend" ist einer Sammlung zugeordnet.
 
-`/orders/1`  
+`/orders/1`
 `/orders/pending`
 
 **Mehrere Parametertypen**
 
 In diesem Beispiel ist "1" ist eine Bestellnummer, aber "2013/06/16" gibt ein Datum an.
 
-`/orders/1`  
+`/orders/1`
 `/orders/2013/06/16`
 
 <a id="enable"></a>
@@ -251,7 +250,7 @@ Wenn Sie das Framework versucht, die einen URI mit einer Route übereinstimmen, 
 Hier ist wie der gesamten Sortierung bestimmt wird:
 
 1. Vergleichen Sie die **RouteOrder** -Eigenschaft des Attributs Route.
-2. Sehen Sie sich jede URI-Segment in der routenvorlage. Bestellen Sie für die einzelnen Segmente wie folgt: 
+2. Sehen Sie sich jede URI-Segment in der routenvorlage. Bestellen Sie für die einzelnen Segmente wie folgt:
 
     1. Literal-Segmente.
     2. Der Routenparameter mit Einschränkungen.

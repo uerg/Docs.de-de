@@ -8,12 +8,12 @@ ms.date: 03/31/2014
 ms.assetid: 9e10a700-8d91-4d2e-a31e-b8b569fe867c
 msc.legacyurl: /web-api/overview/advanced/configuring-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 81119b35fb375bb2299edc4f08289a89aecfcd88
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 57066b8ce3254caf59cf927d16d96f8bc22a8acd
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41828062"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795250"
 ---
 <a name="configuring-aspnet-web-api-2"></a>Konfigurieren von ASP.NET Web-API 2
 ====================
@@ -46,9 +46,9 @@ Einstellungen der Web-API-Konfiguration werden definiert, der [HttpConfiguration
 | **Dienste** | Die Auflistung von Diensten. Finden Sie unter [Services](#services). |
 
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Vorraussetzungen
 
-[Visual Studio 2017](https://www.visualstudio.com/vs/) Community, Professional oder Enterprise Edition.
+[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) Community, Professional oder Enterprise Edition.
 
 <a id="webhost"></a>
 ## <a name="configuring-web-api-with-aspnet-hosting"></a>Konfigurieren von Web-API mit Hosten von ASP.NET

@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: 9f969dda-78ea-4329-b1e3-e51c02210a2b
 msc.legacyurl: /signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: e710980cecf9093ea9046b5790379befb5b61841
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 008cbc8ec7ca0af4b20e5e3974cf3862efa7677e
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41836217"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48794879"
 ---
 <a name="tutorial-high-frequency-realtime-with-signalr-2"></a>Tutorial: Von Echtzeitnachrichten mit SignalR 2
 ====================
@@ -81,7 +81,7 @@ In diesem Tutorial enthält die folgenden Abschnitte:
 
 <a id="prerequisites"></a>
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Vorraussetzungen
 
 Dieses Lernprogramm erfordert Visual Studio 2013.
 
@@ -213,7 +213,7 @@ Die Anwendung ist fast abgeschlossen, aber stellen wir eine weitere Verbesserung
 
 ## <a name="further-steps"></a>Weitere Schritte
 
-In diesem Tutorial haben Sie gelernt, wie Sie eine SignalR-Anwendung programmieren, die häufige Nachrichten zwischen Clients und Servern sendet. Dieses Paradigma für die Kommunikation ist nützlich für die Entwicklung von Onlinespielen und andere Simulationen, z. B. [ShootR Spiel erstellt, die mit SignalR](http://shootr.signalr.net).
+In diesem Tutorial haben Sie gelernt, wie Sie eine SignalR-Anwendung programmieren, die häufige Nachrichten zwischen Clients und Servern sendet. Dieses Paradigma für die Kommunikation ist nützlich für die Entwicklung von Onlinespielen und andere Simulationen, z. B. [ShootR Spiel erstellt, die mit SignalR](https://shootr.azurewebsites.net/).
 
 Die vollständige Anwendung, die in diesem Tutorial erstellten kann heruntergeladen werden [Code Gallery](https://code.msdn.microsoft.com/SignalR-20-MoveShape-Demo-6285b83a).
 

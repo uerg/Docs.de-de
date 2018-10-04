@@ -4,18 +4,18 @@ author: scottaddie
 description: Erfahren Sie, wie Sie statische Ressourcen in einer ASP.NET Core-Webanwendung durch Anwenden von bündelungs-und minimierungsverfahren zu optimieren.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 01/10/2018
+ms.date: 10/04/2018
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: 45200d34974cbbb44787616eba7508458882416c
-ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
+ms.openlocfilehash: 152f3c810b587d734c1b1076a09ea38d13872e2d
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47028140"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795404"
 ---
 # <a name="bundle-and-minify-static-assets-in-aspnet-core"></a>Bündelung und Minimierung von statischen Objekten in ASP.NET Core
 
-Von [Scott Addie](https://twitter.com/Scott_Addie)
+Durch [Scott Addie](https://twitter.com/Scott_Addie) und [David Kiefer](https://twitter.com/davidpine7)
 
 Dieser Artikel beschreibt die Vorteile der Anwendung Bündelung und Minimierung, einschließlich, wie diese Features in ASP.NET Core-Web-apps verwendet werden können.
 

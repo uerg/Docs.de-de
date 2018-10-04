@@ -8,12 +8,12 @@ ms.date: 06/05/2014
 ms.assetid: bf20f78d-ff91-48be-abd1-88e23dcc70ba
 msc.legacyurl: /web-api/overview/testing-and-debugging/unit-testing-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 0a3f9ddde725995359de85c5e0783106f5de02bd
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 91cca2789b66b7b8983f8786b506c5fc71db8b75
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837179"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795433"
 ---
 <a name="unit-testing-aspnet-web-api-2"></a>Komponententests für ASP.NET Web API 2
 ====================
@@ -22,17 +22,15 @@ durch [Tom FitzMacken](https://github.com/tfitzmac)
 [Abgeschlossenes Projekt herunterladen](https://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-1374bc11)
 
 > Dieser Leitfaden und die Anwendung veranschaulichen, wie einfacher Komponententests für Ihre Web-API 2-Anwendung zu erstellen. In diesem Tutorial veranschaulicht einen Datenbankkomponententest-Projekt in der Projektmappe, und Schreiben von Testmethoden, die die zurückgegebenen Werte von einer Controllermethode aus zu überprüfen.
-> 
+>
 > In diesem Tutorial wird davon ausgegangen, dass Sie mit den grundlegenden Konzepten von ASP.NET Web-API vertraut sind. Ein einführendes Lernprogramm finden Sie unter [erste Schritte mit ASP.NET Web API 2](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md).
-> 
+>
 > Die Komponententests in diesem Thema sind absichtlich auf einfachen Szenarien beschränkt. Komponententests erweiterte Data-Szenarien finden Sie unter [Mocking Entity Framework bei Komponententests Testen von ASP.NET Web API 2](mocking-entity-framework-when-unit-testing-aspnet-web-api-2.md).
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Softwareversionen, die in diesem Tutorial verwendet werden.
-> 
-> 
-> - [Visual Studio 2017](https://www.visualstudio.com/vs/)
+>
+> - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
 > - Web-API 2
-
 
 ## <a name="in-this-topic"></a>In diesem Thema
 
@@ -41,7 +39,6 @@ Dieses Thema enthält folgende Abschnitte:
 - [Erforderliche Komponenten](#prereqs)
 - [Code herunterladen](#download)
 - [Erstellen Sie Anwendung mit Komponententestprojekt](#appwithunittest)
-
     - [Fügen Sie beim Erstellen der Anwendung Komponententestprojekt hinzu](#whencreate)
     - [Datenbankkomponententest-Projekt zu einer vorhandenen Anwendung hinzufügen](#addtoexisting)
 - [Einrichten der Web-API 2-Anwendung](#setupproject)
@@ -50,9 +47,9 @@ Dieses Thema enthält folgende Abschnitte:
 - [Ausführen von tests](#runtests)
 
 <a id="prereqs"></a>
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Vorraussetzungen
 
-Visual Studio 2017 Community, Professional oder Enterprise edition
+[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) Community, Professional oder Enterprise Edition
 
 <a id="download"></a>
 ## <a name="download-code"></a>Code herunterladen

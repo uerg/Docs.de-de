@@ -8,30 +8,28 @@ ms.date: 02/25/2014
 ms.assetid: 66a837e9-600b-4b72-97a9-19804231c64a
 msc.legacyurl: /web-api/overview/testing-and-debugging/tracing-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 02805eda4f8dceb467547fa4e00aef8ea956f228
-ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
+ms.openlocfilehash: 426e3500c504a651a325eec021e2d9e8b9cc1d32
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46292283"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795279"
 ---
 <a name="tracing-in-aspnet-web-api-2"></a>Ablaufverfolgung in ASP.NET Web-API 2
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson)
 
 > Beim Debuggen eine webbasierten Anwendung, ist es keinen Ersatz für einen guten Satz von Ablaufverfolgungsprotokollen an. Dieses Tutorial zeigt, wie die Ablaufverfolgung in ASP.NET Web-API aktiviert wird. Sie können diese Funktion verwenden, für die Ablaufverfolgung, was das Web-API-Framework ermöglicht, vor und nach dem sie Ihre Controller aufruft. Sie können es auch verwenden, um Ihren eigenen Code zu verfolgen.
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Softwareversionen, die in diesem Tutorial verwendet werden.
-> 
-> 
-> - [Visual Studio 2017](https://www.visualstudio.com/downloads/) (funktioniert auch mit Visual Studio 2015)
+>
+> - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) (funktioniert auch mit Visual Studio 2015)
 > - Web-API 2
 > - [Microsoft.AspNet.WebApi.Tracing](http://www.nuget.org/packages/Microsoft.AspNet.WebApi.Tracing)
 
-
 ## <a name="enable-systemdiagnostics-tracing-in-web-api"></a>Aktivieren Sie System.Diagnostics, die in der Web-API-Ablaufverfolgung
 
-Zunächst erstellen wir ein neues ASP.NET-Webanwendungsprojekt. In Visual Studio aus der **Datei** , wählen Sie im Menü **neu**, klicken Sie dann **Projekt**. Klicken Sie unter **Vorlagen**, **Web**Option **ASP.NET-Webanwendung**.
+Zunächst erstellen wir ein neues ASP.NET-Webanwendungsprojekt. In Visual Studio aus der **Datei** , wählen Sie im Menü **neu** > **Projekt**. Klicken Sie unter **Vorlagen**, **Web**Option **ASP.NET-Webanwendung**.
 
 [![](tracing-in-aspnet-web-api/_static/image2.png)](tracing-in-aspnet-web-api/_static/image1.png)
 

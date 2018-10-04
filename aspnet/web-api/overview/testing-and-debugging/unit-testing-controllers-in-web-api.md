@@ -8,22 +8,22 @@ ms.date: 06/11/2014
 ms.assetid: 43a6cce7-a3ef-42aa-ad06-90d36d49f098
 msc.legacyurl: /web-api/overview/testing-and-debugging/unit-testing-controllers-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 7b0d5266757219a05b25fc3d1d4cba8514a4dff7
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: e1bb1aa120ced95db7674eae1831f2a2c7356fc0
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826377"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48794823"
 ---
 <a name="unit-testing-controllers-in-aspnet-web-api-2"></a>Komponententests für Controller in ASP.NET Web-API 2
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson)
 
 > Dieses Thema beschreibt, welche Techniken für Komponententests für Controller in Web-API 2. Bevor Sie dieses Thema lesen, sollten, lesen das Tutorial [Unit Testing ASP.NET Web API 2](unit-testing-with-aspnet-web-api.md), erfahren, wie Sie ein Komponententestprojekt der Projektmappe hinzufügen.
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Softwareversionen, die in diesem Tutorial verwendet werden.
-> 
-> - [Visual Studio 2017](https://www.visualstudio.com/vs/)
+>
+> - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
 > - Web-API 2
 > - [Moq](https://github.com/Moq) 4.5.30
 

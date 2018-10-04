@@ -8,12 +8,12 @@ ms.date: 12/13/2013
 ms.assetid: cd844025-ccad-41ce-8694-595f1022a49f
 msc.legacyurl: /web-api/overview/testing-and-debugging/mocking-entity-framework-when-unit-testing-aspnet-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: 0bc5ab59583a2be3f889ba05d26c6cda4589057d
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 8945f913abe8fb8397d07a5994000fff2348f1f7
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41839037"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795378"
 ---
 <a name="mocking-entity-framework-when-unit-testing-aspnet-web-api-2"></a>Simulieren des Entitätsframework bei Komponententests für ASP.NET Web API 2
 ====================
@@ -22,17 +22,15 @@ durch [Tom FitzMacken](https://github.com/tfitzmac)
 [Abgeschlossenes Projekt herunterladen](https://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-1374bc11)
 
 > Dieser Leitfaden und die Anwendung veranschaulichen, wie Sie Komponententests für Ihre Web-API 2-Anwendung zu erstellen, das Entity Framework verwendet. Vorgehensweise: Ändern Sie den erstellten Controller aus, um die ermöglicht das Übergeben einer Context-Objekt, für das Testen und das Testobjekte zu erstellen, die mit Entity Framework verwendet werden.
-> 
+>
 > Eine Einführung in Komponententests mit ASP.NET Web-API, finden Sie unter [Komponententests mit ASP.NET Web API 2](unit-testing-with-aspnet-web-api.md).
-> 
+>
 > In diesem Tutorial wird davon ausgegangen, dass Sie mit den grundlegenden Konzepten von ASP.NET Web-API vertraut sind. Ein einführendes Lernprogramm finden Sie unter [erste Schritte mit ASP.NET Web API 2](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md).
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Softwareversionen, die in diesem Tutorial verwendet werden.
-> 
-> 
-> - [Visual Studio 2017](https://www.visualstudio.com/vs/)
+>
+> - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
 > - Web-API 2
-
 
 ## <a name="in-this-topic"></a>In diesem Thema
 
@@ -52,7 +50,7 @@ Dieses Thema enthält folgende Abschnitte:
 Wenn Sie bereits, dass die Schritte im haben [Komponententests mit ASP.NET Web API 2](unit-testing-with-aspnet-web-api.md), können Sie mit Abschnitt fortfahren [Hinzufügen des Controllers](#controller).
 
 <a id="prereqs"></a>
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Vorraussetzungen
 
 Visual Studio 2017 Community, Professional oder Enterprise edition
 

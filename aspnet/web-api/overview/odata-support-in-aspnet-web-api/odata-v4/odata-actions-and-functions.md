@@ -8,32 +8,29 @@ ms.date: 06/27/2014
 ms.assetid: 0e6fb03c-b16d-4bb0-ab0b-552bd2b6ece1
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/odata-actions-and-functions
 msc.type: authoredcontent
-ms.openlocfilehash: 4e61c6b4bf59792b6570e32e6d24635d4f5e5ac3
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 45b84ec4ee76e83ece99bf6841c28e13c3ab7728
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41836187"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795266"
 ---
 <a name="actions-and-functions-in-odata-v4-using-aspnet-web-api-22"></a>Aktionen und Funktionen in OData v4 ASP.NET Web API 2.2 verwendet
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson)
 
 > In OData können Aktionen und Funktionen: serverseitige Verhaltensweisen hinzufügen, die nicht einfach als CRUD-Vorgänge für Entitäten definiert sind. Dieses Tutorial veranschaulicht das Hinzufügen von Aktionen und Funktionen OData v4-Endpunkt mit Web API 2.2. Das Tutorial baut auf dem Tutorial [erstellen Sie eine OData v4-Endpunkts mit ASP.NET-Web API 2](create-an-odata-v4-endpoint.md)
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Softwareversionen, die in diesem Tutorial verwendet werden.
-> 
-> 
+>
 > - Web-API 2.2
 > - OData v4
-> - [Visual Studio 2013 Update 2](https://www.visualstudio.com/downloads/download-visual-studio-vs)
+> - Visual Studio 2013 (Visual Studio 2017 herunterladen [hier](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017))
 > - .NET 4.5
-> 
-> 
+>
 > ## <a name="tutorial-versions"></a>Lernprogramm-Versionen
-> 
+>
 > OData-Version 3, finden Sie unter [OData-Aktionen in ASP.NET Web API 2](../odata-v3/odata-actions.md).
-
 
 Der Unterschied zwischen *Aktionen* und *Funktionen* besteht darin, dass Aktionen Nebeneffekte haben können und Funktionen nicht. Aktionen und Funktionen können Daten zurückgeben. Einige Verwendungsmöglichkeiten für Aktionen umfassen:
 
