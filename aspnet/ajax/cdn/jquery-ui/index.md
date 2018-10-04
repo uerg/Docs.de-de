@@ -1,58 +1,54 @@
 ---
 uid: ajax/cdn/jquery-ui/index
-title: jQuery UI | Microsoft Docs
+title: jQuery-Benutzeroberfläche | Microsoft-Dokumentation
 author: rick-anderson
 description: ''
-ms.author: aspnetcontent
-manager: wpickett
+ms.author: riande
 ms.date: 07/21/2014
-ms.topic: article
 ms.assetid: bd72bb7e-bdcb-490b-8bc1-9b669329632b
-ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn/jquery-ui
 msc.type: folder
-ms.openlocfilehash: 3ecaf37814e760116b45c5e48704faee36f2d7d7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: b78adb451fba9fba05c0122afeea4d6baf31a447
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26495999"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255303"
 ---
-<a name="jquery-ui"></a><span data-ttu-id="f0994-102">jQuery UI</span><span class="sxs-lookup"><span data-stu-id="f0994-102">jQuery UI</span></span>
+<a name="jquery-ui"></a><span data-ttu-id="bf140-102">jQuery-Benutzeroberfläche</span><span class="sxs-lookup"><span data-stu-id="bf140-102">jQuery UI</span></span>
 ====================
-- [<span data-ttu-id="f0994-103">jQuery UI 1.10.4 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-103">jQuery UI 1.10.4 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1104.md)
-- [<span data-ttu-id="f0994-104">jQuery UI 1.10.3 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-104">jQuery UI 1.10.3 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1103.md)
-- [<span data-ttu-id="f0994-105">jQuery 1.10.2-Benutzeroberfläche auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-105">jQuery UI 1.10.2 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1102.md)
-- [<span data-ttu-id="f0994-106">jQuery UI 1.10.1 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-106">jQuery UI 1.10.1 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1101.md)
-- [<span data-ttu-id="f0994-107">jQuery UI 1.10.0 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-107">jQuery UI 1.10.0 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1100.md)
-- [<span data-ttu-id="f0994-108">jQuery UI 1.9.2 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-108">jQuery UI 1.9.2 on the Microsoft Ajax CDN</span></span>](cdnjqueryui192.md)
-- [<span data-ttu-id="f0994-109">jQuery UI 1.9.1 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-109">jQuery UI 1.9.1 on the Microsoft Ajax CDN</span></span>](cdnjqueryui191.md)
-- [<span data-ttu-id="f0994-110">jQuery UI 1.9.0 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-110">jQuery UI 1.9.0 on the Microsoft Ajax CDN</span></span>](cdnjqueryui190.md)
-- [<span data-ttu-id="f0994-111">jQuery UI 1.8.24 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-111">jQuery UI 1.8.24 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1824.md)
-- [<span data-ttu-id="f0994-112">jQuery UI 1.8.23 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-112">jQuery UI 1.8.23 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1823.md)
-- [<span data-ttu-id="f0994-113">jQuery UI 1.8.22 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-113">jQuery UI 1.8.22 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1822.md)
-- [<span data-ttu-id="f0994-114">jQuery UI 1.8.21 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-114">jQuery UI 1.8.21 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1821.md)
-- [<span data-ttu-id="f0994-115">jQuery UI 1.8.20 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-115">jQuery UI 1.8.20 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1820.md)
-- [<span data-ttu-id="f0994-116">jQuery UI 1.8.19 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-116">jQuery UI 1.8.19 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1819.md)
-- [<span data-ttu-id="f0994-117">jQuery UI 1.8.18 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-117">jQuery UI 1.8.18 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1818.md)
-- [<span data-ttu-id="f0994-118">jQuery UI 1.8.17 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-118">jQuery UI 1.8.17 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1817.md)
-- [<span data-ttu-id="f0994-119">jQuery UI 1.8.16 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-119">jQuery UI 1.8.16 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1816.md)
-- [<span data-ttu-id="f0994-120">jQuery UI 1.8.15 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-120">jQuery UI 1.8.15 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1815.md)
-- [<span data-ttu-id="f0994-121">jQuery UI 1.8.14 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-121">jQuery UI 1.8.14 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1814.md)
-- [<span data-ttu-id="f0994-122">jQuery UI 1.8.13 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-122">jQuery UI 1.8.13 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1813.md)
-- [<span data-ttu-id="f0994-123">jQuery UI 1.8.12 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-123">jQuery UI 1.8.12 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1812.md)
-- [<span data-ttu-id="f0994-124">jQuery UI 1.8.11 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-124">jQuery UI 1.8.11 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1811.md)
-- [<span data-ttu-id="f0994-125">jQuery UI 1.8.10 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-125">jQuery UI 1.8.10 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1910.md)
-- [<span data-ttu-id="f0994-126">jQuery UI 1.8.9 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-126">jQuery UI 1.8.9 on the Microsoft Ajax CDN</span></span>](cdnjqueryui189.md)
-- [<span data-ttu-id="f0994-127">jQuery UI 1.8.8 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-127">jQuery UI 1.8.8 on the Microsoft Ajax CDN</span></span>](cdnjqueryui188.md)
-- [<span data-ttu-id="f0994-128">jQuery UI 1.8.7 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-128">jQuery UI 1.8.7 on the Microsoft Ajax CDN</span></span>](cdnjqueryui187.md)
-- [<span data-ttu-id="f0994-129">jQuery UI 1.8.6 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-129">jQuery UI 1.8.6 on the Microsoft Ajax CDN</span></span>](cdnjqueryui186.md)
-- [<span data-ttu-id="f0994-130">jQuery UI 1.8.5</span><span class="sxs-lookup"><span data-stu-id="f0994-130">jQuery UI 1.8.5</span></span>](cdnjqueryui185.md)
-- [<span data-ttu-id="f0994-131">jQuery UI 1.11.2 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-131">jQuery UI 1.11.2 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1112.md)
-- [<span data-ttu-id="f0994-132">jQuery UI 1.11.1 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-132">jQuery UI 1.11.1 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1111.md)
-- [<span data-ttu-id="f0994-133">jQuery UI 1.11.0 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-133">jQuery UI 1.11.0 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1110.md)
-- [<span data-ttu-id="f0994-134">jQuery UI 1.11.3 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-134">jQuery UI 1.11.3 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1113.md)
-- [<span data-ttu-id="f0994-135">jQuery UI 1.11.4 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-135">jQuery UI 1.11.4 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1114.md)
-- [<span data-ttu-id="f0994-136">jQuery UI 1.12.0 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-136">jQuery UI 1.12.0 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1120.md)
-- [<span data-ttu-id="f0994-137">jQuery UI 1.12.1 auf das Microsoft Ajax-CDN</span><span class="sxs-lookup"><span data-stu-id="f0994-137">jQuery UI 1.12.1 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1121.md)
+- [<span data-ttu-id="bf140-103">jQuery UI 1.10.4 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-103">jQuery UI 1.10.4 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1104.md)
+- [<span data-ttu-id="bf140-104">jQuery UI 1.10.3 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-104">jQuery UI 1.10.3 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1103.md)
+- [<span data-ttu-id="bf140-105">jQuery UI 1.10.2 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-105">jQuery UI 1.10.2 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1102.md)
+- [<span data-ttu-id="bf140-106">jQuery UI 1.10.1 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-106">jQuery UI 1.10.1 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1101.md)
+- [<span data-ttu-id="bf140-107">jQuery UI 1.10.0 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-107">jQuery UI 1.10.0 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1100.md)
+- [<span data-ttu-id="bf140-108">jQuery UI 1.9.2 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-108">jQuery UI 1.9.2 on the Microsoft Ajax CDN</span></span>](cdnjqueryui192.md)
+- [<span data-ttu-id="bf140-109">jQuery UI 1.9.1 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-109">jQuery UI 1.9.1 on the Microsoft Ajax CDN</span></span>](cdnjqueryui191.md)
+- [<span data-ttu-id="bf140-110">jQuery UI 1.9.0 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-110">jQuery UI 1.9.0 on the Microsoft Ajax CDN</span></span>](cdnjqueryui190.md)
+- [<span data-ttu-id="bf140-111">jQuery UI 1.8.24 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-111">jQuery UI 1.8.24 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1824.md)
+- [<span data-ttu-id="bf140-112">jQuery UI 1.8.23 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-112">jQuery UI 1.8.23 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1823.md)
+- [<span data-ttu-id="bf140-113">jQuery UI 1.8.22 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-113">jQuery UI 1.8.22 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1822.md)
+- [<span data-ttu-id="bf140-114">jQuery UI 1.8.21 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-114">jQuery UI 1.8.21 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1821.md)
+- [<span data-ttu-id="bf140-115">jQuery UI 1.8.20 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-115">jQuery UI 1.8.20 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1820.md)
+- [<span data-ttu-id="bf140-116">jQuery UI 1.8.19 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-116">jQuery UI 1.8.19 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1819.md)
+- [<span data-ttu-id="bf140-117">jQuery UI 1.8.18 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-117">jQuery UI 1.8.18 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1818.md)
+- [<span data-ttu-id="bf140-118">jQuery UI 1.8.17 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-118">jQuery UI 1.8.17 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1817.md)
+- [<span data-ttu-id="bf140-119">jQuery UI 1.8.16 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-119">jQuery UI 1.8.16 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1816.md)
+- [<span data-ttu-id="bf140-120">jQuery UI 1.8.15 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-120">jQuery UI 1.8.15 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1815.md)
+- [<span data-ttu-id="bf140-121">jQuery UI 1.8.14 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-121">jQuery UI 1.8.14 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1814.md)
+- [<span data-ttu-id="bf140-122">jQuery UI 1.8.13 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-122">jQuery UI 1.8.13 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1813.md)
+- [<span data-ttu-id="bf140-123">jQuery UI 1.8.12 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-123">jQuery UI 1.8.12 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1812.md)
+- [<span data-ttu-id="bf140-124">jQuery UI 1.8.11 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-124">jQuery UI 1.8.11 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1811.md)
+- [<span data-ttu-id="bf140-125">jQuery UI 1.8.10 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-125">jQuery UI 1.8.10 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1910.md)
+- [<span data-ttu-id="bf140-126">jQuery UI 1.8.9 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-126">jQuery UI 1.8.9 on the Microsoft Ajax CDN</span></span>](cdnjqueryui189.md)
+- [<span data-ttu-id="bf140-127">jQuery UI 1.8.8 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-127">jQuery UI 1.8.8 on the Microsoft Ajax CDN</span></span>](cdnjqueryui188.md)
+- [<span data-ttu-id="bf140-128">jQuery UI 1.8.7 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-128">jQuery UI 1.8.7 on the Microsoft Ajax CDN</span></span>](cdnjqueryui187.md)
+- [<span data-ttu-id="bf140-129">jQuery UI 1.8.6 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-129">jQuery UI 1.8.6 on the Microsoft Ajax CDN</span></span>](cdnjqueryui186.md)
+- [<span data-ttu-id="bf140-130">jQuery UI 1.8.5</span><span class="sxs-lookup"><span data-stu-id="bf140-130">jQuery UI 1.8.5</span></span>](cdnjqueryui185.md)
+- [<span data-ttu-id="bf140-131">jQuery UI 1.11.2 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-131">jQuery UI 1.11.2 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1112.md)
+- [<span data-ttu-id="bf140-132">jQuery UI 1.11.1 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-132">jQuery UI 1.11.1 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1111.md)
+- [<span data-ttu-id="bf140-133">jQuery UI 1.11.0 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-133">jQuery UI 1.11.0 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1110.md)
+- [<span data-ttu-id="bf140-134">jQuery UI 1.11.3 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-134">jQuery UI 1.11.3 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1113.md)
+- [<span data-ttu-id="bf140-135">jQuery UI 1.11.4 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-135">jQuery UI 1.11.4 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1114.md)
+- [<span data-ttu-id="bf140-136">jQuery UI 1.12.0 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-136">jQuery UI 1.12.0 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1120.md)
+- [<span data-ttu-id="bf140-137">jQuery UI 1.12.1 für das Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="bf140-137">jQuery UI 1.12.1 on the Microsoft Ajax CDN</span></span>](cdnjqueryui1121.md)

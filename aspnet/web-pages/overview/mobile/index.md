@@ -1,27 +1,23 @@
 ---
 uid: web-pages/overview/mobile/index
-title: Mobile | Microsoft Docs
+title: Mobile | Microsoft-Dokumentation
 author: rick-anderson
-description: Das Arbeiten mit mobilen Geräten in ASP.NET Web Pages-Anwendungen.
-ms.author: aspnetcontent
-manager: wpickett
+description: Wie Sie mit mobilen Geräten in ASP.NET Web Pages-Anwendungen arbeiten.
+ms.author: riande
 ms.date: 09/08/2014
-ms.topic: article
 ms.assetid: ce83fbc9-ef24-4f59-8e76-7ca1b983bf9a
-ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/mobile
 msc.type: chapter
-ms.openlocfilehash: a972010a9b6bc041f2424de1da78f93fc67ae37f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: cfaf011e33238ccc96812510ac856567b5f2dbf6
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26528629"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256037"
 ---
-<a name="mobile"></a><span data-ttu-id="57e85-103">Mobil</span><span class="sxs-lookup"><span data-stu-id="57e85-103">Mobile</span></span>
+<a name="mobile"></a><span data-ttu-id="1d716-103">Mobil</span><span class="sxs-lookup"><span data-stu-id="1d716-103">Mobile</span></span>
 ====================
-> <span data-ttu-id="57e85-104">Das Arbeiten mit mobilen Geräten in ASP.NET Web Pages-Anwendungen.</span><span class="sxs-lookup"><span data-stu-id="57e85-104">How to work with Mobile devices in ASP.NET Web Pages applications.</span></span>
+> <span data-ttu-id="1d716-104">Wie Sie mit mobilen Geräten in ASP.NET Web Pages-Anwendungen arbeiten.</span><span class="sxs-lookup"><span data-stu-id="1d716-104">How to work with Mobile devices in ASP.NET Web Pages applications.</span></span>
 
 
-- [<span data-ttu-id="57e85-105">Rendern von ASP.NET Web Sites-Seiten für Mobile Geräte</span><span class="sxs-lookup"><span data-stu-id="57e85-105">Rendering ASP.NET Web Pages Sites for Mobile Devices</span></span>](rendering-aspnet-web-pages-sites-for-mobile-devices.md)
+- [<span data-ttu-id="1d716-105">Rendern von ASP.NET Web Pages-Websites für Mobilgeräte</span><span class="sxs-lookup"><span data-stu-id="1d716-105">Rendering ASP.NET Web Pages Sites for Mobile Devices</span></span>](rendering-aspnet-web-pages-sites-for-mobile-devices.md)

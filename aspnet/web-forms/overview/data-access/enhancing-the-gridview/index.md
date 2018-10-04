@@ -1,32 +1,28 @@
 ---
 uid: web-forms/overview/data-access/enhancing-the-gridview/index
-title: Erweitern die GridView | Microsoft Docs
+title: Verbessern der GridView | Microsoft-Dokumentation
 author: rick-anderson
-description: Diese Lernprogramme zeigen, wie eine Spalte von Optionsfeldern an ein GridView-Steuerelement, geben Sie eine intuitive Methode wählen Sie eine einzelne Zeile hinzugefügt wird.
-ms.author: aspnetcontent
-manager: wpickett
+description: Diese Tutorials zeigen, wie ein GridView-Steuerelement eine intuitive Methode zum Auswählen einer einzelnen Zeile zu eine Spalte mit Optionsfeldern hinzugefügt wird.
+ms.author: riande
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: 80010898-5cb0-49ae-a678-cc2f3fe3ca6c
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview
 msc.type: chapter
-ms.openlocfilehash: 04dbfe7fcc66e4e946b1807c3480d7c796af11df
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 4c2c5e506f6186c9e6efe940fb5074eec63d52dd
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26514079"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256280"
 ---
-<a name="enhancing-the-gridview"></a><span data-ttu-id="033cd-103">Erweitern die GridView</span><span class="sxs-lookup"><span data-stu-id="033cd-103">Enhancing the GridView</span></span>
+<a name="enhancing-the-gridview"></a><span data-ttu-id="18eb8-103">Verbessern der GridView</span><span class="sxs-lookup"><span data-stu-id="18eb8-103">Enhancing the GridView</span></span>
 ====================
-> <span data-ttu-id="033cd-104">Diese Lernprogramme zeigen, wie eine Spalte von Optionsfeldern an ein GridView-Steuerelement, geben Sie eine intuitive Methode wählen Sie eine einzelne Zeile hinzugefügt wird.</span><span class="sxs-lookup"><span data-stu-id="033cd-104">These tutorials show how to add a column of radio buttons to a GridView control to provide an intuitive way to select a single row.</span></span>
+> <span data-ttu-id="18eb8-104">Diese Tutorials zeigen, wie ein GridView-Steuerelement eine intuitive Methode zum Auswählen einer einzelnen Zeile zu eine Spalte mit Optionsfeldern hinzugefügt wird.</span><span class="sxs-lookup"><span data-stu-id="18eb8-104">These tutorials show how to add a column of radio buttons to a GridView control to provide an intuitive way to select a single row.</span></span>
 
 
-- [<span data-ttu-id="033cd-105">Hinzufügen einer GridView-Spalte von Optionsfeldern (c#)</span><span class="sxs-lookup"><span data-stu-id="033cd-105">Adding a GridView Column of Radio Buttons (C#)</span></span>](adding-a-gridview-column-of-radio-buttons-cs.md)
-- [<span data-ttu-id="033cd-106">Hinzufügen einer GridView-Spalte der Kontrollkästchen (c#)</span><span class="sxs-lookup"><span data-stu-id="033cd-106">Adding a GridView Column of Checkboxes (C#)</span></span>](adding-a-gridview-column-of-checkboxes-cs.md)
-- [<span data-ttu-id="033cd-107">Einfügen eines neuen Datensatzes aus der GridView Fußzeile (c#)</span><span class="sxs-lookup"><span data-stu-id="033cd-107">Inserting a New Record from the GridView's Footer (C#)</span></span>](inserting-a-new-record-from-the-gridview-s-footer-cs.md)
-- [<span data-ttu-id="033cd-108">Hinzufügen einer GridView-Spalte von Optionsfeldern (VB)</span><span class="sxs-lookup"><span data-stu-id="033cd-108">Adding a GridView Column of Radio Buttons (VB)</span></span>](adding-a-gridview-column-of-radio-buttons-vb.md)
-- [<span data-ttu-id="033cd-109">Hinzufügen einer GridView-Spalte der Kontrollkästchen (VB)</span><span class="sxs-lookup"><span data-stu-id="033cd-109">Adding a GridView Column of Checkboxes (VB)</span></span>](adding-a-gridview-column-of-checkboxes-vb.md)
-- [<span data-ttu-id="033cd-110">Einfügen eines neuen Datensatzes aus der GridView Fußzeile (VB)</span><span class="sxs-lookup"><span data-stu-id="033cd-110">Inserting a New Record from the GridView's Footer (VB)</span></span>](inserting-a-new-record-from-the-gridview-s-footer-vb.md)
+- [<span data-ttu-id="18eb8-105">Hinzufügen einer GridView-Spalte mit Optionsfeldern (C#)</span><span class="sxs-lookup"><span data-stu-id="18eb8-105">Adding a GridView Column of Radio Buttons (C#)</span></span>](adding-a-gridview-column-of-radio-buttons-cs.md)
+- [<span data-ttu-id="18eb8-106">Hinzufügen einer GridView-Spalte mit Kontrollkästchen (C#)</span><span class="sxs-lookup"><span data-stu-id="18eb8-106">Adding a GridView Column of Checkboxes (C#)</span></span>](adding-a-gridview-column-of-checkboxes-cs.md)
+- [<span data-ttu-id="18eb8-107">Einfügen eines neuen Datensatzes in den GridView-Fuß (C#)</span><span class="sxs-lookup"><span data-stu-id="18eb8-107">Inserting a New Record from the GridView's Footer (C#)</span></span>](inserting-a-new-record-from-the-gridview-s-footer-cs.md)
+- [<span data-ttu-id="18eb8-108">Hinzufügen einer GridView-Spalte mit Optionsfeldern (VB)</span><span class="sxs-lookup"><span data-stu-id="18eb8-108">Adding a GridView Column of Radio Buttons (VB)</span></span>](adding-a-gridview-column-of-radio-buttons-vb.md)
+- [<span data-ttu-id="18eb8-109">Hinzufügen einer GridView-Spalte mit Kontrollkästchen (VB)</span><span class="sxs-lookup"><span data-stu-id="18eb8-109">Adding a GridView Column of Checkboxes (VB)</span></span>](adding-a-gridview-column-of-checkboxes-vb.md)
+- [<span data-ttu-id="18eb8-110">Einfügen eines neuen Datensatzes in den GridView-Fuß (VB)</span><span class="sxs-lookup"><span data-stu-id="18eb8-110">Inserting a New Record from the GridView's Footer (VB)</span></span>](inserting-a-new-record-from-the-gridview-s-footer-vb.md)
