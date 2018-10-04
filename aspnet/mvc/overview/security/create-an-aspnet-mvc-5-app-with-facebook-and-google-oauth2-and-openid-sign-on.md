@@ -8,16 +8,16 @@ ms.date: 04/03/2015
 ms.assetid: 81ee500f-fc37-40d6-8722-f1b64720fbb6
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: 330cb290668ae951e822b95990ed92100b790cd5
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 611a4b59b2ea2eee771f4060fb5d5af041b2ccc6
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41833966"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577768"
 ---
 <a name="create-an-aspnet-mvc-5-app-with-facebook-twitter-linkedin-and-google-oauth2-sign-on-c"></a>Erstellen einer ASP.NET MVC 5-App mit Facebook, Twitter, LinkedIn und Google OAuth2 Sign-on (c#)
 ====================
-durch [Rick Anderson](https://github.com/Rick-Anderson)
+durch [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > In diesem Tutorial erfahren Sie, wie zum Erstellen einer ASP.NET MVC 5-Webanwendung, die Benutzern ermöglicht, melden Sie sich mit [OAuth 2.0](http://oauth.net/2/) mit den Anmeldeinformationen eines externen Authentifizierungsanbieters, z. B. Facebook, Twitter, LinkedIn, Microsoft oder Google. Der Einfachheit halber konzentriert sich in diesem Tutorial zum Arbeiten mit Anmeldeinformationen aus Facebook und Google.
 > 
@@ -209,7 +209,7 @@ Von der **Tools** Menü klicken Sie auf **NuGet-Paket-Manager**, klicken Sie dan
 
 1. Enable-Migrations
 2. Add-Migration-Init
-3. Datenbank aktualisieren
+3. Update-Database
 
 Führen Sie die Anwendung aus, und Verwenden von FaceBook und Google, sich anzumelden und einige Benutzer zu registrieren.
 

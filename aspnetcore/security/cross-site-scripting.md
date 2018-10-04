@@ -3,14 +3,14 @@ title: Verhindern von Cross-Site Scripting (XSS) in ASP.NET Core
 author: rick-anderson
 description: Informationen Sie zu Cross-Site Scripting (XSS) und Techniken zur Behebung dieses Sicherheitsrisiko in ASP.NET Core-Apps.
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 10/02/2018
 uid: security/cross-site-scripting
-ms.openlocfilehash: 4784b1775d955f0ef00526e50b960fc873ea218d
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: e937ce47b7151155197cd607832eeb6bf62e3a19
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342210"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577443"
 ---
 # <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>Verhindern von Cross-Site Scripting (XSS) in ASP.NET Core
 
@@ -36,9 +36,9 @@ An einer grundlegenden Ebene XSS funktioniert, indem Sie Ihre Anwendung in das E
 
 Die Razor-Engine, die automatisch verwendet, die in MVC codiert alle Ausgabe stammt von Variablen auf, es sei denn, Sie hart arbeiten, um zu verhindern, dass sie auf diese Weise. Er verwendet die Codierungsregeln bei jeder Verwendung von HTML-Attribut der *@* Richtlinie. Als HTML ist das attributcodierung eine Obermenge der HTML-Codierung, die Dies bedeutet, dass Sie nicht darum kümmern, selbst, ob Sie HTML-Codierung oder HTML-attributcodierung verwenden sollten. Achten Sie darauf, nur @ in einem HTML-Kontext nicht verwendet werden, wenn versucht wird, nicht vertrauenswürdige Eingaben direkt in JavaScript einzufügen. Taghilfsprogramme werden auch Eingabe codieren, die Sie Tag-Parametern verwenden.
 
-Nehmen Sie die folgende Razor-Ansicht.
+Führen Sie die folgende Razor-Ansicht:
 
-```none
+```cshtml
 @{
        var untrustedInput = "<\"123\">";
    }
@@ -59,7 +59,7 @@ Diese Sicht gibt den Inhalt der *UntrustedInput* Variable. Diese Variable enthä
 
 Möglicherweise gibt es Zeiten, die zum Einfügen eines Werts in JavaScript in der Ansicht verarbeitet werden sollen. Hierfür gibt es zwei Möglichkeiten. Die sicherste Möglichkeit zum Einfügen von Werten ist, platzieren Sie den Wert in einem Datenattribut eines Tags aus, und diese in Ihrer JavaScript-abrufen. Zum Beispiel:
 
-```none
+```cshtml
 @{
        var untrustedInput = "<\"123\">";
    }
@@ -114,9 +114,9 @@ Die, die Folgendes ausgeführt wird, gerendert werden;
    <"123">
    ```
 
-Sie können den JavaScript-Encoder auch direkt aufrufen,
+Sie können den JavaScript-Encoder auch direkt aufrufen:
 
-```none
+```cshtml
 @using System.Text.Encodings.Web;
    @inject JavaScriptEncoder encoder;
 
@@ -225,4 +225,4 @@ Die allgemeinen akzeptiert, dass empfiehlt es sich, dass die Codierung wird zum 
 
 ## <a name="validation-as-an-xss-prevention-technique"></a>Überprüfung als eine XSS-Prevention-Methode
 
-Überprüfung kann ein hilfreiches Tool bei XSS-Angriffen eingeschränkt sein. Beispielsweise wird keine numerische Zeichenfolge, die nur die Zeichen 0-9 enthält einen XSS-Angriff auslösen. Überprüfung wird komplizierter HTML Benutzereingaben - akzeptieren möchten die Analyse von HTML-Eingaben schwierig, wenn nicht sogar unmöglich ist. MarkDown und andere Textformate wäre eine sicherere Option für umfangreiche Eingaben. Sie sollten niemals zur Validierung von allein verlassen. Nicht vertrauenswürdige Eingaben vor der Ausgabe immer zu codieren, unabhängig davon, was eine Überprüfung durchgeführt haben.
+Überprüfung kann ein hilfreiches Tool bei XSS-Angriffen eingeschränkt sein. Beispielsweise wird keine numerische Zeichenfolge, die nur die Zeichen 0-9 enthält einen XSS-Angriff auslösen. Überprüfung wird komplizierter, wenn HTML Benutzereingaben akzeptieren. Analysieren von HTML-Eingaben ist schwierig, wenn nicht sogar unmöglich. Markdown, einen Parser, der eingebetteten HTML-Code, entfernt gekoppelt ist eine sicherere Option für umfangreiche Eingaben angenommen. Niemals zur Validierung von allein verlassen. Immer codieren Sie nicht vertrauenswürdige Eingaben vor der Ausgabe, unabhängig davon, welche eingabeüberprüfungs- oder bereinigungsuntersystem durchgeführt wurde.

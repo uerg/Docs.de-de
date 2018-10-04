@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: performance/response-compression
-ms.openlocfilehash: 3a01c2d572c0026944347f736f9658a7872e6c35
-ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
+ms.openlocfilehash: d5e0b6ed21c14f2e76396cde846c69a76ad40794
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47028283"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48578145"
 ---
 # <a name="response-compression-in-aspnet-core"></a>Antwortkomprimierung in ASP.NET Core
 
@@ -150,9 +150,21 @@ Senden Sie eine Anforderung zur Beispiel-app ohne die `Accept-Encoding` Header u
 
 ![Fiddler-Fenster und Ergebnis einer Anforderung ohne den Accept-Encoding-Header. Die Antwort nicht komprimiert.](response-compression/_static/request-uncompressed.png)
 
+::: moniker range=">= aspnetcore-2.2"
+
+Senden Sie eine Anforderung für die Beispielapp mit der `Accept-Encoding: br` Header (Brotli-Komprimierung), und beobachten Sie, dass die Antwort komprimiert werden. Die `Content-Encoding` und `Vary` -Header in der Antwort vorhanden sind.
+
+![Fiddler-Fenster mit Ergebnis einer Anforderung mit dem Accept-Encoding-Header und den Br-Wert. Die Vary und Content-Encoding-Header werden an die Antwort hinzugefügt. Die Antwort wird komprimiert.](response-compression/_static/request-compressed-br.png)
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
 Senden Sie eine Anforderung für die Beispielapp mit der `Accept-Encoding: gzip` Header und beobachten Sie, dass die Antwort komprimiert werden. Die `Content-Encoding` und `Vary` -Header in der Antwort vorhanden sind.
 
 ![Fiddler-Fenster mit Ergebnis einer Anforderung mit dem Accept-Encoding-Header und einem Wert von Gzip. Die Vary und Content-Encoding-Header werden an die Antwort hinzugefügt. Die Antwort wird komprimiert.](response-compression/_static/request-compressed.png)
+
+::: moniker-end
 
 ## <a name="providers"></a>Anbieter
 

@@ -8,16 +8,16 @@ ms.date: 03/14/2013
 ms.assetid: aadc5fa4-8215-4fc7-afd5-bcd2ef879728
 msc.legacyurl: /mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages
 msc.type: authoredcontent
-ms.openlocfilehash: cd1b8de51c180471ab273c4541959368ffbd48a3
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 5db661cccc58d1101f95091b069ab5cbfe78a378
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41829517"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577937"
 ---
 <a name="xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages"></a>XSRF/CSRF-Schutz in ASP.NET MVC und Webseiten
 ====================
-durch [Rick Anderson](https://github.com/Rick-Anderson)
+durch [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Cross-Site-Anforderung, dass anforderungsfälschung (auch bekannt als XSRF oder CSRF) einen Angriff auf das Web gehostete Anwendungen wird durch eine schädliche Website die Interaktion zwischen einem Clientbrowser und einer Website, die von diesem Browser als vertrauenswürdig eingestuft beeinflussen können. Diese Angriffe sind möglich, da Webbrowser Authentifizierungstoken automatisch mit jeder Anforderung an eine Website gesendet werden. Das kanonische Beispiel ist ein Authentifizierungscookie, z. B. ASP. NET Forms-Authentifizierungsticket. Allerdings können Websites, die einen persistenten Authentifizierungsmechanismus (z. B. Windows-Authentifizierung, Basic, usw.) verwenden diese Angriffe verwendet werden.
 > 

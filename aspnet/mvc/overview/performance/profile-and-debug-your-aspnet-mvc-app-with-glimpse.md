@@ -8,16 +8,16 @@ ms.date: 03/26/2015
 ms.assetid: c205805f-efdd-4fa7-9616-f26eab180611
 msc.legacyurl: /mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
 msc.type: authoredcontent
-ms.openlocfilehash: f5d174ff6823d654a24dcb2c90f10a3cbd24f1e7
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 94a72f22cbcd7fa84528dde502cceaa1e26dcaa1
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837145"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577287"
 ---
 <a name="profile-and-debug-your-aspnet-mvc-app-with-glimpse"></a>Profilerstellung und Debuggen der ASP.NET MVC-app mit Glimpse
 ====================
-durch [Rick Anderson](https://github.com/Rick-Anderson)
+durch [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Glimpse ist erfolgreich sein und wachsenden Familie von open-Source-NuGet-Pakete, die ausführliche Leistung bietet, Debuggen und Diagnoseinformationen für ASP.NET-Apps. Dabei handelt es sich sehr einfach zu installieren, einfache, extrem schnellen, wichtige Leistungsmetriken am unteren Rand jeder Seite angezeigt. Sie können einen Drilldown in Ihre app ausführen beim müssen Sie herausfinden, was auf dem Server vor sich geht. Glimpse bietet so viel wertvolle Informationen, die es wird, dass Sie es während des gesamten Entwicklungszyklus empfohlen, einschließlich Ihrer Azure-Test-Umgebung verwenden. Während [Fiddler](http://www.telerik.com/fiddler) und [F-12 Entwicklungstools](https://msdn.microsoft.com/library/ie/gg589512(v=vs.85).aspx) eine clientseitige Sicht Glimpse bietet eine detaillierte Übersicht vom Server. Dieses Tutorial konzentriert sich auf die mit dem Blick auf ASP.NET MVC und EF-Pakete, aber viele andere Pakete verfügbar sind. Nach Möglichkeit werden ich auf die entsprechenden verknüpfen [Glimpse-Docs](http://getglimpse.com/Docs/) die ich dabei helfen, verwalten. Glimpse ist ein open-Source-Projekt, Sie zu seinen möglichen Beitrag zu den Quellcode und Dokumentation.
 

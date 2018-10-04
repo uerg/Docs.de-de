@@ -8,16 +8,16 @@ ms.date: 07/09/2015
 ms.assetid: 7e986ab5-6615-4638-add7-4614ce7b51db
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
 msc.type: authoredcontent
-ms.openlocfilehash: cec29e27e834317661f80eed93cb8b81a0786644
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: f4dae827627103e5cfb9981b6c3b9342cdc34c13
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41828230"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48578002"
 ---
 <a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>Überwachung und Telemetrie (erstellen realer Cloud-Apps mit Azure)
 ====================
-durch [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
+durch [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
 
 [Download korrigieren Projekt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) oder [E-Book herunterladen](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
@@ -29,7 +29,7 @@ Viele Leute, abhängig von Kunden zu informieren, wenn ihre Anwendung nicht verf
 ## <a name="buy-or-rent-a-telemetry-solution"></a>Erwerben Sie oder zu mieten Sie eine komplettlösung für Telemetrie
 
 > [!NOTE]
-> Dieser Artikel geschrieben wurde, bevor Sie [Application Insights](https://azure.microsoft.com/services/application-insights/) wurde veröffentlicht. Application Insights ist die bevorzugte Methode für die telemetrielösungen in Azure. Finden Sie unter [richten Sie Application Insights für Ihre ASP.NET-Website](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net) für Weitere Informationen.
+> Dieser Artikel geschrieben wurde, bevor Sie [Application Insights](/azure/application-insights/app-insights-overview) wurde veröffentlicht. Application Insights ist die bevorzugte Methode für die telemetrielösungen in Azure. Finden Sie unter [richten Sie Application Insights für Ihre ASP.NET-Website](/azure/application-insights/app-insights-asp-net) für Weitere Informationen.
 
 
 Eines der Dinge, die besondere an der Cloud-Umgebung ist, es wirklich einfach ist oder so Sieg Mieten. Telemetrie ist ein Beispiel. Ohne viel Aufwand erhalten Sie ein System wirklich guten Telemetrie- und ausgeführt wird, sehr kostengünstig. Es gibt einige hervorragende Partner, die in Azure integriert, und einige von ihnen haben free-Tarife –, damit Sie grundlegende Telemetriedaten auf ' Nothing ' nutzen können. Hier sind nur einige der in Azure derzeit verfügbar:
@@ -38,7 +38,7 @@ Eines der Dinge, die besondere an der Cloud-Umgebung ist, es wirklich einfach is
 - [AppDynamics](http://www.appdynamics.com/)
 - [Dynatrace](https://datamarket.azure.com/application/b4011de2-1212-4375-9211-e882766121ff)
 
-Seit März 2015 [Microsoft Application Insights für Visual Studio Online](https://azure.microsoft.com/documentation/articles/app-insights-get-started/) wird noch nicht freigegeben, aber in der Vorschau zum Testen zur Verfügung steht. [Microsoft System Center](http://www.petri.co.il/microsoft-system-center-introduction.htm#) enthält außerdem Überwachungsfunktionen.
+[Microsoft System Center](http://www.petri.co.il/microsoft-system-center-introduction.htm#) enthält außerdem Überwachungsfunktionen.
 
 Wir zeigen Ihnen schnell New Relic zu zeigen, wie einfach es sein kann, verwenden Sie ein Telemetriesystem einrichten.
 

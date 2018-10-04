@@ -5,14 +5,14 @@ description: Unterstützte Plattformen für ASP.NET Core SignalR
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 04/20/2018
+ms.date: 09/26/2018
 uid: signalr/supported-platforms
-ms.openlocfilehash: 360dbe4b4e1d2ed99779410bdbee69662e7c3763
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: d6d74a55d35ddb34a6f66a171bfe3f343dd61b63
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095348"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577625"
 ---
 # <a name="aspnet-core-signalr-supported-platforms"></a>ASP.NET Core SignalR unterstützte Plattformen
 
@@ -20,20 +20,32 @@ ms.locfileid: "39095348"
 
 SignalR für ASP.NET Core unterstützt Server-Plattform, die ASP.NET Core unterstützt.
 
-## <a name="client-system-requirements"></a>Systemanforderungen für Clients
+## <a name="javascript-client"></a>JavaScript-client
 
-### <a name="browser-support"></a>Browserunterstützung
-
-SignalR für ASP.NET Core-JavaScript-Client unterstützt die folgenden Browser:
+Die [JavaScript-Client](https://www.npmjs.com/package/@aspnet/signalr) auf NodeJS-8 und höheren Versionen und den folgenden Browsern ausgeführt wird:
 
 | Browser | Version |
 | ------- | ------- |
-| Microsoft Internet Explorer | 11 |
 | Microsoft Edge | Aktuell |
 | Mozilla Firefox | Aktuell |
 | Google Chrome; Android enthält | Aktuell |
 | Safari; iOS enthält | Aktuell |
+| Microsoft Internet Explorer | 11 |
  
-### <a name="net-client-support"></a>.NET Client-Unterstützung
+## <a name="net-client"></a>.NET-Client
 
-Alle Server-Plattformen, die von ASP.NET Core unterstützt. Bei Verwendung von IIS, erfordert die WebSockets-Übertragung IIS 8.0 oder höher, Windows Server 2012 oder höher. Andere Transporte werden auf allen Plattformen unterstützt.
+Die [.NET Client](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR/) ausgeführt, die auf alle Server-Plattform, die von ASP.NET Core unterstützt wird.
+
+Wenn der Server mit IIS ausgeführt wird, erfordert die WebSockets-Übertragung IIS 8.0 oder höher unter Windows Server 2012 oder höher. Andere Transporte werden auf allen Plattformen unterstützt.
+
+## <a name="java-client"></a>Java-client
+
+Die [Java-Client](https://search.maven.org/artifact/com.microsoft.aspnet/signalr) Java 8 und höheren Versionen unterstützt.
+
+## <a name="unsupported-clients"></a>Nicht unterstützte clients
+
+Die folgenden Clients sind verfügbar, aber es sind experimentelle oder inoffizielle. Sie werden jetzt unterstützt und möglicherweise nicht immer unterstützt.
+
+* [C++-client](https://github.com/aspnet/SignalR/tree/master/clients/cpp)
+
+* [SWIFT-client](https://github.com/moozzyk/SignalR-Client-Swift)

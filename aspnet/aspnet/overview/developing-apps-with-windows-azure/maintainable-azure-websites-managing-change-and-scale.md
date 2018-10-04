@@ -8,12 +8,12 @@ ms.date: 07/16/2014
 ms.assetid: ecfd0eb4-c4ad-44e6-9db9-a2a66611ff6a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: a26f22a7cf39593ee068fb8e8d57200120c97ccb
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 05181ae1b2d857eea45983d378b28011c1cd755a
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826889"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48578132"
 ---
 <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Praxisnahe Übung: verwaltbare Azure-Websites: Verwalten von Änderungen und Skalierungen
 ====================
@@ -22,17 +22,17 @@ durch [Web Camps Team](https://twitter.com/webcamps)
 [Herunterladen Sie Web Camps Training Kit](http://aka.ms/webcamps-training-kit)
 
 > Microsoft Azure vereinfacht das Erstellen und Bereitstellen von Websites für die Produktion. Aber wenn Ihre Anwendung live ist noch nicht fertig, Sie fangen gerade erst! Sie müssen sich ändernden Anforderungen, datenbankaktualisierungen, Skalierung und mehr zu behandeln. Glücklicherweise bietet Azure App Service Ihnen, viele Features, damit Sie Ihre störungsfrei ausgeführte Sites halten können.
-> 
+>
 > Azure bietet sichere und flexible Entwicklung, Bereitstellung und Skalierungsoptionen für Webanwendungen jeder Größe. Nutzen Sie Ihre vorhandenen Tools zum Erstellen und Bereitstellen von Anwendungen ohne umständliche Verwaltung der Infrastruktur.
-> 
+>
 > Bereitstellung einer Produktions-Web-Anwendung selbst in Minutenschnelle durch die einfache Bereitstellung von Inhalten, die mit Ihrem bevorzugten Entwicklungstool erstellt wurden. Sie können eine vorhandene Website direkt aus der quellcodeverwaltung mit Unterstützung für bereitstellen **Git**, **GitHub**, **Bitbucket**, **TFS**, und sogar  **DropBox**. Bereitstellen, direkt aus Ihrer bevorzugten IDE oder über Skripts mit **PowerShell** in Windows oder **CLI** Tools, die unter jedem Betriebssystem ausgeführt wird. Nach der Bereitstellung erhalten bleiben Sie mit Unterstützung für die kontinuierliche Bereitstellung ständig auf dem neuesten Stand.
-> 
+>
 > Azure bietet skalierbare und belastbare Speicher, Sicherung und wiederherstellungslösungen für Daten, Groß oder klein. Bei der Bereitstellung von Anwendungen in einer produktionsumgebung, die Storage-Dienste wie Tabellen, Blobs und SQL-Datenbanken können Sie Ihre Anwendung in der Cloud skalieren.
-> 
+>
 > Mit SQL-Datenbanken ist es wichtig, Ihre Produktivität Datenbank aktuell zu halten, wenn neue Versionen Ihrer Anwendung bereitstellen. Vielen Dank an **Entity Framework Code First-Migrationen**, wurde die Entwicklung und Bereitstellung Ihres Datenmodells zum Aktualisieren Ihrer Umgebungen in wenigen Minuten vereinfacht. Dieser praktischen Übungseinheit zeigt Ihnen die verschiedenen Themen, die auftreten können, wenn Ihre Web-app in produktionsumgebungen in Microsoft Azure bereitstellen.
-> 
+>
 > Alle Beispielcode und Ausschnitte sind im Web Camps Training Kit unter enthalten [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
-> 
+>
 > Weitere detaillierte dieses Themas finden Sie unter den [Building Real-World Cloud-Apps mit Azure-e-Book](building-real-world-cloud-apps-with-windows-azure/introduction.md).
 
 
@@ -60,7 +60,7 @@ Folgendes ist erforderlich, um diese praktische Übungseinheit auszuführen:
 - [Visual Studio Express 2013 für Web](https://www.microsoft.com/visualstudio/) oder höher
 - [Azure SDK für .NET 2.2](https://www.microsoft.com/windowsazure/sdk/)
 - [GIT-System zur Versionskontrolle](http://git-scm.com/download)
-- Microsoft Azure-Abonnement 
+- Microsoft Azure-Abonnement
 
     - Melden Sie sich für eine [kostenlose Testversion](http://aka.ms/watk-freetrial)
     - Wenn Sie einer eine Visual Studio Professional, Test Professional, Premium oder Ultimate mit MSDN oder MSDN Platforms-Abonnent sind, aktivieren Sie Ihre [MSDN-Vorteil](http://aka.ms/watk-msdn) jetzt zum Entwickeln und Testen in Azure
@@ -202,10 +202,10 @@ In dieser Aufgabe verwenden Sie **Entity Framework Code First-Migrationen** , er
 
     > [!NOTE]
     > Eine Migrationsdatei besteht aus zwei Methoden, **einrichten** und **unten**.
-    > 
+    >
     > - Die **einrichten** Methode angeben, welche Änderungen von der aktuellen Version von unseren Anwendung-Anforderungen an die Anwendung auf die Datenbank verwendet werden.
     > - Die **unten** wird verwendet, um die Änderungen rückgängig zu machen wir hinzugefügt haben die **einrichten** Methode.
-    > 
+    >
     > Wenn die Datenbank-Migration die Datenbank aktualisiert wird, wird es bei allen Migrationen ausgeführt, in der Reihenfolge der Zeitstempel und nur die seit der letzten Aktualisierung nicht verwendet wurden (die \_Tabelle "MigrationHistory" hält Überblick darüber, welche Migrationen angewendet wurden). Die **einrichten** -Methode für alle Migrationen wird aufgerufen, und die Änderungen, die wir in der Datenbank angegeben haben. Wenn wir zu einer vorherigen Migration zurückkehren möchten die **unten** Methode wird aufgerufen, um die Änderungen in umgekehrter Reihenfolge zu wiederholen.
 4. In der **-Paket-Manager-Konsole**, geben Sie den folgenden Befehl aus, und drücken Sie dann die **EINGABETASTE**.
 
@@ -298,15 +298,15 @@ In dieser Aufgabe erstellen Sie eine Web-app in **Azure App Service** aus dem Ve
 
     > [!NOTE]
     > Standardmäßig stellt Azure Domänen bereit, mit denen *azurewebsites.net* sondern bietet auch die Möglichkeit, benutzerdefinierte Domänen, die über das Azure-Verwaltungsportal festgelegt. Allerdings können Sie benutzerdefinierte Domänen nur verwalten, bei Verwendung von bestimmten Azure App Service-Modi.
-    > 
+    >
     > Azure App Service ist in Free, Shared, Basic, Standard und Premium-Editionen verfügbar. Im Free und Shared-Modus werden alle Web-apps in einer Umgebung mit mehreren Mandanten ausgeführt und Kontingente für die Verwendung von CPU, Arbeitsspeicher und Netzwerk haben. Die maximale Anzahl von kostenlosen apps kann mit Ihrem Plan variieren. Im Modus "Standard" Wählen Sie an, welche apps auf dedizierten virtuellen Computern, die entsprechen ausgeführt wird, an die standardmäßige Azure-computeressourcen. Finden Sie die Web-app-Modus-Konfiguration in der **Skalierung** im Menü der Web-app.
-    > 
+    >
     > ![Azure App Service-Modi](maintainable-azure-websites-managing-change-and-scale/_static/image19.png "Azure App Service-Modi")
-    > 
+    >
     > Bei Verwendung von **Shared** oder **Standard** Modus, Sie werden benutzerdefinierte Domänen für Ihre Web-app zu verwalten, indem Sie zu Ihrer app **konfigurieren** Menü und klicken Sie auf **Domänen verwalten** unter *Domänennamen*.
-    > 
+    >
     > ![Verwalten von Domänen](maintainable-azure-websites-managing-change-and-scale/_static/image20.png "Domänen verwalten")
-    > 
+    >
     > ![Benutzerdefinierte Domänen verwalten](maintainable-azure-websites-managing-change-and-scale/_static/image21.png "benutzerdefinierte Domänen verwalten")
 9. Nachdem die Web-app erstellt wurde, klicken Sie auf den Link unter der **URL** Spalte, um zu überprüfen, dass die neue Web-app ausgeführt wird.
 
@@ -754,7 +754,7 @@ In dieser Aufgabe verwenden Sie das Azure-Verwaltungsportal, um die Autoscale-Fu
 
     > [!NOTE]
     > Dieser Bereich stellt die durchschnittliche CPU-Auslastung für Ihre Web-app dar. Azure wird hinzufügen oder Entfernen von Instanzen, um Ihre Web-app in diesem Bereich bleibt. Die minimale und maximale Anzahl der Instanzen, die für die Skalierung wird angegeben, der **Instanzanzahl** Konfiguration. Azure geht nie über oder über diesen Grenzwert hinaus.
-    > 
+    >
     > Der Standardwert **Ziel-CPU** Werte werden nur für die Zwecke dieser testumgebung geändert. Konfigurieren Sie die CPU-Bereich mit kleinen Werten, erhöhen Sie die Wahrscheinlichkeit, dass der Trigger für die automatische Skalierung, wenn eine mittlere Auslastung der Anwendung befindet.
 
     ![Ändern des Ziels-CPU, der zwischen 20 und 40 Prozent liegt](maintainable-azure-websites-managing-change-and-scale/_static/image78.png "Ändern des Ziels-CPU, um zwischen 20 und 40 Prozent liegen.")
@@ -869,7 +869,7 @@ Nachdem **für die automatische Skalierung** wurde konfiguriert haben, erstellen
 20. In **Projektmappen-Explorer**, doppelklicken Sie auf die **Local.settings** Datei, um die testeinstellungen zu untersuchen. Standardmäßig verwendet Visual Studio den lokalen Computer zum Ausführen der Tests an.
 
     > [!NOTE]
-    > Alternativ können Sie das Testprojekt zum Ausführen der Auslastungstests in der Cloud mit konfigurieren **Visual Studio Online (VSO)**. Visual Studio Online bietet eine cloudbasierte Auslastungstests, Tests der Dienst, der eine realistischere Auslastung simuliert, das Vermeiden von Einschränkungen der lokalen Umgebung wie CPU-Kapazität, verfügbarer Speicher und Netzwerkbandbreite. Weitere Informationen zur Verwendung von Visual Studio Online zum Ausführen von Auslastungstests finden Sie unter [in diesem Artikel](https://www.visualstudio.com/get-started/load-test-your-app-vs).
+    > Alternativ können Sie das Testprojekt zum Ausführen der Auslastungstests in der Cloud mit konfigurieren **Azure Testplänen**. Azure Testpläne bietet eine cloudbasierte Auslastungstests, Tests der Dienst, der eine realistischere Auslastung simuliert, das Vermeiden von Einschränkungen der lokalen Umgebung wie CPU-Kapazität, verfügbarer Speicher und Netzwerkbandbreite. Weitere Informationen zur Verwendung von Testplänen für Azure zum Ausführen von Auslastungstests finden Sie unter [Testszenarios laden](/azure/devops/test/load-test/overview?view=vsts).
 
     ![Testeinstellungen](maintainable-azure-websites-managing-change-and-scale/_static/image98.png)
 
@@ -904,10 +904,10 @@ Sie werden nun Ausführen des Auslastungstests, die Sie in der vorherigen Aufgab
 
     > [!NOTE]
     > Es dauert einige Minuten, bis die Änderungen im Diagramm angezeigt werden (drücken Sie die **STRG + F5** in regelmäßigen Abständen, um die Seite zu aktualisieren). Wenn Sie die Änderungen nicht angezeigt werden, können Sie Folgendes versuchen:
-    > 
+    >
     > - Erhöhen Sie die Dauer des Auslastungstests (z. B. zu **10 Minuten**)
     > - Reduzieren Sie die maximalen und minimalen Werte, der die **Ziel-CPU** Bereich in der Konfiguration der automatischen Skalierung Ihrer Web-App
-    > - Ausführen des Auslastungstests in der Cloud mit **Visual Studio Online**. Weitere Informationen [hier](https://www.visualstudio.com/get-started/load-test-your-app-vs.aspx)
+    > - Ausführen des Auslastungstests in der Cloud mit **Azure Testplänen**. Weitere Informationen [hier](/azure/devops/test/load-test/index?view=vsts)
 
 * * *
 

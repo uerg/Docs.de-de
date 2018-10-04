@@ -8,23 +8,22 @@ ms.date: 06/23/2015
 ms.assetid: 2a0370d3-c2fb-4bf3-88b8-aad5a736c793
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 msc.type: authoredcontent
-ms.openlocfilehash: 8402b73f5f9d063d958df39f98267468e4aef746
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 5df863762523b62759bb4f7849ca2635e5241b0a
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41833609"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577794"
 ---
 <a name="source-control-building-real-world-cloud-apps-with-azure"></a>Datenquellen-Steuerelement (erstellen realer Cloud-Apps mit Azure)
 ====================
-durch [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
+durch [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
 
 [Download korrigieren Projekt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) oder [E-Book herunterladen](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > Die **Building Real World Cloud Apps mit Azure** e-Book basiert darauf, dass eine Präsentation von Scott Guthrie entwickelt wurde. Es wird erläutert, 13 Muster und Methoden, die Ihnen helfen können, werden erfolgreiche Entwicklung von Web-apps für die Cloud. Weitere Informationen zu e-Book, finden Sie unter [im ersten Kapitel](introduction.md).
 
-
-Datenquellen-Steuerelement ist entscheidend für alle Cloud-Entwicklungsprojekte, nicht nur für teamumgebungen. Sie wäre nicht vorstellen, Quellcode zu bearbeiten, oder sogar ein Word-Dokument ohne eine Rückgängigfunktion und die automatischen Sicherungen und die Datenquellen-Steuerelement können Sie diese Funktionen auf Projektebene, in denen sie noch mehr Zeit sparen können, wenn etwas schief geht. Mit Cloud dateiquellcode-Verwaltungsdienste müssen Sie nicht mehr komplizierte Einrichtung kümmern und können Sie Visual Studio Online quellcodeverwaltung für bis zu 5 Benutzer kostenlos.
+Datenquellen-Steuerelement ist entscheidend für alle Cloud-Entwicklungsprojekte, nicht nur für teamumgebungen. Sie wäre nicht vorstellen, Quellcode zu bearbeiten, oder sogar ein Word-Dokument ohne eine Rückgängigfunktion und die automatischen Sicherungen und die Datenquellen-Steuerelement können Sie diese Funktionen auf Projektebene, in denen sie noch mehr Zeit sparen können, wenn etwas schief geht. Mit Cloud dateiquellcode-Verwaltungsdienste müssen Sie nicht mehr komplizierte Einrichtung kümmern und können Sie bis zu 5 Benutzer kostenlos Azure-Repositorys Datenquellen-Steuerelement.
 
 Der erste Teil dieses Kapitels erläutert die drei wichtige bewährte Methoden zu berücksichtigen:
 
@@ -32,11 +31,11 @@ Der erste Teil dieses Kapitels erläutert die drei wichtige bewährte Methoden z
 - [Checken Sie niemals Geheimnisse](#secrets) (sensible Daten wie z. B. Anmeldeinformationen) in ein Quellcoderepository.
 - [Einrichten des quellbranches](#devops) den DevOps-Workflow zu aktivieren.
 
-Der Rest des Kapitels erhalten einige beispielimplementierungen dieser Muster in Visual Studio, Azure und Visual Studio Online:
+Der Rest des Kapitels erhalten einige beispielimplementierungen dieser Muster in Visual Studio, Azure und Azure-Repositorys:
 
 - [Hinzufügen von Skripts zu quellcodeverwaltung in Visual Studio](#vsscripts)
 - [Sensible Daten im Azure Store](#appsettings)
-- [Verwenden Sie Git in Visual Studio und Visual Studio Online](#gittfs)
+- [Verwenden Sie Git in Visual Studio und Azure-Repositorys](#gittfs)
 
 <a id="scripts"></a>
 ## <a name="treat-automation-scripts-as-source-code"></a>Behandeln von Automation-Skripts als Quellcode
@@ -73,7 +72,7 @@ Diese Struktur ermöglicht Ihnen, schnell auf Kundenfeedback zu reagieren. Wenn 
 
 Ohne eine Verzweigungsstruktur wie folgt mit der Trennung von Produktions- und entwicklungsbranches können Sie ein Produktionsproblem an der Position der neuen Featurecode sowie die Korrektur für die Produktion heraufstufen zuordnen. Der neue Code für die Funktion möglicherweise nicht vollständig getestet und bereit zur Produktion, und möglicherweise müssen Sie eine Menge Arbeit Zurückziehen von Änderungen, die nicht bereit sind. Oder Sie möglicherweise die Korrektur, um die Änderungen zu testen, und Regen sie bereit für die Bereitstellung verzögern.
 
-Als Nächstes sehen Sie Beispiele für diese drei Muster in Visual Studio, Azure und Visual Studio Online zu implementieren. Dies sind Beispiele für statt-Schritt-how-to--It-Anweisungen; Detaillierte Anweisungen, die alle von den erforderlichen Kontext bereitstellen, finden Sie unter den [Ressourcen](#resources) Abschnitt am Ende des Kapitels.
+Als Nächstes sehen Sie Beispiele für diese drei Muster in Visual Studio, Azure und Azure-Repositorys zu implementieren. Dies sind Beispiele für statt-Schritt-how-to--It-Anweisungen; Detaillierte Anweisungen, die alle von den erforderlichen Kontext bereitstellen, finden Sie unter den [Ressourcen](#resources) Abschnitt am Ende des Kapitels.
 
 <a id="vsscripts"></a>
 ## <a name="add-scripts-to-source-control-in-visual-studio"></a>Hinzufügen von Skripts zu quellcodeverwaltung in Visual Studio
@@ -128,17 +127,17 @@ Beachten Sie, dass die Skripts, damit an die Quell-Repository tatsächliche Wert
 Wenn Sie lokal in Ihrer Entwicklungsumgebung ausführen, die app liest die lokale Datei "Web.config"-Datei und der Verbindung angegebene Verbindungszeichenfolge verweist auf die SQL Server LocalDB-Datenbank in der *App\_Daten* Ordner des Webprojekts. Wenn Sie die app in Azure ausführen und die app versucht, diese Werte aus der Datei "Web.config" zu lesen, sind was erhält zurück und wird verwendet, die Werte, die für die Website, nicht was tatsächlich in der Datei "Web.config" wird gespeichert ist.
 
 <a id="gittfs"></a>
-## <a name="use-git-in-visual-studio-and-visual-studio-online"></a>Verwenden Sie Git in Visual Studio und Visual Studio Online
+## <a name="use-git-in-visual-studio-and-azure-devops"></a>Verwenden Sie Git in Visual Studio und Azure DevOps
 
 Sie können der quellcodeverwaltungsumgebung verwenden, um DevOps-Verzweigungsstruktur, die zuvor gezeigte zu implementieren. Für verteilte Teams einen [verteilte Versionskontrollsystem](http://en.wikipedia.org/wiki/Distributed_revision_control) (DVCS) funktioniert am besten; für andere Teams eine [ein zentralisiertes System](http://en.wikipedia.org/wiki/Revision_control) besser funktioniert.
 
-[Git](http://git-scm.com/) ist einem DVCS, das ist sehr beliebt geworden. Wenn Sie Git für die quellcodeverwaltung verwenden, müssen Sie eine vollständige Kopie des Repositorys mit dem gesamten Verlauf auf dem lokalen Computer. Viele Benutzer bevorzugen, weil es einfacher ist weiterarbeiten, wenn Sie nicht mit dem Netzwerk verbunden sind – Sie können Sie weiterhin commits und Rollbacks, erstellen und zwischen Branches wechseln und so weiter. Auch wenn Sie mit dem Netzwerk verbunden sind, ist es einfacher und schneller, erstellen Sie Branches und zwischen Branches wechseln, wenn alles lokal ist. Sie können auch lokale Commits und Rollbacks durchführen, ohne Auswirkungen auf andere Entwickler. Und Sie können Commits vor dem Senden an den Server batch.
+[Git](http://git-scm.com/) ist ein beliebte verteilte Versionskontrollsystem. Wenn Sie Git für die quellcodeverwaltung verwenden, müssen Sie eine vollständige Kopie des Repositorys mit dem gesamten Verlauf auf dem lokalen Computer. Viele Benutzer bevorzugen, weil es einfacher ist weiterarbeiten, wenn Sie nicht mit dem Netzwerk verbunden sind – Sie können Sie weiterhin commits und Rollbacks, erstellen und zwischen Branches wechseln und so weiter. Auch wenn Sie mit dem Netzwerk verbunden sind, ist es einfacher und schneller, erstellen Sie Branches und zwischen Branches wechseln, wenn alles lokal ist. Sie können auch lokale Commits und Rollbacks durchführen, ohne Auswirkungen auf andere Entwickler. Und Sie können Commits vor dem Senden an den Server batch.
 
-[Microsoft Visual Studio Online](https://www.visualstudio.com/)(VSO), früher bekannt als Team Foundation Service, Git bietet und [Team Foundation Version Control](https://msdn.microsoft.com/library/ms181237(v=vs.120).aspx) (TFVC; zentrale quellcodeverwaltung). Hier verwenden einige Teams bei Microsoft im Azure-zentrale quellcodeverwaltung, einige verwenden, verteilt, und einige Verwenden einer Kombination aus (bei einigen Projekten zentralisiert und für andere Projekte verteilt). Der Visual Studio Online-Dienst ist für bis zu 5 Benutzer kostenlos. Sie können für einen kostenlosen Plan registrieren [hier](https://go.microsoft.com/fwlink/?LinkId=307137).
+[Azure-Repositorys](/azure/devops/repos/index?view=vsts) bietet sowohl [Git](/azure/devops/repos/git/?view=vsts) und [Team Foundation Version Control](/azure/devops/repos/tfvc/index?view=vsts) (TFVC; zentrale quellcodeverwaltung). Erste Schritte mit Azure DevOps [hier](https://app.vsaex.visualstudio.com/signup).
 
-Visual Studio 2013 bietet erstklassige integrierte [Git-Unterstützung](https://msdn.microsoft.com/library/hh850437.aspx); hier ist eine kurze Demo, wie es geht.
+Visual Studio 2017 beinhaltet erstklassigen integrierten [Git-Unterstützung](https://msdn.microsoft.com/library/hh850437.aspx). Hier ist eine kurze Demo, wie es geht.
 
-Ein Projekt in Visual Studio 2013 geöffnet, mit der rechten Maustaste der Projektmappe in **Projektmappen-Explorer**, und wählen Sie **Projektmappe zur Quellcodeverwaltung hinzufügen**.
+Ein Projekt in Visual Studio geöffnet, mit der rechten Maustaste der Projektmappe in **Projektmappen-Explorer**, und wählen Sie dann **Projektmappe zur Quellcodeverwaltung hinzufügen**.
 
 ![Projektmappe zur Quellcodeverwaltung hinzufügen](source-control/_static/image9.png)
 
@@ -184,7 +183,7 @@ Wenn Sie zurück zum Master wechseln branch, den Inhalt der  *\_Layout.cshtml* D
 
 Diese ein einfaches Beispiel, wie Sie schnell eine Verzweigung erstellen und kippen zwischen Branches wechseln. Dieses Feature ermöglicht einen äußerst agilen Workflow, die mithilfe von die branchstruktur und Automatisierungsskripts angezeigt, der [automatisieren alles](automate-everything.md) Kapitel. Sie können z. B. werden in der Development-Branch arbeiten, erstellen Sie einen Hotfix Branch abseits des masterbranches, wechseln Sie zu den neuen Branch, Ihre Änderungen daran vornehmen und committet haben, und wechseln Sie dann zu dem Development-Branch und fortgesetzt, wo Sie aufgehört haben.
 
-Was Sie hier gesehen haben ist, wie Sie mit einem lokalen Git-Repository in Visual Studio arbeiten. In einer teamumgebung push Sie in der Regel auch Änderungen zu einem gemeinsamen Repository. Visual Studio-Tools können auch Sie auf einem remote-Git-Repository zu verweisen. Können Sie zu diesem Zweck "github.com", oder Sie können [Git in Visual Studio Online](https://msdn.microsoft.com/library/hh850437.aspx) mit allen anderen Visual Studio Online Funktionen wie z. B. Arbeitselement und nachverfolgung von Programmfehlern integriert.
+Was Sie hier gesehen haben ist, wie Sie mit einem lokalen Git-Repository in Visual Studio arbeiten. In einer teamumgebung push Sie in der Regel auch Änderungen zu einem gemeinsamen Repository. Visual Studio-Tools können auch Sie auf einem remote-Git-Repository zu verweisen. Können Sie zu diesem Zweck "github.com", oder Sie können [Git und Azure-Repositorys](/azure/devops/repos/git/overview?view=vsts) in allen anderen Azure DevOps-Funktionen wie z. B. Arbeitselement und nachverfolgung von Programmfehlern integriert.
 
 Dies ist nicht die einzige Möglichkeit, die Sie eine agile Verzweigungsstrategie, natürlich implementieren können. Sie können den gleichen agilen-Workflow mit einem zentralen Quellcodeverwaltungs-Repository aktivieren.
 
@@ -194,13 +193,6 @@ Messen Sie den Erfolg von Ihr Quellcodeverwaltungssystem basierend auf wie schne
 
 <a id="resources"></a>
 ## <a name="resources"></a>Ressourcen
-
-Die [Visual Studio Online](https://www.visualstudio.com/) -Portal bietet die Dokumentation und Support Services, und Sie können für ein Konto registrieren. Wenn Sie Visual Studio 2012 und Git verwenden möchten, finden Sie unter [Visual Studio-Tools für Git](https://visualstudiogallery.msdn.microsoft.com/abafc7d6-dcaa-40f4-8a5e-d6724bdb980c).
-
-Weitere Informationen zu TFVC (zentralisierte Versionskontrolle) und Git (verteilte Versionskontrolle) finden Sie unter den folgenden Ressourcen:
-
-- [Welches Versionskontrollsystem sollte ich verwenden: TFVC oder Git?](https://msdn.microsoft.com/library/vstudio/ms181368.aspx#tfvc_or_git_summary) MSDN-Dokumentation enthält eine Tabelle, die Zusammenfassung der Unterschiede zwischen TFVC und Git.
-- [Auch wie ich Team Foundation Server und z.B. ich wie Git verwenden, aber das ist besser?](https://blogs.msdn.com/b/visualstudiouk/archive/2013/08/05/well-i-like-team-foundation-server-and-i-like-git-but-which-is-better.aspx) Vergleich von Git- und TFVC.
 
 Weitere Informationen zu verzweigungsstrategien finden Sie unter den folgenden Ressourcen:
 
