@@ -8,12 +8,12 @@ ms.date: 07/16/2014
 ms.assetid: ecfd0eb4-c4ad-44e6-9db9-a2a66611ff6a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: 05181ae1b2d857eea45983d378b28011c1cd755a
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: bc6de2f0c8b2cd958c198abb90fc4ad97613e973
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578132"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913306"
 ---
 <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Praxisnahe Übung: verwaltbare Azure-Websites: Verwalten von Änderungen und Skalierungen
 ====================
@@ -53,7 +53,7 @@ In dieser praktischen Übungseinheit erfahren Sie, wie Sie:
 - Erstellen Sie und konfigurieren Sie ein auslastungstestprojekt in Visual Studio
 
 <a id="Prerequisites"></a>
-### <a name="prerequisites"></a>Erforderliche Komponenten
+### <a name="prerequisites"></a>Vorraussetzungen
 
 Folgendes ist erforderlich, um diese praktische Übungseinheit auszuführen:
 
@@ -124,7 +124,7 @@ Wechseln Sie in dieser Aufgabe durch die Schritte zur Aktivierung **Entity Frame
 
 1. Öffnen Sie Visual Studio, und öffnen Sie die **GeekQuiz.sln** Projektmappendatei und **Source\Ex1-UsingEntityFrameworkMigrations\Begin**.
 2. Erstellen Sie die Projektmappe, um das Herunterladen und Installieren der **NuGet** paketabhängigkeiten. Zu diesem Zweck mit der rechten Maustaste in der Projektmappe, und klicken Sie auf **Projektmappe** , oder drücken Sie **STRG + UMSCHALT + B**.
-3. Von der **Tools** in Visual Studio, wählen Sie im Menü **Bibliothekspaket-Manager**, und klicken Sie dann auf **-Paket-Manager-Konsole**.
+3. Von der **Tools** in Visual Studio, wählen Sie im Menü **NuGet Package Manager**, und klicken Sie dann auf **-Paket-Manager-Konsole**.
 4. In der **-Paket-Manager-Konsole**, geben Sie den folgenden Befehl aus, und drücken Sie dann die **EINGABETASTE**. Eine anfängliche Migration basierend auf dem vorhandenen Modell wird erstellt.
 
     [!code-powershell[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample1.ps1)]
@@ -549,7 +549,7 @@ Sie werden jetzt die Änderungen mithilfe von Push übertragen, die Sie in der v
     *Protokolliert Fehler*
 8. Suchen Sie nach dem Detailabschnitt des Fehlers. Dieser Fehler wird natürlich durch die coderefactoring Sie ein Commit in den vorherigen Schritten verursacht.
 
-    `Details: LINQ to Entities does not recognize the method 'Boolean MatchesOption ...`
+    `Details: LINQ to Entities does not recognize the method 'Boolean MatchesOption ...`.
 9. Schließen Sie den Browser nicht.
 10. Wechseln Sie in einer neuen Browserinstanz zu der [Azure-Verwaltungsportal](https://manage.windowsazure.com) und melden Sie sich mit dem Microsoft-Konto, das Ihrem Abonnement zugeordnet.
 11. Wählen Sie **Websites** , und klicken Sie auf die Web-app, die Sie in der Übung 2 erstellt haben.

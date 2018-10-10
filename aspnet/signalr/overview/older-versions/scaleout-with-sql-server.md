@@ -8,12 +8,12 @@ ms.date: 05/01/2013
 ms.assetid: 1dca7967-8296-444a-9533-837eb284e78c
 msc.legacyurl: /signalr/overview/older-versions/scaleout-with-sql-server
 msc.type: authoredcontent
-ms.openlocfilehash: cd0e3d4bdb4d2eb78e5c41167a17f8673584f654
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: d68196aa8e4d0c60570a0e36ccc75a2a080d57bc
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41827093"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912747"
 ---
 <a name="signalr-scaleout-with-sql-server-signalr-1x"></a>Horizontale Skalierung in SignalR mit SQLServer (SignalR 1.x)
 ====================
@@ -23,7 +23,7 @@ In diesem Tutorial verwenden Sie SQL Server zur Verteilung von Nachrichten in ei
 
 ![](scaleout-with-sql-server/_static/image1.png)
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Vorraussetzungen
 
 Microsoft SQLServer 2005 oder höher. Der Rückwand unterstützt Desktop- und Server-Editionen von SQL Server. Es unterstützt SQL Server Compact Edition oder Azure SQL-Datenbank nicht. (Wenn Ihre Anwendung in Azure gehostet wird, erwägen Sie die Service Bus-Rückwandplatine stattdessen.)
 
@@ -66,7 +66,6 @@ Verwenden Sie die folgende SQL-Abfrage, um Service Broker zu aktivieren:
 > [!NOTE]
 > Wenn diese Abfrage angezeigt wird, ein Deadlock auftreten, stellen Sie sicher, dass keine Programme, die mit der Datenbank verbunden sind.
 
-
 Wenn Sie die Ablaufverfolgung aktiviert haben, zeigt die ablaufverfolgungen auch, ob Service Broker aktiviert ist.
 
 ## <a name="create-a-signalr-application"></a>Erstellen einer SignalR-Anwendung
@@ -76,7 +75,7 @@ Erstellen einer SignalR-Anwendung entweder mit diesen Lernprogrammen:
 - [Erste Schritte mit SignalR](../getting-started/tutorial-getting-started-with-signalr.md)
 - [Erste Schritte mit SignalR und MVC 4](tutorial-getting-started-with-signalr-and-mvc-4.md)
 
-Als Nächstes ändern wir die Chat-Anwendung mit horizontaler Skalierung mit SQL Server zu unterstützen. Fügen Sie zunächst das SignalR.SqlServer NuGet-Paket Ihrem Projekt ein. In Visual Studio aus der **Tools** , wählen Sie im Menü **Bibliothekspaket-Manager**, und wählen Sie dann **-Paket-Manager-Konsole**. Geben Sie im Fenster Paket-Manager-Konsole den folgenden Befehl aus:
+Als Nächstes ändern wir die Chat-Anwendung mit horizontaler Skalierung mit SQL Server zu unterstützen. Fügen Sie zunächst das SignalR.SqlServer NuGet-Paket Ihrem Projekt ein. In Visual Studio aus der **Tools** die Option **NuGet Paket-Manager**, wählen Sie **Paket-Manager Konsole**. Geben Sie im Fenster Paket-Manager-Konsole den folgenden Befehl aus:
 
 [!code-powershell[Main](scaleout-with-sql-server/samples/sample4.ps1)]
 

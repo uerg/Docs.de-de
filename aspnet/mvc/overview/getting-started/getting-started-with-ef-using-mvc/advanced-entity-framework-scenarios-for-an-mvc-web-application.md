@@ -8,21 +8,20 @@ ms.date: 12/08/2014
 ms.assetid: f35a9b0c-49ef-4cde-b06d-19d1543feb0b
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 6e3de242f7cfc584f4c3d1dfa3d1948ee4d49d66
-ms.sourcegitcommit: 67a0a04ebb3b21c826e5b9600bacfc897abd6a46
+ms.openlocfilehash: 0aa440e700c9bfb02aa5d55ebf481850a730febe
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42899824"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912682"
 ---
 <a name="advanced-entity-framework-6-scenarios-for-an-mvc-5-web-application-12-of-12"></a>Erweiterte Entity Framework 6-Szenarien für eine MVC-5-Web-Anwendung (12 von 12)
 ====================
 durch [Tom Dykstra](https://github.com/tdykstra)
 
-[Herunterladen des abgeschlossenen Projekts](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) oder [PDF-Datei herunterladen](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
+[Abgeschlossenes Projekt herunterladen](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
-> Die Contoso University-Beispielwebanwendung veranschaulicht, wie ASP.NET MVC 5-Anwendungen, die mit dem Entity Framework 6 Code First "und" Visual Studio 2013. Informationen zu dieser Tutorialreihe finden Sie im [ersten Tutorial der Reihe](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
-
+> Contoso University Beispiel Web-Anwendung veranschaulicht, wie ASP.NET MVC 5 mit dem Entity Framework 6 Code First Visual Studio erstellt. Informationen zu dieser Tutorialreihe finden Sie im [ersten Tutorial der Reihe](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 Im vorherigen Tutorial implementiert Sie die Tabelle pro Hierarchie-Vererbung. Dieses Lernprogramm enthält werden verschiedene Themen, die nützlich zu beachten, wenn Sie die Grundlagen der Entwicklung von ASP.NET Web-Anwendungen, die Entity Framework Code First verwenden hinausgehen eingeführt. Detaillierte Anweisungen führen Sie durch den Code und mithilfe von Visual Studio für die folgenden Themen:
 
@@ -150,7 +149,7 @@ In *Controller/CourseController*, ersetzen Sie die `Index` -Methode mit den folg
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample6.cs)]
 
-Jetzt legen einen Haltepunkt auf der `return` Anweisung (mit dem Cursor in dieser Zeile F9). Drücken Sie F5, um das Projekt im Debugmodus ausgeführt, und wählen die Indexseite des Kurses. Wenn der Code den Haltepunkt erreicht, untersuchen die `sql` Variable. Daraufhin wird die Abfrage, die mit SQL Server gesendet wird. Es ist eine einfache `Select` Anweisung.
+Jetzt legen einen Haltepunkt auf der `return` Anweisung (mit dem Cursor in dieser Zeile F9). Drücken Sie **F5** führen Sie das Projekt im Debugmodus, und wählen die Kurs Indexseite. Wenn der Code den Haltepunkt erreicht, untersuchen die `sql` Variable. Daraufhin wird die Abfrage, die mit SQL Server gesendet wird. Es ist eine einfache `Select` Anweisung.
 
 [!code-json[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample7.json)]
 
@@ -291,7 +290,6 @@ Fehlermeldung:
 
 > Kopieren kann nicht erstellt/Shadow "&lt;Filename&gt;" Wenn die Datei bereits vorhanden ist.
 
-
 Lösung
 
 Warten Sie einige Sekunden, und aktualisieren Sie die Seite.
@@ -301,7 +299,6 @@ Warten Sie einige Sekunden, und aktualisieren Sie die Seite.
 Fehlermeldung (aus der `Update-Database` Befehl in der PMC):
 
 > Der Begriff "Update-Database" wird nicht als Namen für ein Cmdlet, Funktion, Skriptdatei oder eines ausführbaren Programms erkannt. Überprüfen Sie die Schreibweise des Namens, oder wenn ein Pfad enthalten ist, stellen Sie sicher, dass der Pfad richtig ist, und versuchen Sie es erneut.
-
 
 Lösung
 
@@ -313,7 +310,6 @@ Fehlermeldung (aus der `Update-Database` Befehl in der PMC):
 
 > Fehler bei der Überprüfung für eine oder mehrere Entitäten. Finden Sie unter 'EntityValidationErrors'-Eigenschaft für die weitere Details.
 
-
 Lösung
 
 Eine Ursache für dieses Problem sind Überprüfungsfehler bei den `Seed` Methode ausgeführt wird. Finden Sie unter [Seeding and Debugging Entity Framework (EF) DBs](https://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx) Tipps zum Debuggen der `Seed` Methode.
@@ -322,9 +318,7 @@ Eine Ursache für dieses Problem sind Überprüfungsfehler bei den `Seed` Method
 
 Fehlermeldung:
 
-> HTTP-Fehler 500.19 - Interner Serverfehler  
-> Die angeforderte Seite kann nicht zugegriffen werden, weil die zugehörigen Konfigurationsdaten für die Seite ungültig ist.
-
+> HTTP-Fehler 500.19 - Interner Serverfehler, die die angeforderte Seite kann nicht zugegriffen werden, weil die zugehörigen Konfigurationsdaten für die Seite ungültig ist.
 
 Lösung
 
@@ -335,7 +329,6 @@ Eine Möglichkeit, die Sie diese Fehlermeldung ist über das Vorhandensein mehre
 Fehlermeldung:
 
 > Ein netzwerkbezogener oder instanzspezifischer Fehler beim Herstellen einer Verbindung mit SQL Server. Der Server wurde nicht gefunden oder es konnte nicht auf ihn zugegriffen werden. Stellen Sie sicher, dass der Instanzname richtig und SQL Server so konfiguriert ist, das Remoteverbindungen zulässig sind. (Anbieter: SQL-Netzwerkschnittstellen, Fehler: 26 – Fehler beim Suchen des angegebenen Servers/der angegebenen Instanz.)
-
 
 Lösung
 

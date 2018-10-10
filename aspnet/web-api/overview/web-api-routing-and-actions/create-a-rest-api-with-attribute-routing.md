@@ -8,12 +8,12 @@ ms.date: 06/26/2013
 ms.assetid: 23fc77da-2725-4434-99a0-ff872d96336b
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
-ms.openlocfilehash: 191452204d4347396b1d339d9b82d583a2ce9f3c
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: 3b66f02c9be6441ff7d6c38d6180cc8556c6b8b9
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795513"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912890"
 ---
 <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>Erstellen Sie eine REST-API mit Attributrouting in der ASP.NET-Web-API 2
 ====================
@@ -104,7 +104,7 @@ Klicken Sie auf **hinzufügen** in die **Controller hinzufügen** Dialogfeld. Da
 
 ### <a name="seed-the-database"></a>Seeding für die Datenbank
 
-Wählen Sie im Menü Extras **Bibliothekspaket-Manager**, und wählen Sie dann **-Paket-Manager-Konsole**.
+Wählen Sie im Menü Extras **NuGet Paket-Manager**, und wählen Sie dann **Paket-Manager Konsole**.
 
 Geben Sie im Fenster Paket-Manager-Konsole den folgenden Befehl aus:
 
@@ -171,7 +171,7 @@ Die routenvorlage für jede Controllermethode ist das Präfix sowie der angegebe
 
 Um Book-Details erhalten, der Client sendet eine GET-Anforderung an `/api/books/{id}/details`, wobei *{Id}* ist die ID des Buchs.
 
-Fügen Sie der `BooksController`-Klasse die folgende Methode hinzu.
+Fügen Sie der `BooksController` -Klasse die folgende Methode hinzu.
 
 [!code-csharp[Main](create-a-rest-api-with-attribute-routing/samples/sample13.cs)]
 

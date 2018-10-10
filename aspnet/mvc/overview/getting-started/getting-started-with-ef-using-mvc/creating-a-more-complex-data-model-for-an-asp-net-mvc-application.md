@@ -8,20 +8,20 @@ ms.date: 11/07/2014
 ms.assetid: 46f7f3c9-274f-4649-811d-92222a9b27e2
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 25bd71f9860db01afb7177da0f9befbdd8eb8e12
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 25cec8bb9384dbd053f8af12855171a54675a40e
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41838998"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912487"
 ---
 <a name="creating-a-more-complex-data-model-for-an-aspnet-mvc-application"></a>Erstellen ein komplexeres Datenmodell für eine ASP.NET MVC-Anwendung
 ====================
 durch [Tom Dykstra](https://github.com/tdykstra)
 
-[Herunterladen des abgeschlossenen Projekts](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) oder [PDF-Datei herunterladen](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
+[Abgeschlossenes Projekt herunterladen](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
-> Die Contoso University-Beispielwebanwendung veranschaulicht, wie ASP.NET MVC 5-Anwendungen, die mit dem Entity Framework 6 Code First "und" Visual Studio 2013. Informationen zu dieser Tutorialreihe finden Sie im [ersten Tutorial der Reihe](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+> Contoso University Beispiel Web-Anwendung veranschaulicht, wie ASP.NET MVC 5 mit dem Entity Framework 6 Code First Visual Studio erstellt. Informationen zu dieser Tutorialreihe finden Sie im [ersten Tutorial der Reihe](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 
 In den vorherigen Tutorials haben Sie mit einem einfachen Datenmodell, das aus drei Entitäten Bestand aus. In diesem Tutorial fügen Sie weitere Entitäten und Beziehungen, und passen das Datenmodell von Formatierung, Validierung und Zuordnungsregeln für die Datenbank angeben. Sehen Sie zwei Möglichkeiten zum Anpassen des Datenmodells: durch Hinzufügen von Attributen, um Entitätsklassen und indem Sie Code hinzufügen, um den Datenbankkontext-Klasse.
@@ -230,13 +230,13 @@ Standardmäßig wird in Entity Framework davon ausgegangen, dass Primärschlüss
 
 Die Fremdschlüssel- und Navigationseigenschaften in der `Course` Entität stellen folgende Beziehungen dar:
 
-- Ein Kurs ist einer Abteilung zugeordnet, sodass es aus den oben genannten Gründen eine `DepartmentID`-Fremdschlüsseleigenschaft und eine `Department`-Navigationseigenschaft gibt. 
+- Ein Kurs ist einer Abteilung zugeordnet, sodass es aus den oben genannten Gründen eine `DepartmentID`-Fremdschlüsseleigenschaft und eine `Department`-Navigationseigenschaft gibt.
 
     [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample17.cs)]
-- In einem Kurs können beliebig viele Studenten angemeldet sein, darum stellt die `Enrollments`-Navigationseigenschaft eine Auflistung dar: 
+- In einem Kurs können beliebig viele Studenten angemeldet sein, darum stellt die `Enrollments`-Navigationseigenschaft eine Auflistung dar:
 
     [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample18.cs)]
-- Ein Kurs kann von mehreren Dozenten unterrichtet werden, darum stellt die `Instructors`-Navigationseigenschaft eine Auflistung dar: 
+- Ein Kurs kann von mehreren Dozenten unterrichtet werden, darum stellt die `Instructors`-Navigationseigenschaft eine Auflistung dar:
 
     [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample19.cs)]
 
@@ -260,15 +260,15 @@ Spaltenzuordnung ist im Allgemeinen nicht erforderlich, da das Entity Framework 
 
 Die Fremdschlüssel- und Navigationseigenschaften stellen folgende Beziehungen dar:
 
-- Eine Abteilung kann einen Administrator besitzen oder nicht, und bei einem Administrator handelt es sich immer um einen Dozenten. Aus diesem Grund die `InstructorID` Eigenschaft ist als der Fremdschlüssel für die `Instructor` Entität und ein Fragezeichen wird nach hinzugefügt. die `int` typbezeichnung, um die Eigenschaft als auf NULL festlegbar zu markieren. Die Navigationseigenschaft heißt `Administrator` , enthält jedoch eine `Instructor` Entität: 
+- Eine Abteilung kann einen Administrator besitzen oder nicht, und bei einem Administrator handelt es sich immer um einen Dozenten. Aus diesem Grund die `InstructorID` Eigenschaft ist als der Fremdschlüssel für die `Instructor` Entität und ein Fragezeichen wird nach hinzugefügt. die `int` typbezeichnung, um die Eigenschaft als auf NULL festlegbar zu markieren. Die Navigationseigenschaft heißt `Administrator` , enthält jedoch eine `Instructor` Entität:
 
     [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample22.cs)]
-- Eine Abteilung kann viele Kurse aufweisen, gibt es also eine `Courses` Navigationseigenschaft: 
+- Eine Abteilung kann viele Kurse aufweisen, gibt es also eine `Courses` Navigationseigenschaft:
 
     [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample23.cs)]
 
   > [!NOTE]
-  > Gemäß der Konvention aktiviert Entity Framework das kaskadierende Delete für nicht auf NULL festlegbare Fremdschlüssel und für m:n-Beziehungen. Dies kann zu zirkulären Regeln für kaskadierende Deletes führen, wodurch eine Ausnahme ausgelöst wird, wenn Sie versuchen, eine Migration hinzuzufügen. Angenommen, Sie definieren nicht die `Department.InstructorID` Eigenschaft als NULL-Werte zulässt, erhalten Sie die folgende Ausnahmemeldung: "die referenzielle Beziehung ergibt einen zyklischen Verweis, der nicht zulässig ist." Wenn Ihre Geschäftsregeln erfordern `InstructorID` Eigenschaft nicht NULL-Werte zulässt, müssen Sie folgende fluent-API-Anweisung verwenden, um kaskadierende DELETES für die Beziehung zu deaktivieren: 
+  > Gemäß der Konvention aktiviert Entity Framework das kaskadierende Delete für nicht auf NULL festlegbare Fremdschlüssel und für m:n-Beziehungen. Dies kann zu zirkulären Regeln für kaskadierende Deletes führen, wodurch eine Ausnahme ausgelöst wird, wenn Sie versuchen, eine Migration hinzuzufügen. Angenommen, Sie definieren nicht die `Department.InstructorID` Eigenschaft als NULL-Werte zulässt, erhalten Sie die folgende Ausnahmemeldung: "die referenzielle Beziehung ergibt einen zyklischen Verweis, der nicht zulässig ist." Wenn Ihre Geschäftsregeln erfordern `InstructorID` Eigenschaft nicht NULL-Werte zulässt, müssen Sie folgende fluent-API-Anweisung verwenden, um kaskadierende DELETES für die Beziehung zu deaktivieren:
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample24.cs)]
 
@@ -285,10 +285,10 @@ Die Fremdschlüssel- und Navigationseigenschaften stellen folgende Beziehungen d
 
 Die Fremdschlüssel- und Navigationseigenschaften stellen folgende Beziehungen dar:
 
-- Ein Anmeldungsdatensatz gilt für einen einzelnen Kurs, sodass es eine `CourseID`-Fremdschlüsseleigenschaft und eine `Course`-Navigationseigenschaft gibt: 
+- Ein Anmeldungsdatensatz gilt für einen einzelnen Kurs, sodass es eine `CourseID`-Fremdschlüsseleigenschaft und eine `Course`-Navigationseigenschaft gibt:
 
     [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample26.cs)]
-- Ein Anmeldungsdatensatz gilt für einen einzelnen Studenten, sodass es eine `StudentID`-Fremdschlüsseleigenschaft und eine `Student`-Navigationseigenschaft gibt: 
+- Ein Anmeldungsdatensatz gilt für einen einzelnen Studenten, sodass es eine `StudentID`-Fremdschlüsseleigenschaft und eine `Student`-Navigationseigenschaft gibt:
 
     [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample27.cs)]
 
@@ -298,17 +298,17 @@ Besteht eine m: n Beziehung zwischen der `Student` und `Course` Entitäten, und 
 
 Die folgende Abbildung stellt dar, wie diese Beziehungen in einem Entitätsdiagramm aussehen. (Dieses Diagramm wurde mithilfe von generiert die [Entity Framework Power Tools](https://visualstudiogallery.msdn.microsoft.com/72a60b14-1581-4b9b-89f2-846072eff19d), erstellen das Diagramm ist nicht Teil des Tutorials wird nur verwendet wird hier als anschauliches Beispiel.)
 
-!["Student" Course_many zu many_relationship](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image12.png)
+![Student Course_many, many_relationship](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image12.png)
 
 Jede Beziehung weist eine 1 an einem Ende und ein Sternchen (\*), der am anderen, die angibt, einer 1: n Beziehung.
 
 Wenn die `Enrollment` Tabelle nicht auf Unternehmensniveau Informationen enthalten, müssen sie nur die beiden Fremdschlüssel enthalten `CourseID` und `StudentID`. In diesem Fall würde es entsprechen einer m: n Jointabelle *ohne Nutzlast* (oder ein *reine Jointabelle*) in der Datenbank, und Sie hätten eine Modellklasse überhaupt zu erstellen. Die `Instructor` und `Course` Entitäten verfügen über diese Art von m: n Beziehung, und wie Sie sehen können, es ist keine Entitätsklasse zwischen ihnen:
 
-!["Instructor" Course_many zu many_relationship](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image13.png)
+![Kursleiter Course_many zu many_relationship](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image13.png)
 
 Eine Jointabelle ist jedoch in der Datenbank erforderlich, wie im folgenden Diagramm dargestellt:
 
-!["Instructor" Course_many zu many_relationship_tables](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image14.png)
+![Kursleiter Course_many zu many_relationship_tables](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image14.png)
 
 Das Entity Framework erstellt automatisch die `CourseInstructor` Tabelle, und Sie lesen und aktualisieren sie indirekt durch Lesen und Aktualisieren der `Instructor.Courses` und `Course.Instructors` Navigationseigenschaften.
 
@@ -382,13 +382,13 @@ Nach dem Bearbeiten der &lt; *Zeitstempel&gt;\_ComplexDataModel.cs* Datei, geben
 
 > [!NOTE]
 > Es ist möglich, dass andere Fehler auftreten, bei der Migration von Daten und zu Änderungen am Datenbankschema. Wenn Sie Migrationsfehler erhalten, die Sie nicht beheben können, können Sie den Datenbanknamen in der Verbindungszeichenfolge ändern oder die Datenbank löschen. Der einfachste Ansatz ist zum Umbenennen der Datenbank in *"Web.config"* Datei. Das folgende Beispiel zeigt den Namen, die geändert werden, um CU\_Test:
-> 
+>
 > [!code-xml[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample36.xml?highlight=1)]
-> 
+>
 > Mit einer neuen Datenbank, sind keine Daten zu migrieren, und die `update-database` Befehl ist sehr wahrscheinlich ohne Fehler abgeschlossen. Anweisungen dazu, wie Sie die Datenbank zu löschen, finden Sie unter [Gewusst wie: Löschen einer Datenbank in Visual Studio 2012](http://romiller.com/2013/05/17/how-to-drop-a-database-from-visual-studio-2012/).
-> 
+>
 > Wenn dies fehlschlägt, ist wichtig, die Sie ausprobieren können die Datenbank erneut zu initialisieren, mithilfe des folgenden Befehls in der PMC:
-> 
+>
 > `update-database -TargetMigration:0`
 
 
@@ -406,7 +406,7 @@ Mit der rechten Maustaste die `CourseInstructor` Tabelle, und wählen Sie **Tabe
 
 Sie besitzen nun ein komplexeres Datenmodell und eine zugehörige Datenbank. Im folgenden Tutorial erfahren Sie mehr über verschiedene Möglichkeiten zum Zugriff auf verwandte Daten.
 
-Lassen Sie Feedback auf, wie Sie in diesem Tutorial gefallen hat und was wir verbessern können. Sie können auch neue Themen anfordern [anzeigen Me How With Code](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
+Lassen Sie Feedback auf, wie Sie in diesem Tutorial gefallen hat und was wir verbessern können.
 
 Links zu anderen Ressourcen des Entity Framework finden Sie in der [ASP.NET-Datenzugriff – empfohlene Ressourcen](../../../../whitepapers/aspnet-data-access-content-map.md).
 

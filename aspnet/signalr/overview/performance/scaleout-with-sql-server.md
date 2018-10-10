@@ -8,32 +8,32 @@ ms.date: 06/10/2014
 ms.assetid: 98358b6e-9139-4239-ba3a-2d7dd74dd664
 msc.legacyurl: /signalr/overview/performance/scaleout-with-sql-server
 msc.type: authoredcontent
-ms.openlocfilehash: c99b38e9326ee60bfedbd7ec2f383685343cf3c0
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 7d9acfc8ed2dd692f36528a8a9700d92d86a4203
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41827433"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910446"
 ---
 <a name="signalr-scaleout-with-sql-server"></a>Horizontale Skalierung in SignalR mit SQLServer
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
 
 > ## <a name="software-versions-used-in-this-topic"></a>In diesem Thema verwendeten Softwareversionen
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR-Version 2
->   
-> 
-> 
+>
+>
+>
 > ## <a name="previous-versions-of-this-topic"></a>Vorherige Versionen dieses Themas
-> 
+>
 > Weitere Informationen zu früheren Versionen von SignalR, finden Sie unter [ältere Versionen von SignalR](../older-versions/index.md).
-> 
+>
 > ## <a name="questions-and-comments"></a>Fragen und Kommentare
-> 
+>
 > Lassen Sie Feedback, auf wie Ihnen in diesem Tutorial gefallen hat und was wir in den Kommentaren am unteren Rand der Seite verbessern können. Wenn Sie Fragen, die nicht direkt mit dem Tutorial verknüpft sind haben, können Sie sie veröffentlichen das [ASP.NET SignalR-Forum](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oder [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -41,7 +41,7 @@ In diesem Tutorial verwenden Sie SQL Server zur Verteilung von Nachrichten in ei
 
 ![](scaleout-with-sql-server/_static/image1.png)
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Vorraussetzungen
 
 Microsoft SQLServer 2005 oder höher. Der Rückwand unterstützt Desktop- und Server-Editionen von SQL Server. Es unterstützt SQL Server Compact Edition oder Azure SQL-Datenbank nicht. (Wenn Ihre Anwendung in Azure gehostet wird, erwägen Sie die Service Bus-Rückwandplatine stattdessen.)
 
@@ -50,16 +50,16 @@ Microsoft SQLServer 2005 oder höher. Der Rückwand unterstützt Desktop- und Se
 Bevor wir mit dem ausführlichen Tutorial eingehen, sieht ein schnellen Überblick darüber, welche Aktionen Sie ausgeführt werden.
 
 1. Erstellen Sie eine neue leere Datenbank ein. Der Rückwand erstellt die erforderlichen Tabellen in dieser Datenbank.
-2. Fügen Sie diese NuGet-Pakete für Ihre Anwendung hinzu: 
+2. Fügen Sie diese NuGet-Pakete für Ihre Anwendung hinzu:
 
     - [Microsoft.AspNet.SignalR](http://nuget.org/packages/Microsoft.AspNet.SignalR)
     - [Microsoft.AspNet.SignalR.SqlServer](http://nuget.org/packages/Microsoft.AspNet.SignalR.SqlServer)
 3. Erstellen einer SignalR-Anwendung.
-4. Fügen Sie den folgenden Code, "Startup.cs" So konfigurieren Sie die Rückwandplatine: 
+4. Fügen Sie den folgenden Code, "Startup.cs" So konfigurieren Sie die Rückwandplatine:
 
     [!code-csharp[Main](scaleout-with-sql-server/samples/sample1.cs)]
 
-   Dieser Code konfiguriert die Rückwandplatine mit den Standardwerten für [TableCount](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.sqlscaleoutconfiguration.tablecount(v=vs.118).aspx) und [MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx). Informationen zum Ändern dieser Werte finden Sie unter [SignalR-Leistung: mit horizontaler Skalierung Metriken](signalr-performance.md#scaleout_metrics). 
+   Dieser Code konfiguriert die Rückwandplatine mit den Standardwerten für [TableCount](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.sqlscaleoutconfiguration.tablecount(v=vs.118).aspx) und [MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx). Informationen zum Ändern dieser Werte finden Sie unter [SignalR-Leistung: mit horizontaler Skalierung Metriken](signalr-performance.md#scaleout_metrics).
 
 ## <a name="configure-the-database"></a>Konfigurieren Sie die Datenbank
 
@@ -96,7 +96,7 @@ Erstellen einer SignalR-Anwendung entweder mit diesen Lernprogrammen:
 - [Erste Schritte mit SignalR 2.0](../getting-started/tutorial-getting-started-with-signalr.md)
 - [Erste Schritte mit SignalR 2.0 und MVC 5](../getting-started/tutorial-getting-started-with-signalr-and-mvc.md)
 
-Als Nächstes ändern wir die Chat-Anwendung mit horizontaler Skalierung mit SQL Server zu unterstützen. Fügen Sie zunächst das SignalR.SqlServer NuGet-Paket Ihrem Projekt ein. In Visual Studio aus der **Tools** , wählen Sie im Menü **Bibliothekspaket-Manager**, und wählen Sie dann **-Paket-Manager-Konsole**. Geben Sie im Fenster Paket-Manager-Konsole den folgenden Befehl aus:
+Als Nächstes ändern wir die Chat-Anwendung mit horizontaler Skalierung mit SQL Server zu unterstützen. Fügen Sie zunächst das SignalR.SqlServer NuGet-Paket Ihrem Projekt ein. In Visual Studio aus der **Tools** die Option **NuGet Paket-Manager**, wählen Sie **Paket-Manager Konsole**. Geben Sie im Fenster Paket-Manager-Konsole den folgenden Befehl aus:
 
 [!code-powershell[Main](scaleout-with-sql-server/samples/sample4.ps1)]
 

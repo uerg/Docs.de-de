@@ -8,12 +8,12 @@ ms.date: 04/16/2013
 ms.assetid: ad2a5da5-2e79-40ea-bc84-028d327f5982
 msc.legacyurl: /signalr/overview/older-versions/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 53cc35d819c0d3a9bd84e8bfc44098a3b62e6db3
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: c677bcbc78eac6056c035c2b34fe659caac9c6fa
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41827642"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912279"
 ---
 <a name="high-frequency-realtime-with-signalr-1x"></a>Echtzeitnachrichten mit SignalR 1.x
 ====================
@@ -53,7 +53,7 @@ In diesem Tutorial enthält die folgenden Abschnitte:
 
 <a id="prerequisites"></a>
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Vorraussetzungen
 
 Dieses Lernprogramm erfordert Visual Studio 2012 oder Visual Studio 2010. Wenn Visual Studio 2010 verwendet wird, wird das Projekt .NET Framework 4 anstatt des .NET Framework 4.5 verwenden.
 
@@ -79,7 +79,7 @@ In diesem Abschnitt erstellen wir das Projekt in Visual Studio.
 
 Sie können die SignalR-Funktionen zu einem Projekt hinzufügen, durch die Installation von NuGet-Paket. In diesem Tutorial wird das JQuery.UI-Paket auch verwenden, für das Zulassen der Form gezogen und animiert werden.
 
-1. Klicken Sie auf **Tools | Bibliothekspaket-Manager | Paket-Manager-Konsole**.
+1. Klicken Sie auf **Extras | NuGet Paket-Manager | Paket-Manager Konsole**.
 2. Geben Sie den folgenden Befehl aus, in der Paket-Manager.
 
     [!code-powershell[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample1.ps1)]

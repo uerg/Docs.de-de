@@ -8,12 +8,12 @@ ms.date: 02/25/2014
 ms.assetid: 66a837e9-600b-4b72-97a9-19804231c64a
 msc.legacyurl: /web-api/overview/testing-and-debugging/tracing-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 426e3500c504a651a325eec021e2d9e8b9cc1d32
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: e0d525e497cf41a79820417a9c832fa6b5cd7f8a
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795279"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912838"
 ---
 <a name="tracing-in-aspnet-web-api-2"></a>Ablaufverfolgung in ASP.NET Web-API 2
 ====================
@@ -37,7 +37,7 @@ Wählen Sie die Web-API-Projektvorlage aus.
 
 [![](tracing-in-aspnet-web-api/_static/image4.png)](tracing-in-aspnet-web-api/_static/image3.png)
 
-Von der **Tools** , wählen Sie im Menü **Bibliothekspaket-Manager**, klicken Sie dann **-Paket-Manager-Konsole**.
+Aus der **Tools** die Option **NuGet Paket-Manager**, dann **Paket Management Console**.
 
 Geben Sie im Fenster Paket-Manager-Konsole die folgenden Befehle ein.
 
@@ -47,7 +47,6 @@ Mit dem erste Befehl wird das neueste Paket der Web-API-Ablaufverfolgung install
 
 > [!NOTE]
 > Wenn Sie eine bestimmte Version von Web-API abzielen möchten, verwenden Sie das - Version-Flag, bei der Installation des Pakets für die Ablaufverfolgung.
-
 
 Öffnen Sie in der App die Datei WebApiConfig.cs\_Startordner. Fügen Sie den folgenden Code der **registrieren** Methode.
 

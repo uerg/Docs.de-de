@@ -8,34 +8,34 @@ ms.date: 06/10/2014
 ms.assetid: ed562717-8591-4936-8e10-c7e63dcb570a
 msc.legacyurl: /signalr/overview/security/introduction-to-security
 msc.type: authoredcontent
-ms.openlocfilehash: 62f835349697d02ebe7363b00a032a5353d3dfc2
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 765abd36c5182f291499042e787bcb4fcc727997
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41832204"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910853"
 ---
 <a name="introduction-to-signalr-security"></a>Einführung in die Sicherheit von SignalR
 ====================
 durch [Patrick Fletcher](https://github.com/pfletcher), [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Dieser Artikel beschreibt die Sicherheitsprobleme, die Sie berücksichtigen müssen, bei der Entwicklung einer SignalR-Anwendung. 
-> 
+> Dieser Artikel beschreibt die Sicherheitsprobleme, die Sie berücksichtigen müssen, bei der Entwicklung einer SignalR-Anwendung.
+>
 > ## <a name="software-versions-used-in-this-topic"></a>In diesem Thema verwendeten Softwareversionen
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR-Version 2
->   
-> 
-> 
+>
+>
+>
 > ## <a name="previous-versions-of-this-topic"></a>Vorherige Versionen dieses Themas
-> 
+>
 > Weitere Informationen zu früheren Versionen von SignalR, finden Sie unter [ältere Versionen von SignalR](../older-versions/index.md).
-> 
+>
 > ## <a name="questions-and-comments"></a>Fragen und Kommentare
-> 
+>
 > Lassen Sie Feedback, auf wie Ihnen in diesem Tutorial gefallen hat und was wir in den Kommentaren am unteren Rand der Seite verbessern können. Wenn Sie Fragen, die nicht direkt mit dem Tutorial verknüpft sind haben, können Sie sie veröffentlichen das [ASP.NET SignalR-Forum](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oder [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -108,7 +108,7 @@ Hier ist ein Beispiel eines CSRF-Angriffs aus:
 
 1. Ein Benutzer sich anmeldet www.example.com, Formularauthentifizierung verwenden.
 2. Der Server authentifiziert den Benutzer. Die Antwort vom Server enthält ein Authentifizierungscookie.
-3. Der Benutzer, ohne Abmeldung, eine schädliche Website besucht. Diese schädliche Websites enthält das folgende HTML-Format an: 
+3. Der Benutzer, ohne Abmeldung, eine schädliche Website besucht. Diese schädliche Websites enthält das folgende HTML-Format an:
 
     [!code-html[Main](introduction-to-security/samples/sample1.html)]
 
@@ -124,12 +124,9 @@ In der Regel sind die CSRF-Angriffe möglich vor Websites, die Cookies für die 
 
 SignalR verwendet die folgenden Schritte aus, um zu verhindern, dass eine schädliche Website gültige Anforderungen Ihrer Anwendung zu erstellen. SignalR verwendet die folgenden Schritte aus, in der Standardeinstellung, Sie müssen nicht in Ihrem Code keine Maßnahmen ergreifen.
 
-- **Deaktivieren Sie die domänenübergreifende Anforderungen**  
- SignalR deaktiviert, domänenübergreifende Anforderungen, um zu verhindern, dass Benutzer ein SignalR-Endpunkt aus einer externen Domäne aufgerufen wird. SignalR jede Anforderung von einer externen Domäne als ungültig betrachtet, und die Anforderung blockiert. Es wird empfohlen, dass Sie dieses Standardverhalten beibehalten; Andernfalls kann eine schädliche Website Benutzer bringen, Senden von Befehlen auf Ihrer Website. Zu domänenübergreifende Anforderungen verwenden, finden Sie unter [Gewusst wie: Herstellen einer Verbindung domänenübergreifende](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain) .
-- **Übergeben Sie Verbindungstoken Abfragezeichenfolge nicht cookie**  
- SignalR übergibt das Verbindungstoken als Wert einer Abfragezeichenfolge, statt als Cookie. Das Verbindungstoken in einem Cookie speichern ist unsicher, da der Browser das Verbindungstoken versehentlich weiterleiten kann, wenn Schadsoftware erkannt wird. Darüber hinaus verhindert, dass das Verbindungstoken in der Abfragezeichenfolge übergeben das Verbindungstoken außerhalb der aktuellen Verbindungs beibehalten. Aus diesem Grund kann kein böswilliger Benutzer unter der Authentifizierungsinformationen eines anderen Benutzers anfordern.
-- **Verbindungstoken überprüfen**  
- Siehe die [Verbindungstoken](#connectiontoken) Abschnitt, der Server weiß, welche Verbindungs-Id jeder authentifizierte Benutzer zugeordnet ist. Der Server verarbeitet keine Anforderungen über eine Verbindungs-Id, die nicht den Benutzernamen übereinstimmen. Es ist unwahrscheinlich, dass ein böswilliger Benutzer eine gültige Anforderung erraten kann, da der böswillige Benutzer den Benutzernamen und die aktuelle nach dem Zufallsprinzip generierte Verbindungs­ID kennen muss. Dieser Verbindungs-Id wird ungültig, sobald die Verbindung beendet wird. Anonyme Benutzer müssen nicht den Zugriff auf vertrauliche Informationen.
+- **Deaktivieren Sie die domänenübergreifende Anforderungen** SignalR deaktiviert die domänenübergreifende Anforderungen, um zu verhindern, dass Benutzer ein SignalR-Endpunkt aus einer externen Domäne aufgerufen. SignalR jede Anforderung von einer externen Domäne als ungültig betrachtet, und die Anforderung blockiert. Es wird empfohlen, dass Sie dieses Standardverhalten beibehalten; Andernfalls kann eine schädliche Website Benutzer bringen, Senden von Befehlen auf Ihrer Website. Zu domänenübergreifende Anforderungen verwenden, finden Sie unter [Gewusst wie: Herstellen einer Verbindung domänenübergreifende](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain) .
+- **Abfragezeichenfolge nicht Cookie Verbindungstoken übergebe** SignalR übergibt das Verbindungstoken als Wert einer Abfragezeichenfolge, statt als Cookie. Das Verbindungstoken in einem Cookie speichern ist unsicher, da der Browser das Verbindungstoken versehentlich weiterleiten kann, wenn Schadsoftware erkannt wird. Darüber hinaus verhindert, dass das Verbindungstoken in der Abfragezeichenfolge übergeben das Verbindungstoken außerhalb der aktuellen Verbindungs beibehalten. Aus diesem Grund kann kein böswilliger Benutzer unter der Authentifizierungsinformationen eines anderen Benutzers anfordern.
+- **Stellen Sie sicher Verbindungstoken** wie in beschrieben die [Verbindungstoken](#connectiontoken) Abschnitt, der Server weiß, welche Verbindungs-Id jeder authentifizierte Benutzer zugeordnet ist. Der Server verarbeitet keine Anforderungen über eine Verbindungs-Id, die nicht den Benutzernamen übereinstimmen. Es ist unwahrscheinlich, dass ein böswilliger Benutzer eine gültige Anforderung erraten kann, da der böswillige Benutzer den Benutzernamen und die aktuelle nach dem Zufallsprinzip generierte Verbindungs­ID kennen muss. Dieser Verbindungs-Id wird ungültig, sobald die Verbindung beendet wird. Anonyme Benutzer müssen nicht den Zugriff auf vertrauliche Informationen.
 
 <a id="recommendations"></a>
 

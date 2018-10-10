@@ -8,12 +8,12 @@ ms.date: 02/15/2013
 ms.assetid: ae4def81-fa37-4883-a13e-d9896cbf6c36
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
 msc.type: authoredcontent
-ms.openlocfilehash: 7bdf443fbce7376ac057c848df146717955203f9
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 67f44d9f23a2fe83c48e68328b1dee739056e32f
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41827850"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912383"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>ASP.NET-webbereitstellung mithilfe von Visual Studio: Vorbereiten für die Datenbankbereitstellung
 ====================
@@ -84,15 +84,13 @@ Da Sie Code First-Migrationen verwenden möchten, müssen Sie nicht verwenden, d
 > [!NOTE]
 > Eine andere Möglichkeit, eine Initialisiererklasse anzugeben ist es durch den Aufruf erfolgen `Database.SetInitializer` in die `Application_Start` -Methode in der die *"Global.asax"* Datei. Wenn Sie Migrationen in einem Projekt aktivieren, die diese Methode verwendet wird, um den Initialisierer anzugeben, entfernen Sie diese Codezeile.
 
-
 > [!NOTE]
 > Wenn Sie Visual Studio 2013 verwenden, fügen Sie die folgenden Schritte aus, zwischen den Schritten 2 und 3: (a) In PMC Geben Sie "Update-Package Entityframework-Version 6.1.1" um die aktuelle Version von EF zu erhalten. Und (b) erstellen Sie das Projekt zum Abrufen einer Liste der Buildfehler, und beheben Sie sie. Löschen Sie die using-Anweisungen für Namespaces, die nicht mehr vorhanden sind, mit der rechten Maustaste und klicken Sie auf auflösen, Hinzufügen von using-Anweisungen, wo sie gebraucht werden, und System.Data.Entity.EntityState Vorkommen von System.Data.EntityState nun.
-
 
 ### <a name="enable-code-first-migrations"></a>Aktivieren Sie Code First-Migrationen
 
 1. Stellen Sie sicher, dass das ContosoUniversity-Projekt (nicht ContosoUniversity.DAL) als Startprojekt festgelegt ist. In **Projektmappen-Explorer**mit der rechten Maustaste auf das ContosoUniversity-Projekt, und wählen Sie **als Startprojekt festlegen**. Code First-Migrationen sucht in der Startup-Projekt auf die Datenbank-Verbindungszeichenfolge zu ermitteln.
-2. Von der **Tools** Menü klicken Sie auf **Bibliothekspaket-Manager** (oder **NuGet Package Manager**) und dann **-Paket-Manager-Konsole**.
+2. Von der **Tools** Menü wählen **NuGet Package Manager** > **-Paket-Manager-Konsole**.
 
     ![Selecting_Package_Manager_Console](preparing-databases/_static/image3.png)
 3. Am oberen Rand der **-Paket-Manager-Konsole** Fenster auszuwählen ContosoUniversity.DAL als Standardprojekt, und klicken Sie dann an die `PM>` Eingabeaufforderung Geben Sie "Enable-Migrations".

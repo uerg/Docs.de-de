@@ -8,27 +8,27 @@ ms.date: 04/11/2014
 ms.assetid: 07aa855a-92ee-4d43-ba66-5bfd7de20ee6
 msc.legacyurl: /aspnet/overview/owin-and-katana/host-owin-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: 6bead915491c62de809b8625d8071a63c70a6ef5
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: dbf0964695dd2592d063b05c0778923edffe8e2e
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41838342"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910772"
 ---
 <a name="host-owin-in-an-azure-worker-role"></a>Hosten von OWIN in einer Azure-Workerrolle
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson)
 
 > In diesem Tutorial wird gezeigt, wie OWIN selbst in einer Microsoft Azure-workerrolle gehostet wird.
-> 
+>
 > [Öffnen von Weboberfläche für .NET](http://owin.org/) (OWIN) definiert eine Abstraktion zwischen Webservern für .NET und Webanwendungen. OWIN entkoppelt die Webanwendung aus dem Server, wodurch OWIN ideal für eine Webanwendung in Ihrem eigenen Prozess, außerhalb von IIS Self-hosting – z. B. in einer Azure-workerrolle.
-> 
+>
 > In diesem Tutorial erfahren Sie, wie Sie Self-Hosting einer OWIN-Anwendung in einer Microsoft Azure-workerrolle. Weitere Informationen zu Workerrollen finden Sie unter [Azure-Ausführungsmodelle](https://azure.microsoft.com/documentation/articles/fundamentals-application-models/#CloudServices).
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Softwareversionen, die in diesem Tutorial verwendet werden.
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - [Azure SDK für .NET 2.3](https://azure.microsoft.com/downloads/)
 > - [Microsoft.Owin.Selfhost 2.1.0](http://www.nuget.org/packages/Microsoft.Owin.SelfHost/2.1.0)
 
@@ -56,7 +56,7 @@ Im Allgemeinen kann eine Azure-Anwendung mehrere Rollen enthalten, obwohl in die
 
 ## <a name="add-the-owin-self-host-packages"></a>Fügen Sie die Self-Hosting-Pakete für OWIN
 
-Von der **Tools** Menü klicken Sie auf **Bibliothekspaket-Manager**, klicken Sie dann auf **-Paket-Manager-Konsole**.
+Von der **Tools** Menü klicken Sie auf **NuGet Package Manager**, klicken Sie dann auf **-Paket-Manager-Konsole**.
 
 Geben Sie im Fenster Paket-Manager-Konsole den folgenden Befehl aus:
 

@@ -8,12 +8,12 @@ ms.date: 04/10/2013
 ms.assetid: ab7b2554-956a-4f6d-b2a0-4ae0c62e8580
 msc.legacyurl: /signalr/overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 76dc2f4d54f6ab4cebbde06dfd611a9b5ee5ae64
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 7d604af11ade848358e291d1df25f2f8df850132
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41823843"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911980"
 ---
 <a name="tutorial-server-broadcast-with-aspnet-signalr-1x"></a>Tutorial: Serverübertragung mit ASP.NET SignalR 1.x
 ====================
@@ -56,7 +56,7 @@ In diesem Tutorial enthält die folgenden Abschnitte:
 
 <a id="prerequisites"></a>
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Vorraussetzungen
 
 Bevor Sie beginnen, stellen Sie sicher, dass Sie Visual Studio 2012 oder 2010 SP1 auf Ihrem Computer installiert. Wenn Sie Visual Studio nicht haben, finden Sie unter [ASP.NET-Downloads](https://www.asp.net/downloads) , die kostenlose Visual Studio 2012 Express für Web zu erhalten.
 
@@ -80,7 +80,7 @@ Wenn Sie Visual Studio 2010 haben, stellen sicher, dass [NuGet](https://visualst
 
 Sie können die SignalR-Funktionen zu einem Projekt hinzufügen, durch die Installation von NuGet-Paket.
 
-1. Klicken Sie auf **Tools | Bibliothekspaket-Manager | Paket-Manager-Konsole**.
+1. Klicken Sie auf **Extras | NuGet Paket-Manager | Paket-Manager Konsole**.
 2. Geben Sie den folgenden Befehl aus, in der Paket-Manager.
 
     [!code-powershell[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample1.ps1)]
@@ -221,7 +221,7 @@ Sie haben nun die Einrichtung der Servercode abgeschlossen. Im nächsten Abschni
 
     [!code-javascript[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample14.js)]
 
-    $.connection bezieht sich auf die SignalR-Proxys. Der Code einen Verweis auf den Proxy für die StockTickerHub-Klasse abgerufen und in die Ticker-Variable eingefügt. Der Proxyname ist der Name, der durch das [HubName]-Attribut festgelegt wurde:
+    $.connection bezieht sich auf die SignalR-Proxys. Der Code einen Verweis auf den Proxy für die StockTickerHub-Klasse abgerufen und in die Ticker-Variable eingefügt. Proxyname ist der Name, der vom [HubName]-Attribut festgelegt wurde:
 
     [!code-javascript[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample15.js)]
 

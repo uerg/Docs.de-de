@@ -8,20 +8,20 @@ ms.date: 11/07/2014
 ms.assetid: 18cdd896-8ed9-4547-b143-114711e3eafb
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 16bef0094406f3f45307eabd19c0872e90ecf7ef
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 18d3720f891e2356af42b58389776f2d04eee39d
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41833637"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913202"
 ---
 <a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Lesen verwandter Daten mit dem Entitätsframework in einer ASP.NET MVC-Anwendung
 ====================
 durch [Tom Dykstra](https://github.com/tdykstra)
 
-[Herunterladen des abgeschlossenen Projekts](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) oder [PDF-Datei herunterladen](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
+[Abgeschlossenes Projekt herunterladen](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
-> Die Contoso University-Beispielwebanwendung veranschaulicht, wie ASP.NET MVC 5-Anwendungen, die mit dem Entity Framework 6 Code First "und" Visual Studio 2013. Informationen zu dieser Tutorialreihe finden Sie im [ersten Tutorial der Reihe](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+> Contoso University Beispiel Web-Anwendung veranschaulicht, wie ASP.NET MVC 5 mit dem Entity Framework 6 Code First Visual Studio erstellt. Informationen zu dieser Tutorialreihe finden Sie im [ersten Tutorial der Reihe](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 
 Im vorherigen Tutorial haben Sie das Datenmodell "School". In diesem Tutorial werden Sie lesen und Anzeigen von verknüpften Daten, d. h. Daten, die Entity Framework in Navigationseigenschaften lädt.
@@ -36,7 +36,7 @@ Die folgenden Abbildungen zeigen die Seiten, mit den Sie arbeiten werden.
 
 Es gibt mehrere Möglichkeiten, Entity Framework zugehörige Daten in die Navigationseigenschaften einer Entität laden kann:
 
-- *Lazy Loading (verzögertes Laden)*. Wenn die Entität zuerst gelesen wird, werden verwandte Daten nicht abgerufen. Wenn Sie jedoch zum ersten Mal versuchen, auf eine Navigationseigenschaft zuzugreifen, werden die für diese Navigationseigenschaft erforderlichen Daten automatisch abgerufen. Dies führt zu mehreren Abfragen, die an die Datenbank gesendet – eine für die Entität selbst und eine jedes Mal, die Daten für die Entität beziehen abgerufen werden muss. Die `DbContext` Klasse Lazy Load sind standardmäßig aktiviert. 
+- *Lazy Loading (verzögertes Laden)*. Wenn die Entität zuerst gelesen wird, werden verwandte Daten nicht abgerufen. Wenn Sie jedoch zum ersten Mal versuchen, auf eine Navigationseigenschaft zuzugreifen, werden die für diese Navigationseigenschaft erforderlichen Daten automatisch abgerufen. Dies führt zu mehreren Abfragen, die an die Datenbank gesendet – eine für die Entität selbst und eine jedes Mal, die Daten für die Entität beziehen abgerufen werden muss. Die `DbContext` Klasse Lazy Load sind standardmäßig aktiviert.
 
     ![Lazy_loading_example](https://asp.net/media/2577850/Windows-Live-Writer_Reading-Re.NET-MVC-Application-5-of-10h1_ADC3_Lazy_loading_example_2c44eabb-5fd3-485a-837d-8e3d053f2c0c.png)
 - *Eager Loading (vorzeitiges Laden)*. Wenn die Entität gelesen wird, werden ihre verwandten Daten mit ihr abgerufen. Dies führt normalerweise zu einer einzelnen Joinabfrage, die alle Daten abruft, die erforderlich sind. Sie geben eager Loading mit der `Include` Methode.
@@ -69,7 +69,7 @@ Wenn Sie keine DTOs verwenden, können Sie diese deaktivieren Sie lazy Loading u
 Hier sind einige andere [Möglichkeiten zur Deaktivierung von lazy Loading](https://msdn.microsoft.com/data/jj574232):
 
 - Lassen Sie für bestimmte Eigenschaften, die `virtual` -Schlüsselwort, wenn Sie die Eigenschaft deklarieren.
-- Legen Sie für alle Navigationseigenschaften `LazyLoadingEnabled` zu `false`, platzieren Sie den folgenden Code im Konstruktor der Kontextklasse: 
+- Legen Sie für alle Navigationseigenschaften `LazyLoadingEnabled` zu `false`, platzieren Sie den folgenden Code im Konstruktor der Kontextklasse:
 
     [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
@@ -183,10 +183,10 @@ Sie haben die folgenden Änderungen am bestehenden Code vorgenommen:
 
 - Die Modellklasse wurde zu `InstructorIndexData` geändert.
 - Der Seitenname wurde von **Index** in **Dozenten** geändert.
-- Hinzugefügt ein **Office** Spalte `item.OfficeAssignment.Location` nur, wenn `item.OfficeAssignment` nicht null ist. (Da dies eine 1: 0 (null)-oder-1-Beziehung ist, gibt es möglicherweise keine verknüpfte `OfficeAssignment` Entität.) 
+- Hinzugefügt ein **Office** Spalte `item.OfficeAssignment.Location` nur, wenn `item.OfficeAssignment` nicht null ist. (Da dies eine 1: 0 (null)-oder-1-Beziehung ist, gibt es möglicherweise keine verknüpfte `OfficeAssignment` Entität.)
 
     [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample16.cshtml)]
-- Code hinzugefügt, die dynamisch hinzufügen `class="success"` auf die `tr` Element des ausgewählten Dozenten. Hiermit wird eine Hintergrundfarbe für die ausgewählte Zeile mithilfe einer [Bootstrap](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap) Klasse. 
+- Code hinzugefügt, die dynamisch hinzufügen `class="success"` auf die `tr` Element des ausgewählten Dozenten. Hiermit wird eine Hintergrundfarbe für die ausgewählte Zeile mithilfe einer [Bootstrap](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap) Klasse.
 
     [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample17.cshtml)]
 - Einen neuen `ActionLink` mit der Bezeichnung **wählen** unmittelbar vor den anderen Links in jeder Zeile, wodurch die ID des ausgewählten Dozenten zu sendende der `Index` Methode.
@@ -243,7 +243,7 @@ Die Indexseite für "Instructor" jetzt ausführen, und Sie sehen keinen Untersch
 
 Sie haben jetzt alle drei Möglichkeiten (lazy, eager und explizite) zum Laden von verknüpfter Daten in die Navigationseigenschaften verwendet. Das nächste Tutorial zeigt die Aktualisierung verwandter Daten.
 
-Lassen Sie Feedback auf, wie Sie in diesem Tutorial gefallen hat und was wir verbessern können. Sie können auch neue Themen anfordern [anzeigen Me How With Code](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
+Lassen Sie Feedback auf, wie Sie in diesem Tutorial gefallen hat und was wir verbessern können.
 
 Links zu anderen Ressourcen des Entity Framework finden Sie in der [ASP.NET-Datenzugriff – empfohlene Ressourcen](../../../../whitepapers/aspnet-data-access-content-map.md).
 

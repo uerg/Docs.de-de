@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 2ce36f78-8ecb-4ab1-b748-6d0ab633ea3f
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
 msc.type: authoredcontent
-ms.openlocfilehash: de0f8092342a8ba8979a31e9a97b603e44e6a85d
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 754f085e3e43f7efa155f410d02a0d29d3349612
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41833404"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912292"
 ---
 <a name="create-the-project"></a>Erstellen des Projekts
 ====================
@@ -174,8 +174,7 @@ Wenn ein Webserver eine Anforderung für eine Seite erhält, sucht nach der Seit
 > 
 > Neben den Features in der Vorlage für ASP.NET Web Forms-Anwendung, die Wingtip Toys-Anwendung verwendet [Entity Framework Code First](https://weblogs.asp.net/scottgu/archive/2010/12/08/announcing-entity-framework-code-first-ctp5-release.aspx), dies ist eine NuGet-Bibliothek, die Code-orientierte Entwicklung ermöglicht, bei der Arbeit mit Daten. Kurz gesagt, wird die Datenbank betreffende Teil Ihrer Anwendung basierend auf den Code, den Sie schreiben. Mithilfe von Entity Framework, abrufen und Bearbeiten von Daten als stark typisierte Objekte. Mit diesem können Sie auf die Geschäftslogik konzentrieren, in der Anwendung statt auf die Details wie die Daten zugegriffen wird.
 > 
-> Weitere Informationen zu den installierten Bibliotheken und Pakete, die in der ASP.NET Web Forms-Vorlage enthalten finden Sie in der Liste der installierten NuGet-Pakete. Zu diesem Zweck erstellen Sie In Visual Studio ein neues Web Forms-Projekt, die Option **Tools**  - &gt; **Bibliothekspaket-Manager**  - &gt; **verwalten NuGet-Pakete für Projektmappe**, und wählen Sie **installierte Pakete** in die **NuGet-Pakete verwalten** Dialogfeld.
-
+> Weitere Informationen zu den installierten Bibliotheken und Pakete, die in der ASP.NET Web Forms-Vorlage enthalten finden Sie in der Liste der installierten NuGet-Pakete. Dazu erstellen Sie In Visual Studio ein neues Web Forms-Projekt auswählen **Tools** > **NuGet Paket-Manager** > **NuGet-Pakete verwaltenLösung**, und wählen Sie **installierte Pakete** in der **NuGet-Pakete verwalten** Dialogfeld.
 
 ### <a name="touring-visual-studio"></a>Visual Studio Touring
 

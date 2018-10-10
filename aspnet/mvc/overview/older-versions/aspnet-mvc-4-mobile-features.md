@@ -8,12 +8,12 @@ ms.date: 08/15/2012
 ms.assetid: 27dc4fc8-1b51-43b0-933f-fc1b52476523
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
-ms.openlocfilehash: 8b82b8b9b1ee6646072931da889c643afb34d474
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 6fe55a14b40f8c50dee91cdc7f59d0378f2a1ea2
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578158"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912324"
 ---
 <a name="aspnet-mvc-4-mobile-features"></a>ASP.NET MVC 4-Funktionen für mobile Geräte
 ====================
@@ -184,7 +184,7 @@ Benennen Sie *Views\Home\AllTags.Mobile.cshtml* und *Views\Home\AllTags.iPhone.c
 
 Installieren Sie die *jQuery.Mobile.MVC* NuGet-Paket auf diese Weise:
 
-1. Von der **Tools** , wählen Sie im Menü **Bibliothekspaket-Manager**, und wählen Sie dann **-Paket-Manager-Konsole**.
+1. Aus der **Tools** die Option **NuGet Paket-Manager**, und wählen Sie dann **Paket-Manager Konsole**.
 
     [![p3_packageMgr](aspnet-mvc-4-mobile-features/_static/image20.png)](aspnet-mvc-4-mobile-features/_static/image19.png)
 2. In der **-Paket-Manager-Konsole**, geben Sie `Install-Package jQuery.Mobile.MVC -version 1.0.0`
@@ -245,11 +245,11 @@ Aktualisieren Sie die *AllTags* Ansicht im mobilen Browser. Sie können nun zwis
 
 > [!NOTE]
 > Hinweis zu debuggen: können Sie den folgenden Code hinzufügen, am Ende der Views\Shared\\_ViewSwitcher.cshtml um Ansichten zu debuggen, wenn auf einem mobilen Gerät mit einem Browser der Benutzer-Agent-Zeichenfolge festgelegt werden.
-> 
+>
 > [!code-csharp[Main](aspnet-mvc-4-mobile-features/samples/sample15.cs)]
-> 
->  und das Hinzufügen des folgenden Abschnitts aus, um die *Views\Shared\\"_Layout.cshtml"* Datei.  
-> 
+>
+>  und das Hinzufügen des folgenden Abschnitts aus, um die *Views\Shared\\"_Layout.cshtml"* Datei.
+>
 > [!code-html[Main](aspnet-mvc-4-mobile-features/samples/sample16.html)]
 
 

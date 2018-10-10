@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 093c1362-f10b-407c-a708-be370f4b62b0
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-entity-framework-scaffolding-and-migrations
 msc.type: authoredcontent
-ms.openlocfilehash: 10a61b70ef52aa9f5bb9004df3dba9e323d021db
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: bfb1edfcb756706e44126e7e96803bd2e9ce99fb
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41831893"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911018"
 ---
 # <a name="aspnet-mvc-4-entity-framework-scaffolding-and-migrations"></a>ASP.NET MVC 4 Entity Framework – Gerüstbau und Migrationen
 
@@ -41,7 +41,7 @@ In dieser praktischen Übungseinheit erfahren Sie, wie Sie:
 <a id="Prerequisites"></a>
 
 <a id="Prerequisites"></a>
-### <a name="prerequisites"></a>Erforderliche Komponenten
+### <a name="prerequisites"></a>Vorraussetzungen
 
 Sie benötigen Folgendes, um diese testumgebung abzuschließen:
 
@@ -172,7 +172,7 @@ An diesem Punkt ist die Datenbank noch nicht erstellt. In dieser Aufgabe werden 
 
 In dieser Aufgabe aktualisieren Sie die Datenbank mithilfe von Entity Framework-Migrationen. Sie werden feststellen, wie einfach es ist, ändern Sie das Modell und die Änderungen widerzuspiegeln, in Ihren Datenbanken mithilfe der Funktion von Entity Framework-Migrationen.
 
-1. Öffnen Sie die Paket-Manager-Konsole. Wählen Sie **Tools | Bibliothekspaket-Manager | Paket-Manager-Konsole**.
+1. Öffnen Sie die Paket-Manager-Konsole. Wählen Sie **Tools** > **NuGet Paket-Manager** > **Paket-Manager Konsole**.
 2. Geben Sie in der Paket-Manager-Konsole den folgenden Befehl aus:
 
     PMC

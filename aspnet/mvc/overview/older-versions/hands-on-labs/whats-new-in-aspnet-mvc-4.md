@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 48f7feb3-872f-485d-b96f-e30011ff8c4a
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: b1d80928d765bc71ea1579272662b6697371c47b
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 9d5a51a5887ecbbc96fce1416b88aa849bc3674e
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826134"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912721"
 ---
 # <a name="whats-new-in-aspnet-mvc-4"></a>Neuerungen in ASP.NET MVC 4
 
@@ -45,7 +45,7 @@ In dieser praktischen Übungseinheit erfahren Sie, wie Sie:
 <a id="Prerequisites"></a>
 
 <a id="Prerequisites"></a>
-### <a name="prerequisites"></a>Erforderliche Komponenten
+### <a name="prerequisites"></a>Vorraussetzungen
 
 Sie benötigen Folgendes, um diese testumgebung abzuschließen:
 
@@ -247,7 +247,7 @@ Flexibilität, die Ihnen durch die adaptive Renderingtechnik kann Anpassungen f�
 Verwenden Sie die adaptive Renderingtechnik, Ihre Website werden **ordnungsgemäß, unabhängig vom Browser angezeigt.** Sie sollten erwägen, wenn die zusätzliche Bandbreite Laden relevant ist.
 
 > [!NOTE]
-> Ist das grundlegende Format der eine Medienabfrage: @media \[Bereich: alle | handheld | drucken | Projektion | Bildschirm\] ([-Eigenschaft: Wert]... [Eigenschaft: Wert])
+> Das grundlegende Format einer ist: @media \[Bereich: alle | handheld | drucken | Projektion | Bildschirm\] ([Eigenschaft: Wert]... [Eigenschaft: Wert])
 
 
 Beispiele für Medienabfragen: &gt;  <strong>@media alle und (max. Breite: 1000) und (minimale Breite: 700px) {}:</strong> für alle Lösungen 700px bis 1000.
@@ -317,7 +317,7 @@ In dieser Aufgabe erstellen Sie eine Simulation der der Foto-Dienst zum Abrufen 
     (Codeausschnitt - *ASP.NET MVC 4 Lab - Ex02 - Katalog Aktion*)
 
     [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample4.cs)]
-7. Drücken Sie **F5** führen Sie die Projektmappe, und navigieren Sie dann die folgende URL, um die simulierte Foto-Dienst zu testen: `http://localhost:[port]/photo/gallery` (der Wert [Port] hängt von den aktuellen Port, der die Anwendung gestartet wurde). Die Anforderung an diese URL abrufen soll den Inhalt der **Photos.json** Datei.
+7. Drücken Sie **F5** , führen Sie die Projektmappe, und wechseln Sie zur folgenden URL um verspottet fotodienst testen: `http://localhost:[port]/photo/gallery` ([Port] Wert hängt von der aktuellen Port, von dem die Anwendung gestartet wurde). Die Anforderung an diese URL abrufen soll den Inhalt der **Photos.json** Datei.
 
     ![Testen des Diensts simulierte Foto](whats-new-in-aspnet-mvc-4/_static/image20.png "Testen des Diensts simulierte Foto")
 
@@ -382,7 +382,7 @@ Eines der wichtigsten Updates in ASP.NET MVC 4 ist die Unterstützung für die E
 
       > [!NOTE]
       > Einer der Vorteile der Verwendung von NuGet ist, dass Sie nicht alle Bibliotheken in Ihrem Projekt, Versand Verringern der Projektgröße. Mit NuGet Power Tools können werden durch Angabe von Versionen des Pakets in der Datei "Packages.config" Sie alle erforderlichen Bibliotheken das erstmalige herunterladen, die, das Sie das Projekt ausführen, können. Deshalb müssen Sie diese Schritte ausgeführt werden, nach dem Öffnen einer vorhandenen Lösung aus dieser Übungseinheit wird.
-2. Öffnen der **-Paket-Manager-Konsole** durch Klicken auf die **Tools** &gt; **Bibliothekspaket-Manager** &gt; **-Paket-Manager Konsole** Option des Menüs.
+2. Öffnen der **Paket-Manager Konsole** durch Klicken auf die **Tools** > **NuGet Paket-Manager** > **Paket-Manager-Konsole**  Menü.
 
     ![Öffnen die NuGet-Paket-Manager-Konsole](whats-new-in-aspnet-mvc-4/_static/image22.png "der NuGet-Paket-Manager-Konsole öffnen")
 
@@ -575,7 +575,7 @@ In dieser Aufgabe erstellen Sie ein benutzerdefiniertes Layout für iPhone-Gerä
 
 Sie haben ein neues registriert **DefaultDisplayMode, die mit dem Namen &quot;iPhone&quot;**, in der statischen **DisplayModeProvider.Instance.Modes** statische Liste, die für abgeglichen werden Jede eingehende Anforderung. Wenn die eingehende Anforderung die Zeichenfolge enthält &quot;iPhone&quot;, ASP.NET MVC findet die Ansichten enthalten, deren Name die &quot;iPhone&quot; Suffix. Der 0-Parameter gibt an, wie bestimmte der neue Modus wird; Diese Ansicht ist z.B. spezifischer als die allgemeinen &quot;.mobile&quot; Regel, die Anfragen von mobilen Geräten entspricht.
 
-Nachdem dieser Code ausgeführt, wenn ein iPhone-Browser eine Anforderung generiert, kann Ihre Anwendung verwendet die **Views\Shared\\_Layout.iPhone.cshtml** Layout, die Sie in den nächsten Schritten erstellen.
+Nach Ausführung dieses Codes Wenn ein iPhone-Browser eine Anforderung generiert, verwendet die Anwendung die **Views\Shared ebenfalls einen\\_Layout.iPhone.cshtml** in den nächsten Schritten Sie erstellen Layout.
 
 > [!NOTE]
 > So testen Sie die Anforderung für iPhone zu Demonstrationszwecken vereinfacht wurde, und möglicherweise nicht funktionieren erwartungsgemäß für jede iPhone-Benutzer-Agent-Zeichenfolge (zum Beispiel Test Groß-/Kleinschreibung beachtet wird).

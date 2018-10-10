@@ -8,12 +8,12 @@ ms.date: 05/15/2013
 ms.assetid: eaa206c4-edb3-487e-8fcb-54a3261fed36
 msc.legacyurl: /signalr/overview/older-versions/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: d59ca85f1005b08ff52ded61d94323dabdb40d0a
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 905dea4918be731673c39e788069ce2dc78e1649
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41834833"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910693"
 ---
 <a name="dependency-injection-in-signalr-1x"></a>Abhängigkeitsinjektion in SignalR 1.x
 ====================
@@ -122,7 +122,7 @@ Erstellen einer `IStockTicker` Schnittstelle ist nicht zwingend erforderlich, ab
 
 Es gibt viele Open-Source-IoC-Container für .NET. In diesem Tutorial verwende ich [Ninject](http://www.ninject.org/). (Andere beliebten Bibliotheken enthalten [Castle Windsor](http://www.castleproject.org/), [Spring.Net](http://www.springframework.net/), [Autofac](https://code.google.com/p/autofac/), [Unity](https://github.com/unitycontainer/unity), und [StructureMap ](http://docs.structuremap.net).)
 
-Verwenden Sie NuGet Package Manager zum Installieren der [Ninject Bibliothek](https://nuget.org/packages/Ninject/3.0.1.10). In Visual Studio aus der **Tools** Menü die Option **Bibliothekspaket-Manager** | **-Paket-Manager-Konsole**. Geben Sie im Fenster Paket-Manager-Konsole den folgenden Befehl aus:
+Verwenden Sie NuGet Package Manager zum Installieren der [Ninject Bibliothek](https://nuget.org/packages/Ninject/3.0.1.10). In Visual Studio aus der **Tools** Menü die Option **NuGet Package Manager** > **-Paket-Manager-Konsole**. Geben Sie im Fenster Paket-Manager-Konsole den folgenden Befehl aus:
 
 [!code-powershell[Main](dependency-injection/samples/sample13.ps1)]
 

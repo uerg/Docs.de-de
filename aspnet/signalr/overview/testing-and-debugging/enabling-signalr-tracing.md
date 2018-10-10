@@ -8,32 +8,32 @@ ms.date: 08/08/2014
 ms.assetid: 30060acb-be3e-4347-996f-3870f0c37829
 msc.legacyurl: /signalr/overview/testing-and-debugging/enabling-signalr-tracing
 msc.type: authoredcontent
-ms.openlocfilehash: ee62a7b01ff357262aa89dbac4f49180b4c58fe0
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 89b27267bec5edb0692fe75061d08b4688df5a8c
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41827413"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912065"
 ---
 <a name="enabling-signalr-tracing"></a>Aktivieren der Ablaufverfolgung für SignalR
 ====================
 durch [Tom FitzMacken](https://github.com/tfitzmac)
 
 > Dieses Dokument beschreibt, wie Sie aktivieren und Konfigurieren der Ablaufverfolgung für SignalR-Server und Clients. Ablaufverfolgung können Sie Diagnoseinformationen über Ereignisse in der SignalR-Anwendung anzeigen.
-> 
+>
 > In diesem Thema wurde ursprünglich von Patrick Fletcher geschrieben.
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Softwareversionen, die in diesem Tutorial verwendet werden.
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET Framework 4.5
 > - SignalR-Version 2
->   
-> 
-> 
+>
+>
+>
 > ## <a name="questions-and-comments"></a>Fragen und Kommentare
-> 
+>
 > Lassen Sie Feedback, auf wie Ihnen in diesem Tutorial gefallen hat und was wir in den Kommentaren am unteren Rand der Seite verbessern können. Wenn Sie Fragen, die nicht direkt mit dem Tutorial verknüpft sind haben, können Sie sie veröffentlichen das [ASP.NET SignalR-Forum](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oder [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -62,7 +62,7 @@ Sie Aktivieren der Ablaufverfolgung auf dem Server in der Anwendungskonfiguratio
 
 Die Server-Ereigniskategorien umfassen die folgenden Arten von Nachrichten:
 
-| Quelle | Mitteilungen |
+| Source | Mitteilungen |
 | --- | --- |
 | SignalR.SqlMessageBus | Anbieter-Setup für SQL-Nachrichtenbus mit horizontaler Skalierung, Database-Vorgang, Fehler und Timeout-Ereignisse |
 | SignalR.ServiceBusMessageBus | Service Bus mit horizontaler Skalierung-Anbieter-Topic erstellen und Abonnements, Fehler und messagingereignisse |
@@ -134,7 +134,7 @@ Die folgende Ausgabe zeigt die Einträge aus der `ClientLog.txt` Datei für eine
 <a id="phone"></a>
 ## <a name="enabling-tracing-in-windows-phone-8-clients"></a>Aktivieren der Ablaufverfolgung in Windows Phone 8-clients
 
-SignalR-Anwendungen für Windows Phone-apps verwenden die gleichen .NET Client als desktop-apps, aber [Console.Out](https://msdn.microsoft.com/library/system.console.out(v=vs.110).aspx) der und Schreiben in eine Datei mit [StreamWriter](https://msdn.microsoft.com/library/system.io.streamwriter(v=vs.110).aspx) sind nicht verfügbar. Stattdessen müssen Sie zum Erstellen einer benutzerdefinierten Implementierung des [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter(v=vs.110).aspx) für die Ablaufverfolgung. 
+SignalR-Anwendungen für Windows Phone-apps verwenden die gleichen .NET Client als desktop-apps, aber [Console.Out](https://msdn.microsoft.com/library/system.console.out(v=vs.110).aspx) der und Schreiben in eine Datei mit [StreamWriter](https://msdn.microsoft.com/library/system.io.streamwriter(v=vs.110).aspx) sind nicht verfügbar. Stattdessen müssen Sie zum Erstellen einer benutzerdefinierten Implementierung des [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter(v=vs.110).aspx) für die Ablaufverfolgung.
 
 <a id="phone_ui"></a>
 ### <a name="logging-windows-phone-client-events-to-the-ui"></a>Protokollierung von Ereignissen für Windows Phone-Client an die Benutzeroberfläche

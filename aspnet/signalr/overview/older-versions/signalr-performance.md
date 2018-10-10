@@ -8,12 +8,12 @@ ms.date: 07/03/2013
 ms.assetid: 9594d644-66b6-4223-acdd-23e29a6e4c46
 msc.legacyurl: /signalr/overview/older-versions/signalr-performance
 msc.type: authoredcontent
-ms.openlocfilehash: 4fba0cc79046f5f3fd1dc50e5b69ddb78d98c23d
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 3ac62639617e1ff83761d0a1d45c27303d0b820d
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41828897"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912760"
 ---
 <a name="signalr-performance-signalr-1x"></a>SignalR-Leistung (SignalR 1.x)
 ====================
@@ -119,7 +119,7 @@ In diesem Abschnitt wird beschrieben, wie aktivieren und Verwenden von SignalR-L
 
 Performance-Leistungsindikatoren können mit dem Server mithilfe eines Dienstprogramms namens SignalR.exe hinzugefügt werden. Um dieses Hilfsprogramm zu installieren, gehen Sie folgendermaßen vor:
 
-1. Wählen Sie in der Visual Studio-Anwendung **Tools**, **Bibliothekspaket-Manager**, **NuGet-Pakete für Projektmappe verwalten...**
+1. Wählen Sie in Visual Studio **Tools** > **NuGet Paket-Manager** > **NuGet-Pakete verwalten Lösung**
 2. Suchen Sie nach **signalr.utils**, und wählen Sie installieren.
 
     ![](signalr-performance/_static/image1.png)

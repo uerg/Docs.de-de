@@ -8,49 +8,49 @@ ms.date: 10/13/2014
 ms.assetid: 1568247f-60b5-4eca-96e0-e661fbb2b273
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: c2248e68b3c9411687ab6410f12ec85488fe0738
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 7a85a704dc5d830ec793540fbc44a3ce7ec8c934
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41833641"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911534"
 ---
 <a name="tutorial-server-broadcast-with-signalr-2"></a>Tutorial: Serverübertragung mit SignalR 2
 ====================
 durch [Tom Dykstra](https://github.com/tdykstra), [Tom FitzMacken](https://github.com/tfitzmac)
 
 > Dieses Tutorial veranschaulicht, wie eine Webanwendung erstellen, die ASP.NET SignalR 2 verwendet, um Server-broadcast-Funktionalität bereitzustellen. Serverübertragung bedeutet, dass die Kommunikation, die an Clients gesendet, die vom Server initiiert werden. Dieses Szenario erfordert einen anderen Programmieransatz als Peer-zu-Peer-Szenarien, z. B. Chat-Anwendungen, die in denen Kommunikation, die an Clients gesendet, die von einer oder mehreren Clients initiiert werden.
-> 
+>
 > Die Anwendung, die Sie in diesem Tutorial erstellen simuliert einen Börsenticker erstellen, ein typisches Szenario für die Funktion zum Server senden.
-> 
+>
 > In diesem Thema wurde ursprünglich von Patrick Fletcher geschrieben.
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Softwareversionen, die in diesem Tutorial verwendet werden.
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR-Version 2
->   
-> 
-> 
+>
+>
+>
 > ## <a name="using-visual-studio-2012-with-this-tutorial"></a>In diesem Tutorial mithilfe von Visual Studio 2012
-> 
-> 
+>
+>
 > Um Visual Studio 2012 mit diesem Tutorial verwenden möchten, führen Sie folgende Schritte aus:
-> 
+>
 > - Aktualisieren Ihrer [-Paket-Manager](http://docs.nuget.org/docs/start-here/installing-nuget) auf die neueste Version.
 > - Installieren Sie die [Webplattform-Installer](https://www.microsoft.com/web/downloads/platform.aspx).
 > - Suchen Sie in den Webplattform-Installer, und installieren Sie **ASP.NET und Web Tools 2013.1 für Visual Studio 2012**. Dadurch wird Visual Studio-Vorlagen für SignalR-Klassen wie z. B. installiert **Hub**.
 > - Einige Vorlagen (z. B. **OWIN-Startklasse**) nicht zur Verfügung; verwenden Sie für diese stattdessen eine Klassendatei.
-> 
-> 
+>
+>
 > ## <a name="tutorial-versions"></a>Lernprogramm-Versionen
-> 
+>
 > Weitere Informationen zu früheren Versionen von SignalR, finden Sie unter [ältere Versionen von SignalR](../older-versions/index.md).
-> 
+>
 > ## <a name="questions-and-comments"></a>Fragen und Kommentare
-> 
+>
 > Lassen Sie Feedback, auf wie Ihnen in diesem Tutorial gefallen hat und was wir in den Kommentaren am unteren Rand der Seite verbessern können. Wenn Sie Fragen, die nicht direkt mit dem Tutorial verknüpft sind haben, können Sie sie veröffentlichen das [ASP.NET SignalR-Forum](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oder [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -83,7 +83,7 @@ Die [Microsoft.AspNet.SignalR.Sample](http://nuget.org/packages/microsoft.aspnet
 
 <a id="prerequisites"></a>
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Vorraussetzungen
 
 Bevor Sie beginnen, stellen Sie sicher, dass Sie Visual Studio 2013 auf Ihrem Computer installiert haben. Wenn Sie Visual Studio nicht haben, finden Sie unter [ASP.NET-Downloads](https://www.asp.net/downloads) um die kostenlose Visual Studio 2013 Express zu erhalten.
 
@@ -222,7 +222,7 @@ Sie haben nun die Einrichtung der Servercode abgeschlossen. Im nächsten Abschni
 
     [!code-javascript[Main](tutorial-server-broadcast-with-signalr/samples/sample12.js)]
 
-    $.connection bezieht sich auf die SignalR-Proxys. Der Code einen Verweis auf den Proxy für die StockTickerHub-Klasse abgerufen und in die Ticker-Variable eingefügt. Der Proxyname ist der Name, der durch das [HubName]-Attribut festgelegt wurde:
+    $.connection bezieht sich auf die SignalR-Proxys. Der Code einen Verweis auf den Proxy für die StockTickerHub-Klasse abgerufen und in die Ticker-Variable eingefügt. Proxyname ist der Name, der vom [HubName]-Attribut festgelegt wurde:
 
     [!code-javascript[Main](tutorial-server-broadcast-with-signalr/samples/sample13.js)]
 

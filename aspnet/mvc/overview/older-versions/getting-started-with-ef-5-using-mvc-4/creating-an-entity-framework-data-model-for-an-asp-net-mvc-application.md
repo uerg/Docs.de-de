@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: 4ba029b6-ee7c-4e45-a0e7-b703c37e5d9a
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 037f67d679762a037eaef9f0a4060156b94d97b1
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: b691f718258f98e03513a089ca26b286f284765e
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41829306"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913234"
 ---
 <a name="creating-an-entity-framework-data-model-for-an-aspnet-mvc-application-1-of-10"></a>Erstellen ein Entity Framework-Datenmodells für eine ASP.NET MVC-Anwendung (1 von 10)
 ====================
@@ -71,7 +71,7 @@ Benutzer können Informationen zu den Studenten, Kursen und Dozenten abrufen. Na
 
 Der Benutzeroberflächenstil dieser Website orientiert sich an den integrierten Vorlagen, sodass Sie mit dieses Tutorial hauptsächlich auf die Verwendung von Entity Framework konzentriert.
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Vorraussetzungen
 
 Die Anweisungen und Screenshots in diesem Tutorial wird davon ausgegangen, dass Sie nutzen [Visual Studio 2012](https://www.microsoft.com/visualstudio/eng/downloads) oder [Visual Studio-2012 Express für Web](https://go.microsoft.com/fwlink/?LinkID=275131), mit den neuesten Updates und Azure SDK für .NET ab Juli, installiert 2013. Sie können all dies mit dem folgenden Link abrufen:
 
@@ -97,7 +97,7 @@ Klicken Sie auf **OK**.
 
 Sie können das Websitemenü, das Layout und die Startseite über einige Änderungen einrichten.
 
-Open *Views\Shared\\"_Layout.cshtml"*, und Ersetzen Sie den Inhalt der Datei mit dem folgenden Code. Die Änderungen werden hervorgehoben.
+Open *Views\Shared ebenfalls einen\\_Layout.cshtml*, und Ersetzen Sie den Inhalt der Datei durch folgenden Code. Die Änderungen werden hervorgehoben.
 
 [!code-cshtml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample1.cshtml?highlight=5,15,25-28,43)]
 
@@ -142,7 +142,7 @@ In der *Modelle* Ordner erstellen *Student.cs* , und Ersetzen Sie den vorhandene
 
 Die `StudentID`-Eigenschaft fungiert als Primärschlüsselspalte der Datenbanktabelle, die dieser Klasse entspricht. Standardmäßig interpretiert das Entity Framework eine Eigenschaft mit dem Namen `ID` oder *Classname* `ID` als Primärschlüssel.
 
-Die `Enrollments` -Eigenschaft ist eine *Navigationseigenschaft*. Navigationseigenschaften enthalten andere Entitäten, die dieser Entität zugehörig sind. In diesem Fall die `Enrollments` Eigenschaft eine `Student` Entität enthält alle der `Enrollment` Entitäten, die im Zusammenhang mit, `Student` Entität. Das heißt, wenn eine angegebene `Student` Zeile in der Datenbank verfügt über zwei im Zusammenhang `Enrollment` Zeilen (Zeilen, die Primärschlüssel des Studenten enthalten Wert in ihre `StudentID` Fremdschlüsselspalte), die von `Student` Entität `Enrollments` Navigationseigenschaft Diese beiden `Enrollment` Entitäten.
+Die `Enrollments`-Eigenschaft ist eine *Navigationseigenschaft*. Navigationseigenschaften enthalten andere Entitäten, die dieser Entität zugehörig sind. In diesem Fall die `Enrollments` Eigenschaft eine `Student` Entität enthält alle der `Enrollment` Entitäten, die im Zusammenhang mit, `Student` Entität. Das heißt, wenn eine angegebene `Student` Zeile in der Datenbank verfügt über zwei im Zusammenhang `Enrollment` Zeilen (Zeilen, die Primärschlüssel des Studenten enthalten Wert in ihre `StudentID` Fremdschlüsselspalte), die von `Student` Entität `Enrollments` Navigationseigenschaft Diese beiden `Enrollment` Entitäten.
 
 Navigationseigenschaften werden in der Regel als definiert `virtual` , damit sie bestimmte Entity Framework-Funktionen wie z. B. nutzen können *Lazy Load*. (Lazy Loading werden erläutert werden weiter unten in der [Lesen von verwandten Daten](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md) Tutorial weiter unten in dieser Serie.
 
@@ -172,7 +172,7 @@ In der *Modelle* Ordner erstellen *Course.cs*, und Ersetzen Sie den vorhandenen 
 
 Die `Enrollments`-Eigenschaft ist eine Navigationseigenschaft. `Course`-Entitäten können sich auf jede beliebige Anzahl von `Enrollment`-Entitäten beziehen.
 
-Wir definieren Weitere Informationen zu den [["databasegenerated"](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute(v=vs.110).aspx)([DatabaseGeneratedOption](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedoption(v=vs.95).aspx). Keine)]-Attribut im nächsten Tutorial. Im Grunde können Sie über dieses Attribut den Primärschlüssel für den Kurs angeben, anstatt ihn von der Datenbank generieren zu lassen.
+Wir sagen mehr über die [[DatabaseGenerated](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute(v=vs.110).aspx)([DatabaseGeneratedOption](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedoption(v=vs.95).aspx). Keine)]-Attribut im nächsten Lernprogramm. Im Grunde können Sie über dieses Attribut den Primärschlüssel für den Kurs angeben, anstatt ihn von der Datenbank generieren zu lassen.
 
 ## <a name="create-the-database-context"></a>Erstellen des Datenbankkontexts
 
@@ -210,7 +210,7 @@ Beim ersten zur Entwicklung einer Anwendung Start, Ihre Daten Änderungen am Dat
 
 ### <a name="enable-code-first-migrations"></a>Aktivieren Sie Code First-Migrationen
 
-1. Von der **Tools** Menü klicken Sie auf **Bibliothekspaket-Manager** und dann **-Paket-Manager-Konsole**.
+1. Von der **Tools** Menü klicken Sie auf **NuGet Package Manager** und dann **-Paket-Manager-Konsole**.
 
     ![Selecting_Package_Manager_Console](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image10.png)
 2. Auf der `PM>` Eingabeaufforderung Geben Sie den folgenden Befehl aus:
@@ -270,7 +270,7 @@ In diesem Tutorial verwenden Sie Migrationen für die Bereitstellung, aber das `
 
     ![](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image13.png)
 
-    Die `add-migration` Befehl hinzugefügt, um den Ordner "Migrations" eine *[Datumsstempel]\_InitialCreate.cs* -Datei, die Code enthält, der die Datenbank erstellt. Der erste Parameter (`InitialCreate)` wird verwendet, für die Datei benennen und kann beliebig, die Sie in der Regel wählen Sie ein Wort oder Ausdruck, der zusammengefasst, was bei der Migration erfolgt. Sie können z. B. eine spätere Migration nennen &quot;AddDepartmentTable&quot;.
+    Die `add-migration` Befehl fügt den Ordner Migrationen eine *[DateStamp]\_InitialCreate.cs* -Datei, die Code enthält, der die Datenbank erstellt. Der erste Parameter (`InitialCreate)` wird verwendet, für die Datei benennen und kann beliebig, die Sie in der Regel wählen Sie ein Wort oder Ausdruck, der zusammengefasst, was bei der Migration erfolgt. Sie können z. B. eine spätere Migration nennen &quot;AddDepartmentTable&quot;.
 
     ![Ordner "Migrations" bei der anfänglichen migration](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image14.png)
 

@@ -5,12 +5,12 @@ description: Informationen Sie zum Erstellen einer Razor-Seiten-app mit Benutzer
 ms.author: riande
 ms.date: 7/24/2018
 uid: security/authorization/secure-data
-ms.openlocfilehash: 2fb13f0772a1f8aa4ed2ff3ece2a2c5d3b7360c9
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 71b7855958b530b8bac32843a8d1e7db0113ffd9
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010935"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912630"
 ---
 ::: moniker range="<= aspnetcore-1.1"
 
@@ -66,7 +66,7 @@ Das Beispiel enthält die folgenden Handler für die Autorisierung:
 * `ContactManagerAuthorizationHandler`: Ermöglicht es Managern zum Genehmigen oder ablehnen von Kontakten aus.
 * `ContactAdministratorsAuthorizationHandler`: Ermöglicht es Administratoren, die zum Genehmigen oder ablehnen von Kontakten und zu bearbeiten und Löschen von Kontakten.
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Vorraussetzungen
 
 In diesem Tutorial wird verschoben. Sie sollten mit vertraut sein:
 
@@ -350,6 +350,7 @@ Testen Sie, dass die app die Datenbank mit Anfangsdaten gefüllt. Wenn alle Zeil
 
 ### <a name="additional-resources"></a>Zusätzliche Ressourcen
 
+* [Erstellen einer .NET Core- und SQL-Datenbank-Web-Apps in Azure App Service](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
 * [ASP.NET Core-Autorisierung Lab](https://github.com/blowdart/AspNetAuthorizationWorkshop). Dieser Übung wird ausführlicher auf den Sicherheitsfeatures, die in diesem Lernprogramm eingeführt.
 * [Autorisierung in ASP.NET Core: einfach, Rollen-, Claims-basierte und benutzerdefinierte](xref:security/authorization/index)
 * [Benutzerdefinierte, richtlinienbasierte Autorisierung](xref:security/authorization/policies)

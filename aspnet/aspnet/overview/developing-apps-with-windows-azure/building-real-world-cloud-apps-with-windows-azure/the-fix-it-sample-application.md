@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: 1bc333c5-f096-4ea7-b170-779accc21c1a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
-ms.openlocfilehash: 435ee61a9c28ad0035457990cd3a889f5b240517
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: de3c8ea29f2c271136f58d8165bb92f4ab28ce83
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795537"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912825"
 ---
 <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>Anhang: Der Fix It-Beispielanwendung (erstellen realer Cloud-Apps mit Azure)
 ====================
@@ -221,7 +221,7 @@ Es gibt zwei Möglichkeiten zum Ausführen der app zu beheben:
 4. Mit der rechten Maustaste in der ZIP-Datei im Datei-Explorer klicken Sie auf Eigenschaften, und klicken Sie im Fenster Eigenschaften auf zulassen.
 5. Entzippen Sie die Datei aus.
 6. Doppelklicken Sie auf der SLN-Datei, um Visual Studio zu starten.
-7. Klicken Sie im Menü Extras auf Bibliothekspaket-Manager, und klicken Sie dann auf Paket-Manager-Konsole.
+7. Aus der **Tools** Menü klicken Sie auf **NuGet Paket-Manager**, dann **Paket-Manager Konsole**.
 8. Klicken Sie in der Paket-Manager-Konsole (PMC) auf wiederherstellen.
 9. Beenden Sie Visual Studio.
 10. Starten Sie den [Azure-Speicheremulator](/azure/storage/common/storage-use-emulator).

@@ -8,12 +8,12 @@ ms.date: 07/16/2014
 ms.assetid: ba07958c-42e1-4da0-81db-ba6925ed6db0
 msc.legacyurl: /signalr/overview/getting-started/real-time-web-applications-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: a3f6174049ffddae4bb2a1819e3684bcdec1b55f
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 59831fb8497c86ec5e02de3912b36a15f416597c
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41834050"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913233"
 ---
 <a name="hands-on-lab-real-time-web-applications-with-signalr"></a>Praxisnahe Übung: Echtzeit-Webanwendungen mit SignalR
 ====================
@@ -46,7 +46,7 @@ In dieser praktischen Übungseinheit erfahren Sie, wie Sie:
 - Skalieren Sie Ihre Anwendung mit SignalR **SQL Server**.
 
 <a id="Prerequisites"></a>
-### <a name="prerequisites"></a>Erforderliche Komponenten
+### <a name="prerequisites"></a>Vorraussetzungen
 
 Folgendes ist erforderlich, um diese praktische Übungseinheit auszuführen:
 
@@ -148,7 +148,7 @@ In dieser Aufgabe wird Sie der Anwendung durchlaufen und überprüfen Sie, wie d
 
 In dieser Aufgabe Sie SignalR zu Projektmappe hinzufügen und Updates für die Clients automatisch senden, wenn eine neue Antwort an den Server gesendet wird.
 
-1. Von der **Tools** in Visual Studio, wählen Sie im Menü **Bibliothekspaket-Manager**, und klicken Sie dann auf **-Paket-Manager-Konsole**.
+1. Von der **Tools** in Visual Studio, wählen Sie im Menü **NuGet Package Manager**, und klicken Sie dann auf **-Paket-Manager-Konsole**.
 2. In der **-Paket-Manager-Konsole** Fenster den folgenden Befehl ausführen:
 
     [!code-powershell[Main](real-time-web-applications-with-signalr/samples/sample1.ps1)]
@@ -362,7 +362,7 @@ In dieser Aufgabe erstellen Sie eine Datenbank, die als eine Rückwandplatine f�
 
 In dieser Aufgabe Konfigurieren Sie **Meister Quiz** zur Verbindung mit der SQL Server-Rückwandplatine. Fügen Sie zuerst die **SignalR.SqlServer** Zeichenfolge von NuGet-Paket und die Verbindung mit Ihrer Datenbank Backplane.
 
-1. Öffnen der **-Paket-Manager-Konsole** aus **Tools** | **Bibliothekspaket-Manager**. Stellen Sie sicher, dass **GeekQuiz** Projekt ausgewählt ist, der **Standardprojekt** Dropdown-Liste. Geben Sie den folgenden Befehl zum Installieren der **Microsoft.AspNet.SignalR.SqlServer** NuGet-Paket.
+1. Öffnen der **-Paket-Manager-Konsole** aus **Tools** > **NuGet-Paket-Manager**. Stellen Sie sicher, dass **GeekQuiz** Projekt ausgewählt ist, der **Standardprojekt** Dropdown-Liste. Geben Sie den folgenden Befehl zum Installieren der **Microsoft.AspNet.SignalR.SqlServer** NuGet-Paket.
 
     [!code-powershell[Main](real-time-web-applications-with-signalr/samples/sample13.ps1)]
 2. Wiederholen Sie dieses Mal jedoch den vorherigen Schritt für Projekt **GeekQuiz2**.

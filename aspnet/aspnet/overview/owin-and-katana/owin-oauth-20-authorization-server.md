@@ -8,33 +8,33 @@ ms.date: 03/20/2014
 ms.assetid: 20acee16-c70c-41e9-b38f-92bfcf9a4c1c
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 msc.type: authoredcontent
-ms.openlocfilehash: 2dd4af4543713ab08ad9427d183f667e2dc04f1f
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 095dad49a8e9f963d941a84398afe9da0f46ce0b
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578041"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912266"
 ---
 <a name="owin-oauth-20-authorization-server"></a>OWIN OAuth 2.0-Autorisierungsserver
 ====================
 durch [Hongye Sun](https://github.com/hongyes), [Praburaj Thiagarajan](https://github.com/Praburaj), [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Dieses Tutorial führt Sie zum Implementieren von OAuth 2.0-Autorisierungsserver mit OWIN-OAuth-Middleware. Dies ist eine erweiterte Tutorial, in dem nur die Schritte zum Erstellen einer OWIN OAuth 2.0-Autorisierungsserver erläutert. Dies ist keine Schritt-für-Schritt-Tutorial. [Beispielcode herunterladen](https://code.msdn.microsoft.com/OWIN-OAuth-20-Authorization-ba2b8783/file/114932/1/AuthorizationServer.zip).
-> 
+>
 > > [!NOTE]
 > > Dieser Umriss sollte nicht dazu vorgesehen werden, zum Erstellen einer sicheren Produktions-Apps verwendet werden. Dieses Tutorial soll nur einen Umriss zum Implementieren von OAuth 2.0-Autorisierungsserver mit OWIN-OAuth-Middleware zu bieten.
-> 
-> 
+>
+>
 > ## <a name="software-versions"></a>Software-Versionen
-> 
+>
 > | **In diesem Tutorial gezeigt** | **Funktioniert auch mit** |
 > | --- | --- |
 > | Windows 8.1 | Windows 8, Windows 7 |
-> | [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads) | [Visual Studio 2013 Express für Desktop](https://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express). Visual Studio 2012 mit dem aktuellen Update sollte funktionieren, aber das Tutorial wurde dabei nicht getestet, und einige Menüauswahl und Dialogfelder unterscheiden sich. |
+> | [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013) | [Visual Studio 2013 Express für Desktop](https://my.visualstudio.com/Downloads?q=visual%20studio%202013#d-2013-express). Visual Studio 2012 mit dem aktuellen Update sollte funktionieren, aber das Tutorial wurde dabei nicht getestet, und einige Menüauswahl und Dialogfelder unterscheiden sich. |
 > | .NET 4.5 |  |
-> 
+>
 > ## <a name="questions-and-comments"></a>Fragen und Kommentare
-> 
+>
 > Wenn Sie Fragen, die nicht direkt mit dem Tutorial verknüpft sind haben, können Sie diese unter buchen [Katana-Projekt auf GitHub](https://github.com/aspnet/AspNetKatana/). Finden Sie für Fragen und Kommentare in Bezug auf das Tutorial selbst im Kommentarabschnitt "am unteren Rand der Seite.
 
 
@@ -51,7 +51,7 @@ In diesem Tutorial werden behandelt:
 - Erstellen von OAuth 2.0-Clients.
 
 <a id="prerequisites"></a>
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Vorraussetzungen
 
 - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/downloads#d-2013-editions) oder die kostenlose [Visual Studio Express 2013](https://www.microsoft.com/visualstudio/eng/downloads#d-2013-express), gemäß **Softwareversionen** am oberen Rand der Seite.
 - Vertrautheit mit OWIN. Finden Sie unter [erste Schritte mit dem Katana-Projekt](https://msdn.microsoft.com/magazine/dn451439.aspx) und [Neuigkeiten in der OWIN und Katana](index.md).
@@ -81,11 +81,11 @@ Die `UseOAuthAuthorizationServer` Erweiterungsmethode ist den autorisierungsserv
 
 - `AuthorizeEndpointPath`: Der Pfad der Anforderung, in denen Clientanwendungen User-Agent umgeleitet wird, um die Benutzer erhalten haben, stimmen ein Token oder Code ausgeben. Es muss beginnen mit einem führenden Schrägstrich, z. B. "`/Authorize`".
 - `TokenEndpointPath`: Die Anforderung Clientanwendungen kommunizieren direkt zum Abrufen des Zugriffstokens. Es muss mit einem führenden Schrägstrich, z. B. "/ Token" beginnen. Wenn der Client ausgestellt wird eine [Client\_geheimen Schlüssel](http://tools.ietf.org/html/rfc6749#appendix-A.2), muss an diesen Endpunkt bereitgestellt werden.
-- `ApplicationCanDisplayErrors`: Legen Sie auf `true` Wenn möchte, dass die Webanwendung auf eine benutzerdefinierten Fehlerseite für den clientvalidierungsfehler generieren `/Authorize` Endpunkt. Dies ist nur erforderlich, für Fälle, in dem der Browser wird nicht umgeleitet, an die Clientanwendung, z. B. sichern, wenn die `client_id` oder `redirect_uri` sind falsch. Die `/Authorize` Endpunkt sollte aber in den "Oauth. Fehler","Oauth. ErrorDescription"und"Oauth. Argument ErrorUri"-Eigenschaften werden in der OWIN-Umgebung hinzugefügt. 
+- `ApplicationCanDisplayErrors`: Legen Sie auf `true` Wenn möchte, dass die Webanwendung auf eine benutzerdefinierten Fehlerseite für den clientvalidierungsfehler generieren `/Authorize` Endpunkt. Dies ist nur erforderlich, für Fälle, in dem der Browser wird nicht umgeleitet, an die Clientanwendung, z. B. sichern, wenn die `client_id` oder `redirect_uri` sind falsch. Die `/Authorize` Endpunkt sollte aber in den "Oauth. Fehler","Oauth. ErrorDescription"und"Oauth. Argument ErrorUri"-Eigenschaften werden in der OWIN-Umgebung hinzugefügt.
 
     > [!NOTE]
     > Wenn nicht "true", der autorisierungsserver gibt eine Standardfehlerseite mit den Fehlerdetails.
-- `AllowInsecureHttp`: True, wenn in zu ermöglichen, Autorisierungs- und tokenanforderungen für HTTP-URI-Adressen eingehen und eingehende `redirect_uri` autorisieren Anforderungsparameter, um HTTP-URI-Adressen verfügen. 
+- `AllowInsecureHttp`: True, wenn in zu ermöglichen, Autorisierungs- und tokenanforderungen für HTTP-URI-Adressen eingehen und eingehende `redirect_uri` autorisieren Anforderungsparameter, um HTTP-URI-Adressen verfügen.
 
     > [!WARNING]
     > Sicherheit – ist dies nur für die Entwicklung.
@@ -107,9 +107,9 @@ Die Anmeldeseite wird unten gezeigt:
 
 ![](owin-oauth-20-authorization-server/_static/image1.png)
 
-Überprüfen Sie der IETF OAuth 2 [Authorization Code Grant](http://tools.ietf.org/html/rfc6749#section-4.1) jetzt Abschnitt. 
+Überprüfen Sie der IETF OAuth 2 [Authorization Code Grant](http://tools.ietf.org/html/rfc6749#section-4.1) jetzt Abschnitt.
 
-**Anbieter** (in der Tabelle unten) ist der [OAuthAuthorizationServerOptions](https://msdn.microsoft.com/library/microsoft.owin.security.oauth.oauthauthorizationserveroptions(v=vs.111).aspx). Anbieter, der vom Typ `OAuthAuthorizationServerProvider`, die alle OAuth-Server-Ereignisse enthält. 
+**Anbieter** (in der Tabelle unten) ist der [OAuthAuthorizationServerOptions](https://msdn.microsoft.com/library/microsoft.owin.security.oauth.oauthauthorizationserveroptions(v=vs.111).aspx). Anbieter, der vom Typ `OAuthAuthorizationServerProvider`, die alle OAuth-Server-Ereignisse enthält.
 
 | Authorization Code Grant-Abschnitt die einzelnen Schritte | Beispiel zum Herunterladen führt diese Schritte aus: |
 | --- | --- |
@@ -134,13 +134,13 @@ Die `Authorize` Aktion zunächst überprüft, ob der Benutzer an den autorisieru
 
 ![](owin-oauth-20-authorization-server/_static/image2.png)
 
-Wenn die **Grant** ausgewählt ist, die `Authorize` Aktion wird eine neue "Bearer" Identität und melden Sie sich mit der sie erstellt. Löst den autorisierungsserver generiert ein trägertoken, das und zurück an den Client mit JSON-Nutzlast zu senden. 
+Wenn die **Grant** ausgewählt ist, die `Authorize` Aktion wird eine neue "Bearer" Identität und melden Sie sich mit der sie erstellt. Löst den autorisierungsserver generiert ein trägertoken, das und zurück an den Client mit JSON-Nutzlast zu senden.
 
 ### <a name="implicit-grant"></a>Die implizite Gewährung
 
 Finden Sie in der IETF OAuth 2 [implizite Gewährung](http://tools.ietf.org/html/rfc6749#section-4.2) jetzt Abschnitt.
 
- Die [implizite Gewährung](http://tools.ietf.org/html/rfc6749#section-4.2) dargestellt in Abbildung 4 ist der Flow und Middleware Zuordnen der OWIN-OAuth folgt auf.  
+ Die [implizite Gewährung](http://tools.ietf.org/html/rfc6749#section-4.2) dargestellt in Abbildung 4 ist der Flow und Middleware Zuordnen der OWIN-OAuth folgt auf.
 
 | Schritte im Abschnitt die implizite Gewährung des Datenflusses | Beispiel zum Herunterladen führt diese Schritte aus: |
 | --- | --- |
@@ -159,7 +159,7 @@ Da wir bereits den autorisierungsendpunkt implementiert (`OAuthController.Author
 
 Finden Sie in der IETF OAuth 2 [Kennwort-Anmeldeinformationen-Ressourcenbesitzererteilung](http://tools.ietf.org/html/rfc6749#section-4.3) jetzt Abschnitt.
 
- Die [Kennwort-Anmeldeinformationen-Ressourcenbesitzererteilung](http://tools.ietf.org/html/rfc6749#section-4.3) dargestellt in Abbildung 5 ist der Flow und Middleware Zuordnen der OWIN-OAuth folgt auf.  
+ Die [Kennwort-Anmeldeinformationen-Ressourcenbesitzererteilung](http://tools.ietf.org/html/rfc6749#section-4.3) dargestellt in Abbildung 5 ist der Flow und Middleware Zuordnen der OWIN-OAuth folgt auf.
 
 | Resource Owner Password Gewährung von Clientanmeldeinformationen im Abschnitt die einzelnen Schritte | Beispiel zum Herunterladen führt diese Schritte aus: |
 | --- | --- |
@@ -182,7 +182,7 @@ Hier ist die Implementierung des Beispiels für `Provider.GrantResourceOwnerCred
 
 Finden Sie in der IETF OAuth 2 [Gewährung von Clientanmeldeinformationen](http://tools.ietf.org/html/rfc6749#section-4.4) jetzt Abschnitt.
 
- Die [Gewährung von Clientanmeldeinformationen](http://tools.ietf.org/html/rfc6749#section-4.4) dargestellt in Abbildung 6 ist der Flow und Middleware Zuordnen der OWIN-OAuth folgt auf.  
+ Die [Gewährung von Clientanmeldeinformationen](http://tools.ietf.org/html/rfc6749#section-4.4) dargestellt in Abbildung 6 ist der Flow und Middleware Zuordnen der OWIN-OAuth folgt auf.
 
 | Gewährung von Clientanmeldeinformationen im Abschnitt die einzelnen Schritte | Beispiel zum Herunterladen führt diese Schritte aus: |
 | --- | --- |
@@ -203,7 +203,7 @@ Hier ist die Implementierung des Beispiels für `Provider.GrantClientCredentials
 
 Finden Sie in der IETF OAuth 2 [Aktualisierungstoken](http://tools.ietf.org/html/rfc6749#section-1.5) jetzt Abschnitt.
 
- Die [Aktualisierungstoken](http://tools.ietf.org/html/rfc6749#section-1.5) dargestellt in Abbildung 2 ist der Flow und Middleware Zuordnen der OWIN-OAuth folgt auf.  
+ Die [Aktualisierungstoken](http://tools.ietf.org/html/rfc6749#section-1.5) dargestellt in Abbildung 2 ist der Flow und Middleware Zuordnen der OWIN-OAuth folgt auf.
 
 | Gewährung von Clientanmeldeinformationen im Abschnitt die einzelnen Schritte | Beispiel zum Herunterladen führt diese Schritte aus: |
 | --- | --- |
@@ -212,7 +212,7 @@ Finden Sie in der IETF OAuth 2 [Aktualisierungstoken](http://tools.ietf.org/html
 |  |  |
 | (H) der autorisierungsserver authentifiziert den Client das Aktualisierungstoken, das überprüft, und gültig ist, gibt ein neues Zugriffstoken (und optional ein neues Aktualisierungstoken). |  |
 
-Hier ist die Implementierung des Beispiels für `Provider.GrantRefreshToken`: 
+Hier ist die Implementierung des Beispiels für `Provider.GrantRefreshToken`:
 
 [!code-csharp[Main](owin-oauth-20-authorization-server/samples/sample9.cs)]
 

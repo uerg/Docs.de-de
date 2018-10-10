@@ -8,40 +8,40 @@ ms.date: 06/10/2014
 ms.assetid: 03960de2-8d95-4444-9169-4426dcc64913
 msc.legacyurl: /signalr/overview/guide-to-the-api/handling-connection-lifetime-events
 msc.type: authoredcontent
-ms.openlocfilehash: 42cf7faf9112875e15072993b6210348d0c42534
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 1783a3ab292a5460d5cc1b7ad78073071d65d379
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41832704"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911940"
 ---
 <a name="understanding-and-handling-connection-lifetime-events-in-signalr"></a>Überblick und Behandeln von Verbindung Objektlebensdauer-Ereignisse in SignalR
 ====================
 durch [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
 
 > Dieser Artikel enthält eine Übersicht über die SignalR-Verbindung, erneuten Herstellen einer Verbindung und Trennung-Ereignisse, die Sie behandeln können, und Timeout und Keepalive-Einstellungen, die Sie konfigurieren können.
-> 
+>
 > Der Artikel wird davon ausgegangen, dass Sie bereits über Grundkenntnisse der Objektlebensdauer-Ereignisse von SignalR und Verbindung verfügen. Eine Einführung zu SignalR finden Sie unter [Einführung zu SignalR](../getting-started/introduction-to-signalr.md). Lebensdauer der Ereignisse der Verbindung finden Sie unter den folgenden Ressourcen:
-> 
+>
 > - [Gewusst wie: Behandeln der Objektlebensdauer-Ereignisse in der hubklasse Verbindung](hubs-api-guide-server.md#connectionlifetime)
 > - [Das Durchführen von Verbindung Objektlebensdauer-Ereignisse in JavaScript-clients](hubs-api-guide-javascript-client.md#connectionlifetime)
 > - [Das Durchführen von Verbindung Objektlebensdauer-Ereignisse in .NET-clients](hubs-api-guide-net-client.md#connectionlifetime)
-> 
+>
 > ## <a name="software-versions-used-in-this-topic"></a>In diesem Thema verwendeten Softwareversionen
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR-Version 2
->   
-> 
-> 
+>
+>
+>
 > ## <a name="previous-versions-of-this-topic"></a>Vorherige Versionen dieses Themas
-> 
+>
 > Weitere Informationen zu früheren Versionen von SignalR, finden Sie unter [ältere Versionen von SignalR](../older-versions/index.md).
-> 
+>
 > ## <a name="questions-and-comments"></a>Fragen und Kommentare
-> 
+>
 > Lassen Sie Feedback, auf wie Ihnen in diesem Tutorial gefallen hat und was wir in den Kommentaren am unteren Rand der Seite verbessern können. Wenn Sie Fragen, die nicht direkt mit dem Tutorial verknüpft sind haben, können Sie sie veröffentlichen das [ASP.NET SignalR-Forum](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oder [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -144,8 +144,8 @@ Transport Verbindung Unterbrechungen, die nicht vom Transport API erkannt werden
 
 Einige netzwerkumgebungen schließen absichtlich Verbindungen im Leerlauf, und eine Funktion mit dem Keepalive-Pakete ist, um zu verhindern, dies durch ermöglicht, die diese Netzwerke wissen, dass es sich bei eine SignalR-Verbindung verwendet wird. In extremen Fällen der Standardrate von Keepalive-Pings genug, um zu verhindern, dass geschlossene Verbindungen möglicherweise nicht. In diesem Fall können Sie Keepalive-Pings häufiger zu sendende konfigurieren. Weitere Informationen finden Sie unter [Einstellungen für Timeout und Keepalive](#timeoutkeepalive) weiter unten in diesem Thema.
 
-> [!NOTE] 
-> 
+> [!NOTE]
+>
 > **Wichtige**: die Abfolge der Ereignisse, die hier beschriebenen ist nicht garantiert. SignalR versucht jede Verbindung Objektlebensdauer-Ereignisse in einer vorhersagbaren Weise nach diesem Schema heraufstufen, aber es gibt viele Varianten der Netzwerkereignisse und viele Möglichkeiten, die in denen zugrunde liegenden Communications-Frameworks wie Transport APIs diese behandeln. Z. B. die `Reconnected` -Ereignis kann nicht ausgelöst werden, wenn der Client die Verbindung wiederherstellt, oder die `OnConnected` Handler auf dem Server kann ausgeführt werden, wenn der Versuch zum Herstellen einer Verbindung nicht erfolgreich ist. Dieses Thema beschreibt nur die Effekte, die normalerweise durch bestimmte normalen Betrieb erstellt werden würde.
 
 

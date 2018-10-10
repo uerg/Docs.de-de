@@ -8,12 +8,12 @@ ms.date: 10/17/2013
 ms.assetid: db0d02d9-58e8-4a0b-8d7d-b8df8ea97b88
 msc.legacyurl: /mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: d6fb40741c5f7b992e907a462ac92972fe603624
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 2566e201e44ccd9642abda7c7996056c73178fd6
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578366"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912851"
 ---
 <a name="how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2"></a>Das Upgrade von einer ASP.NET MVC 4 und Web-API-Projekt auf ASP.NET MVC 5 und Web-API 2
 ====================
@@ -71,8 +71,8 @@ durch [Rick Anderson]((https://twitter.com/RickAndMSFT))
     > Microsoft-Webhilfsprogramme wurde durch Microsoft.AspNet.WebHelpers ersetzt. Sie sollte das alte Paket zuerst entfernen und installieren Sie dann auf das neuere Paket.   
     >   
     > Es gibt keine übergreifenden Versionskompatibilität zwischen wichtige ASP.NET Pakete. Es ist z. B. MVC 5 mit nur Razor-3 und nicht die Razor-2 kompatibel.
-4. Öffnen Sie Ihr Projekt in Visual Studio 2013.
-5. Entfernen Sie keines der folgenden ASP.NET NuGet-Pakete, die installiert werden. Sie werden diese mithilfe der Paket-Manager-Konsole (PMC) entfernt. Wählen Sie zum Öffnen der PMC die **Tools** Menü, und wählen Sie dann **Bibliothekspaket-Manager,** wählen Sie dann **-Paket-Manager-Konsole**. Das Projekt möglicherweise nicht alle diese umfassen.
+4. Öffnen Sie Ihr Projekt in Visual Studio.
+5. Entfernen Sie keines der folgenden ASP.NET NuGet-Pakete, die installiert werden. Sie werden diese mithilfe der Paket-Manager-Konsole (PMC) entfernt. Wählen Sie zum Öffnen der PMC die **Tools** Menü, und wählen Sie dann **NuGet-Paket-Manager** wählen Sie dann **-Paket-Manager-Konsole**. Das Projekt möglicherweise nicht alle diese umfassen.
 
     1. `Microsoft.AspNet.WebPages.Administration`  
    Dieses Paket wird in der Regel hinzugefügt werden, beim Upgrade von MVC 3 auf MVC 4. Führen Sie den folgenden Befehl in der PMC, um ihn zu entfernen:  

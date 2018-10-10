@@ -5,18 +5,18 @@ description: Informationen Sie zu Cross-Site Scripting (XSS) und Techniken zur B
 ms.author: riande
 ms.date: 10/02/2018
 uid: security/cross-site-scripting
-ms.openlocfilehash: e937ce47b7151155197cd607832eeb6bf62e3a19
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 50f0211a2c64708d9b788dd10ce9064e66014d55
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577443"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910524"
 ---
 # <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>Verhindern von Cross-Site Scripting (XSS) in ASP.NET Core
 
 Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Cross-Site Scripting (XSS) ist ein Sicherheitsrisiko, wodurch einen Angreifer, clientseitige Skripts (in der Regel "JavaScript") in Webseiten zu platzieren. Wenn andere Benutzer betroffene Seiten, die die Angreifer Skripts ausgeführt werden laden, wodurch der Angreifer Cookies und Sitzungstoken, stehlen ändern Sie den Inhalt der Webseite über DOM-Bearbeitung oder zu einer anderen Seite der Browser umgeleitet werden. XSS-Anfälligkeiten finden in der Regel auf, wenn eine Anwendung Benutzereingaben erhält und ihn auf einer Seite gibt ohne überprüfen, Codierung, oder er Escapezeichen.
+Cross-Site Scripting (XSS) ist ein Sicherheitsrisiko, wodurch einen Angreifer, clientseitige Skripts (in der Regel "JavaScript") in Webseiten zu platzieren. Wenn andere Benutzer betroffene Seiten der Angreifer Skripts ausführen laden, aktivieren Angreifer zum Diebstahl von Cookies und Sitzungstoken, ändern Sie den Inhalt der Webseite durch die DOM-Manipulation oder umleiten Sie Browser zu einer anderen Seite. XSS-Sicherheitsrisiken treten im Allgemeinen als eine Anwendung Benutzereingaben ohne Validierung, Codierung entkommen auf einer Seite ausgegeben.
 
 ## <a name="protecting-your-application-against-xss"></a>Zum Schützen Ihrer Anwendung vor XSS
 
@@ -26,15 +26,15 @@ An einer grundlegenden Ebene XSS funktioniert, indem Sie Ihre Anwendung in das E
 
 2. Stellen Sie sicher, dass es sich um HTML-codiert ist, vor dem Einfügen von nicht vertrauenswürdiger Daten innerhalb eines HTML-Elements. HTML-Codierung die Zeichen wie z. B. dauert &lt; und ändert diese in eine sichere Form wie &amp;Lt;
 
-3. Stellen Sie sicher, dass es sich um HTML-Attribut codiert ist, vor dem Einfügen von nicht vertrauenswürdiger Daten in ein HTML-Attribut. HTML-attributcodierung eine Obermenge der HTML-Codierung codiert und zusätzliche Zeichen wie z. B. "und".
+3. Vor nicht vertrauenswürdigen Daten in ein HTML-Attribut sicher, dass sie HTML-codiert. HTML-attributcodierung eine Obermenge der HTML-Codierung codiert und zusätzliche Zeichen wie z. B. "und".
 
-4. Platzieren Sie die Daten vor dem Einfügen von nicht vertrauenswürdiger Daten in JavaScript in einem HTML-Element, dessen Inhalt Sie zur Laufzeit abrufen. JavaScript wird codiert, wenn dies ist nicht möglich, die Daten sicherzustellen. JavaScript-Codierung nimmt gefährliche Zeichen für JavaScript und z. B. durch ihre hexadezimal ersetzt &lt; codiert werden sollen, als `\u003C`.
+4. Platzieren Sie die Daten vor dem Einfügen von nicht vertrauenswürdiger Daten in JavaScript in einem HTML-Element, dessen Inhalt Sie zur Laufzeit abrufen. Ist dies nicht möglich, dann sicher, dass die Daten codiert JavaScript. JavaScript-Codierung nimmt gefährliche Zeichen für JavaScript und z. B. durch ihre hexadezimal ersetzt &lt; codiert werden sollen, als `\u003C`.
 
 5. Stellen Sie sicher, dass er URL-codiert ist, ehe Sie nicht vertrauenswürdige Daten in eine URL-Abfragezeichenfolge.
 
 ## <a name="html-encoding-using-razor"></a>HTML-Codierung, die mithilfe von Razor
 
-Die Razor-Engine, die automatisch verwendet, die in MVC codiert alle Ausgabe stammt von Variablen auf, es sei denn, Sie hart arbeiten, um zu verhindern, dass sie auf diese Weise. Er verwendet die Codierungsregeln bei jeder Verwendung von HTML-Attribut der *@* Richtlinie. Als HTML ist das attributcodierung eine Obermenge der HTML-Codierung, die Dies bedeutet, dass Sie nicht darum kümmern, selbst, ob Sie HTML-Codierung oder HTML-attributcodierung verwenden sollten. Achten Sie darauf, nur @ in einem HTML-Kontext nicht verwendet werden, wenn versucht wird, nicht vertrauenswürdige Eingaben direkt in JavaScript einzufügen. Taghilfsprogramme werden auch Eingabe codieren, die Sie Tag-Parametern verwenden.
+Die Razor-Engine, die automatisch verwendet, die in MVC codiert alle Ausgabe stammt von Variablen auf, es sei denn, Sie hart arbeiten, um zu verhindern, dass sie auf diese Weise. Bei jeder Verwendung von HTML-Attribut Codierungsregeln verwendet die *@* Richtlinie. Als HTML ist das attributcodierung eine Obermenge der HTML-Codierung, die Dies bedeutet, dass Sie nicht darum kümmern, selbst, ob Sie HTML-Codierung oder HTML-attributcodierung verwenden sollten. Achten Sie darauf, nur @ in einem HTML-Kontext nicht verwendet werden, wenn versucht wird, nicht vertrauenswürdige Eingaben direkt in JavaScript einzufügen. Taghilfsprogramme werden auch Eingabe codieren, die Sie Tag-Parametern verwenden.
 
 Führen Sie die folgende Razor-Ansicht:
 
@@ -55,9 +55,9 @@ Diese Sicht gibt den Inhalt der *UntrustedInput* Variable. Diese Variable enthä
 >[!WARNING]
 > ASP.NET Core MVC bietet eine `HtmlString` Klasse, die automatisch bei Ausgabe codiert ist nicht. Dies sollte nie in Kombination mit nicht vertrauenswürdigen Eingaben verwendet werden, wie diese eine XSS-Schwachstelle verfügbar macht.
 
-## <a name="javascript-encoding-using-razor"></a>JavaScript-Codierung mithilfe von Razor
+## <a name="javascript-encoding-using-razor"></a>JavaScript Codierung Razor
 
-Möglicherweise gibt es Zeiten, die zum Einfügen eines Werts in JavaScript in der Ansicht verarbeitet werden sollen. Hierfür gibt es zwei Möglichkeiten. Die sicherste Möglichkeit zum Einfügen von Werten ist, platzieren Sie den Wert in einem Datenattribut eines Tags aus, und diese in Ihrer JavaScript-abrufen. Zum Beispiel:
+Möglicherweise gibt es Zeiten, die zum Einfügen eines Werts in JavaScript in der Ansicht verarbeitet werden sollen. Hierfür gibt es zwei Möglichkeiten. Die sicherste Möglichkeit zum Einfügen von Werten ist den Wert in einem Datenattribut eines Tags und in JavaScript abrufen. Zum Beispiel:
 
 ```cshtml
 @{
@@ -107,7 +107,7 @@ Dadurch wird der folgenden HTML-Code generiert.
    </script>
    ```
 
-Die, die Folgendes ausgeführt wird, gerendert werden;
+Die bei seiner Ausführung wird Folgendes dargestellt:
 
 ```none
 <"123">
@@ -129,7 +129,7 @@ Sie können den JavaScript-Encoder auch direkt aufrufen:
    </script>
    ```
 
-Dies wird im Browser wie folgt gerendert;
+Dies wird im Browser wie folgt dargestellt:
 
 ```html
 <script>

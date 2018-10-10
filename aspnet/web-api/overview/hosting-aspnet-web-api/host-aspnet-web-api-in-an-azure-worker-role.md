@@ -8,27 +8,27 @@ ms.date: 04/02/2014
 ms.assetid: 6980ee2e-d6b0-4a08-8fb6-ab96362dd0e3
 msc.legacyurl: /web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: cabf88e4e6c946f92a9e4534a4db5ae15dd8cae5
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 40cb1a4514beaf81e7ed75bbd3e478f2ba146fe5
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41836166"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910745"
 ---
 <a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a>Hosten von ASP.NET Web-API 2 in ein Azure-Workerrolle
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson)
 
 > Dieses Tutorial zeigt, wie zum Hosten von ASP.NET Web-API in einer Azure-Workerrolle mit OWIN zum selfhosten der Web-API-Framework.
-> 
+>
 > [Öffnen von Weboberfläche für .NET](http://owin.org/) (OWIN) definiert eine Abstraktion zwischen Webservern für .NET und Webanwendungen. OWIN entkoppelt die Webanwendung aus dem Server, wodurch OWIN ideal für eine Webanwendung in Ihrem eigenen Prozess, außerhalb von IIS Self-hosting – z. B. in einer Azure-workerrolle.
-> 
+>
 > In diesem Tutorial verwenden Sie das Paket Microsoft.Owin.Host.HttpListener, die einem HTTP-Server enthält, die verwendet werden, um die OWIN-Anwendungen Self-Hosting.
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Softwareversionen, die in diesem Tutorial verwendet werden.
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - Web-API 2
 > - [Azure SDK für .NET 2.3](https://azure.microsoft.com/downloads/)
 
@@ -56,7 +56,7 @@ Im Allgemeinen kann eine Azure-Anwendung mehrere Rollen enthalten, obwohl in die
 
 ## <a name="add-the-web-api-and-owin-packages"></a>Fügen Sie die Web-API und OWIN-Pakete
 
-Von der **Tools** Menü klicken Sie auf **Bibliothekspaket-Manager**, klicken Sie dann auf **-Paket-Manager-Konsole**.
+Von der **Tools** Menü klicken Sie auf **NuGet Package Manager**, klicken Sie dann auf **-Paket-Manager-Konsole**.
 
 Geben Sie im Fenster Paket-Manager-Konsole den folgenden Befehl aus:
 

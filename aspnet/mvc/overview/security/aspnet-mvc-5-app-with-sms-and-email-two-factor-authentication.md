@@ -8,12 +8,12 @@ ms.date: 08/20/2015
 ms.assetid: f50a5cdb-c06a-46ed-aa14-fc5b049dc8dc
 msc.legacyurl: /mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: 97b73c5ae18a528d33b44a4de4afc434ac46af48
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: a422988f681273b153725d32bb8337deb25b12f1
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577599"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912591"
 ---
 <a name="aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication"></a>ASP.NET MVC 5-app mit SMS und e-Mail-zwei-Faktor-Authentifizierung
 ====================
@@ -154,3 +154,4 @@ Dieses Tutorial enthält eine kurze Einführung in die Aktivierung der 2FA auf e
 - [Beim Erstellen einer Google-app for OAuth 2, und verbinden die app auf das Projekt](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md#goog)
 - [Erstellen die app in Facebook, und verbinden die app auf das Projekt](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md#fb)
 - [Einrichten von SSL im Projekt](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md#ssl)
+- [C# und ASP.NET MVC Umgebung einrichten](https://www.twilio.com/docs/usage/tutorials/how-to-set-up-your-csharp-and-asp-net-mvc-development-environment)

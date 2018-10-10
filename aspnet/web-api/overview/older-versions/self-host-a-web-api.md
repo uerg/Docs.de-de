@@ -8,12 +8,12 @@ ms.date: 01/26/2012
 ms.assetid: be5ab1e2-4140-4275-ac59-ca82a1bac0c1
 msc.legacyurl: /web-api/overview/older-versions/self-host-a-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: cac0d5aeaf49f45051d062935e0e9207ce59c7eb
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 63d192a6fa2aafef3770d5b0b97ec32e001b69db
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41832824"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912697"
 ---
 <a name="self-host-aspnet-web-api-1-c"></a>Selbst gehostete ASP.NET Web-API 1 (c#)
 ====================
@@ -50,7 +50,7 @@ Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste in des Projekts,
 
 Die NuGet-Paket-Manager ist die einfachste Möglichkeit, um die Web-API-Assemblys zu einem ASP.NET-Projekt hinzufügen.
 
-Um festzustellen, ob NuGet-Paket-Manager installiert ist, klicken Sie auf die **Tools** Menü in Visual Studio. Wenn Sie ein Menüelement mit dem Namen finden Sie unter **Bibliothekspaket-Manager**, müssen Sie die NuGet-Paket-Manager.
+Um festzustellen, ob NuGet-Paket-Manager installiert ist, klicken Sie auf die **Tools** Menü in Visual Studio. Wenn Sie ein Menüelement mit dem Namen finden Sie unter **NuGet Package Manager**, müssen Sie die NuGet-Paket-Manager.
 
 So installieren Sie die NuGet-Paket-Manager:
 
@@ -68,8 +68,8 @@ So installieren Sie die NuGet-Paket-Manager:
 
 Nach der Installation von NuGet-Paket-Manager fügen Sie das selfhosten der Web-API-Paket dem Projekt hinzu.
 
-1. Von der **Tools** , wählen Sie im Menü **Bibliothekspaket-Manager**. *Beachten Sie*: Wenn Sie nicht dieses Menü sehen-Element, stellen Sie sicher, dass dieses NuGet-Paket-Manager ordnungsgemäß installiert.
-2. Wählen Sie **NuGet-Pakete für Projektmappe verwalten...**
+1. Von der **Tools** , wählen Sie im Menü **NuGet Package Manager**. *Beachten Sie*: Wenn Sie nicht dieses Menü sehen-Element, stellen Sie sicher, dass dieses NuGet-Paket-Manager ordnungsgemäß installiert.
+2. Wählen Sie **NuGet-Pakete für Projektmappe verwalten**
 3. In der **NuGet-Pakete verwalten** wählen Sie im Dialogfeld **Online**.
 4. Geben Sie in das Suchfeld &quot;Microsoft.AspNet.WebApi.SelfHost&quot;.
 5. Wählen Sie das ASP.NET Web API-Self-Host-Paket, und klicken Sie auf **installieren**.
@@ -77,7 +77,6 @@ Nach der Installation von NuGet-Paket-Manager fügen Sie das selfhosten der Web-
 
 > [!NOTE]
 > Stellen Sie sicher, dass das Paket mit dem Namen Microsoft.AspNet.WebApi.SelfHost, nicht AspNetWebApi.SelfHost zu installieren.
-
 
 ![](self-host-a-web-api/_static/image4.png)
 
@@ -141,8 +140,8 @@ Fügen Sie der Projektmappe ein neues Konsolenanwendungsprojekt hinzu:
 
 Verwenden Sie NuGet Package Manager, das Paket für die ASP.NET Web-API-Core-Bibliotheken hinzuzufügen:
 
-- Wählen Sie im Menü Extras **Bibliothekspaket-Manager**.
-- Wählen Sie **NuGet-Pakete für Projektmappe verwalten...**
+- Wählen Sie im Menü Extras **NuGet Package Manager**.
+- Wählen Sie **NuGet-Pakete für Projektmappe verwalten**
 - In der **NuGet-Pakete verwalten** wählen Sie im Dialogfeld **Online**.
 - Geben Sie in das Suchfeld &quot;Microsoft.AspNet.WebApi.Client&quot;.
 - Wählen Sie das Paket Microsoft ASP.NET Web-API-Client-Bibliotheken, und klicken Sie auf **installieren**.

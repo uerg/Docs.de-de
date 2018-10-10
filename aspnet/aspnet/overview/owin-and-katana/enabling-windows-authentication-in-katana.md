@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: 82324ef0-3b75-4f63-a217-76ef4036ec93
 msc.legacyurl: /aspnet/overview/owin-and-katana/enabling-windows-authentication-in-katana
 msc.type: authoredcontent
-ms.openlocfilehash: 0aa578020a1f02fa68c74e758014c642219b4265
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 8afa2c9dfbe03a9874513f7d083adf7608f4218f
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41831923"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910459"
 ---
 <a name="enabling-windows-authentication-in-katana"></a>Aktivieren der Windows-Authentifizierung in Katana
 ====================
@@ -36,7 +36,6 @@ Katana bietet derzeit zwei Server, die beide über integrierte Windows-Authentif
 > [!NOTE]
 > Katana bietet derzeit OWIN-Middleware für die Windows-Authentifizierung keine, da diese Funktion bereits in der Server verfügbar sind.
 
-
 ## <a name="windows-authentication-in-iis"></a>Windows-Authentifizierung in IIS
 
 Verwenden "Microsoft.owin.Host.systemweb", können Sie einfach Windows-Authentifizierung in IIS aktivieren.
@@ -45,7 +44,7 @@ Wir erstellen zunächst eine neue ASP.NET-Anwendung mit mithilfe der Projektvorl
 
 ![](enabling-windows-authentication-in-katana/_static/image1.png)
 
-Als Nächstes fügen Sie die NuGet-Pakete hinzu. Von der **Tools** , wählen Sie im Menü **Bibliothekspaket-Manager**, und wählen Sie dann **-Paket-Manager-Konsole**. Geben Sie im Fenster Paket-Manager-Konsole den folgenden Befehl aus:
+Als Nächstes fügen Sie die NuGet-Pakete hinzu. Von der **Tools** , wählen Sie im Menü **NuGet Package Manager**, und wählen Sie dann **-Paket-Manager-Konsole**. Geben Sie im Fenster Paket-Manager-Konsole den folgenden Befehl aus:
 
 [!code-console[Main](enabling-windows-authentication-in-katana/samples/sample1.cmd)]
 
@@ -75,7 +74,7 @@ Später, wenn Sie die Anwendung auf einem Server bereitstellen, führen Sie [fol
 
 Wenn Sie zum selfhosten von Katana Microsoft.Owin.Host.HttpListener verwenden, können Sie die Windows-Authentifizierung aktivieren, direkt auf die **HttpListener** Instanz.
 
-Erstellen Sie zunächst eine neue Konsolenanwendung. Als Nächstes fügen Sie die NuGet-Pakete hinzu. Von der **Tools** , wählen Sie im Menü **Bibliothekspaket-Manager**, und wählen Sie dann **-Paket-Manager-Konsole**. Geben Sie im Fenster Paket-Manager-Konsole den folgenden Befehl aus:
+Erstellen Sie zunächst eine neue Konsolenanwendung. Als Nächstes fügen Sie die NuGet-Pakete hinzu. Von der **Tools** , wählen Sie im Menü **NuGet Package Manager**, und wählen Sie dann **-Paket-Manager-Konsole**. Geben Sie im Fenster Paket-Manager-Konsole den folgenden Befehl aus:
 
 [!code-console[Main](enabling-windows-authentication-in-katana/samples/sample4.cmd)]
 

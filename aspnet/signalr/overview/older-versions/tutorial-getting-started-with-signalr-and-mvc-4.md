@@ -8,12 +8,12 @@ ms.date: 03/29/2013
 ms.assetid: eeef9f73-6de3-49f9-b50b-9af22108f2ce
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr-and-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 34a7ae97a0a0652c090aa72e2cb21a4bce13bd5c
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 95fc3315149e07dbdb0505a2b5ab197bfedba097
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41838985"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910875"
 ---
 <a name="tutorial-getting-started-with-signalr-1x-and-mvc-4"></a>Tutorial: Erste Schritte mit SignalR 1.x und MVC 4
 ====================
@@ -63,7 +63,7 @@ In diesem Abschnitt veranschaulicht das Erstellen einer ASP.NET MVC 4-Anwendung,
       2. Wählen Sie die Internet Application-Vorlage, deaktivieren Sie die Option zum **erstellen ein Komponententestprojekts**, und klicken Sie auf OK.
 
          ![Mvc-IIS-Site erstellen](tutorial-getting-started-with-signalr-and-mvc-4/_static/image4.png)
-      3. Öffnen der **Tools | Bibliothekspaket-Manager | Paket-Manager-Konsole** , und führen Sie den folgenden Befehl aus. Dieser Schritt fügt dem Projekt hinzu einen Satz von Skriptdateien und Assemblyverweise, die SignalR-Funktionalität zu aktivieren.
+      3. Öffnen der **Tools > NuGet Paket-Manager > Paket-Manager Console** und führen folgenden Befehl aus. Dieser Schritt fügt dem Projekt hinzu einen Satz von Skriptdateien und Assemblyverweise, die SignalR-Funktionalität zu aktivieren.
 
          `install-package Microsoft.AspNet.SignalR -Version 1.1.3`
       4. In **Projektmappen-Explorer** erweitern Sie den Ordner "Scripts". Beachten Sie, dass die Skriptbibliotheken für SignalR zum Projekt hinzugefügt wurden.

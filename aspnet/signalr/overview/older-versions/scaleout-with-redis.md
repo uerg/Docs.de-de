@@ -8,12 +8,12 @@ ms.date: 05/01/2013
 ms.assetid: 6abecf80-8ffa-41ba-b0d9-1d9edbe7687b
 msc.legacyurl: /signalr/overview/older-versions/scaleout-with-redis
 msc.type: authoredcontent
-ms.openlocfilehash: 4f587b129a1a22e64625d2ab0fc7655984262ebe
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 90f1f1429dcdf8f1015365e5aa337371c6307715
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41834415"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910719"
 ---
 <a name="signalr-scaleout-with-redis-signalr-1x"></a>Horizontale Skalierung in SignalR mit Redis (SignalR 1.x)
 ====================
@@ -94,7 +94,7 @@ Erstellen einer SignalR-Anwendung entweder mit diesen Lernprogrammen:
 - [Erste Schritte mit SignalR](../getting-started/tutorial-getting-started-with-signalr.md)
 - [Erste Schritte mit SignalR und MVC 4](tutorial-getting-started-with-signalr-and-mvc-4.md)
 
-Als Nächstes ändern wir die Chat-Anwendung zur Unterstützung von horizontale Skalierung mit Redis. Fügen Sie zunächst das SignalR.Redis NuGet-Paket Ihrem Projekt ein. In Visual Studio aus der **Tools** , wählen Sie im Menü **Bibliothekspaket-Manager**, und wählen Sie dann **-Paket-Manager-Konsole**. Geben Sie im Fenster Paket-Manager-Konsole den folgenden Befehl aus:
+Als Nächstes ändern wir die Chat-Anwendung zur Unterstützung von horizontale Skalierung mit Redis. Fügen Sie zunächst das SignalR.Redis NuGet-Paket Ihrem Projekt ein. In Visual Studio aus der **Tools** die Option **NuGet Paket-Manager**, wählen Sie **Paket-Manager Konsole**. Geben Sie im Fenster Paket-Manager-Konsole den folgenden Befehl aus:
 
 [!code-powershell[Main](scaleout-with-redis/samples/sample5.ps1)]
 

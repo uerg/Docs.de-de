@@ -8,21 +8,20 @@ ms.date: 01/13/2015
 ms.assetid: c89d809f-6c65-4425-a3fa-c9f6e8ac89f2
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 9b326ec22fc70a8c1746c5cd2c302c7f04fa8d3e
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: ab6a553100d704746840eaad512ec140d4576c44
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41832393"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911785"
 ---
 <a name="connection-resiliency-and-command-interception-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Verbindungsresilienz und Abfangen von Befehlen mit Entitätsframework in einer ASP.NET MVC-Anwendung
 ====================
 durch [Tom Dykstra](https://github.com/tdykstra)
 
-[Herunterladen des abgeschlossenen Projekts](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) oder [PDF-Datei herunterladen](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
+[Abgeschlossenes Projekt herunterladen](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
-> Die Contoso University-Beispielwebanwendung veranschaulicht, wie ASP.NET MVC 5-Anwendungen, die mit dem Entity Framework 6 Code First "und" Visual Studio 2013. Informationen zu dieser Tutorialreihe finden Sie im [ersten Tutorial der Reihe](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
-
+> Contoso University Beispiel Web-Anwendung veranschaulicht, wie ASP.NET MVC 5 mit dem Entity Framework 6 Code First Visual Studio erstellt. Informationen zu dieser Tutorialreihe finden Sie im [ersten Tutorial der Reihe](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 Bisher wurde die Anwendung lokal in IIS Express auf Ihrem Entwicklungscomputer ausgeführt wurde. Um eine reale Anwendung für andere Benutzer über das Internet verfügbar zu machen, müssen Sie sie auf einen Webhostinganbieter bereitstellen, und Sie zum Bereitstellen der Datenbank auf einen Datenbankserver verfügen.
 
@@ -73,7 +72,7 @@ Sie können auch Abfangen der Abfrage verwenden, um eine bewährte Methode für 
 
 ### <a name="create-a-logging-interface-and-class"></a>Erstellen Sie eine protokollierungsschnittstelle und -Klasse
 
-Ein [bewährte Methode für die Protokollierung](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log) besteht darin, dies mithilfe einer Schnittstelle anstatt Aufrufe fest zu programmieren, System.Diagnostics.Trace-oder ein Logging-Klasse. Die erleichtert es Ihrer Protokollierungsmechanismus später zu ändern, wenn Sie dies tun müssen. In diesem Abschnitt Sie erstellen werden die protokollierungsschnittstelle und eine Klasse zum Implementieren von it./p > 
+Ein [bewährte Methode für die Protokollierung](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log) besteht darin, dies mithilfe einer Schnittstelle anstatt Aufrufe fest zu programmieren, System.Diagnostics.Trace-oder ein Logging-Klasse. Die erleichtert es Ihrer Protokollierungsmechanismus später zu ändern, wenn Sie dies tun müssen. In diesem Abschnitt Sie erstellen werden die protokollierungsschnittstelle und eine Klasse zum Implementieren von it./p >
 
 1. Erstellen Sie einen Ordner im Projekt, und nennen Sie sie *Protokollierung*.
 2. In der *Protokollierung* Ordner, erstellen Sie eine Klassendatei mit dem Namen *ILogger.cs*, und Ersetzen Sie den Vorlagencode durch den folgenden Code:
@@ -114,7 +113,7 @@ Als Nächstes erstellen Sie die Klassen, denen das Entity Framework aufrufen wir
 
     Die Anzahl der Häufigkeit, mit die dem Entity Framework erneut auszuführen ist konfigurierbar. der Code gibt viermal aus, da dies der Standardwert für die Ausführungsrichtlinie für die SQL-Datenbank ist. Wenn Sie die Ausführungsrichtlinie ändern, mussten Sie auch ändern hier den Code ein, der angibt, wie oft ein vorübergehender Fehler generiert wird. Sie können auch den Code, um weitere Ausnahmen zu generieren, sodass Entity Framework eine Ausnahme auslöst, Ändern der `RetryLimitExceededException` Ausnahme.
 
-    Der Wert in das Suchfeld eingegebenen werden in `command.Parameters[0]` und `command.Parameters[1]` (eine für den ersten Namen und eine für den Nachnamen verwendet wird). Wenn das Wert "% Throw %" gefunden wird, werden "Throw" in diese Parameter durch "an" ersetzt, damit einige Kursteilnehmer gefunden und zurückgegeben werden.
+    Der Wert in das Suchfeld eingegebenen werden in `command.Parameters[0]` und `command.Parameters[1]` (eine für den ersten Namen und eine für den Nachnamen verwendet wird). Wird das Wert "Throw %" gefunden, werden "Auslösen" in diesen Parametern durch "an" ersetzt, sodass einige Kursteilnehmer gefunden zurückgegeben werden.
 
     Dies ist nur eine praktische Möglichkeit zum Testen von verbindungsresilienz basierend auf eine Eingabe zur Benutzeroberfläche der Anwendung ändern. Sie können auch Code, der vorübergehende Fehler für alle Abfragen oder Updates generiert schreiben, wie weiter unten in den Kommentaren zur Erläuterung der *DbInterception.Add* Methode.
 3. In *"Global.asax"*, fügen Sie die folgenden `using` Anweisungen:
@@ -138,7 +137,7 @@ Als Nächstes erstellen Sie die Klassen, denen das Entity Framework aufrufen wir
 
 ## <a name="test-logging-and-connection-resiliency"></a>Protokollierung und Test-verbindungsresilienz
 
-1. Drücken Sie F5, um die Anwendung im Debugmodus ausgeführt, und klicken Sie dann auf die **Schüler/Studenten** Registerkarte.
+1. Drücken Sie **F5** die Anwendung im Debugmodus ausführen, und klicken Sie auf die **Kursteilnehmer** Registerkarte.
 2. Sehen Sie sich Visual Studio **Ausgabe** Fenster aus, um die Ausgabe der Ablaufverfolgung finden Sie unter. Möglicherweise müssen Scrollen Sie nach einigen JavaScript-Fehler, um die Protokolle geschrieben werden, indem Sie den Logger zu erhalten.
 
     Beachten Sie, dass Sie, die tatsächlichen SQL-Abfragen an die Datenbank gesendet sehen können. Sie sehen einige anfängliche Abfragen und Befehle, die Entity Framework ermöglicht damit beginnen, überprüfen die Version der Datenbank und migrationsverlaufstabelle (Migrationen im nächsten Tutorial erfahren Sie). Sie sehen, dass eine Abfrage für das Auslagern, um herauszufinden, wie viele Studenten vorhanden sind, und schließlich sehen Sie, die Abfrage, die für Schüler und Studentendaten abruft.
@@ -172,7 +171,7 @@ Als Nächstes erstellen Sie die Klassen, denen das Entity Framework aufrufen wir
 
 In diesem Tutorial haben Sie gelernt, wie resilienz von Verbindungen zu aktivieren, und melden Sie sich SQL-Befehle, die Entity Framework erstellt und sendet an die Datenbank angezeigt werden. Im nächsten Tutorial stellen Sie die Anwendung auf das Internet mithilfe von Code First-Migrationen zum Bereitstellen der Datenbank bereit.
 
-Lassen Sie Feedback auf, wie Sie in diesem Tutorial gefallen hat und was wir verbessern können. Sie können auch neue Themen anfordern [anzeigen Me How With Code](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
+Lassen Sie Feedback auf, wie Sie in diesem Tutorial gefallen hat und was wir verbessern können.
 
 Links zu anderen Ressourcen des Entity Framework finden Sie im [ASP.NET-Datenzugriff – empfohlene Ressourcen](../../../../whitepapers/aspnet-data-access-content-map.md).
 

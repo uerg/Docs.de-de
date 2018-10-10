@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: 8af630e0-fffa-4110-9eca-c96e201b2724
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 72180686ea1ee6f6695b24fcedf3af90c1eddcfa
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 8bea3d4bc19a5a47240abeb2cc015116814a8fdf
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41833348"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911818"
 ---
 <a name="sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application-3-of-10"></a>Sortieren, Filtern und Paging mit Entitätsframework in einer ASP.NET MVC-Anwendung (3 von 10)
 ====================
@@ -117,7 +117,7 @@ Beginnen Sie zur Indexseite "Studenten" Paging hinzugefügt haben, durch die Ins
 
 NuGet **PagedList.Mvc** Paketinstallationen automatisch die **PagedList** Paket als Abhängigkeit. Die **PagedList** Paket installiert einen `PagedList` Sammlungsmethoden Typ und die Erweiterung für `IQueryable` und `IEnumerable` Sammlungen. Die Erweiterungsmethoden erstellen Sie eine einzelne Seite mit Daten in eine `PagedList` Auflistung von Ihrer `IQueryable` oder `IEnumerable`, und die `PagedList` enthält verschiedene Eigenschaften und Methoden, die das Paging zu erleichtern. Die **PagedList.Mvc** Paketinstallationen eine paging-Hilfsprogramm, das die Pagingschaltflächen anzeigt.
 
-Von der **Tools** , wählen Sie im Menü **Bibliothekspaket-Manager** und dann **NuGet-Pakete für Projektmappe verwalten**.
+Aus der **Tools** die Option **NuGet Paket-Manager** und **NuGet-Pakete verwalten, Lösung**.
 
 In der **NuGet-Pakete verwalten** Dialogfeld klicken Sie auf die **Online** links auf die Registerkarte, und geben Sie dann in das Suchfeld "ausgelagert". Wenn Sie sehen die **PagedList.Mvc** -Paket, klicken Sie auf **installieren**.
 

@@ -8,12 +8,12 @@ ms.date: 09/30/2015
 ms.assetid: 719727b7-bef3-45ad-bfe9-ba5bcdb2305f
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
 msc.type: authoredcontent
-ms.openlocfilehash: 24ab1c470a22b5b328d1f3bc400400978eb31600
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 3c3557bb2be2807b11874937fcc629b5b773e463
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41835840"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912253"
 ---
 <a name="hands-on-lab-build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs"></a>Praxisnahe Übung: Erstellen einer Einzelseitenanwendung (SPA) mit ASP.NET-Web-API und Angular.js
 ====================
@@ -44,7 +44,7 @@ In dieser praktischen Übungseinheit erfahren Sie, wie Sie:
 - Verbessern Sie die Benutzeroberfläche mit CSS3-Transformationen
 
 <a id="Prerequisites"></a>
-### <a name="prerequisites"></a>Erforderliche Komponenten
+### <a name="prerequisites"></a>Vorraussetzungen
 
 Folgendes ist erforderlich, um diese praktische Übungseinheit auszuführen:
 
@@ -308,7 +308,7 @@ Sie werden gestartet, indem Sie AngularJS von Visual Studio Paket-Manager-Konsol
 
 
 1. Öffnen Sie **Visual Studio Express 2013 für Web** , und öffnen Sie die **GeekQuiz.sln** Lösung befindet sich in der **Quelle/Ex2-CreatingASPAInterface/Anfang** Ordner. Alternativ können Sie die Lösung weiter nutzen, den Sie in der vorherigen Übung haben.
-2. Öffnen der **-Paket-Manager-Konsole** aus **Tools** | **Bibliothekspaket-Manager**. Geben Sie den folgenden Befehl zum Installieren der **AngularJS.Core** NuGet-Paket.
+2. Öffnen der **-Paket-Manager-Konsole** aus **Tools** > **NuGet-Paket-Manager**. Geben Sie den folgenden Befehl zum Installieren der **AngularJS.Core** NuGet-Paket.
 
     [!code-powershell[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample16.ps1)]
 3. In **Projektmappen-Explorer**, mit der rechten Maustaste die **Skripts** Ordner die **GeekQuiz** Projekt, und wählen **hinzufügen | Neuer Ordner**. Nennen Sie den Ordner **app** , und drücken Sie **EINGABETASTE**.

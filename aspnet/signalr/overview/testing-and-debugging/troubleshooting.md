@@ -8,34 +8,34 @@ ms.date: 06/10/2014
 ms.assetid: 4b559e6c-4fb0-4a04-9812-45cf08ae5779
 msc.legacyurl: /signalr/overview/testing-and-debugging/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: 9ef69ece2558260f0409e9388751f77ac84a06f1
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: bdb0562955f3bde56a95ce937c27fdbe4aa94823
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523076"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911683"
 ---
 <a name="signalr-troubleshooting"></a>Problembehandlung für SignalR
 ====================
 durch [Patrick Fletcher](https://github.com/pfletcher)
 
 > Dieses Dokument beschreibt allgemeine Probleme mit SignalR.
-> 
+>
 > ## <a name="software-versions-used-in-this-topic"></a>In diesem Thema verwendeten Softwareversionen
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR-Version 2
->   
-> 
-> 
+>
+>
+>
 > ## <a name="previous-versions-of-this-topic"></a>Vorherige Versionen dieses Themas
-> 
+>
 > Weitere Informationen zu früheren Versionen von SignalR, finden Sie unter [ältere Versionen von SignalR](../older-versions/index.md).
-> 
+>
 > ## <a name="questions-and-comments"></a>Fragen und Kommentare
-> 
+>
 > Lassen Sie Feedback, auf wie Ihnen in diesem Tutorial gefallen hat und was wir in den Kommentaren am unteren Rand der Seite verbessern können. Wenn Sie Fragen, die nicht direkt mit dem Tutorial verknüpft sind haben, können Sie sie veröffentlichen das [ASP.NET SignalR-Forum](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oder [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -294,7 +294,7 @@ Dieser Fehler kann auftreten, von der Verwendung von Datentypen, die in einer JS
 
 ## <a name="compilation-and-server-side-errors"></a>Kompilierung und serverseitigen Fehlern
 
- Der folgende Abschnitt enthält mögliche Lösungen für Compiler und serverseitigen Common Language Runtime-Fehler. 
+ Der folgende Abschnitt enthält mögliche Lösungen für Compiler und serverseitigen Common Language Runtime-Fehler.
 
 ### <a name="reference-to-hub-instance-is-null"></a>Verweis auf den Hub-Instanz ist null.
 
