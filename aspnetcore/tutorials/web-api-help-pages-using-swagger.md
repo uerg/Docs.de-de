@@ -1,33 +1,33 @@
 ---
-title: ASP.NET Core-Web-API-Hilfeseiten mit Swagger und Open API
+title: ASP.NET Core-Web-API-Hilfeseiten mit Swagger/OpenAPI
 author: rsuter
 description: Dieses Tutorial enthält eine exemplarische Vorgehensweise für das Hinzufügen von Swagger, um Dokumentationen und Hilfeseiten für eine Web-API-App zu generieren.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 03/09/2018
+ms.date: 09/20/2018
 uid: tutorials/web-api-help-pages-using-swagger
-ms.openlocfilehash: 56e146337ad9e94298f72abf5ede009eea65fb46
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 586195e3a29130c0b638ed6763ea5c9032ca6b2b
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272250"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523128"
 ---
-# <a name="aspnet-core-web-api-help-pages-with-swagger--open-api"></a>ASP.NET Core-Web-API-Hilfeseiten mit Swagger und Open API
+# <a name="aspnet-core-web-api-help-pages-with-swagger--openapi"></a>ASP.NET Core-Web-API-Hilfeseiten mit Swagger/OpenAPI
 
 Von [Christoph Nienaber](https://twitter.com/zuckerthoben) und [Rico Suter](http://rsuter.com)
 
-Wenn eine Web-API verwendet wird, fällt es dem Entwickler oft nicht leicht, die zahlreichen Methoden zu verstehen. [Swagger](https://swagger.io/), auch als Open API bekannt, löst das Problem, das das Generieren von nützlichen Dokumentationen und Hilfeseiten für Web-APIs darstellen kann. Das Programm bietet Vorteile wie die interaktive Dokumentation, die Generierung von Client SDKs und die Erkennbarkeit von APIs.
+Wenn eine Web-API verwendet wird, fällt es dem Entwickler oft nicht leicht, die zahlreichen Methoden zu verstehen. [Swagger](https://swagger.io/), auch als [OpenAPI](https://www.openapis.org/) bekannt, löst das Problem, das das Generieren von nützlichen Dokumentationen und Hilfeseiten für Web-APIs darstellen kann. Das Programm bietet Vorteile wie die interaktive Dokumentation, die Generierung von Client SDKs und die Erkennbarkeit von APIs.
 
 In diesem Artikel werden die Swagger-Implementierungen [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore) und [NSwag](https://github.com/RSuter/NSwag) von .NET veranschaulicht:
 
 * **Swashbuckle.AspNetCore** ist ein Open Source-Projekt zum Generieren von Swagger-Dokumenten für Web-APIs von ASP.NET Core.
 
-* Bei **NSwag** handelt es sich um ein weiteres Open Source-Projekt zum Integrieren der [Swagger-Benutzeroberfläche](https://swagger.io/swagger-ui/) oder von [ReDoc](https://github.com/Rebilly/ReDoc) in ASP.NET Core-Web-APIs. Es bietet Methoden, um C#- und TypeScript-Clientcode für Ihre API zu generieren.
+* **NSwag** ist ein weiteres Open-Source-Projekt zum Generieren von Swagger-Dokumenten und Integrieren von [Swagger-Benutzeroberfläche](https://swagger.io/swagger-ui/) oder [ReDoc](https://github.com/Rebilly/ReDoc) in ASP.NET Core-Web-APIs. Außerdem bietet NSwag Verfahren, um C#- und TypeScript-Clientcode für Ihre API zu generieren.
 
-## <a name="what-is-swagger--open-api"></a>Was ist Swagger bzw. Open API?
+## <a name="what-is-swagger--openapi"></a>Was ist Swagger bzw. OpenAPI?
 
-Bei Swagger handelt es sich um eine sprachunabhängige Spezifikation für das Beschreiben von [REST-APIs](https://en.wikipedia.org/wiki/Representational_state_transfer). Das Swagger-Projekt wurde an die Initiative [OpenAPI](https://www.openapis.org/) gespendet. Dort wird es nun als „Open API“ bezeichnet. Beide Namen werden synonym verwendet, Open API wird jedoch bevorzugt. Dadurch können Computer und Benutzer die Funktionen eines Diensts ohne direkten Zugriff auf die Implementierung (Quellcode, Netzwerkzugriff, Dokumentation) nachvollziehen. Ein Ziel besteht im Minimieren des Arbeitsaufwands, der zum Verbinden von getrennten Diensten erforderlich ist. Ein weiteres Ziel besteht darin, den Zeitaufwand zu verringern, der für die genaue Dokumentation eines Diensts erforderlich ist.
+Bei Swagger handelt es sich um eine sprachunabhängige Spezifikation für das Beschreiben von [REST-APIs](https://en.wikipedia.org/wiki/Representational_state_transfer). Das Swagger-Projekt wurde an die [OpenAPI Initiative](https://www.openapis.org/) übergeben. Dort wird es nun als „OpenAPI“ bezeichnet. Beide Namen werden austauschbar verwendet, jedoch wird „OpenAPI“ bevorzugt. Dadurch können Computer und Benutzer die Funktionen eines Diensts ohne direkten Zugriff auf die Implementierung (Quellcode, Netzwerkzugriff, Dokumentation) nachvollziehen. Ein Ziel besteht im Minimieren des Arbeitsaufwands, der zum Verbinden von getrennten Diensten erforderlich ist. Ein weiteres Ziel besteht darin, den Zeitaufwand zu verringern, der für die genaue Dokumentation eines Diensts erforderlich ist.
 
 ## <a name="swagger-specification-swaggerjson"></a>Spezifikation von Swagger (swagger.json)
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/06/2018
 uid: host-and-deploy/proxy-load-balancer
-ms.openlocfilehash: 1833b5bb77b199bb5fd0257e9f33b4d6f0c23ec5
-ms.sourcegitcommit: 8268cc67beb1bb1ca470abb0e28b15a7a71b8204
+ms.openlocfilehash: a03250d6cafe7279c3fcf3957d33214a9b4ed514
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44126734"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523050"
 ---
 # <a name="configure-aspnet-core-to-work-with-proxy-servers-and-load-balancers"></a>Konfigurieren von ASP.NET Core zur Verwendung mit Proxyservern und Lastenausgleich
 
@@ -121,6 +121,7 @@ services.Configure<ForwardedHeadersOptions>(options =>
 ```
 
 ::: moniker range=">= aspnetcore-2.1"
+
 | Option | Beschreibung  |
 | ------ | ----------- |
 | AllowedHosts | Begrenzt Hosts durch den `X-Forwarded-Host`-Header auf die angegebenen Werte.<ul><li>Werte werden mit Ordnungszahl/Groß-/Kleinschreibung ignorieren verglichen.</li><li>Portnummern müssen ausgeschlossen werden.</li><li>Wenn die Liste leer ist, sind alle Hosts zulässig.</li><li>Ein Platzhalter `*` auf der obersten Ebene lässt alle nicht leeren Hosts zu.</li><li>Unterdomänen-Platzhalter sind zulässig, stimmen aber nicht mit der Stammdomäne überein. Beispielsweise entspricht `*.contoso.com` der Unterdomäne `foo.contoso.com`, aber nicht der Stammdomäne `contoso.com`.</li><li>Unicode-Hostnamen sind zulässig, werden jedoch für den Abgleich in [Punycode](https://tools.ietf.org/html/rfc3492) konvertiert.</li><li>[IPv6-Adressen](https://tools.ietf.org/html/rfc4291) müssen Begrenzungsklammern einschließen und im [konventionellen Format](https://tools.ietf.org/html/rfc4291#section-2.2) vorliegen (z.B. `[ABCD:EF01:2345:6789:ABCD:EF01:2345:6789]`). IPv6-Adressen sind keine Sonderfälle, um auf logische Gleichheit zwischen verschiedenen Formaten zu prüfen, und es wird keine Kanonisierung durchgeführt.</li><li>Dadurch, dass die zulässigen Hosts nicht begrenzt werden, kann einem Angreifer die Möglichkeit eröffnet werden, von dem Dienst generierte Links zu fälschen.</li></ul>Der Standardwert ist eine leere [IList\<string>](/dotnet/api/system.collections.generic.ilist-1). |
@@ -135,8 +136,11 @@ services.Configure<ForwardedHeadersOptions>(options =>
 | [OriginalHostHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.originalhostheadername) | Verwenden Sie den Header, der von dieser Eigenschaft angegeben wurde, anstelle des von [ForwardedHeadersDefaults.XOriginalHostHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xoriginalhostheadername) angegebenen.<br><br>Die Standardeinstellung ist `X-Original-Host`. |
 | [OriginalProtoHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.originalprotoheadername) | Verwenden Sie den Header, der von dieser Eigenschaft angegeben wurde, anstelle des von [ForwardedHeadersDefaults.XOriginalProtoHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xoriginalprotoheadername) angegebenen.<br><br>Die Standardeinstellung ist `X-Original-Proto`. |
 | [RequireHeaderSymmetry](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.requireheadersymmetry) | Die Anzahl von Headerwerten muss in den [ForwardedHeadersOptions.ForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedheaders) übereinstimmen, die verarbeitet werden.<br><br>Die Standardeinstellung in ASP.NET Core 1.x ist `true`. Die Standardeinstellung in ASP.NET Core 2.0 oder höher ist `false`. |
+
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 | Option | Beschreibung  |
 | ------ | ----------- |
 | [ForwardedForHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedforheadername) | Verwenden Sie den Header, der von dieser Eigenschaft angegeben wurde, anstelle des von [ForwardedHeadersDefaults.XForwardedForHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedforheadername) angegebenen. Diese Option wird verwendet, wenn beim Proxy/Weiterleitenden nicht der Header `X-Forwarded-For` sondern ein anderer Header für die Weiterleitung der Informationen genutzt wird.<br><br>Die Standardeinstellung ist `X-Forwarded-For`. |
@@ -150,6 +154,7 @@ services.Configure<ForwardedHeadersOptions>(options =>
 | [OriginalHostHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.originalhostheadername) | Verwenden Sie den Header, der von dieser Eigenschaft angegeben wurde, anstelle des von [ForwardedHeadersDefaults.XOriginalHostHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xoriginalhostheadername) angegebenen.<br><br>Die Standardeinstellung ist `X-Original-Host`. |
 | [OriginalProtoHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.originalprotoheadername) | Verwenden Sie den Header, der von dieser Eigenschaft angegeben wurde, anstelle des von [ForwardedHeadersDefaults.XOriginalProtoHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xoriginalprotoheadername) angegebenen.<br><br>Die Standardeinstellung ist `X-Original-Proto`. |
 | [RequireHeaderSymmetry](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.requireheadersymmetry) | Die Anzahl von Headerwerten muss in den [ForwardedHeadersOptions.ForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedheaders) übereinstimmen, die verarbeitet werden.<br><br>Die Standardeinstellung in ASP.NET Core 1.x ist `true`. Die Standardeinstellung in ASP.NET Core 2.0 oder höher ist `false`. |
+
 ::: moniker-end
 
 ## <a name="scenarios-and-use-cases"></a>Szenarios und Anwendungsfälle
@@ -244,44 +249,85 @@ services.Configure<ForwardedHeadersOptions>(options =>
 
 ## <a name="troubleshoot"></a>Problembehandlung
 
-Wenn Header nicht wie erwartet zugewiesen werden, aktivieren Sie die [Protokollierung](xref:fundamentals/logging/index). Wenn die Protokolle nicht genügend Informationen zur Problembehandlung bereitstellen, listen Sie die vom Server empfangenen Anforderungsheader auf. Die Header können mithilfe von Inline-Middleware in eine App-Antwort geschrieben werden:
+Wenn Header nicht wie erwartet zugewiesen werden, aktivieren Sie die [Protokollierung](xref:fundamentals/logging/index). Wenn die Protokolle nicht genügend Informationen zur Problembehandlung bereitstellen, listen Sie die vom Server empfangenen Anforderungsheader auf. Verwenden Sie Inlinemiddleware, um Anforderungsheader in eine App-Antwort zu schreiben oder die Header zu protokollieren. Platzieren Sie eines der folgenden Codebeispiele unmittelbar nach dem Aufruf von <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> in `Startup.Configure`.
+
+Um die Header in die Antwort der App zu schreiben, verwenden Sie die folgende Terminalinlinemiddleware:
 
 ```csharp
-public void Configure(IApplicationBuilder app, ILoggerFactory loggerfactory)
+app.Run(async (context) =>
 {
-    app.Run(async (context) =>
+    context.Response.ContentType = "text/plain";
+
+    // Request method, scheme, and path
+    await context.Response.WriteAsync(
+        $"Request Method: {context.Request.Method}{Environment.NewLine}");
+    await context.Response.WriteAsync(
+        $"Request Scheme: {context.Request.Scheme}{Environment.NewLine}");
+    await context.Response.WriteAsync(
+        $"Request Path: {context.Request.Path}{Environment.NewLine}");
+
+    // Headers
+    await context.Response.WriteAsync($"Request Headers:{Environment.NewLine}");
+
+    foreach (var header in context.Request.Headers)
     {
-        context.Response.ContentType = "text/plain";
+        await context.Response.WriteAsync($"{header.Key}: " +
+            $"{header.Value}{Environment.NewLine}");
+    }
 
-        // Request method, scheme, and path
-        await context.Response.WriteAsync(
-            $"Request Method: {context.Request.Method}{Environment.NewLine}");
-        await context.Response.WriteAsync(
-            $"Request Scheme: {context.Request.Scheme}{Environment.NewLine}");
-        await context.Response.WriteAsync(
-            $"Request Path: {context.Request.Path}{Environment.NewLine}");
+    await context.Response.WriteAsync(Environment.NewLine);
 
-        // Headers
-        await context.Response.WriteAsync($"Request Headers:{Environment.NewLine}");
-
-        foreach (var header in context.Request.Headers)
-        {
-            await context.Response.WriteAsync($"{header.Key}: " +
-                $"{header.Value}{Environment.NewLine}");
-        }
-
-        await context.Response.WriteAsync(Environment.NewLine);
-
-        // Connection: RemoteIp
-        await context.Response.WriteAsync(
-            $"Request RemoteIp: {context.Connection.RemoteIpAddress}");
-    });
-}
+    // Connection: RemoteIp
+    await context.Response.WriteAsync(
+        $"Request RemoteIp: {context.Connection.RemoteIpAddress}");
+});
 ```
 
-Stellen Sie sicher, dass X-Forwarded-*-Header vom Server mit den erwarteten Werten empfangen werden. Wenn mehrere Werte in einem bestimmten Header vorhanden sind, beachten Sie die Prozessheader der Middleware für weitergeleitete Header in umgekehrter Reihenfolge von rechts nach links.
+Sie können auch in Protokolle anstatt in den Antworttext schreiben, indem Sie die folgende Inlinemiddleware verwenden. Dies ermöglicht es der Website, während des Debuggens normal zu funktionieren.
 
-Die ursprüngliche Remote-IP der Anforderung muss mit einem Eintrag in den Listen `KnownProxies` oder `KnownNetworks` übereinstimmen, bevor `X-Forwarded-For` verarbeitet wird. Auf diese Weise wird das Headerspoofing begrenzt, da keine Weiterleitungen von nicht vertrauenswürdigen Proxys akzeptiert werden.
+```csharp
+var logger = _loggerFactory.CreateLogger<Startup>();
+
+app.Use(async (context, next) =>
+{
+    // Request method, scheme, and path
+    logger.LogDebug("Request Method: {METHOD}", context.Request.Method);
+    logger.LogDebug("Request Scheme: {SCHEME}", context.Request.Scheme);
+    logger.LogDebug("Request Path: {PATH}", context.Request.Path);
+
+    // Headers
+    foreach (var header in context.Request.Headers)
+    {
+        logger.LogDebug("Header: {KEY}: {VALUE}", header.Key, header.Value);
+    }
+
+    // Connection: RemoteIp
+    logger.LogDebug("Request RemoteIp: {REMOTE_IP_ADDRESS}", 
+        context.Connection.RemoteIpAddress);
+
+    await next();
+});
+```
+
+Bei der Verarbeitung werden `X-Forwarded-{For|Proto|Host}`-Werte in `X-Original-{For|Proto|Host}` verschoben. Wenn mehrere Werte in einem bestimmten Header vorhanden sind, beachten Sie die Prozessheader der Middleware für weitergeleitete Header in umgekehrter Reihenfolge von rechts nach links. Der Standardwert von `ForwardLimit` ist 1 (eins), sodass nur der ganz rechte Wert aus den Headern verarbeitet wird, es sei denn, der Wert von `ForwardLimit` wird erhöht.
+
+Die ursprüngliche IP-Remoteadresse der Anforderung muss mit einem Eintrag in den `KnownProxies`- oder `KnownNetworks`-Listen übereinstimmen, bevor weitergeleitete Header verarbeitet werden. Auf diese Weise wird das Headerspoofing begrenzt, da keine Weiterleitungen von nicht vertrauenswürdigen Proxys akzeptiert werden. Wenn ein unbekannter Proxy erkannt wird, gibt die Protokollierung die Adresse des Proxys an:
+
+```console
+September 20th 2018, 15:49:44.168 Unknown proxy: 10.0.0.100:54321
+```
+
+Im vorherigen Beispiel ist 10.0.0.100 ein Proxyserver. Wenn der Server ein vertrauenswürdiger Proxy ist, fügen Sie die IP-Adresse des Servers `KnownProxies` (oder ein vertrauenswürdiges Netzwerk `KnownNetworks`) in `Startup.ConfigureServices` hinzu. Weitere Informationen finden Sie im Abschnitt [Middleware für weitergeleitete Header: Optionen](#forwarded-headers-middleware-options).
+
+```csharp
+services.Configure<ForwardedHeadersOptions>(options =>
+{
+    options.KnownProxies.Add(IPAddress.Parse("10.0.0.100"));
+});
+```
+
+> [!IMPORTANT]
+> Erlauben Sie nur vertrauenswürdigen Proxys und Netzwerken die Weiterleitung von Headern. Andernfalls sind Angriffe des Typs [IP-Spoofing](https://www.iplocation.net/ip-spoofing) möglich.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 

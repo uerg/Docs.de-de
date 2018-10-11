@@ -4,14 +4,14 @@ author: rick-anderson
 description: Hier finden Sie Informationen zum Einrichten von Nginx als Reverseproxy unter Ubuntu 16.04, um den HTTP-Datenverkehr an eine ASP.NET Core-Web-App weiterzuleiten, die auf Kestrel ausgeführt wird.
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/22/2018
+ms.date: 09/08/2018
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: d94640075f6fe5db06672f7dc641470c71076a16
-ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
+ms.openlocfilehash: bf1fb8c0db2afd4e0c6044f3d08c22d619931554
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44040012"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523232"
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Hosten von ASP.NET Core unter Linux mit Nginx
 
@@ -118,21 +118,20 @@ app.UseFacebookAuthentication(new FacebookOptions()
 
 Wenn für die Middleware keine [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) angegeben sind, lauten die weiterzuleitenden Standardheader `None`.
 
-Möglicherweise ist zusätzliche Konfiguration für Apps erforderlich, die hinter Proxyservern und Lastenausgleichsmodulen (Load Balancer) gehostet werden. Weitere Informationen hierzu feinden Sie unter [Konfigurieren von ASP.NET Core zur Verwendung mit Proxyservern und Lastenausgleich](xref:host-and-deploy/proxy-load-balancer).
+Nur Proxys, die unter localhost (127.0.0.0.1, [::1]) ausgeführt werden, gelten standardmäßig als vertrauenswürdig. Wenn andere vertrauenswürdige Proxys oder Netzwerke innerhalb des Unternehmens Anforderungen zwischen dem Internet und dem Webserver verarbeiten, fügen Sie diese der Liste der <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.KnownProxies*> oder <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.KnownNetworks*> mit <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> hinzu. Das folgende Beispiel fügt einen vertrauenswürdigen Proxyserver mit der IP-Adresse 10.0.0.0.100 der Middleware für weitergeleitete Header `KnownProxies` in `Startup.ConfigureServices` hinzu:
+
+```csharp
+services.Configure<ForwardedHeadersOptions>(options =>
+{
+    options.KnownProxies.Add(IPAddress.Parse("10.0.0.100"));
+});
+```
+
+Weitere Informationen finden Sie unter <xref:host-and-deploy/proxy-load-balancer>.
 
 ### <a name="install-nginx"></a>Installieren von Nginx
 
-Verwenden Sie `apt-get` zum Installieren von Nginx. Das Installationsprogramm erstellt ein *systemd*-Initialisierungsskript, das Nginx beim Systemstart als Dämon ausführt. 
-
-```bash
-sudo -s
-nginx=stable # use nginx=development for latest development version
-add-apt-repository ppa:nginx/$nginx
-apt-get update
-apt-get install nginx
-```
-
-Das Ubuntu Personal Package Archive (PPA) wird von Freiwilligen verwaltet und nicht durch [nginx.org](https://nginx.org/) verteilt. Weitere Informationen finden Sie unter [Nginx: Binary Releases: Official Debian/Ubuntu packages (Nginx: binäre Releases – offizielle Debian/Ubuntu-Pakete)](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/#official-debian-ubuntu-packages).
+Verwenden Sie `apt-get` zum Installieren von Nginx. Das Installationsprogramm erstellt ein *systemd*-Initialisierungsskript, das Nginx beim Systemstart als Dämon ausführt. Führen Sie die Installationsanweisungen für Ubuntu unter [Nginx: Offizielle Debian-/Ubuntu-Pakete](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/#official-debian-ubuntu-packages) aus.
 
 > [!NOTE]
 > Wenn optionale Nginx-Module benötigt werden, kann die Erstellung von Nginx aus der Quelle erforderlich sein.
@@ -222,6 +221,7 @@ ExecStart=/usr/bin/dotnet /var/aspnetcore/hellomvc/hellomvc.dll
 Restart=always
 # Restart service after 10 seconds if the dotnet service crashes:
 RestartSec=10
+KillSignal=SIGINT
 SyslogIdentifier=dotnet-example
 User=www-data
 Environment=ASPNETCORE_ENVIRONMENT=Production
@@ -233,26 +233,32 @@ WantedBy=multi-user.target
 
 Wenn der Benutzer *www-data* durch Ihre Konfiguration nicht verwendet wird, muss der hier definierte Benutzer zunächst erstellt werden, und ihm muss der ordnungsgemäße Besitz für die Dateien erteilt werden.
 
+Verwenden Sie `TimeoutStopSec`, um die Dauer der Wartezeit bis zum Herunterfahren der App zu konfigurieren, nachdem diese das anfängliche Interruptsignal empfangen hat. Wenn die App in diesem Zeitraum nicht heruntergefahren wird, wird SIGKILL ausgegeben, um die App zu beenden. Geben Sie den Wert als einheitenlose Sekunden (z.B. `150`), einen Zeitspannenwert (z.B. `2min 30s`) oder `infinity` an, um das Timeout zu deaktivieren. `TimeoutStopSec` ist standardmäßig der Wert `DefaultTimeoutStopSec` in der Manager-Konfigurationsdatei (*systemd-system.conf*, *system.conf.d*, *systemd-user.conf*, *user.conf.d*). Das Standardtimeout für die meisten Distributionen beträgt 90 Sekunden.
+
+```
+# The default value is 90 seconds for most distributions.
+TimeoutStopSec=90
+```
+
 Linux verfügt über ein Dateisystem, bei dem die Groß-/Kleinschreibung beachtet wird. Das Festlegen von ASPNETCORE_ENVIRONMENT auf „Production“ führt dazu, dass nach der Konfigurationsdatei *appsettings.Production.json* und nicht nach *appsettings.production.json* gesucht wird.
 
-> [!NOTE]
-> Einige Werte (z.B. SQL-Verbindungszeichenfolgen) müssen mit Escapezeichen versehen werden, damit die Konfigurationsanbieter die Umgebungsvariablen lesen können. Mit dem folgenden Befehl können Sie einen ordnungsgemäß mit Escapezeichen versehenen Wert für die Verwendung in der Konfigurationsdatei generieren:
->
-> ```console
-> systemd-escape "<value-to-escape>"
-> ```
+Einige Werte (z.B. SQL-Verbindungszeichenfolgen) müssen mit Escapezeichen versehen werden, damit die Konfigurationsanbieter die Umgebungsvariablen lesen können. Mit dem folgenden Befehl können Sie einen ordnungsgemäß mit Escapezeichen versehenen Wert für die Verwendung in der Konfigurationsdatei generieren:
+
+```console
+systemd-escape "<value-to-escape>"
+```
 
 Speichern Sie die Datei, und aktivieren Sie den Dienst.
 
 ```bash
-systemctl enable kestrel-hellomvc.service
+sudo systemctl enable kestrel-hellomvc.service
 ```
 
 Starten Sie den Dienst, und überprüfen Sie, ob er ausgeführt wird.
 
 ```
-systemctl start kestrel-hellomvc.service
-systemctl status kestrel-hellomvc.service
+sudo systemctl start kestrel-hellomvc.service
+sudo systemctl status kestrel-hellomvc.service
 
 ● kestrel-hellomvc.service - Example .NET Web API App running on Ubuntu
     Loaded: loaded (/etc/systemd/system/kestrel-hellomvc.service; enabled)

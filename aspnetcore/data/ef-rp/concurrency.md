@@ -5,12 +5,12 @@ description: In diesem Tutorial wird gezeigt, wie Sie Konflikte behandeln, wenn 
 ms.author: riande
 ms.date: 11/15/2017
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: a010e2ed660bea56b112799e850f2fb0ff37579e
-ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
+ms.openlocfilehash: 722676b6765c32f3d11d5a3e23a5bea6ebe5488d
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219393"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523258"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>Razor-Seiten mit EF Core in ASP.NET Core: Parallelität (8 von 8)
 
@@ -18,7 +18,7 @@ Von [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://gith
 
 [!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
-Dieses Tutorial zeigt, wie Sie Konflikte behandeln, wenn mehrere Benutzer gleichzeitig dieselbe Entität aktualisieren. Wenn nicht zu lösende Probleme auftreten, laden Sie die [abgeschlossene Anwendung für diese Phase](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part8) herunter.
+Dieses Tutorial zeigt, wie Sie Konflikte behandeln, wenn mehrere Benutzer gleichzeitig dieselbe Entität aktualisieren. Wenn nicht zu lösende Probleme auftreten, laden Sie die [fertige App](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) herunter, oder zeigen Sie diese an. [Anweisungen zum Download.](xref:tutorials/index#how-to-download-a-sample)
 
 ## <a name="concurrency-conflicts"></a>Nebenläufigkeitskonflikte
 

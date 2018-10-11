@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 09/20/2017
 uid: fundamentals/metapackage-app
-ms.openlocfilehash: d27c3aa53d6edd235006dc136f09558395e15b6e
-ms.sourcegitcommit: a742b55e4b8276a48b8b4394784554fecd883c84
+ms.openlocfilehash: 68b5aca60273a8c6ef03c0a29842e6a5305adeb3
+ms.sourcegitcommit: 517bb1366da2a28b0014e384fa379755c21b47d8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45538452"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47230164"
 ---
 # <a name="microsoftaspnetcoreapp-metapackage-for-aspnet-core-21"></a>Das Metapaket „Microsoft.AspNetCore.App“ für ASP.NET Core 2.1
 
@@ -45,13 +45,26 @@ Die folgende Projektdatei verweist auf das Metapaket `Microsoft.AspNetCore.App` 
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
 </Project>
 ```
 
-Mit der Versionsnummer im Verweis `Microsoft.AspNetCore.App` ist **nicht** garantiert, dass diese Version des freigegebenen Frameworks verwendet wird. Es kann zum Beispiel sein, dass die Version `2.1.1` angegeben ist, aber bereits Version `2.1.3` installiert wurde. In diesem Fall verwendet die App die Version `2.1.3`. Sie können das Rollforwardverhalten für Patches und/oder kleinere Updates deaktivieren. Dies wird jedoch nicht empfohlen. Weitere Informationen zum Rollforwardverhalten von Paketversionen finden Sie unter [dotnet host-Rollforward](https://github.com/dotnet/core-setup/blob/master/Documentation/design-docs/roll-forward-on-no-candidate-fx.md).
+Das zuvor erwähnte Markup stellt eine typische Vorlage für Vorlage 2.1 und höher dar. Es gibt keine Versionsnummer für den Paketverweis `Microsoft.AspNetCore.App` an. Wenn die Version nicht angegeben wird, wird vom SDK eine [implizite](https://github.com/dotnet/core/blob/master/release-notes/1.0/sdk/1.0-rc3-implicit-package-refs.md) Version angegeben (`Microsoft.NET.Sdk.Web`). Es wird empfohlen, die vom SDK angegebene implizite Version beizubehalten, statt die Versionsnummer im Paketverweis explizit festzulegen. Wenn Sie Fragen zu dieser Vorgehensweise haben, können Sie einen GitHub-Kommentar unter [Discussion for the Microsoft.AspNetCore.App implicit version (Diskussion zur impliziten Version für Microsoft.AspNetCore.App)](https://github.com/aspnet/Docs/issues/6430) verfassen.
+
+Die implizite Version wird auf `major.minor.0` festgelegt, wenn es sich um Apps für Mobilgeräte handelt. Der Rollforwardmechanismus des freigegebenen Frameworks führt die App auf der neuesten kompatiblen Version der installierten freigegebenen Frameworks aus. Stellen Sie sicher, dass die gleiche Version des freigegebenen Frameworks in allen Umgebungen installiert ist, um zu gewährleisten, dass die gleiche Version bei der Entwicklung, beim Testen und in der Produktion verwendet wird. Bei unabhängigen Apps wird die implizite Versionsnummer auf die Versionsnummer `major.minor.patch` des freigegebenen Frameworks festgelegt, das im installierten SDK zusammengefasst ist.
+
+Das Angeben einer Versionsnummer im `Microsoft.AspNetCore.App`-Verweis garantiert **nicht**, dass diese Version des freigegebenen Frameworks ausgewählt wird. Gehen Sie beispielsweise davon aus, dass „2.1.1“ angegeben, aber „2.1.3“ installiert ist. In diesem Fall verwendet die App Version 2.1.3. Sie können den Rollforward (für „patch“ und/oder „minor“) deaktivieren. Dies wird jedoch nicht empfohlen. Weitere Informationen zum Rollforward des dotnet-Hosts und der Konfiguration seines Verhaltens finden Sie unter [dotnet host roll forward (Rollforward des dotnet-Hosts)](https://github.com/dotnet/core-setup/blob/master/Documentation/design-docs/roll-forward-on-no-candidate-fx.md).
+
+Für `<Project Sdk` muss `Microsoft.NET.Sdk.Web` festgelegt werden, um die implizite Version `Microsoft.AspNetCore.App` verwenden zu können.  Wenn `<Project Sdk="Microsoft.NET.Sdk">` (ohne nachgestelltes `.Web`) verwendet wird:
+
+* Die folgende Warnung wird generiert:
+
+     *Warning NU1604: Project dependency Microsoft.AspNetCore.App does not contain an inclusive lower bound. Include a lower bound in the dependency version to ensure consistent restore results. (Warnung NU1604: Die Projektabhängigkeit „Microsoft.AspNetCore.App“ enthält keine einschließliche Untergrenze. Schließen Sie eine Untergrenze in die Abhängigkeitsversion ein, um konsistente Wiederherstellungsergebnisse zu erzielen.)*
+* Dies ist ein bekanntes Problem mit dem .NET Core 2.1 SDK und wird im .NET Core SDK 2.2 behoben.
+
+<a name="update"></a>
 
 ## <a name="update-aspnet-core"></a>Aktualisieren von ASP.NET Core
 

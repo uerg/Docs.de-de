@@ -1,21 +1,24 @@
 ---
 title: Leistung in ASP.NET Core
-author: ardalis
+author: guardrex
 description: Entdecken Sie Themen zur Leistung von ASP.NET Core-Apps.
 ms.author: riande
-ms.date: 10/14/2016
+ms.custom: mvc
+ms.date: 09/16/2018
 uid: performance/index
-ms.openlocfilehash: e168432280f40f9d3b918a11deb55959c9ffeb70
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: da400078f4e8899ce41ff395c86fdea14bc3c376
+ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273636"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47028087"
 ---
 # <a name="performance-in-aspnet-core"></a>Leistung in ASP.NET Core
 
-* [Zwischenspeichern von Antworten](caching/index.md)
-  * [Zwischenspeichern in Speicher](caching/memory.md)
-  * [Arbeiten mit einem verteilten Cache](caching/distributed.md)
-  * [Zwischenspeichern von Antworten](caching/response.md)
-* [Antworten komprimierende Middleware](response-compression.md)
+Die folgenden Themenbereiche behandeln Leistungsszenarien in ASP.NET Core:
+
+[Zwischenspeichern von Antworten](xref:performance/caching/index)  
+Erfahren Sie, wie Sie Daten und Antworten in ASP.NET Core zwischenspeichern können.
+
+[Antwortkomprimierung](xref:performance/response-compression)  
+Informationen zur Antwortkomprimierung und zum Verwenden von Antworten komprimierender Middleware in ASP.NET Core-Apps.

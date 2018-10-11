@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: f5549a24c5b5fe2e6b33bd55960f87a8bf86bd19
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: f55d0e534dafb0709f1411bad9b038a87abde7ab
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41870879"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523310"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Einführung in Razor Pages in ASP.NET Core
 
@@ -41,8 +41,6 @@ Ausführliche Informationen zum Erstellen eines Projekts mit Razor-Seiten mithil
 
 Führen Sie `dotnet new webapp` über die Befehlszeile aus.
 
-[!INCLUDE[](~/includes/webapp-alias-notice.md)]
-
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
@@ -59,8 +57,6 @@ Führen Sie `dotnet new razor` über die Befehlszeile aus.
 
 Führen Sie `dotnet new webapp` über die Befehlszeile aus.
 
-[!INCLUDE[](~/includes/webapp-alias-notice.md)]
-
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
@@ -74,8 +70,6 @@ Führen Sie `dotnet new razor` über die Befehlszeile aus.
 ::: moniker range=">= aspnetcore-2.1"
 
 Führen Sie `dotnet new webapp` über die Befehlszeile aus.
-
-[!INCLUDE[](~/includes/webapp-alias-notice.md)]
 
 ::: moniker-end
 
@@ -376,6 +370,8 @@ Die aktualisierte Umgebungsdatei *Pages/Create.cshtml*:
 
 Die [Razor Pages-Startprojekt](#rpvs17) enthält die Seite *Pages/_ValidationScriptsPartial.cshtml*, die die clientseitige Validierung bindet.
 
+Weitere Informationen zu Teilansichten finden Sie unter <xref:mvc/views/partial>.
+
 <a name="url_gen"></a>
 
 ## <a name="url-generation-for-pages"></a>URL-Generierung für Seiten
@@ -417,6 +413,7 @@ Die URL-Generierung für Seiten unterstützt relative Namen. In der folgenden Ta
 Das Verknüpfen relativer Namen eignet sich beim Erstellen von Websites mit einer komplexen Struktur. Wenn Sie relative Namen verwenden, um Seiten in einem Ordner zu verknüpfen, können Sie diesen Ordner umbenennen. Alle Links funktionieren weiterhin, da sie nicht den Namen des Ordners enthalten.
 
 ::: moniker range=">= aspnetcore-2.1"
+
 ## <a name="viewdata-attribute"></a>Attribut „ViewData“
 
 Daten können mit [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute) an eine Seite übergeben werden. Die Werte der Eigenschaften auf Controllern oder Razor Pages-Modellen, die mit `[ViewData]` versehen sind, werden in [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) gespeichert und daraus geladen.
@@ -450,6 +447,7 @@ Im Layout wird der Titel aus dem ViewData-Wörterbuch gelesen:
     <title>@ViewData["Title"] - WebApplication</title>
     ...
 ```
+
 ::: moniker-end
 
 ## <a name="tempdata"></a>TempData
@@ -558,11 +556,12 @@ services.AddMvc()
     .WithRazorPagesRoot("/path/to/razor/pages");
 ```
 
-## <a name="see-also"></a>Siehe auch
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Einführung in ASP.NET Core](xref:index)
-* [Razor-Syntax](xref:mvc/views/razor)
-* [Erste Schritte mit Razor Pages](xref:tutorials/razor-pages/razor-pages-start)
-* [Autorisierungskonventionen für Razor Pages](xref:security/authorization/razor-pages-authorization)
-* [Benutzerdefinierte Routen- und Seitenmodellanbieter für Razor Pages](xref:razor-pages/razor-pages-conventions)
-* [Komponententests für Razor-Seiten](xref:test/razor-pages-tests)
+* <xref:index>
+* <xref:mvc/views/razor>
+* <xref:tutorials/razor-pages/razor-pages-start>
+* <xref:security/authorization/razor-pages-authorization>
+* <xref:razor-pages/razor-pages-conventions>
+* <xref:test/razor-pages-tests>
+* <xref:mvc/views/partial>

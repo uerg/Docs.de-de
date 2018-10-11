@@ -3,14 +3,14 @@ title: Einführung in ASP.NET Core
 author: rick-anderson
 description: Dieser Artikel enthält eine Einführung in ASP.NET Core, ein plattformübergreifendes, leistungsstarkes Open-Source-Framework für das Erstellen moderner, cloudbasierter Anwendungen, die mit dem Internet verbunden sind.
 ms.author: riande
-ms.date: 02/28/2018
+ms.date: 9/28/2018
 uid: index
-ms.openlocfilehash: 6de7f1bc8229c5de519e4064dda0a7061cf8b9c6
-ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
+ms.openlocfilehash: 85f2aa04e4b6692dd03a63f14bcebdec97ee270e
+ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37077711"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47454777"
 ---
 # <a name="introduction-to-aspnet-core"></a>Einführung in ASP.NET Core
 
@@ -39,8 +39,6 @@ ASP.NET Core bietet die folgenden Vorteile:
 * Tools zum Vereinfachen einer modernen Webentwicklung
 * Fähigkeit zur Erstellung und Ausführung unter Windows, macOS und Linux
 * Open Source und mit [Fokus auf der Community](https://live.asp.net/)
-
-ASP.NET Core besteht vollständig aus [NuGet](https://www.nuget.org/)-Paketen. Mithilfe von NuGet-Paketen können Sie Ihre App so optimieren, dass nur die benötigten Abhängigkeiten enthalten sind. Tatsächlich ist für ASP.NET Core 2.x-Apps, deren Zielversionen auf .NET Core festgelegt werden soll, lediglich ein [einzelnes NuGet-Paket](xref:fundamentals/metapackage). Die Vorteile eines kleineren App-Oberflächenbereichs umfassen straffere Sicherheit, verringerte Wartungsarbeiten und verbesserte Leistung.
 
 ## <a name="build-web-apis-and-web-ui-using-aspnet-core-mvc"></a>Erstellen von Web-APIs und Webbenutzeroberflächen mithilfe von ASP.NET Core MVC
 
@@ -78,5 +76,6 @@ Weitere Informationen finden Sie in den folgenden Ressourcen:
 
 * [Erste Schritte mit Razor Pages](xref:tutorials/razor-pages/razor-pages-start)
 * [ASP.NET Core-Tutorials](xref:tutorials/index)
+* <xref:tutorials/publish-to-azure-webapp-using-vs>
 * [ASP.NET Core – Grundlagen](xref:fundamentals/index)
 * Im [wöchentlichen ASP.NET Community Standup](https://live.asp.net/) werden die Fortschritte und Pläne des Teams behandelt. Zudem werden neue Blogs und Drittanbietersoftware vorgestellt.

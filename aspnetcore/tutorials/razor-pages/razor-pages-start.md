@@ -1,18 +1,18 @@
 ---
 title: Erste Schritte mit Razor Pages in ASP.NET Core
 author: rick-anderson
-description: Erfahren Sie Grundlegendes zur Erstellung einer ASP.NET Core-Web-App mit Razor-Seiten. Razor-Seiten werden für Web-Workloads in ASP.NET Core empfohlen.
+description: Diese Reihe von Tutorials zeigt, wie Sie Razor Pages in ASP.NET Core verwenden können. Erfahren Sie, wie Sie ein Modell erstellen, Code für Razor-Seiten generieren, Entity Framework Core und SQL Server für den Datenzugriff verwenden, Suchfunktionen hinzufügen, Eingabeüberprüfung hinzufügen und Migrationen verwenden, um das Modell zu aktualisieren.
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: bc18ec3ad3bb7e3afe38030a34b2e748ce9e341b
-ms.sourcegitcommit: 74c09caec8992635825b45b7f065f871d33c077a
+ms.openlocfilehash: 2e1c84a704856a22e1e105f56612194d4bb9c234
+ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42634976"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47210999"
 ---
-# <a name="get-started-with-razor-pages-in-aspnet-core"></a>Erste Schritte mit Razor Pages in ASP.NET Core
+# <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Tutorial: Erste Schritte mit Razor Pages in ASP.NET Core
 
 Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -61,7 +61,7 @@ Die folgende Abbildung zeigt die App, nachdem die Nachverfolgung akzeptiert wurd
 
 ![Start- oder Indexseite](razor-pages-start/_static/home2.1.png)
 
-* Visual Studio startet [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) und führt die App aus. Die Adressleiste zeigt `localhost:port#` an, nicht `example.com`. Das liegt daran, dass es sich bei `localhost` um den Standardhostnamen für Ihren lokalen Computer handelt. „Localhost“ dient nur Webanforderungen vom lokalen Computer. Wenn in Visual Studio ein Webprojekt erstellt wird, wird für den Webserver ein zufälliger Port verwendet. In der vorherigen Abbildung ist die Nummer des Ports 5000. Wenn Sie die App ausführen, wird eine andere Portnummer angezeigt.
+* Visual Studio startet [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) und führt die App aus. Die Adressleiste zeigt `localhost:port#` an, nicht `example.com`. Das liegt daran, dass es sich bei `localhost` um den Standardhostnamen für Ihren lokalen Computer handelt. „Localhost“ dient nur Webanforderungen vom lokalen Computer. Wenn in Visual Studio ein Webprojekt erstellt wird, wird für den Webserver ein zufälliger Port verwendet. In der vorherigen Abbildung ist die Portnummer 5001. Wenn Sie die App ausführen, wird eine andere Portnummer angezeigt.
 * Das Starten der App mit **STRG+F5** (Nicht-Debugmodus) ermöglicht die Änderung des Codes, das Speichern der Datei, das Aktualisieren des Browsers und das Anzeigen von Codeänderungen. Viele Entwickler bevorzugen den Nicht-Debugmodus, um die App schnell zu starten und Änderungen anzuzeigen.
 
 [!INCLUDE [razor-pages-start](~/includes/RP/2.1/razor-pages-start.md)]

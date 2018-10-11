@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/14/2016
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
-ms.openlocfilehash: 3470d9278574a95115b14f25b90a0a93bb3b8a67
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 5ae8ce01610828417fc76ed6626e518c8493bd0f
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751588"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340198"
 ---
 # <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a>Continuous Deployment in Azure mit Visual Studio und Git mit ASP.NET Core
 
@@ -21,7 +21,7 @@ Von [Erik Reitan](https://github.com/Erikre)
 
 Dieses Tutorial zeigt, wie mit Visual Studio eine ASP.NET Core-Web-App erstellt und aus Visual Studio mithilfe von Continuous Deployment in Azure App Service bereitgestellt wird.
 
-Siehe auch den Artikel [Use VSTS to Build and Publish to an Azure Web App with Continuous Deployment](/vsts/build-release/archive/apps/aspnet/aspnet-4-ci-cd-azure-automatic), in dem gezeigt wird, wie Sie einen Continuous Delivery-Workflow für [Azure App Service](/azure/app-service/app-service-web-overview) mithilfe von Visual Studio Team Services konfigurieren. Azure Continuous Delivery in Team Services vereinfacht das Einrichten einer zuverlässigen Bereitstellungspipeline zum Veröffentlichen von Updates für in Azure App Service gehostete Apps. Die Pipeline kann im Azure-Portal für die folgenden Aufgaben konfiguriert werden: Erstellen von Builds, Ausführen von Tests, Bereitstellen in einem Stagingslot und anschließendes Bereitstellen in der Produktion.
+Siehe auch [Erstellen einer ersten Pipeline mit Azure Pipelines](/azure/devops/pipelines/get-started-yaml). Diese Anleitung zeigt, wie Sie einen CD-Workflow (Continuous Delivery) für [Azure App Service](/azure/app-service/app-service-web-overview) mit Azure DevOps Services konfigurieren. Azure Pipelines (ein Azure DevOps Services-Dienst) vereinfacht das Einrichten einer robusten Bereitstellungspipeline zur Veröffentlichung von Updates für Apps, die in Azure App Service gehostet werden. Die Pipeline kann im Azure-Portal für die folgenden Aufgaben konfiguriert werden: Erstellen von Builds, Ausführen von Tests, Bereitstellen in einem Stagingslot und anschließendes Bereitstellen in der Produktion.
 
 > [!NOTE]
 > Für dieses Tutorial ist ein Microsoft Azure-Konto erforderlich. Zum Abrufen eines Kontos können Sie die [Leistungen für MSDN-Abonnenten aktivieren](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A261C142F) oder sich [für eine kostenlose Testversion registrieren](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -228,5 +228,5 @@ Zeigen Sie die aktualisierte Web-App an, indem Sie im Azure-Portal auf dem Blatt
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Verwenden von VSTS zum Erstellen und Veröffentlichen in einer Azure-Web-App mit Continuous Deployment](/vsts/build-release/archive/apps/aspnet/aspnet-4-ci-cd-azure-automatic)
+* [Erstellen Sie Ihre erste Pipeline mit Azure Pipelines](/azure/devops/pipelines/get-started-yaml)
 * [Projekt Kudu](https://github.com/projectkudu/kudu/wiki)

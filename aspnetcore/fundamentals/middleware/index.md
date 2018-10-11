@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/21/2018
 uid: fundamentals/middleware/index
-ms.openlocfilehash: e6dc76b7cb80e0dfda102df5aefb5d9ce9b821ed
-ms.sourcegitcommit: 847cc1de5526ff42a7303491e6336c2dbdb45de4
+ms.openlocfilehash: 84e79df7fcf5790e658a20c80f21d73cdc76c054
+ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43055805"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46483008"
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core-Middleware
 
@@ -58,14 +58,18 @@ Mit <xref:Microsoft.AspNetCore.Builder.UseExtensions.Use*> können Sie mehrere A
 
 Die Reihenfolge, in der Middlewarekomponenten in der `Startup.Configure`-Methode hinzugefügt werden, legt die Reihenfolge fest, in der die Middlewarekomponenten bei Anforderungen aufgerufen werden. Bei Antworten gilt die umgekehrte Reihenfolge. Die Reihenfolge trägt wesentlich zur Sicherheit, Leistung und Funktionalität bei.
 
-Die folgende `Configure`-Methode fügt die folgenden Middlewarekomponenten hinzu:
-
-1. Ausnahme-/Fehlerbehandlung
-2. Statischer Dateiserver
-3. Authentifizierung
-4. MVC
+Die folgenden `Startup.Configure`-Methode fügt Middlewarekomponenten für allgemeine App-Szenarien hinzu:
 
 ::: moniker range=">= aspnetcore-2.0"
+
+1. Ausnahme-/Fehlerbehandlung
+1. HTTP Strict Transport Security Protocol
+1. HTTPS-Umleitung
+1. Statischer Dateiserver
+1. Cookierichtliniendurchsetzung
+1. Authentifizierung
+1. Sitzung
+1. MVC
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -96,11 +100,15 @@ public void Configure(IApplicationBuilder app)
     app.UseStaticFiles();
 
     // Use Cookie Policy Middleware to conform to EU General Data 
-    //   Protection Regulation (GDPR) regulations.
+    // Protection Regulation (GDPR) regulations.
     app.UseCookiePolicy();
 
     // Authenticate before the user accesses secure resources.
     app.UseAuthentication();
+
+    // If the app uses session state, call Session Middleware after Cookie 
+    // Policy Middleware and before MVC Middleware.
+    app.UseSession();
 
     // Add MVC to the request pipeline.
     app.UseMvc();
@@ -110,6 +118,12 @@ public void Configure(IApplicationBuilder app)
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.0"
+
+1. Ausnahme-/Fehlerbehandlung
+1. Statische Dateien
+1. Authentifizierung
+1. Sitzung
+1. MVC
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -123,6 +137,10 @@ public void Configure(IApplicationBuilder app)
 
     // Authenticate before you access secure resources.
     app.UseIdentity();
+
+    // If the app uses session state, call UseSession before 
+    // MVC Middleware.
+    app.UseSession();
 
     // Add MVC to the request pipeline.
     app.UseMvcWithDefaultRoute();
@@ -215,12 +233,13 @@ Die folgenden Middlewarekomponenten sind im Lieferumfang von ASP.NET Core enthal
 | Middleware | Beschreibung  | Reihenfolge |
 | ---------- | ----------- | ----- |
 | [Authentifizierung](xref:security/authentication/identity) | Bietet Unterstützung für Authentifizierungen. | Bevor `HttpContext.User` erforderlich ist. Terminal für OAuth-Rückrufe. |
+| [Cookierichtlinie](xref:security/gdpr) | Verfolgt die Zustimmung von Benutzern zum Speichern persönlicher Informationen nach und erzwingt die Mindeststandards für Cookiefelder, z.B. `secure` und `SameSite`. | Befindet sich vor der Middleware, die Cookies ausstellt. Beispiele: Authentifizierung, Sitzung, MVC (TempData). |
 | [CORS](xref:security/cors) | Konfiguriert die Ressourcenfreigabe zwischen verschiedenen Ursprüngen (Cross-Origin Resource Sharing, CORS). | Vor Komponenten, die CORS verwenden. |
 | [Diagnose](xref:fundamentals/error-handling) | Konfiguriert Diagnosen. | Vor Komponenten, die Fehler erzeugen. |
-| [Weitergeleitete Header](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Leitet Proxyheader an die aktuelle Anforderung weiter. | Vor Komponenten, die die aktualisierten Felder verwenden (z.B. Schema, Host, Client-IP, Methode). |
+| [Weitergeleitete Header](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Leitet Proxyheader an die aktuelle Anforderung weiter. | Vor Komponenten, die die aktualisierten Felder nutzen. Beispiele: Schema, Host, Client-IP, Methode. |
 | [Außerkraftsetzung der HTTP-Methode](/dotnet/api/microsoft.aspnetcore.builder.httpmethodoverrideextensions) | Ermöglicht es eingehenden POST-Anforderungen, die Methode außer Kraft zu setzen. | Vor Komponenten, die die aktualisierte Methode nutzen. |
 | [HTTPS-Umleitung](xref:security/enforcing-ssl#require-https) | Leitet alle HTTP-Anforderungen an HTTPS um (ASP.NET Core 2.1 oder höher). | Vor Komponenten, die die URL nutzen. |
-| [HTTP Strict Transport Security (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts) | Sicherheits-Middleware, die einen besonderen Antwortheader hinzufügt (ASP.NET Core 2.1 oder höher). | Bevor Antworten gesendet werden und nach Komponenten, die Anforderungen ändern (z.B. weitergeleitete Header und URL-Umschreibung). |
+| [HTTP Strict Transport Security (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts) | Sicherheits-Middleware, die einen besonderen Antwortheader hinzufügt (ASP.NET Core 2.1 oder höher). | Bevor Antworten gesendet werden und nach Komponenten, die Anforderungen ändern. Beispiele: weitergeleitete Header und URL-Umschreibung. |
 | [MVC](xref:mvc/overview) | Verarbeitet Anforderungen mit MVC/Razor Pages (ASP.NET Core 2.0 oder höher). | Abschließend, wenn eine Anforderung mit einer Route übereinstimmt. |
 | [OWIN](xref:fundamentals/owin) | Interoperabilität mit auf OWIN basierten Apps, Servern und Middleware. | Abschließend, wenn die OWIN-Middleware die Anforderung vollständig verarbeitet. |
 | [Zwischenspeichern von Antworten](xref:performance/caching/middleware) | Bietet Unterstützung für das Zwischenspeichern von Antworten. | Vor Komponenten, für die das Zwischenspeichern erforderlich ist. |

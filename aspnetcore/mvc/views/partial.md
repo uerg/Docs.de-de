@@ -1,59 +1,134 @@
 ---
 title: Verwenden von Teilansichten in ASP.NET Core
 author: ardalis
-description: Erfahren Sie, wie eine Teilansicht zu einer Ansicht werden kann, die innerhalb einer anderen Ansicht gerendert wird, und wann diese in ASP.NET Core-Apps verwendet werden sollten.
+description: Erfahren Sie, wie Sie Teilansichten verwenden können, um große Markupdateien aufzuteilen und die Duplizierung von allgemeinem Markup auf Webseiten in ASP.NET Core-Anwendungen zu verringern.
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 uid: mvc/views/partial
-ms.openlocfilehash: 2223f3c6e42927def4b91ff9da58c228e5904756
-ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
+ms.openlocfilehash: a836ed073dfe769fc3cc0cd0622b17937747928b
+ms.sourcegitcommit: 70fb7c9d5f2ddfcf4747382a9f7159feca7a6aa7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39655322"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45601755"
 ---
 # <a name="partial-views-in-aspnet-core"></a>Verwenden von Teilansichten in ASP.NET Core
 
-Von [Steve Smith](https://ardalis.com/), [Maher JENDOUBI](https://twitter.com/maherjend), [Rick Anderson](https://twitter.com/RickAndMSFT) und [Scott Sauber](https://twitter.com/scottsauber)
+Von [Steve Smith](https://ardalis.com/), [Luke Latham](https://github.com/guardrex), [Maher JENDOUBI](https://twitter.com/maherjend), [Rick Anderson](https://twitter.com/RickAndMSFT) und [Scott Sauber](https://twitter.com/scottsauber)
 
-ASP.NET Core unterstützt Teilansichten. Teilansichten werden verwendet, um wiederverwendbare Teile von Webseiten für verschiedene Ansichten freizugeben.
+Eine Teilansicht ist eine [Razor](xref:mvc/views/razor)-Markupdatei (*CSHTML-Datei*), die HTML-Ausgabe *innerhalb* der gerenderten Ausgabe einer anderen Markupdatei rendert.
+
+::: moniker range=">= aspnetcore-2.1"
+
+Der Begriff *Teilansicht* wird verwendet, wenn entweder eine MVC-App entwickelt wird, in der Markupdateien *Ansichten* genannt werden, oder eine Razor Pages-App, in der Markupdateien *Seiten* genannt werden. In diesem Thema werden MVC-Ansichten und Razor Pages-Seiten allgemein als *Markupdateien* bezeichnet.
+
+::: moniker-end
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/partial/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="what-are-partial-views"></a>Informationen zu Teilansichten
-
-Bei einer Teilansicht handelt es sich um eine Ansicht die innerhalb einer anderen Ansicht gerendert wird. Die HTML-Ausgabe, die durch das Ausführen der Teilansicht generiert wird, wird in die aufrufende bzw. die übergeordnete Ansicht gerendert. Wie Ansichten verwenden auch Teilansichten die Erweiterung *.cshtml*.
-
-Die Projektvorlage **Webanwendung** von ASP.NET Core 2.1 enthält z.B. die Teilansicht *_CookieConsentPartial.cshtml*. Die Teilansicht wird innerhalb von *_Layout.cshtml* geladen:
-
-[!code-cshtml[](partial/sample/PartialViewsSample/Views/Shared/_Layout.cshtml?name=snippet_CookieConsentPartial)]
-
 ## <a name="when-to-use-partial-views"></a>Wann werden Teilansichten verwendet?
 
-Teilansichten stellen eine effektive Möglichkeit dar, große Ansichten in kleinere Komponenten zu unterteilen. Dadurch können Duplizierungen von Ansichtsinhalt reduziert und Ansichtselemente wiederverwendet werden. Häufig verwendete Layoutelemente müssen in [_Layout.cshtml](xref:mvc/views/layout) angegeben werden. Wiederverwendbarer Inhalt, der nicht zum Layout gehört, kann in Teilansichten gekapselt werden.
+Teilansichten bieten eine effektive Möglichkeit, um Folgendes zu erreichen:
 
-Auf einer komplexen Seite, die aus mehreren logischen Bestandteilen besteht, ist es hilfreich, mit jedem Bestandteil als einzelne Teilansicht zu arbeiten. Jeder Bestandteil der Seite kann isoliert vom Rest der Seite angezeigt werden. Die Ansicht der Seite selbst wird einfacher, da sie nur aus der allgemeinen Seitenstruktur sowie Aufrufen zum Rendern der Teilansichten besteht.
+* Aufteilen großer Markupdateien in kleinere Komponenten.
 
-ASP.NET Core-MVC-Controller verfügen über eine [PartialView](/dotnet/api/microsoft.aspnetcore.mvc.controller.partialview#Microsoft_AspNetCore_Mvc_Controller_PartialView)-Methode, die von einer Aktionsmethode aufgerufen wird. Razor Pages haben keine entsprechende `PartialView`-Methode im [PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel).
+  In einer großen, komplexen Markupdatei, die aus mehreren logischen Teilen besteht, bringt es Vorteile mit sich, mit jeder einzelnen Komponente isoliert in einer Teilansicht zu arbeiten. Der Code in der Markupdatei ist verwaltbar, weil das Markup nur die allgemeine Seitenstruktur und Verweise auf Teilansichten enthält.
+* Verringern der Duplizierung von allgemeinem Markupinhalt in Markupdateien.
+
+  Wenn die gleichen Markupelemente in verschiedenen Markupdateien verwendet werden, entfernt eine Teilansicht die Duplizierung von Markupinhalten in einer Teilansichtsdatei. Wenn das Markup in der Teilansicht geändert wird, wird die gerenderte Ausgabe der Markupdateien aktualisiert, die die Teilansicht verwenden.
+
+Teilansichten sollte nicht verwendet werden, um allgemeine Layoutelemente zu verwalten. Häufig verwendete Layoutelemente müssen in [_Layout.cshtml](xref:mvc/views/layout)-Dateien angegeben werden.
+
+Verwenden Sie keine Teilansicht, wenn für das Rendern des Markups eine komplexe Renderinglogik oder Codeausführung erforderlich ist. Verwenden Sie anstelle einer Teilansicht eine [Ansichtskomponente](xref:mvc/views/view-components).
 
 ## <a name="declare-partial-views"></a>Deklarieren von Teilansichten
 
-Teilansichten werden auf dieselbe Weise wie normale Ansichten erstellt, und zwar indem eine *CSHTML*-Datei im Ordner *Ansichten* erstellt wird. Es gibt keinen Unterschied in der Semantik zwischen Teilansichten und normalen Ansichten. Sie werden jedoch unterschiedlich gerendert. Sie können über eine Ansicht verfügen, die direkt über das [ViewResult](/dotnet/api/microsoft.aspnetcore.mvc.viewresult) eines Controllers zurückgegeben wird. Dieselbe Ansicht kann dann auch als Teilansicht verwendet werden. Der Hauptunterschied beim Rendern von Teilansichten und Ansichten liegt darin, dass Teilansichten nicht die Datei *_ViewStart.cshtml* ausführen. Normale Ansichten führen *_ViewStart.cshtml* jedoch aus. Weiter Informationen zu *_ViewStart.cshtml* finden Sie unter [Layout](xref:mvc/views/layout).
+::: moniker range=">= aspnetcore-2.1"
 
-Dateinamen von Teilansichten beginnen per Konvention oft mit `_`. Diese Namenskonvention ist keine Voraussetzung, sie hilft jedoch dabei, Teilansichten von normalen Ansichten visuell zu unterscheiden.
+Eine Teilansicht ist eine *CSHTML*-Markupdatei, die innerhalb des Ordners *Views* (MVC) oder des Ordners *Pages* (Razor Pages) verwaltet wird.
+
+In ASP.NET Core MVC kann <xref:Microsoft.AspNetCore.Mvc.ViewResult> eines Controllers eine Ansicht oder eine Teilansicht zurückgeben. Eine analoge Funktion ist für Razor Pages in ASP.NET Core 2.2 geplant. In Razor Pages kann <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> ein <xref:Microsoft.AspNetCore.Mvc.PartialViewResult> zurückgeben. Das Verweisen auf und Rendern von Teilansichten wird im Abschnitt [Verweisen auf eine Teilansicht](#reference-a-partial-view) beschrieben.
+
+Im Gegensatz zu MVC-Ansichten oder Seitenrendering führt eine Teilansicht *_ViewStart.cshtml* nicht aus. Weitere Informationen zu *_ViewStart.cshtml* finden Sie unter <xref:mvc/views/layout>.
+
+Dateinamen von Teilansichten beginnen häufig mit einem Unterstrich (`_`). Diese Namenskonvention ist keine Voraussetzung, sie hilft aber dabei, Teilansichten von Ansichten und Seiten visuell zu unterscheiden. Wenn der Dateiname mit einem Unterstrich beginnt, verarbeitet Razor Pages die Markupdatei selbst dann nicht als Razor Pages-Seite, wenn das Markup der Datei die `@page`-Anweisung enthält.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.1"
+
+Eine Teilansicht ist eine *CSHTML*-Markupdatei, die innerhalb des Ordners *Views* verwaltet wird.
+
+<xref:Microsoft.AspNetCore.Mvc.ViewResult> eines Controllers kann eine Ansicht oder eine Teilansicht zurückgeben.
+
+Im Gegensatz zu MVC-Ansichten oder Rendering führt eine Teilansicht *_ViewStart.cshtml* nicht aus. Weitere Informationen zu *_ViewStart.cshtml* finden Sie unter <xref:mvc/views/layout>.
+
+Dateinamen von Teilansichten beginnen häufig mit einem Unterstrich (`_`). Diese Namenskonvention ist keine Voraussetzung, sie hilft aber dabei, Teilansichten von Ansichten visuell zu unterscheiden.
+
+::: moniker-end
 
 ## <a name="reference-a-partial-view"></a>Verweisen auf eine Teilansicht
 
-Innerhalb einer Ansichtsseite gibt es mehrere Möglichkeiten, eine Teilansicht zu rendern. Die bewährte Methode ist die Verwendung des asynchronen Renderings.
+::: moniker range=">= aspnetcore-2.1"
+
+Innerhalb einer Markupdatei gibt es mehrere Möglichkeiten, auf eine Teilansicht zu verweisen. Es wird empfohlen, dass Apps einen der folgenden Ansätze für asynchrones Rendering verwenden:
+
+* [Hilfsprogramm für Teiltags](#partial-tag-helper)
+* [Asynchrones HTML-Hilfsprogramm](#asynchronous-html-helper)
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.1"
+
+Innerhalb einer Markupdatei gibt es zwei Möglichkeiten, auf eine Teilansicht zu verweisen:
+
+* [Asynchrones HTML-Hilfsprogramm](#asynchronous-html-helper)
+* [Synchrones HTML-Hilfsprogramm](#synchronous-html-helper)
+
+Es wird empfohlen, dass Apps das [asynchrone HTML-Hilfsprogramm](#asynchronous-html-helper) verwenden.
+
+::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
 
 ### <a name="partial-tag-helper"></a>Hilfsprogramm für Teiltags
 
-Das Hilfsprogramm für Teiltags erfordert ASP.NET Core 2.1 oder höher. Es rendert asynchron und verwendet eine HTML-ähnliche Syntax:
+Das [Hilfsprogramm für Teiltags](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper) erfordert ASP.NET Core 2.1 oder höher.
 
-[!code-cshtml[](partial/sample/PartialViewsSample/Views/Home/Discovery.cshtml?name=snippet_PartialTagHelper)]
+Das Hilfsprogramm für Teiltags rendert Inhalte asynchron und verwendet eine HTML-ähnliche Syntax:
+
+```cshtml
+<partial name="_PartialName" />
+```
+
+Wenn eine Dateierweiterung vorhanden ist, verweist das Hilfsprogramm für Teiltags auf eine Teilansicht, die sich im gleichen Ordner wie die Markupdatei befinden muss, die die Teilansicht aufruft:
+
+```cshtml
+<partial name="_PartialName.cshtml" />
+```
+
+Im folgende Beispiel wird aus dem Stammverzeichnis der App auf eine Teilansicht verwiesen. Pfade, die mit einer Tilde und einem Schrägstrich (`~/`) oder einem Schrägstrich (`/`) beginnen, verweisen auf den Stamm der App:
+
+**Razor Pages**
+
+```cshtml
+<partial name="~/Pages/Folder/_PartialName.cshtml" />
+<partial name="/Pages/Folder/_PartialName.cshtml" />
+```
+
+**MVC**
+
+```cshtml
+<partial name="~/Views/Folder/_PartialName.cshtml" />
+<partial name="/Views/Folder/_PartialName.cshtml" />
+```
+
+Das folgende Beispiel verweist auf eine Teilansicht mit einem relativen Pfad:
+
+```cshtml
+<partial name="../Account/_PartialName.cshtml" />
+```
 
 Weitere Informationen finden Sie unter <xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper>.
 
@@ -61,119 +136,179 @@ Weitere Informationen finden Sie unter <xref:mvc/views/tag-helpers/builtin-th/pa
 
 ### <a name="asynchronous-html-helper"></a>Hilfsprogramm für asynchrone HTML
 
-Wenn Sie ein HTML-Hilfsprogramm verwenden, ist [PartialAsync](/dotnet/api/microsoft.aspnetcore.mvc.rendering.htmlhelperpartialextensions.partialasync#Microsoft_AspNetCore_Mvc_Rendering_HtmlHelperPartialExtensions_PartialAsync_Microsoft_AspNetCore_Mvc_Rendering_IHtmlHelper_System_String_) eine bewährte Methode. Es gibt den Typ [IHtmlContent](/dotnet/api/microsoft.aspnetcore.html.ihtmlcontent) zurück, der in einem `Task` umschlossenen ist. Sie können auf die Methode verweisen, indem Sie den Aufruf `@` voranstellen:
+Wenn Sie ein HTML-Hilfsprogramm verwenden, stellt das Verwenden von <xref:Microsoft.AspNetCore.Mvc.Rendering.HtmlHelperPartialExtensions.PartialAsync*> eine bewährte Methode dar. `PartialAsync` gibt einen <xref:Microsoft.AspNetCore.Html.IHtmlContent>-Typ in einem <xref:System.Threading.Tasks.Task`1> als Wrapper zurück. Sie können auf die Methode verweisen, indem Sie dem erwarteten Aufruf das Zeichen `@` als Präfix voranstellen:
 
-[!code-cshtml[](partial/sample/PartialViewsSample/Views/Home/Discovery.cshtml?name=snippet_PartialAsync)]
+```cshtml
+@await Html.PartialAsync("_PartialName")
+```
 
-Alternativ können Sie eine Teilansicht auch mit [RenderPartialAsync](/dotnet/api/microsoft.aspnetcore.mvc.rendering.htmlhelperpartialextensions.renderpartialasync) rendern. Diese Methode gibt kein Ergebnis zurück. Sie streamt die gerenderte Ausgabe direkt an die Antwort. Da die Methode kein Ergebnis zurückgibt, muss sie in einem Razor-Codeblock aufgerufen werden:
+Wenn die Dateierweiterung vorhanden ist, verweist das HTML-Hilfsprogramm auf eine Teilansicht, die sich im gleichen Ordner wie die Markupdatei befinden muss, die die Teilansicht aufruft:
 
-[!code-cshtml[](partial/sample/PartialViewsSample/Views/Home/Discovery.cshtml?name=snippet_RenderPartialAsync)]
+```cshtml
+@await Html.PartialAsync("_PartialName.cshtml")
+```
 
-Da sie das Ergebnis direkt streamt, ist die Leistung von `RenderPartialAsync` in einigen Szenarios besser. Es wird jedoch empfohlen, `PartialAsync` zu verwenden.
-
-### <a name="synchronous-html-helper"></a>Hilfsprogramm für synchrone HTML
-
-[Partial](/dotnet/api/microsoft.aspnetcore.mvc.rendering.htmlhelperpartialextensions.partial) und [RenderPartial](/dotnet/api/microsoft.aspnetcore.mvc.rendering.htmlhelperpartialextensions.renderpartial) sind die synchronen Entsprechungen von `PartialAsync` und `RenderPartialAsync`. Verwenden Sie diese synchronen Entsprechungen nicht, da sie in manchen Szenarios zu einem Deadlock führen können. Zukünftige Releases enthalten die synchronen Methoden nicht.
-
-> [!IMPORTANT]
-> Wenn Ihre Ansichten Code ausführen müssen, verwenden Sie anstelle von Teilansichten [Ansichtskomponenten](xref:mvc/views/view-components).
+Im folgende Beispiel wird aus dem Stammverzeichnis der App auf eine Teilansicht verwiesen. Pfade, die mit einer Tilde und einem Schrägstrich (`~/`) oder einem Schrägstrich (`/`) beginnen, verweisen auf den Stamm der App:
 
 ::: moniker range=">= aspnetcore-2.1"
 
-In ASP.NET Core 2.1 oder höher führt das Aufrufen von `Partial` oder `RenderPartial` zu einer Analysetoolwarnung. Beispielsweise führt die Nutzung von `Partial` zu folgender Warnmeldung:
+**Razor Pages**
 
-> Die Verwendung von IHtmlHelper.Partial kann zu Anwendungsdeadlocks führen. Verwenden Sie deshalb das Taghilfsprogramm `<partial>` oder `IHtmlHelper.PartialAsync`.
+```cshtml
+@await Html.PartialAsync("~/Pages/Folder/_PartialName.cshtml")
+@await Html.PartialAsync("/Pages/Folder/_PartialName.cshtml")
+```
 
-Ersetzen Sie Aufrufe von `@Html.Partial` durch `@await Html.PartialAsync` oder durch das Hilfsprogramm für Teiltags. Weiter Informationen zur Migration des Teiltaghilfsprogramms finden Sie unter [Migrate from an HTML Helper (Migration von einem HTML-Hilfsprogramm)](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper#migrate-from-an-html-helper)
+**MVC**
+
+::: moniker-end
+
+```cshtml
+@await Html.PartialAsync("~/Views/Folder/_PartialName.cshtml")
+@await Html.PartialAsync("/Views/Folder/_PartialName.cshtml")
+```
+
+Das folgende Beispiel verweist auf eine Teilansicht mit einem relativen Pfad:
+
+```cshtml
+@await Html.PartialAsync("../Account/_LoginPartial.cshtml")
+```
+
+Alternativ können Sie eine Teilansicht auch mit <xref:Microsoft.AspNetCore.Mvc.Rendering.HtmlHelperPartialExtensions.RenderPartialAsync*> rendern. Diese Methode gibt keinen <xref:Microsoft.AspNetCore.Html.IHtmlContent> zurück. Sie streamt die gerenderte Ausgabe direkt an die Antwort. Da die Methode kein Ergebnis zurückgibt, muss sie in einem Razor-Codeblock aufgerufen werden:
+
+[!code-cshtml[](partial/sample/PartialViewsSample/Views/Home/Discovery.cshtml?name=snippet_RenderPartialAsync)]
+
+Da `RenderPartialAsync` gerenderte Inhalte streamt, bietet diese Vorgehensweise in einigen Szenarien eine bessere Leistung. In leistungskritischen Situationen sollten Sie die Seite mit beiden Ansätzen einem Benchmarktest unterziehen und den Ansatz verwenden, der eine schnellere Antwort generiert.
+
+### <a name="synchronous-html-helper"></a>Hilfsprogramm für synchrone HTML
+
+<xref:Microsoft.AspNetCore.Mvc.Rendering.HtmlHelperPartialExtensions.Partial*> und <xref:Microsoft.AspNetCore.Mvc.Rendering.HtmlHelperPartialExtensions.RenderPartial*> sind die synchronen Entsprechungen von `PartialAsync` bzw. `RenderPartialAsync`. Diese synchronen Entsprechungen werden nicht empfohlen, da sie in manchen Szenarien zu einem Deadlock führen können. Die synchronen Methoden sollen in einem zukünftigen Release entfernt werden.
+
+> [!IMPORTANT]
+> Wenn Sie Code ausführen müssen, verwenden Sie anstelle von Teilansichten [Ansichtskomponenten](xref:mvc/views/view-components).
+
+::: moniker range=">= aspnetcore-2.1"
+
+Das Aufrufen von `Partial` oder `RenderPartial` führt zu einer Visual Studio Analyzer-Warnung. Beispielsweise führt das Vorhandensein von `Partial` zu folgender Warnmeldung:
+
+> Die Verwendung von IHtmlHelper.Partial kann zu Anwendungsdeadlocks führen. Erwägen Sie die Verwendung des Hilfsprogramms für &lt;Teiltags&gt; oder von IHtmlHelper.PartialAsync.
+
+Ersetzen Sie Aufrufe von `@Html.Partial` durch `@await Html.PartialAsync` oder durch das [Hilfsprogramm für Teiltags](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper). Weiter Informationen zur Migration des Teiltaghilfsprogramms finden Sie unter [Migrate from an HTML Helper (Migration von einem HTML-Hilfsprogramm)](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper#migrate-from-an-html-helper)
 
 ::: moniker-end
 
 ## <a name="partial-view-discovery"></a>Ermittlung von Teilansichten
 
-Es gibt verschiedene Möglichkeiten, um auf den Speicherort einer Teilansicht zu verweisen. Zum Beispiel:
+Wenn auf eine Teilansicht anhand des Namens ohne eine Dateierweiterung verwiesen wird, werden die folgenden Speicherorte in der angegebenen Reihenfolge durchsucht:
 
 ::: moniker range=">= aspnetcore-2.1"
 
-```cshtml
-// Uses a view in current folder with this name.
-// If none is found, searches the Shared folder.
-<partial name="_ViewName" />
+**Razor Pages**
 
-// A view with this name must be in the same folder
-<partial name="_ViewName.cshtml" />
+1. Der Ordner der aktuell ausgeführten Seite
+1. Der Verzeichnisgraph über dem Ordner der Seite
+1. `/Shared`
+1. `/Pages/Shared`
+1. `/Views/Shared`
 
-// Locate the view based on the app root.
-// Paths that start with "/" or "~/" refer to the app root.
-<partial name="~/Views/Folder/_ViewName.cshtml" />
-<partial name="/Views/Folder/_ViewName.cshtml" />
-
-// Locate the view using a relative path
-<partial name="../Account/_LoginPartial.cshtml" />
-```
-
-Das vorherige Beispiel verwendet das Teiltaghilfsprogramm, das ASP.NET Core 2.1 oder höher erfordert. Das folgende Beispiel verwendet Hilfsprogramme für asynchrone HTML, um den gleichen Task durchzuführen.
+**MVC**
 
 ::: moniker-end
 
-```cshtml
-// Uses a view in current folder with this name.
-// If none is found, searches the Shared folder.
-@await Html.PartialAsync("_ViewName")
+::: moniker range=">= aspnetcore-2.0"
 
-// A view with this name must be in the same folder
-@await Html.PartialAsync("_ViewName.cshtml")
+1. `/Areas/<Area-Name>/Views/<Controller-Name>`
+1. `/Areas/<Area-Name>/Views/Shared`
+1. `/Views/Shared`
+1. `/Pages/Shared`
 
-// Locate the view based on the app root.
-// Paths that start with "/" or "~/" refer to the app root.
-@await Html.PartialAsync("~/Views/Folder/_ViewName.cshtml")
-@await Html.PartialAsync("/Views/Folder/_ViewName.cshtml")
+::: moniker-end
 
-// Locate the view using a relative path
-@await Html.PartialAsync("../Account/_LoginPartial.cshtml")
-```
+::: moniker range="< aspnetcore-2.0"
 
-Sie können verschiedene Teilansichten mit demselben Dateinamen in unterschiedlichen Ordnern verwenden. Wenn Sie auf die Namen der Ansichten (ohne Dateierweiterung) verweisen, verwenden die Ansichten in jedem Ordner die Teilansichten, die sich in diesem Ordner befinden. Sie können auch eine Standardteilansicht festlegen, die verwendet werden soll, und sie im Ordner *Freigegeben* ablegen. Die freigegebene Teilansicht wird in allen Ansichten verwendet, die über keine eigene Version der Teilansicht verfügen. Sie können über eine Standardteilansicht verfügen (im Ordner *Freigegeben*), die von einer Teilansicht überschrieben wird, die denselben Namen wie die übergeordnete Ansicht hat und sich im selben Ordner wie diese befindet.
+1. `/Areas/<Area-Name>/Views/<Controller-Name>`
+1. `/Areas/<Area-Name>/Views/Shared`
+1. `/Views/Shared`
 
-Teilansichten können *miteinander verkettet* werden – eine Teilansicht kann eine andere Teilansicht aufrufen (allerdings nur, wenn Sie keine Schleife erstellen). In jeder Ansicht oder Teilansicht beziehen sich relative Pfade ausschließlich auf die jeweilige Ansicht und nicht auf die Stammansicht oder die übergeordnete Ansicht.
+::: moniker-end
+
+Für die Ermittlung von Teilansichten gelten die folgenden Konventionen:
+
+* Unterschiedliche Teilansichten mit dem gleichen Dateinamen sind zulässig, wenn sich die Teilansichten in verschiedenen Ordnern befinden.
+* Wenn auf eine Teilansicht über den Namen ohne Dateierweiterung verwiesen wird und die Teilansicht sowohl im Ordner des Aufrufers als auch im Ordner *Shared* vorhanden ist, stellt die Teilansicht im Ordner des Aufrufers die Teilansicht bereit. Wenn die Teilansicht nicht im Ordner des Aufrufers vorhanden ist, wird die Teilansicht aus dem Ordner *Shared* bereitgestellt. Teilansichten im Ordner *Shared* werden als *Freigegebene Teilansichten* oder *Standardteilansichten* bezeichnet.
+* Teilansichten können *verkettet* sein: Eine Teilansicht kann eine andere Teilansicht aufrufen, wenn durch den Aufruf kein Zirkelbezug entsteht. Relative Pfade sind immer relativ zur aktuellen Datei, nicht zum Stamm- oder übergeordneten Verzeichnis der Datei.
 
 > [!NOTE]
-> Ein [Razor](xref:mvc/views/razor) `section`-Abschnitt, der in einer Teilansicht definiert ist, ist für übergeordnete Ansichten nicht sichtbar. Die `section`-Anweisung ist nur für die Teilansicht, in der sie definiert ist, sichtbar.
+> Ein [Razor](xref:mvc/views/razor) `section`, der in einer Teilansicht definiert ist, ist für übergeordnete Markupdateien nicht sichtbar. Die `section`-Anweisung ist nur für die Teilansicht, in der sie definiert ist, sichtbar.
 
 ## <a name="access-data-from-partial-views"></a>Zugriff auf Daten aus Teilansichten
 
-Wenn eine Teilansicht instanziiert wird, erhält sie eine Kopie des `ViewData`-Wörterbuchs der übergeordneten Ansicht. An den Daten vorgenommene Änderungen in der Teilansicht werden in der übergeordneten Ansicht nicht beibehalten. Ein `ViewData`-Wörterbuch, das in einer Teilansicht verändert wird, geht verloren, wenn die Teilansicht eine Rückgabe ausgibt.
+Wenn eine Teilansicht instanziiert wird, erhält sie eine *Kopie* des `ViewData`-Wörterbuchs der übergeordneten Ansicht. An den Daten vorgenommene Änderungen in der Teilansicht werden in der übergeordneten Ansicht nicht beibehalten. Ein `ViewData`-Wörterbuch, das in einer Teilansicht verändert wird, geht verloren, wenn die Teilansicht eine Rückgabe ausgibt.
 
-Sie können eine Instanz von [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) an die Teilansicht übergeben:
+Das folgende Beispiel zeigt, wie eine Instanz von [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) an eine Teilansicht übergeben wird:
 
 ```cshtml
 @await Html.PartialAsync("_PartialName", customViewData)
 ```
 
-Außerdem können Sie ein Modell an eine Teilansicht übergeben. Dabei kann es sich um das Ansichtsmodell einer Seite oder ein benutzerdefiniertes Objekt handeln. Sie können ein Modell an `PartialAsync` oder `RenderPartialAsync` übergeben:
+Außerdem können Sie ein Modell an eine Teilansicht übergeben. Das Modell kann ein benutzerdefiniertes Objekt sein. Sie können ein Modell mit `PartialAsync` (rendert einen Inhaltsblock für den Aufrufer) oder `RenderPartialAsync` (streamt den Inhalt in die Ausgabe) übergeben:
 
 ```cshtml
-@await Html.PartialAsync("_PartialName", viewModel)
+@await Html.PartialAsync("_PartialName", model)
 ```
 
-Sie können eine Instanz von `ViewDataDictionary` und ein Ansichtsmodell an eine Teilansicht übergeben:
+::: moniker range=">= aspnetcore-2.1"
 
-[!code-cshtml[](partial/sample/PartialViewsSample/Views/Articles/Read.cshtml?name=snippet_PartialAsync)]
+**Razor Pages**
 
-Das folgende Markup stellt die *Views/Articles/Read.cshtml*-Ansicht dar, die zwei Teilansichten enthält. Die zweite Teilansicht übergibt ein Modell und `ViewData` an die Teilansicht. Verwenden Sie die Konstruktorüberladung des nachfolgend markierten `ViewDataDictionary`, um ein neues `ViewData`-Wörterbuch zu übergeben und gleichzeitig das vorhandene `ViewData` zu behalten.
+Das folgende Markup in der Beispiel-App stammt von der Seite *Pages/ArticlesRP/ReadRP.cshtml*. Diese Seite enthält zwei Teilansichten. Die zweite Teilansicht übergibt ein Modell und `ViewData` an die Teilansicht. Die `ViewDataDictionary`-Konstruktorüberladung wird verwendet, um ein neues `ViewData`-Wörterbuch zu übergeben, während das vorhandene `ViewData`-Wörterbuch beibehalten wird.
 
-[!code-cshtml[](partial/sample/PartialViewsSample/Views/Articles/Read.cshtml?name=snippet_ReadPartialView&highlight=17-20)]
+[!code-cshtml[](partial/sample/PartialViewsSample/Pages/ArticlesRP/ReadRP.cshtml?name=snippet_ReadPartialViewRP&highlight=5,15-19)]
 
-*Views/Shared/_AuthorPartial*:
+*Pages/Shared/_AuthorPartialRP.cshtml* ist die erste Teilansicht, auf die durch die Markupdatei *ReadRP.cshtml* verwiesen wird:
+
+[!code-cshtml[](partial/sample/PartialViewsSample/Pages/Shared/_AuthorPartialRP.cshtml)]
+
+*Pages/ArticlesRP/_ArticleSectionRP.cshtml* ist die zweite Teilansicht, auf die durch die Markupdatei *ReadRP.cshtml* verwiesen wird:
+
+[!code-cshtml[](partial/sample/PartialViewsSample/Pages/ArticlesRP/_ArticleSectionRP.cshtml)]
+
+**MVC**
+
+::: moniker-end
+
+Das folgende Markup in der Beispiel-App zeigt die Ansicht *Views/Articles/Read.cshtml*. Die Ansicht enthält die zwei Teilansichten. Die zweite Teilansicht übergibt ein Modell und `ViewData` an die Teilansicht. Die `ViewDataDictionary`-Konstruktorüberladung wird verwendet, um ein neues `ViewData`-Wörterbuch zu übergeben, während das vorhandene `ViewData`-Wörterbuch beibehalten wird.
+
+[!code-cshtml[](partial/sample/PartialViewsSample/Views/Articles/Read.cshtml?name=snippet_ReadPartialView&highlight=5,15-19)]
+
+*Views/Shared/_AuthorPartial.cshtml* ist die erste Teilansicht, auf die durch die Markupdatei *ReadRP.cshtml* verwiesen wird:
 
 [!code-cshtml[](partial/sample/PartialViewsSample/Views/Shared/_AuthorPartial.cshtml)]
 
-Die *_ArticleSection*-Teilansicht:
+*Views/Articles/_ArticleSection.cshtml* ist die zweite Teilansicht, auf die durch die Markupdatei *ReadRP.cshtml* verwiesen wird:
 
 [!code-cshtml[](partial/sample/PartialViewsSample/Views/Articles/_ArticleSection.cshtml)]
 
-Die Teilansichten werden zur Laufzeit in der übergeordneten Ansicht gerendert, die wiederum in *_Layout.cshtml* freigegeben wird.
+Die Teilansichten werden zur Laufzeit in der gerenderten Ausgabe der übergeordneten Markupdatei gerendert, die wiederum in der freigegebenen Datei *_Layout.cshtml* gerendert wird. Die erste Teilansicht rendert den Namen des Artikelautors und das Erscheinungsdatum:
 
-![Ausgabe der Teilansicht](partial/_static/output.png)
+> Abraham Lincoln
+>
+> Diese Teilansicht aus dem &lt;Dateipfad der freigegebenen Teilansicht&gt;.
+> 11/19/1863 12:00:00 AM
+
+Die zweite Teilansicht rendert die Abschnitte des Artikels:
+
+> Section One Index: 0
+>
+> Four score and seven years ago ...
+>
+> Section Two Index: 1
+>
+> Now we are engaged in a great civil war, testing ...
+>
+> Section Three Index: 2
+>
+> But, in a larger sense, we can not dedicate ...
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
@@ -183,12 +318,14 @@ Die Teilansichten werden zur Laufzeit in der übergeordneten Ansicht gerendert, 
 * <xref:mvc/views/tag-helpers/intro>
 * <xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper>
 * <xref:mvc/views/view-components>
+* <xref:mvc/controllers/areas>
 
 ::: moniker-end
 
-::: moniker range="<= aspnetcore-2.0"
+::: moniker range="< aspnetcore-2.1"
 
 * <xref:mvc/views/razor>
 * <xref:mvc/views/view-components>
+* <xref:mvc/controllers/areas>
 
 ::: moniker-end

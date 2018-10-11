@@ -4,14 +4,14 @@ author: zuckerthoben
 description: Erfahren Sie, wie Sie NSwag zum Generieren von Dokumentationen und Hilfeseiten für eine ASP.NET Core-Web-API-App verwenden können.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 06/29/2018
+ms.date: 09/20/2018
 uid: tutorials/get-started-with-nswag
-ms.openlocfilehash: c0811593609b7d1e3529d5253e8b053f180281f3
-ms.sourcegitcommit: 2941e24d7f3fd3d5e88d27e5f852aaedd564deda
+ms.openlocfilehash: b9266e2df75563be6bad1a1f464cef788c333d4c
+ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37126273"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47028167"
 ---
 # <a name="get-started-with-nswag-and-aspnet-core"></a>Erste Schritte mit NSwag und ASP.NET Core
 
@@ -29,9 +29,14 @@ Von [Christoph Nienaber](https://twitter.com/zuckerthoben) und [Rico Suter](http
 
 ::: moniker-end
 
-Die Verwendung von [NSwag](https://github.com/RSuter/NSwag) mit ASP.NET Core-Middleware erfordert das NuGet-Paket [NSwag.AspNetCore](https://www.nuget.org/packages/NSwag.AspNetCore/). Das Paket besteht aus einem Swagger-Generator, der Swagger-Benutzeroberfläche (Version 2 und 3) und der [ReDoc-Benutzeroberfläche](https://github.com/Rebilly/ReDoc).
+Registrieren Sie die NSwag-Middlewares bei:
 
-Es wird empfohlen, die Funktionen zur Codegenerierung von NSwag zu verwenden. Wählen Sie eine der folgenden Optionen für die Codegenerierung aus:
+* Generieren Sie die Swagger-Spezifikation für die implementierte Web-API.
+* Stellen Sie die Swagger-Benutzeroberfläche zum Durchsuchen und Testen die Web-API bereit.
+
+Um [NSwag](https://github.com/RSuter/NSwag) mit ASP.NET Core-Middleware zu verwenden, installieren Sie das NuGet-Paket [NSwag.AspNetCore](https://www.nuget.org/packages/NSwag.AspNetCore/). Dieses Paket enthält die Middleware zum Generieren und Bereitstellen der Swagger-Spezifikation, der Swagger-Benutzeroberfläche (v2 und v3) und der [ReDoc-Benutzeroberfläche](https://github.com/Rebilly/ReDoc).
+
+Außerdem wird dringend empfohlen, die Funktionen zur Codegenerierung von NSwag zu verwenden. Wählen Sie eine der folgenden Optionen aus, um die Codegenerierungsfunktionen zu verwenden:
 
 * Verwenden Sie [NSwagStudio](https://github.com/NSwag/NSwag/wiki/NSwagStudio). Dies ist eine Windows-Desktop-App zum Generieren von Clientcode in C# und TypeScript für Ihre API.
 * Verwenden Sie die NuGet-Pakete [NSwag.CodeGeneration.CSharp](https://www.nuget.org/packages/NSwag.CodeGeneration.CSharp/) oder [NSwag.CodeGeneration.TypeScript](https://www.nuget.org/packages/NSwag.CodeGeneration.TypeScript/), um Code innerhalb des Projekts zu generieren.
@@ -94,7 +99,11 @@ Importieren Sie folgende Namespaces in die `Startup`-Klasse:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Startup.cs?name=snippet_StartupConfigureImports)]
 
-Aktivieren Sie die Middleware in der `Startup.Configure`-Methode, um die generierte Swagger-Spezifikation und die Swagger-Benutzeroberfläche zu verarbeiten:
+Registrieren Sie in der `Startup.ConfigureServices`-Methode die erforderlichen Swagger-Dienste: 
+
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Startup.cs?name=snippet_ConfigureServices&highlight=8)]
+
+Aktivieren Sie die Middleware in der `Startup.Configure`-Methode, um die generierte Swagger-Spezifikation und die Swagger-Benutzeroberfläche (v3) bereitzustellen:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Startup.cs?name=snippet_Configure&highlight=6-10)]
 
@@ -254,6 +263,7 @@ Fügen Sie die hervorgehobenen Zeilen manuell der *CSPROJ*-Datei hinzu:
 ### <a name="data-annotations"></a>Datenanmerkungen
 
 ::: moniker range="<= aspnetcore-2.0"
+
 NSwag verwendet die [Reflektion](/dotnet/csharp/programming-guide/concepts/reflection), und der für Web-API-Aktionen empfohlene Rückgabetyp lautet [IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult). Folglich kann NSwag nicht ableiten, was die Aktion ausführt und was sie zurückgibt. Betrachten Sie das folgende Beispiel:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Controllers/TodoController.cs?name=snippet_CreateAction)]
@@ -261,8 +271,11 @@ NSwag verwendet die [Reflektion](/dotnet/csharp/programming-guide/concepts/refle
 Die vorherige Aktion gibt `IActionResult` zurück. Innerhalb der Aktion gibt sie jedoch [CreatedAtRoute](/dotnet/api/system.web.http.apicontroller.createdatroute) oder [BadRequest](/dotnet/api/system.web.http.apicontroller.badrequest) zurück. Datenanmerkungen werden verwendet, um Clients mitzuteilen, welche HTTP-Statuscodes diese Aktion in der Regel zurückgibt. Ergänzen Sie die Aktion mit folgenden Attributen:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Controllers/TodoController.cs?name=snippet_CreateActionAttributes)]
+
 ::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
+
 NSwag verwendet [Reflection](/dotnet/csharp/programming-guide/concepts/reflection), und der empfohlene Rückgabetyp für Web-API-Aktionen ist [ActionResult\<T>](/dotnet/api/microsoft.aspnetcore.mvc.actionresult-1). D.h., NSwag kann nur den von `T` definierten Rückgabetypen ableiten. Es können keine weiteren Rückgabetypen in dieser Aktion abgeleitet werden. Betrachten Sie das folgende Beispiel:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.NSwag/Controllers/TodoController.cs?name=snippet_CreateAction)]
@@ -270,6 +283,7 @@ NSwag verwendet [Reflection](/dotnet/csharp/programming-guide/concepts/reflectio
 Die vorherige Aktion gibt `ActionResult<T>` zurück. Innerhalb der Aktion gibt sie jedoch [CreatedAtRoute](/dotnet/api/system.web.http.apicontroller.createdatroute) zurück. Da der Controller mit dem [[ApiController]](/dotnet/api/microsoft.aspnetcore.mvc.apicontrollerattribute)-Attribut ausgestattet ist, ist auch eine [BadRequest](/dotnet/api/system.web.http.apicontroller.badrequest)-Antwort möglich. Weitere Informationen finden Sie unter [Automatic HTTP 400 responses (Automatische HTTP 400-Antworten)](xref:web-api/index#automatic-http-400-responses). Datenanmerkungen werden verwendet, um Clients mitzuteilen, welche HTTP-Statuscodes diese Aktion in der Regel zurückgibt. Ergänzen Sie die Aktion mit folgenden Attributen:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.NSwag/Controllers/TodoController.cs?name=snippet_CreateActionAttributes)]
+
 ::: moniker-end
 
 Der Swagger-Generator kann diese Aktion nun genau beschreiben, und generierte Clients wissen, was sie beim Aufrufen des Endpunkts empfangen. Es wird empfohlen, alle Aktionen mit diesen Attributen zu ergänzen. Weitere Informationen zu den Richtlinien dazu, welche HTTP-Antworten Ihre API-Aktionen zurückgeben sollten, finden Sie in der [RFC 7231 specification (Spezifikation von RFC 7231)](https://tools.ietf.org/html/rfc7231#section-4.3).

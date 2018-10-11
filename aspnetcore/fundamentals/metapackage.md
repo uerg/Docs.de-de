@@ -1,17 +1,17 @@
 ---
 title: Das Metapaket „Microsoft.AspNetCore.All“ für ASP.NET Core 2.0
 author: Rick-Anderson
-description: Das Metapaket „Microsoft.AspNetCore.All“ enthält alle unterstützten ASP.NET Core- und Entity Framework Core-Pakete zusammen mit ihren Abhängigkeiten.
+description: Das Metapaket „Microsoft.AspNetCore.All“ wird für ASP.NET Core 2.1 oder höher nicht empfohlen.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 09/20/2017
+ms.date: 09/20/2018
 uid: fundamentals/metapackage
-ms.openlocfilehash: fbc0f5465dc37a612b81c293f1a58b53ea4b2238
-ms.sourcegitcommit: cb0c27fa0184f954fce591d417e6ab2a51d8bb22
+ms.openlocfilehash: 1942426dbd5c15ae4a5fa5fbb931b94f50aa6043
+ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39123826"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47454738"
 ---
 # <a name="microsoftaspnetcoreall-metapackage-for-aspnet-core-20"></a>Das Metapaket „Microsoft.AspNetCore.All“ für ASP.NET Core 2.0
 
@@ -65,3 +65,11 @@ Alle Abhängigkeiten der vorangehenden Pakete, die keine Abhängigkeiten von `Mi
 
 * `StackExchange.Redis` als Abhängigkeit von `Microsoft.Extensions.Caching.Redis`
 * `Microsoft.ApplicationInsights` als Abhängigkeit von `Microsoft.AspNetCore.ApplicationInsights.HostingStartup`
+
+## <a name="update-aspnet-core-21"></a>Aktualisieren von ASP.NET Core 2.1
+
+Wir empfehlen die Migration zum `Microsoft.AspNetCore.App`-Metapaket für 2.1 oder höher. Wenn Sie das `Microsoft.AspNetCore.All`-Metapaket weiterhin verwenden und sicherstellen möchten, dass die neueste Patchversion bereitgestellt wird, gehen Sie folgendermaßen vor:
+
+* Auf Entwicklungscomputern und Buildservern: Installieren Sie das neueste [.NET Core SDK](https://www.microsoft.com/net/download).
+* Auf Bereitstellungsservern: Installieren Sie die neueste [.NET Core-Runtime](https://www.microsoft.com/net/download).
+ Für Ihre App wird bei einem Neustart der Anwendungen ein Rollforward auf die neueste installierte Version ausgeführt.

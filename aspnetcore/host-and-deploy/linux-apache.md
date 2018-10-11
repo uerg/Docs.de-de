@@ -4,14 +4,14 @@ description: Informationen zum Einrichten von Apache als Reverseproxyserver für
 author: spboyer
 ms.author: spboyer
 ms.custom: mvc
-ms.date: 03/13/2018
+ms.date: 09/08/2018
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 2431e989d6fc2cf83bca47aaa41a2bf686c0ab54
-ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
+ms.openlocfilehash: 534e0415b2d278a518aea0ecb8042aeab4a0aa0e
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219354"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523206"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Hosten von ASP.NET Core unter Linux mit Apache
 
@@ -56,8 +56,10 @@ Da Anforderungen vom Reverseproxy weitergeleitet werden, sollten Sie die [Middle
 Jede vom Schema abhängige Komponente, wie etwa Authentifizierung, Linkgenerierung, Umleitungen und Geolocation, muss nach dem Aufrufen der Middleware für weitergeleitete Header eingefügt werden. Allgemein gilt, dass Middleware für weitergeleitete Header vor jeder anderen Middleware ausgeführt werden sollte, mit Ausnahme von Middleware für die Diagnose und Fehlerbehandlung. Mit dieser Reihenfolge wird sichergestellt, dass die auf Informationen von weitergeleiteten Headern basierende Middleware die zu verarbeitenden Headerwerte nutzen kann.
 
 ::: moniker range=">= aspnetcore-2.0"
+
 > [!NOTE]
 > Jede der beiden Konfigurationen &mdash;mit oder ohne einen Reverseproxyserver&mdash; ist eine gültige und unterstützte Hostingkonfiguration für ASP.NET Core 2.0 oder neuere Apps. Weitere Informationen finden Sie unter [When to use Kestrel with a reverse proxy (Verwenden von Kestrel mit einem Reverseproxy)](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
+
 ::: moniker-end
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
@@ -95,7 +97,16 @@ app.UseFacebookAuthentication(new FacebookOptions()
 
 Wenn für die Middleware keine [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) angegeben sind, lauten die weiterzuleitenden Standardheader `None`.
 
-Möglicherweise ist zusätzliche Konfiguration für Apps erforderlich, die hinter Proxyservern und Lastenausgleichsmodulen (Load Balancer) gehostet werden. Weitere Informationen hierzu feinden Sie unter [Konfigurieren von ASP.NET Core zur Verwendung mit Proxyservern und Lastenausgleich](xref:host-and-deploy/proxy-load-balancer).
+Nur Proxys, die unter localhost (127.0.0.0.1, [::1]) ausgeführt werden, gelten standardmäßig als vertrauenswürdig. Wenn andere vertrauenswürdige Proxys oder Netzwerke innerhalb des Unternehmens Anforderungen zwischen dem Internet und dem Webserver verarbeiten, fügen Sie diese der Liste der <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.KnownProxies*> oder <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.KnownNetworks*> mit <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> hinzu. Das folgende Beispiel fügt einen vertrauenswürdigen Proxyserver mit der IP-Adresse 10.0.0.0.100 der Middleware für weitergeleitete Header `KnownProxies` in `Startup.ConfigureServices` hinzu:
+
+```csharp
+services.Configure<ForwardedHeadersOptions>(options =>
+{
+    options.KnownProxies.Add(IPAddress.Parse("10.0.0.100"));
+});
+```
+
+Weitere Informationen finden Sie unter <xref:host-and-deploy/proxy-load-balancer>.
 
 ### <a name="install-apache"></a>Installieren von Apache
 
@@ -198,6 +209,7 @@ ExecStart=/usr/local/bin/dotnet /var/aspnetcore/hellomvc/hellomvc.dll
 Restart=always
 # Restart service after 10 seconds if the dotnet service crashes:
 RestartSec=10
+KillSignal=SIGINT
 SyslogIdentifier=dotnet-example
 User=apache
 Environment=ASPNETCORE_ENVIRONMENT=Production 
@@ -206,27 +218,32 @@ Environment=ASPNETCORE_ENVIRONMENT=Production
 WantedBy=multi-user.target
 ```
 
-> [!NOTE]
-> **Benutzer:** &mdash;Wenn der Benutzer *apache* von Ihrer Konfiguration nicht verwendet wird, muss der Benutzer zunächst erstellt werden. Darüber hinaus müssen ihm die ordnungsgemäßen Besitzrechte für Dateien zugewiesen werden.
+Wenn der Benutzer *apache* von Ihrer Konfiguration nicht verwendet wird, muss der Benutzer zunächst erstellt werden. Darüber hinaus müssen ihm die ordnungsgemäßen Besitzrechte für Dateien zugewiesen werden.
 
-> [!NOTE]
-> Einige Werte (z.B. SQL-Verbindungszeichenfolgen) müssen mit Escapezeichen versehen werden, damit die Konfigurationsanbieter die Umgebungsvariablen lesen können. Mit dem folgenden Befehl können Sie einen ordnungsgemäß mit Escapezeichen versehenen Wert für die Verwendung in der Konfigurationsdatei generieren:
->
-> ```console
-> systemd-escape "<value-to-escape>"
-> ```
+Verwenden Sie `TimeoutStopSec`, um die Dauer der Wartezeit bis zum Herunterfahren der App zu konfigurieren, nachdem diese das anfängliche Interruptsignal empfangen hat. Wenn die App in diesem Zeitraum nicht heruntergefahren wird, wird SIGKILL ausgegeben, um die App zu beenden. Geben Sie den Wert als einheitenlose Sekunden (z.B. `150`), einen Zeitspannenwert (z.B. `2min 30s`) oder `infinity` an, um das Timeout zu deaktivieren. `TimeoutStopSec` ist standardmäßig der Wert `DefaultTimeoutStopSec` in der Manager-Konfigurationsdatei (*systemd-system.conf*, *system.conf.d*, *systemd-user.conf*, *user.conf.d*). Das Standardtimeout für die meisten Distributionen beträgt 90 Sekunden.
+
+```
+# The default value is 90 seconds for most distributions.
+TimeoutStopSec=90
+```
+
+Einige Werte (z.B. SQL-Verbindungszeichenfolgen) müssen mit Escapezeichen versehen werden, damit die Konfigurationsanbieter die Umgebungsvariablen lesen können. Mit dem folgenden Befehl können Sie einen ordnungsgemäß mit Escapezeichen versehenen Wert für die Verwendung in der Konfigurationsdatei generieren:
+
+```console
+systemd-escape "<value-to-escape>"
+```
 
 So speichern Sie die Datei und aktivieren den Dienst:
 
 ```bash
-systemctl enable kestrel-hellomvc.service
+sudo systemctl enable kestrel-hellomvc.service
 ```
 
 So starten Sie den Dienst und überprüfen, ob er ausgeführt wird:
 
 ```bash
-systemctl start kestrel-hellomvc.service
-systemctl status kestrel-hellomvc.service
+sudo systemctl start kestrel-hellomvc.service
+sudo systemctl status kestrel-hellomvc.service
 
 ● kestrel-hellomvc.service - Example .NET Web API App running on CentOS 7
     Loaded: loaded (/etc/systemd/system/kestrel-hellomvc.service; enabled)

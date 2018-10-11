@@ -5,12 +5,12 @@ description: Erfahren Sie mehr über die Controllermethode und Ansicht „Detail
 ms.author: riande
 ms.date: 03/07/2017
 uid: tutorials/first-mvc-app/details
-ms.openlocfilehash: c3fb7ae9507d13f3b8c7d366e333151dc7a7a6d3
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: ce5b2af148ddba9bc718345c0b8074da8724308d
+ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011424"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47454803"
 ---
 # <a name="examine-the-details-and-delete-methods-of-an-aspnet-core-app"></a>Untersuchen der Methoden „Details“ und „Delete“ einer ASP.NET Core-App
 
@@ -73,7 +73,7 @@ public async Task<IActionResult> Delete(int id, bool notUsed)
 
 ### <a name="publish-to-azure"></a>Veröffentlichen in Azure
 
-Anweisungen zum Veröffentlichen dieser App in Azure mit Visual Studio finden Sie unter [Veröffentlichen einer ASP.NET Core-Web-App in Azure App Service mit Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs).  Die App kann auch über die [Befehlszeile](xref:tutorials/publish-to-azure-webapp-using-cli) veröffentlicht werden.
+Informationen zur Bereitstellung in Azure finden Sie unter [Tutorial: Erstellen einer ASP.NET-App in Azure mit der SQL-Datenbank](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase). Die Anweisungen beziehen sich auf eine ASP.NET-App, nicht auf eine ASP.NET Core-App, aber die Schritte sind identisch.
 
 > [!div class="step-by-step"]
 > [Vorherige](validation.md)

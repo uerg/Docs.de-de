@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/02/2018
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: b9c322e56c0902c2a78bbbf2563dd01ce79fdc9a
-ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
+ms.openlocfilehash: 50986eeb4c5c8b06c739ee9f860665b877853d78
+ms.sourcegitcommit: 517bb1366da2a28b0014e384fa379755c21b47d8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2018
-ms.locfileid: "42927896"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47230190"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Dependency Injection in ASP.NET Core
 
 Von [Steve Smith](https://ardalis.com/), [Scott Addie](https://scottaddie.com), und [Luke Latham](https://github.com/guardrex)
 
-ASP.NET Core unterstützt das Softwareentwurfsmuster Abhängigkeitsinjektion. Damit kann eine [Umkehrung der Steuerung](https://deviq.com/inversion-of-control/) (Inversion of Control, IoC) zwischen Klassen und ihren Abhängigkeiten erreicht werden.
+ASP.NET Core unterstützt das Softwareentwurfsmuster Abhängigkeitsinjektion. Damit kann eine [Umkehrung der Steuerung](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) (Inversion of Control, IoC) zwischen Klassen und ihren Abhängigkeiten erreicht werden.
 
 Weitere Informationen zur Abhängigkeitsinjektion innerhalb von MVC-Controllern finden Sie unter <xref:mvc/controllers/dependency-injection>.
 
@@ -243,7 +243,7 @@ Dienste mit einer Singletonlebensdauer werden bei der ersten Anforderung erstell
 Dienste können durch zwei Mechanismen aufgelöst werden:
 
 * `IServiceProvider`
-* [ActivatorUtilities](/dotnet/api/microsoft.extensions.dependencyinjection.activatorutilities) &ndash; lässt die Erstellung von Objekten ohne Dienstregistrierung im Abhängigkeitsinjektionscontainer zu. `ActivatorUtilities` wird mit Abstraktionen für Benutzer verwendet. Dazu zählen Taghilfsprogramme, MVC-Controller, SignalR-Hubs und Modellbindungen.
+* [ActivatorUtilities](/dotnet/api/microsoft.extensions.dependencyinjection.activatorutilities) &ndash; lässt die Erstellung von Objekten ohne Dienstregistrierung im Abhängigkeitsinjektionscontainer zu. `ActivatorUtilities` wird mit Abstraktionen für Benutzer verwendet. Dazu zählen Taghilfsprogramme, MVC-Controller und Modellbindungen.
 
 Konstruktoren können Argumente akzeptieren, die nicht durch Abhängigkeitsinjektion bereitgestellt werden. Die Argumente müssen jedoch Standardwerte zuweisen.
 
@@ -442,7 +442,7 @@ Best Practices:
 
 App-Klassen, die den [SOLID-Grundsätzen für objektorientiertes Design](https://deviq.com/solid/) folgen, sind in der Regel klein, gut strukturiert und einfach zu testen.
 
-Wenn eine Klasse zu viele eingefügte Abhängigkeiten zu haben scheint, ist dies im Allgemeinen ein Zeichen dafür, dass die Klasse zu viele Aufgaben hat und gegen das [Single-Responsibility-Prinzip (SRP)](https://deviq.com/single-responsibility-principle/) (Prinzip der eindeutigen Verantwortlichkeit) verstößt. Versuchen Sie, die Klasse umzugestalten, indem Sie einige ihrer Aufgaben in eine neue Klasse verschieben. Beachten Sie, dass der Fokus der Razor Pages-Seitenmodellklassen und MVC-Controllerklassen auf der Benutzeroberfläche liegt. Geschäftsregeln und Implementierungsdetails für den Datenzugriff sollten in Klassen aufbewahrt werden gemäß dem Prinzip [Separation of Concerns](https://deviq.com/separation-of-concerns/) (Trennung der Zuständigkeiten).
+Wenn eine Klasse zu viele eingefügte Abhängigkeiten zu haben scheint, ist dies im Allgemeinen ein Zeichen dafür, dass die Klasse zu viele Aufgaben hat und gegen das [Single-Responsibility-Prinzip (SRP)](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#single-responsibility) (Prinzip der eindeutigen Verantwortlichkeit) verstößt. Versuchen Sie, die Klasse umzugestalten, indem Sie einige ihrer Aufgaben in eine neue Klasse verschieben. Beachten Sie, dass der Fokus der Razor Pages-Seitenmodellklassen und MVC-Controllerklassen auf der Benutzeroberfläche liegt. Geschäftsregeln und Implementierungsdetails für den Datenzugriff sollten in Klassen aufbewahrt werden gemäß dem Prinzip [Separation of Concerns](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns) (Trennung der Zuständigkeiten).
 
 ### <a name="disposal-of-services"></a>Löschen von Diensten
 
@@ -563,6 +563,7 @@ Dependency Injection stellt eine *Alternative* zu statischen bzw. globalen Objek
 * <xref:fundamentals/middleware/extensibility>
 * [Schreiben von sauberem Code in ASP.NET Core über Dependency Injection (MSDN)](https://msdn.microsoft.com/magazine/mt703433.aspx)
 * [Entwurf einer mit Containern verwalteten Anwendung, Einleitung: Welche Zugehörigkeit hat der Container?](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)
-* [Prinzip der expliziten Abhängigkeiten](https://deviq.com/explicit-dependencies-principle/)
+* [Prinzip der expliziten Abhängigkeiten](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies)
 * [Umkehrung von Steuerungscontainern und das Abhängigkeitsinjektionsmuster (Martin Fowler)](https://www.martinfowler.com/articles/injection.html) (in englischer Sprache)
 * [„New“ ist bindend (Code-„Bindung“ an eine bestimmte Implementierung)](https://ardalis.com/new-is-glue) (in englischer Sprache)
+* [Registrieren eines Diensts mit mehreren Schnittstellen in ASP.NET Core DI](https://andrewlock.net/how-to-register-a-service-with-multiple-interfaces-for-in-asp-net-core-di/)

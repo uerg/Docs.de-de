@@ -5,12 +5,12 @@ description: In diesem Tutorial werden verwandte Daten gelesen und angezeigt. Da
 ms.author: riande
 ms.date: 11/05/2017
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: bb1d087a5449c6e26c40e572d161dd9644ac2323
-ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
+ms.openlocfilehash: f57853fae7fb1cb7df130f38a6996c87a5c08e83
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219341"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523284"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Razor-Seiten mit EF Core in ASP.NET Core: Lesen verwandter Daten (6 von 8)
 
@@ -20,7 +20,7 @@ Von [Tom Dykstra](https://github.com/tdykstra), [Jon P. Smith](https://twitter.c
 
 In diesem Tutorial werden verwandte Daten gelesen und angezeigt. Verwandte Daten sind Daten, die von EF Core in die Navigationseigenschaften geladen werden.
 
-Wenn nicht zu lösende Probleme auftreten, laden Sie die [abgeschlossene Anwendung für diese Phase](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part6-related) herunter.
+Wenn nicht zu lösende Probleme auftreten, laden Sie die [fertige App](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) herunter, oder zeigen Sie diese an. [Anweisungen zum Download.](xref:tutorials/index#how-to-download-a-sample)
 
 Die folgenden Abbildungen zeigen die abgeschlossenen Seiten für dieses Tutorial:
 

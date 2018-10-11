@@ -3,14 +3,14 @@ title: Routing zu Controlleraktionen in ASP.NET Core
 author: rick-anderson
 description: Erfahren Sie, wie ASP.NET Core MVC Routingmiddleware verwendet, um die URLs der eingehenden Anforderungen abzugleichen und sie Aktionen zuzuordnen.
 ms.author: riande
-ms.date: 03/14/2017
+ms.date: 09/17/2018
 uid: mvc/controllers/routing
-ms.openlocfilehash: 0d328d930ecb932c22fec524babb1c856b656b95
-ms.sourcegitcommit: 4e34ce61e1e7f1317102b16012ce0742abf2cca6
+ms.openlocfilehash: d66c2f14adf55dd0c4a7c3adfad7e5737e4deda1
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/04/2018
-ms.locfileid: "39514777"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011652"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>Routing zu Controlleraktionen in ASP.NET Core
 
@@ -376,6 +376,8 @@ Attributrouten können mithilfe der `Order`-Eigenschaft aller vom Framework bere
 
 > [!TIP]
 > Vermeiden Sie eine Abhängigkeit von `Order`. Wenn der URL-Raum explizite Reihenfolgenwerte erfordert, um korrekt weiterzuleiten, ist es wahrscheinlich auch für Clients verwirrend. Beim Attributrouting wird im Allgemeinen mithilfe der URL-Zuordnung die richtige Route ausgewählt. Wenn die für die URL-Generierung verwendete Standardreihenfolge nicht funktioniert, ist es meist einfacher, Routennamen als Außerkraftsetzung zu verwenden, statt die `Order`-Eigenschaft anzuwenden.
+
+Razor Pages-Routing und MVC Controller-Routing verwenden eine gemeinsame Implementierung. Informationen zur Routenreihenfolge in den Razor Pages-Themen finden Sie unter [Razor Pages-Route and App-Konventionen: Routenreihenfolge](xref:razor-pages/razor-pages-conventions#route-order).
 
 <a name="routing-token-replacement-templates-ref-label"></a>
 

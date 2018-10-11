@@ -6,14 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/31/2018
 uid: getting-started
-ms.openlocfilehash: 7ab9f303d74786c4ac76f002d0f2c66371e78cb8
-ms.sourcegitcommit: b4c7b1a4c48dec0865f27874275c73da1f75e918
+ms.openlocfilehash: a6a5023594aec01370143e7d1f35fb45c109122a
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39228581"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47860939"
 ---
 # <a name="get-started-with-aspnet-core"></a>Erste Schritte mit ASP.NET Core
+
+Dieses Dokument beschreibt die Schritte zum Erstellen und Ausführen einer ASP.NET Core-App.
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -21,55 +23,57 @@ ms.locfileid: "39228581"
 
 2. Erstellen Sie ein ASP.NET Core-Projekt. Öffnen Sie eine Befehlsshell, und geben Sie den folgenden Befehl ein:
 
-    ```console
-    dotnet new webapp -o aspnetcoreapp
-    ```
-
-    [!INCLUDE [](~/includes/webapp-alias-notice.md)]
+   ```console
+   dotnet new webapp -o aspnetcoreapp
+   ```
 
 3. Vertrauen Sie dem HTTPS-Entwicklungszertifikat:
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-    ```console
-    dotnet dev-certs https --trust
-    ```
+  ```console
+  dotnet dev-certs https --trust
+  ```
 
-   Über den vorherigen Befehl wird der folgende Dialog angezeigt:
+  Über den vorherigen Befehl wird der folgende Dialog angezeigt:
 
-   ![Dialogfeld „Sicherheitswarnung“](_static/cert.png)
+  ![Dialogfeld „Sicherheitswarnung“](_static/cert.png)
 
-   Klicken Sie auf **Ja**, wenn Sie zustimmen möchten, dass das Entwicklungszertifikat vertrauenswürdig ist.
+  Klicken Sie auf **Ja**, wenn Sie zustimmen möchten, dass das Entwicklungszertifikat vertrauenswürdig ist.
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
-    ```console
-    dotnet dev-certs https --trust
-    ```
+  ```console
+  dotnet dev-certs https --trust
+  ```
 
-   Über den vorherigen Befehl wird die folgende Meldung angezeigt:
+  Über den vorherigen Befehl wird die folgende Meldung angezeigt:
 
-   *Trusting the HTTPS development certificate was requested. Sie müssen bestätigen, dass Sie dem HTTPS-Entwicklungszertifikat vertrauen. Wenn Sie dies noch nicht bestätigt haben, wird der folgende Befehl ausgeführt:*  `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'` *Sie werden dann möglicherweise aufgefordert, Ihr Kennwort einzugeben, um das Zertifikat auf der Keychain des Systems zu installieren    Kennwort:*
+  *Trusting the HTTPS development certificate was requested. Wenn das Zertifikat nicht bereits vertrauenswürdig, ist führen wir den folgenden Befehl aus:*  `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`.  
+  *Dieser Befehl fordert Sie möglicherweise zur Eingabe Ihres Kennworts auf, um das Zertifikat für die Systemkeychain zu installieren.
+  
+  Kennwort:*
 
-   Geben Sie Ihr Kennwort ein, wenn Sie die Vertrauenswürdigkeit des Entwicklungszertifikats bestätigen möchten.
+  Geben Sie Ihr Kennwort ein, wenn Sie die Vertrauenswürdigkeit des Entwicklungszertifikats bestätigen möchten.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-   <a name="see-the-documentation-for-your-linux-distribution-on-how-to-trust-the-https-development-certificate"></a>Weitere Informationen zum Bestätigen der Vertrauenswürdigkeit eines HTTPS-Entwicklungszertifikats finden Sie in der Dokumentation zu Ihrer Linux-Distribution.
+  Weitere Informationen zum Bestätigen der Vertrauenswürdigkeit eines HTTPS-Entwicklungszertifikats finden Sie in der Dokumentation zu Ihrer Linux-Distribution.
+   
 ---
 
 4. Führen Sie die App aus:
 
-    ```console
-    cd aspnetcoreapp
-    dotnet run
-    ```
+   ```console
+   cd aspnetcoreapp
+   dotnet run
+   ```
 
 5. Wechseln Sie zu [http://localhost:5001](http://localhost:5001).  Klicken Sie auf **Accept** (Akzeptieren), um die Datenschutz- und Cookierichtlinie zu akzeptieren. Diese App bewahrt keine personenbezogenen Informationen auf.
 
 6. Öffnen Sie *Pages/About.cshtml*, und modifizieren Sie die Seite mit dem folgenden hervorgehobenen Markup:
 
-    [!code-cshtml[](sample/getting-started/about.cshtml?highlight=9)]
+   [!code-cshtml[](sample/getting-started/about.cshtml?highlight=9)]
 
 7. Navigieren Sie zu [http://localhost:5001/About](http://localhost:5001/About), und überprüfen Sie, ob die Änderungen angezeigt werden.
 
@@ -85,22 +89,22 @@ ms.locfileid: "39228581"
 
    Öffnen Sie eine Befehlsshell. Geben Sie folgenden Befehl ein:
 
-    ```console
-    dotnet new razor -o aspnetcoreapp
-    ```
+   ```console
+   dotnet new razor -o aspnetcoreapp
+   ```
 
 3. Führen Sie die App mit den folgenden Befehlen aus:
 
-    ```console
-    cd aspnetcoreapp
-    dotnet run
-    ```
+   ```console
+   cd aspnetcoreapp
+   dotnet run
+   ```
 
 4. Wechseln Sie zu [http://localhost:5000](http://localhost:5000).
 
 5. Öffnen Sie *Pages/About.cshtml*, und verändern Sie die Seite so, dass sie die Meldung „Hallo Welt!“ anzeigt. Die Zeit auf dem Server ist @DateTime.Now" :
 
-    [!code-cshtml[](sample/getting-started/about.cshtml?highlight=9&range=1-9)]
+   [!code-cshtml[](sample/getting-started/about.cshtml?highlight=9&range=1-9)]
 
 6. Wechseln Sie zu [http://localhost:5000/About](http://localhost:5000/About), und bestätigen Sie die Änderungen.
 
@@ -137,9 +141,9 @@ ms.locfileid: "39228581"
 
 5. Stellen Sie die Pakete wieder her.
 
-    ```console
-    dotnet restore
-    ```
+   ```console
+   dotnet restore
+   ```
 
 6. Führen Sie die App aus.
 
@@ -152,4 +156,5 @@ ms.locfileid: "39228581"
 7. Wechseln Sie zu `http://localhost:5000`.
 
 [!INCLUDE [next steps](~/includes/getting-started/next-steps.md)]
+
 ::: moniker-end

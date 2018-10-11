@@ -4,14 +4,14 @@ author: spboyer
 description: Informationen zum Verwenden der Visual Studio 2017-Tools und Docker für Windows, um Ihre ASP.NET Core-App in Container zu packen.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 07/26/2018
+ms.date: 09/12/2018
 uid: host-and-deploy/docker/visual-studio-tools-for-docker
-ms.openlocfilehash: 962c35cb1487dacd93fd78d09e2417ef77387e42
-ms.sourcegitcommit: 75bf5fdbfdcb6a7cfe8fe207b9ff37655ccbacd4
+ms.openlocfilehash: 4bb28e7644997c50c14046bc0c89338fa35a5f14
+ms.sourcegitcommit: a742b55e4b8276a48b8b4394784554fecd883c84
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39275862"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45538478"
 ---
 # <a name="visual-studio-tools-for-docker-with-aspnet-core"></a>Visual Studio-Tools für Docker mit ASP.NET Core
 
@@ -102,6 +102,10 @@ Die Datei *docker-compose.yml* verweist auf den Namen des Images, das beim Ausf�
 In dem zuvor genannten Beispiel generiert `image: hellodockertools` das Image `hellodockertools:dev`, wenn die App im Modus **Debuggen** ausgeführt wird. Das `hellodockertools:latest`-Image wird generiert, wenn die App im Modus **Release** ausgeführt wird.
 
 Stellen Sie dem Imagenamen den Benutzernamen für [Docker Hub](https://hub.docker.com/) voran (z.B. `dockerhubusername/hellodockertools`), wenn das Image per Push in die Registrierung übertragen werden soll. Stattdessen können Sie auch den Imagenamen ändern, sodass er die private Registrierungs-URL, die von der Konfiguration abhängig ist (z.B. `privateregistry.domain.com/hellodockertools`) enthält.
+
+Wenn Sie ein anderes Verhalten basierend auf der Buildkonfiguration wünschen (z.B. Debug oder Release), fügen Sie konfigurationsspezifische *docker-compose* Dateien hinzu. Die Dateien sollten entsprechend der Buildkonfiguration benannt werden (z.B. *docker-compose.vs.debug.yml* und *docker-compose.vs.release.yml*) und am gleichen Speicherort wie die Datei *docker-compose-override.yml* gespeichert werden. 
+
+Mithilfe der konfigurationsspezifischen Außerkraftsetzungsdateien können Sie verschiedene Konfigurationseinstellungen (z.B. Umgebungsvariablen oder Einstiegspunkte) für Debug- und Releasebuildkonfigurationen angeben.
 
 ### <a name="service-fabric"></a>Service Fabric
 
@@ -227,6 +231,7 @@ Möglicherweise wird angenommen, dass das Produktions- oder Releaseimage im Verg
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
+* [Containerentwicklung mit Visual Studio](/visualstudio/containers)
 * [Azure Service Fabric: Vorbereiten der Entwicklungsumgebung](/azure/service-fabric/service-fabric-get-started)
 * [Bereitstellen einer .NET-App in einem Windows-Container in Azure Service Fabric](/azure/service-fabric/service-fabric-host-app-in-a-container)
 * [Problembehandlung bei der Entwicklung von Visual Studio 2017 mit Docker](/azure/vs-azure-tools-docker-troubleshooting-docker-errors)

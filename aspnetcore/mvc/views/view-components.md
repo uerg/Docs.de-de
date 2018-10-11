@@ -5,12 +5,12 @@ description: Erfahren Sie, wie Ansichtskomponenten in ASP.NET Core verwendet wer
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/views/view-components
-ms.openlocfilehash: c4e4de6e4ffb634a636bccdb2a929a524baebecf
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: cf2cfcdb07271503b844e31940e90b7376db0a6f
+ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751463"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47211064"
 ---
 # <a name="view-components-in-aspnet-core"></a>Ansichtskomponenten in ASP.NET Core
 
@@ -75,9 +75,9 @@ Eine Ansichtskomponente definiert Ihre Logik in einer `InvokeAsync`-Methode, die
 
 Die Runtime sucht in den folgenden Pfaden nach der Ansicht:
 
-* /Pages/Components/<component name>/\<view_name>
-* Views/\<controllername>/Components/\<ansichtskomponentenname>/\<ansichtsname>
-* Views/Shared/Components/\<ansichtskomponentenname>/\<ansichtsname>
+* /Pages/Components/\<ansichtskomponentenname>/\<ansichtsname>
+* /Views/\<controllername>/Components/\<ansichtskomponentenname>/\<ansichtsname>
+* /Views/Shared/Components/\<ansichtskomponentenname>/\<ansichtsname>
 
 Der Standardansichtsname für die Ansichtskomponente ist *Default*. Dies bedeutet, dass Ihre Ansichtsdatei normalerweise *Default.cshtml* heißt. Sie können einen anderen Ansichtsnamen angeben, wenn Sie die Ansichtskomponentenergebnisse erstellen oder die `View`-Methode aufrufen.
 
@@ -95,6 +95,8 @@ Die Parameter werden an die `InvokeAsync`-Methode übergeben. Die Ansichtskompon
 
 [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
+::: moniker range=">= aspnetcore-1.1"
+
 ## <a name="invoking-a-view-component-as-a-tag-helper"></a>Aufrufen einer Ansichtskomponente als Taghilfsprogramm
 
 In ASP.NET Core 1.1 und höher können Sie eine Ansichtskomponente als [Taghilfsprogramm](xref:mvc/views/tag-helpers/intro) aufrufen.
@@ -110,7 +112,7 @@ Namen von Klassen und Methodenparameter für Taghilfsprogramme, die in Pascal-Sc
 </vc:[view-component-name]>
 ```
 
-Beachten Sie: Damit Sie eine Ansichtskomponente als Taghilfsprogramm verwenden können, müssen Sie die Assembly, die die Ansichtskomponente enthält, mit der `@addTagHelper`-Anweisung registrieren. Wenn Ihre Ansichtskomponente z.B. eine Assembly mit dem Namen „MeineWebApp“ ist, fügen Sie die folgende Anweisung zu der Datei `_ViewImports.cshtml` hinzu:
+Damit Sie eine Ansichtskomponente als Taghilfsprogramm verwenden können, registrieren Sie die Assembly, die die Ansichtskomponente enthält, mit der `@addTagHelper`-Anweisung. Wenn Ihre Ansichtskomponente eine Assembly mit dem Namen `MyWebApp` ist, fügen Sie die folgende Anweisung zu der Datei *_ViewImports.cshtml* hinzu:
 
 ```cshtml
 @addTagHelper *, MyWebApp
@@ -127,6 +129,8 @@ In Taghilfsprogramm-Markup:
 [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
 
 Im Beispiel oben stehenden Beispiel wird die Ansichtskomponente `PriorityList` zu `priority-list`. Die Parameter der Ansichtskomponente werden als Attribute in Lower Kebab-Schreibweise übergeben.
+
+::: moniker-end
 
 ### <a name="invoking-a-view-component-directly-from-a-controller"></a>Direkter Aufrufe einer Ansichtskomponente von einem Controller
 
@@ -243,6 +247,76 @@ Wenn Sie Sicherheit zu Kompilierzeit haben möchten, können Sie den hart codier
 Fügen Sie eine `using`-Anweisung zu Ihrer Razor-Ansichtsdatei hinzu, und verwenden Sie den `nameof`-Operator:
 
 [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexNameof.cshtml?range=1-6,35-)]
+
+## <a name="perform-synchronous-work"></a>Ausführen synchroner Verarbeitung
+
+Das Framework verarbeitet den Aufruf einer synchronen `Invoke`-Methode, wenn Sie keine asynchrone Verarbeitung durchführen müssen. Die folgende Methode erstellt eine synchrone `Invoke`-Ansichtskomponente:
+
+```csharp
+public class PriorityList : ViewComponent
+{
+    public IViewComponentResult Invoke(int maxPriority, bool isDone)
+    {
+        var items = new List<string> { $"maxPriority: {maxPriority}", $"isDone: {isDone}" };
+        return View(items);
+    }
+}
+```
+
+Die Razor-Datei der Ansichtskomponente listet die Zeichenfolgen auf, die an die `Invoke`-Methode übergeben wurden (*Views/Home/Components/PriorityList/Default.cshtml*):
+
+```cshtml
+@model List<string>
+
+<h3>Priority Items</h3>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item</li>
+    }
+</ul>
+```
+
+::: moniker range=">= aspnetcore-1.1"
+
+Die Ansichtskomponente wird in einer Razor-Datei (z.B. *Views/Home/Index.cshtml*) mit einem der folgenden Verfahren aufgerufen:
+
+* <xref:Microsoft.AspNetCore.Mvc.IViewComponentHelper>
+* [Taghilfsprogramm](xref:mvc/views/tag-helpers/intro)
+
+Rufen Sie `Component.InvokeAsync` auf, um das <xref:Microsoft.AspNetCore.Mvc.IViewComponentHelper>-Verfahren zu verwenden:
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-1.1"
+
+Die Ansichtskomponente wird in einer Razor-Datei (z.B. *Views/Home/Index.cshtml*) mit <xref:Microsoft.AspNetCore.Mvc.IViewComponentHelper> aufgerufen.
+
+Rufen Sie `Component.InvokeAsync` auf:
+
+::: moniker-end
+
+```cshtml
+@await Component.InvokeAsync(nameof(PriorityList), new { maxPriority = 4, isDone = true })
+```
+
+::: moniker range=">= aspnetcore-1.1"
+
+Um das Taghilfsprogramm zu verwenden, registrieren Sie die Assembly, die die Ansichtskomponente enthält, mit der Anweisung `@addTagHelper` (die Ansichtskomponente befindet sich in einer Assembly namens `MyWebApp`):
+
+```cshtml
+@addTagHelper *, MyWebApp
+```
+
+Verwenden Sie das Taghilfsprogramm der Ansichtskomponente in der Razor-Markupdatei:
+
+```cshtml
+<vc:priority-list max-priority="999" is-done="false">
+</vc:priority-list>
+```
+::: moniker-end
+
+Die Methodensignatur von `PriorityList.Invoke` ist synchron, aber Razor sucht nach der Methode und ruft die Methode mit `Component.InvokeAsync` in der Markupdatei auf.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
