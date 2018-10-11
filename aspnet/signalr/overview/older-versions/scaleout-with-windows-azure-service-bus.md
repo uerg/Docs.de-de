@@ -8,12 +8,12 @@ ms.date: 05/01/2013
 ms.assetid: 501db899-e68c-49ff-81b2-1dc561bfe908
 msc.legacyurl: /signalr/overview/older-versions/scaleout-with-windows-azure-service-bus
 msc.type: authoredcontent
-ms.openlocfilehash: d3c5af75c87f4ba51bb5627ddf237a70e5181678
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: d597eebc958815b1b1b9fdffc256c4453efce6b3
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41833932"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910953"
 ---
 <a name="signalr-scaleout-with-azure-service-bus-signalr-1x"></a>Horizontale Skalierung in SignalR mit Azure Servicebus (SignalR 1.x)
 ====================
@@ -88,7 +88,7 @@ In der **neues ASP.NET MVC 4-Projekt** Assistenten **Internetanwendung**. Klicke
 
 Um die chatanwendung zu erstellen, führen Sie die Schritte in diesem Tutorial [erste Schritte mit SignalR und MVC 4](tutorial-getting-started-with-signalr-and-mvc-4.md).
 
-Verwenden Sie NuGet, um die erforderlichen Bibliotheken zu installieren. Von der **Tools** , wählen Sie im Menü **Bibliothekspaket-Manager**, und wählen Sie dann **-Paket-Manager-Konsole**. In der **-Paket-Manager-Konsole** Fenster, geben Sie die folgenden Befehle aus:
+Verwenden Sie NuGet, um die erforderlichen Bibliotheken zu installieren. Von der **Tools** , wählen Sie im Menü **NuGet Package Manager**, und wählen Sie dann **-Paket-Manager-Konsole**. In der **-Paket-Manager-Konsole** Fenster, geben Sie die folgenden Befehle aus:
 
 [!code-powershell[Main](scaleout-with-windows-azure-service-bus/samples/sample2.ps1)]
 

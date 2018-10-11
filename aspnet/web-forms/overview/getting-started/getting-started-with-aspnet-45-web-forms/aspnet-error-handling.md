@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 423498f7-1a4b-44a1-b342-5f39d0bcf94f
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
 msc.type: authoredcontent
-ms.openlocfilehash: ed5d7b9b4e61b0289734f4cdef1039b31ddda7a7
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: af5e5a9c8d211b07b57aa50238b02cabe249aef8
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41827083"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911839"
 ---
 <a name="aspnet-error-handling"></a>ASP.NET – Fehlerbehandlung
 ====================
@@ -275,7 +275,7 @@ ELMAH (Error Logging Modules and Handlers) ist ein Fehler die Protokollierungsfu
 
 Bevor Sie das ELMAH arbeiten können, müssen Sie es installieren. Dies lässt sich leicht mithilfe der *NuGet* Installer-Paket. Wie weiter oben in dieser tutorialreihe erwähnt, ist NuGet Visual Studio-Erweiterung, die zum Installieren und Aktualisieren von open-Source-Bibliotheken und Tools in Visual Studio erleichtert.
 
-1. In Visual Studio aus der **Tools** , wählen Sie im Menü **Bibliothekspaket-Manager**  - &gt; **NuGet-Pakete für Projektmappe verwalten**. 
+1. In Visual Studio aus der **Tools** , wählen Sie im Menü **NuGet Package Manager** > **NuGet-Pakete für Projektmappe verwalten**. 
 
     ![ASP.NET – Fehlerbehandlung - NuGet-Pakete für Projektmappe verwalten](aspnet-error-handling/_static/image6.png)
 2. Die **NuGet-Pakete verwalten** wird das Dialogfeld in Visual Studio angezeigt.
@@ -286,7 +286,7 @@ Bevor Sie das ELMAH arbeiten können, müssen Sie es installieren. Dies lässt s
 5. In der **Projekte auswählen** Dialogfeld stellen Sie sicher, dass die **WingtipToys** Auswahl ausgewählt ist, und klicken Sie dann auf **OK**. 
 
     ![ASP.NET – Fehlerbehandlung - Projekte, Dialogfeld "auswählen"](aspnet-error-handling/_static/image8.png)
-6. Klicken Sie auf **schließen** in **der NuGet-Pakete verwalten** Dialogfeld bei Bedarf.
+6. Klicken Sie auf **schließen** in die **NuGet-Pakete verwalten** Dialogfeld bei Bedarf.
 7. Wenn Visual Studio fordert, dass Sie alle geöffneten Dateien erneut laden, wählen Sie "**Ja, alle**".
 8. Das ELMAH-Paket fügt Einträge für sich selbst in die *"Web.config"* Datei im Stammverzeichnis des Projekts. Wenn Visual Studio Sie werden gefragt, ob Sie die geänderte erneut laden möchten *"Web.config"* , klicken Sie auf **Ja**.
 
