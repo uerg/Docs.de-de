@@ -1,19 +1,19 @@
 ---
-title: Hosten von ASP.NET Core in Azure App Service
+title: Bereitstellen von ASP.NET Core-Apps in Azure App Service
 author: guardrex
-description: Erfahren Sie, wie Sie ASP.NET Core-Apps in Azure App Service hosten. Entsprechende Informationen werden in diesen nützlichen Ressourcen bereitgestellt.
+description: Dieser Artikel enthält Links zu Azure-Host- und Bereitstellungsressourcen.
 ms.author: riande
 ms.custom: mvc
 ms.date: 08/29/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 23289823e154d93e4bedd23a1efae0e58c71eae0
-ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
+ms.openlocfilehash: f2de81af4bd2992aec76a287484d0057021231d8
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44340185"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47860965"
 ---
-# <a name="host-aspnet-core-on-azure-app-service"></a>Hosten von ASP.NET Core in Azure App Service
+# <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Bereitstellen von ASP.NET Core-Apps in Azure App Service
 
 [Azure App Service](https://azure.microsoft.com/services/app-service/) ist ein [Microsoft Cloud Computing-Plattformdienst](https://azure.microsoft.com/) zum Hosten von Web-Apps. Dazu gehört auch ASP.NET Core.
 
@@ -31,9 +31,6 @@ Die folgenden Artikel sind in der ASP.NET Core-Dokumentation verfügbar:
 
 [Veröffentlichen in Azure mit Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs)  
 Erfahren Sie, wie eine ASP.NET Core-App in Azure App Service mit Visual Studio veröffentlicht wird.
-
-[Veröffentlichen in Azure mit CLI-Tools](xref:tutorials/publish-to-azure-webapp-using-cli)  
-Erfahren Sie, wie Sie eine ASP.NET Core-App in Azure App Service mithilfe des Git-Befehlszeilenclients veröffentlichen.
 
 [Continuous Deployment in Azure mit Visual Studio und Git](xref:host-and-deploy/azure-apps/azure-continuous-deployment)  
 Erfahren Sie, wie Sie mit Visual Studio eine ASP.NET Core-Web-App erstellen und sie unter Verwendung von Git für Continuous Deployment in Azure App Service bereitstellen.
