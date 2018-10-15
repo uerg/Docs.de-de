@@ -5,12 +5,12 @@ description: Verwenden Sie Identität mit einer ASP.NET Core-app. Erfahren Sie, 
 ms.author: riande
 ms.date: 08/08/2018
 uid: security/authentication/identity
-ms.openlocfilehash: d427932bb175c09105534379be4d71760f4e04e5
-ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
+ms.openlocfilehash: e0494afd807080f4cd71127abce7bdb93f952dca
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47860952"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325509"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Einführung in die Identität in ASP.NET Core
 
@@ -160,7 +160,7 @@ PowerShell arbeitet mit Semikolon als Befehlstrennzeichen. Wenn Sie PowerShell v
 Das Anmeldeformular wird angezeigt, wenn:
 
 * Die **melden Sie sich bei** Link ausgewählt wird.
-* Wenn ein Benutzer greift auf eine Seite, in denen sie nicht authentifiziert **oder** autorisiert ist, werden sie zur Anmeldeseite umgeleitet.
+* Ein Benutzer versucht, eine zugriffsbeschränkte Seite zugreifen, die sie autorisiert sind nicht, den Zugriff auf **oder** Wenn dies nicht getan haben sie vom System authentifiziert wurde.
 
 Wenn das Formular auf der Anmeldeseite gesendet wird, die `OnPostAsync` Aktion aufgerufen wird. `PasswordSignInAsync` wird aufgerufen, auf die `_signInManager` Objekt (bereitgestellt durch Dependency Injection).
 
