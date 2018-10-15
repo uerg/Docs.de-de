@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/01/2018
 uid: fundamentals/file-providers
-ms.openlocfilehash: 512229cfe7d7efdcd9050fa13dbdbf793be29a0b
-ms.sourcegitcommit: 571d76fbbff05e84406b6d909c8fe9cbea2c8ff1
+ms.openlocfilehash: a0d326f5fc995cb903380315879d39a8ce851d06
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39410155"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913215"
 ---
 # <a name="file-providers-in-aspnet-core"></a>Dateianbieter in ASP.NET Core
 
@@ -141,7 +141,7 @@ Die `IDirectoryContents` werden in der Ansicht durchlaufen.
 Der [ManifestEmbeddedFileProvider](/dotnet/api/microsoft.extensions.fileproviders.manifestembeddedfileprovider) wird verwendet, um auf Dateien zuzugreifen, die in Assemblys eingebettet sind. Der `ManifestEmbeddedFileProvider` verwendet ein in die Assembly kompiliertes Manifest, um die ursprünglichen Pfade der eingebetteten Dateien zu rekonstruieren.
 
 > [!NOTE]
-> Der `ManifestEmbeddedFileProvider` ist in ASP.NET Core 2.1 und höher verfügbar. Informationen zum Zugriff auf Dateien, die in Assemblys in ASP.NET Core 2.0 oder früher eingebettet sind, finden Sie in der Version [ASP.NET Core 1.x dieses Themas](xref:fundamentals/file-providers?view=aspnetcore-1.1).
+> Der `ManifestEmbeddedFileProvider` ist in ASP.NET Core 2.1 und höher verfügbar. Informationen zum Zugriff auf Dateien, die in Assemblys in ASP.NET Core 2.0 oder früher eingebettet sind, finden Sie in der Version [ASP.NET Core 1.x dieses Themas](/aspnet/core/fundamentals/file-providers?view=aspnetcore-1.1).
 
 Um ein Manifest der eingebetteten Dateien zu generieren, legen die `<GenerateEmbeddedFilesManifest>`-Eigenschaft auf `true` fest. Geben Sie die einzubettenden Dateien mit [&lt;EmbeddedResource&gt;](/dotnet/core/tools/csproj#default-compilation-includes-in-net-core-projects) an:
 
