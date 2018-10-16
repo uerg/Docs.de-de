@@ -4,16 +4,16 @@ title: ASP.NET MVC 5 | Microsoft-Dokumentation
 author: rick-anderson
 description: ASP.NET MVC 5 ASP.NET MVC 5 ist ein Framework zum Erstellen von skalierbaren, auf Standards basierende Webanwendungen, die mit bewährte Entwurfsmuster und die Leistungsfähigkeit von AS....
 ms.author: riande
-ms.date: 01/20/2014
+ms.date: 10/11/2018
 ms.assetid: f79fbf7f-59e5-4279-a832-c1a0294630f4
 msc.legacyurl: /mvc/mvc5
 msc.type: content
-ms.openlocfilehash: c837560e0ad9618decaba9761da9cf35e0f03f08
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: c958d39c7eff0d581de6b05890b8e6df8bdb5207
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41827620"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348259"
 ---
 <a name="aspnet-mvc-5"></a>ASP.NET MVC 5
 ====================
@@ -21,7 +21,7 @@ ms.locfileid: "41827620"
 
 ### <a name="one-aspnet"></a>Eine ASP.NET
 
-Die Web-MVC-Projektvorlagen nahtlose Integration in die neue Oberfläche für die One ASP.NET. Sie können Ihre MVC-Projekt anpassen und Konfigurieren von Authentifizierung unter Verwendung von One ASP.NET projekterstellungs-Assistenten. Ein einführendes Lernprogramm zu ASP.NET MVC 5 finden Sie unter [erste Schritte mit ASP.NET MVC 5](overview/getting-started/introduction/getting-started.md).
+Die Web-MVC-Projektvorlagen nahtlose Integration in die Oberfläche One ASP.NET. Sie können Ihre MVC-Projekt anpassen und Konfigurieren von Authentifizierung unter Verwendung von One ASP.NET projekterstellungs-Assistenten. Ein einführendes Lernprogramm zu ASP.NET MVC 5 finden Sie unter [erste Schritte mit ASP.NET MVC 5](overview/getting-started/introduction/getting-started.md).
 
 Informationen zum Upgrade von MVC 4-Projekte auf MVC 5 finden Sie unter [das Upgrade von einer ASP.NET MVC 4 und Web-API-Projekt auf ASP.NET MVC 5 und Web-API 2](overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md).
 
@@ -31,7 +31,7 @@ Die MVC-Projektvorlagen wurden aktualisiert, um ASP.NET Identity für Authentifi
 
 ### <a name="bootstrap"></a>Bootstrap-Stil
 
-MVC-Projektvorlage wurde aktualisiert, um verwenden [Bootstrap](http://getbootstrap.com/) , ein schlankes und reaktionsfähige Aussehen und Verhalten bereitzustellen, die Sie problemlos anpassen können. Weitere Informationen finden Sie unter [Bootstrap in den Visual Studio 2013-Web-Projektvorlagen](../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap).
+MVC-Projektvorlage wurde aktualisiert, um verwenden [Bootstrap](http://getbootstrap.com/) , ein schlankes und reaktionsfähige Aussehen und Verhalten bereitzustellen, die Sie problemlos anpassen können. Weitere Informationen finden Sie unter [Bootstrap in den Projektvorlagen für Visual Studio Web](../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap).
 
 ### <a name="authentication-filters"></a>Authentifizierungsfilter
 
@@ -47,43 +47,45 @@ Unterstützt nun das ASP.NET MVC [attributrouting](https://blogs.msdn.com/b/webd
 
 ## <a name="new-web-project-experience"></a>Neue Project-Weboberfläche
 
-Wir haben die Erfahrung mit der Erstellung neuer Webprojekte in Visual Studio 2013 verbessert. In der **neuen ASP.NET-Webprojekts** Dialogfeld können Sie den Projekttyp, Sie möchten, konfigurieren eine beliebige Kombination aus Technologien (Web Forms, MVC, Web-API), konfigurieren Sie Authentifizierungsoptionen und hinzufügen ein Komponententestprojekts, auswählen.
+Visual Studio erweitert die Erfahrung mit der Erstellung neuer Webprojekte für in Visual Studio 2013 ab. In der **neuen ASP.NET-Webprojekts** Dialogfeld können Sie den Projekttyp, Sie möchten, konfigurieren eine beliebige Kombination aus Technologien (Web Forms, MVC, Web-API), konfigurieren Sie Authentifizierungsoptionen, Docker-Unterstützung hinzufügen und hinzufügen ein Komponententestprojekts, auswählen.
 
-![Neues ASP.NET-Projekt](mvc5/_static/image1.png)
+![Neues ASP.NET-Projekt](mvc5/_static/new-aspnet-web-app-dialog.png)
 
-Der neue Dialog können Sie die standardmäßigen Authentifizierungsoptionen für viele der Vorlagen zu ändern. Z. B. beim Erstellen einer ASP.NET Web Forms-Projekts können Sie eine der folgenden Optionen auswählen:
+Das Dialogfeld können Sie die standardmäßigen Authentifizierungsoptionen für viele der Vorlagen zu ändern. Z. B. beim Erstellen einer ASP.NET Web Forms-Projekts können Sie eine der folgenden Optionen auswählen:
 
 - Keine Authentifizierung
 - Einzelne Benutzerkonten (ASP.NET-Mitgliedschaft oder Anbieter sozialer-Anmeldung)
-- Organisations-Konten (Active Directory in einer internetanwendung)
+- Geschäfts-, Schul- oder Unikonten (Active Directory in einer internetanwendung)
 - Windows-Authentifizierung (Active Directory in einer Intranetanwendung)
 
-![Authentifizierungsoptionen](mvc5/_static/image2.png)
+![Authentifizierungsoptionen](mvc5/_static/change-authentication-dialog.png)
 
-Weitere Informationen zu den neuen Prozess für das Erstellen von Webprojekten, finden Sie unter [Erstellen von ASP.NET-Webprojekten in Visual Studio 2013](../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md). Weitere Informationen zu den neuen Authentifizierungsoptionen finden Sie unter [ASP.NET Identity](../identity/overview/index.md).
+Weitere Informationen über den Prozess zum Erstellen von Webprojekten finden Sie unter [Erstellen von ASP.NET-Webprojekten in Visual Studio](../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md). Weitere Informationen zu den Authentifizierungsoptionen finden Sie unter [ASP.NET Identity](../identity/overview/index.md).
 
 <a id="scaffold"></a>
 ### <a name="aspnet-scaffolding"></a>ASP.NET-Gerüstbau
 
 ASP.NET-Gerüstbau ist ein Code-Generierung-Framework für Webanwendungen mit ASP.NET. Es erleichtert die Codebausteine zu Ihrem Projekt hinzufügen, die mit einem Datenmodell interagiert.
 
-In früheren Versionen von Visual Studio konnte Gerüstbau ASP.NET MVC-Projekte. Mit Visual Studio 2013 können Sie jetzt Gerüstbau für ASP.NET Projekte, einschließlich Web Forms. Visual Studio 2013 unterstützt derzeit keine Generieren von Seiten für eine Web Forms-Projekt, aber Sie können weiterhin Gerüstbau mit Web Forms verwenden, durch das Hinzufügen von MVC-Abhängigkeiten auf das Projekt. Unterstützung für das Generieren von Seiten für Web Forms wird in einem späteren Update hinzugefügt werden.
+In den Vorgängerversionen von Visual Studio 2013 wurde der Gerüstbau auf ASP.NET MVC-Projekte beschränkt. Ab Visual Studio 2013, können Sie Gerüstbau für ASP.NET-Projekten, einschließlich Web Forms verwenden. Visual Studio unterstützt derzeit nicht Generieren von Seiten für eine Web Forms-Projekt, aber Sie können weiterhin Gerüstbau mit Web Forms verwenden, durch das Hinzufügen von MVC-Abhängigkeiten auf das Projekt. Unterstützung für das Generieren von Seiten für Web Forms wird in einer zukünftigen Version hinzugefügt werden.
 
-Wenn Gerüstbau verwenden zu können, stellen wir sicher, dass alle erforderlichen Abhängigkeiten im Projekt installiert sind. Z. B. Wenn Sie mit einem ASP.NET Web Forms-Projekt beginnen, und klicken Sie dann mithilfe von Gerüstbau einer Web-API-Controller hinzu, werden die erforderlichen NuGet-Pakete und Verweise dem Projekt automatisch hinzugefügt.
+Wenn Gerüstbau verwenden, alle erforderlichen Abhängigkeiten im Projekt installiert sind. Z. B. Wenn Sie mit einem ASP.NET Web Forms-Projekt beginnen, und klicken Sie dann mithilfe von Gerüstbau einer Web-API-Controller hinzu, werden die erforderlichen NuGet-Pakete und Verweise dem Projekt automatisch hinzugefügt.
 
-MVC-Gerüstbau um eine Web Forms-Projekt hinzuzufügen, fügen einen **neues Gerüstelement** , und wählen Sie **MVC 5-Abhängigkeiten** im Dialogfenster. Es gibt zwei Optionen für den Gerüstbau für MVC. Minimaler und vollständiger. Wenn Sie die minimale auswählen, werden nur die NuGet-Pakete und Verweise für ASP.NET MVC zu Ihrem Projekt hinzugefügt. Bei Auswahl der Option "vollständig", die mindestens erforderliche Abhängigkeiten hinzugefügt werden, sowie die erforderlichen Inhaltsdateien für ein MVC-Projekt.
+MVC-Gerüstbau um eine Web Forms-Projekt hinzuzufügen, fügen einen **neues Gerüstelement** , und wählen Sie **MVC 5-Abhängigkeiten** im Dialogfenster. Es gibt zwei Optionen für den Gerüstbau für MVC. **Nur minimale Abhängigkeiten** und **vollständige Abhängigkeiten**. Bei Auswahl von **nur minimale Abhängigkeiten**, nur die NuGet-Pakete und Verweise für ASP.NET MVC zu Ihrem Projekt hinzugefügt werden. Bei Auswahl von **vollständige Abhängigkeiten**, die mindestens erforderliche Abhängigkeiten sowie die erforderlichen Inhaltsdateien für ein MVC-Projekt hinzugefügt werden.
 
-Unterstützung für den Gerüstbau für Async-Controller verwendet, die neuen asynchronen Features von Entity Framework 6.
+![Fügen Sie Scaffold-Dialogfeld hinzu "" in Visual Studio](overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/add-scaffold.png)
+
+Unterstützung für Async-Controller Gerüstbau verwendet die asynchronen Funktionen von Entity Framework 6.
 
 Weitere Informationen und Lernprogramme finden Sie unter [Gerüstbau-Übersicht über ASP.NET](../visual-studio/overview/2013/aspnet-scaffolding-overview.md).
 
-### <a name="getting-help-and-reporting-issues"></a>Hilfe zu erhalten, und Melden von Problemen
+### <a name="get-help-and-report-issues"></a>Hilfe abrufen und Melden von Problemen
 
 - [Bekannte Probleme und wichtige Änderungsliste](../visual-studio/overview/2013/release-notes.md#knownissues)
 - Hier erhalten Sie Hilfe und Erläutern Sie ASP.NET MVC 5 in der [Foren](https://forums.asp.net/1146.aspx)
 - [Melden eines Problems in ASP.NET MVC 5](https://github.com/aspnet/AspNetWebStack/issues)
 - [Feature anfordern](http://aspnet.uservoice.com/forums/41201-asp-net-mvc)
 
-### <a name="upgrading-from-aspnet-mvc-4"></a>Aktualisieren von ASP.NET MVC 4
+### <a name="upgrade-from-aspnet-mvc-4"></a>Upgrade von ASP.NET MVC 4
 
 Finden Sie unter [das Upgrade von einer ASP.NET MVC 4 und Web-API-Projekts zum ASP.NET MVC 5 und Web-API 2](overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md)

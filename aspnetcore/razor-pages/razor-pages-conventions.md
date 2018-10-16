@@ -4,14 +4,14 @@ author: guardrex
 description: Erfahren Sie, wie Konventionen für Routen- und App-Modellanbieter Sie beim Steuern von Seitenrouting, Ermittlung und Verarbeitung unterstützen können.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 09/17/2018
+ms.date: 10/12/2018
 uid: razor-pages/razor-pages-conventions
-ms.openlocfilehash: ea4f785dc8a64b430e312fd122a4d3184b61949e
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 13fd6c156afd5ab62739b09296a929120ce3450f
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011861"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348532"
 ---
 # <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>Razor-Seiten: Routen- und App-Konventionen in ASP.NET Core
 
@@ -87,13 +87,13 @@ Die Verarbeitung Route wird gemäß der Konvention hergestellt:
 
 Vermeiden Sie wenn möglich, je nach einem etablierten Route Verarbeitungsreihenfolge. Im Allgemeinen wird beim routing mit URL-Zuordnung die richtige Route ausgewählt. Wenn Sie, Route festlegen müssen `Order` Eigenschaften zum Weiterleiten von Anforderungen ordnungsgemäß routing der app-Schema ist wahrscheinlich für Clients verwirrend und fehleranfälliger zu verwalten. Suchen Sie zur Vereinfachung der app-routing-Schema. Die Beispiel-app erfordert eine explizite Route Verarbeitungsreihenfolge mehrere Routingszenarien verwenden eine einzelne app veranschaulicht. Allerdings sollten Sie versuchen, vermeiden Sie die Methode der Einstellung Route `Order` in Produktions-apps.
 
-Razor-Seiten, routing und routing für MVC-Controller, Freigabe eine Implementierung. Informationen zur Reihenfolge der MVC-Themen finden Sie unter [Routing zu Controlleraktionen: Ordnen der attributrouten](xref:mvc/controllers/routing#ordering-attribute-routes).
+Razor Pages-Routing und MVC Controller-Routing verwenden eine gemeinsame Implementierung. Informationen zur Reihenfolge der MVC-Themen finden Sie unter [Routing zu Controlleraktionen: Ordnen der attributrouten](xref:mvc/controllers/routing#ordering-attribute-routes).
 
 ## <a name="model-conventions"></a>Modellkonventionen
 
 Fügen Sie einen Delegaten für [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) hinzu, um [Modellkonventionen](xref:mvc/controllers/application-model#conventions) hinzuzufügen, die auf Razor-Seiten anwendbar sind.
 
-**Hinzufügen einer Routenmodellkonvention zu allen Seiten**
+### <a name="add-a-route-model-convention-to-all-pages"></a>Hinzufügen einer routenmodellkonvention zu allen Seiten
 
 Verwenden Sie [Conventions](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions) zum Erstellen und Hinzufügen einer [IPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelconvention) zur Auflistung der Instanzen von [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention), die während der Erstellung von Seitenroutenmodellen eingesetzt werden.
 
@@ -117,7 +117,7 @@ Fordern Sie die Seite „Info“ der Beispielanwendung unter `localhost:5000/Abo
 
 ![Die Seite „Info“ wird mit einem Routensegment von GlobalRouteValue angefordert. Die gerenderte Seite zeigt, dass der Datenwert für die Route in der OnGet-Methode der Seite erfasst wird.](razor-pages-conventions/_static/about-page-global-template.png)
 
-**Hinzufügen einer App-Modellkonvention zu allen Seiten**
+### <a name="add-an-app-model-convention-to-all-pages"></a>Hinzufügen einer app-modellkonvention zu allen Seiten
 
 Verwenden Sie [Conventions](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions) zum Erstellen und Hinzufügen einer [IPageApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageapplicationmodelconvention) zur Auflistung der Instanzen von [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention), die während der Erstellung von Seitenanwendungsmodellen eingesetzt werden.
 
@@ -137,12 +137,12 @@ Fordern Sie die Seite „Info“ der Beispielanwendung unter `localhost:5000/Abo
 
 ::: moniker range=">= aspnetcore-2.1"
 
-**Hinzufügen einer Handlermodellkonvention zu allen Seiten**
+### <a name="add-a-handler-model-convention-to-all-pages"></a>Hinzufügen einer Ereignishandler-modellkonvention zu allen Seiten
 
 Verwenden Sie [Conventions](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions) zum Erstellen und Hinzufügen einer [IPageHandlerModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipagehandlermodelconvention) zur Auflistung der Instanzen von [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention), die während der Erstellung von Seitenhandlermodellen eingesetzt werden.
 
 ```csharp
-public class GlobalPageHandlerModelConvention 
+public class GlobalPageHandlerModelConvention
     : IPageHandlerModelConvention
 {
     public void Apply(PageHandlerModel model)
@@ -168,7 +168,7 @@ services.AddMvc()
 
 Der Standardanbieter für Routenmodelle, der von [IPageRouteModelProvider](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelprovider) abgeleitet wird, ruft Konventionen auf, die entwickelt wurden, um Erweiterungspunkte zum Konfigurieren von Seitenrouten bereitzustellen.
 
-**Ordnerroutenmodellkonvention**
+### <a name="folder-route-model-convention"></a>Ordnerroutenmodellkonvention
 
 Verwenden Sie [AddFolderRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection.addfolderroutemodelconvention) zum Erstellen und Hinzufügen von [IPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelconvention), wodurch für alle Seiten im angegebenen Ordner eine Aktion auf dem [PageRouteModel](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageroutemodel) aufgerufen wird.
 
@@ -184,7 +184,7 @@ Fordern Sie die Seite „Seite1“ der Beispielanwendung unter `localhost:5000/O
 
 ![Seite1 aus dem Ordner „OtherPages“ wird mit einem Routensegment von GlobalRouteValue und OtherPagesRouteValue angefordert. In der gerenderten Seite wird gezeigt, dass die Datenwerte für die Route in der OnGet-Methode der Seite erfasst werden.](razor-pages-conventions/_static/otherpages-page1-global-and-otherpages-templates.png)
 
-**Seitenroutenmodellkonvention**
+### <a name="page-route-model-convention"></a>Seitenroutenmodellkonvention
 
 Verwenden Sie [AddPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection.addpageroutemodelconvention) zum Erstellen und Hinzufügen einer [IPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelconvention), die für die Seite mit dem angegebenen Namen eine Aktion auf dem [PageRouteModel](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageroutemodel) aufruft.
 
@@ -199,6 +199,44 @@ Wo immer dies möglich ist, legen Sie nicht die `Order`, was dazu führt `Order 
 Fordern Sie die Seite „Info“ der Beispielanwendung unter `localhost:5000/About/GlobalRouteValue/AboutRouteValue` an, und prüfen Sie das Ergebnis:
 
 ![Die Seite „Info“ wird mit Routensegmenten für GlobalRouteValue und AboutRouteValue angefordert. In der gerenderten Seite wird gezeigt, dass die Datenwerte für die Route in der OnGet-Methode der Seite erfasst werden.](razor-pages-conventions/_static/about-page-global-and-about-templates.png)
+
+::: moniker range=">= aspnetcore-2.2"
+
+## <a name="use-a-parameter-transformer-to-customize-page-routes"></a>Verwenden Sie einen Transformator Parameter zum Anpassen von seitenrouten
+
+Von ASP.NET Core generierte seitenrouten können mit der ein Transformator Parameter angepasst werden. Implementiert ein Transformator Parameter `IOutboundParameterTransformer` und wandelt den Wert der Parameter. Z. B. eine benutzerdefinierte `SlugifyParameterTransformer` Transformator parameteränderungen der `SubscriptionManagement` -routenwert zu `subscription-management`.
+
+Die `PageRouteTransformerConvention` seitenroutenmodellkonvention gilt einen Transformator Parameter für die namenssegmente Ordner- und von automatisch generierten Seitenprofilklasse Routen in einer app. Z. B. die Razor-Seiten, die auf Dateien */Pages/SubscriptionManagement/ViewAll.cshtml* müsste der Route aus umgeschrieben `/SubscriptionManagement/ViewAll` zu `/subscription-management/view-all`.
+
+`PageRouteTransformerConvention` nur transformiert die automatisch generierten Segmenten einer seitenroute, die von den Razor-Seiten-Ordner und Dateinamen stammen. Keine Transformation routensegmenten hinzugefügt, mit der `@page` Richtlinie. Die Konvention nicht transformiert und außerdem hinzugefügten Routen <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AddPageRoute*>.
+
+Die `PageRouteTransformerConvention` registriert, ist als eine Option in `Startup.ConfigureServices`:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddMvc()
+        .AddRazorPagesOptions(options =>
+            {
+                options.Conventions.Add(
+                    new PageRouteTransformerConvention(
+                        new SlugifyParameterTransformer()));
+            });
+}
+
+public class SlugifyParameterTransformer : IOutboundParameterTransformer
+{
+    public string TransformOutbound(object value)
+    {
+        if (value == null) { return null; }
+
+        // Slugify value
+        return Regex.Replace(value.ToString(), "([a-z])([A-Z])", "$1-$2").ToLower();
+    }
+}
+```
+
+::: moniker-end
 
 ## <a name="configure-a-page-route"></a>Konfigurieren einer Seitenroute
 

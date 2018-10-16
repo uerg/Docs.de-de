@@ -8,12 +8,12 @@ ms.date: 01/20/2014
 ms.assetid: 979d6c9f-0129-4e5b-ae56-4507b281b86d
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: d16dcc618bf6c60714179601db14f4dd2a9e41ce
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 22eb2fd748d52ec95e813ada8b1bf3b4826ad573
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912151"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348480"
 ---
 <a name="attribute-routing-in-aspnet-web-api-2"></a>Attribut-Routing in ASP.NET Web-API 2
 ====================
@@ -245,11 +245,11 @@ Der Routenname, legen die **Namen** -Eigenschaft des Attributs. Das folgende Bei
 <a id="order"></a>
 ## <a name="route-order"></a>Reihenfolge
 
-Wenn Sie das Framework versucht, die einen URI mit einer Route übereinstimmen, wird die Routen in einer bestimmten Reihenfolge ausgewertet. Legen Sie zum Angeben der Reihenfolge der **RouteOrder** Eigenschaft für die Route-Attribut. Niedrigere Werte werden zuerst ausgewertet. Der Wert der Standardreihenfolge ist 0 (null).
+Wenn Sie das Framework versucht, die einen URI mit einer Route übereinstimmen, wird die Routen in einer bestimmten Reihenfolge ausgewertet. Legen Sie zum Angeben der Reihenfolge der **Reihenfolge** Eigenschaft für die Route-Attribut. Niedrigere Werte werden zuerst ausgewertet. Der Wert der Standardreihenfolge ist 0 (null).
 
 Hier ist wie der gesamten Sortierung bestimmt wird:
 
-1. Vergleichen Sie die **RouteOrder** -Eigenschaft des Attributs Route.
+1. Vergleichen Sie die **Reihenfolge** -Eigenschaft des Attributs Route.
 2. Sehen Sie sich jede URI-Segment in der routenvorlage. Bestellen Sie für die einzelnen Segmente wie folgt:
 
     1. Literal-Segmente.
@@ -271,4 +271,4 @@ Diese Routen werden wie folgt sortiert.
 4. Aufträge / {\*Datum}
 5. Aufträge / ausstehend
 
-Beachten Sie, dass "Details" ein literal-Segment ist und vor "{Id}" angezeigt wird, aber "Ausstehend" angezeigt wird: zuletzt die **RouteOrder** -Eigenschaft ist 1. (In diesem Beispiel wird vorausgesetzt, dass sind keine Kunden namens "Details" oder "Ausstehend". Versuchen Sie es im Allgemeinen zu mehrdeutige Routen zu vermeiden. In diesem Beispiel für eine bessere routenvorlage `GetByCustomer` ist "Customers / {CustomerName}")
+Beachten Sie, dass "Details" ein literal-Segment ist und vor "{Id}" angezeigt wird, aber "Ausstehend" angezeigt wird: zuletzt die **Reihenfolge** -Eigenschaft ist 1. (In diesem Beispiel wird vorausgesetzt, dass sind keine Kunden namens "Details" oder "Ausstehend". Versuchen Sie es im Allgemeinen zu mehrdeutige Routen zu vermeiden. In diesem Beispiel für eine bessere routenvorlage `GetByCustomer` ist "Customers / {CustomerName}")
