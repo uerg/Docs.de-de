@@ -33,7 +33,7 @@ JavaScriptServices besteht aus drei unterschiedlichen NuGet-Pakete:
 
 Diese Pakete sind nützlich, wenn Sie:
 
-* JavaScript auf dem Server ausgeführen.
+* JavaScript auf dem Server ausführen
 * Ein SPA-Framework oder eine Bibliothek verwenden möchten
 * Clientseitige-Assets mit Webpack erstellen wollen
 
@@ -43,7 +43,7 @@ Der Schwerpunkt dieses Artikels liegt auf der Zuhilfenahme des SpaServices-Paket
 
 ## <a name="what-is-spaservices"></a>Was ist SpaServices
 
-SpaServices wurde erstellt, um Entwicklern ASP.NET Core als bevorzugte serverseitige Plattform zum Erstellen von SPAs zu positionieren. SpaServices ist nicht erforderlich, um der SPAs mit ASP.NET Core zu entwickeln, und es nicht an ein bestimmtes Clientframework gebunden.
+SpaServices wurde erstellt, um Entwicklern ASP.NET Core als bevorzugte serverseitige Plattform zum Erstellen von SPAs zu positionieren. SpaServices ist nicht erforderlich, um der SPAs mit ASP.NET Core zu entwickeln und es nicht an ein bestimmtes Clientframework gebunden.
 
 SpaServices bietet nützliche Infrastruktur wie z.B.:
 
@@ -81,7 +81,7 @@ Hinweis: Wenn Sie eine Azure-Website bereitstellen möchten, müssen Sie hier ni
 
 Eine universelle (auch bekannt als isomorph)-Anwendung ist eine JavaScript-Anwendung, die sowohl auf dem Server und dem Client ausgeführt werden kann. Dies bietet eine universelle Plattform für die Entwicklung dieses Anwendungsstils, mittels Angular, React und anderen beliebten Frameworks. Die Idee ist zunächst das erste Rendern die Framework-Komponenten auf dem Server über Node.js, und danach die weitere Ausführung an den Client zu delegieren.
 
-ASP.NET Core [Taghilfsprogramme](xref:mvc/views/tag-helpers/intro), bereitgestellt durch SpaServices, vereinfachen die Implementierung von serverseitigen Prerendering durch Bereitstellen und Aufrufen der JavaScript-Funktionen auf dem Server.
+ASP.NET Core [TagHelpers](xref:mvc/views/tag-helpers/intro), bereitgestellt durch SpaServices, vereinfachen die Implementierung von serverseitigen Prerendering durch Bereitstellen und Aufrufen der JavaScript-Funktionen auf dem Server.
 
 ### <a name="prerequisites"></a>Erforderliche Komponenten
 
@@ -95,17 +95,17 @@ Installieren Sie Folgendes:
 
 ### <a name="configuration"></a>Konfiguration
 
-Die Taghilfsprogramme werden im Projekt über die Namespace-Registrierung in der *_ViewImports.cshtml* Datei erkennbar gemacht:
+Die TagHelpers werden im Projekt über die Namespace-Registrierung in der *_ViewImports.cshtml* Datei erkennbar gemacht:
 
 [!code-cshtml[](../client-side/spa-services/sample/SpaServicesSampleApp/Views/_ViewImports.cshtml?highlight=3)]
 
-Diese Taghilfsprogramme abstrahieren die Feinheiten der direkten Kommunikation mit Low-Level-APIs durch die Nutzung einer HTML-ähnlichen Syntax in der Razor-Ansicht:
+Diese TagHelpers abstrahieren die Feinheiten der direkten Kommunikation mit Low-Level-APIs durch die Nutzung einer HTML-ähnlichen Syntax in der Razor-Ansicht:
 
 [!code-cshtml[](../client-side/spa-services/sample/SpaServicesSampleApp/Views/Home/Index.cshtml?range=5)]
 
 ### <a name="the-asp-prerender-module-tag-helper"></a>Die `asp-prerender-module` Taghilfsprogramm
 
-Die `asp-prerender-module` Taghilfsprogramm, aus dem vorherigen Beispiel, führt *ClientApp/dist/main-server.js* auf dem Server über Node.js aus. Für die der Verständlichkeit: Die *main-server.js*-Datei ist ein Artefakt der TypeScript-zu-JavaScript-Transpilation aus dem [Webpack](http://webpack.github.io/) Buildprozess. Webpack definiert einen Einstiegspunkt-Alias für `main-server`, dessen  Abhängigkeitsdiagramm und Durchlauf beginnt bei der *ClientApp/boot-server.ts*-Datei:
+Die `asp-prerender-module` TagHelper, aus dem vorherigen Beispiel, führt *ClientApp/dist/main-server.js* auf dem Server über Node.js aus. Für die der Verständlichkeit: Die *main-server.js*-Datei ist ein Artefakt der TypeScript-zu-JavaScript-Transpilation aus dem [Webpack](http://webpack.github.io/) Buildprozess. Webpack definiert einen Einstiegspunkt-Alias für `main-server`, dessen  Abhängigkeitsdiagramm und Durchlauf beginnt bei der *ClientApp/boot-server.ts*-Datei:
 
 [!code-javascript[](../client-side/spa-services/sample/SpaServicesSampleApp/webpack.config.js?range=53)]
 
@@ -213,7 +213,7 @@ Betrachten Sie das Szenario, in dem eine Route ohne Erweiterung `/some/page` ver
 
 Installieren Sie Folgendes:
 
-* Das Routing Npm-Paket für die clientseitige . Verwendung in einem Angular-Beispiel:
+* Das Routing Npm-Paket für die clientseitige Verwendung in einem Angular-Beispiel:
 
     ```console
     npm i -S @angular/router
@@ -247,7 +247,7 @@ Eine Liste der verfügbaren SPA-Vorlagen wird angezeigt:
 | MVC, ASP.NET Core mit React.js            | react      | [C#]     | MVC/Web/SPA |
 | MVC, ASP.NET Core mit React.js und Redux  | reactredux | [C#]     | MVC/Web/SPA |
 
-Zum Erstellen eines neuen Projekts mithilfe einer der SPA-Vorlagen nutzen Sie die **Kurznamen** der Vorlage im [Dotnet neue](/dotnet/core/tools/dotnet-new) Befehl. Der folgende Befehl erstellt eine Angular-Anwendung mit ASP.NET Core MVC, die für die serverseitige Verwendung konfiguriert ist:
+Zum Erstellen eines neuen Projekts mithilfe einer der SPA-Vorlagen nutzen Sie die **Kurznamen** der Vorlage im [dotnet new](/dotnet/core/tools/dotnet-new) Befehl. Der folgende Befehl erstellt eine Angular-Anwendung mit ASP.NET Core MVC, die für die serverseitige Verwendung konfiguriert ist:
 
 ```console
 dotnet new angular
