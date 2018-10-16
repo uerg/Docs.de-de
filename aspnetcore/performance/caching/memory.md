@@ -1,17 +1,17 @@
 ---
 title: Zwischenspeichern in Speicher in ASP.NET Core
 author: rick-anderson
-description: Informationen Sie zum Zwischenspeichern von Daten im Arbeitsspeicher in ASP.NET Core.
+description: Erfahren Sie, wie Sie Daten im Arbeitsspeicher in ASP.NET Core zwischenspeichern können.
 ms.author: riande
 ms.custom: mvc
 ms.date: 09/15/2018
 uid: performance/caching/memory
-ms.openlocfilehash: 2570ad7d939d67530b3de8cd0147815c2e25ecc8
-ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
+ms.openlocfilehash: 960aa18f9d14f633118ccd716201e61464085c05
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46482982"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325925"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Zwischenspeichern in Speicher in ASP.NET Core
 
@@ -27,7 +27,11 @@ ASP.NET Core unterstützt mehrere unterschiedliche Caches gelten. Die einfachste
 
 Nicht-sticky-Sitzungen in einer Webfarm erfordern eine [verteilter Cache](distributed.md) , Cache Konsistenzprobleme zu vermeiden. Bei einigen apps kann ein verteilter Cache höheren Skalierung als eine in-Memory-Cache unterstützt. Mit einem verteilten Cache lädt die Cache-Speicher an einen externen Prozess ab.
 
+::: moniker range="< aspnetcore-2.0"
+
 Die `IMemoryCache` Cache-Cacheeinträge Einträge im Cache nicht genügend Arbeitsspeicher vorhanden, es sei denn, die [Zwischenspeichern Priorität](/dotnet/api/microsoft.extensions.caching.memory.cacheitempriority) nastaven NA hodnotu `CacheItemPriority.NeverRemove`. Sie können festlegen, die `CacheItemPriority` die Priorität anpassen, mit dem Cache Elemente nicht genügend Arbeitsspeicher entfernt.
+
+::: moniker-end
 
 In-Memory-Cache kann jedes beliebige Objekt speichern. die Schnittstelle für verteilte Caches ist auf `byte[]`.
 

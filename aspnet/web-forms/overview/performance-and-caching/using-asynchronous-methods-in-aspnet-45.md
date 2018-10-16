@@ -8,12 +8,12 @@ ms.date: 06/06/2012
 ms.assetid: a585c9a2-7c8e-478b-9706-90f3739c50d1
 msc.legacyurl: /web-forms/overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: eeb8ac4402b5e3d233082a749ad16ed98d4a71fc
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 61bb977af9dca6fc080151ffd6ea3d966f1b1592
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577807"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325418"
 ---
 <a name="using-asynchronous-methods-in-aspnet-45"></a>Verwenden asynchroner Methoden in ASP.NET 4.5
 ====================
@@ -62,7 +62,7 @@ Im Allgemeinen verwenden Sie synchrone Methoden, die folgenden Bedingungen:
 - Einfachheit ist wichtiger als Effizienz.
 - Die Vorgänge sind in erster Linie CPU-Vorgänge, anstatt die Vorgänge, die umfangreiche Datenträger- oder Netzwerkauslastung betreffen. Verwenden Sie asynchrone Methoden für CPU-gebundene Vorgänge bietet keine Vorteile und führt zu einem Mehraufwand.
 
-  Im Allgemeinen verwenden Sie asynchrone Methoden für die folgenden Bedingungen:
+Im Allgemeinen verwenden Sie asynchrone Methoden für die folgenden Bedingungen:
 
 - .NET 4.5 oder höher verwenden, und rufen Sie Dienste, die über asynchrone Methoden genutzt werden können.
 - Die Vorgänge sind netzwerkgebunden oder e/A-anstelle von CPU-gebunden.

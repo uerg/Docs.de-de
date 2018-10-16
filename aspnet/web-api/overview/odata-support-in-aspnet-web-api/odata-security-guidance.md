@@ -8,12 +8,12 @@ ms.date: 02/06/2013
 ms.assetid: b91e6424-1544-4747-bd0b-d1f8418c9653
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-security-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: 2a5b776a81cb3e3cf809dd3c4229448988086a32
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 4ba53e15dab83368097a58ba4d0d2e46d113d1d2
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41823744"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325717"
 ---
 <a name="security-guidance-for-aspnet-web-api-2-odata"></a>Sicherheitsempfehlungen für ASP.NET Web-API 2 OData
 ====================
@@ -59,7 +59,7 @@ Wenn Sie wissen, dass alle Clients (z. B. in einer unternehmensumgebung) als ver
 - Deaktivieren Sie ggf. die Funktionen any() und all(), da diese langsam sein können. 
 
     [!code-csharp[Main](odata-security-guidance/samples/sample7.cs)]
-- Wenn alle Zeichenfolgeneigenschaften große Zeichenfolgen #8212for Beispiel produktbeschreibungen oder einen Blogeintrag &, #8212consider Deaktivieren der String-Funktionen enthalten. 
+- Wenn alle Zeichenfolgeneigenschaften große Zeichenfolgen enthalten&#8212;z. B. eine produktbeschreibung oder einem Blogeintrag&#8212;sollten Sie die Zeichenfolgenfunktionen deaktivieren. 
 
     [!code-csharp[Main](odata-security-guidance/samples/sample8.cs)]
 - Beachten Sie, untersagen von Filtern auf Navigationseigenschaften. Filterung für Navigationseigenschaften kann in einem Join führen, die je nach Schema Ihrer Datenbank langsam sein kann. Der folgende Code zeigt ein Abfrage-Validierungssteuerelement, das verhindert, dass für Navigationseigenschaften des filtern. Weitere Informationen zu Abfrage-Validierungssteuerelemente, finden Sie unter [Abfragevalidierung](supporting-odata-query-options.md#query-validation). 

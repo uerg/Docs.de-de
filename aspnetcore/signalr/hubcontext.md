@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/13/2018
 uid: signalr/hubcontext
-ms.openlocfilehash: 2d7d37b655bf7dbb71b321919314bbb8bef8db17
-ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
+ms.openlocfilehash: bb07a3b5c6e153092635fa4e1283619777865a53
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44339977"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325353"
 ---
 # <a name="send-messages-from-outside-a-hub"></a>Senden von Nachrichten von außerhalb eines Hubs
 
@@ -22,14 +22,14 @@ Der SignalR-Hub ist die Core-Abstraktion zum Senden von Nachrichten für Clients
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/hubcontext/sample/) [(Herunterladen von)](xref:tutorials/index#how-to-download-a-sample)
 
-## <a name="get-an-instance-of-ihubcontext"></a>Ruft eine Instanz von `IHubContext`
+## <a name="get-an-instance-of-ihubcontext"></a>Eine Instanz der IHubContext abrufen
 
 In ASP.NET Core SignalR und kann auf eine Instanz des `IHubContext` über Dependency Injection. Fügen Sie eine Instanz von `IHubContext` in einen Controller, Middleware oder andere DI-Dienst. Verwenden Sie die Instanz, um Nachrichten an Clients zu senden.
 
 > [!NOTE]
 > Dies unterscheidet sich von ASP.NET 4.x SignalR GlobalHost verwendet wird, Zugriff auf die `IHubContext`. ASP.NET Core verfügt über einen Dependency Injection-Framework, die die Notwendigkeit dieses globale Singleton entfernt.
 
-### <a name="inject-an-instance-of-ihubcontext-in-a-controller"></a>Eine Instanz von `IHubContext` in einem Controller
+### <a name="inject-an-instance-of-ihubcontext-in-a-controller"></a>Eine Instanz von IHubContext in einem controller
 
 Fügen Sie eine Instanz von `IHubContext` in einen Controller, indem sie Sie dem Konstruktor hinzufügen:
 
@@ -39,7 +39,7 @@ Dank des Zugriffs auf eine Instanz von `IHubContext`, Sie können die Hub-Method
 
 [!code-csharp[IHubContext](hubcontext/sample/Controllers/HomeController.cs?range=21-25)]
 
-### <a name="get-an-instance-of-ihubcontext-in-middleware"></a>Rufen Sie eine Instanz des `IHubContext` in-Middleware
+### <a name="get-an-instance-of-ihubcontext-in-middleware"></a>Rufen Sie eine Instanz des IHubContext in-middleware
 
 Zugriff die `IHubContext` innerhalb der middlewarepipeline wie folgt:
 
