@@ -8,12 +8,12 @@ ms.date: 03/02/2009
 ms.assetid: 21383c9d-6aea-4bad-a99b-b5f2c9d6503f
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/performing-simple-validation-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 14d7857c64268df3b998e05797f749f03509dd4b
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 8ee1d892cd58534c2b64455efed01aa8c2dfdcce
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41829220"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391177"
 ---
 <a name="performing-simple-validation-c"></a>Ausführen einer einfachen Überprüfung (c#)
 ====================
@@ -90,7 +90,7 @@ Es gibt drei Klassen cascading Stylesheet verwendet, um die Darstellung von Vali
 
 - Eingabe-Überprüfungsfehlern - angewendet wird, um die &lt;Eingabe&gt; Tag von Html.TextBox() Helper gerendert.
 - Feld-Überprüfungsfehlern - angewendet wird, um die &lt;umfassen&gt; Tag, die vom Hilfsprogramm Html.ValidationMessage() gerendert.
-- Summary-Validierungsfehler: angewendet wird, um die &lt;Ul&gt; Tag, die vom Hilfsprogramm Html.ValidationSumamry() gerendert.
+- Summary-Validierungsfehler: angewendet wird, um die &lt;Ul&gt; Tag, die vom Hilfsprogramm Html.ValidationSummary() gerendert.
 
 Sie können diese Klassen für cascading Stylesheet ändern und die Darstellung der Fehler bei der Validierung, daher durch Ändern der Datei "Site.CSS", die im Ordner "Content" ändern.
 

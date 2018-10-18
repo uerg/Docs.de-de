@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: ed562717-8591-4936-8e10-c7e63dcb570a
 msc.legacyurl: /signalr/overview/security/introduction-to-security
 msc.type: authoredcontent
-ms.openlocfilehash: 765abd36c5182f291499042e787bcb4fcc727997
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 6336d9608f41c367c46d5b9552141546bc782b7d
+ms.sourcegitcommit: 12a8bdb8e83ca9c23c06f3bc6507c9e1a60ea7e5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910853"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49401867"
 ---
 <a name="introduction-to-signalr-security"></a>Einführung in die Sicherheit von SignalR
 ====================
@@ -85,6 +85,14 @@ Für jede Anforderung überprüft der Server den Inhalt der Token, um sicherzust
 ![](introduction-to-security/_static/image4.png)
 
 Da die Verbindungs-Id Teil, bei der Überprüfung ist, sollten nicht Verbindungs-Id eines Benutzers, für andere Benutzer anzeigen oder den Wert auf dem Client, z. B. in einem Cookie gespeichert.
+
+#### <a name="connection-tokens-vs-other-token-types"></a>Verbindungs-Token im Vergleich zu anderen Typen von Sicherheitstoken
+
+Verbindung Token werden gelegentlich von Sicherheitstools gekennzeichnet, da sie anscheinend Sitzungstoken oder Ihrer Authentifizierungstoken, die ein Risiko birgt, wenn es sich bei verfügbar gemacht werden.
+
+Token für SignalR Verbindung kein Authentifizierungstoken. Es wird verwendet, um zu bestätigen, dass der Benutzer die Anforderung gesendet hat die gleiche, das die Verbindung erstellt haben. Das Verbindungstoken ist erforderlich, da ASP.NET SignalR-Verbindungen zwischen Servern verschieben zulässt. Das Token ordnet die Verbindung mit einem bestimmten Benutzer jedoch nicht die Identität des Benutzers an, der die Anforderung bestätigen. Eine SignalR-Anforderung ordnungsgemäß authentifiziert werden muss sie haben einige andere Token, das die Identität des Benutzers, z.B. ein Cookie bestätigt oder Bearer-Token. Aber die Verbindung token selbst wird kein Anspruch, der vom Benutzer angefordert wurde, das die Verbindungs-ID im Token enthalten, nur diesem Benutzer zugeordnet ist.
+
+Da das Verbindungstoken keine eigene authentifizierungsanspruch bereitstellt, ist nicht davon ausgegangen, eine "Sitzung" oder "Authentication" token. Nehmen Verbindung eines bestimmten Benutzers token, und es in einer Anforderung als ein anderer Benutzer authentifiziert (oder eine nicht authentifizierte Anforderung) wiedergeben schlägt fehl, da die Identität des Benutzers der Anforderung und die Identität in das Token stimmt jedoch nicht überein.
 
 <a id="rejoingroup"></a>
 

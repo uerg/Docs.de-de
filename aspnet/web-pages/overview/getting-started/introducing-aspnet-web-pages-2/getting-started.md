@@ -1,6 +1,6 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/getting-started
-title: Einführung in ASP.NET Web Pages - erste Schritte | Microsoft-Dokumentation
+title: Erste Schritte | Microsoft-Dokumentation
 author: tfitzmac
 description: WebMatrix wird nicht mehr als eine integrierte Entwicklungsumgebung für ASP.NET Web Pages empfohlen. Verwenden Sie Visual Studio oder Visual Studio-Code. Diese Anleitung ein...
 ms.author: riande
@@ -8,14 +8,14 @@ ms.date: 05/28/2015
 ms.assetid: a36d3bdf-ef1b-47a4-b932-3a0cf4cad716
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 12878082306cf51f8ea08ae614d9420251ecb587
-ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
+ms.openlocfilehash: 467239fdd2758240e589f4e1bfb40501502b83cf
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46482956"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391270"
 ---
-<a name="introducing-aspnet-web-pages---getting-started"></a>Einführung in ASP.NET Web Pages - erste Schritte
+<a name="getting-started"></a>Erste Schritte
 ====================
 durch [Tom FitzMacken](https://github.com/tfitzmac)
 

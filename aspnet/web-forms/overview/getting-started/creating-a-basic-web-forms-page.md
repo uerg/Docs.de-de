@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/getting-started/creating-a-basic-web-forms-page
-title: Erstellen einer einfachen ASP.NET 4.5 Web Forms-Seite in Visual Studio 2013 | Microsoft-Dokumentation
+title: Mithilfe von Visual Studio 2013 zum Erstellen einer einfachen ASP.NET 4.5 Web Forms-Seite
 author: Erikre
 description: ''
 ms.author: riande
@@ -8,16 +8,16 @@ ms.date: 03/03/2014
 ms.assetid: a2f1c635-0817-4a9a-8c13-d5b5d29727c0
 msc.legacyurl: /web-forms/overview/getting-started/creating-a-basic-web-forms-page
 msc.type: authoredcontent
-ms.openlocfilehash: fda6922c0703ca442d4f1ebc5b39dabeb5ee58cd
-ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
+ms.openlocfilehash: eb1a4632caf00097012bd1757da44016a076630f
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46483021"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391283"
 ---
-<a name="creating-a-basic-aspnet-45-web-forms-page-in-visual-studio-2013"></a>Erstellen einer einfachen ASP.NET Forms 4.5-Web-Seite in Visual Studio 2013
-====================
-durch [Erik Reitan](https://github.com/Erikre)
+# <a name="using-visual-studio-2013-to-create-a-basic-aspnet-45-web-forms-page"></a>Mithilfe von Visual Studio 2013 zum Erstellen einer einfachen ASP.NET 4.5 Web Forms-Seite
+
+==== von [Erik Reitan](https://github.com/Erikre)
 
 [!INCLUDE[](~/includes/rp.md)]
 
@@ -32,8 +32,7 @@ In dieser exemplarischen Vorgehensweise werden u. a. folgende Aufgaben veranscha
 - Hinzufügen von Ereignishandlern.
 - Ausführen, und testen eine Seite aus Visual Studio.
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
-
+## <a name="prerequisites"></a>Vorraussetzungen
 
 Für die Durchführung dieser exemplarischen Vorgehensweise benötigen Sie Folgendes:
 

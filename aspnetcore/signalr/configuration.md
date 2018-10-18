@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/06/2018
 uid: signalr/configuration
-ms.openlocfilehash: 72fc53cad7caf55e85d0668c9dbea1a70fc8674b
-ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
+ms.openlocfilehash: 855446003ae9d994854d4d8bb7d0f542a22734e4
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46292335"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391101"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>ASP.NET Core SignalR-Konfiguration
 
@@ -120,7 +120,7 @@ Clientoptionen können konfiguriert werden, auf die `HubConnectionBuilder` Typ (
 
 ### <a name="configure-logging"></a>Konfigurieren der Protokollierung
 
-Protokollierung wurde so konfiguriert, der .NET Client die `ConfigureLogging` Methode. Protokollierung von Anbietern und Filter kann auf die gleiche Weise registriert werden, wie sie auf dem Server sind. Finden Sie unter den [Protokollierung in ASP.NET Core](xref:fundamentals/logging/index#how-to-add-providers) Dokumentation zu informieren.
+Protokollierung wurde so konfiguriert, der .NET Client die `ConfigureLogging` Methode. Protokollierung von Anbietern und Filter kann auf die gleiche Weise registriert werden, wie sie auf dem Server sind. Finden Sie unter den [Protokollierung in ASP.NET Core](xref:fundamentals/logging/index) Dokumentation zu informieren.
 
 > [!NOTE]
 > Um Anbieter für die Protokollierung zu registrieren, müssen Sie die erforderlichen Pakete installieren. Finden Sie unter den [integrierte Protokollierungsanbieter](xref:fundamentals/logging/index#built-in-logging-providers) Abschnitt der Dokumentation für eine vollständige Liste.
