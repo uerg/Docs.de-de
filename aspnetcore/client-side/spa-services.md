@@ -17,7 +17,7 @@ ms.locfileid: "46523297"
 
 Durch [Scott Addie](https://github.com/scottaddie) und [Fiyaz Hasan](http://fiyazhasan.me/)
 
-Eine Single-Page-Anwendung (SPA) ist ein Webanwendungstyp, der aufgrund seiner hohen Servicequalität und Leistungsstärke sehr beliebt ist. Die Integration clientseitiger SPA-Frameworks oder -Bibliotheken wie [Angular](https://angular.io/) oder [React](https://facebook.github.io/react/) mit serverseitigen Frameworks wie ASP.NET Core schwierig sein kann. [JavaScriptServices](https://github.com/aspnet/JavaScriptServices) wurde entwickelt, um Inkonsistenzen im Integrationsprozess zu reduzieren. Hierdurch wird ein reibungsloser Betrieb verschiedener Client- und Servertechnologiestapel möglich.
+Eine Single-Page-Anwendung (SPA) ist ein Webanwendungstyp, der aufgrund seiner hohen Servicequalität und Leistungsstärke sehr beliebt ist. Die Integration clientseitiger SPA-Frameworks oder -Bibliotheken wie [Angular](https://angular.io/) oder [React](https://facebook.github.io/react/) mit serverseitigen Frameworks wie ASP.NET Core kann schwierig sein. [JavaScriptServices](https://github.com/aspnet/JavaScriptServices) wurde entwickelt, um Inkonsistenzen im Integrationsprozess zu reduzieren. Hierdurch wird ein reibungsloser Betrieb verschiedener Client- und Servertechnologiestapel möglich.
 
 <a name="what-is-js-services"></a>
 
@@ -33,17 +33,17 @@ JavaScriptServices besteht aus drei unterschiedlichen NuGet-Pakete:
 
 Diese Pakete sind nützlich, wenn Sie:
 
-* JavaScript auf dem Server ausgeführt.
-* Verwenden Sie eine SPA-Framework oder der Bibliothek
-* Erstellen Sie eine clientseitige-Assets mit Webpack
+* JavaScript auf dem Server ausführen.
+* Ein SPA-Framework oder eine Bibliothek verwenden möchten
+* Clientseitige Assets mit Webpack erstellen wollen
 
-Den Schwerpunkt in diesem Artikel befindet sich auf die mithilfe des SpaServices-Pakets.
+Der Schwerpunkt dieses Artikels liegt auf der Zuhilfenahme des SpaServices-Pakets.
 
 <a name="what-is-spa-services"></a>
 
 ## <a name="what-is-spaservices"></a>Was ist SpaServices
 
-SpaServices wurde erstellt, um ASP.NET Core als Entwickler bevorzugte serverseitige Plattform zum Erstellen von SPAs zu positionieren. SpaServices ist nicht erforderlich, um der SPAs mit ASP.NET Core zu entwickeln, und es nicht in einem bestimmten Clientframework gesperrt.
+SpaServices wurde erstellt, damit Entwickler ASP.NET Core bevorzugt als serverseitige Plattform zum Erstellen von SPAs zu verwenden. SpaServices ist nicht erforderlich, um SPAs mit ASP.NET Core zu entwickeln, und ist nicht an ein bestimmtes Clientframework gebunden.
 
 SpaServices bietet nützliche Infrastruktur wie z.B.:
 
@@ -52,26 +52,26 @@ SpaServices bietet nützliche Infrastruktur wie z.B.:
 * [Der Austausch eines "Hot"](#hot-module-replacement)
 * [Routing-Hilfsprogramme](#routing-helpers)
 
-Erweitern diese Infrastrukturkomponenten zusammen, sowohl für den Entwicklungsworkflow als auch für die Common Language Runtime-Umgebung. Die Komponenten können einzeln übernommen werden.
+Diese Infrastrukturkomponenten beschleunigen sowohl den Entwicklungsworkflow als auch die Zusammenarbeit mit der Common Language Runtime-Umgebung. Die Komponenten können einzeln verwendet werden.
 
 <a name="spa-services-prereqs"></a>
 
 ## <a name="prerequisites-for-using-spaservices"></a>Voraussetzungen für die Verwendung von SpaServices
 
-Zum Arbeiten mit SpaServices installieren Sie die folgenden Schritte aus:
+Führen Sie die folgenden Schritte aus, um mit SpaServices zu arbeiten:
 
 * [Node.js](https://nodejs.org/) (Version 6 oder höher) mit Npm
-  * Um diese Komponenten werden installiert, und finden Sie zu überprüfen, führen Sie Folgendes über die Befehlszeile ein:
+  * Führen Sie den folgenden Befehl über die Befehlszeile aus, um zu überprüfen, ob diese Komponenten installiert sind und gefunden werden können.
 
     ```console
     node -v && npm -v
     ```
 
-Hinweis: Wenn Sie in einer Azure-Website bereitstellen möchten, Sie müssen hier nichts &mdash; Node.js installiert ist und in der Server-Umgebung verfügbar.
+Hinweis: Wenn Sie eine Bereitstellung auf eine Azure-Website vornehmen möchten, müssen Sie hier nichts weiter tun, denn Node.js ist in den Serverumgebungen installiert und verfügbar.
 
 * [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
 
-  * Wenn Sie Windows mit Visual Studio 2017 verwenden, wird das SDK installiert, durch Auswählen der **plattformübergreifende Entwicklung mit .NET Core** arbeitsauslastung.
+  * Wenn Sie Windows mit Visual Studio 2017 verwenden, wird das SDK durch Auswählen der Option **plattformübergreifende Entwicklung mit .NET Core** installiert.
 
 * [Microsoft.AspNetCore.SpaServices](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) NuGet-Paket
 
@@ -79,11 +79,11 @@ Hinweis: Wenn Sie in einer Azure-Website bereitstellen möchten, Sie müssen hie
 
 ## <a name="server-side-prerendering"></a>Serverseitige prerendering
 
-Eine universelle (auch bekannt als isomorph)-Anwendung ist eine JavaScript-Anwendung ausgeführt, die auf dem Server und der Client sowohl werden kann. Bieten eine universelle Plattform für diese Anwendung Entwicklungsstil, Angular, React und anderen beliebten Frameworks. Die Idee ist zunächst Rendern die Framework-Komponenten auf dem Server über Node.js, und klicken Sie dann weitere Ausführung an den Client zu delegieren.
+Eine universelle Anwendung (auch bekannt als isomorphe Anwendung) ist eine JavaScript-Anwendung, die sowohl auf dem Server als auch auf dem Client ausgeführt werden kann. Angular, React und andere beliebte Frameworks bieten eine universelle Plattform für diesen Anwendungsentwicklungsstil. Die Idee dahinter ist, zunächst die Framework-Komponenten über Node.js auf dem Server zu rendern und dann weitere Ausführungen an den Client zu delegieren.
 
-ASP.NET Core [Taghilfsprogramme](xref:mvc/views/tag-helpers/intro) gebotenen SpaServices vereinfachen die Implementierung von serverseitigen Prerendering durch Aufrufen der JavaScript-Funktionen auf dem Server.
+ASP.NET Core-[Taghilfsprogramme](xref:mvc/views/tag-helpers/intro), bereitgestellt durch SpaServices, vereinfachen die Implementierung von serverseitigem Prerendering durch Bereitstellen und Aufrufen der JavaScript-Funktionen auf dem Server.
 
-### <a name="prerequisites"></a>Erforderliche Komponenten
+### <a name="prerequisites"></a>Vorraussetzungen
 
 Installieren Sie Folgendes:
 
@@ -95,11 +95,11 @@ Installieren Sie Folgendes:
 
 ### <a name="configuration"></a>Konfiguration
 
-Die Taghilfsprogramme sind des Projekts über die Namespace-Registrierung erkennbar gemacht *_ViewImports.cshtml* Datei:
+Die Taghilfsprogramme werden im Projekt über die Namespace-Registrierung in der *_ViewImports.cshtml*-Datei erkennbar gemacht:
 
 [!code-cshtml[](../client-side/spa-services/sample/SpaServicesSampleApp/Views/_ViewImports.cshtml?highlight=3)]
 
-Diese Taghilfsprogramme abstrahieren die feinheiten der direkten Kommunikation mit Low-Level-APIs durch die Nutzung einer HTML-ähnliche Syntax in der Razor-Ansicht:
+Diese Taghilfsprogramme abstrahieren die Feinheiten der direkten Kommunikation mit Low-Level-APIs durch die Nutzung einer HTML-ähnlichen Syntax in der Razor-Ansicht:
 
 [!code-cshtml[](../client-side/spa-services/sample/SpaServicesSampleApp/Views/Home/Index.cshtml?range=5)]
 
@@ -143,7 +143,7 @@ Die `postList` Array definiert, die innerhalb der `globals` Objekt angefügt ist
 "build": "npm run build:vendor && npm run build:custom",
 ```
 
-### <a name="prerequisites"></a>Erforderliche Komponenten
+### <a name="prerequisites"></a>Vorraussetzungen
 
 Installieren Sie Folgendes:
 
@@ -171,7 +171,7 @@ Die *webpack.config.js* dateimodell `output.publicPath` Eigenschaft gibt die Mid
 
 Stellen Sie sich den Webpack ["Hot" Austausch eines Controllermoduls](https://webpack.js.org/concepts/hot-module-replacement/) (HMR)-Funktion als Weiterentwicklung von [Webpack-Dev-Middleware](#webpack-dev-middleware). HMR führt die gleichen Vorteile, aber es weiter den Entwicklungsworkflow optimiert, indem die automatische Aktualisierung der Seiteninhalt nach dem Kompilieren der Änderungen. Verwechseln Sie dies nicht mit einer Aktualisierung des Browsers, die den aktuellen in-Memory-Status und die Debugsitzung der SPA beeinträchtigen würde. Es ist ein live-Link zwischen den Webpack-Dev-Middleware-Dienst und dem Browser, was bedeutet, dass Änderungen an den Browser mithilfe von Push übertragen werden.
 
-### <a name="prerequisites"></a>Erforderliche Komponenten
+### <a name="prerequisites"></a>Vorraussetzungen
 
 Installieren Sie Folgendes:
 
@@ -209,7 +209,7 @@ In den meisten ASP.NET Core-basierte SPAs werden sollten Sie die clientseitige r
 
 Betrachten Sie das Szenario, in dem eine Route ohne Erweiterung `/some/page` verwendet wird. Angenommen Sie, die Anforderung nicht-Musterübereinstimmung eine serverseitige Weg, Verwendungsmuster stimmt jedoch mit einer Client-Side-Route. Betrachten Sie nun eine eingehende Anforderung für `/images/user-512.png`, die in der Regel davon ausgeht, eine Bilddatei auf dem Server. Wenn dieser Pfad für die angeforderte Ressource keine serverseitigen Route oder eine statische Datei entspricht, ist es unwahrscheinlich, die die clientseitige Anwendung verarbeitet werden sollen, in der Regel eine HTTP-Statuscode 404 zurückgegeben werden soll.
 
-### <a name="prerequisites"></a>Erforderliche Komponenten
+### <a name="prerequisites"></a>Vorraussetzungen
 
 Installieren Sie Folgendes:
 
@@ -243,9 +243,9 @@ Eine Liste der verfügbaren SPA-Vorlagen wird angezeigt:
 
 | Vorlagen                                 | Kurzname | Sprache | Tags        |
 |:------------------------------------------|:-----------|:---------|:------------|
-| MVC, ASP.NET Core mit Angular             | angular    | [C#]     | MVC/Web/SPA |
-| MVC, ASP.NET Core mit React.js            | react      | [C#]     | MVC/Web/SPA |
-| MVC, ASP.NET Core mit React.js und Redux  | reactredux | [C#]     | MVC/Web/SPA |
+| MVC, ASP.NET Core mit Angular             | angular    | [C#]     | Web/MVC/SPA |
+| MVC, ASP.NET Core mit React.js            | react      | [C#]     | Web/MVC/SPA |
+| MVC, ASP.NET Core mit React.js und Redux  | reactredux | [C#]     | Web/MVC/SPA |
 
 Zum Erstellen eines neuen Projekts mithilfe einer der SPA-Vorlagen enthalten die **Kurznamen** der Vorlage in der [Dotnet neue](/dotnet/core/tools/dotnet-new) Befehl. Der folgende Befehl erstellt eine Angular-Anwendung mit ASP.NET Core MVC, die für die Serverseite konfiguriert:
 
