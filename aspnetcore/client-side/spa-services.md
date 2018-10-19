@@ -1,4 +1,4 @@
----
+﻿---
 title: Verwenden von JavaScriptServices zum Erstellen von einseitigen Anwendungen in ASP.NET Core
 author: scottaddie
 description: Informationen Sie zu den Vorteilen der Verwendung von JavaScriptServices zum Erstellen einer Single-Page Anwendung (SPA) von ASP.NET Core unterstützt wird.
@@ -105,31 +105,31 @@ Diese Taghilfsprogramme abstrahieren die Feinheiten der direkten Kommunikation m
 
 ### <a name="the-asp-prerender-module-tag-helper"></a>Die `asp-prerender-module` Taghilfsprogramm
 
-Die `asp-prerender-module` Taghilfsprogramm, in dem vorherigen Beispiel, verwendet führt *ClientApp/dist/main-server.js* auf dem Server über Node.js. Für die der Verständlichkeit *Main-Datei "Server.js"* Datei ist ein Artefakt der Aufgabe in TypeScript und JavaScript-transpilation ziehen die [Webpack](http://webpack.github.io/) Buildprozess. Webpack definiert einen Eintrag-Punkt-Alias für `main-server`; und das Abhängigkeitsdiagramm für diesen Alias Durchlauf beginnt bei der *ClientApp/Boot-server.ts* Datei:
+Das`asp-prerender-module`-Taghilfsprogramm aus dem vorherigen Beispiel führt *ClientApp/dist/main-server.js* auf dem Server über Node.js aus. Für die Verständlichkeit: Die *main-server.js*-Datei ist ein Artefakt der TypeScript-zu-JavaScript-Transpilation aus dem [Webpack](http://webpack.github.io/)-Buildprozess. Webpack definiert einen Einstiegspunktalias für `main-server`, dessen Abhängigkeitsdiagramm und Durchlauf bei der *ClientApp/boot-server.ts*-Datei beginnt:
 
 [!code-javascript[](../client-side/spa-services/sample/SpaServicesSampleApp/webpack.config.js?range=53)]
 
-Im folgenden Beispiel Angular die *ClientApp/Boot-server.ts* Datei nutzt die `createServerRenderer` Funktion und `RenderResult` Typ der `aspnet-prerendering` Npm-Paket so konfigurieren Sie Server-Rendering über Node.js. Das HTML-Markup, das bestimmt, für serverseitiges Rendering auf ein Funktionsaufruf auflösen übergeben wird, die von einer stark typisierten JavaScript umgeben sind `Promise` Objekt. Die `Promise` des Objekts "significance" ist, dass sie asynchron die HTML-Markup auf der Seite zur Injektion in das DOM Platzhalterelement bereitstellt.
+Im folgenden Angular-Beispiel nutzt die *ClientApp/boot-server.ts*-Datei die `createServerRenderer`-Funktion und den `RenderResult`-Typ des `aspnet-prerendering`-Npm-Pakets, um das Serverrendering über Node.js zu konfigurieren. Das für das Server-Prerendering bestimmte HTML-Markup wird an eine Auflösungsfunktion übergeben. die von einem stark typisierten `Promise`-Objekt von JavaScript umgeben ist. Die Wichtigkeit des `Promise`-Objekts liegt darin, dass es asynchron HTML-Markup zur Injektion auf der Seite in das DOM-Platzhalterelement bereitstellt.
 
 [!code-typescript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/boot-server.ts?range=6,10-34,79-)]
 
 ### <a name="the-asp-prerender-data-tag-helper"></a>Die `asp-prerender-data` Taghilfsprogramm
 
-In Kombination mit der `asp-prerender-module` Taghilfsprogramm, das `asp-prerender-data` Taghilfsprogramm kann verwendet werden, um die Kontextinformationen für das serverseitige JavaScript von der Razor-Ansicht zu übergeben. Das folgende Markup übergibt beispielsweise Benutzerdaten der `main-server` Modul:
+In Kombination mit dem `asp-prerender-module`-Taghilfsprogramm kann das `asp-prerender-data`-Taghilfsprogramm dazu verwendet werden, um die Kontextinformationen an das serverseitige JavaScript von der Razor-Ansicht zu übergeben. Das folgende Markup übergibt beispielsweise Benutzerdaten an das `main-server`-Modul:
 
 [!code-cshtml[](../client-side/spa-services/sample/SpaServicesSampleApp/Views/Home/Index.cshtml?range=9-12)]
 
-Die empfangenen Daten `UserName` Argument wird mit der integrierten JSON-Serialisierungsprogramm serialisiert und befindet sich in der `params.data` Objekt. Im folgenden Beispiel Angular-die Daten werden verwendet, um persönlich begrüßt im Erstellen einer `h1` Element:
+Das empfangene `UserName`-Argument wird mit dem integrierten JSON-Serialisierungsprogramm serialisiert und befindet sich im `params.data`-Objekt. Im folgenden Angular-Beispiel werden diese Daten verwendet, um eine persönliche Begrüßung mittels eines `h1`-Elementes zu erstellen:
 
 [!code-typescript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/boot-server.ts?range=6,10-21,38-52,79-)]
 
-Hinweis: Taghilfsprogramme übergebene Eigenschaftennamen mit dargestellt **PascalCase** Notation. Im Gegensatz dazu stehen für JavaScript ist, in denen die gleichen Eigenschaftennamen mit dargestellt **CamelCase**. Die Standardkonfiguration für JSON-Serialisierung ist verantwortlich für diesen Unterschied.
+Hinweis: An Taghilfsprogramme übergebene Eigenschaftennamen werden mit der **PascalCase**-Notation dargestellt. Im Gegensatz dazu stehen die gleichen Eigenschaftennamen, die im Javascript mit **CamelCase** dargestellt sind. Die Standardkonfiguration der JSON-Serialisierung ist für diesen Unterschied verantwortlich.
 
-Zum Erweitern auf das vorherige Codebeispiel Daten können werden vom Server an die Ansicht übergeben von hydrating der `globals` Eigenschaft bereitgestellt, um die `resolve` Funktion:
+Aufbauend auf das vorherige Codebeispiel, können Daten vom Server an die Ansicht per Hydration der `globals`-Eigenschaft bereitgestellt werden, um diese an die `resolve`-Funktion weiterzureichen:
 
 [!code-typescript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/boot-server.ts?range=6,10-21,57-77,79-)]
 
-Die `postList` Array definiert, die innerhalb der `globals` Objekt angefügt ist im Browsers auf die globale `window` Objekt. Diese Variable anheben globalen Bereich entfällt die Duplizierung von Aufwand, vor allem mit Bezug auf die gleichen Daten einmal auf dem Server und erneut auf dem Client werden geladen.
+Das im `globals`-Objekt definierte `postList`-Array wird an das globale `window`-Javascript-Objekt gebunden. Das Hoisting dieser Variablen in den globalen Bereich führt zur Deduplizierung von Aufwand, vor allem mit Bezug des Ladevorgangs der Daten einmal auf dem Server und erneut auf dem Client.
 
 ![Globale postList Variable Window-Objekt angefügt](spa-services/_static/global_variable.png)
 
@@ -137,7 +137,7 @@ Die `postList` Array definiert, die innerhalb der `globals` Objekt angefügt ist
 
 ## <a name="webpack-dev-middleware"></a>Webpack-Dev-Middleware
 
-[Webpack-Dev-Middleware](https://webpack.github.io/docs/webpack-dev-middleware.html) bietet einen optimierte Entwicklung-Workflow, bei dem Webpack Ressourcen bei Bedarf erstellt. Die Middleware automatisch kompiliert und clientseitige Ressourcen dient, wenn eine Seite im Browser geladen wird. Der alternative Ansatz ist Webpack über Npm-Buildskript des Projekts manuell aufrufen, wenn eine Drittanbieter Abhängigkeit oder den benutzerdefinierten Code geändert wird. Ein Npm-Buildskript die *"Package.JSON"* Datei ist im folgenden Beispiel dargestellt:
+[Webpack-Dev-Middleware](https://webpack.github.io/docs/webpack-dev-middleware.html) bietet einen optimierten Entwicklungsworkflow, bei dem Webpack die Ressourcen bei Bedarf erstellt. Die Middleware kompiliert und stellt clientseitig benötigte Ressourcen automatisch bereit, wenn eine Seite im Browser geladen wird. Der alternative Ansatz ist Webpack über das Npm-Buildskript des Projektes manuell aufzurufen, wenn eine Drittanbieterabhängigkeit oder der benutzerdefinierte Code geändert wird. Ein Npm-Buildskript aus der *"Package.JSON"*-Datei ist im folgenden Beispiel dargestellt:
 
 ```json
 "build": "npm run build:vendor && npm run build:custom",
@@ -155,21 +155,21 @@ Installieren Sie Folgendes:
 
 ### <a name="configuration"></a>Konfiguration
 
-Webpack-Dev-Middleware wird registriert, in die HTTP-Anforderungspipeline über den folgenden Code in die *"Startup.cs"* dateimodell `Configure` Methode:
+Die Webpack-Dev-Middleware wird registriert und in die HTTP-Aufrufpipeline über den folgenden Code in der `Configure`-Methode der *"Startup.cs"*-Datei implementiert:
 
 [!code-csharp[](../client-side/spa-services/sample/SpaServicesSampleApp/Startup.cs?name=webpack-middleware-registration&highlight=4)]
 
-Die `UseWebpackDevMiddleware` Erweiterungsmethode aufgerufen werden muss, bevor [registrieren, statische Datei hosting](xref:fundamentals/static-files) über die `UseStaticFiles` -Erweiterungsmethode. Registrieren Sie die Middleware aus Sicherheitsgründen nur, wenn die app im Entwicklungsmodus ausgeführt wird.
+Die `UseWebpackDevMiddleware`-Erweiterungsmethode muss über die `UseStaticFiles`-Erweiterungsmethode vor dem [Registrieren des Hostings statischer Dateien](xref:fundamentals/static-files) aufgerufen werden. Registrieren Sie die Middleware aus Sicherheitsgründen nur, wenn die App im Entwicklungsmodus ausgeführt wird.
 
-Die *webpack.config.js* dateimodell `output.publicPath` Eigenschaft gibt die Middleware, sehen Sie sich die `dist` Ordner auf Änderungen:
+Die `output.publicPath`-Eigenschaft der *webpack.config.js*-Datei schreibt der Middleware vor, das `dist`-Verzeichnis auf Änderungen zu überwachen:
 
 [!code-javascript[](../client-side/spa-services/sample/SpaServicesSampleApp/webpack.config.js?range=6,13-16)]
 
 <a name="hot-module-replacement"></a>
 
-## <a name="hot-module-replacement"></a>Der Austausch eines "Hot"
+## <a name="hot-module-replacement"></a>Hot Module Replacement
 
-Stellen Sie sich den Webpack ["Hot" Austausch eines Controllermoduls](https://webpack.js.org/concepts/hot-module-replacement/) (HMR)-Funktion als Weiterentwicklung von [Webpack-Dev-Middleware](#webpack-dev-middleware). HMR führt die gleichen Vorteile, aber es weiter den Entwicklungsworkflow optimiert, indem die automatische Aktualisierung der Seiteninhalt nach dem Kompilieren der Änderungen. Verwechseln Sie dies nicht mit einer Aktualisierung des Browsers, die den aktuellen in-Memory-Status und die Debugsitzung der SPA beeinträchtigen würde. Es ist ein live-Link zwischen den Webpack-Dev-Middleware-Dienst und dem Browser, was bedeutet, dass Änderungen an den Browser mithilfe von Push übertragen werden.
+Stellen Sie sich das Feature [Hot Module Replacement](https://webpack.js.org/concepts/hot-module-replacement/) (HMR) von Webpack als Weiterentwicklung von [Webpack Dev Middleware](#webpack-dev-middleware) vor. HMR verfügt über die gleichen Vorteile, optimiert den Entwicklungsworkflow allerdings noch weiter, indem die automatische Aktualisierung der Seiteninhalte nach dem Kompilieren der Änderungen erfolgt. Verwechseln Sie dies nicht mit einer Aktualisierung des Browsers, die den aktuellen In-Memory-Status und die Debugsitzung der SPA beeinträchtigen würde. Es gibt einen Live-Link zwischen dem Webpack Dev Middleware-Dienst und dem Browser, was bedeutet, dass Änderungen an den Browser mithilfe von Push übertragen werden.
 
 ### <a name="prerequisites"></a>Vorraussetzungen
 
@@ -183,7 +183,7 @@ Installieren Sie Folgendes:
 
 ### <a name="configuration"></a>Konfiguration
 
-Die Komponente HMR muss registriert werden, in MVC HTTP-Anforderungspipeline in die `Configure` Methode:
+Die Komponente HMR muss in der MVC-HTTP-Aufrufpipeline in der `Configure`-Methode registriert werden:
 
 ```csharp
 app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions {
@@ -191,13 +191,13 @@ app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions {
 });
 ```
 
-Wie wurde mit "true" [Webpack-Dev-Middleware](#webpack-dev-middleware), `UseWebpackDevMiddleware` Erweiterungsmethode aufgerufen werden muss, bevor die `UseStaticFiles` -Erweiterungsmethode. Registrieren Sie die Middleware aus Sicherheitsgründen nur, wenn die app im Entwicklungsmodus ausgeführt wird.
+Genau wie bei [Webpack Dev Middleware](#webpack-dev-middleware) muss die `UseWebpackDevMiddleware`-Erweiterungsmethode vor der `UseStaticFiles`-Erweiterungsmethode aufgerufen werden. Registrieren Sie die Middleware aus Sicherheitsgründen nur, wenn die App im Entwicklungsmodus ausgeführt wird.
 
-Die *webpack.config.js* Datei definieren, muss ein `plugins` array, auch wenn es leer gelassen wird:
+Die *webpack.config.js*-Datei muss ein `plugins`-Array definieren, auch wenn es leer gelassen wird:
 
 [!code-javascript[](../client-side/spa-services/sample/SpaServicesSampleApp/webpack.config.js?range=6,25)]
 
-Nach dem Laden der app im Browser, bietet die Registerkarte für die Entwicklertools-Konsole zur Bestätigung der HMR Aktivierung:
+Nach dem Laden der App im Browser zeigt die Registerkarte für die Konsole der Entwicklertools im Browser die Bestätigung der HMR-Aktivierung an:
 
 !["Hot" verbundene Austausch eines Controllermoduls-Nachricht](spa-services/_static/hmr_connected.png)
 
@@ -205,15 +205,15 @@ Nach dem Laden der app im Browser, bietet die Registerkarte für die Entwicklert
 
 ## <a name="routing-helpers"></a>Routing-Hilfsprogramme
 
-In den meisten ASP.NET Core-basierte SPAs werden sollten Sie die clientseitige routing neben dem routing von serverseitigen. Die SPA und MVC-routing-Systeme können ohne Störung unabhängig voneinander arbeiten. Vorhanden ist, jedoch einen Edge Groß-/Kleinschreibung machen Herausforderungen: Identifizieren von 404-HTTP-Antworten.
+In den meisten ASP.NET Core-basierten SPAs möchten Sie clientseitiges Routing zusätzlich zum serverseitigen Routing verwenden. Die SPA- und MVC-Routingsysteme können ohne Störung unabhängig voneinander arbeiten. Es gibt jedoch einen Grenzfall, bei dem die Groß-/Kleinschreibung zur Herausforderung wird, und zwar beim Identifizieren von 404-HTTP-Antworten.
 
-Betrachten Sie das Szenario, in dem eine Route ohne Erweiterung `/some/page` verwendet wird. Angenommen Sie, die Anforderung nicht-Musterübereinstimmung eine serverseitige Weg, Verwendungsmuster stimmt jedoch mit einer Client-Side-Route. Betrachten Sie nun eine eingehende Anforderung für `/images/user-512.png`, die in der Regel davon ausgeht, eine Bilddatei auf dem Server. Wenn dieser Pfad für die angeforderte Ressource keine serverseitigen Route oder eine statische Datei entspricht, ist es unwahrscheinlich, die die clientseitige Anwendung verarbeitet werden sollen, in der Regel eine HTTP-Statuscode 404 zurückgegeben werden soll.
+Betrachten Sie das Szenario, in dem eine Route ohne Erweiterung, `/some/page`, verwendet wird. Angenommen, die Anforderung stimmt nicht mit dem Muster eines serverseitigen Pfades überein, jedoch mit einer clientseitigen Route. Betrachten Sie nun eine eingehende Anforderung für `/images/user-512.png`, die in der Regel davon ausgeht, eine Bilddatei auf dem Server zu finden. Wenn dieser Pfad für die angeforderte Ressource keiner serverseitigen Route oder statischen Datei entspricht, ist es unwahrscheinlich, dass die Route durch die clientseitige Anwendung verarbeitet werden soll. In der Regel soll ein HTTP-Statuscode 404 zurückgegeben werden.
 
 ### <a name="prerequisites"></a>Vorraussetzungen
 
 Installieren Sie Folgendes:
 
-* Das routing Npm-Paket für die clientseitige. Verwenden von Angular als Beispiel:
+* Das npm-Paket für das clientseitige Routing. Verwenden Sie Angular als Beispiel:
 
     ```console
     npm i -S @angular/router
@@ -221,11 +221,11 @@ Installieren Sie Folgendes:
 
 ### <a name="configuration"></a>Konfiguration
 
-Eine Erweiterungsmethode namens `MapSpaFallbackRoute` werden in der `Configure` Methode:
+Eine Erweiterungsmethode namens `MapSpaFallbackRoute` wird in der `Configure`-Methode verwendet:
 
 [!code-csharp[](../client-side/spa-services/sample/SpaServicesSampleApp/Startup.cs?name=mvc-routing-table&highlight=7-9)]
 
-Tipp: Routen werden in der Reihenfolge ausgewertet, in denen sie konfiguriert sind. Daher die `default` Route im obigen Codebeispiel wird zuerst für den Musterabgleich verwendet wird.
+Tipp: Routen werden in der Reihenfolge ausgewertet, in denen sie konfiguriert sind. Daher wird die `default`-Route im obigen Codebeispiel zuerst für den Musterabgleich verwendet.
 
 <a name="new-project-creation"></a>
 
@@ -233,7 +233,7 @@ Tipp: Routen werden in der Reihenfolge ausgewertet, in denen sie konfiguriert si
 
 JavaScriptServices bietet vorkonfigurierte Anwendungsvorlagen an. SpaServices wird in dieser Vorlagen in Verbindung mit verschiedenen Frameworks und Bibliotheken wie Angular und React mit Redux verwendet.
 
-Diese Vorlagen können über die .NET Core-CLI installiert werden, mithilfe des folgenden Befehls:
+Diese Vorlagen können über die .NET Core-CLI mithilfe des folgenden Befehls installiert werden:
 
 ```console
 dotnet new --install Microsoft.AspNetCore.SpaTemplates::*
@@ -247,7 +247,7 @@ Eine Liste der verfügbaren SPA-Vorlagen wird angezeigt:
 | MVC, ASP.NET Core mit React.js            | react      | [C#]     | Web/MVC/SPA |
 | MVC, ASP.NET Core mit React.js und Redux  | reactredux | [C#]     | Web/MVC/SPA |
 
-Zum Erstellen eines neuen Projekts mithilfe einer der SPA-Vorlagen enthalten die **Kurznamen** der Vorlage in der [Dotnet neue](/dotnet/core/tools/dotnet-new) Befehl. Der folgende Befehl erstellt eine Angular-Anwendung mit ASP.NET Core MVC, die für die Serverseite konfiguriert:
+Schließen Sie zum Erstellen eines neuen Projekts mithilfe einer der SPA-Vorlagen den **Kurznamen** der Vorlage in den Befehl [dotnet new](/dotnet/core/tools/dotnet-new) ein. Der folgende Befehl erstellt eine Angular-Anwendung mit ASP.NET Core MVC, die für die serverseitige Verwendung konfiguriert ist:
 
 ```console
 dotnet new angular
@@ -255,18 +255,18 @@ dotnet new angular
 
 <a name="runtime-config-mode"></a>
 
-### <a name="set-the-runtime-configuration-mode"></a>Legen Sie den Modus der Common Language Runtime-Konfiguration
+### <a name="set-the-runtime-configuration-mode"></a>Festlegen des Laufzeitkonfigurationsmodus
 
-Zwei Modi der primären Common Language Runtime-Konfiguration vorhanden sein:
+Es sind zwei Modi der primären Laufzeitkonfiguration vorhanden:
 
 * **Entwicklung**:
-  * Enthält quellzuordnungen zur Erleichterung des Debuggings.
-  * Der clientseitige Code für die Leistung nicht optimiert werden.
+  * Enthält Quellzuordnungen zur Erleichterung des Debuggings.
+  * Der clientseitige Code wird nicht für Leistung optimiert.
 * **Produktion**:
-  * Schließt quellzuordnungen an.
+  * Schließt Quellzuordnungen aus.
   * Optimiert den clientseitigen Code über Bündelung und Minimierung.
 
-ASP.NET Core verwendet eine Umgebungsvariable namens `ASPNETCORE_ENVIRONMENT` zum Speichern von des Konfigurationsmodus zu wechseln. Finden Sie unter **[legen Sie die Umgebung](xref:fundamentals/environments#set-the-environment)** für Weitere Informationen.
+ASP.NET Core verwendet eine Umgebungsvariable namens `ASPNETCORE_ENVIRONMENT` zum Speichern des Konfigurationsmodus. Weitere Informationen finden Sie unter **[Festlegen der Umgebung](xref:fundamentals/environments#set-the-environment)**.
 
 ### <a name="running-with-net-core-cli"></a>Mit .NET Core-CLI
 
@@ -276,35 +276,35 @@ Stellen Sie die erforderlichen NuGet und Npm-Pakete mithilfe des folgenden Befeh
 dotnet restore && npm i
 ```
 
-Erstellen und Ausführen der Anwendungs:
+Erstellen und Ausführen der Anwendung:
 
 ```console
 dotnet run
 ```
 
-Starten der Anwendung auf "localhost", gemäß der [Common Language Runtime-Konfigurationsmodus](#runtime-config-mode). Navigieren zu `http://localhost:5000` im Browser zeigt die Landing Page.
+Die Anwendung wird auf dem Localhost gemäß des [Laufzeitkonfigurationsmodus](#runtime-config-mode) gestartet. Navigieren Sie zu `http://localhost:5000` im Browser, wo die Landing Page angezeigt wird.
 
-### <a name="running-with-visual-studio-2017"></a>Mit Visual Studio 2017 ausgeführt wird
+### <a name="running-with-visual-studio-2017"></a>Ausführen mit Visual Studio 2017
 
-Öffnen der *csproj* von generierten Datei das [Dotnet neue](/dotnet/core/tools/dotnet-new) Befehl. Die erforderlichen NuGet und Npm-Pakete werden automatisch auf dem geöffneten Projekt wiederhergestellt. Dieser Wiederherstellungsprozess kann einige Minuten dauern, und die Anwendung ist bereit, die ausgeführt werden, wenn der Vorgang abgeschlossen ist. Klicken Sie auf die grüne Schaltfläche "ausführen", oder drücken Sie `Ctrl + F5`, und der Browser zur Startseite der Anwendung geöffnet wird. Die Anwendung ausgeführt wird, auf "localhost", gemäß der [Common Language Runtime-Konfigurationsmodus](#runtime-config-mode).
+Öffnen Sie die *csproj*-Datei, die mittels des [dotnet new](/dotnet/core/tools/dotnet-new)-Befehls erzeugt wurde. Die erforderlichen NuGet- und npm-Pakete werden automatisch beim Projektstart wiederhergestellt. Dieser Wiederherstellungsprozess kann einige Minuten dauern, und die Anwendung kann ausgeführt werden, wenn der Vorgang abgeschlossen ist. Klicken Sie auf die grüne Schaltfläche "Ausführen", oder drücken Sie `Ctrl + F5`, und der Browser zur Landing Page der Anwendung wird geöffnet . Die Anwendung wird auf dem Localhost gemäß des [Laufzeitkonfigurationsmodus](#runtime-config-mode) ausgeführt.
 
 <a name="app-testing"></a>
 
-## <a name="testing-the-app"></a>Testen der app
+## <a name="testing-the-app"></a>Testen der App
 
-SpaServices Vorlagen sind so vorkonfiguriert, dass die clientseitige Tests mithilfe von [Karma](https://karma-runner.github.io/1.0/index.html) und [Jasmine](https://jasmine.github.io/). Jasmine ist eine beliebte Komponententest-Framework für JavaScript, während Karma einen Test Runner für diese Tests ist. Karma ist so konfiguriert, dass die Arbeit mit der [Webpack-Dev-Middleware](#webpack-dev-middleware) so, dass der Entwickler ist nicht erforderlich sind, beenden, und führen Sie den Test, jedes Mal, wenn Änderungen vorgenommen werden. Ob sie den Code, der den Testfall oder den Testfall selbst ausgeführt wird, wird der Test automatisch ausgeführt.
+SpaServices-Vorlagen sind so vorkonfiguriert, dass sie clientseitige Tests mithilfe von [Karma](https://karma-runner.github.io/1.0/index.html) und [Jasmine](https://jasmine.github.io/) entwickeln können. Jasmine ist ein beliebtes Komponententest-Framework für JavaScript, während Karma ein Test Runner für diese Tests ist. Karma ist so konfiguriert, dass mit der [Webpack Dev Middleware](#webpack-dev-middleware) so zusammen gearbeitet wird, dass der Entwickler Tests nicht jedes Mal anhalten und wieder ausführen muss, wenn Änderungen vorgenommen werden. Der Test wird automatisch ausgeführt, egal ob der Code für den Testfall ausgeführt wird oder der Testfall selbst.
 
-Verwenden Sie als Beispiel die Angular-Anwendung ein, zwei Jasmine Testfälle bereits stehen für die `CounterComponent` in die *counter.component.spec.ts* Datei:
+Verwenden Sie als Beispiel die Angular-Anwendung, in der bereits zwei Jasmine-Testfälle für `CounterComponent` in der *counter.component.spec.ts*-Datei bereit stehen:
 
 [!code-typescript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/app/components/counter/counter.component.spec.ts?range=15-28)]
 
-Öffnen Sie die Eingabeaufforderung in das *ClientApp* Verzeichnis. Führen Sie den folgenden Befehl aus:
+Öffnen Sie die Eingabeaufforderung im *ClientApp*-Verzeichnis. Führen Sie den folgenden Befehl aus:
 
 ```console
 npm test
 ```
 
-Das Skript startet die Karma-Testprogramm, die in definierten Einstellungen liest die *karma.conf.js* Datei. Neben anderen Einstellungen die *karma.conf.js* identifiziert die Testdateien über auszuführende seine `files` Array:
+Das Skript startet den Karma-Test Runner, der die in der *karma.conf.js*-Datei definierten Einstellungen liest. Neben anderen Einstellungen identifiziert die *karma.conf.js*-Datei die Testdateien, die über das `files`-Array ausgeführt werden sollen:
 
 [!code-javascript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/test/karma.conf.js?range=4-5,8-11)]
 
@@ -312,18 +312,18 @@ Das Skript startet die Karma-Testprogramm, die in definierten Einstellungen lies
 
 ## <a name="publishing-the-application"></a>Veröffentlichen der Anwendung
 
-Kombinieren die generierte clientseitige Ressourcen und die veröffentlichte Elemente, die ASP.NET Core in einem Ready-to-deploy-Paket kann aufwendig sein. Glücklicherweise orchestriert SpaServices dieses Prozesses für die gesamte Veröffentlichung mit einem benutzerdefinierten MSBuild-Ziel mit dem Namen `RunWebpack`:
+Es kann aufwendig sein, die generierten clientseitigen Ressourcen und die veröffentlichten ASP.NET Core-Artefakte in einem Paket, das bereitgestellt werden kann, zu kombinieren. Glücklicherweise orchestriert SpaServices diesen gesamten Veröffentlichungsprozess mit einem benutzerdefinierten MSBuild-Ziel mit dem Namen `RunWebpack`:
 
 [!code-xml[](../client-side/spa-services/sample/SpaServicesSampleApp/SpaServicesSampleApp.csproj?range=31-45)]
 
 Das MSBuild-Ziel hat die folgenden Verantwortungen:
 
 1. Die Npm-Pakete wiederherstellen
-1. Erstellen Sie einen Build Produktionsniveau von Drittanbietern, clientseitige Ressourcen
-1. Erstellen Sie einen Build Produktionsniveau benutzerdefinierte clientseitige Ressourcen
-1. Kopieren Sie die generierte Webpack-Assets in Ordner "Publish"
+1. Erstellen eines Builds auf Produktionsniveau von clientseitigen Assets von Drittanbietern
+1. Erstellen eines Builds auf Produktionsniveau der benutzerdefinierten clientseitigen Assets
+1. Kopieren der generierten Webpack-Assets in den Ordner für die Veröffentlichung.
 
-Das MSBuild-Ziel wird aufgerufen, bei der Ausführung:
+Das MSBuild-Ziel wird aufgerufen, wenn Folgendes ausgeführt wird:
 
 ```console
 dotnet publish -c Release
