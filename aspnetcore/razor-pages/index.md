@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: f55d0e534dafb0709f1411bad9b038a87abde7ab
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: 7bd597acedade65f2be53f4f50a436981e576b1f
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523310"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326120"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Einführung in Razor Pages in ASP.NET Core
 
@@ -221,7 +221,7 @@ Hier sehen Sie ein Beispiel für eine gerenderte „Löschen“-Schaltfläche mi
 <button type="submit" formaction="/?id=1&amp;handler=delete">delete</button>
 ```
 
-Wenn die Schaltfläche ausgewählt wird, wird eine `POST`-Anforderung an den Server gesendet. Durch Konvention wird der Name der Handlermethode auf Grundlage des Werts des `handler`-Parameters entsprechend des Schemas `OnPost[handler]Async` ausgewählt.
+Wenn die Schaltfläche ausgewählt wird, wird eine `POST`-Anforderung an den Server gesendet. Durch Konvention wird der Name der Handlermethode auf Grundlage des Werts des `handler`-Parameters gemäß dem Schema `OnPost[handler]Async` ausgewählt.
 
 Da der `handler` in diesem Beispiel `delete` ist, wird die Handlermethode `OnPostDeleteAsync` verwendet, um die `POST`-Anforderung zu verarbeiten. Wenn der `asp-page-handler` auf einen anderen Wert festgelegt wird, wie z.B. `remove`, wird eine Seitenhandlermethode mit dem Namen `OnPostRemoveAsync` ausgewählt.
 
@@ -246,7 +246,9 @@ Weitere Informationen finden Sie unter [Modellvalidierung](xref:mvc/models/valid
 
 ## <a name="manage-head-requests-with-the-onget-handler"></a>Verwalten von HEAD-Anforderungen mit dem OnGet-Handler
 
-Normalerweise wird ein HEAD-Handler erstellt und für HEAD-Anforderungen aufgerufen:
+HEAD-Anforderungen gestatten Ihnen das Abrufen der Kopfzeilen für eine bestimmte Ressource. Im Gegensatz zu GET-Anforderungen geben HEAD-Anforderungen keinen Antworttext zurück. 
+
+Normalerweise wird ein HEAD-Handler erstellt und für HEAD-Anforderungen aufgerufen: 
 
 ```csharp
 public void OnHead()
@@ -255,12 +257,14 @@ public void OnHead()
 }
 ```
 
-Wenn kein HEAD-Handler (`OnHead`) definiert ist, greift Razor Pages in ASP.NET Core 2.1 oder höher auf das Aufrufen des GET-Seitenhandlers (`OnGet`) zurück. Aktivieren Sie dieses Verhalten mit der [SetCompatibilityVersion-Methode](xref:mvc/compatibility-version) in `Startup.Configure` für ASP.NET Core 2.1 bis 2.x:
+Wenn kein HEAD-Handler (`OnHead`) definiert ist, greift Razor Pages in ASP.NET Core 2.1 oder höher auf das Aufrufen des GET-Seitenhandlers (`OnGet`) zurück. In ASP.NET Core 2.1 und 2.2 tritt dieses Verhalten mit der [SetCompatibilityVersion-Methode](xref:mvc/compatibility-version) in `Startup.Configure` auf:
 
 ```csharp
 services.AddMvc()
     .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
 ```
+
+Die Standardvorlagen generieren den `SetCompatibilityVersion`-Aufruf in ASP.NET Core 2.1 und 2.2.
 
 Tatsächlich setzt `SetCompatibilityVersion` die Razor Pages-Option `AllowMappingHeadRequestsToGetHandler` auf `true`.
 

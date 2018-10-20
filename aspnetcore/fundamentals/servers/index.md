@@ -4,25 +4,37 @@ author: rick-anderson
 description: Ermitteln Sie die Webserver Kestrel und HTTP.sys für ASP.NET Core. Erfahren Sie mehr über das Auswählen eines Servers und darüber, wann ein Reverseproxyserver zu verwenden ist.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 09/13/2018
+ms.date: 09/21/2018
 uid: fundamentals/servers/index
-ms.openlocfilehash: 0f1460af5bc1cd879ff11e43775ac16ca36b150e
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 161ab3fdf48e58d8c9af991dc5531e46d9c5adff
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011754"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325860"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Webserverimplementierungen in ASP.NET Core
 
 Von [Tom Dykstra](https://github.com/tdykstra), [Steve Smith](https://ardalis.com/), [Stephen Halter](https://twitter.com/halter73) und [Chris Ross](https://github.com/Tratcher)
 
-Eine ASP.NET Core-App wird über eine In-Process-Implementierung eines HTTP-Servers ausgeführt. Die Serverimplementierung lauscht auf HTTP-Anforderungen und leitet diese als [Anforderungsfunktionen](xref:fundamentals/request-features), die in einem [HttpContext](/dotnet/api/system.web.httpcontext) zusammengefasst werden, an die App weiter.
+Eine ASP.NET Core-App wird über eine In-Process-Implementierung eines HTTP-Servers ausgeführt. Die Serverimplementierung lauscht auf HTTP-Anforderungen und leitet diese als Gruppen von [Anforderungsfunktionen](xref:fundamentals/request-features), die in einem <xref:Microsoft.AspNetCore.Http.HttpContext> zusammengefasst werden, an die App weiter.
 
-ASP.NET Core stellt zwei Serverimplementierungen zur Verfügung:
+ASP.NET Core stellt drei Serverimplementierungen zur Verfügung:
+
+::: moniker range=">= aspnetcore-2.2"
+
+* [Kestrel](xref:fundamentals/servers/kestrel) ist der plattformübergreifende HTTP-Standardserver für ASP.NET Core.
+* `IISHttpServer` wird mit dem [In-Process-Hostingmodell](xref:fundamentals/servers/aspnet-core-module#in-process-hosting-model) und dem [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module) unter Windows verwendet.
+* [HTTP.sys](xref:fundamentals/servers/httpsys) ist ein nur für Windows verfügbarer HTTP-Server, der auf dem [Http.sys-Kerneltreiber und der HTTP Server API](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx) basiert. (HTTP.sys wird in ASP.NET Core 1.x als [WebListener](xref:fundamentals/servers/weblistener) bezeichnet.)
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
 
 * [Kestrel](xref:fundamentals/servers/kestrel) ist der plattformübergreifende HTTP-Standardserver für ASP.NET Core.
 * [HTTP.sys](xref:fundamentals/servers/httpsys) ist ein nur für Windows verfügbarer HTTP-Server, der auf dem [Http.sys-Kerneltreiber und der HTTP Server API](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx) basiert. (HTTP.sys wird in ASP.NET Core 1.x als [WebListener](xref:fundamentals/servers/weblistener) bezeichnet.)
+
+::: moniker-end
 
 ## <a name="kestrel"></a>Kestrel
 
@@ -50,7 +62,7 @@ Wenn die App für das Internet verfügbar gemacht ist, muss Kestrel IIS, Nginx o
 
 ![Kestrel kommuniziert indirekt mit dem Internet über einen Reverseproxyserver wie IIS, Nginx oder Apache](kestrel/_static/kestrel-to-internet.png)
 
-Der wichtigste Grund für die Verwendung eines Reverseproxys für Edge-Bereitstellungen, die im Internet verfügbar gemacht werden, ist die IT-Sicherheit. Die 1.x-Versionen von Kestrel haben keine wesentlichen Sicherheitsfeatures zum Schutz vor Angriffen aus dem Internet. So sind z. B. keine geeigneten Timeouts, Größenlimits für Anforderungen sowie Beschränkungen der Anzahl gleichzeitiger Verbindungen vorhanden.
+Der wichtigste Grund für die Verwendung eines Reverseproxys für öffentlich zugängliche Edge-Server-Bereitstellungen, die direkt im Internet verfügbar gemacht werden, ist die Sicherheit. Die 1.x-Versionen von Kestrel haben keine wesentlichen Sicherheitsfeatures zum Schutz vor Angriffen aus dem Internet. So sind z. B. keine geeigneten Timeouts, Größenlimits für Anforderungen sowie Beschränkungen der Anzahl gleichzeitiger Verbindungen vorhanden.
 
 Weitere Informationen finden Sie unter [When to use Kestrel with a reverse proxy (Verwenden von Kestrel mit einem Reverseproxy)](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
 
@@ -60,7 +72,19 @@ IIS, Nginx oder Apache können nicht ohne Kestrel oder eine [benutzerdefinierte 
 
 ### <a name="iis-with-kestrel"></a>IIS und Kestrel
 
-Wenn [IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture) oder [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) als Reverseproxy für ASP.NET Core verwendet wird, wird die ASP.NET Core-App in einem Prozess ausgeführt, der vom IIS-Workerprozess getrennt ist. Im IIS-Prozess steuert das [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module) die Beziehung zum Reverseproxy. Die Hauptfunktionen des ASP.NET Core-Moduls bestehen darin, die ASP.NET Core-App zu starten, die App nach einem Absturz neu zu starten und HTTP-Datenverkehr an die App weiterzuleiten. Weitere Informationen finden Sie unter [ASP.NET Core Module (ASP.NET Core-Modul)](xref:fundamentals/servers/aspnet-core-module). 
+::: moniker range=">= aspnetcore-2.2"
+
+Bei Verwendung von [IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture) oder [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) wird die ASP.NET Core-App entweder im selben Prozess wie der IIS-Workerprozess ausgeführt (das *In-Process*-Hostingmodell) oder in einem vom IIS-Workerprozess getrennten Prozess (das *Out-of-Process*-Hostingmodell).
+
+Das [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module) ist ein natives IIS-Modul, das native IIS-Anforderungen zwischen dem In-Process-IIS-HTTP-Server oder dem Out-of-Process-Kestrel-Server verarbeitet. Weitere Informationen finden Sie unter <xref:fundamentals/servers/aspnet-core-module>.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+Wenn [IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture) oder [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) als Reverseproxy für ASP.NET Core verwendet wird, wird die ASP.NET Core-App in einem Prozess ausgeführt, der vom IIS-Workerprozess getrennt ist. Im IIS-Prozess steuert das [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module) die Beziehung zum Reverseproxy. Die Hauptfunktionen des ASP.NET Core-Moduls bestehen darin, die ASP.NET Core-App zu starten, die App nach einem Absturz neu zu starten und HTTP-Datenverkehr an die App weiterzuleiten. Weitere Informationen finden Sie unter <xref:fundamentals/servers/aspnet-core-module>.
+
+::: moniker-end
 
 ### <a name="nginx-with-kestrel"></a>Nginx und Kestrel
 
@@ -132,7 +156,7 @@ Wird eine App über eine Eingabeaufforderung im Ordner des Projekts gestartet, s
   * Zielframework: .NET Core 2.2 oder höher
 * [IIS (Out-of-Process)](xref:host-and-deploy/iis/index#http2-support)
   * Windows Server 2016/Windows 10 oder höher, IIS 10 oder höher
-  * Edge-Verbindungen verwenden HTTP/2, aber die Reverseproxyverbindung mit Kestrel verwendet HTTP/1.1.
+  * Öffentlich zugängliche Edge-Server-Verbindungen verwenden HTTP/2, aber die Reverseproxyverbindung mit Kestrel verwendet HTTP/1.1.
   * Zielframework: Gilt nicht für Out-of-Process-Bereitstellungen von IIS.
 
 ::: moniker-end
@@ -144,7 +168,7 @@ Wird eine App über eine Eingabeaufforderung im Ordner des Projekts gestartet, s
   * Zielframework: Gilt nicht für HTTP.sys-Bereitstellungen.
 * [IIS (Out-of-Process)](xref:host-and-deploy/iis/index#http2-support)
   * Windows Server 2016/Windows 10 oder höher, IIS 10 oder höher
-  * Edge-Verbindungen verwenden HTTP/2, aber die Reverseproxyverbindung mit Kestrel verwendet HTTP/1.1.
+  * Öffentlich zugängliche Edge-Server-Verbindungen verwenden HTTP/2, aber die Reverseproxyverbindung mit Kestrel verwendet HTTP/1.1.
   * Zielframework: Gilt nicht für Out-of-Process-Bereitstellungen von IIS.
 
 ::: moniker-end

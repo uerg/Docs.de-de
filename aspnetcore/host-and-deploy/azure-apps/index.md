@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/29/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: f2de81af4bd2992aec76a287484d0057021231d8
-ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
+ms.openlocfilehash: 315261c4d20970fc399cc2a879dd452bdf3be93f
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47860965"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326055"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Bereitstellen von ASP.NET Core-Apps in Azure App Service
 
@@ -59,6 +59,8 @@ Wenn Sie eine Anwendung für .NET Core erstellen und einen Verweis auf das Metap
 
 Im Bereich **App-Einstellungen** auf dem Blatt **Anwendungseinstellungen** können Sie die Umgebungsvariablen für die App festlegen. Umgebungsvariablen können von [Umgebungsvariablen-Konfigurationsanbietern](xref:fundamentals/configuration/index#environment-variables-configuration-provider) verarbeitet werden.
 
+Wenn eine App-Einstellung im Azure-Portal erstellt oder geändert und die Schaltfläche **Speichern** ausgewählt wird, wird die Azure-App neu gestartet. Die Umgebungsvariable steht der App nach dem Neustart des Diensts zur Verfügung.
+
 Wenn eine App den [Webhost](xref:fundamentals/host/web-host) verwendet und den Host mit [WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) erstellt, verwenden Umgebungsvariablen, die den Host konfigurieren, das Präfix `ASPNETCORE_`. Weitere Informationen finden Sie unter <xref:fundamentals/host/web-host> und unter [Umgebungsvariablen-Konfigurationsanbieter](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
 
 Wenn eine App den [generischen Host](xref:fundamentals/host/generic-host) verwendet, werden Umgebungsvariablen nicht standardmäßig in die App-Konfiguration geladen, und der Konfigurationsanbieter muss vom Entwickler hinzugefügt werden. Der Entwickler legt das Präfix der Umgebungsvariablen fest, wenn der Konfigurationsanbieter hinzugefügt wird. Weitere Informationen finden Sie unter <xref:fundamentals/host/generic-host> und unter [Umgebungsvariablen-Konfigurationsanbieter](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
@@ -101,17 +103,17 @@ Weitere Informationen finden Sie unter [Schlüsselspeicheranbieter](xref:securit
 
 ## <a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>Bereitstellen der ASP.NET Core Vorschauversion für Azure App Service
 
-ASP.NET Core-Vorschau-Apps können mit den folgenden Vorgehensweisen für Azure App Service bereitgestellt werden:
+Verwenden Sie einen der folgenden Ansätze:
 
-* [Installieren der Websiteerweiterung (Vorschau)](#install-the-preview-site-extension)
-<!-- * [Deploy the app self-contained](#deploy-the-app-self-contained) -->
-* [Verwenden von Docker mit Web-Apps für Container](#use-docker-with-web-apps-for-containers)
+* [Installieren der Websiteerweiterung (Vorschau)](#install-the-preview-site-extension).
+* [Bereitstellen der App als eigenständige App](#deploy-the-app-self-contained).
+* [Verwenden von Docker mit Web-Apps für Container](#use-docker-with-web-apps-for-containers).
 
 ### <a name="install-the-preview-site-extension"></a>Installieren der Websiteerweiterung (Vorschau)
 
 Sollte ein Problem mit dem Verwenden der Vorschau der Websiteerweiterung auftreten, erstellen Sie ein Problem auf [GitHub](https://github.com/aspnet/azureintegration/issues/new).
 
-1. Navigieren Sie im Azure-Portal zum Blatt „App Service“.
+1. Navigieren Sie aus dem Azure-Portal zum Blatt „App Service“.
 1. Wählen Sie die Web-App aus.
 1. Geben Sie „ex“ in das Suchfeld ein, oder scrollen Sie in der Liste der Verwaltungsabschnitte bis zu **ENTWICKLUNGSTOOLS** nach unten.
 1. Wählen Sie **ENTWICKLUNGSTOOLS** > **Erweiterungen** aus.
@@ -161,18 +163,46 @@ Nach Abschluss dieses Vorgangs wird die neueste .NET Core-Vorschauversion instal
 
 Wenn Sie eine ARM-Vorlage zum Erstellen und Bereitstellen von Anwendungen verwenden, können Sie den Ressourcentyp `siteextensions` verwenden, um die Websiteerweiterung zu einer Web-App hinzuzufügen. Zum Beispiel:
 
-[!code-json[Main](index/sample/arm.json?highlight=2)]
+[!code-json[](index/sample/arm.json?highlight=2)]
 
-<!--
-### Deploy the app self-contained
+### <a name="deploy-the-app-self-contained"></a>Bereitstellen der App als eigenständige App
 
-A [self-contained app](/dotnet/core/deploying/#self-contained-deployments-scd) can be deployed that carries the preview runtime in the deployment. When deploying a self-contained app:
+Eine [eigenständige Bereitstellung](/dotnet/core/deploying/#self-contained-deployments-scd), die auf eine Vorschauruntime abzielt, enthält die Vorschauruntime in der Bereitstellung.
 
-* The site doesn't need to be prepared.
-* The app must be published differently than when publishing for a framework-dependent deployment with the shared runtime and host on the server.
+Wenn Sie eine eigenständige App bereitstellen, gilt Folgendes:
 
-Self-contained apps are an option for all ASP.NET Core apps.
--->
+* Die Site in Azure App Service erfordert nicht die [Vorschau-Websiteerweiterung](#install-the-preview-site-extension).
+* Die App muss gemäß einem anderen Ansatz veröffentlicht werden, als beim Veröffentlichen für eine [frameworkabhängige Bereitstellung](/dotnet/core/deploying#framework-dependent-deployments-fdd).
+
+#### <a name="publish-from-visual-studio"></a>Veröffentlichen aus Visual Studio
+
+1. Wählen Sie in der Visual Studio-Symbolleiste **Erstellen** > **{Anwendungsname} veröffentlichen** aus.
+1. Vergewissern Sie sich im Dialogfeld **Veröffentlichungsziel auswählen**, dass **App Service** ausgewählt ist.
+1. Wählen Sie **Erweitert** aus. Das Dialogfeld **Veröffentlichen** wird geöffnet.
+1. Führen Sie im Dialogfeld **Veröffentlichen** folgende Schritte aus:
+   * Überprüfen Sie, ob die Konfiguration **Release** ausgewählt ist.
+   * Öffnen Sie die Dropdownliste **Bereitstellungsmodus**, und wählen Sie **Eigenständig** aus.
+   * Wählen Sie die Zielruntime in der Dropdownliste **Zielruntime** aus. Die Standardeinstellung ist `win-x86`.
+   * Wenn Sie zusätzliche Dateien bei der Bereitstellung entfernen müssen, öffnen Sie **Dateiveröffentlichungsoptionen**, und aktivieren Sie das Kontrollkästchen, um zusätzliche Dateien am Ziel zu entfernen.
+   * Klicken Sie auf **Speichern**.
+1. Sie können eine neue Website erstellen oder eine vorhandene aktualisieren, indem Sie die folgenden Anweisungen des Veröffentlichungs-Assistenten befolgen.
+
+#### <a name="publish-using-command-line-interface-cli-tools"></a>Veröffentlichen mithilfe des Befehlszeilenschnittstelle-Tools (CLI)
+
+1. Geben Sie in der Projektdatei eine oder mehrere [Runtimebezeichner (RIDs)](/dotnet/core/rid-catalog) an. Verwenden Sie die Singularform `<RuntimeIdentifier>` für eine einzelne RID oder die Pluralform `<RuntimeIdentifiers>`, um eine durch Semikolons getrennte Liste von RIDs bereitzustellen. Im folgenden Beispiel wird die RID `win-x86` angegeben:
+
+   ```xml
+   <PropertyGroup>
+     <TargetFramework>netcoreapp2.1</TargetFramework>
+     <RuntimeIdentifier>win-x86</RuntimeIdentifier>
+   </PropertyGroup>
+   ```
+1. Veröffentlichen Sie aus einer Befehlsshell die App in der Releasekonfiguration für die Runtime des Hosts mit dem Befehl [dotnet publish](/dotnet/core/tools/dotnet-publish). Im folgenden Beispiel wird die App für die RID `win-x86` veröffentlicht. Die für die Option `--runtime` angegebene RID muss in der Eigenschaft `<RuntimeIdentifier>` (oder `<RuntimeIdentifiers>`) in der Projektdatei angegeben werden.
+
+   ```console
+   dotnet publish --configuration Release --runtime win-x86
+   ```
+1. Verschieben Sie den Inhalt des Verzeichnisses *bin/Release/{ZIELFRAMEWORK}/{RUNTIME-ID}/publish* auf die Site in App Service.
 
 ### <a name="use-docker-with-web-apps-for-containers"></a>Verwenden von Docker mit Web-Apps für Container
 

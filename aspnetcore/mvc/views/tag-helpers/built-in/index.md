@@ -3,23 +3,24 @@ title: 'ASP.NET Core: Integrierte Taghilfsprogramme'
 author: pkellner
 description: Erfahren Sie, wie in ASP.NET Core integrierte Taghilfsprogramme dabei helfen, Ihre Produktivität zu steigern.
 ms.author: riande
-ms.date: 09/18/2018
+ms.custom: mvc
+ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/Index
-ms.openlocfilehash: 5d9425e0b68578c86a6f9a691322e0bb63a860fb
-ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
+ms.openlocfilehash: 58840d6ecd09bd2ae7f96c046a0cb93c018f9645
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46292309"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325483"
 ---
 # <a name="aspnet-core-built-in-tag-helpers"></a>ASP.NET Core: Integrierte Taghilfsprogramme
 
 Von [Peter Kellner](http://peterkellner.net)
 
-ASP.NET Core enthält viele integrierte Taghilfsprogramme, die Ihnen dabei helfen, Ihre Produktivität zu steigern. Dieser Abschnitt bietet eine Übersicht über die integrierten Taghilfsprogramme.
+Eine Übersicht der Taghilfsprogramme finden Sie unter <xref:mvc/views/tag-helpers/intro>.
 
 > [!NOTE]
-> Es handelt sich um integrierte Taghilfsprogramme, die nicht erläutert werden, da sie von der [Razor](xref:mvc/views/razor)-Ansichts-Engine intern verwendet werden. Dies schließt ein Taghilfsprogramm für das Zeichen „~“ (Tilde) ein, das in den Stammpfad der Website erweitert wird.
+> Es gibt integrierte Taghilfsprogramme, die in der Dokumentation nicht beschrieben sind. Diese Taghilfsprogramme werden intern von der [Razor](xref:mvc/views/razor)-Ansichts-Engine verwendet. Dies schließt ein Taghilfsprogramm für das Tildezeichen (`~`) ein, das zum Stammpfad der Website erweitert wird.
 
 ## <a name="built-in-aspnet-core-tag-helpers"></a>ASP.NET Core: Integrierte Taghilfsprogramme
 
