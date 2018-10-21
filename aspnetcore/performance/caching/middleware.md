@@ -1,18 +1,18 @@
 ---
 title: Antworten zwischenspeichernden Middleware in ASP.NET Core
 author: guardrex
-description: Informationen Sie zum Konfigurieren und Verwenden von Antworten Zwischenspeichern von Middleware in ASP.NET Core.
+description: Erfahren Sie, wie Sie Middleware für die Zwischenspeicherung von Antworten in ASP.NET Core konfigurieren und verwenden.
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/26/2017
 uid: performance/caching/middleware
-ms.openlocfilehash: f4e5a414b92e3ca65e19188ebd2bfaef6f32fee7
-ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
+ms.openlocfilehash: d991bc48ed07ee71b0decaa0bee4df811fdc74c4
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43893089"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477526"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Antworten zwischenspeichernden Middleware in ASP.NET Core
 
@@ -159,7 +159,7 @@ Beim Testen und Problembehandlung von Verhalten beim Zwischenspeichern kann in e
 * [Middleware](xref:fundamentals/middleware/index)
 * [Zwischenspeichern in Speicher](xref:performance/caching/memory)
 * [Arbeiten mit einem verteilten Cache](xref:performance/caching/distributed)
-* [Erkennen von Änderungen mit Änderungstoken](xref:fundamentals/primitives/change-tokens)
+* [Erkennen von Änderungen mit Änderungstoken](xref:fundamentals/change-tokens)
 * [Zwischenspeichern von Antworten](xref:performance/caching/response)
 * [Cache-Taghilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
 * [Taghilfsprogramm für verteilten Cache](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

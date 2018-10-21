@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/27/2017
 uid: test/razor-pages-tests
-ms.openlocfilehash: 364c4c0fd75954f1c7e0bfbc221938afe5332bde
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 924908a92eea23fd2dc81a3809e74760d9295e4f
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41828126"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477409"
 ---
 # <a name="razor-pages-unit-tests-in-aspnet-core"></a>Razor-Seiten-Komponententests in ASP.NET Core
 
@@ -57,7 +57,7 @@ Die Nachrichten-app ist eine einfache Razor-Seiten-Nachrichtensystem mit den fol
 
 &#8224;Das Thema EF [Testen mit InMemory](/ef/core/miscellaneous/testing/in-memory), wird erläutert, wie eine in-Memory-Datenbank für Tests mit MSTest verwenden. In diesem Thema verwendet die [xUnit](https://xunit.github.io/) Testframework. Test-Implementierung für andere Testframeworks und Konzepte sind ähnlich, aber nicht identisch.
 
-Auch wenn die app nicht verwendet die [Repositorymuster](xref:fundamentals/repository-pattern) und kein Beispiel für effektive der [Arbeitseinheit (UoW)-Muster](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor-Seiten unterstützt diese Muster der Entwicklung. Weitere Informationen finden Sie unter [Entwerfen der Persistenzebene der Infrastruktur](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design), <xref:fundamentals/repository-pattern>, und [Testen von Controllerlogik](/aspnet/core/mvc/controllers/testing) (im Beispiel wird das Repositorymuster implementiert).
+Obwohl die app nicht das Repositorymuster verwenden und kein Beispiel für effektive ist der [Arbeitseinheit (UoW) Muster](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor-Seiten unterstützt diese Muster der Entwicklung. Weitere Informationen finden Sie unter [Entwerfen der Persistenzebene der Infrastruktur](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design) und [Testen von Controllerlogik](/aspnet/core/mvc/controllers/testing) (im Beispiel wird das Repositorymuster implementiert).
 
 ## <a name="test-app-organization"></a>Testen der app-Organisation
 
