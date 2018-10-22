@@ -5,12 +5,12 @@ description: ''
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 626b828e2391d3982ff2cf393f0c9e0748c12810
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: de9b0bd1e0346d4c12f256e6226353f1ab47ed11
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751694"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477578"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>ASP.NET Core MVC mit EF Core − Erweitert (2 von 10)
 
@@ -25,7 +25,7 @@ Die Contoso University-Beispielwebanwendung veranschaulicht, wie ASP.NET Core MV
 Im vorherigen Tutorial haben Sie eine MVC-Anwendung erstellt, die Entity Framework und SQL Server LocalDB verwendet, um Daten zu speichern und anzuzeigen. In diesem Tutorial überprüfen und passen Sie CRUD-Code (Create, Read, Update, Delete) an, der durch den MVC-Gerüstbau automatisch für Ihre Controller und Ansichten erstellt wird.
 
 > [!NOTE]
-> Es ist üblich, dass das [Repositorymuster](xref:fundamentals/repository-pattern) implementiert wird, um eine Abstraktionsschicht zwischen Ihrem Controller und der Datenzugriffsschicht zu erstellen. In diesen Tutorials werden keine Repositorys verwendet, um die Verwendung des Entity Frameworks einfach und zielorientiert zu erklären. Weitere Informationen über Repositorys mit EF finden Sie im [letzten Tutorial dieser Reihe](advanced.md).
+> Es ist üblich, dass das Repositorymuster implementiert wird, um eine Abstraktionsebene zwischen Ihrem Controller und der Datenzugriffsebene zu erstellen. In diesen Tutorials werden keine Repositorys verwendet, um die Verwendung des Entity Frameworks einfach und zielorientiert zu erklären. Weitere Informationen über Repositorys mit EF finden Sie im [letzten Tutorial dieser Reihe](advanced.md).
 
 In diesem Tutorial arbeiten Sie mit den folgenden Webseiten:
 
@@ -201,15 +201,15 @@ Der Datenbankkontext verfolgt, ob die Entitäten im Arbeitsspeicher mit ihren en
 
 Eine Entität kann einen der folgenden Status aufweisen:
 
-* `Added` Die Entität ist noch nicht in der Datenbank vorhanden. Die Methode `SaveChanges` gibt eine INSERT-Anweisung aus.
+* `Added`. Die Entität ist noch nicht in der Datenbank vorhanden. Die Methode `SaveChanges` gibt eine INSERT-Anweisung aus.
 
-* `Unchanged` Die Methode `SaveChanges` muss nichts mit dieser Entität tun. Wenn Sie eine Entität aus der Datenbank lesen, beginnt die Entität mit diesem Status.
+* `Unchanged`. Die Methode `SaveChanges` muss nichts mit dieser Entität tun. Wenn Sie eine Entität aus der Datenbank lesen, beginnt die Entität mit diesem Status.
 
-* `Modified` Einige oder alle Eigenschaftswerte der Entität wurden geändert. Die Methode `SaveChanges` gibt eine UPDATE-Anweisung aus.
+* `Modified`. Einige oder alle Eigenschaftswerte der Entität wurden geändert. Die Methode `SaveChanges` gibt eine UPDATE-Anweisung aus.
 
-* `Deleted` Die Entität wurde zum Löschen markiert. Die Methode `SaveChanges` gibt eine DELETE-Anweisung aus.
+* `Deleted`. Die Entität wurde zum Löschen markiert. Die Methode `SaveChanges` gibt eine DELETE-Anweisung aus.
 
-* `Detached` Die Entität wird nicht vom Datenbankkontext nachverfolgt.
+* `Detached`. Die Entität wird nicht vom Datenbankkontext nachverfolgt.
 
 Statusänderungen werden in einer Desktop-App in der Regel automatisch festgelegt. Sie lesen eine Entität aus und nehmen Änderungen an ihren Eigenschaftswerten vor. Dadurch wird der Entitätsstatus automatisch auf `Modified` festgelegt. Wenn Sie dann `SaveChanges` aufrufen, generiert Entity Framework eine SQL UPDATE-Anweisung, die nur die aktuellen Eigenschaften aktualisiert, an denen Sie Änderungen vorgenommen haben.
 

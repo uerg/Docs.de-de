@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/11/2018
 uid: mvc/views/partial
-ms.openlocfilehash: a836ed073dfe769fc3cc0cd0622b17937747928b
-ms.sourcegitcommit: 70fb7c9d5f2ddfcf4747382a9f7159feca7a6aa7
+ms.openlocfilehash: d3d2f55645881dd05f7663e0a9d3e45d6bb6d77f
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45601755"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477682"
 ---
 # <a name="partial-views-in-aspnet-core"></a>Verwenden von Teilansichten in ASP.NET Core
 
@@ -44,7 +44,7 @@ Verwenden Sie keine Teilansicht, wenn für das Rendern des Markups eine komplexe
 
 ## <a name="declare-partial-views"></a>Deklarieren von Teilansichten
 
-::: moniker range=">= aspnetcore-2.1"
+::: moniker range=">= aspnetcore-2.0"
 
 Eine Teilansicht ist eine *CSHTML*-Markupdatei, die innerhalb des Ordners *Views* (MVC) oder des Ordners *Pages* (Razor Pages) verwaltet wird.
 
@@ -52,11 +52,11 @@ In ASP.NET Core MVC kann <xref:Microsoft.AspNetCore.Mvc.ViewResult> eines Contro
 
 Im Gegensatz zu MVC-Ansichten oder Seitenrendering führt eine Teilansicht *_ViewStart.cshtml* nicht aus. Weitere Informationen zu *_ViewStart.cshtml* finden Sie unter <xref:mvc/views/layout>.
 
-Dateinamen von Teilansichten beginnen häufig mit einem Unterstrich (`_`). Diese Namenskonvention ist keine Voraussetzung, sie hilft aber dabei, Teilansichten von Ansichten und Seiten visuell zu unterscheiden. Wenn der Dateiname mit einem Unterstrich beginnt, verarbeitet Razor Pages die Markupdatei selbst dann nicht als Razor Pages-Seite, wenn das Markup der Datei die `@page`-Anweisung enthält.
+Dateinamen von Teilansichten beginnen häufig mit einem Unterstrich (`_`). Diese Namenskonvention ist keine Voraussetzung, sie hilft aber dabei, Teilansichten von Ansichten und Seiten visuell zu unterscheiden.
 
 ::: moniker-end
 
-::: moniker range="< aspnetcore-2.1"
+::: moniker range="< aspnetcore-2.0"
 
 Eine Teilansicht ist eine *CSHTML*-Markupdatei, die innerhalb des Ordners *Views* verwaltet wird.
 

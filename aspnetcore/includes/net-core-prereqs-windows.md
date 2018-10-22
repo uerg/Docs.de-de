@@ -1,4 +1,4 @@
-[Visual Studio 2017 Version 15.7.3 oder höher](https://www.microsoft.com/net/download/windows) mit folgenden Workloads:
+[Visual Studio 2017 Version 15.7.3 oder höher](https://visualstudio.microsoft.com/downloads/) mit folgenden Workloads:
 
 * **ASP.NET und Webentwicklung**
 * **Plattformübergreifende .NET Core-Entwicklung**
