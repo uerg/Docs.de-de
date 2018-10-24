@@ -4,14 +4,14 @@ author: ardalis
 description: In diesem Artikel erfahren Sie, wie mithilfe der ASP.NET Core-Routingfunktionalität einem Routenhandler eine eingehende Anforderung zugeordnet wird.
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/20/2018
+ms.date: 10/01/2018
 uid: fundamentals/routing
-ms.openlocfilehash: 94fa6a278466c8cc9926d7893d1ef71d83b865df
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: d9ba96c7b2abd35b1b13c84814bf3f776e8d8731
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41870850"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47861056"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
@@ -37,7 +37,7 @@ Die Routingfunktionalität wird über die Klasse <xref:Microsoft.AspNetCore.Buil
 
 ### <a name="url-matching"></a>URL-Zuordnung
 
-Bei einer URL-Zuordnung werden eingehende Anforderungen durch Routing an einen *Handler* gesendet. Für diesen Prozess werden üblicherweise die Daten des URL-Pfads verwendet. Es können jedoch auch alle Daten der Anforderung genutzt werden. Für die Skalierung der Größe und Komplexität einer App ist das Versenden von Anforderungen an unterschiedliche Handler entscheidend.
+Bei einer URL-Zuordnung werden eingehende Anforderungen durch Routing an einen *Handler* gesendet. Für diesen Prozess werden die Daten des URL-Pfads verwendet. Es können jedoch auch alle Daten der Anforderung genutzt werden. Für die Skalierung der Größe und Komplexität einer App ist das Versenden von Anforderungen an unterschiedliche Handler entscheidend.
 
 Eingehende Anforderungen werden vom `RouterMiddleware`-Objekt bearbeitet, das die Methode <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> für alle Routen nacheinander aufruft. In der <xref:Microsoft.AspNetCore.Routing.IRouter>-Instanz wird entschieden, ob die Anforderung *verarbeitet* wird, indem für den [RouteContext.Handler](xref:Microsoft.AspNetCore.Routing.RouteContext.Handler*) ein <xref:Microsoft.AspNetCore.Http.RequestDelegate>-Delegat festgelegt wird, der nicht NULL ist. Wenn von einer Route ein Handler für die Anforderung festgelegt wird, endet die Routenverarbeitung, und der Handler wird zur Verarbeitung der Anforderung aufgerufen. Wenn alle Routen getestet werden und kein Handler für die Anforderung gefunden werden kann, ruft die Middleware *next* auf. Daraufhin wird die nächste Middleware in der Anforderungspipeline aufgerufen.
 
@@ -108,7 +108,7 @@ routes.MapRoute(
 
 Durch diese Vorlage wird bei einem Abgleich beispielsweise der URL-Pfad `/Products/Details/17`, aber nicht `/Products/Details/Apples` gefunden. In der Routenparameterdefinition `{id:int}` wird eine [Routeneinschränkung](#route-constraint-reference) für den Routenparameter `id` festgelegt. In derartigen Einschränkungen wird <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> implementiert, und die Routenwerte werden auf Gültigkeit geprüft. Im obigen Beispiel muss sich der Routenwert `id` in einen Integer konvertieren lassen. Eine ausführliche Beschreibung der Routeneinschränkungen, die vom Framework bereitgestellt werden, finden Sie in der [Referenz zu Routeneinschränkungen](#route-constraint-reference).
 
-Bei zusätzlichen Überladungen von `MapRoute` werden Werte für `constraints`, `dataTokens` und `defaults` akzeptiert. Diese zusätzlichen Parameter von `MapRoute` werden als `object`-Typ definiert. Üblicherweise werden diese Parameter so verwendet, dass ein Objekt eines anonymen Typs übergeben wird, in dem die Eigenschaftennamen des anonymen Typs mit den Routenparameternamen abgeglichen werden.
+Bei zusätzlichen Überladungen von `MapRoute` werden Werte für `constraints`, `dataTokens` und `defaults` akzeptiert. Diese zusätzlichen Parameter von `MapRoute` werden als `object`-Typ definiert. Üblicherweise werden diese Parameter so verwendet, dass ein Objekt eines anonymen Typs übergeben wird, in dem die Eigenschaftsnamen des anonymen Typs mit den Routenparameternamen abgeglichen werden.
 
 In den beiden folgenden Beispielen werden identische Routen erstellt:
 
@@ -169,12 +169,12 @@ routes.MapRoute(
 
 Die Route generiert mithilfe der Routenwerte `{ controller = Products, action = List }` die URL `/Products/List`. Die Routenwerte werden als Ersatz für die entsprechenden Routenparameter verwendet, wodurch ein URL-Pfad erstellt werden kann. Da `id` ein optionaler Parameter ist, muss dieser über keinen Wert verfügen.
 
-Die Route generiert mithilfe der Routenwerte `{ controller = Home, action = Index }` die URL `/`. Die bereitgestellten Routenwerte entsprechen den Standardwerten, sodass die Segmente, die mit diesen Werten übereinstimmen, problemlos ausgelassen werden können. Beachten Sie, dass mit beiden generierten URLs und dieser Routendefinition ein Roundtrip ausgeführt wird und dieselben Routenwerte erstellt werden, die zur Generierung der URL verwendet wurden.
+Die Route generiert mithilfe der Routenwerte `{ controller = Home, action = Index }` die URL `/`. Die bereitgestellten Routenwerte entsprechen den Standardwerten, sodass die Segmente, die mit diesen Werten übereinstimmen, problemlos ausgelassen werden können. Mit beiden generierten URLs und dieser Routendefinition wird ein Roundtrip ausgeführt, und es werden dieselben Routenwerte erstellt, die zur Generierung der URL verwendet wurden.
 
 > [!TIP]
 > Eine auf ASP.NET Core MVC basierende App sollte zur Generierung von URLs die Routingfunktion nicht direkt aufrufen, sondern <xref:Microsoft.AspNetCore.Mvc.Routing.UrlHelper> verwenden.
 
-Weitere Informationen zum URL-Generierungsprozess finden Sie unter [Referenz für URL-Generierung](#url-generation-reference).
+Weitere Informationen zur Generierung von URLs finden Sie unter [url-generation-reference](#url-generation-reference).
 
 ## <a name="use-routing-middleware"></a>Verwenden von Routingmiddleware
 
@@ -269,9 +269,31 @@ Bei einem URL-Muster, durch das ein Dateiname mit einer optionalen Erweiterung e
 
 Sie können das `*`-Zeichen als Präfix für einen Routenparameter verwenden, um eine Bindung zum verbleibenden Teil des URI herzustellen. Hierbei wird von einem *Catch-All*-Parameter gesprochen. Durch `blog/{*slug}` wird beispielsweise jeder URI ermittelt, der mit `/blog` beginnt und dahinter einen beliebigen Wert aufweist (der dann dem `slug`-Routenwert zugeordnet wird). Durch Catch-All-Parameter können auch leere Zeichenfolgen gefunden werden.
 
+::: moniker range=">= aspnetcore-2.2"
+
+Der Catch-All-Parameter schützt die entsprechenden Zeichen (Escaping), wenn die Route verwendet wird, um eine URL, einschließlich Pfadtrennzeichen zu generieren (`/`). Z.B. generiert die Route `foo/{*path}` mit den Routenwerten `{ path = "my/path" }` `foo/my%2Fpath`. Beachten Sie den umgekehrten Schrägstrich mit Escapezeichen. Um Trennzeichen für Roundtrips einsetzen zu können, verwenden Sie das Routenparameterpräfix `**`. Die Route `foo/{**path}` mit `{ path = "my/path" }` generiert `foo/my/path`.
+
+::: moniker-end
+
 Routenparameter können über mehrere *Standardwerte* verfügen, die nach dem Parameternamen angegeben werden und durch ein Gleichheitszeichen (`=`) abgetrennt werden. Mit `{controller=Home}` wird beispielsweise `Home` als Standardwert für `controller` definiert. Der Standardwert wird verwendet, wenn kein Wert in der Parameter-URL vorhanden ist. Routenparameter können nicht nur Standardwerte aufweisen, sondern darüber hinaus auch als optional definiert werden, indem am Ende des Parameternamens ein Fragezeichen (`?`) angefügt wird. Dies ist beispielsweise bei `id?` der Fall. Der Unterschied zwischen optionalen Parametern und Routenparametern mit einem Standardwert besteht darin, dass mithilfe der letzteren immer ein Wert erzeugt wird. Ein optionaler Parameter verfügt demgegenüber nur dann über einen Wert, wenn ein solcher von der Anforderungs-URL bereitgestellt wird.
 
-Routenparameter können des Weiteren Einschränkungen aufweisen, die mit dem gebundenen Routenwert der URL übereinstimmen müssen. Eine *Inline-Einschränkung* für einen Routenparameter geben Sie an, indem Sie hinter dem Namen des Routenparameters einen Doppelpunkt (`:`) und einen Einschränkungsnamen hinzufügen. Wenn für die Einschränkung Argumente erforderlich sind, werden diese nach dem Einschränkungsnamen in Klammern (`( )`) angegeben. Mehrere Inline-Einschränkungen können festgelegt werden, indem ein weiterer Doppelpunkt (`:`) und Einschränkungsname hinzugefügt wird. Der Einschränkungsname wird dem <xref:Microsoft.AspNetCore.Routing.IInlineConstraintResolver>-Dienst übergeben, wodurch eine Instanz von <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> für die URL-Verarbeitung erstellt werden kann. In der Routenvorlage `blog/{article:minlength(10)}` wird beispielsweise die Einschränkung `minlength` mit dem Argument `10` festgelegt. Weitere Informationen zu Routeneinschränkungen und eine Liste der vom Framework bereitgestellten Einschränkungen finden Sie im Abschnitt [Referenz für Routeneinschränkungen](#route-constraint-reference).
+::: moniker range=">= aspnetcore-2.2"
+
+Routenparameter können Einschränkungen aufweisen, die mit dem gebundenen Routenwert der URL übereinstimmen müssen. Eine *Inline-Einschränkung* für einen Routenparameter geben Sie an, indem Sie hinter dem Namen des Routenparameters einen Doppelpunkt (`:`) und einen Einschränkungsnamen hinzufügen. Wenn für die Einschränkung Argumente erforderlich sind, werden diese nach dem Einschränkungsnamen in Klammern (`( )`) eingeschlossen. Mehrere Inline-Einschränkungen können festgelegt werden, indem ein weiterer Doppelpunkt (`:`) und Einschränkungsname hinzugefügt wird. Der Einschränkungsname und die Argumente werden dem <xref:Microsoft.AspNetCore.Routing.IInlineConstraintResolver>-Dienst übergeben, wodurch eine Instanz von <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> für die URL-Verarbeitung erstellt werden kann. Wenn für den Konstruktor der Einschränkung Dienste erforderlich sind, werden diese aus App-Diensten der Abhängigkeitsinjektion aufgelöst. In der Routenvorlage `blog/{article:minlength(10)}` wird beispielsweise die Einschränkung `minlength` mit dem Argument `10` festgelegt. Weitere Informationen zu Routeneinschränkungen und eine Liste der vom Framework bereitgestellten Einschränkungen finden Sie im Abschnitt [Referenz für Routeneinschränkungen](#route-constraint-reference).
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+Routenparameter können Einschränkungen aufweisen, die mit dem gebundenen Routenwert der URL übereinstimmen müssen. Eine *Inline-Einschränkung* für einen Routenparameter geben Sie an, indem Sie hinter dem Namen des Routenparameters einen Doppelpunkt (`:`) und einen Einschränkungsnamen hinzufügen. Wenn für die Einschränkung Argumente erforderlich sind, werden diese nach dem Einschränkungsnamen in Klammern (`( )`) eingeschlossen. Mehrere Inline-Einschränkungen können festgelegt werden, indem ein weiterer Doppelpunkt (`:`) und Einschränkungsname hinzugefügt werden. Der Einschränkungsname und die Argumente werden dem <xref:Microsoft.AspNetCore.Routing.IInlineConstraintResolver>-Dienst übergeben, wodurch eine Instanz von <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> für die URL-Verarbeitung erstellt werden kann. In der Routenvorlage `blog/{article:minlength(10)}` wird beispielsweise die Einschränkung `minlength` mit dem Argument `10` festgelegt. Weitere Informationen zu Routeneinschränkungen und eine Liste der vom Framework bereitgestellten Einschränkungen finden Sie im Abschnitt [Referenz für Routeneinschränkungen](#route-constraint-reference).
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+Routenparameter können darüber hinaus über Parametertransformatoren verfügen, die den Wert eines Parameters beim Generieren von Links umwandeln und Aktionen und Seiten an URIs anpassen. Wie Einschränkungen können auch Parametertransformatoren einem Routenparameter inline hinzugefügt werden, indem ein Doppelpunkt (`:`) und der Name des Transformators hinter dem Namen des Routenparameters hinzugefügt werden. In der Routenvorlage `blog/{article:slugify}` wird beispielsweise der Transformator `slugify` festgelegt.
+
+::: moniker-end
 
 In der folgenden Tabelle werden mehrere Routenvorlagen und deren Verhalten beschrieben:
 
@@ -361,9 +383,29 @@ Für das Routing verwendete reguläre Ausdrücke beginnen häufig mit dem Zeiche
 | `^[a-z]{2}$` |  hello    | Nein    | siehe Erläuterungen zu `^` und `$` oben |
 | `^[a-z]{2}$` | 123abc456 | Nein    | siehe Erläuterungen zu `^` und `$` oben |
 
-Weitere Informationen zur Syntax von regulären Ausdrücken finden Sie unter [Sprachelemente für reguläre Ausdrücke – Kurzübersicht](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).
+Weitere Informationen zur Syntax von regulären Ausdrücken finden Sie unter [Sprachelemente für reguläre Ausdrücke – Kurzübersicht](/dotnet/standard/base-types/regular-expression-language-quick-reference).
 
 Einen regulären Ausdruck können Sie verwenden, um einen Parameter auf zulässige Werte einzuschränken. Mit `{action:regex(^(list|get|create)$)}` werden beispielsweise für den `action`-Routenwert nur die Werte `list`, `get` oder `create` abgeglichen. Wenn die Zeichenfolge `^(list|get|create)$` dem Einschränkungswörterbuch übergeben wird, führt dies zum gleichen Ergebnis. Auch Einschränkungen, die dem zugehörigen Wörterbuch hinzugefügt werden und mit keiner vorgegebenen Einschränkung übereinstimmen , werden als reguläre Ausdrücke behandelt. Dies gilt allerdings nicht für Inline-Einschränkungen in einer Vorlage.
+
+::: moniker range=">= aspnetcore-2.2"
+
+## <a name="parameter-transformer-reference"></a>Parametertransformatorreferenz
+
+Parametertransformatoren werden beim Generieren eines Links für eine `Route` ausgeführt. Parametertransformatoren übernehmen den Routenwert des Parameters und wandeln ihn in einen neuen Zeichenfolgenwert um. Der transformierte Wert wird im generierten Link verwendet. Beispielsweise generiert ein benutzerdefinierter Parametertransformator `slugify` im Routenmuster `blog\{article:slugify}` mit `Url.Action(new { article = "MyTestArticle" })` `blog\my-test-article`. Parametertransformatoren implementieren `Microsoft.AspNetCore.Routing.IOutboundParameterTransformer`und werden mithilfe von <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> konfiguriert.
+
+Parametertransformatoren werden auch von Frameworks verwendet, um den URI zu transformieren, zu dem ein Endpunkt aufgelöst wird. Beispielsweise verwendet ASP.NET Core MVC Parametertransformatoren zum Transformieren des Routenwerts, der zum Zuordnen einer `area`, eines `controller`, einer `action` und einer `page` verwendet wird.
+
+```csharp
+routes.MapRoute(
+    name: "default",
+    template: "{controller=Home:slugify}/{action=Index:slugify}/{id?}");
+```
+
+Mit der vorstehenden Route wird die Aktion `SubscriptionManagementController.GetAll()` dem URI `/subscription-management/get-all` zugeordnet. Ein Parametertransformator ändert nicht die zum Generieren eines Links verwendeten Routenwerte. `Url.Action("GetAll", "SubscriptionManagement")`-Ausgaben`/subscription-management/get-all`.
+
+ASP.NET Core MVC beinhaltet außerdem die `Microsoft.AspNetCore.Mvc.ApplicationModels.RouteTokenTransformerConvention`-API-Konvention. Die Konvention wendet einen angegebenen Parametertransformator auf alle Token von Attributrouten in der App an.
+
+::: moniker-end
 
 ## <a name="url-generation-reference"></a>Referenz für URL-Generierung
 

@@ -5,12 +5,12 @@ description: In diesem Tutorial wird veranschaulicht, wie mit EF Core Erstellung
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: e3a0ec2e21ae9e9eeaae1eb7c17f1604897fb6f9
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: 25493f93daf3fe5e874ad1d06b918196cd1f074d
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342457"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912812"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>Razor-Seiten mit EF Core in ASP.NET Core: CRUD (2 von 8)
 
@@ -26,7 +26,7 @@ In diesem Tutorial wird der erstellte CRUD-Code (CRUD = Create, Read, Update, De
 
 Zur Minimierung der Komplexität und damit EF Core im Fokus dieser Tutorials bleibt, wird in den Seitenmodellen EF Core-Code verwendet. Einige Entwickler verwenden eine Dienstschicht oder ein [Repositorymuster](xref:fundamentals/repository-pattern), um eine Abstraktionsschicht zwischen der Benutzeroberfläche (Razor Pages) und der Datenzugriffsschicht zu erstellen.
 
-In diesem Tutorial werden die Razor Pages „Create“ (Erstellen), „Edit“ (Bearbeiten), „Delete“ (Löschen) und „Details“ im Ordner *Student* erläutert.
+In diesem Tutorial werden die Razor Pages „Create“ (Erstellen), „Edit“ (Bearbeiten), „Delete“ (Löschen) und „Details“ im Ordner *Students* erläutert.
 
 Der erstellte Code verwendet folgendes Muster für die Seiten „Create“ (Erstellen), „Edit“ (Bearbeiten) und „Delete“ (Löschen):
 
@@ -35,7 +35,7 @@ Der erstellte Code verwendet folgendes Muster für die Seiten „Create“ (Erst
 
 Auf den Seiten „Index“ und „Details“ werden die angeforderten Daten mit der HTTP GET-Methode `OnGetAsync` abgerufen und angezeigt.
 
-## <a name="singleordefaultasync-vs-firstordefaultasync"></a>Vergleich von „SingleOrDefaultAsync“ und „FirstOrDefaultAsync“
+## <a name="singleordefaultasync-vs-firstordefaultasync"></a>„SingleOrDefaultAsync“ im Vergleich zu „FirstOrDefaultAsync“
 
 Der generierte Code verwendet [FirstOrDefaultAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.firstordefaultasync#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_FirstOrDefaultAsync__1_System_Linq_IQueryable___0__System_Threading_CancellationToken_). Im Allgemeinen wird dies [SingleOrDefaultAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.singleordefaultasync#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_SingleOrDefaultAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_) vorgezogen.
 
@@ -236,9 +236,9 @@ Testen Sie die Seite „Löschen“.
 
 ## <a name="common-errors"></a>Häufige Fehler
 
-„Student/Index“ oder andere Links funktionieren nicht:
+„Students/Index“ oder andere Links funktionieren nicht:
 
-Überprüfen Sie, ob die Razor Page die richtige `@page`-Anweisung enthält. Die Razor-Seite „Student/Index“ sollte beispielsweise **keine** Routenvorlage enthalten:
+Überprüfen Sie, ob die Razor Page die richtige `@page`-Anweisung enthält. Die Razor-Seite „Students/Index“ sollte beispielsweise **keine** Routenvorlage enthalten:
 
 ```cshtml
 @page "{id:int}"

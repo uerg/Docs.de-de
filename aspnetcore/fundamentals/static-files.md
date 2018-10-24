@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/18/2018
 uid: fundamentals/static-files
-ms.openlocfilehash: 33fad930e617c74d9a8c07f850764a6b81fa8ab5
-ms.sourcegitcommit: 2c158fcfd325cad97ead608a816e525fe3dcf757
+ms.openlocfilehash: 52c7916b9fc55c875d56acd49c01f76dd2053817
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41751440"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47861004"
 ---
 # <a name="static-files-in-aspnet-core"></a>Statische Dateien in ASP.NET Core
 
@@ -216,7 +216,7 @@ Weitere Informationen finden Sie unter [MIME-Inhaltstypen](http://www.iana.org/a
 
 ## <a name="non-standard-content-types"></a>Inhaltstypen, die vom Standard abweichen
 
-Die Middleware für statische Dateien erkennt fast 400 bekannte Dateiinhaltstypen. Wenn der Benutzer eine Datei mit einem unbekannten Dateityp anfordert, gibt die Middleware für statische Dateien die HTTP-Antwort „404 – Nicht gefunden“ zurück. Wenn die Verzeichnissuche aktiviert ist, wird ein Link zur Datei angezeigt. Der URI gibt den HTTP-Fehler 404 zurück.
+Die Middleware für statische Dateien erkennt fast 400 bekannte Dateiinhaltstypen. Wenn ein Benutzer eine Datei mit einem unbekannten Dateityp anfordert, übergibt die Middleware für statische Dateien die Anforderung an die nächste Middleware in der Pipeline. Wenn keine Middleware die Anforderung verarbeitet, wird die Meldung *404 Nicht gefunden* zurückgegeben. Wenn die Verzeichnissuche aktiviert ist, wird ein Link zur Datei in einer Verzeichnisliste angezeigt.
 
 Mit dem folgenden Code wird die Bereitstellung unbekannter Typen aktiviert und die unbekannte Datei als Image gerendert:
 

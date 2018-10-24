@@ -5,12 +5,12 @@ description: In diesem Tutorial werden verwandte Daten gelesen und angezeigt. Da
 ms.author: riande
 ms.date: 11/05/2017
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: f57853fae7fb1cb7df130f38a6996c87a5c08e83
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: e23b8bb870b329bd705fbc9548df62524303893e
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523284"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912320"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Razor-Seiten mit EF Core in ASP.NET Core: Lesen verwandter Daten (6 von 8)
 
@@ -51,7 +51,7 @@ Es gibt mehrere Möglichkeiten, mit denen EF Core verwandte Daten in die Navigat
 
   ![Beispiel für explizites Laden](read-related-data/_static/explicit-loading.png)
 
-* [Lazy Loading (verzögertes Laden)](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading). [EF Core unterstützt das Lazy Loading derzeit nicht](https://github.com/aspnet/EntityFrameworkCore/issues/3797). Wenn die Entität zuerst gelesen wird, werden verwandte Daten nicht abgerufen. Wenn zum ersten Mal auf eine Navigationseigenschaft zugegriffen wird, werden die für diese Navigationseigenschaft erforderlichen Daten automatisch abgerufen. Wenn zum ersten Mal auf eine Navigationseigenschaft zugegriffen wird, wird jedes Mal eine Abfrage an die Datenbank geschickt.
+* [Lazy Loading (verzögertes Laden)](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading). [Lazy Loading wurde in Version 2.1 zu EF Core hinzugefügt](/ef/core/querying/related-data#lazy-loading). Wenn die Entität zuerst gelesen wird, werden verwandte Daten nicht abgerufen. Wenn zum ersten Mal auf eine Navigationseigenschaft zugegriffen wird, werden die für diese Navigationseigenschaft erforderlichen Daten automatisch abgerufen. Wenn zum ersten Mal auf eine Navigationseigenschaft zugegriffen wird, wird jedes Mal eine Abfrage an die Datenbank geschickt.
 
 * Der `Select`-Operator lädt nur die erforderlichen verwandten Daten.
 

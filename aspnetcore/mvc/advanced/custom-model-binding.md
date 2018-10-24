@@ -5,12 +5,12 @@ description: Erfahren Sie mehr darüber, wie Controlleraktionen durch Modellbind
 ms.author: riande
 ms.date: 04/10/2017
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: f5bd9a3eefb1fd9c1534e8767ad8e8af37514adb
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: b8745241b0699d270bb8f3a56ab614b0ca49e64b
+ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275392"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48045535"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>Anpassen von Modellbindungen in ASP.NET Core
 
@@ -101,7 +101,7 @@ Das `ModelBinder`-Attribut kann verwendet werden, um `AuthorEntityBinder` auf Pa
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo1&highlight=2)]
 
-Da der Name des Arguments nicht dem Standard (`authorId`) entspricht, wird er in diesem Beispiel im Parameter mit `ModelBinder` angegeben. Beachten Sie, dass sowohl der Controller als auch die Aktionsmethode vereinfacht sind, wenn man sie mit der Suchen nach der Entität in der Aktionsmethode vergleicht. Die Logik zum Abrufen des Autors mit Entity Framework Core wird in die Modellbindung verschoben. Dies kann zu einer deutlichen Vereinfachung führen, wenn Sie über mehrere Methoden verfügen, die eine Bindung an das author-Modell durchführen. Zudem können Sie so leichter das [DRY-Prinzip](http://deviq.com/don-t-repeat-yourself/) einhalten.
+Da der Name des Arguments nicht dem Standard (`authorId`) entspricht, wird er in diesem Beispiel im Parameter mit dem Attribut `ModelBinder` angegeben. Beachten Sie, dass sowohl der Controller als auch die Aktionsmethode vereinfacht sind, wenn man sie mit der Suchen nach der Entität in der Aktionsmethode vergleicht. Die Logik zum Abrufen des Autors mit Entity Framework Core wird in die Modellbindung verschoben. Dies kann zu einer deutlichen Vereinfachung führen, wenn Sie über mehrere Methoden verfügen, die eine Bindung an das `Author`-Modell durchführen. Zudem können Sie so leichter das [DRY-Prinzip](http://deviq.com/don-t-repeat-yourself/) einhalten.
 
 Sie können das Attribut `ModelBinder` auf einzelne Modelleigenschaften (z.B. ViewModel) oder auf Aktionsmethodenparameter anwenden, um eine bestimmte Modellbindung oder einen bestimmten Modellnamen für genau diesen Typ oder genau diese Aktion anzugeben.
 

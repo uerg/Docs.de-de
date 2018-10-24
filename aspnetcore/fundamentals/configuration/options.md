@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/28/2017
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 6258530beedced9570111478fea630b1556e1a1e
-ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
+ms.openlocfilehash: 0ab920cc8890f2a1e4d1fb8d783dea666751a53f
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2018
-ms.locfileid: "42927957"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911291"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Optionsmuster in ASP.NET Core
 
@@ -250,7 +250,9 @@ named_options_2: option1 = named_options_2_value1_from_action, option2 = 5
 * `named_options_2`-Delegat in `ConfigureServices` für `Option1`.
 * Der Standardwert für `Option2` wird von der `MyOptions`-Klasse bereitgestellt.
 
-Konfigurieren Sie alle benannten Optionsinstanzen mit der [OptionsServiceCollectionExtensions.ConfigureAll](/dotnet/api/microsoft.extensions.dependencyinjection.optionsservicecollectionextensions.configureall)-Methode. Der folgende Code konfiguriert `Option1` für alle benannten Konfigurationsinstanzen mit einem gemeinsamen Wert. Fügen Sie der `Configure`-Methode manuell den folgenden Code hinzu:
+## <a name="configure-all-options-with-the-configureall-method"></a>Konfigurieren aller Optionen mit der ConfigureAll-Methode
+
+Konfigurieren Sie alle Optionsinstanzen mit der [OptionsServiceCollectionExtensions.ConfigureAll](/dotnet/api/microsoft.extensions.dependencyinjection.optionsservicecollectionextensions.configureall)-Methode. Der folgende Code konfiguriert `Option1` für alle Konfigurationsinstanzen mit einem gemeinsamen Wert. Fügen Sie der `Configure`-Methode manuell den folgenden Code hinzu:
 
 ```csharp
 services.ConfigureAll<MyOptions>(myOptions => 
@@ -353,7 +355,7 @@ services.PostConfigure<MyOptions>("named_options_1", myOptions =>
 });
 ```
 
-Verwenden Sie [PostConfigureAll&lt;TOptions&gt;](/dotnet/api/microsoft.extensions.dependencyinjection.optionsservicecollectionextensions.postconfigureall) zur Postkonfiguration aller benannten Konfigurationsinstanzen:
+Verwenden Sie [PostConfigureAll&lt;TOptions&gt;](/dotnet/api/microsoft.extensions.dependencyinjection.optionsservicecollectionextensions.postconfigureall) zur Postkonfiguration aller Konfigurationsinstanzen:
 
 ```csharp
 services.PostConfigureAll<MyOptions>(myOptions =>

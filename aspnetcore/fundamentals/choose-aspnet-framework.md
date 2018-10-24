@@ -1,41 +1,45 @@
 ---
-title: Wählen zwischen ASP.NET und ASP.NET Core
+title: Wählen zwischen ASP.NET 4.x und ASP.NET Core
 author: rick-anderson
-description: Erfahren Sie, wie Sie zwischen ASP.NET und ASP.NET Core auswählen.
+description: Erklärt ASP.NET Core vs. ASP.NET 4.x und wie man sich für eines von beiden entscheidet.
 ms.author: riande
-ms.date: 05/11/2018
+ms.date: 09/11/2018
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
-ms.openlocfilehash: 6d759c0bc5e5c7d32d6c14786db6ba9fe7a2f1e8
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: f046491e2ec68b6beaad581e2b04e6688a81f2d1
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36297229"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911044"
 ---
-# <a name="choose-between-aspnet-and-aspnet-core"></a>Wählen zwischen ASP.NET und ASP.NET Core
+# <a name="choose-between-aspnet-4x-and-aspnet-core"></a>Wählen zwischen ASP.NET 4.x und ASP.NET Core
 
-Unabhängig von der Web-App, die Sie erstellen, bietet ASP.NET Ihnen eine Lösung: von Web-Apps für Unternehmen unter Windows Server bis zu kleinen Microservices in Linux-Containern und für alles dazwischen.
+ASP.NET Core ist eine Neugestaltung von ASP.NET 4.x. Dieser Artikel listet die Unterschiede auf.
 
 ## <a name="aspnet-core"></a>ASP.NET Core
 
 ASP.NET Core ist ein plattformübergreifendes Open-Source-Framework zum Erstellen moderner, cloudbasierter Web-Apps unter Windows, macOS oder Linux.
 
-## <a name="aspnet"></a>ASP.NET
+[!INCLUDE[](~/includes/benefits.md)]
 
-ASP.NET ist ein ausgereiftes Framework, das sämtliche Dienste bietet, die zum Erstellen erstklassiger serverbasierter Web-Apps unter Windows für Unternehmen erforderlich sind.
+## <a name="aspnet-4x"></a>ASP.NET 4.x
+
+ASP.NET 4.x ist ein ausgereiftes Framework, das sämtliche Dienste bietet, die zum Erstellen erstklassiger serverbasierter Web-Apps unter Windows für Unternehmen erforderlich sind.
 
 ## <a name="framework-selection"></a>Auswahl des Frameworks
 
-Sehen Sie sich die nachfolgende Tabelle an, um zu ermitteln, welches Framework sich am besten für Sie eignet.
+Die folgende Tabelle vergleicht ASP.NET Core mit ASP.NET 4.x.
 
-| ASP.NET Core | ASP.NET |
+| ASP.NET Core | ASP.NET 4.x |
 |---|---|
 |Entwickeln für Windows, macOS oder Linux|Entwickeln für Windows|
 |[Razor-Seiten](xref:razor-pages/index) werden für das Erstellen einer Webbenutzeroberfläche mit ASP.NET Core 2.x empfohlen. Weitere Informationen finden Sie unter [MVC](xref:mvc/overview), [Web API](xref:tutorials/first-web-api) und [SignalR](xref:signalr/introduction).|Verwenden von [Web Forms](/aspnet/web-forms), [SignalR](/aspnet/signalr), [MVC](/aspnet/mvc), [Web API](/aspnet/web-api/) oder [WebHooks](/aspnet/webhooks/) oder [Web Pages](/aspnet/web-pages)|
 |Mehrere Versionen pro Computer|Eine Version pro Computer|
 |Entwickeln mit Visual Studio, [Visual Studio für Mac](https://www.visualstudio.com/vs/visual-studio-mac/) oder [Visual Studio Code](https://code.visualstudio.com/) unter Verwendung von C# oder F#|Entwickeln mit Visual Studio unter Verwendung von C#, VB oder F#|
-|Höhere Leistung als ASP.NET|Gute Leistung|
+|Höhere Leistung als ASP.NET 4.x|Gute Leistung|
 |[Wählen der .NET Framework- oder .NET Core-Laufzeit](/dotnet/articles/standard/choosing-core-framework-server)|Verwenden der .NET Framework-Laufzeit|
+
+Weitere Informationen über Unterstützung für ASP.NET Core 2.x in .NET Framework finden Sie unter [ASP.NET Core targeting .NET Framework](xref:index#target-framework).
 
 ## <a name="aspnet-core-scenarios"></a>ASP.NET Core-Szenarien
 
@@ -43,14 +47,17 @@ Sehen Sie sich die nachfolgende Tabelle an, um zu ermitteln, welches Framework s
 * [Websites](xref:tutorials/first-mvc-app/index)
 * [APIs](xref:tutorials/first-web-api)
 * [Echtzeit](xref:signalr/index)
+* [Bereitstellen einer ASP.NET Core-App in Azure](/azure/app-service/app-service-web-get-started-dotnet)
 
-## <a name="aspnet-scenarios"></a>ASP.NET-Szenarien
+## <a name="aspnet-4x-scenarios"></a>ASP.NET 4.x-Szenarios
 
 * [Websites](/aspnet/mvc)
 * [APIs](/aspnet/web-api)
 * [Echtzeit](/aspnet/signalr)
+* [Erstellen einer ASP.NET 4.x-Web-App in Azure](/azure/app-service/app-service-web-get-started-dotnet-framework)
 
-## <a name="resources"></a>Ressourcen
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 * [Einführung in ASP.NET](/aspnet/overview)
 * [Einführung in ASP.NET Core](xref:index)
+* <xref:host-and-deploy/azure-apps/index>

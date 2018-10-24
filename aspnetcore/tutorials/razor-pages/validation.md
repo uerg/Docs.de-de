@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 6144bfb9e731ace51b4f23870fdb06519fd4a9ea
-ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
+ms.openlocfilehash: cd958b9c084de4b3e12784774544610873a519f9
+ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47211025"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48045522"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Hinzufügen der Validierung zu einer Razor-Seite in ASP.NET Core
 
@@ -27,7 +27,7 @@ Die von Razor Pages und Entity Framework gebotene Unterstützung der Validierung
 
 ### <a name="adding-validation-rules-to-the-movie-model"></a>Hinzufügen von Validierungsregeln zum Modell „Movie“
 
-Öffnen Sie Datei *Movie.cs*. [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) bietet eine integrierte Gruppe von Validierungsattributen, die deklarativ auf eine Klasse oder Eigenschaft angewendet werden. „DataAnnotations“ enthält auch Formatierungsattribute wie `DataType`, die bei der Formatierung helfen und keine Validierung bieten.
+Öffnen Sie die Datei *Models/Movie.cs*. [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) bietet eine integrierte Gruppe von Validierungsattributen, die deklarativ auf eine Klasse oder Eigenschaft angewendet werden. „DataAnnotations“ enthält auch Formatierungsattribute wie `DataType`, die bei der Formatierung helfen und keine Validierung bieten.
 
 Aktualisieren Sie die `Movie`-Klasse, um die Validierungsattribute `Required`, `StringLength`, `RegularExpression` und `Range` zu nutzen.
 
@@ -79,7 +79,7 @@ Wenn JavaScript im Browser deaktiviert ist, erfolgt beim Senden des Formulars mi
 
 Testen Sie optional die serverseitige Validierung:
 
-* Deaktivieren Sie JavaScript im Browser. Wenn Sie JavaScript im Browser nicht deaktivieren können, probieren Sie einen anderen Browser.
+* Deaktivieren Sie JavaScript im Browser. Sie erreichen dies mithilfe der Entwicklertools Ihres Browsers. Wenn Sie JavaScript im Browser nicht deaktivieren können, probieren Sie einen anderen Browser.
 * Setzen Sie auf der Seite „Erstellen“ oder „Bearbeiten“ in der `OnPostAsync`-Methode einen Haltepunkt.
 * Senden Sie ein Formular mit Validierungsfehlern.
 * Überprüfen Sie, ob der Modellstatus ungültig ist:

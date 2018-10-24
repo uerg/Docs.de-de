@@ -5,12 +5,12 @@ description: Erfahren Sie, wie Sie Klassen für das Verwalten von Filmen mithilf
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: de82738509bb009f030a02e28904e3155088fa6a
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 5cd1e08ac52d352be23a280419d7456f685a03ad
+ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011357"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48045600"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Hinzufügen eines Modells zu einer App mit Razor-Seiten in ASP.NET Core
 
@@ -22,9 +22,7 @@ ms.locfileid: "46011357"
 
 Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf das Projekt **RazorPagesMovie** > **Hinzufügen** > **Neuer Ordner**. Geben Sie dem Ordner den Namen *Modelle*.
 
-Klicken Sie mit der rechten Maustaste auf den Ordner *Modelle*. Wählen Sie **Hinzufügen** > **Klasse** aus. Nennen Sie die Klasse **Movie**, und fügen Sie Ihr die folgenden Eigenschaften hinzu:
-
-Ersetzen Sie den Inhalt der Klasse `Movie` durch folgenden Code:
+Klicken Sie mit der rechten Maustaste auf den Ordner *Modelle*. Wählen Sie **Hinzufügen** > **Klasse** aus. Benennen Sie die Klasse **Movie**, und ersetzen Sie die Inhalte der `Movie`-Klasse durch den folgenden Code:
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie21/Models/Movie1.cs?name=snippet)]
 
@@ -41,7 +39,7 @@ Klicken Sie im **Projektmappen-Explorer** mit der rechten Maustaste auf den Ordn
 
 ![Abbildung der vorherigen Anweisungen.](model/_static/sca.png)
 
-Wählen Sie im Dialogfeld **Gerüst hinzufügen** den Eintrag **Razor Pages mit Entity Framework (CRUD)** > **HINZUFÜGEN** aus.
+Wählen Sie im Dialogfeld **Gerüst hinzufügen** den Eintrag **Razor Pages mit Entity Framework (CRUD)** > **Hinzufügen** aus.
 
 ![Abbildung der vorherigen Anweisungen.](model/_static/add_scaffold.png)
 
@@ -58,10 +56,10 @@ Der Gerüstprozess hat folgende Dateien erstellt und geändert:
 
 ### <a name="files-created"></a>Erstellte Dateien
 
-* *Pages/Movies/Create.cshtml.cs* ( bzw. /Delete, /Details, /Edit, /Index). Diese Seiten werden im nächsten Tutorial ausführlich erläutert.
+* *Pages/Movies*: Create, Delete, Details, Edit, Index. Diese Seiten werden im nächsten Tutorial ausführlich erläutert.
 * *Data/RazorPagesMovieContext.cs*
 
-### <a name="files-updates"></a>Aktualisierte Dateien
+### <a name="file-updates"></a>Dateiupdates
 
 * *Startup.cs:* Die Änderungen an dieser Datei werden im nächsten Abschnitt ausführlich erläutert.
 * *appsettings.json*: Die Verbindungszeichenfolge, die zum Herstellen einer Verbindung mit einer lokalen Datenbank verwendet wird, wurde hinzugefügt.
@@ -122,8 +120,8 @@ Mit dem Befehl `Update-Database` führen Sie die Methode `Up` in der Datei *Migr
 
 Wenn Sie eine Fehlermeldung erhalten, müssen Sie Folgendes tun:
 
-SqlException: Die bei der Anmeldung angeforderte Datenbank „RazorPagesMovieContext-GUID“ kann nicht geöffnet werden. Die Anmeldung ist fehlgeschlagen.
-Fehler bei der Anmeldung des Benutzers „Benutzername“.
+`SqlException: Cannot open database "RazorPagesMovieContext-GUID" requested by the login. The login failed.
+Login failed for user 'User-name'.`
 
 Sie haben den [Migrationsschritt](#pmc) verpasst.
 

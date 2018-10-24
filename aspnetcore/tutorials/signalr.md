@@ -1,28 +1,29 @@
 ---
-title: 'Tutorial: Erste Schritte mit SignalR unter ASP.NET Core'
+title: Erste Schritte mit ASP.NET Core SignalR
 author: tdykstra
-description: In diesem Tutorial erstellen Sie eine Chat-App, die SignalR für ASP.NET Core verwendet.
+description: In diesem Tutorial erstellen Sie eine Chat-App, die ASP.NET Core SignalR verwendet.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 6f93d6dc664f68425ef0fa0d02f9011e4875bc33
-ms.sourcegitcommit: 9bdba90b2c97a4016188434657194b2d7027d6e3
+ms.openlocfilehash: 55fb6b1c13549129a00541c1228956a93854ad78
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47402132"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48578028"
 ---
-# <a name="tutorial-get-started-with-signalr-on-aspnet-core"></a>Tutorial: Erste Schritte mit SignalR unter ASP.NET Core
+# <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Tutorial: Erste Schritte mit ASP.NET Core SignalR
 
 In diesem Tutorial werden die Grundlagen zur Erstellung einer Echtzeit-App mit SignalR beschrieben. Sie lernen Folgendes:
 
 > [!div class="checklist"]
-> * Erstellen einer Web-App, die SignalR für ASP.NET Core verwendet
-> * Erstellen eines SignalR-Hubs auf dem Server
-> * Herstellen einer Verbindung zwischen JavaScript-Clients und dem SignalR-Hub
-> * Verwenden des Hubs zum Senden von Nachrichten von jedem Client an alle verbundenen Clients
+> * Erstellen eines Web-App-Projekts
+> * Hinzufügen der SignalR-Clientbibliothek
+> * Erstellen eines SignalR-Hubs
+> * Konfigurieren des Projekts zur Verwendung von SignalR
+> * Hinzufügen von Code, der den Hub verwendet, um Nachrichten von einem beliebigen Client an alle verbundenen Clients zu senden
 
 Am Ende verfügen Sie über eine funktionierende Chat-App:
 
@@ -50,7 +51,7 @@ Am Ende verfügen Sie über eine funktionierende Chat-App:
 
 ---
 
-## <a name="create-the-project"></a>Erstellen eines Projekts
+## <a name="create-a-web-project"></a>Erstellen eines Webprojekts
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
@@ -90,7 +91,7 @@ Am Ende verfügen Sie über eine funktionierende Chat-App:
 
 ## <a name="add-the-signalr-client-library"></a>Hinzufügen der SignalR-Clientbibliothek
 
-Die SignalR-Serverbibliothek ist im [Metapaket Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) enthalten. Die JavaScript-Clientbibliothek ist nicht automatisch im Projekt enthalten. In diesem Tutorial verwenden Sie den [Bibliotheks-Manager (LibMan)](xref:client-side/libman/index), um die Clientbibliothek von *unpkg* abzurufen. [unpkg](https://unpkg.com/#/) ist ein [CDN](https://wikipedia.org/wiki/Content_delivery_network) (Content Delivery Network), mit dem Sie alles bereitstellen können, was im [npm (Node.js-Paket-Manager)](https://www.npmjs.com/get-npm) zu finden ist.
+Die SignalR-Serverbibliothek ist im Metapaket `Microsoft.AspNetCore.App` enthalten. Die JavaScript-Clientbibliothek ist nicht automatisch im Projekt enthalten. In diesem Tutorial verwenden Sie den Bibliotheks-Manager (LibMan), um die Clientbibliothek von *unpkg* abzurufen. unpkg ist ein CDN (Content Delivery Network), mit dem Sie alles bereitstellen können, was im npm (Node.js-Paket-Manager) zu finden ist.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
@@ -98,7 +99,7 @@ Die SignalR-Serverbibliothek ist im [Metapaket Microsoft.AspNetCore.App](xref:fu
 
 * Wählen Sie **unpkg** im Dialogfeld **Add Client-Side Library** (Clientseitige Bibliothek hinzufügen) als **Anbieter** aus. 
 
-* Geben Sie _@aspnet/signalr@1_ für die **Bibliothek** ein, und wählen Sie die neuste Version aus, die keine Vorschauversion ist.
+* Geben Sie `@aspnet/signalr@1` für die **Bibliothek** ein, und wählen Sie die neueste Version aus, die keine Vorschauversion ist.
 
   ![Dialogfeld „Clientseitige Bibliothek hinzufügen“: Auswählen der Bibliothek](signalr/_static/libman1.png)
 
@@ -108,7 +109,7 @@ Die SignalR-Serverbibliothek ist im [Metapaket Microsoft.AspNetCore.App](xref:fu
 
   ![Dialogfeld „Clientseitige Bibliothek hinzufügen“: Auswählen der Dateien und des Zielspeicherorts](signalr/_static/libman2.png)
 
-  Der Ordner *wwwroot/lib/signalr/* wird von [LibMan](xref:client-side/libman/index) erstellt, und die ausgewählten Dateien werden in ihn hineinkopiert.
+  Der Ordner *wwwroot/lib/signalr* wird von LibMan erstellt, und die ausgewählten Dateien werden in ihn hineinkopiert.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
@@ -170,9 +171,9 @@ Die SignalR-Serverbibliothek ist im [Metapaket Microsoft.AspNetCore.App](xref:fu
 
 ---
 
-## <a name="create-the-signalr-hub"></a>Erstellen des SignalR-Hubs
+## <a name="create-a-signalr-hub"></a>Erstellen eines SignalR-Hubs
 
-Ein [Hub](xref:signalr/hubs) ist eine Klasse, die als grundlegende Pipeline verwendet wird, mit der Client/Server-Kommunikation verarbeitet wird.
+Ein *Hub* ist eine Klasse, die als grundlegende Pipeline verwendet wird, mit der Client/Server-Kommunikation verarbeitet wird.
 
 * Erstellen Sie im SignalRChat-Projektordner einen *Hubs*-Ordner.
 
@@ -180,11 +181,11 @@ Ein [Hub](xref:signalr/hubs) ist eine Klasse, die als grundlegende Pipeline verw
 
   [!code-csharp[Startup](signalr/sample/Hubs/ChatHub.cs)]
 
-  Die `ChatHub`-Klasse erbt von der [Hub](/dotnet/api/microsoft.aspnetcore.signalr.hub)-Klasse von SignalR. Die `Hub`-Klasse verwaltet Verbindungen, Gruppen und Messaging.
+  Die `ChatHub`-Klasse erbt von der `Hub`-Klasse von SignalR. Die `Hub`-Klasse verwaltet Verbindungen, Gruppen und Messaging.
 
   Die `SendMessage`-Methode kann von jedem verbundenen Client aufgerufen werden. Die empfangenen Nachrichten werden an alle Clients gesendet. SignalR-Code ist asynchron, damit die maximale Skalierbarkeit gewährleistet werden kann.
 
-## <a name="configure-the-project-to-use-signalr"></a>Konfigurieren des Projekts zur Verwendung von SignalR
+## <a name="configure-signalr"></a>Konfigurieren von SignalR
 
 Der SignalR-Server muss zunächst konfiguriert werden, um Anforderungen an SignalR zu senden.
 
@@ -192,9 +193,9 @@ Der SignalR-Server muss zunächst konfiguriert werden, um Anforderungen an Signa
 
   [!code-csharp[Startup](signalr/sample/Startup.cs?highlight=7,33,52-55)]
 
-  Durch diese Änderungen wird SignalR zum [Dependency Injection](xref:fundamentals/dependency-injection)-System sowie der [Middlewarepipeline](xref:fundamentals/middleware/index) hinzugefügt.
+  Durch diese Änderungen wird SignalR zum Dependency Injection-System von ASP.NET Core sowie der Middlewarepipeline hinzugefügt.
 
-## <a name="create-the-signalr-client-code"></a>Erstellen des SignalR-Clientcodes
+## <a name="add-signalr-client-code"></a>Hinzufügen des SignalR-Clientcodes
 
 * Ersetzen Sie den Inhalt in *Pages\Index.cshtml* durch den folgenden Code:
 
@@ -246,10 +247,16 @@ Der SignalR-Server muss zunächst konfiguriert werden, um Anforderungen an Signa
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Wenn Sie möchten, dass Clients eine Verbindung mit einer SignalR-App von unterschiedlichen Domänen herstellt, müssen Sie die Ressourcenfreigabe zwischen verschiedenen Ursprüngen aktivieren (Cross-Origin Resource Sharing, CORS). Weiter Informationen finden Sie unter [Cross-origin resource sharing (Ressourcenfreigabe zwischen verschiedenen Ursprüngen)](xref:signalr/security?view=aspnetcore-2.1#cross-origin-resource-sharing).
+In diesem Tutorial haben Sie gelernt, wie die folgenden Aufgaben ausgeführt werden:
 
-Weitere Informationen zu SignalR, Hubs sowie JavaScript-Clients finden Sie in folgenden Artikeln:
+> [!div class="checklist"]
+> * Erstellen eines Web-App-Projekts
+> * Hinzufügen der SignalR-Clientbibliothek
+> * Erstellen eines SignalR-Hubs
+> * Konfigurieren des Projekts zur Verwendung von SignalR
+> * Hinzufügen von Code, der den Hub verwendet, um Nachrichten von einem beliebigen Client an alle verbundenen Clients zu senden
 
-* [Introduction to SignalR for ASP.NET Core (Einführung in SignalR für ASP.NET Core)](xref:signalr/introduction)
-* [Verwenden von Hubs in SignalR für ASP.NET Core](xref:signalr/hubs)
-* [ASP.NET Core SignalR JavaScript client (JavaScript-Client in SignalR für ASP.NET Core)](xref:signalr/javascript-client)
+Weitere Informationen zu SignalR finden Sie in der folgenden Einführung:
+
+> [!div class="nextstepaction"]
+> [Einführung in ASP.NET Core SignalR](xref:signalr/introduction)

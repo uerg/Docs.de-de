@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/19/2018
 uid: fundamentals/logging/index
-ms.openlocfilehash: e3bf5909edb515a2dabba206abaa160bc431d622
-ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
+ms.openlocfilehash: 7a87791abdc91c43796ce72764d0cb3938ed90ec
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46483086"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48578457"
 ---
 # <a name="logging-in-aspnet-core"></a>Protokollierung in ASP.NET Core
 
@@ -25,7 +25,7 @@ Informationen zur stdout-Protokollierung beim Hosten mit IIS finden Sie unter <x
 
 ## <a name="how-to-create-logs"></a>Erstellen von Protokollen
 
-Um Protokolle zu erstellen, implementieren Sie ein [ILogger&lt;TCategoryName&gt;](/dotnet/api/microsoft.extensions.logging.ilogger-1)-Objekt aus dem Container für die [Dependency Injection](xref:fundamentals/dependency-injection):
+Um Protokolle zu erstellen, erwerben Sie einen [ILogger&lt;TCategoryName&gt;](/dotnet/api/microsoft.extensions.logging.ilogger-1) aus dem Container für die [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection):
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -759,6 +759,7 @@ Protokollierungsframeworks von Drittanbietern aufgeführt, die mit ASP.NET Core 
 * [KissLog.net](https://kisslog.net/) ([GitHub repo](https://github.com/catalingavan/KissLog-net))
 * [Loggr](http://loggr.net/) ([GitHub-Repository](https://github.com/imobile3/Loggr.Extensions.Logging))
 * [NLog](http://nlog-project.org/) ([GitHub-Repository](https://github.com/NLog/NLog.Extensions.Logging))
+* [Sentry](https://sentry.io/welcome/) ([GitHub-Repository](https://github.com/getsentry/sentry-dotnet))
 * [Serilog](https://serilog.net/) ([GitHub-Repository](https://github.com/serilog/serilog-extensions-logging))
 
 Einige Drittanbieterframeworks können eine [semantische Protokollierung (auch als strukturierte Protokollierung bezeichnet)](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging) ausführen.

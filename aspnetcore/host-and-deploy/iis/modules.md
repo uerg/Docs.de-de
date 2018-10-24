@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/04/2018
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: 40af94f9cbb83f27f22d90b6b0f2854090687d34
-ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.openlocfilehash: 78cdf74648a29ed718d1373d7b3666b10749843d
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312345"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577560"
 ---
 # <a name="iis-modules-with-aspnet-core"></a>IIS-Module mit ASP.NET Core
 
@@ -39,7 +39,7 @@ Die Tabelle enthält native IIS-Module, die bei Reverseproxyanforderungen an ASP
 | **Ablaufverfolgung**<br>`FailedRequestsTracingModule` | Ja | [ASP.NET Core-Protokollierung](xref:fundamentals/logging/index#tracesource-provider) |
 | **Dateizwischenspeicherung**<br>`FileCacheModule` | Nein | [Antworten zwischenspeichernde Middleware](xref:performance/caching/middleware) |
 | **HTTP-Zwischenspeicherung**<br>`HttpCacheModule` | Nein | [Antworten zwischenspeichernde Middleware](xref:performance/caching/middleware) |
-| **HTTP-Protokollierung**<br>`HttpLoggingModule` | Ja | [ASP.NET Core-Protokollierung](xref:fundamentals/logging/index)<br>Implementierungen: [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging), [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging), [NLog](https://github.com/NLog/NLog.Extensions.Logging), [Serilog](https://github.com/serilog/serilog-extensions-logging)
+| **HTTP-Protokollierung**<br>`HttpLoggingModule` | Ja | [ASP.NET Core-Protokollierung](xref:fundamentals/logging/index)<br>Implementierungen: [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging), [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging), [NLog](https://github.com/NLog/NLog.Extensions.Logging), [Sentry](https://github.com/getsentry/sentry-dotnet), [Serilog](https://github.com/serilog/serilog-extensions-logging)
 | **HTTP-Umleitung**<br>`HttpRedirectionModule` | Ja | [URL-umschreibende Middleware](xref:fundamentals/url-rewriting) |
 | **Authentifizierung durch IIS-Clientzertifikatszuordnung**<br>`IISCertificateMappingAuthenticationModule` | Ja | |
 | **IP- und Domäneneinschränkungen**<br>`IpRestrictionModule` | Ja | |
