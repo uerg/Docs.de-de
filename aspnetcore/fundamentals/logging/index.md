@@ -1,35 +1,82 @@
 ---
 title: Protokollierung in ASP.NET Core
-author: ardalis
+author: tdykstra
 description: Erfahren Sie mehr über das Protokollierungsframework in ASP.NET Core. Lernen Sie die integrierten Anbieter für die Protokollierung kennen, und erfahren Sie mehr über beliebte Anbieter von Drittanbietern.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 09/19/2018
+ms.date: 10/11/2018
 uid: fundamentals/logging/index
-ms.openlocfilehash: 7a87791abdc91c43796ce72764d0cb3938ed90ec
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: e11657e27787e2fab8eacc8d4148a7ab089f9f53
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578457"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391322"
 ---
 # <a name="logging-in-aspnet-core"></a>Protokollierung in ASP.NET Core
 
 Von [Steve Smith](https://ardalis.com/) und [Tom Dykstra](https://github.com/tdykstra)
 
-ASP.NET Core unterstützt eine Protokollierungs-API, die mit mehreren verschiedenen Protokollanbietern funktioniert. Mit den integrierten Anbietern können Sie Protokolle an verschiedene Ziele senden, und Sie können ein Protokollierungsframework eines Drittanbieters einbinden. Dieser Artikel zeigt, wie Sie die integrierte Protokollierungs-API und die Anbieter in Ihrem Code verwenden.
-
-Informationen zur stdout-Protokollierung beim Hosten mit IIS finden Sie unter <xref:host-and-deploy/iis/troubleshoot#aspnet-core-module-stdout-log>. Informationen zur stdout-Protokollierung mit Azure App Service finden Sie unter <xref:host-and-deploy/azure-apps/troubleshoot#aspnet-core-module-stdout-log>.
+ASP.NET Core unterstützt eine Protokollierungs-API, die mit einer Vielzahl von integrierten Protokollierungsanbietern und Drittanbieter-Protokollierungslösungen zusammenarbeitet. Dieser Artikel zeigt, wie Sie die Protokollierungs-API mit integrierten Anbietern verwenden können.
 
 [Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="how-to-create-logs"></a>Erstellen von Protokollen
+## <a name="add-providers"></a>Hinzufügen von Anbietern
 
-Um Protokolle zu erstellen, erwerben Sie einen [ILogger&lt;TCategoryName&gt;](/dotnet/api/microsoft.extensions.logging.ilogger-1) aus dem Container für die [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection):
+Ein Protokollierungsanbieter zeigt Protokolle an oder speichert diese. Beispielsweise zeigt der Konsolenanbieter Protokolle in der Konsole an, und der Azure Application Insights-Anbieter speichert sie in Azure Application Insights. Protokolle können durch das Hinzufügen mehrerer Anbieter an mehrere Ziele gesendet werden.
 
 ::: moniker range=">= aspnetcore-2.0"
 
-[!code-csharp[](index/samples/2.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_LoggerDI&highlight=7)]
+Um einen Anbieter hinzuzufügen, rufen Sie die `Add{provider name}`-Erweiterungsmethode des Anbieters in *Program.cs* auf:
+
+[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_ExpandDefault&highlight=17-19)]
+
+Die Standardprojektvorlage ruft die <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder%2A>-Erweiterungsmethode auf, die die folgenden Protokollierungsanbieter hinzugefügt:
+
+* Konsole
+* Debug
+* EventSource (beginnend mit ASP.NET Core 2.2)
+
+[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_TemplateCode&highlight=7)]
+
+Bei Verwendung von `CreateDefaultBuilder` können Sie die Standardanbieter durch Ihre eigene Auswahl ersetzen. Rufen Sie <xref:Microsoft.Extensions.Logging.LoggingBuilderExtensions.ClearProviders%2A> auf, und fügen Sie die gewünschten Anbieter hinzu.
+
+[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_LogFromMain&highlight=18-22)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+Um einen Anbieter zu verwenden, installieren Sie das zugehörige NuGet-Paket und rufen die Erweiterungsmethode des Anbieters für eine Instanz von <xref:Microsoft.Extensions.Logging.ILoggerFactory> auf:
+
+[!code-csharp[](index/samples/1.x/TodoApiSample//Startup.cs?name=snippet_AddConsoleAndDebug&highlight=3,5-7)]
+
+ASP.NET Core-[Abhängigkeitsinjektion (Dependency Injection, DI)](xref:fundamentals/dependency-injection) stellt die `ILoggerFactory`-Instanz bereit. Die Erweiterungsmethoden `AddConsole` und `AddDebug` sind in den Paketen [Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/) und [Microsoft.Extensions.Logging.Debug](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Debug/) definiert. Jede Erweiterungsmethode ruft die Methode `ILoggerFactory.AddProvider` auf und übergibt eine Instanz des Anbieters.
+
+> [!NOTE]
+> Die [Beispiel-App](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/samples/1.x) fügt Protokollanbieter in der `Startup.Configure`-Methode hinzu. Wenn Sie für zuvor ausgeführten Code eine Protokollausgabe abrufen möchten, fügen Sie Protokollierungsanbieter im `Startup`-Klassenkonstruktor hinzu.
+
+::: moniker-end
+
+Informationen zu den [integrierten Protokollierungsanbietern](#built-in-logging-providers) sowie zu [Protokollierungsanbietern von Drittanbietern](#third-party-logging-providers) finden Sie weiter unten in diesem Artikel.
+
+## <a name="create-logs"></a>Erstellen von Protokollen
+
+Rufen Sie ein <xref:Microsoft.Extensions.Logging.ILogger`1>-Objekt aus DI ab.
+
+::: moniker range=">= aspnetcore-2.0"
+
+Das folgende Controllerbeispiel erstellt `Information`- und `Warning`-Protokolle. Die *Kategorie* ist `TodoApiSample.Controllers.TodoController` (der vollqualifizierte Klassenname von `TodoController` in der Beispiel-App):
+
+[!code-csharp[](index/samples/2.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_LoggerDI&highlight=4,7)]
+
+[!code-csharp[](index/samples/2.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_CallLogMethods&highlight=3,7)]
+
+Das folgende Razor Pages-Beispiel erstellt Protokolle mit `Information` als *Grad* und `TodoApiSample.Pages.AboutModel` als *Kategorie*:
+
+[!code-csharp[](index/samples/2.x/TodoApiSample/Pages/About.cshtml.cs?name=snippet_LoggerDI&highlight=3, 7)]
+
+[!code-csharp[](index/samples/2.x/TodoApiSample/Pages/About.cshtml.cs?name=snippet_CallLogMethods&highlight=4)]
 
 ::: moniker-end
 
@@ -37,58 +84,33 @@ Um Protokolle zu erstellen, erwerben Sie einen [ILogger&lt;TCategoryName&gt;](/d
 
 [!code-csharp[](index/samples/1.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_LoggerDI&highlight=7)]
 
-::: moniker-end
-
-Dann rufen Sie Protokollierungsmethoden für dieses Protokollierungsobjekt auf:
-
-::: moniker range=">= aspnetcore-2.0"
-
-[!code-csharp[](index/samples/2.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_CallLogMethods&highlight=3,7)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
 [!code-csharp[](index/samples/1.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_CallLogMethods&highlight=3,7)]
 
+Das vorherige Beispiel erstellt Protokolle mit `Information` und `Warning` als *Grad* und der `TodoController`-Klasse als *Kategorie*. 
+
 ::: moniker-end
 
-In diesem Beispiel werden Protokolle mit der Klasse `TodoController` als *Kategorie* erstellt. Kategorien werden [weiter unten in diesem Artikel](#log-category) erklärt.
-
-ASP.NET Core stellt keine asynchronen Protokollierungsmethoden zur Verfügung, weil eine Protokollierung so schnell erfolgen sollte, dass der Aufwand einer asynchronen Implementierung nicht gerechtfertigt ist. Wenn dies für Sie nicht zutrifft, können Sie eine Änderung der Protokollierungsmethode in Erwägung ziehen. Wenn Sie einen langsamen Datenspeicher verwenden, schreiben Sie die Protokollmeldungen zuerst in einen schnellen Speicher, und verschieben Sie sie dann später in einen langsamen Speicher. Führen Sie die Protokollierung beispielsweise in einer Nachrichtenwarteschlange durch, die von einem anderen Prozess gelesen und in einem langsamen Speicher persistiert wird.
-
-## <a name="how-to-add-providers"></a>Hinzufügen von Anbietern
+Der Protokollierungs*grad* gibt den Schweregrad des protokollierten Ereignisses an. Die Protokoll*kategorie* ist eine Zeichenfolge, die jedem Protokoll zugeordnet ist. Die `ILogger<T>`-Instanz erstellt Protokolle, die den vollqualifizierten Namen vom Typ `T` als Kategorie aufweisen. [Grade](#log-level) und [Kategorien](#log-category) werden weiter unten in diesem Artikel ausführlicher erläutert. 
 
 ::: moniker range=">= aspnetcore-2.0"
 
-Ein Protokollierungsanbieter ruft die mit einem `ILogger`-Objekt erstellte Meldung ab und zeigt sie an oder speichert sie. Beispielsweise zeigt der Konsolenanbieter Meldungen auf der Konsole an, und der Azure App Service-Anbieter kann Meldungen in Azure Blob Storage speichern.
+### <a name="create-logs-in-startup"></a>Erstellen von Protokollen in der Startklasse
 
-Um einen Anbieter zu verwenden, rufen Sie die `Add<ProviderName>`-Erweiterungsmethode des Anbieters in *Program.cs* auf:
+Zum Schreiben von Protokollen in der `Startup`-Klasse schließen Sie einen `ILogger`-Parameter in die Konstruktorsignatur ein:
 
-[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_ExpandDefault&highlight=16,17)]
+[!code-csharp[](index/samples/2.x/TodoApiSample/Startup.cs?name=snippet_Startup&highlight=3,5,8,19,26)]
 
-Die Standardprojektvorlage aktiviert die Anbieter der Konsole und der Debugprotokollierung durch einen Aufruf der Erweiterungsmethode [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) in *Program.cs*:
+### <a name="create-logs-in-program"></a>Erstellen von Protokollen in der Programmklasse
 
-[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_TemplateCode&highlight=7)]
+Zum Schreiben von Protokollen in der `Program`-Klasse rufen Sie eine `ILogger`-Instanz aus DI ab:
 
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-Ein Protokollierungsanbieter ruft die mit einem `ILogger`-Objekt erstellte Meldung ab und zeigt sie an oder speichert sie. Beispielsweise zeigt der Konsolenanbieter Meldungen auf der Konsole an, und der Azure App Service-Anbieter kann Meldungen in Azure Blob Storage speichern.
-
-Um einen Anbieter zu verwenden, installieren Sie das zugehörige NuGet-Paket, und rufen Sie, wie im folgenden Beispiel gezeigt, die Erweiterungsmethode des Anbieters für eine Instanz von [ILoggerFactory](/dotnet/api/microsoft.extensions.logging.iloggerfactory) auf.
-
-[!code-csharp[](index/samples/1.x/TodoApiSample//Startup.cs?name=snippet_AddConsoleAndDebug&highlight=3,5-7)]
-
-Die ASP.NET Core-[Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) stellt die `ILoggerFactory`-Instanz bereit. Die Erweiterungsmethoden `AddConsole` und `AddDebug` sind in den Paketen [Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/) und [Microsoft.Extensions.Logging.Debug](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Debug/) definiert. Jede Erweiterungsmethode ruft die Methode `ILoggerFactory.AddProvider` auf und übergibt eine Instanz des Anbieters.
-
-> [!NOTE]
-> Die [Beispiel-App 1.x](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/samples/1.x) fügt Protokollanbieter in der `Startup.Configure`-Methode hinzu. Wenn Sie für zuvor ausgeführten Code eine Protokollausgabe erhalten möchten, fügen Sie Protokollierungsanbieter im `Startup`-Klassenkonstruktor hinzu.
+[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_LogFromMain&highlight=9,10)]
 
 ::: moniker-end
 
-Informationen zu den [integrierten Protokollierungsanbietern](#built-in-logging-providers) sowie Links zu [Protokollierungsanbietern von Drittanbietern](#third-party-logging-providers) finden Sie weiter unten in diesem Artikel.
+### <a name="no-asynchronous-logger-methods"></a>Keine asynchronen Protokollierungsmethoden
+
+Die Protokollierung sollte so schnell erfolgen, dass sich die Leistungskosten von asynchronem Code nicht lohnen. Wenn Ihr Protokollierungsdatenspeicher langsam ist, schreiben Sie nicht direkt in ihn. Erwägen Sie, die Protokollnachrichten zunächst in einen schnellen Speicher zu schreiben und sie dann später in den langsamen Speicher zu verschieben. Führen Sie die Protokollierung beispielsweise in einer Nachrichtenwarteschlange durch, die von einem anderen Prozess gelesen und in einem langsamen Speicher persistiert wird.
 
 ## <a name="configuration"></a>Konfiguration
 
@@ -122,7 +144,13 @@ Die Konfiguration der Protokollierung wird meist vom `Logging`-Abschnitt von Anw
 }
 ```
 
-`LogLevel`-Schlüssel stellen Protokollnamen dar. Der `Default`-Schlüssel gilt für Protokolle, die nicht explizit aufgeführt werden. Der Wert entspricht dem auf das jeweilige Protokoll angewendeten [Protokolliergrad](#log-level). Protokollschlüssel, die `IncludeScopes` festlegen (im Beispiel `Console`), geben an, ob [Protokollbereiche](#log-scopes) für das angegebene Protokoll aktiviert sind.
+Die `Logging`-Eigenschaft kann den `LogLevel` und Protokollanbietereigenschaften beinhalten (Konsole wird angezeigt).
+
+Die `LogLevel`-Eigenschaft unter `Logging` gibt den Mindest[grad](#log-level) an, der für ausgewählte Kategorien protokolliert werden soll. Im Beispiel protokollieren die Kategorien `System` und `Microsoft` mit dem Grad `Information` und alle anderen Kategorien mit dem Grad `Debug`.
+
+Weitere Eigenschaften unter `Logging` geben Protokollierungsanbieter an. Das Beispiel bezieht sich auf den Konsolenanbieter. Wenn ein Anbieter [Protokollbereiche](#log-scopes) unterstützt, gibt `IncludeScopes` an, ob sie aktiviert sind. Eine Anbietereigenschaft (z.B. `Console` im Beispiel) kann auch eine `LogLevel`-Eigenschaft angeben. `LogLevel` unter einem Anbieter gibt die Grade an, die für diesen Anbieter protokolliert werden sollen.
+
+Wenn Grade in `Logging.{providername}.LogLevel` angegeben werden, überschreiben sie alle Angaben in `Logging.LogLevel`.
 
 ::: moniker-end
 
@@ -148,7 +176,7 @@ Informationen zur Implementierung von Konfigurationsanbieter finden Sie hier: <x
 
 ## <a name="sample-logging-output"></a>Beispiel einer Protokollierungsausgabe
 
-Wenn Sie den im vorherigen Abschnitt gezeigten Beispielcode von der Befehlszeile ausführen, werden die Protokolle in der Konsole angezeigt. Hier ein Beispiel für eine Konsolenausgabe:
+Mit dem im vorherigen Abschnitt gezeigten Beispielcode werden Protokolle in der Konsole angezeigt, wenn die Anwendung über die Befehlszeile ausgeführt wird. Hier ein Beispiel für eine Konsolenausgabe:
 
 ```console
 info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
@@ -167,9 +195,10 @@ info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
       Request finished in 148.889ms 404
 ```
 
-Diese Protokolle wurden durch einen Wechsel zu `http://localhost:5000/api/todo/0` erstellt, um die Ausführung beider `ILogger`-Aufrufe im vorherigen Abschnitt auszulösen.
+Die vorherigen Protokolle wurden generiert, indem eine HTTP Get-Anforderung an die Beispiel-App unter `http://localhost:5000/api/todo/0` vorgenommen wurde.
 
-Nachfolgend sehen Sie, wie die gleichen Protokolle im Debugfenster angezeigt werden, wenn Sie die Beispielanwendung in Visual Studio ausführen:
+Nachfolgend sehen Sie, wie die gleichen Protokolle im Debugfenster angezeigt werden, wenn Sie die Beispiel-App in Visual Studio ausführen:
+
 
 ```console
 Microsoft.AspNetCore.Hosting.Internal.WebHost:Information: Request starting HTTP/1.1 GET http://localhost:53104/api/todo/0  
@@ -181,7 +210,7 @@ Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker:Information: Executed 
 Microsoft.AspNetCore.Hosting.Internal.WebHost:Information: Request finished in 316.3195ms 404
 ```
 
-Die über die `ILogger`-Aufrufe aus dem vorherigen Abschnitt erstellten Protokolle beginnen mit „TodoApi.Controllers.TodoController“. Protokolle, die mit Microsoft-Kategorien beginnen, stammen aus ASP.NET Core. ASP.NET Core selbst und Ihr Anwendungscode verwenden dieselbe Protokollierungs-API und dieselben Protokollierungsanbieter.
+Die über die `ILogger`-Aufrufe aus dem vorherigen Abschnitt erstellten Protokolle beginnen mit „TodoApi.Controllers.TodoController“. Protokolle, die mit Microsoft-Kategorien beginnen, stammen aus ASP.NET Core-Frameworkcode. ASP.NET Core und Anwendungscode verwenden dieselbe Protokollierungs-API und dieselben Protokollierungsanbieter.
 
 In den übrigen Abschnitten dieses Artikels werden einige Details und Optionen für die Protokollierung erläutert.
 
@@ -191,23 +220,9 @@ Die Schnittstellen `ILogger` und `ILoggerFactory` befinden sich in [Microsoft.Ex
 
 ## <a name="log-category"></a>Protokollkategorie
 
-Jedes von Ihnen erstellte Protokoll umfasst eine *Kategorie*. Sie geben die Kategorie an, wenn Sie ein `ILogger`-Objekt erstellen. Die Kategorie kann eine beliebige Zeichenfolge sein, aber gemäß Konvention wird der vollqualifizierte Name der Klasse verwendet, mit der die Protokolle geschrieben werden. Beispiel: TodoApi.Controllers.TodoController
+Wenn ein `ILogger`-Objekt erstellt wird, wird eine *Kategorie* für dieses Objekt angegeben. Diese Kategorie ist in jeder Protokollmeldung enthalten, die von dieser Instanz von `Ilogger` erstellt wird. Die Kategorie kann eine beliebige Zeichenfolge sein, aber die Konvention besteht in der Verwendung des Klassennamens, z.B. „TodoApi.Controllers.TodoController“.
 
-Sie können die Kategorie als Zeichenfolge angeben oder eine Erweiterungsmethode verwenden, die die Kategorie aus dem Typ ableitet. Um die Kategorie als Zeichenfolge anzugeben, rufen Sie `CreateLogger` für eine `ILoggerFactory`-Instanz auf, wie unten gezeigt.
-
-::: moniker range=">= aspnetcore-2.0"
-
-[!code-csharp[](index/samples/2.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_CreateLogger&highlight=7,10)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](index/samples/1.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_CreateLogger&highlight=7,10)]
-
-::: moniker-end
-
-Meistens ist es einfacher, `ILogger<T>` zu verwenden, wie im folgenden Beispiel gezeigt wird.
+Verwenden Sie `ILogger<T>` zum Abrufen einer `ILogger`-Instanz, die den vollqualifizierten Typnamen von `T` als Kategorie verwendet:
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -221,13 +236,27 @@ Meistens ist es einfacher, `ILogger<T>` zu verwenden, wie im folgenden Beispiel 
 
 ::: moniker-end
 
-Dies entspricht dem Aufruf von `CreateLogger` mit dem vollqualifizierten Typnamen `T`.
+Um die Kategorie explizit anzugeben, rufen Sie `ILoggerFactory.CreateLogger` auf:
+
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](index/samples/2.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_CreateLogger&highlight=7,10)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](index/samples/1.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_CreateLogger&highlight=7,10)]
+
+::: moniker-end
+
+`ILogger<T>` entspricht dem Aufruf von `CreateLogger` mit dem vollqualifizierten Typnamen `T`.
 
 ## <a name="log-level"></a>Protokolliergrad
 
-Jedes Mal, wenn Sie ein Protokoll schreiben, geben Sie den zugehörigen [LogLevel](/dotnet/api/microsoft.extensions.logging.logLevel) an. Der Protokolliergrad gibt den Schweregrad oder die Wichtigkeit an. Beispielsweise könnten Sie ein `Information`-Protokoll schreiben, wenn eine Methode normal beendet wird, ein `Warning`-Protokoll, wenn eine Methode einen 404-Rückgabecode zurückgibt, und ein `Error`-Protokoll, wenn Sie eine unerwartete Ausnahme abfangen.
+Jedes Protokoll gibt einen <xref:Microsoft.Extensions.Logging.LogLevel>-Wert an. Der Protokolliergrad gibt den Schweregrad oder die Wichtigkeit an. Sie können beispielsweise ein `Information`-Protokoll schreiben, wenn eine Methode normal endet, und ein `Warning`-Protokoll, wenn eine Methode den Statuscode *404 Not Found* zurückgibt.
 
-Im folgenden Codebeispiel geben die Namen der Methoden (z.B. `LogWarning`) den Protokolliergrad an. Der erste Parameter ist die [Protokollereignis-ID](#log-event-id). Der zweite Parameter ist eine [Meldungsvorlage](#log-message-template) mit Platzhaltern für Argumentwerte, die von den verbleibenden Methodenparametern bereitgestellt werden. Die Methodenparameter werden weiter unten in diesem Artikel ausführlicher erläutert.
+Der folgende Code erstellt `Information`- und `Warning`-Protokolle:
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -241,37 +270,44 @@ Im folgenden Codebeispiel geben die Namen der Methoden (z.B. `LogWarning`) den P
 
 ::: moniker-end
 
-Protokollmethoden, die den Protokolliergrad im Methodennamen enthalten, sind [Erweiterungsmethoden für ILogger](/dotnet/api/microsoft.extensions.logging.loggerextensions). Diese Methoden rufen im Hintergrund eine `Log`-Methode auf, die einen `LogLevel`-Parameter verwendet. Sie können anstelle eines Aufrufs dieser Erweiterungsmethoden die `Log`-Methode direkt aufrufen, aber die Syntax ist relativ kompliziert. Weitere Informationen finden Sie unter [ILogger-Schnittstelle](/dotnet/api/microsoft.extensions.logging.ilogger) und im [Quellcode für Protokollierungserweiterungen](https://github.com/aspnet/Logging/blob/master/src/Microsoft.Extensions.Logging.Abstractions/LoggerExtensions.cs).
+Im Code oben ist der erste Parameter die [Protokollereignis-ID](#log-event-id). Der zweite Parameter ist eine Meldungsvorlage mit Platzhaltern für Argumentwerte, die von den verbleibenden Methodenparametern bereitgestellt werden. Die Methodenparameter werden im [Abschnitt „Meldungsvorlage“](#log-message-template) später in diesem Artikel erläutert.
 
-ASP.NET Core definiert die folgenden [Protokolliergrade](/dotnet/api/microsoft.extensions.logging.loglevel), angeordnet vom geringsten bis zum höchsten Schweregrad.
+Protokollmethoden, die den Protokolliergrad im Methodennamen enthalten (z.B. `LogInformation` und `LogWarning`), sind [Erweiterungsmethoden für ILogger](xref:Microsoft.Extensions.Logging.LoggerExtensions). Diese Methoden rufen eine `Log`-Methode auf, die einen `LogLevel`-Parameter annimmt. Sie können anstelle eines Aufrufs dieser Erweiterungsmethoden die `Log`-Methode direkt aufrufen, aber die Syntax ist relativ kompliziert. Weitere Informationen finden Sie unter <xref:Microsoft.Extensions.Logging.ILogger> und im [Quellcode für Protokollierungserweiterungen](https://github.com/aspnet/Logging/blob/master/src/Microsoft.Extensions.Logging.Abstractions/LoggerExtensions.cs).
+
+ASP.NET Core definiert die folgenden Protokolliergrade. Die Reihenfolge reicht vom geringsten bis zum höchsten Schweregrad.
 
 * Trace = 0
 
-  Für Informationen, die nur für Entwickler beim Debuggen von Problemen nützlich sind. Diese Meldungen können sensible Anwendungsdaten enthalten und sollten daher nicht in einer Produktionsumgebung aktiviert werden. *Standardmäßig deaktiviert.* Ein Beispiel: `Credentials: {"User":"someuser", "Password":"P@ssword"}`
+  Protokolliert Informationen, die in der Regel nur für das Debuggen nützlich sind. Diese Meldungen können sensible Anwendungsdaten enthalten und sollten daher nicht in einer Produktionsumgebung aktiviert werden. *Standardmäßig deaktiviert.*
 
 * Debug = 1
 
-  Für Informationen, die während der Entwicklung und beim Debuggen kurzfristig von Nutzen sind. Beispiel: `Entering method Configure with flag set to true.` Sie würden Protokolle mit dem Protokolliergrad `Debug` aufgrund des hohen Protokollaufkommens nur zur Problembehandlung in der Produktion aktivieren.
+  Protokolliert Informationen, die bei der Entwicklung und beim Debuggen hilfreich sein können. Beispiel: `Entering method Configure with flag set to true.` Aktivieren Sie Protokolle mit dem Protokolliergrad `Debug` aufgrund des hohen Protokollaufkommens nur zur Problembehandlung in der Produktion.
 
 * Information = 2
 
-  Zur Nachverfolgung des allgemeinen Ablaufs der Anwendung. Diese Protokolle haben typischerweise einen langfristigen Nutzen. Ein Beispiel: `Request received for path /api/todo`
+  Zur Nachverfolgung des allgemeinen Ablaufs der App. Diese Protokolle haben typischerweise einen langfristigen Nutzen. Ein Beispiel: `Request received for path /api/todo`
 
 * Warning = 3
 
-  Für ungewöhnliche oder unerwartete Ereignisse im Anwendungsverlauf. Dazu können Fehler oder andere Bedingungen gehören, die zwar nicht zum Beenden der Anwendung führen, aber eventuell untersucht werden müssen. Behandelte Ausnahmen sind eine typische Verwendung für den Protokolliergrad `Warning`. Ein Beispiel: `FileNotFoundException for file quotes.txt.`
+  Für ungewöhnliche oder unerwartete Ereignisse im App-Verlauf. Dazu können Fehler oder andere Bedingungen gehören, die zwar nicht zum Beenden der App führen, aber eventuell untersucht werden müssen. Behandelte Ausnahmen sind eine typische Verwendung für den Protokolliergrad `Warning`. Ein Beispiel: `FileNotFoundException for file quotes.txt.`
 
 * Error = 4
 
-  Für Fehler und Ausnahmen, die nicht behandelt werden können. Diese Meldungen weisen auf einen Fehler in der aktuellen Aktivität oder im aktuellen Vorgang (z.B. die aktuelle HTTP-Anforderung) und nicht auf einen anwendungsweiten Fehler hin. Beispielprotokollmeldung: `Cannot insert record due to duplicate key violation.`
+  Für Fehler und Ausnahmen, die nicht behandelt werden können. Diese Meldungen weisen auf einen Fehler in der aktuellen Aktivität oder im aktuellen Vorgang (z.B. in der aktuellen HTTP-Anforderung) und nicht auf einen anwendungsweiten Fehler hin. Beispielprotokollmeldung: `Cannot insert record due to duplicate key violation.`
 
 * Critical = 5
 
   Für Fehler, die sofortige Aufmerksamkeit erfordern. Beispiel: Szenarios mit Datenverlust, Speichermangel.
 
-Mithilfe des Protokolliergrads können Sie die Menge an Protokollausgabedaten steuern, die in ein bestimmtes Speichermedium geschrieben oder an ein Anzeigefenster ausgegeben werden. Beispielsweise können Sie in der Produktion alle Protokolle der Ebene `Information` und niedriger in einen Volumendatenspeicher schreiben und alle Protokolle der Ebene `Warning` und höher in einen Wertdatenspeicher ausgeben. Während der Entwicklung senden Sie normalerweise Protokolle mit dem Schweregrad `Warning` und höher an die Konsole. Wenn Sie eine Problembehandlung durchführen müssen, können Sie die Ebene `Debug` hinzufügen. Im Abschnitt [Protokollfilterung](#log-filtering) weiter unten in diesem Artikel wird erläutert, wie Sie steuern, welche Protokolliergrade ein Anbieter verarbeitet.
+Verwenden Sie den Protokolliergrad, um die Menge an Protokollausgabedaten zu steuern, die in ein bestimmtes Speichermedium geschrieben oder an ein Anzeigefenster ausgegeben werden. Zum Beispiel:
 
-Das ASP.NET Core-Framework schreibt Protokolle der Ebene `Debug` für Frameworkereignisse. Das zuvor in diesem Artikel gezeigte Protokollbeispiel enthielt Protokolle unterhalb der Ebene `Information`, deshalb wurden keine Protokolle der Ebene `Debug` gezeigt. Hier sehen Sie ein Beispiel für Konsolenprotokolle, die bei Ausführung der Beispielanwendung angezeigt werden, wenn diese zur Anzeige von Protokollen der Ebene `Debug` und höher für den Konsolenanbieter konfiguriert ist.
+* Senden Sie in der Produktion `Trace` über den Protokolliergrad `Information` an einen Volumedatenspeicher. Senden Sie `Warning` über `Critical` an einen Wertdatenspeicher.
+* Senden Sie während der Entwicklung `Warning` über `Critical` an die Konsole, und fügen Sie `Trace` über `Information` bei der Problembehandlung hinzu.
+
+Im Abschnitt [Protokollfilterung](#log-filtering) weiter unten in diesem Artikel wird erläutert, wie Sie steuern, welche Protokolliergrade ein Anbieter verarbeitet.
+
+ASP.NET Core schreibt Protokolle für Frameworkereignisse. Die zuvor in diesem Artikel gezeigten Protokollbeispiele enthielten Protokolle unterhalb des Protokolliergrads `Information`, deshalb wurden keine Protokolle des Protokolliergrads `Debug` oder `Trace` erstellt. Hier ist ein Beispiel für Konsolenprotokolle, die durch Ausführen der Beispiel-App generiert werden, die so konfiguriert ist, dass sie `Debug`-Protokolle anzeigt:
 
 ```console
 info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
@@ -304,7 +340,7 @@ info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
 
 ## <a name="log-event-id"></a>Protokollereignis-ID
 
-Jedes Mal, wenn Sie ein Protokoll schreiben, geben Sie eine *Ereignis-ID* an. Die Beispiel-App verwendet hierzu eine lokal definierte `LoggingEvents`-Klasse:
+Jedes Protokoll kann eine *Ereignis-ID* angeben. Die Beispiel-App verwendet hierzu eine lokal definierte `LoggingEvents`-Klasse:
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -322,9 +358,9 @@ Jedes Mal, wenn Sie ein Protokoll schreiben, geben Sie eine *Ereignis-ID* an. Di
 
 ::: moniker-end
 
-Eine Ereignis-ID ist ein ganzzahliger Wert, mit dessen Hilfe Sie eine Reihe von protokollierten Ereignissen einander zuordnen können. Beispielsweise könnte ein Protokoll zum Hinzufügen eines Artikels zu einem Warenkorb die Ereignis-ID 1000 und ein Protokoll zum Abschließen eines Kaufvorgangs die Ereignis-ID 1001 aufweisen.
+Eine Ereignis-ID ordnet eine Gruppe von Ereignissen zu. Beispielsweise können alle Protokolle, die sich auf die Anzeige einer Liste von Elementen auf einer Seite beziehen, 1001 sein.
 
-Bei der Protokollausgabe kann die Ereignis-ID je nach Anbieter in einem Feld gespeichert oder in die Textmeldung aufgenommen werden. Der Debuganbieter zeigt keine Ereignis-IDs an, aber beim Konsolenanbieter werden die IDs in Klammern hinter der Kategorie angezeigt:
+Der Protokollierungsanbieter kann die Ereignis-ID in einem ID-Feld, in der Protokollierungsmeldung oder gar nicht speichern. Der Debuganbieter zeigt keine Ereignis-IDs an. Der Konsolenanbieter zeigt Ereignis-IDs in Klammern hinter der Kategorie an:
 
 ```console
 info: TodoApi.Controllers.TodoController[1002]
@@ -335,7 +371,7 @@ warn: TodoApi.Controllers.TodoController[4000]
 
 ## <a name="log-message-template"></a>Protokollmeldungsvorlage
 
-Jedes Mal, wenn Sie eine Protokollmeldung schreiben, stellen Sie eine Meldungsvorlage bereit. Die Meldungsvorlage kann eine Zeichenfolge sein oder benannte Platzhalter enthalten, in die Argumentwerte eingefügt werden. Die Vorlage ist keine Formatzeichenfolge, und Platzhalter sollten benannt und nicht nummeriert werden.
+Jedes Protokoll gibt eine Meldungsvorlage an. Die Meldungsvorlage kann Platzhalter enthalten, für die Argumente bereitgestellt werden. Verwenden Sie Namen für die Platzhalter, keine Zahlen.
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -349,7 +385,7 @@ Jedes Mal, wenn Sie eine Protokollmeldung schreiben, stellen Sie eine Meldungsvo
 
 ::: moniker-end
 
-Die Reihenfolge der Platzhalter – nicht ihre Namen – bestimmt, welche Parameter verwendet werden, um ihre Werte zur Verfügung zu stellen. Wenn Ihr Code folgendermaßen lautet:
+Die Reihenfolge der Platzhalter – nicht ihre Namen – bestimmt, welche Parameter verwendet werden, um ihre Werte zur Verfügung zu stellen. Beachten Sie im folgenden Code, dass die Parameternamen in der Meldungsvorlage nicht in der richtigen Reihenfolge vorhanden sind:
 
 ```csharp
 string p1 = "parm1";
@@ -357,19 +393,19 @@ string p2 = "parm2";
 _logger.LogInformation("Parameter values: {p2}, {p1}", p1, p2);
 ```
 
-Die angezeigte Protokollmeldung sieht so aus:
+Dieser Code erstellt eine Protokollierungsmeldung mit den Parameterwerten in der richtigen Reihenfolge:
 
 ```
 Parameter values: parm1, parm2
 ```
 
-Das Protokollierungsframework formatiert Meldungen in dieser Weise, um den Protollierungsanbietern das Implementieren einer [semantischen Protokollierung (auch bezeichnet als strukturierte Protokollierung)](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging) zu ermöglichen. Da nicht nur die formatierte Meldungsvorlage, sondern die Argumente selbst an das Protokollierungssystem übergeben werden, können Protokollierungsanbieter die Parameterwerte zusätzlich zur Nachrichtenvorlage als Felder speichern. Angenommen, Sie verwenden Azure Table Storage als Ziel für die Protokollausgabe, und Ihr Aufruf der Protokollierungsmethode sieht wie folgt aus:
+Das Protokollierungsframework funktioniert auf diese Weise, damit Protokollierungsanbieter [semantische Protokollierung, die auch als strukturierte Protokollierung bezeichnet wird](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging), implementieren können. Die Argumente selbst (nicht nur die formatierte Meldungsvorlage) werden an das Protokollierungssystem übergeben. Diese Informationen ermöglichen es Protokollierungsanbietern, die Parameterwerte als Felder zu speichern. Nehmen wir zum Beispiel an, dass Aufrufe von Protokollierungsmethoden folgendermaßen aussehen:
 
 ```csharp
 _logger.LogInformation("Getting item {ID} at {RequestTime}", id, DateTime.Now);
 ```
 
-Jede Azure Table Storage-Entität kann `ID`- und `RequestTime`-Eigenschaften aufweisen, wodurch das Abfragen von Protokolldaten vereinfacht wird. Sie können alle Protokolle innerhalb eines bestimmten `RequestTime`-Bereichs ermitteln, ohne die Uhrzeit aus den Textmeldungen auslesen zu müssen.
+Wenn Sie die Protokolle an Azure Table Storage senden, kann jede Azure Table-Entität die Eigenschaften `ID` und `RequestTime` aufweisen. Dies vereinfacht die Abfrage von Protokolldaten. Eine Abfrage kann alle Protokolle in einem bestimmten `RequestTime`-Bereich finden, ohne die Uhrzeit aus den Textmeldungen zu analysieren.
 
 ## <a name="logging-exceptions"></a>Protokollieren von Ausnahmen
 
@@ -402,11 +438,11 @@ System.Exception: Item not found exception.
 
 Sie können einen Mindestprotokolliergrad für einen bestimmten Anbieter und eine bestimmte Kategorie oder für alle Anbieter oder alle Kategorien festlegen. Alle Protokolle unter dem Mindestgrad werden nicht an diesen Anbieter weitergeleitet, sodass sie nicht angezeigt oder gespeichert werden.
 
-Wenn Sie alle Protokolle unterdrücken möchten, können Sie `LogLevel.None` als Mindestprotokolliergrad angeben. Der ganzzahlige Wert von `LogLevel.None` lautet 6 und liegt über `LogLevel.Critical` (5).
+Wenn Sie alle Protokolle unterdrücken möchten, geben Sie `LogLevel.None` als Mindestprotokolliergrad an. Der ganzzahlige Wert von `LogLevel.None` lautet 6 und liegt über `LogLevel.Critical` (5).
 
 ### <a name="create-filter-rules-in-configuration"></a>Erstellen von Filterregeln in der Konfiguration
 
-Die Projektvorlagen erstellen Code, der `CreateDefaultBuilder` aufruft, um die Protokollierung für die Konsolen- und Debuganbieter einzurichten. Die `CreateDefaultBuilder`-Methode richtet die Protokollierung auch ein, um nach der Konfiguration in einem `Logging`-Abschnitt zu suchen. Hierbei wird Code wie der folgende verwendet:
+Der Projektvorlagencode ruft `CreateDefaultBuilder` auf, um die Protokollierung für die Konsolen- und Debuganbieter einzurichten. Die `CreateDefaultBuilder`-Methode richtet die Protokollierung auch ein, um nach der Konfiguration in einem `Logging`-Abschnitt zu suchen. Hierbei wird Code wie der folgende verwendet:
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_ExpandDefault&highlight=15)]
 
@@ -414,11 +450,11 @@ Die Konfigurationsdaten geben die Mindestprotokolliergrade nach Anbieter und Kat
 
 [!code-json[](index/samples/2.x/TodoApiSample/appsettings.json)]
 
-Diese JSON-Konfiguration erstellt sechs Filterregeln: eine für den Debuganbieter, vier für den Konsolenanbieter und eine für alle Anbieter. Sie werden später sehen, wie beim Erstellen eines `ILogger`-Objekts immer nur eine dieser Regeln für jeden Anbieter ausgewählt wird.
+Diese JSON-Konfiguration erstellt sechs Filterregeln: eine für den Debuganbieter, vier für den Konsolenanbieter und eine für alle Anbieter. Eine einzelne Regel wird für jeden Anbieter ausgewählt, wenn ein `ILogger`-Objekt erstellt wird.
 
 ### <a name="filter-rules-in-code"></a>Filterregeln im Code
 
-Sie können Filterregeln im Code registrieren, wie das folgende Beispiel zeigt:
+Das folgende Beispiel zeigt, wie Filterregeln im Code registriert werden:
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_FilterInCode&highlight=4-5)]
 
@@ -439,25 +475,25 @@ Die Konfigurationsdaten und der in den vorangegangenen Beispielen gezeigte `AddF
 | 7      | Alle Anbieter | System                                  | Debug             |
 | 8      | Debug         | Microsoft                               | Ablaufverfolgung             |
 
-Wenn Sie ein `ILogger`-Objekt zum Schreiben von Protokollen erstellen, wählt das `ILoggerFactory`-Objekt eine einzige Regel pro Anbieter aus, die auf diese Protokollierung angewendet wird. Alle über dieses `ILogger`-Objekt geschriebenen Meldungen werden auf Grundlage der ausgewählten Regeln gefiltert. Aus den verfügbaren Regeln wird die für jeden Anbieter und jedes Kategoriepaar spezifischste Regel ausgewählt.
+Wenn ein `ILogger`-Objekt erstellt wird, wählt das `ILoggerFactory`-Objekt eine einzige Regel pro Anbieter aus, die auf diese Protokollierung angewendet wird. Alle von einer `ILogger`-Instanz geschriebenen Meldungen werden auf Grundlage der ausgewählten Regeln gefiltert. Aus den verfügbaren Regeln wird die für jeden Anbieter und jedes Kategoriepaar spezifischste Regel ausgewählt.
 
 Beim Erstellen von `ILogger` für eine vorgegebene Kategorie wird für jeden Anbieter der folgende Algorithmus verwendet:
 
-* Es werden alle Regeln ausgewählt, die dem Anbieter oder dem zugehörigen Alias entsprechen. Falls keine solchen Regeln vorhanden sind, werden alle Regeln mit einem leeren Anbieter ausgewählt.
-* Aus dem Ergebnis des vorherigen Schritts werden die Regeln mit dem längsten übereinstimmenden Kategoriepräfix ausgewählt. Falls keine solchen Regeln vorhanden sind, werden alle Regeln ohne Angabe einer Kategorie ausgewählt.
+* Es werden alle Regeln ausgewählt, die dem Anbieter oder dem zugehörigen Alias entsprechen. Wenn keine Übereinstimmung gefunden wird, werden alle Regeln mit einem leeren Anbieter ausgewählt.
+* Aus dem Ergebnis des vorherigen Schritts werden die Regeln mit dem längsten übereinstimmenden Kategoriepräfix ausgewählt. Wenn keine Übereinstimmung gefunden wird, werden alle Regeln ohne Angabe einer Kategorie ausgewählt.
 * Wenn mehrere Regeln ausgewählt sind, wird die **letzte** Regel verwendet.
 * Wenn keine Regel ausgewählt ist, wird `MinimumLevel` verwendet.
 
-Angenommen, Sie verfügen über die vorherige Liste mit Regeln und erstellen ein `ILogger`-Objekt für die Kategorie „Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine“:
+Angenommen, Sie erstellen mit der oben aufgeführten Liste mit Regeln ein `ILogger`-Objekt für die Kategorie „Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine“:
 
 * Für den Debuganbieter gelten die Regeln 1, 6 und 8. Regel 8 ist die spezifischste Regel, deshalb wird diese Regel ausgewählt.
 * Für den Konsolenanbieter gelten die Regeln 3, 4, 5 und 6. Regel 3 ist die spezifischste Regel.
 
-Wenn Sie mit `ILogger` Protokolle für die Kategorie „Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine“ erstellen, werden Protokolle der Ebene `Trace` und höher an den Debuganbieter ausgegeben, und Protokolle der Ebene `Debug` und höher gehen an den Konsolenanbieter.
+Die sich ergebende `ILogger`-Instanz sendet Protokolle mit dem Protokolliergrad `Trace` und höher an den Debuganbieter. Protokolle mit dem Protokolliergrad `Debug` und höher werden an den Konsolenanbieter gesendet.
 
 ### <a name="provider-aliases"></a>Anbieteraliase
 
-Sie können den Typnamen für die Angabe eines Anbieters in der Konfiguration verwenden, aber jeder Anbieter definiert einen kürzeren *Alias*, der einfacher zu verwenden ist. Verwenden Sie für die integrierten Anbieter die folgenden Aliase:
+Jeder Anbieter definiert einen *Alias*, der in der Konfiguration anstelle des vollqualifizierten Typnamens verwendet werden kann.  Verwenden Sie für die integrierten Anbieter die folgenden Aliase:
 
 * Konsole
 * Debug
@@ -476,7 +512,7 @@ Wenn Sie den Mindestprotokolliergrad nicht explizit festlegen, lautet der Standa
 
 ### <a name="filter-functions"></a>Filterfunktionen
 
-Sie können Code in einer Filterfunktion schreiben, um Filterregeln anzuwenden. Eine Filterfunktion wird für alle Anbieter und Kategorien aufgerufen, denen keine Regeln durch Konfiguration oder Code zugewiesen sind. Über den Code in der Funktion kann auf Anbietertyp, Kategorie und Protokollebene zugegriffen werden. So kann entschieden werden, ob eine Meldung protokolliert werden soll oder nicht. Zum Beispiel:
+Eine Filterfunktion wird für alle Anbieter und Kategorien aufgerufen, denen keine Regeln durch Konfiguration oder Code zugewiesen sind. Code in der Funktion verfügt über Zugriff auf den Anbietertyp, die Kategorie und den Protokolliergrad. Zum Beispiel:
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_FilterFunction&highlight=5-13)]
 
@@ -486,27 +522,43 @@ Sie können Code in einer Filterfunktion schreiben, um Filterregeln anzuwenden. 
 
 Bei einigen Protokollierungsanbietern können Sie angeben, wann Protokolle in ein Speichermedium geschrieben oder ignoriert werden sollen – je nach Protokolliergrad und Kategorie.
 
-Die Erweiterungsmethoden `AddConsole` und `AddDebug` bieten Überladungen, mit denen Filterkriterien übergeben werden können. Der folgende Beispielcode veranlasst den Konsolenanbieter, Protokolle unterhalb der Ebene `Warning` zu ignorieren, während der Debuganbieter vom Framework erstellte Protokolle ignoriert.
+Die Erweiterungsmethoden `AddConsole` und `AddDebug` bieten Überladungen, die Filterkriterien annehmen können. Der folgende Beispielcode veranlasst den Konsolenanbieter, Protokolle unterhalb der Ebene `Warning` zu ignorieren, während der Debuganbieter vom Framework erstellte Protokolle ignoriert.
 
 [!code-csharp[](index/samples/1.x/TodoApiSample/Startup.cs?name=snippet_AddConsoleAndDebugWithFilter&highlight=6-7)]
 
 Die Methode `AddEventLog` umfasst eine Überladung mit einer `EventLogSettings`-Instanz, die eine Filterfunktion in ihrer `Filter`-Eigenschaft enthalten kann. Der TraceSource-Anbieter stellt keine dieser Überladungen zur Verfügung, da der zugehörige Protokolliergrad und weitere Parameter auf der Verwendung von `SourceSwitch` und `TraceListener` basieren.
 
-Sie können Filterregeln für alle bei einer `ILoggerFactory`-Instanz registrierten Anbieter festlegen, indem Sie die Erweiterungsmethode `WithFilter` verwenden. Das nachstehende Beispiel begrenzt Frameworkprotokolle (Kategorie beginnt mit „Microsoft“ oder „System“) auf Warnungen, während für App-Protokolle die Debugebene verwendet wird.
+Um Filterregeln für alle bei einer `ILoggerFactory`-Instanz registrierten Anbieter festzulegen, verwenden Sie die Erweiterungsmethode `WithFilter`. Das folgende Beispiel beschränkt Frameworkprotokolle (Kategorie beginnt mit „Microsoft“ oder „System“) auf Warnungen, während die Protokollierung auf Debugebene für Protokolle erfolgt, die durch Anwendungscode erstellt wurden.
 
 [!code-csharp[](index/samples/1.x/TodoApiSample/Startup.cs?name=snippet_FactoryFilter&highlight=6-11)]
 
-Wenn Sie die Filterung verwenden, um zu verhindern, dass alle Protokolle für eine bestimmte Kategorie geschrieben werden, können Sie `LogLevel.None` als Mindestprotokolliergrad für diese Kategorie angeben. Der ganzzahlige Wert von `LogLevel.None` lautet 6 und liegt über `LogLevel.Critical` (5).
+Um zu verhindern, dass Protokolle geschrieben werden, geben Sie `LogLevel.None` als Mindestprotokolliergrad an. Der ganzzahlige Wert von `LogLevel.None` lautet 6 und liegt über `LogLevel.Critical` (5).
 
 Die Erweiterungsmethode `WithFilter` wird vom NuGet-Paket [Microsoft.Extensions.Logging.Filter](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Filter) bereitgestellt. Die Methode gibt eine neue `ILoggerFactory`-Instanz zurück, die Protokollmeldungen für alle bei ihr registrierten Protokollierungsanbieter filtert. Andere `ILoggerFactory`-Instanzen, die ursprüngliche `ILoggerFactory`-Instanz eingeschlossen, sind nicht betroffen.
 
 ::: moniker-end
 
+## <a name="system-categories-and-levels"></a>Systemkategorien und -protokolliergrade
+
+Dies sind einige Kategorien, die vom ASP.NET Core und Entity Framework Core verwendet werden, mit Hinweisen darauf, welche Protokolle von ihnen zu erwarten sind:
+
+| Kategorie                            | Hinweise |
+| ----------------------------------- | ----- |
+| Microsoft.AspNetCore                | Allgemeine ASP.NET Core-Diagnose. |
+| Microsoft.AspNetCore.DataProtection | Gibt an, welche Schlüssel in Betracht gezogen, gefunden und verwendet wurden. |
+| Microsoft.AspNetCore.HostFiltering  | Hosts sind zulässig. |
+| Microsoft.AspNetCore.Hosting        | Gibt an, wie lange es bis zum Abschluss von HTTP-Anforderungen gedauert hat und zu welcher Zeit sie gestartet wurden. Gibt an, welche Hostingstartassemblys geladen wurden. |
+| Microsoft.AspNetCore.Mvc            | MVC- und Razor-Diagnose. Modellbindung, Filterausführung, Ansichtskompilierung, Aktionsauswahl. |
+| Microsoft.AspNetCore.Routing        | Gibt Routenabgleichsinformationen an. |
+| Microsoft.AspNetCore.Server         | Start-, Beendigungs- und Keep-Alive-Antworten der Verbindung. HTTPS-Zertifikatinformationen. |
+| Microsoft.AspNetCore.StaticFiles    | Die bereitgestellten Dateien. |
+| Microsoft.EntityFrameworkCore       | Allgemeine Entity Framework Core-Diagnose. Datenbankaktivität und -konfiguration, Änderungserkennung, Migrationen. |
+
 ## <a name="log-scopes"></a>Protokollbereiche
 
-Sie können eine Gruppe von logischen Operationen in einem *Bereich* gruppieren, um an jedes der für diese Gruppe erstellten Protokolle dieselben Daten anzuhängen. Beispielsweise kann es sinnvoll sein, dass jedes im Rahmen der Verarbeitung einer Transaktion erstellte Protokoll die Transaktions-ID enthält.
+ Ein *Bereich* kann einen Satz logischer Vorgänge gruppieren. Diese Gruppierung kann verwendet werden, um an jedes Protokoll, das als Teil einer Gruppe erstellt wird, die gleichen Daten anzufügen. So kann beispielsweise jedes Protokoll, das im Rahmen der Verarbeitung einer Transaktion erstellt wird, die Transaktions-ID enthalten.
 
-Ein Bereich ist ein `IDisposable`-Typ, der von der Methode [ILogger.BeginScope&lt;TState&gt;](/dotnet/api/microsoft.extensions.logging.ilogger.beginscope) zurückgegeben und so lange beibehalten wird, bis er verworfen wird. Sie verwenden einen Bereich, indem Sie Ihre Protokollierungsaufrufe mit einem `using`-Block umschließen, wie hier gezeigt:
+Ein Bereich ist ein `IDisposable`-Typ, der von der <xref:Microsoft.Extensions.Logging.ILogger.BeginScope*>-Methode zurückgegeben und so lange beibehalten wird, bis er verworfen wird. Verwenden Sie einen Bereich, indem Sie Protokollierungsaufrufe mit einem `using`-Block umschließen, der als Wrapper verwendet wird:
 
 [!code-csharp[](index/samples/1.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_Scopes&highlight=4-5,13)]
 
@@ -564,11 +616,14 @@ ASP.NET Core wird mit den folgenden Anbietern bereitgestellt:
 * [EventSource](#eventsource-provider)
 * [EventLog](#windows-eventlog-provider)
 * [TraceSource](#tracesource-provider)
-* [Azure App Service](#azure-app-service-provider)
+
+Optionen für [Protokollierung in Azure](#logging-in-azure) werden weiter unten in diesem Artikel behandelt.
+
+Weitere Informationen zur stdout-Protokollierung finden Sie unter <xref:host-and-deploy/iis/troubleshoot#aspnet-core-module-stdout-log> und <xref:host-and-deploy/azure-apps/troubleshoot#aspnet-core-module-stdout-log>.
 
 ### <a name="console-provider"></a>Der Konsolenanbieter
 
-Das Anbieterpaket [Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console) sendet eine Protokollausgabe an die Konsole.
+Das Anbieterpaket [Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console) sendet eine Protokollausgabe an die Konsole. 
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -584,9 +639,9 @@ logging.AddConsole();
 loggerFactory.AddConsole();
 ```
 
-Mithilfe von [AddConsole-Überladungen](/dotnet/api/microsoft.extensions.logging.consoleloggerextensions) können Sie einen Mindestprotokolliergrade, eine Filterfunktion und einen booleschen Wert übergeben, der angibt, welche Bereiche unterstützt werden. Darüber hinaus kann ein `IConfiguration`-Objekt übergeben werden, mit dem Bereichsunterstützung und Protokolliergrade angegeben werden können.
+Mithilfe von [AddConsole-Überladungen](xref:Microsoft.Extensions.Logging.ConsoleLoggerExtensions) können Sie einen Mindestprotokolliergrad, eine Filterfunktion und einen booleschen Wert übergeben, der angibt, ob Bereiche unterstützt werden. Darüber hinaus kann ein `IConfiguration`-Objekt übergeben werden, mit dem Bereichsunterstützung und Protokolliergrade angegeben werden können.
 
-Wenn Sie erwägen, den Konsolenanbieter in der Produktion einzusetzen, sollten Sie sich darüber im Klaren sein, dass er einen erheblichen Einfluss auf die Leistung hat.
+Der Konsolenanbieter hat einen erheblichen Einfluss auf die Leistung und ist allgemein nicht für den Einsatz in der Produktion geeignet.
 
 Wenn Sie ein neues Projekt in Visual Studio erstellen, sieht die `AddConsole`-Methode folgendermaßen aus:
 
@@ -601,6 +656,12 @@ Dieser Code verweist auf den `Logging`-Abschnitt der Datei *appSettings.json*:
 Die gezeigten Einstellungen schränken die Frameworkprotokolle auf Warnungen ein, während die App eine Protokollierung auf Debugebene durchführt, wie im Abschnitt [Protokollfilterung](#log-filtering) erläutert. Weitere Informationen finden Sie unter [Konfiguration](xref:fundamentals/configuration/index).
 
 ::: moniker-end
+
+Um die Ausgabe der Konsolenprotokollierung anzuzeigen, öffnen Sie eine Eingabeaufforderung im Projektordner und führen den folgenden Befehl aus:
+
+```console
+dotnet run
+```
 
 ### <a name="debug-provider"></a>Der Debuganbieter
 
@@ -622,7 +683,7 @@ logging.AddDebug();
 loggerFactory.AddDebug();
 ```
 
-Mithilfe von [AddDebug-Überladungen](/dotnet/api/microsoft.extensions.logging.debugloggerfactoryextensions) können Sie einen Mindestprotokolliergrad oder eine Filterfunktion übergeben.
+Mithilfe von [AddDebug-Überladungen](xref:Microsoft.Extensions.Logging.DebugLoggerFactoryExtensions) können Sie einen Mindestprotokolliergrad oder eine Filterfunktion übergeben.
 
 ::: moniker-end
 
@@ -670,13 +731,13 @@ logging.AddEventLog();
 loggerFactory.AddEventLog();
 ```
 
-Mithilfe von [AddEventLog-Überladungen](/dotnet/api/microsoft.extensions.logging.eventloggerfactoryextensions) können Sie `EventLogSettings` oder einen Mindestprotokolliergrad übergeben.
+Mithilfe von [AddEventLog-Überladungen](xref:Microsoft.Extensions.Logging.EventLoggerFactoryExtensions) können Sie `EventLogSettings` oder einen Mindestprotokolliergrad übergeben.
 
 ::: moniker-end
 
 ### <a name="tracesource-provider"></a>Der TraceSource-Anbieter
 
-Das Anbieterpaket [Microsoft.Extensions.Logging.TraceSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.TraceSource) verwendet die [System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource)-Bibliotheken und -Anbieter.
+Das Anbieterpaket [Microsoft.Extensions.Logging.TraceSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.TraceSource) verwendet die <xref:System.Diagnostics.TraceSource>-Bibliotheken und -Anbieter.
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -694,21 +755,28 @@ loggerFactory.AddTraceSource(sourceSwitchName);
 
 ::: moniker-end
 
-Mithilfe von [AddTraceSource-Überladungen](/dotnet/api/microsoft.extensions.logging.tracesourcefactoryextensions) können Sie eine Quelloption und einen Listener für die Ablaufverfolgung übergeben.
+Mithilfe von [AddTraceSource-Überladungen](xref:Microsoft.Extensions.Logging.TraceSourceFactoryExtensions) können Sie eine Quelloption und einen Listener für die Ablaufverfolgung übergeben.
 
-Um diesen Anbieter zu verwenden, muss eine Anwendung (anstelle von .NET Core) unter .NET Framework ausgeführt werden. Mit dem Anbieter können Sie Meldungen an verschiedenste [Listener](/dotnet/framework/debug-trace-profile/trace-listeners) weiterleiten, z.B. an den [TextWriterTraceListener](/dotnet/api/system.diagnostics.textwritertracelistenerr), der in der Beispielanwendung verwendet wird.
-
-Im folgenden Beispiel wird ein `TraceSource`-Anbieter konfiguriert, der Protokollmeldungen der Ebene `Warning` und höher an das Konsolenfenster ausgibt.
-
-::: moniker range=">= aspnetcore-2.0"
-
-[!code-csharp[](index/samples/2.x/TodoApiSample/Startup.cs?name=snippet_TraceSource&highlight=9-12)]
-
-::: moniker-end
+Um diesen Anbieter zu verwenden, muss eine App unter .NET Framework (anstelle von .NET Core) ausgeführt werden. Der Anbieter kann Nachrichten an eine Vielzahl von [Listenern](/dotnet/framework/debug-trace-profile/trace-listeners) weiterleiten, z.B. an den in der Beispiel-App verwendeten <xref:System.Diagnostics.TextWriterTraceListener>.
 
 ::: moniker range="< aspnetcore-2.0"
 
+Im folgenden Beispiel wird ein `TraceSource`-Anbieter konfiguriert, der Protokollmeldungen der Ebene `Warning` und höher an das Konsolenfenster ausgibt.
+
 [!code-csharp[](index/samples/1.x/TodoApiSample/Startup.cs?name=snippet_TraceSource&highlight=9-12)]
+
+::: moniker-end
+
+## <a name="logging-in-azure"></a>Protokollierung in Azure
+
+Informationen zur Protokollierung in Azure finden Sie in den folgenden Abschnitten:
+
+* [Azure App Service-Anbieter](#azure-app-service-provider)
+* [Azure-Protokollstreaming](#azure-log-streaming)
+
+::: moniker range=">= aspnetcore-1.1"
+
+* [Ablaufverfolgungsprotokollierung für Azure Application Insights](#azure-application-insights-trace-logging)
 
 ::: moniker-end
 
@@ -720,10 +788,25 @@ Das Anbieterpaket [Microsoft.Extensions.Logging.AzureAppServices](https://www.nu
 
 Wenn Sie Ihre App auf .NET Core ausrichten, beachten Sie Folgendes:
 
-* Das Anbieterpaket ist zwar im Lieferumfang des ASP.NET Core-Metapakets [Microsoft.AspNetCore.All](xref:fundamentals/metapackage) enthalten, aber nicht im Metapaket [Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
-* Rufen Sie [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) nicht explizit auf. Der Anbieter wird Ihrer App automatisch zur Verfügung gestellt, wenn diese in Azure App Service bereitgestellt wird.
+::: moniker-end
 
-Wenn Sie Anwendungen für .NET Framework entwickeln oder auf das `Microsoft.AspNetCore.App`-Metapaket verweisen, fügen Sie dem Projekt das Anbieterpaket hinzu. Rufen Sie `AddAzureWebAppDiagnostics` auf einer [ILoggerFactory](/dotnet/api/microsoft.extensions.logging.iloggerfactory)-Instanz auf:
+::: moniker range="= aspnetcore-2.0"
+
+* Das Anbieterpaket ist im ASP.NET Core-Metapaket [Microsoft.AspNetCore.All](xref:fundamentals/metapackage) enthalten.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+
+* Dieses Anbieterpaket ist nicht im [Microsoft.AspNetCore.App-Metapaket](xref:fundamentals/metapackage-app) enthalten. Um den Anbieter zu verwenden, installieren Sie das Paket.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.0"
+
+* Rufen Sie <xref:Microsoft.Extensions.Logging.AzureAppServicesLoggerFactoryExtensions.AddAzureWebAppDiagnostics*> nicht explizit auf. Der Anbieter wird Ihrer App automatisch zur Verfügung gestellt, wenn diese in Azure App Service bereitgestellt wird.
+
+Wenn Sie Anwendungen für .NET Framework entwickeln oder auf das `Microsoft.AspNetCore.App`-Metapaket verweisen, fügen Sie dem Projekt das Anbieterpaket hinzu. Rufen Sie `AddAzureWebAppDiagnostics` für eine <xref:Microsoft.Extensions.Logging.ILoggerFactory>-Instanz auf:
 
 ```csharp
 logging.AddAzureWebAppDiagnostics();
@@ -739,15 +822,50 @@ loggerFactory.AddAzureWebAppDiagnostics();
 
 ::: moniker-end
 
-Mithilfe einer [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics)-Überladung können Sie [AzureAppServicesDiagnosticsSettings](/dotnet/api/microsoft.extensions.logging.azureappservices.azureappservicesdiagnosticssettings) übergeben. Damit können Sie Standardeinstellungen wie die Vorlage für die Protokollierungsausgabe, den BLOB-Namen und die Dateigrößenbeschränkung überschreiben. (Eine *Ausgabevorlage* ist eine Meldungsvorlage, die zusätzlich zu dem Protokoll, das Sie beim Aufruf einer `ILogger`-Methode angeben, auf alle Protokolle angewendet wird.)
+::: moniker range=">= aspnetcore-1.1"
 
-Wenn Sie eine Bereitstellung für eine App Service-App durchführen, berücksichtigt die App die Einstellungen im Abschnitt [Diagnoseprotokolle](https://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/#enablediag) der Seite **App Service** im Azure-Portal. Bei einem Update dieser Einstellungen werden die Änderungen sofort wirksam, ohne dass ein Neustart oder eine erneute Bereitstellung der App notwendig ist.
+Eine <xref:Microsoft.Extensions.Logging.AzureAppServicesLoggerFactoryExtensions.AddAzureWebAppDiagnostics*>-Überladung ermöglicht das Übergeben von <xref:Microsoft.Extensions.Logging.AzureAppServices.AzureAppServicesDiagnosticsSettings>. Das settings-Objekt kann Standardeinstellungen überschreiben, z.B. die Protokollierungsausgabevorlage, den Blobnamen und die maximale Dateigröße. (Die *Ausgabevorlage* ist eine Nachrichtenvorlage, die auf alle Protokolle zusätzlich zu dem angewendet wird, was mit einem `ILogger`-Methodenaufruf bereitgestellt wird.)
+
+Wenn Sie eine Bereitstellung in einer App Service-App durchführen, berücksichtigt die Anwendung die Einstellungen im Abschnitt [Diagnoseprotokolle](/azure/app-service/web-sites-enable-diagnostic-log/#enablediag) der Seite **App Service** im Azure-Portal. Bei einem Update dieser Einstellungen werden die Änderungen sofort wirksam, ohne dass ein Neustart oder eine erneute Bereitstellung der App notwendig ist.
 
 ![Einstellungen für die Azure-Protokollierung](index/_static/azure-logging-settings.png)
 
-Der Standardspeicherort für Protokolldateien ist der Ordner *D:\\home\\LogFiles\\Application*, und der standardmäßige Dateiname lautet *diagnostics-yyyymmdd.txt*. Die Dateigröße ist standardmäßig auf 10 MB beschränkt, und die maximal zulässige Anzahl beibehaltener Dateien lautet 2. Der Standardblobname lautet *{app-name}{timestamp}/yyyy/mm/dd/hh/{guid}-applicationLog.txt*. Weitere Informationen zum Standardverhalten finden Sie unter [AzureAppServicesDiagnosticsSettings](/dotnet/api/microsoft.extensions.logging.azureappservices.azureappservicesdiagnosticssettings).
+Der Standardspeicherort für Protokolldateien ist der Ordner *D:\\home\\LogFiles\\Application*, und der standardmäßige Dateiname lautet *diagnostics-yyyymmdd.txt*. Die Dateigröße ist standardmäßig auf 10 MB beschränkt, und die maximal zulässige Anzahl beibehaltener Dateien lautet 2. Der Standardblobname lautet *{app-name}{timestamp}/yyyy/mm/dd/hh/{guid}-applicationLog.txt*. Weitere Informationen zum Standardverhalten finden Sie unter <xref:Microsoft.Extensions.Logging.AzureAppServices.AzureAppServicesDiagnosticsSettings>.
 
 Der Anbieter funktioniert nur, wenn das Projekt in der Azure-Umgebung ausgeführt wird. Bei einer lokalen Ausführung zeigt er keine Auswirkungen. Der Anbieter schreibt keine Protokolle in lokale Dateien oder den lokalen Entwicklungsspeicher für BLOBs.
+
+::: moniker-end
+
+### <a name="azure-log-streaming"></a>Azure-Protokollstreaming
+
+Azure-Protokollstreaming ermöglicht Ihnen eine Echtzeitanzeige der Protokollaktivität für:
+
+* App-Server
+* Webserver
+* Ablaufverfolgung für Anforderungsfehler
+
+So konfigurieren Sie das Azure-Protokollstreaming
+
+* Navigieren Sie von der Portalseite Ihrer App zur Seite **Diagnoseprotokolle**.
+* Legen Sie **Anwendungsprotokollierung (Dateisystem)** auf **Ein** fest.
+
+![Seite „Diagnoseprotokolle“ im Azure-Portal](index/_static/azure-diagnostic-logs.png)
+
+Navigieren Sie zur Seite **Protokollstreaming**, um App-Meldungen anzuzeigen. Diese werden von der App über die `ILogger`-Schnittstelle protokolliert.
+
+![Anwendungsprotokollstreaming im Azure-Portal](index/_static/azure-log-streaming.png)
+
+::: moniker range=">= aspnetcore-1.1"
+
+### <a name="azure-application-insights-trace-logging"></a>Ablaufverfolgungsprotokollierung für Azure Application Insights
+
+Das Application Insights SDK kann Protokolle erfassen und melden, die von der ASP.NET Core-Protokollierungsinfrastruktur generiert wurden. Weitere Informationen finden Sie in den folgenden Ressourcen:
+
+* [Application Insights-Übersicht](/azure/application-insights/app-insights-overview)
+* [Application Insights für ASP.NET Core](/azure/application-insights/app-insights-asp-net-core)
+* [Microsoft/ApplicationInsights-aspnetcore-Wiki: Protokollierung](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Logging).
+
+::: moniker-end
 
 ## <a name="third-party-logging-providers"></a>Protokollierungsanbieter von Drittanbietern
 
@@ -767,32 +885,9 @@ Einige Drittanbieterframeworks können eine [semantische Protokollierung (auch a
 Die Verwendung eines Frameworks von Drittanbietern ist ähnlich wie die Verwendung eines integrierten Anbieters:
 
 1. Fügen Sie Ihrem Paket ein NuGet-Paket hinzu.
-1. Rufen Sie eine Erweiterungsmethode für `ILoggerFactory` auf.
+1. Rufen Sie eine `ILoggerFactory` auf.
 
-Weitere Informationen finden Sie in der Dokumentation zum jeweiligen Framework.
-
-## <a name="azure-log-streaming"></a>Azure-Protokollstreaming
-
-Das Azure-Protokollstreaming ermöglicht Ihnen eine Echtzeitanzeige der Protokollaktivität für:
-
-* Anwendungsserver
-* Webserver
-* Ablaufverfolgung für Anforderungsfehler
-
-So konfigurieren Sie das Azure-Protokollstreaming
-
-* Navigieren Sie von der Portalseite Ihrer Anwendung zur Seite **Diagnoseprotokolle**.
-* Aktivieren Sie **Anwendungsprotokollierung (Dateisystem)**.
-
-![Seite „Diagnoseprotokolle“ im Azure-Portal](index/_static/azure-diagnostic-logs.png)
-
-Navigieren Sie zur Seite **Protokollstreaming**, um Anwendungsmeldungen anzuzeigen. Diese werden von der Anwendung über die `ILogger`-Schnittstelle protokolliert.
-
-![Anwendungsprotokollstreaming im Azure-Portal](index/_static/azure-log-streaming.png)
-
-## <a name="azure-application-insights-trace-logging"></a>Ablaufverfolgungsprotokollierung für Azure Application Insights
-
-Das [Application Insights](https://azure.microsoft.com/services/application-insights/) SDK kann Ablaufverfolgungstelemetrie von Protokollen sammeln, die über die ASP.NET Core-Protokollierungsinfrastruktur generiert wurden. Weitere Informationen finden Sie unter [Application Insights for ASP.NET Core (Application Insights für ASP.NET Core)](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core) und [Microsoft/ApplicationInsights-aspnetcore Wiki: Logging (Microsoft/ApplicationInsights-aspnetcore-Wiki: Protokollierung)](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Logging).
+Weitere Informationen finden Sie in der Dokumentation zum jeweiligen Anbieter. Protokollierungsanbieter von Drittanbietern werden von Microsoft nicht unterstützt.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
