@@ -2,7 +2,7 @@
 uid: aspnet/overview/owin-and-katana/owin-startup-class-detection
 title: OWIN-Startup-Klasse Erkennung | Microsoft-Dokumentation
 author: Praburaj
-description: Dieses Tutorial veranschaulicht das Konfigurieren der OWIN-Startup-Klasse geladen wird. Weitere Informationen zu OWIN finden Sie eine Übersicht des Katana-Projekt. In diesem Tutorial wurde...
+description: Dieses Tutorial veranschaulicht das Konfigurieren der OWIN-Startup-Klasse. Für weitere Informationen zu OWIN können Sie sich die Übersicht des Katana-Projekt ansehen. Dieses Tutorial wurde...
 ms.author: riande
 ms.date: 10/17/2013
 ms.assetid: 08257f55-36f4-4e39-9c88-2a5602838c79
@@ -19,7 +19,7 @@ ms.locfileid: "48910706"
 ====================
 durch [Praburaj Thiagarajan](https://github.com/Praburaj), [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
-> Dieses Tutorial veranschaulicht das Konfigurieren der OWIN-Startup-Klasse geladen wird. Weitere Informationen zu OWIN, finden Sie unter [eine Übersicht des Katana-Projekt](an-overview-of-project-katana.md). In diesem Tutorial wurde von Rick Anderson geschrieben ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) ), Praburaj Thiagarajan und Howard Dierking ( [ @howard \_Dierking](https://twitter.com/howard_dierking) ).
+> Dieses Tutorial veranschaulicht das Konfigurieren der OWIN-Startup-Klasse. Weitere Informationen zu OWIN, finden Sie unter [eine Übersicht des Katana-Projekt](an-overview-of-project-katana.md). Dieses Tutorial wurde von Rick Anderson ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) ), Praburaj Thiagarajan und Howard Dierking ( [ @howard \_Dierking](https://twitter.com/howard_dierking) ) geschrieben.
 >
 > ## <a name="prerequisites"></a>Vorraussetzungen
 >
@@ -28,23 +28,23 @@ durch [Praburaj Thiagarajan](https://github.com/Praburaj), [Rick Anderson]((http
 
 ## <a name="owin-startup-class-detection"></a>OWIN-Startup-Klasse Erkennung
 
- Jede OWIN-Anwendung verfügt über ein Startup-Klasse, in dem Sie Komponenten für die Pipeline der Anwendung angeben. Es gibt verschiedene Möglichkeiten, die Sie Ihrer Startup-Klasse mit der Runtime eine Verbindung herstellen können, die Sie abhängig von der hosting-Modell auswählen (OwinHost, IIS und IIS Express). Die Startup-Klasse, die in diesem Tutorial gezeigt, kann in jede hostanwendung verwendet werden. Sie verbinden die Startup-Klasse, mit der hosting-Laufzeit mit, die einen dieser Ansätze:
+ Jede OWIN-Anwendung verfügt über eine Startup-Klasse, in der Sie Komponenten für die Pipeline der Anwendung angeben können. Es gibt verschiedene Möglichkeiten, wie Sie Ihre Startup-Klasse mit der Laufzeit verbinden können, die davon abhängt, welches Hosting-Modell Sie geauswählt haben (OwinHost, IIS und IIS Express). Die Startup-Klasse, die in diesem Tutorial gezeigt wird, kann in jeder Hostanwendung verwendet werden. Nutzen Sie eine dieser Ansätze um die Startup-Klasse, mit der Hosting-Laufzeit zu verbinden:
 
-1. **Benennungskonvention**: Katana sucht eine Klasse namens `Startup` im Namespace, die Übereinstimmungen zwischen den Assemblynamen oder den globalen Namespace.
+1. **Benennungskonvention**: Katana durchsucht den globalen Namespace und alle Assemblies nach einer Klasse namens `Startup`.
 2. **OwinStartup Attribut**: Dies ist der Ansatz, den die meisten Entwickler zur Angabe der Startklasse verwenden. Das folgende Attribut legt als Startup-Klasse `TestStartup` fest und gibt als ihren Namespace `StartupDemo` an.
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample1.cs)]
 
-   Die `OwinStartup` -Attribut überschreibt die Benennungskonvention. Sie können auch einen Anzeigenamen mit diesem Attribut angeben, jedoch mit einem geeigneten Namen müssen Sie auch die `appSetting` Element in der Konfigurationsdatei.
-3. **Der AppSetting-Element in der Konfigurationsdatei**: die `appSetting` -Element überschreibt die `OwinStartup` -Attribut und Benennungskonvention. Sie haben mehrere Klassen von Start (jede mit einer `OwinStartup` Attribut) und konfigurieren Sie die Startup-Klasse in einer mit-Markup ähnlich der folgenden Konfigurationsdatei geladen werden:
+   Das `OwinStartup` -Attribut überschreibt die Benennungskonvention. Sie können auch einen Anzeigenamen mit diesem Attribut angeben, jedoch müssen Sie in diesem Fall auch das `appSetting` Element in der Konfigurationsdatei verwenden.
+3. **Das AppSetting-Element in der Konfigurationsdatei**: Das `appSetting` -Element überschreibt das `OwinStartup` -Attribut und die Benennungskonvention. Sie können mehrere Starup-Klassen haben (jede mit einem `OwinStartup` Attribut) und können die zu landende Startup-Klasse in einer mit-Markup ähnlichen Konfigurationsdatei wie folgt konfigurieren:
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample2.xml)]
 
-   Der folgende Schlüssel, der explizit, die "Startup"-Klasse und die Assembly angibt kann auch verwendet werden:
+   Der folgende Key, der die "Startup"-Klasse und die Assembly explizit angibt kann auch verwendet werden:
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample3.xml)]
 
-   Die folgenden XML-Code in der Konfigurationsdatei gibt den Anzeigenamen Startup-Klassennamen `ProductionConfiguration`.
+   Der folgende XML-Code in der Konfigurationsdatei gibt den Anzeigenamen Startup-Klassennamen `ProductionConfiguration` an.
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample4.xml)]
 
