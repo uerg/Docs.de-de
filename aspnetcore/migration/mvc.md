@@ -5,75 +5,91 @@ description: Informationen Sie zum Migrieren eines ASP.NET MVC-Projekts zu ASP.N
 ms.author: riande
 ms.date: 03/07/2017
 uid: migration/mvc
-ms.openlocfilehash: 6fecc820177ca5033cfd00d632904a950c1b29bb
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: e2ecc5b1a5e2ede4c815807d4e1b1499ae1a4242
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274774"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090471"
 ---
 # <a name="migrate-from-aspnet-mvc-to-aspnet-core-mvc"></a>Migrieren von ASP.NET MVC zu ASP.NET Core MVC
 
 Durch [Rick Anderson](https://twitter.com/RickAndMSFT), [Daniel Roth](https://github.com/danroth27), [Steve Smith](https://ardalis.com/), und [Scott Addie](https://scottaddie.com)
 
-In diesem Artikel wird gezeigt, wie für den Einstieg in die Migration von einer ASP.NET MVC-Projekts zu [Core ASP.NET-MVC](../mvc/overview.md). In der Prozess wird hervorgehoben viele der Aufgaben, die von ASP.NET MVC geändert haben. Migrieren von ASP.NET MVC umfasst mehrere Schritte, und dieser Artikel behandelt die Anfangssetup, grundlegende Controller und Ansichten, statische Inhalte und Client-Side-Abhängigkeiten. Zusätzliche Artikel behandelt Migrieren der Konfiguration und ID-Code in ASP.NET MVC-Projekte, die viele gefunden.
+In diesem Artikel zeigt, wie für den Einstieg in das Migrieren eines ASP.NET MVC-Projekts zu [ASP.NET Core MVC](../mvc/overview.md). Im Prozess wird hervorgehoben viele Funktionen, die von ASP.NET MVC geändert haben. Migrieren von ASP.NET MVC ist ein mehrstufiger Prozess, und dieser Artikel behandelt die ersteinrichtung, einfachen Controller und Ansichten, statischen Inhalt und clientseitige Abhängigkeiten. Zusätzliche Artikel decken Migrieren von Konfiguration und Code für die Identität in ASP.NET MVC-Projekte, die viele gefunden.
 
 > [!NOTE]
-> Die Versionsnummern in die Beispiele sind möglicherweise keine aktuellen. Sie müssen möglicherweise Ihre Projekte entsprechend aktualisieren.
+> Die Versionsnummern in den Beispielen möglicherweise keine aktuellen. Sie müssen Ihre Projekte entsprechend aktualisieren.
 
-## <a name="create-the-starter-aspnet-mvc-project"></a>Erstellen von Starter ASP.NET MVC-Projekt
+## <a name="create-the-starter-aspnet-mvc-project"></a>Beim Start von ASP.NET MVC-Projekt erstellen
 
-Um das Upgrade zu demonstrieren, beginnen wir mit eine ASP.NET MVC-app erstellen. Erstellen sie mit dem Namen *WebApp1* , damit der Namespace des Projekts ASP.NET Core entspricht wir im nächsten Schritt erstellen.
+Um das Upgrade zu demonstrieren, beginnen wir durch das Erstellen einer ASP.NET MVC-app. Erstellen sie mit dem Namen *"WebApp1"* damit der Namespace des ASP.NET Core-Projekts entspricht, wir im nächsten Schritt erstellen.
 
-![Visual Studio-Projekt ein neues Dialogfeld "](mvc/_static/new-project.png)
+![Visual Studio-Projekt-Dialogfeld](mvc/_static/new-project.png)
 
-![Dialogfeld "Neues Webanwendung": MVC-Projektvorlage in ASP.NET Vorlagen Bereich ausgewählt](mvc/_static/new-project-select-mvc-template.png)
+![Dialogfeld "neue Webanwendung": MVC-Projektvorlage, die im Bereich von ASP.NET Vorlagen ausgewählt](mvc/_static/new-project-select-mvc-template.png)
 
-*Optional:* ändern Sie den Namen der Projektmappe aus *WebApp1* auf *Mvc5*. Zeigt den Namen der neuen Projektmappe von Visual Studio (*Mvc5*), die erleichtert es, teilen Sie das Projekt über das nächste Projekt.
+*Optional:* ändern Sie den Namen der Lösung von *"WebApp1"* zu *Mvc5*. Visual Studio zeigt den Namen der neuen Projektmappe (*Mvc5*), die erleichtert es, teilen Sie dieses Projekt aus das nächste Projekt.
 
-## <a name="create-the-aspnet-core-project"></a>Erstellen des Projekts ASP.NET Core
+## <a name="create-the-aspnet-core-project"></a>ASP.NET Core-Projekt erstellen
 
-Erstellen Sie ein neues *leere* ASP.NET Core Web-app mit dem gleichen Namen wie das vorherige Projekt (*WebApp1*), damit die Namespaces in beiden Projekten übereinstimmen. Mit dem gleichen Namespace erleichtert es, Code zwischen den zwei Projekten kopieren. Sie müssen zum Erstellen des Projekts in einem anderen Verzeichnis als das vorherige Projekt, das den gleichen Namen verwenden.
+Erstellen Sie ein neues *leere* ASP.NET Core-Web-app mit den gleichen Namen wie das vorherige Projekt (*"WebApp1"*) damit die Namespaces in beiden Projekten übereinstimmen. Mit den gleichen Namespace erleichtert es, Code zwischen den beiden Projekten kopieren. Sie müssen zum Erstellen des Projekts in einem anderen Verzeichnis als das vorherige Projekt, das den gleichen Namen verwenden.
 
 ![Dialogfeld "Neues Projekt"](mvc/_static/new_core.png)
 
-![Dialogfeld "neues ASP.NET Web-Anwendung": leere Projektvorlage, die im Bereich der Vorlagen für ASP.NET Core ausgewählt](mvc/_static/new-project-select-empty-aspnet5-template.png)
+![Dialogfeld "neues ASP.NET Web Application": leere Projektvorlage, die im Bereich von ASP.NET Core-Vorlagen ausgewählt](mvc/_static/new-project-select-empty-aspnet5-template.png)
 
-* *Optional:* Erstellen eines neuen ASP.NET Core app mithilfe der *Webanwendung* -Projektvorlage. Nennen Sie das Projekt *WebApp1*, und wählen Sie eine Authentifizierungsoption in **einzelne Benutzerkonten**. Benennen Sie diese app *FullAspNetCore*. Erstellen dieses Projekt sparen Sie Zeit bei der Konvertierung. Betrachten Sie die Vorlage generiertem Code auf das Endergebnis finden Sie unter und im Code in das Konvertierungsprojekt zu kopieren. Es ist auch hilfreich, wenn Sie auf einen Konvertierungsschritt für den Vergleich mit der Vorlage generiert Projekt festsitzt.
+* *Optional:* erstellen, die eine neue ASP.NET Core-app, mit der *Webanwendung* Projektvorlage. Nennen Sie das Projekt *"WebApp1"*, und wählen Sie eine Authentifizierungsoption "des **einzelne Benutzerkonten**. Benennen Sie diese app *FullAspNetCore*. Erstellen dieses Projekt sparen Sie Zeit bei der Konvertierung. Sie können der Vorlage generierten Codes das Endergebnis oder Code in das Konvertierungsprojekt zu kopieren, ansehen. Es ist auch hilfreich, wenn Sie auf einen Konvertierungsschritt Vergleich mit der Vorlage generierte Projekt hängen bleiben.
 
-## <a name="configure-the-site-to-use-mvc"></a>Konfigurieren Sie den Standort für MVC verwenden
+## <a name="configure-the-site-to-use-mvc"></a>Konfigurieren Sie den Standort für die Verwendung von MVC
 
-* Wenn .NET Core verwenden möchten, wird der ASP.NET Core Metapackage auf das Projekt mit der Bezeichnung hinzugefügt `Microsoft.AspNetCore.All` standardmäßig. Dieses Paket enthält Pakete wie `Microsoft.AspNetCore.Mvc` und `Microsoft.AspNetCore.StaticFiles`. Wenn .NET Framework abzielen, müssen paketverweisen in der Datei *.csproj einzeln aufgelistet werden.
+::: moniker range=">= aspnetcore-2.1"
 
-`Microsoft.AspNetCore.Mvc` ist das ASP.NET-MVC-Framework Core. `Microsoft.AspNetCore.StaticFiles` ist der Handler für statische Dateien. Die Laufzeit ASP.NET Core ist modular aufgebaut, und Sie müssen explizit entscheiden Sie sich für statische Dateien dienen (siehe [statische Dateien](xref:fundamentals/static-files)).
+* Wenn .NET Core als Ziel der [Microsoft.AspNetCore.App metapaket](xref:fundamentals/metapackage-app) wird standardmäßig verwiesen. Dieses Paket enthält Pakete, die häufig verwendete Pakete von MVC-apps. Wenn .NET Framework abzielt, müssen die Paketverweise einzeln in der Projektdatei aufgeführt sein.
 
-* Öffnen der *Startup.cs* Datei und ändern Sie den Code entsprechend der folgenden:
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+* Wenn .NET Core als Ziel der [metapaket "Microsoft.aspnetcore.All"](xref:fundamentals/metapackage) wird standardmäßig verwiesen. Dieses Paket enthält Pakete, die häufig verwendete Pakete von MVC-apps. Wenn .NET Framework abzielt, müssen die Paketverweise einzeln in der Projektdatei aufgeführt sein.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+* Wenn .NET Core oder .NET Framework abgezielt wird, werden Pakete, die häufig verwendete Pakete von MVC-apps in der Projektdatei einzeln aufgeführt.
+
+::: moniker-end
+
+`Microsoft.AspNetCore.Mvc` ist das ASP.NET Core MVC-Framework. `Microsoft.AspNetCore.StaticFiles` ist der Handler statische Dateien. Die ASP.NET Core-Runtime ist modular aufgebaut, und Sie müssen ausdrücklich zum Bereitstellen statischer Dateien (finden Sie unter [statische Dateien](xref:fundamentals/static-files)).
+
+* Öffnen der *"Startup.cs"* Datei, und ändern Sie den Code entsprechend der folgenden:
 
   [!code-csharp[](mvc/sample/Startup.cs?highlight=13,26-31)]
 
-Die `UseStaticFiles` Erweiterungsmethode fügt Handler für statische Dateien. Wie bereits erwähnt, ist die ASP.NET-Laufzeit modular aufgebaut, und Sie müssen explizit entscheiden Sie sich für statische Dateien dienen. Die `UseMvc` Erweiterungsmethode fügt routing. Weitere Informationen finden Sie unter [Anwendungsstart](xref:fundamentals/startup) und [Routing](xref:fundamentals/routing).
+Die `UseStaticFiles` -Erweiterungsmethode fügt den Handler statische Dateien hinzu. Wie bereits erwähnt, ist die ASP.NET-Laufzeit modular aufgebaut, und Sie müssen ausdrücklich zum Bereitstellen statischer Dateien. Die `UseMvc` Erweiterungsmethode fügt routing. Weitere Informationen finden Sie unter [Anwendungsstart](xref:fundamentals/startup) und [Routing](xref:fundamentals/routing).
 
-## <a name="add-a-controller-and-view"></a>Fügen Sie einen Controller und Ansicht hinzu.
+## <a name="add-a-controller-and-view"></a>Fügen Sie einen Controller und Ansicht
 
-In diesem Abschnitt fügen Sie einem minimalen Controller und Ansicht dienen als Platzhalter für den ASP.NET MVC-Controller und Ansichten werden im nächsten Abschnitt migrieren.
+In diesem Abschnitt fügen Sie einen minimalen Controller und eine Ansicht als Platzhalter für den ASP.NET MVC-Controller und Ansichten, dass Sie im nächsten Abschnitt migrieren müssen.
 
 * Hinzufügen einer *Controller* Ordner.
 
-* Hinzufügen einer **Controllerklasse** mit dem Namen *HomeController.cs* auf die *Controller* Ordner.
+* Hinzufügen einer **"Controller"-Klasse** mit dem Namen *"HomeController.cs"* auf die *Controller* Ordner.
 
 ![Dialogfeld „Neues Element hinzufügen“](mvc/_static/add_mvc_ctl.png)
 
 * Hinzufügen einer *Ansichten* Ordner.
 
-* Hinzufügen einer *Ansichten/Start* Ordner.
+* Hinzufügen einer *Views/Home* Ordner.
 
-* Hinzufügen einer **Razor-Ansicht** mit dem Namen *Index.cshtml* auf die *Ansichten/Start* Ordner.
+* Hinzufügen einer **Razor-Ansicht** mit dem Namen *"Index.cshtml"* auf die *Views/Home* Ordner.
 
 ![Dialogfeld „Neues Element hinzufügen“](mvc/_static/view.png)
 
-Die Projektstruktur wird unten gezeigt:
+Die Projektstruktur ist unten dargestellt:
 
-![Projektmappen-Explorer mit Dateien und Ordner von WebApp1](mvc/_static/project-structure-controller-view.png)
+![Projektmappen-Explorer mit Dateien und Ordner von "WebApp1"](mvc/_static/project-structure-controller-view.png)
 
 Ersetzen Sie den Inhalt von der *Views/Home/Index.cshtml* Datei durch Folgendes:
 
@@ -83,13 +99,13 @@ Ersetzen Sie den Inhalt von der *Views/Home/Index.cshtml* Datei durch Folgendes:
 
 Führen Sie die App aus.
 
-![Öffnen Sie in Microsoft Edge-Web-app](mvc/_static/hello-world.png)
+![Web-app in Microsoft Edge öffnen](mvc/_static/hello-world.png)
 
 Finden Sie unter [Controller](xref:mvc/controllers/actions) und [Ansichten](xref:mvc/views/overview) für Weitere Informationen.
 
-Nun, da wir ein minimales funktionierenden ASP.NET Core-Projekt haben, beginnen wir Migrieren von Funktionen von ASP.NET MVC-Projekt. Wir müssen die folgenden verschieben:
+Nun, da wir ein minimale funktionierende ASP.NET Core-Projekt haben, können wir beginnen, migrieren Funktionen von ASP.NET MVC-Projekt. Wir müssen die folgenden verschieben:
 
-* die clientseitige Inhalt (CSS, Schriftarten und Skripts)
+* Client-Side-Inhalt (CSS, Schriftarten und Skripts)
 
 * Controller
 
@@ -97,57 +113,57 @@ Nun, da wir ein minimales funktionierenden ASP.NET Core-Projekt haben, beginnen 
 
 * Modelle
 
-* Bundling
+* Bündeln
 
 * Filter
 
-* Melden Sie sich in/out Identität (Dies erfolgt in den nächsten Lernprogrammen.)
+* Melden Sie sich in/out "," Identity (Dies erfolgt im nächsten Tutorial.)
 
 ## <a name="controllers-and-views"></a>Controller und Ansichten
 
-* Kopieren Sie jede der Methoden von ASP.NET MVC `HomeController` mit dem neuen `HomeController`. Beachten Sie, dass in ASP.NET-MVC integrierten Vorlage Controller Aktion Methodenrückgabetyp [ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult(v=vs.118).aspx); in ASP.NET Core MVC die Aktionsmethoden return `IActionResult` stattdessen. `ActionResult` implementiert `IActionResult`, daher keine Notwendigkeit besteht, den Rückgabetyp der Aktionsmethoden zu ändern.
+* Kopieren Sie jede der Methoden aus der ASP.NET MVC `HomeController` mit dem neuen `HomeController`. Beachten Sie, dass in ASP.NET MVC, der integrierten Vorlage Controller Aktion Methodenrückgabetyp [ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult(v=vs.118).aspx); in ASP.NET Core MVC, die Aktionsmethoden return `IActionResult` stattdessen. `ActionResult` implementiert `IActionResult`, daher keine Notwendigkeit besteht, den Rückgabetyp der Ihre Aktionsmethoden zu ändern.
 
-* Kopieren der *About.cshtml*, *Contact.cshtml*, und *Index.cshtml* Razor-Ansicht-Dateien aus dem ASP.NET MVC-Projekt dem ASP.NET Core-Projekt.
+* Kopieren der *"About.cshtml"*, *"Contact.cshtml"*, und *"Index.cshtml"* Razor-Ansichtsdateien aus dem ASP.NET MVC-Projekt auf ASP.NET Core-Projekt.
 
-* Führen Sie die ASP.NET Core-app, und Testen Sie jede Methode zu. Wir noch nicht die Layoutdatei oder Stile migriert noch, damit die gerenderten Ansichten nur den Inhalt in den Dateien anzeigen enthalten. Sie erhalten die Layout generierte dateilinks für keinen der `About` und `Contact` anzeigt, daher Sie diese über den Browser aufrufen müssen (ersetzen Sie **4492** mit der Portnummer, die in Ihrem Projekt verwendet).
+* Führen Sie die ASP.NET Core-app, und Testen Sie jede Methode. Wir noch nicht die Layoutdatei oder Stile noch migriert. daher die gerenderten Ansichten nur den Inhalt in die Ansichtsdateien enthalten. Sie müssen also nicht die Layout-Datei generiert, Links, um die `About` und `Contact` anzeigt, daher Sie sie aus dem Browser aufzurufen müssen (ersetzen Sie **4492** mit der Portnummer, die in Ihrem Projekt verwendet).
 
   * `http://localhost:4492/home/about`
 
   * `http://localhost:4492/home/contact`
 
-![Seite "Kontakte"](mvc/_static/contact-page.png)
+![Seite "Kontakt"](mvc/_static/contact-page.png)
 
-Beachten Sie die fehlende formatieren und Menüelementen aus. Dies soll im nächsten Abschnitt behoben werden.
+Beachten Sie, dass der Stil und Menüelementen. Dies soll im nächsten Abschnitt behoben werden.
 
 ## <a name="static-content"></a>Statischer Inhalt
 
-In früheren Versionen von ASP.NET MVC statischen Inhalte wurde aus dem Stammverzeichnis des Webprojekts gehostet und wurde mit serverseitigen Dateien zusammensetzt. In ASP.NET Core, statischer Inhalt gehostet wird, der *"Wwwroot"* Ordner. Sie möchten den statischen Inhalt von alten einer ASP.NET MVC-Anwendung zu kopieren der *"Wwwroot"* Projektordners ASP.NET Core. In diesem Beispiel Konvertierung:
+In früheren Versionen von ASP.NET MVC statischer Inhalt wurde vom Stamm des Webprojekts gehostet und wurde mit einem serverseitigen Dateien vermischt. In ASP.NET Core, statischer Inhalt gehostet wird, der *"Wwwroot"* Ordner. Sie sollten den statischen Inhalt Ihre alten ASP.NET MVC-App zum Kopieren der *"Wwwroot"* Ordner in Ihrem ASP.NET Core-Projekt. Bei dieser Konvertierung Beispiel:
 
-* Kopieren der *favicon.ico* -Datei aus dem alten MVC-Projekt in der *"Wwwroot"* Ordner des Projekts ASP.NET Core.
+* Kopieren der *favicon.ico* -Datei aus dem alten MVC-Projekt in der *"Wwwroot"* Ordner im ASP.NET Core-Projekt.
 
-Die alte ASP.NET MVC-Projekt verwendet [Bootstrap](https://getbootstrap.com/) für seine Erstellen von Formaten und speichert die Bootstrap-in Dateien den *Content* und *Skripts* Ordner. Die Vorlage, die mit das alte ASP.NET MVC-Projekt generiert wird, verweist auf Bootstrap in der Layoutdatei (*Views/Shared/_Layout.cshtml*). Sie kopieren konnte die *bootstrap.js* und *bootstrap.css* Dateien von ASP.NET MVC-Projekt auf die *"Wwwroot"* Ordner in das neue Projekt. Stattdessen fügen wir Unterstützung für Bootstrap (und andere clientseitige Bibliotheken) mithilfe des CDNs im nächsten Abschnitt.
+Die alte ASP.NET MVC-Projekt verwendet [Bootstrap](https://getbootstrap.com/) für die Formatierung und speichert, Dateien mit der Bootstrap-Stil, der *Content* und *Skripts* Ordner. Die Vorlage, die mit das alte ASP.NET MVC-Projekt generiert wird, verweist auf Bootstrap in der Layoutdatei (*Views/Shared/_Layout.cshtml*). Sie können Kopieren der *"Bootstrap.js"* und *Datei "Bootstrap.CSS"* Dateien von ASP.NET MVC-Projekt auf die *"Wwwroot"* Ordner in das neue Projekt. Stattdessen fügen wir Unterstützung für den Bootstrap-Stil (und andere clientseitige Bibliotheken) mithilfe des CDNs im nächsten Abschnitt.
 
 ## <a name="migrate-the-layout-file"></a>Migrieren Sie die Layoutdatei
 
-* Kopieren der *Ansichten "_viewstart.cshtml"* Datei aus des alten ASP.NET MVC-Projekts *Ansichten* Ordner, in des ASP.NET Core Projekts *Ansichten* Ordner. Die *Ansichten "_viewstart.cshtml"* Datei Core ASP.NET-MVC nicht geändert.
+* Kopieren der *_ViewStart.cshtml* Datei aus des alten ASP.NET MVC-Projekts *Ansichten* Ordner in des ASP.NET Core-Projekts *Ansichten* Ordner. Die *_ViewStart.cshtml* Datei wurde in ASP.NET Core MVC nicht geändert.
 
-* Erstellen einer *Ansichten/freigegeben* Ordner.
+* Erstellen Sie eine *Views/Shared* Ordner.
 
-* *Optional:* Kopie *_ViewImports.cshtml* aus der *FullAspNetCore* MVC-Projekt *Ansichten* Ordner, in des ASP.NET Core Projekts  *Sichten* Ordner. Entfernen Sie alle Namespacedeklaration in der *_ViewImports.cshtml* Datei. Die *_ViewImports.cshtml* Datei bietet Namespaces für alle Dateien anzeigen und bringt in [Tag Hilfsprogramme](xref:mvc/views/tag-helpers/intro). Tag-Hilfsmethoden werden in das Neue Layoutdatei verwendet. Die *_ViewImports.cshtml* Datei ist neu in ASP.NET Core.
+* *Optional:* Kopie *_ViewImports.cshtml* aus der *FullAspNetCore* MVC-Projekt *Ansichten* Ordner in des ASP.NET Core-Projekts  *Ansichten* Ordner. Entfernen Sie alle Namespacedeklaration in der *_ViewImports.cshtml* Datei. Die *_ViewImports.cshtml* Datei stellt die Namespaces für alle Ansichtsdateien bereit und verbindet [Taghilfsprogramme](xref:mvc/views/tag-helpers/intro). Taghilfsprogramme werden in die Neue Layoutdatei verwendet. Die *_ViewImports.cshtml* Datei ist neu in ASP.NET Core.
 
-* Kopieren der *_Layout.cshtml* Datei aus des alten ASP.NET MVC-Projekts *Ansichten/freigegeben* Ordner, in des ASP.NET Core Projekts *Ansichten/freigegeben* Ordner.
+* Kopieren der *"_Layout.cshtml"* Datei aus des alten ASP.NET MVC-Projekts *Views/Shared* Ordner in des ASP.NET Core-Projekts *Views/Shared* Ordner.
 
-Open *_Layout.cshtml* Datei, und nehmen Sie die folgenden Änderungen (der fertigen Code wird unten dargestellt):
+Open *"_Layout.cshtml"* Datei, und stellen Sie die folgenden Änderungen vor (der vollständige Code wird unten dargestellt):
 
-* Ersetzen Sie `@Styles.Render("~/Content/css")` mit einem `<link>` Element laden *bootstrap.css* (siehe unten).
+* Ersetzen Sie dies `@Styles.Render("~/Content/css")` mit einem `<link>` Element geladen *Datei "Bootstrap.CSS"* (siehe unten).
 
 * Entfernen Sie `@Scripts.Render("~/bundles/modernizr")`.
 
-* Kommentieren Sie Sie aus der `@Html.Partial("_LoginPartial")` Zeile (die Zeile mit umschließen `@*...*@`). Wir müssen in einem späteren Lernprogramm darauf zurück.
+* Kommentieren Sie die `@Html.Partial("_LoginPartial")` Zeile (setzen Sie die Zeile mit `@*...*@`). Wir werden in einem späteren Tutorial zu dieser zurückkehren.
 
-* Ersetzen Sie `@Scripts.Render("~/bundles/jquery")` mit einem `<script>` Element (siehe unten).
+* Ersetzen Sie dies `@Scripts.Render("~/bundles/jquery")` mit einem `<script>` Element (siehe unten).
 
-* Ersetzen Sie `@Scripts.Render("~/bundles/bootstrap")` mit einem `<script>` Element (siehe unten).
+* Ersetzen Sie dies `@Scripts.Render("~/bundles/bootstrap")` mit einem `<script>` Element (siehe unten).
 
 Das Ersatz-Markup für die Aufnahme der Bootstrap-CSS:
 
@@ -158,7 +174,7 @@ Das Ersatz-Markup für die Aufnahme der Bootstrap-CSS:
     crossorigin="anonymous">
 ```
 
-Das Ersatz-Markup für jQuery oder Bootstrap JavaScript einschließen:
+Das Ersatz-Markup für jQuery und Bootstrap-JavaScript-einschließen:
 
 ```html
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -166,25 +182,25 @@ Das Ersatz-Markup für jQuery oder Bootstrap JavaScript einschließen:
     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 ```
 
-Die aktualisierte *_Layout.cshtml* Datei wird unten gezeigt:
+Die aktualisierte *"_Layout.cshtml"* Datei ist unten dargestellt:
 
 [!code-cshtml[](mvc/sample/Views/Shared/_Layout.cshtml?highlight=7-10,29,41-44)]
 
-Zeigen Sie die Website im Browser. Es sollte jetzt ordnungsgemäß mit den erwarteten Formatvorlagen direktes Laden.
+Die Website im Browser anzeigen. Es sollte jetzt ordnungsgemäß mit den erwarteten Formatvorlagen direktes Laden.
 
-* *Optional:* möglicherweise möchten Sie versuchen, mithilfe der neuen Layoutdatei. Für dieses Projekt kopieren Sie die Layoutdatei aus der *FullAspNetCore* Projekt. Verwendet die Neue Layoutdatei [Tag Hilfsprogramme](xref:mvc/views/tag-helpers/intro) und hat den weiteren Verbesserungen.
+* *Optional:* möglicherweise versuchen Sie es mit der neuen Layoutdatei möchten. Für dieses Projekt kopieren Sie die Layoutdatei "aus der *FullAspNetCore* Projekt. Die Neue Layoutdatei verwendet [Taghilfsprogramme](xref:mvc/views/tag-helpers/intro) und weitere Verbesserungen.
 
-## <a name="configure-bundling-and-minification"></a>Konfigurieren von Bündelung und Minimierung
+## <a name="configure-bundling-and-minification"></a>Konfigurieren der Bündelung und Minimierung
 
-Informationen zum Konfigurieren von Bündelung und Minimierung finden Sie unter [Bündelung und Minimierung](../client-side/bundling-and-minification.md).
+Informationen zum Konfigurieren der Bündelung und Minimierung, finden Sie unter [Bündelung und Minimierung](../client-side/bundling-and-minification.md).
 
 ## <a name="solve-http-500-errors"></a>Beheben von HTTP 500-Fehler
 
-Es gibt viele Probleme, die eine HTTP 500-Fehlermeldung verursachen können, die keine Informationen für die Quelle des Problems enthalten. Beispielsweise, wenn die *Views/_ViewImports.cshtml* -Datei enthält einen Namespace, der in Ihrem Projekt nicht vorhanden ist, erhalten Sie einen HTTP 500-Fehler. In ASP.NET Core-apps standardmäßig die `UseDeveloperExceptionPage` Erweiterung wird hinzugefügt, um die `IApplicationBuilder` ausgeführt, sobald die Konfiguration ist *Entwicklung*. Dies ist in den folgenden Code beschrieben:
+Es gibt viele Probleme, die eine HTTP 500 Fehlermeldung führen können, die keine Informationen für die Quelle des Problems enthalten. Z. B. wenn die *Views/_viewimports.cshtml* -Datei enthält einen Namespace, der in Ihrem Projekt nicht vorhanden ist, erhalten Sie einen HTTP 500-Fehler. Standardmäßig in ASP.NET Core-apps die `UseDeveloperExceptionPage` Erweiterung hinzugefügt wird die `IApplicationBuilder` und ausgeführt, wenn die Konfiguration ist *Entwicklung*. Der folgende Code veranschaulicht dies:
 
 [!code-csharp[](mvc/sample/Startup.cs?highlight=19-22)]
 
-ASP.NET Core konvertiert nicht behandelte Ausnahmen in einer Web-app in HTTP 500-Fehlerantworten. Fehlerdetails werden nicht in der Regel wird in diese Antworten auf die Offenlegung von potenziell vertrauliche Informationen über den Server zu verhindern, dass aufgenommen. Finden Sie unter **Developer Ausnahme auf der Dienstkontoseite** in [Fehler behandeln](../fundamentals/error-handling.md) für Weitere Informationen.
+ASP.NET Core konvertiert nicht behandelte Ausnahmen in einer Web-app in HTTP 500-Fehlerantworten. Fehlerdetails werden nicht in der Regel in diese Antworten Offenlegung potenziell vertraulicher Informationen über den Server enthalten. Finden Sie unter **mithilfe der Ausnahmeseite** in [Fehlerbehandlung](../fundamentals/error-handling.md) für Weitere Informationen.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 

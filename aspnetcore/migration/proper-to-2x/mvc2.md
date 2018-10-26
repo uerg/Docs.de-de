@@ -3,14 +3,15 @@ title: Migrieren von ASP.NET zu ASP.NET Core 2.0
 author: isaac2004
 description: Erhalten Sie Anleitungen zum Migrieren vorhandener ASP.NET MVC- oder Web-API-Anwendungen in ASP.NET Core 2.0.
 ms.author: scaddie
-ms.date: 08/27/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: migration/mvc2
-ms.openlocfilehash: 42fbabb2fe5bd79a72cd220230faa9d75ff1c9d8
-ms.sourcegitcommit: a742b55e4b8276a48b8b4394784554fecd883c84
+ms.openlocfilehash: 006eeeba28dbd351698e46547abe3c96818a63d9
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45538387"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090458"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core-20"></a>Migrieren von ASP.NET zu ASP.NET Core 2.0
 
@@ -18,7 +19,7 @@ Von [Isaac Levin](https://isaaclevin.com)
 
 Dieser Artikel dient als Leitfaden zum Migrieren von ASP.NET-Anwendungen zu ASP.NET Core 2.0.
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Vorraussetzungen
 
 Installieren Sie **eine** der folgenden Optionen aus [.NET Downloads: Windows](https://www.microsoft.com/net/download/windows):
 
@@ -28,7 +29,8 @@ Installieren Sie **eine** der folgenden Optionen aus [.NET Downloads: Windows](h
   * Workload **Plattformübergreifende .NET Core-Entwicklung**
 
 ## <a name="target-frameworks"></a>Zielframeworks
-ASP.NET Core 2.0-Projekte bieten Entwicklern die Flexibilität, Anwendungen für .NET Core, .NET Framework oder für beide Frameworks zu erstellen. Informationen zur Auswahl eines geeigneten Frameworks finden Sie unter [Wahl zwischen .NET Core und .NET Framework für Server-Apps](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server).
+
+ASP.NET Core 2.0-Projekte bieten Entwicklern die Flexibilität, Anwendungen für .NET Core, .NET Framework oder für beide Frameworks zu erstellen. Informationen zur Auswahl eines geeigneten Frameworks finden Sie unter [Wahl zwischen .NET Core und .NET Framework für Server-Apps](/dotnet/standard/choosing-core-framework-server).
 
 Bei der Erstellung von Anwendungen für .NET Framework müssen Projekte auf einzelne NuGet-Pakete verweisen.
 
@@ -40,17 +42,20 @@ Wenn das Zielframework .NET Core ist, können Sie mit dem [Metapaket](xref:funda
 </ItemGroup>
 ```
 
-Wenn das Metapaket verwendet wird, werden mit der Anwendung keine Pakete bereitgestellt, auf die im Metapaket verwiesen wird. Die notwendigen Objekte sind im .NET Core-Laufzeitspeicher vorhanden und werden zur Verbesserung der Leistung vorkompiliert. Weitere Informationen finden Sie unter [Microsoft.AspNetCore.All metapackage for ASP.NET Core 2.x (Microsoft.AspNetCore.All-Metapaket für ASP.NET Core 2.x)](xref:fundamentals/metapackage).
+Wenn das Metapaket verwendet wird, werden mit der Anwendung keine Pakete bereitgestellt, auf die im Metapaket verwiesen wird. Die notwendigen Objekte sind im .NET Core-Laufzeitspeicher vorhanden und werden zur Verbesserung der Leistung vorkompiliert. Finden Sie unter <xref:fundamentals/metapackage> Weitere Details.
 
 ## <a name="project-structure-differences"></a>Unterschiede bei Projektstrukturen
-Das Dateiformat *.csproj* wurde in ASP.NET Core vereinfacht. Zu einigen wichtigen Änderungen gehören folgende Punkte:
-- Dateien müssen nicht explizit eingebunden werden, um als Teil des Projekts behandelt zu werden. Dadurch wird in großen Entwicklerteams das Risiko von Konflikten beim Zusammenführen von XML-Dateien reduziert.
-- Auf GUID-Verweise zu anderen Projekten wird verzichtet, wodurch die Lesbarkeit von Dateien erhöht wird.
-- Die Datei kann bearbeitet werden, ohne in Visual Studio entladen zu werden:
 
-    ![Kontextmenüoption „Edit CSPROJ“ (CSPROJ-Datei bearbeiten) in Visual Studio 2017](_static/EditProjectVs2017.png)
+Das Dateiformat *.csproj* wurde in ASP.NET Core vereinfacht. Zu einigen wichtigen Änderungen gehören folgende Punkte:
+
+* Dateien müssen nicht explizit eingebunden werden, um als Teil des Projekts behandelt zu werden. Dadurch wird in großen Entwicklerteams das Risiko von Konflikten beim Zusammenführen von XML-Dateien reduziert.
+* Auf GUID-Verweise zu anderen Projekten wird verzichtet, wodurch die Lesbarkeit von Dateien erhöht wird.
+* Die Datei kann bearbeitet werden, ohne in Visual Studio entladen zu werden:
+
+  ![Kontextmenüoption „Edit CSPROJ“ (CSPROJ-Datei bearbeiten) in Visual Studio 2017](_static/EditProjectVs2017.png)
 
 ## <a name="globalasax-file-replacement"></a>Ersetzen der Datei „Global.asax“
+
 Mit ASP.NET Core wurde ein neuer Mechanismus für den Bootstrap einer Anwendung eingeführt. Der Einstiegspunkt für ASP.NET-Anwendungen ist die Datei *Global.asax*. In der Datei *Global.asax* werden Aufgaben wie die Routenkonfiguration, die Einrichtung von Filtern und Bereichsregistrierungen bearbeitet.
 
 [!code-csharp[](samples/globalasax-sample.cs)]
@@ -77,9 +82,10 @@ In `Startup` muss die `Configure`-Methode enthalten sein. Fügen Sie in `Configu
 
 Durch die Entkopplung von Host und Anwendung wird die Möglichkeit geschaffen, in der Zukunft eine Migration zu einer anderen Plattform vorzunehmen.
 
-**Hinweis:** Ausführliche Informationen zum Start einer Anwendung in ASP.NET Core und zu Middleware finden Sie unter [Startup in ASP.NET Core (Starten von Anwendungen in ASP.NET Core)](xref:fundamentals/startup).
+Ausführliche Informationen zu ASP.NET Core-Start oder Middleware, finden Sie unter <xref:fundamentals/startup>.
 
 ## <a name="storing-configurations"></a>Speichern von Konfigurationsdaten
+
 ASP.NET unterstützt das Speichern von Einstellungen. Diese Einstellungen dienen z.B. der Unterstützung der Umgebung, in der die Anwendungen bereitgestellt werden. Häufig werden alle benutzerdefinierten Schlüssel-Wert-Paare im Abschnitt `<appSettings>` der Datei *Web.config* gespeichert:
 
 [!code-xml[](samples/webconfig-sample.xml)]
@@ -107,7 +113,7 @@ Dieser Ansatz kann erweitert werden, um einen noch stabileren Prozess zu gewähr
 services.Configure<AppConfiguration>(Configuration.GetSection("AppConfiguration"));
 ````
 
-**Hinweis:** Ausführliche Informationen zur ASP.NET Core-Konfiguration finden Sie unter [Configuration in ASP.NET Core (Konfiguration in ASP.NET Core)](xref:fundamentals/configuration/index).
+**Hinweis:** finden Sie ausführliche Informationen zur ASP.NET Core-Konfiguration, <xref:fundamentals/configuration/index>.
 
 ## <a name="native-dependency-injection"></a>Native Abhängigkeitsinjektion
 
@@ -133,7 +139,7 @@ Da es sich bei Dependency Injection Teil von ASP.NET Core ist, können Sie Ihren
 
 Genau wie bei Unity kann auch hier das Repository an einer beliebigen Stelle eingefügt werden.
 
-Weitere Informationen zur Abhängigkeitsinjektion in ASP.NET Core finden Sie unter [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection).
+Weitere Informationen zur Abhängigkeitsinjektion in ASP.NET Core finden Sie unter <xref:fundamentals/dependency-injection>.
 
 ## <a name="serving-static-files"></a>Bereitstellen statischer Dateien
 
@@ -149,7 +155,7 @@ In ASP.NET Core werden statische Dateien im Webstammverzeichnis (*&lt;content ro
 
 Beispielsweise kann ein Browser an einem Speicherort wie `http://<app>/images/<imageFileName>` auf ein Bildobjekt im Ordner *wwwroot/images* zugreifen.
 
-**Hinweis:** finden Sie ausführliche Informationen zum Bereitstellen statischer Dateien in ASP.NET Core, [statische Dateien](xref:fundamentals/static-files).
+**Hinweis:** finden Sie ausführliche Informationen zum Bereitstellen statischer Dateien in ASP.NET Core, <xref:fundamentals/static-files>.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 

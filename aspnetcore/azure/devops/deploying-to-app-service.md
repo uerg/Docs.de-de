@@ -3,18 +3,19 @@ title: DevOps mit ASP.NET Core und Azure | Bereitstellen einer app in App Servic
 author: CamSoper
 description: Ein Leitfaden, der End-to-End-Anleitungen zum Erstellen einer DevOps-Pipeline für eine in Azure gehostete ASP.NET Core-App bereitstellt.
 ms.author: casoper
-ms.date: 08/07/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: azure/devops/deploy-to-app-service
-ms.openlocfilehash: 710e65a048fdc062219e90b0db323e8e96fd8e9d
-ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
+ms.openlocfilehash: 33026ed510aae63a9e580aa5d708f94aad778fca
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44340133"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090936"
 ---
 # <a name="deploy-an-app-to-app-service"></a>Bereitstellen einer app in App Service
 
-[Azure App Service](https://docs.microsoft.com/azure/app-service/) ist der Azure web-hosting-Plattform. Bereitstellen einer Web-app in Azure App Service kann manuell oder durch ein automatisierter Prozess erfolgen. In diesem Abschnitt des Handbuchs erläutert Bereitstellungsmethoden zur Verfügung, die ausgelöst werden können, manuell oder mithilfe eines Skripts, die über die Befehlszeile oder ausgelöst wird, manuell mithilfe von Visual Studio.
+[Azure App Service](/azure/app-service/) ist der Azure web-hosting-Plattform. Bereitstellen einer Web-app in Azure App Service kann manuell oder durch ein automatisierter Prozess erfolgen. In diesem Abschnitt des Handbuchs erläutert Bereitstellungsmethoden zur Verfügung, die ausgelöst werden können, manuell oder mithilfe eines Skripts, die über die Befehlszeile oder ausgelöst wird, manuell mithilfe von Visual Studio.
 
 In diesem Abschnitt müssen Sie die folgenden Aufgaben auszuführen:
 
@@ -70,7 +71,7 @@ Herunterladen Sie über eine Befehlsshell den Code, erstellen Sie das Projekt, u
 
 ## <a name="create-the-azure-app-service-web-app"></a>Erstellen Sie die Azure App Service-Web-App
 
-Um die app bereitstellen, müssen Sie zum Erstellen einer App Service [Web-App](https://docs.microsoft.com/azure/app-service/app-service-web-overview). Nach der Erstellung der Web-App stellen Sie sich darauf aus Ihrem lokalen Computer mit Git bereit.
+Um die app bereitstellen, müssen Sie zum Erstellen einer App Service [Web-App](/azure/app-service/app-service-web-overview). Nach der Erstellung der Web-App stellen Sie sich darauf aus Ihrem lokalen Computer mit Git bereit.
 
 1. Melden Sie sich bei der [Azure Cloudshell](https://shell.azure.com/bash). Hinweis: Wenn Sie zum ersten Mal anmelden, fordert Cloud Shell zum Erstellen eines Speicherkontos für Konfigurationsdateien. Akzeptieren Sie die Standardeinstellungen, oder geben Sie einen eindeutigen Namen.
 
@@ -88,7 +89,7 @@ Um die app bereitstellen, müssen Sie zum Erstellen einer App Service [Web-App](
     az group create --location centralus --name AzureTutorial
     ```
 
-    Die `az` Befehl ruft die [Azure-Befehlszeilenschnittstelle](https://docs.microsoft.com/cli/azure/). Die CLI kann lokal ausgeführt werden, jedoch Zeit und die Konfiguration speichert sie in der Cloud Shell verwenden.
+    Die `az` Befehl ruft die [Azure-Befehlszeilenschnittstelle](/cli/azure/). Die CLI kann lokal ausgeführt werden, jedoch Zeit und die Konfiguration speichert sie in der Cloud Shell verwenden.
 
     c. Erstellen Sie einen App Service-Plan im Tarif S1. App Service-Plan ist eine Gruppierung von Web-apps, die den gleichen Tarif gemeinsam nutzen. Der S1-Tarif nicht kostenlos, aber es ist erforderlich, für die staging-Slots-Funktion.
 
@@ -238,7 +239,7 @@ Im nächsten Abschnitt erfahren Sie, wie Sie eine DevOps-Pipeline mit Azure-Pipe
 
 ## <a name="additional-reading"></a>Weiterführende Literatur
 
-* [Web-Apps – Übersicht](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
-* [Erstellen einer .NET Core- und SQL-Datenbank-Web-Apps in Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
-* [Konfigurieren Sie Anmeldeinformationen für die Bereitstellung für Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-deployment-credentials)
-* [Einrichten von Stagingumgebungen in Azure App Service](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing)
+* [Web-Apps – Übersicht](/azure/app-service/app-service-web-overview)
+* [Erstellen einer .NET Core- und SQL-Datenbank-Web-Apps in Azure App Service](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
+* [Konfigurieren Sie Anmeldeinformationen für die Bereitstellung für Azure App Service](/azure/app-service/app-service-deployment-credentials)
+* [Einrichten von Stagingumgebungen in Azure App Service](/azure/app-service/web-sites-staged-publishing)

@@ -3,14 +3,15 @@ title: Problembehandlung bei ASP.NET Core-Projekten
 author: Rick-Anderson
 description: In diesem Artikel werden Warnungen und Fehler erläutert. Außerdem erfahren Sie, wie die Problembehandlung in ASP.NET Core-Projekten funktioniert.
 ms.author: riande
-ms.date: 04/05/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: test/troubleshoot
-ms.openlocfilehash: c72dd93f6ba705d7f03ade556c7a037dadeb6295
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: 150f2192bb4b6dd0d330fd678d9c5fa0bf31673e
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938393"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090110"
 ---
 # <a name="troubleshoot-aspnet-core-projects"></a>Problembehandlung bei ASP.NET Core-Projekten
 
@@ -18,9 +19,9 @@ Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Die folgenden Links erhalten Anleitungen zur Fehlerbehebung:
 
-* [Problembehandlung bei ASP.NET Core in Azure App Service](xref:host-and-deploy/azure-apps/troubleshoot)
-* [Problembehandlung bei ASP.NET Core in IIS](xref:host-and-deploy/iis/troubleshoot)
-* [Referenz zu häufigen Fehlern bei Azure App Service und IIS mit ASP.NET Core](xref:host-and-deploy/azure-iis-errors-reference)
+* <xref:host-and-deploy/azure-apps/troubleshoot>
+* <xref:host-and-deploy/iis/troubleshoot>
+* <xref:host-and-deploy/azure-iis-errors-reference>
 * [NDC Conference (London, 2018): Diagnostizieren von Problemen in ASP.NET Core-Anwendungen](https://www.youtube.com/watch?v=RYI0DHoIVaA)
 * [ASP.NET-Blog: Problembehandlung bei Leistungsproblemen von ASP.NET Core](https://blogs.msdn.microsoft.com/webdev/2018/05/23/asp-net-core-performance-improvements/)
 

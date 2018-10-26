@@ -5,7 +5,7 @@ Führen Sie die Identity-gerüstbauer:
 * Von **Projektmappen-Explorer**, mit der rechten Maustaste auf das Projekt > **hinzufügen** > **neues Gerüstelement**.
 * Im linken Bereich, der die **Gerüst hinzufügen** wählen Sie im Dialogfeld **Identität** > **hinzufügen**.
 * In der **ADD Identity** Dialogfeld Wählen Sie die gewünschten Optionen.
-  * Wählen Sie Ihre vorhandene Layoutseite, oder durch falsche Markup die Layoutdatei überschrieben werden. Wenn eine vorhandene Datei mit "_Layout.cshtml" ausgewählt ist, wird es **nicht** überschrieben.
+  * Wählen Sie Ihre vorhandene Layoutseite, oder durch falsche Markup die Layoutdatei überschrieben werden. Wenn ein vorhandenes  *\_Layout.cshtml* Datei ausgewählt ist, wird es **nicht** überschrieben.
 
  Z. B. `~/Pages/Shared/_Layout.cshtml` für Razor-Seiten `~/Views/Shared/_Layout.cshtml` für MVC-Projekte
 * Um Ihre vorhandenen Datenkontext zu verwenden, wählen Sie mindestens eine Datei zu überschreiben. Sie müssen mindestens eine Datei auf Ihrem Datenkontext hinzufügen auswählen.
@@ -49,4 +49,7 @@ PowerShell arbeitet mit Semikolon als Befehlstrennzeichen. Wenn Sie Powershell v
 ```cli
 dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
 ```
+
+Wenn das Ausführen der Identity-gerüstbauer ohne Angabe der `--files` Flag oder das `--useDefaultUI` kennzeichnen, die alle die verfügbaren Identity-UI-Seiten in Ihrem Projekt erstellt werden.
+
 -------------

@@ -5,14 +5,14 @@ description: Erfahren Sie, wie Sie mit der Azure Key Vault-Konfigurationsanbiete
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/17/2018
+ms.date: 10/24/2018
 uid: security/key-vault-configuration
-ms.openlocfilehash: 474824cccdc63bb3dc3978ed68cf4c89cec12ad5
-ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
+ms.openlocfilehash: 06445eb2ecec4cf101b23a4bfe131b2c56a18f62
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49391141"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090305"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Azure Key Vault-Konfigurationsanbieter in ASP.NET Core
 
@@ -151,7 +151,7 @@ Wenn Sie diesen Ansatz zu implementieren:
 
 Verwenden der [Secret Manager-Tool](xref:security/app-secrets) verwalten die `ClientSecret` außerhalb Ihrer Projektstruktur für die Quelle. Mit dem Geheimnis-Manager, die Sie app-Geheimnissen mit einem bestimmten Projekt verknüpfen und für mehrere Projekte freigeben.
 
-Wenn Sie eine .NET Framework-app in einer Umgebung entwickeln, die Zertifikate unterstützt, können Sie mit einem x. 509-Zertifikat in Azure Key Vault authentifizieren. Privaten Schlüssel des x. 509-Zertifikats wird vom Betriebssystem verwaltet. Weitere Informationen finden Sie unter [authentifizieren mit einem Zertifikat anstelle eines geheimen Clientschlüssels](https://docs.microsoft.com/azure/key-vault/key-vault-use-from-web-application#authenticate-with-a-certificate-instead-of-a-client-secret). Verwenden der `AddAzureKeyVault` Überladung verwenden, akzeptiert eine `X509Certificate2` (`_env` im folgenden Beispiel:
+Wenn Sie eine .NET Framework-app in einer Umgebung entwickeln, die Zertifikate unterstützt, können Sie mit einem x. 509-Zertifikat in Azure Key Vault authentifizieren. Privaten Schlüssel des x. 509-Zertifikats wird vom Betriebssystem verwaltet. Weitere Informationen finden Sie unter [authentifizieren mit einem Zertifikat anstelle eines geheimen Clientschlüssels](/azure/key-vault/key-vault-use-from-web-application#authenticate-with-a-certificate-instead-of-a-client-secret). Verwenden der `AddAzureKeyVault` Überladung verwenden, akzeptiert eine `X509Certificate2` (`_env` im folgenden Beispiel:
 
 ```csharp
 var builtConfig = config.Build();
