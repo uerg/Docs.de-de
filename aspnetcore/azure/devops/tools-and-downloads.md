@@ -3,20 +3,21 @@ title: DevOps mit ASP.NET Core und Azure | Tools und downloads
 author: CamSoper
 description: Ein Leitfaden, der End-to-End-Anleitungen zum Erstellen einer DevOps-Pipeline für eine in Azure gehostete ASP.NET Core-App bereitstellt.
 ms.author: casoper
-ms.date: 08/07/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: azure/devops/tools-and-downloads
-ms.openlocfilehash: 5529068b83db475315784571fbf4151d7ecd0d5d
-ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
+ms.openlocfilehash: 573e257e6fc7614010a8749ff439f16011c2c10a
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44340159"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50089382"
 ---
 # <a name="tools-and-downloads"></a>Tools und downloads
 
-Azure verfügt über mehrere Schnittstellen für die Bereitstellung und Verwaltung von Ressourcen, z. B. die [Azure-Portal](https://portal.azure.com), [Azure-Befehlszeilenschnittstelle](https://docs.microsoft.com/cli/azure/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), [Azure-Cloud Shell](https://shell.azure.com/bash), und Visual Studio. Dieses Handbuch verwendet einen minimalistischen Ansatz und die Azure Cloud Shell nach Möglichkeit, um die erforderlichen Schritte zu reduzieren. Allerdings muss das Azure-Portal für einige Teile verwendet werden.
+Azure verfügt über mehrere Schnittstellen für die Bereitstellung und Verwaltung von Ressourcen, z. B. die [Azure-Portal](https://portal.azure.com), [Azure-Befehlszeilenschnittstelle](/cli/azure/), [Azure PowerShell](/powershell/azure/overview), [Azure-Cloud Shell](https://shell.azure.com/bash), und Visual Studio. Dieses Handbuch verwendet einen minimalistischen Ansatz und die Azure Cloud Shell nach Möglichkeit, um die erforderlichen Schritte zu reduzieren. Allerdings muss das Azure-Portal für einige Teile verwendet werden.
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Vorraussetzungen
 
 Die folgenden Abonnements sind erforderlich:
 
@@ -39,7 +40,7 @@ Die folgenden Tools sind erforderlich:
 
 * [Visual Studio](https://www.visualstudio.com/)des robuste Azure-Tools bieten einer grafische Benutzeroberfläche für den Großteil der Funktionalität, die in diesem Handbuch beschrieben. Eine beliebige Edition von Visual Studio funktionieren, einschließlich der kostenlosen Visual Studio Community Edition. In den Tutorials werden geschrieben, um Entwicklung und Bereitstellung von DevOps mit und ohne Visual Studio veranschaulichen.
 
-  Vergewissern Sie sich, dass Visual Studio die folgenden verfügt [Workloads](https://docs.microsoft.com/visualstudio/install/modify-visual-studio) installiert:
+  Vergewissern Sie sich, dass Visual Studio die folgenden verfügt [Workloads](/visualstudio/install/modify-visual-studio) installiert:
 
   * ASP.NET und Webentwicklung
   * Azure-Entwicklung
