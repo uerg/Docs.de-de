@@ -7,12 +7,12 @@ ms.author: riande
 ms.date: 10/29/2018
 ms.technology: aspnet
 msc.type: content
-ms.openlocfilehash: d5a3916c3df9778d14be80342bafbc3456a69a03
-ms.sourcegitcommit: f2d14a7518d6ee51aca9333818ac1276e7b5ecef
+ms.openlocfilehash: 4dcc62573fad13ec8b37b2c59e884eec7ca80b92
+ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 10/26/2018
-ms.locfileid: "50134534"
+ms.locfileid: "50148836"
 ---
 # <a name="configuration-builders-for-aspnet"></a>Konfigurations-Generatoren für ASP.NET
 
@@ -29,7 +29,7 @@ Konfigurationsgeneratoren:
 
 ## <a name="keyvalue-configuration-builders"></a>Schlüssel/Wert-Konfigurations-Generatoren
 
-Ein häufiges Szenario, das vom Konfigurations-Generatoren verarbeitet werden kann, ist, einen einfachen Schlüssel-Wert-Ersatz-Mechanismus für Konfigurationsabschnitte bereitzustellen, die ein Schlüssel/Wert-Muster folgen. Das .NET Framework-Konzept der ConfigurationBuilders ist nicht beschränkt auf bestimmte Konfigurationsabschnitte oder Muster. Allerdings viele der in der Konfigurations-Generatoren `Microsoft.Configuration.ConfigurationBuilders` ([Github](https://github.com/aspnet/MicrosoftConfigurationBuilders)), [NuGet](https://www.nuget.org/packages?q=Microsoft.Configuration.ConfigurationBuilders) arbeiten innerhalb des Schlüssel-Wert-Musters.
+Ein häufiges Szenario, das vom Konfigurations-Generatoren verarbeitet werden kann, ist, einen einfachen Schlüssel-Wert-Ersatz-Mechanismus für Konfigurationsabschnitte bereitzustellen, die ein Schlüssel/Wert-Muster folgen. Das .NET Framework-Konzept der ConfigurationBuilders ist nicht beschränkt auf bestimmte Konfigurationsabschnitte oder Muster. Allerdings viele der in der Konfigurations-Generatoren `Microsoft.Configuration.ConfigurationBuilders` ([Github](https://github.com/aspnet/MicrosoftConfigurationBuilders), [NuGet](https://www.nuget.org/packages?q=Microsoft.Configuration.ConfigurationBuilders)) innerhalb des Schlüssel-Wert-Musters arbeiten.
 
 ## <a name="keyvalue-configuration-builders-settings"></a>Schlüssel/Wert-Generatoren Konfigurationseinstellungen
 

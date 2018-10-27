@@ -7,12 +7,12 @@ author: BillWagner
 ms.author: wiwagn
 ms.date: 02/01/2017
 ms.assetid: c9f1d52c-b4bd-4b5d-b7f9-8f9ceaf778c4
-ms.openlocfilehash: 2e7b2a2e9d915aec0814def56daab860e1efa8af
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: b3eb643daf230336ce5def96007b6096f86390e6
+ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348415"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50148940"
 ---
 # <a name="migrating-aspnet-mvc-applications-to-windows-containers"></a>Migrieren von ASP.NET MVC-Anwendungen zu Windows-Containern
 
@@ -139,7 +139,7 @@ Verbinden mit dem ausgeführten Container, der die IPv4-Adresse mit `http://172.
 > Manche VPN- oder Proxysoftware könnte Ihren Wechsel zu Ihrer Website verhindern.
 > Sie können diese Software vorübergehend deaktivieren, um sicherzustellen, dass der Container ausgeführt wird.
 
-Das Beispielverzeichnis auf GitHub enthält ein [PowerShell-Skript](https://github.com/dotnet/docs/tree/master/samples/framework/docker/MVCRandomAnswerGenerator/run.ps1), das diese Befehle für Sie ausführt. Öffnen Sie ein PowerShell-Fenster, wechseln Sie in das Projektmappenverzeichnis, und geben Sie ein:
+Das Beispielverzeichnis auf GitHub enthält ein [PowerShell-Skript](https://github.com/dotnet/samples/blob/master/framework/docker/MVCRandomAnswerGenerator/run.ps1), das diese Befehle für Sie ausführt. Öffnen Sie ein PowerShell-Fenster, wechseln Sie in das Projektmappenverzeichnis, und geben Sie ein:
 
 ```console
 ./run.ps1
