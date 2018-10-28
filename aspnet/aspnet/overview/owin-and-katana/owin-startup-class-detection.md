@@ -48,23 +48,23 @@ durch [Praburaj Thiagarajan](https://github.com/Praburaj), [Rick Anderson]((http
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample4.xml)]
 
-   Das obenstehende Markup muss verwendet werden, durch den folgenden `OwinStartup` Attribut, das gibt einen Anzeigenamen und bewirkt, dass die `ProductionStartup2` Klasse ausgeführt.
+   Das obenstehende Markup muss verwendet mit folgendem Attribut verwendet werden`OwinStartup`, das den Anzeigenamen angibt und bewirkt, dass die `ProductionStartup2` Klasse ausgeführt wird.
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample5.cs?highlight=1,16)]
-4. So deaktivieren Sie OWIN-Startup-Ermittlung Hinzufügen der `appSetting owin:AutomaticAppStartup` mit einem Wert von `"false"` in der Datei "Web.config".
+4. Um die OWIN-Startup-Ermittlung zu deaktivieren, fügen Sie der "Web.config" folgendes `appSetting owin:AutomaticAppStartup` mit dem Wert `"false"` hinzu.
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample6.xml)]
 
 ## <a name="create-an-aspnet-web-app-using-owin-startup"></a>Erstellen einer ASP.NET Web-App mithilfe von OWIN-Startup
 
-1. Erstellen Sie eine leere ASP.NET-Webanwendung und nennen sie **StartupDemo**. – Installieren `Microsoft.Owin.Host.SystemWeb` mithilfe des NuGet-Paket-Managers. Aus der **Tools** die Option **NuGet Paket-Manager**, und **Paket-Manager Konsole**. Geben Sie folgenden Befehl ein:
+1. Erstellen Sie eine leere ASP.NET-Webanwendung und nennen Sie sie **StartupDemo**. – Installieren Sie `Microsoft.Owin.Host.SystemWeb` mithilfe des NuGet-Paket-Managers. Wählen Sie aus der **Tools**-Anzeige die Option **NuGet Paket-Manager** und **Paket-Manager Konsole** aus. Geben Sie folgenden Befehl ein:
 
     [!code-powershell[Main](owin-startup-class-detection/samples/sample7.ps1)]
-2. Hinzufügen einer OWIN-Startup-Klasse. In Visual Studio 2013 rechten Maustaste auf das Projekt, und wählen Sie **Klasse hinzufügen**. – In der **neues Element hinzufügen** Dialogfeld Geben Sie *OWIN* in das Suchfeld ein, und ändern Sie den Namen "Startup.cs", und klicken Sie dann auf **hinzufügen**.
+2. Hinzufügen einer OWIN-Startup-Klasse. Klicken Sie in Visual Studio 2013 mit der rechten Maustaste auf das Projekt, und wählen Sie **Klasse hinzufügen**. – Geben Sie *OWIN* in dem **neues Element hinzufügen** Dialogfeld in das Suchfeld ein und ändern Sie den Namen "Startup.cs", klicken Sie anschließend auf **hinzufügen**.
 
      ![](owin-startup-class-detection/_static/image1.png)
 
-   Das nächste Mal, die Sie hinzufügen möchten eine *Owin-Startklasse*, werden in zur Verfügung, aus der **hinzufügen** im Menü.
+   Wenn Sie das nächste Mal eine *Owin-Startklasse* hinzufügen möchten, wird dies im **hinzufügen** Menü zur Verfügung stehen.
 
      ![](owin-startup-class-detection/_static/image2.png)
 
