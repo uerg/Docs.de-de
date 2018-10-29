@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 10/01/2018
 uid: migration/webapi
-ms.openlocfilehash: 3c4ded874de2700e1290022a535c08f30dce9490
-ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
+ms.openlocfilehash: f5d886a7c3182b5cd372762ade67c2e748051049
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47861017"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207276"
 ---
 # <a name="migrate-from-aspnet-web-api-to-aspnet-core"></a>Migrieren von ASP.NET Web-API in ASP.NET Core
 
@@ -19,9 +19,9 @@ Durch [Scott Addie](https://twitter.com/scott_addie) und [Steve Smith](https://a
 
 Eine ASP.NET 4.x-Web-API ist ein HTTP-Dienst, der eine Breite Palette von Clients, einschließlich Browsern und mobilen Geräten erreicht. ASP.NET Core vereinheitlicht, ASP.NET 4.x MVC, und in ein einfacheres Programmiermodell, bekannt als ASP.NET Core MVC-Web-API-app-Modellen. Dieser Artikel beschreibt die erforderlichen Schritte zum Migrieren von ASP.NET 4.x-Web-API zu ASP.NET Core MVC.
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/migration/webapi/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/migration/webapi/sample) ([Vorgehensweise zum Herunterladen](xref:index#how-to-download-a-sample))
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Vorraussetzungen
 
 * [.NET Core 2.1 SDK oder höher](https://www.microsoft.com/net/download/all)
 * Version 15.7.3 oder höher von [Visual Studio 2017](https://www.visualstudio.com/downloads/) mit der Workload für **ASP.NET und Webentwicklung**

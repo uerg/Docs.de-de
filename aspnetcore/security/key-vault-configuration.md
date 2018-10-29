@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/key-vault-configuration
-ms.openlocfilehash: 06445eb2ecec4cf101b23a4bfe131b2c56a18f62
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: c6dc8b9c462841351b3ada72deeae727da356a6c
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090305"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207887"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Azure Key Vault-Konfigurationsanbieter in ASP.NET Core
 
@@ -20,7 +20,7 @@ Durch [Luke Latham](https://github.com/guardrex) und [Andrew Stanton-Nurse](http
 
 In diesem Dokument wird erläutert, wie Sie mit der [Microsoft Azure Key Vault](https://azure.microsoft.com/services/key-vault/) Konfigurationsanbieter zum Laden von app-Konfigurationswerte aus Azure Key Vault-Geheimnissen. Azure Key Vault ist ein cloudbasierter Dienst, der Sie schützen Sie Kryptografieschlüssel und Geheimnisse mithilfe von apps und Diensten unterstützt. Häufige Szenarien sind die Steuerung des Zugriffs auf sensible Konfigurationsdaten und erfüllt die Anforderung für FIPS 140-2 Level 2-überprüften Hardwaresicherheitsmodulen (HSM) beim Speichern der Konfigurationsdaten. Dieses Feature ist verfügbar für apps mit ASP.NET Core 1.1 oder höher.
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([Vorgehensweise zum Herunterladen](xref:index#how-to-download-a-sample))
 
 ## <a name="package"></a>Package
 

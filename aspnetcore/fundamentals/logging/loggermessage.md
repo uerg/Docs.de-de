@@ -5,12 +5,12 @@ description: Erfahren Sie, wie Sie LoggerMessage verwenden, um Delegate zu erste
 ms.author: riande
 ms.date: 11/03/2017
 uid: fundamentals/logging/loggermessage
-ms.openlocfilehash: e952591bac29868d87d765820e88c74b50a1fe88
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: a0080a20fed2d8fc295e55822c11d5731c6910ca
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272434"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207510"
 ---
 # <a name="high-performance-logging-with-loggermessage-in-aspnet-core"></a>Hochleistungsprotokollierung mit LoggerMessage in ASP.NET Core
 
@@ -23,7 +23,7 @@ Von [Luke Latham](https://github.com/guardrex)
 * Protokollierungserweiterungsmethoden erfordern das Konvertieren von Werttypen wie `int` in `object` (sogenanntes Boxing). Das `LoggerMessage`-Muster verhindert das Konvertieren mithilfe von statischen `Action`-Feldern und mithilfe von Erweiterungsmethoden mit stark typisierten Parametern.
 * Protokollierungserweiterungsmethoden müssen die Meldungsvorlagen (sogenannte Formatzeichenfolgen) jedes Mal analysieren, wenn eine Protokollmeldung geschrieben wird. `LoggerMessage` erfordert das Analysieren einer Vorlage nur einmal beim Festlegen der Meldung.
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/loggermessage/sample/) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/loggermessage/sample/) ([Vorgehensweise zum Herunterladen](xref:index#how-to-download-a-sample))
 
 Die Beispiel-App veranschaulicht `LoggerMessage`-Features mit einem einfachen System zur Zitatnachverfolgung. Die App fügt Zitate hinzu und löscht diese mithilfe einer speicherinternen Datenbank. Während dieser Vorgänge werden Protokollmeldungen mit dem `LoggerMessage`-Muster erstellt.
 

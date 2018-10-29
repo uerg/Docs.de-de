@@ -7,12 +7,12 @@ author: BillWagner
 ms.author: wiwagn
 ms.date: 02/01/2017
 ms.assetid: c9f1d52c-b4bd-4b5d-b7f9-8f9ceaf778c4
-ms.openlocfilehash: b3eb643daf230336ce5def96007b6096f86390e6
-ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
+ms.openlocfilehash: 7b34187747d3081998b8b60a72adae78cafe2c3e
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50148940"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207965"
 ---
 # <a name="migrating-aspnet-mvc-applications-to-windows-containers"></a>Migrieren von ASP.NET MVC-Anwendungen zu Windows-Containern
 
@@ -71,7 +71,7 @@ Klicken Sie auf **Veröffentlichen**, und Visual Studio kopiert alle erforderlic
 Definieren Sie das Docker-Image in einer Dockerfile-Datei. Die Dockerfile-Datei enthält Anweisungen für das Basisimage, zusätzliche Komponenten, die Anwendung, die Sie ausführen möchten, und weitere Konfigurationsimages.  Die Dockerfile-Datei ist die Eingabe für den `docker build`-Befehl, der das Image erstellt.
 
 Sie erstellen ein Image auf der Grundlage des `microsoft/aspnet`-Images, das sich auf dem [Docker-Hub](https://hub.docker.com/r/microsoft/aspnet/) befindet.
-Das Basisimage `microsoft/aspnet` ist ein Windows Server-Image. Es enthält Windows Server Core, IIS und ASP.NET 4.6.2. Wenn Sie dieses Image im Container ausführen, werden IIS und die installierten Websites automatisch gestartet.
+Das Basisimage `microsoft/aspnet` ist ein Windows Server-Image. Es enthält Windows Server Core, IIS und ASP.NET 4.7.2. Wenn Sie dieses Image im Container ausführen, werden IIS und die installierten Websites automatisch gestartet.
 
 Die Dockerfile-Datei, die das Image erstellt, sieht folgendermaßen aus:
 
@@ -122,18 +122,7 @@ In vielen Beispielen für Docker sehen Sie -p, um den Container und Host-Ports z
 
 ## <a name="verify-in-the-browser"></a>Überprüfen im Browser
 
-> [!NOTE]
-> Mit der aktuellen Version von Windows-Container, die Sie zum navigieren können nicht `http://localhost`.
-> Dies ist ein bekanntes Verhalten in WinNAT und wird in Zukunft gelöst. Bis zur Behebung dieses Fehlers müssen Sie die IP-Adresse des Containers verwenden.
-
-Nach dem Start des Containers ermitteln Sie dessen IP-Adresse, damit Sie über einen Browser eine Verbindung mit dem ausgeführten Container herstellen können:
-
-```console
-docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" randomanswers
-172.31.194.61
-```
-
-Verbinden mit dem ausgeführten Container, der die IPv4-Adresse mit `http://172.31.194.61` im gezeigten Beispiel. Wenn Sie diese URL in Ihren Browser eingeben, sollte die ausgeführte Website angezeigt werden.
+Nachdem der Container gestartet wird, Herstellen einer Verbindung mit dem ausgeführten Container über `http://localhost` im gezeigten Beispiel. Wenn Sie diese URL in Ihren Browser eingeben, sollte die ausgeführte Website angezeigt werden.
 
 > [!NOTE]
 > Manche VPN- oder Proxysoftware könnte Ihren Wechsel zu Ihrer Website verhindern.
@@ -145,10 +134,9 @@ Das Beispielverzeichnis auf GitHub enthält ein [PowerShell-Skript](https://gith
 ./run.ps1
 ```
 
-Der vorstehende Befehl erstellt das Image, zeigt die Liste der Images auf dem Computer an, startet einen Container und zeigt die IP-Adresse für diesen Container an.
+Der obige Befehl erstellt das Image, zeigt die Liste der Images auf dem Computer und startet einen Container.
 
-Um den Container zu stoppen, geben Sie einen `docker
-stop`-Befehl ein:
+Um den Container zu stoppen, geben Sie einen `docker stop`-Befehl ein:
 
 ```console
 docker stop randomanswers

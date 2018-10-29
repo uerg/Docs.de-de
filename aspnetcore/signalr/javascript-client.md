@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/14/2018
 uid: signalr/javascript-client
-ms.openlocfilehash: 10958c414aa4a285c8a2810bb99e278f719c5b7f
-ms.sourcegitcommit: ce6b6792c650708e92cdea051a5d166c0708c7c0
+ms.openlocfilehash: 02844c35d1933d36576c25ff335a572fb65eff5c
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "46483048"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50208017"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>ASP.NET Core SignalR-JavaScript-client
 
@@ -20,7 +20,7 @@ Von [Rachel Appel](http://twitter.com/rachelappel)
 
 Die ASP.NET Core SignalR JavaScript-Clientbibliothek ermöglicht Entwicklern von serverseitigen hubcode aufrufen.
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/live/aspnetcore/signalr/javascript-client/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/live/aspnetcore/signalr/javascript-client/sample) ([Vorgehensweise zum Herunterladen](xref:index#how-to-download-a-sample))
 
 ## <a name="install-the-signalr-client-package"></a>Installieren Sie das Paket der SignalR-client
 

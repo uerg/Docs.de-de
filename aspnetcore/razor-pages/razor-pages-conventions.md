@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 10/12/2018
 uid: razor-pages/razor-pages-conventions
-ms.openlocfilehash: 13fd6c156afd5ab62739b09296a929120ce3450f
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: f04e0930966c9aaf38543729565b1ef4a80a09e2
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348532"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207692"
 ---
 # <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>Razor-Seiten: Routen- und App-Konventionen in ASP.NET Core
 
@@ -25,7 +25,7 @@ Verwenden Sie zum Angeben einer seitenroute, Hinzufügen von routensegmenten ode
 
 Es sind reservierte Wörter, die als routensegmenten oder Parameternamen verwendet werden können. Weitere Informationen finden Sie unter [Routing: reservierten routing Namen](xref:fundamentals/routing#reserved-routing-names).
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/sample/) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/sample/) ([Vorgehensweise zum Herunterladen](xref:index#how-to-download-a-sample))
 
 ::: moniker range="= aspnetcore-2.0"
 
@@ -204,7 +204,7 @@ Fordern Sie die Seite „Info“ der Beispielanwendung unter `localhost:5000/Abo
 
 ## <a name="use-a-parameter-transformer-to-customize-page-routes"></a>Verwenden Sie einen Transformator Parameter zum Anpassen von seitenrouten
 
-Von ASP.NET Core generierte seitenrouten können mit der ein Transformator Parameter angepasst werden. Implementiert ein Transformator Parameter `IOutboundParameterTransformer` und wandelt den Wert der Parameter. Z. B. eine benutzerdefinierte `SlugifyParameterTransformer` Transformator parameteränderungen der `SubscriptionManagement` -routenwert zu `subscription-management`.
+Von ASP.NET Core generierte seitenrouten können mit der ein Transformator Parameter angepasst werden. Ein Parametertransformator implementiert `IOutboundParameterTransformer` und wandelt den Wert der Parameter um. Beispielsweise ändert ein benutzerdefinierter `SlugifyParameterTransformer`-Parametertransformator den Routenwert `SubscriptionManagement` in `subscription-management`.
 
 Die `PageRouteTransformerConvention` seitenroutenmodellkonvention gilt einen Transformator Parameter für die namenssegmente Ordner- und von automatisch generierten Seitenprofilklasse Routen in einer app. Z. B. die Razor-Seiten, die auf Dateien */Pages/SubscriptionManagement/ViewAll.cshtml* müsste der Route aus umgeschrieben `/SubscriptionManagement/ViewAll` zu `/subscription-management/view-all`.
 

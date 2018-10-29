@@ -4,14 +4,15 @@ author: rick-anderson
 description: Erfahren Sie, wie einer Razor-Seite in ASP.NET Core Validierung hinzugefügt wird.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 08/07/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: cd958b9c084de4b3e12784774544610873a519f9
-ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
+ms.openlocfilehash: 2518b9911f13da79c76c84e530cf53fc2df474e5
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48045522"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090445"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Hinzufügen der Validierung zu einer Razor-Seite in ASP.NET Core
 
@@ -27,7 +28,7 @@ Die von Razor Pages und Entity Framework gebotene Unterstützung der Validierung
 
 ### <a name="adding-validation-rules-to-the-movie-model"></a>Hinzufügen von Validierungsregeln zum Modell „Movie“
 
-Öffnen Sie die Datei *Models/Movie.cs*. [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) bietet eine integrierte Gruppe von Validierungsattributen, die deklarativ auf eine Klasse oder Eigenschaft angewendet werden. „DataAnnotations“ enthält auch Formatierungsattribute wie `DataType`, die bei der Formatierung helfen und keine Validierung bieten.
+Öffnen Sie die Datei *Models/Movie.cs*. [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) bietet eine integrierte Gruppe von Validierungsattributen, die deklarativ auf eine Klasse oder Eigenschaft angewendet werden. „DataAnnotations“ enthält auch Formatierungsattribute wie `DataType`, die bei der Formatierung helfen und keine Validierung bieten.
 
 Aktualisieren Sie die `Movie`-Klasse, um die Validierungsattribute `Required`, `StringLength`, `RegularExpression` und `Range` zu nutzen.
 
@@ -45,7 +46,7 @@ Aktualisieren Sie die `Movie`-Klasse, um die Validierungsattribute `Required`, `
 
 Validierungsattribute geben das Verhalten an, das für Modelleigenschaften erzwungen wird:
 
-* Die Attribute `Required` und `MinimumLength` geben an, dass eine Eigenschaft über einen Wert verfügen muss. Nichts hindert Benutzer allerdings daran, Leerzeichen einzugeben, um die Validierungseinschränkung für einen Nullable-Typ zu umgehen. [Werttypen](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/value-types), bei denen es sich nicht um Nullable-Typen handelt (wie z.B. `decimal`, `int`, `float` und `DateTime`), sind grundsätzlich erforderlich und benötigen das Attribut `Required` nicht.
+* Die Attribute `Required` und `MinimumLength` geben an, dass eine Eigenschaft über einen Wert verfügen muss. Nichts hindert Benutzer allerdings daran, Leerzeichen einzugeben, um die Validierungseinschränkung für einen Nullable-Typ zu umgehen. [Werttypen](/dotnet/csharp/language-reference/keywords/value-types), bei denen es sich nicht um Nullable-Typen handelt (wie z.B. `decimal`, `int`, `float` und `DateTime`), sind grundsätzlich erforderlich und benötigen das Attribut `Required` nicht.
 * Das Attribut `RegularExpression` schränkt die Zeichen ein, die ein Benutzer eingeben kann. Im vorangehenden Code muss `Genre` mit mindestens einem Großbuchstaben beginnen, dem null oder mehr Buchstaben, einfache oder doppelte Anführungszeichen, Leerzeichen oder Bindestriche folgen. `Rating` muss mit mindestens einem Großbuchstaben beginnen, dem null oder mehr Buchstaben, Zahlen, einfache oder doppelte Anführungszeichen, Leerzeichen oder Bindestriche folgen.
 * Das Attribut `Range` schränkt einen Wert auf einen bestimmten Bereich ein.
 * Das Attribut `StringLength` legt die Höchstlänge einer Zeichenfolge und optional die Mindestlänge fest. 
@@ -95,7 +96,7 @@ Der folgende Code zeigt einen Teil der Seite *Create.cshtml*, deren Gerüst Sie 
 
 [!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?range=14-20)]
 
-Das [Hilfsprogramm für Eingabetags](xref:mvc/views/working-with-forms) verwendet die Attribute von [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) und generiert HTML-Attribute, die auf der Clientseite für die jQuery-Validierung erforderlich sind. Das [Hilfsprogramm für Validierungstags](xref:mvc/views/working-with-forms#the-validation-tag-helpers) zeigt Validierungsfehler. Weitere Informationen finden Sie unter [Validierung](xref:mvc/models/validation).
+Das [Hilfsprogramm für Eingabetags](xref:mvc/views/working-with-forms) verwendet die Attribute von [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) und generiert HTML-Attribute, die auf der Clientseite für die jQuery-Validierung erforderlich sind. Das [Hilfsprogramm für Validierungstags](xref:mvc/views/working-with-forms#the-validation-tag-helpers) zeigt Validierungsfehler. Weitere Informationen finden Sie unter [Validierung](xref:mvc/models/validation).
 
 Die Seiten „Erstellen“ und „Bearbeiten“ weisen keine Validierungsregeln auf. Die Validierungsregeln und Fehlerzeichenfolgen werden nur in der `Movie`-Klasse angegeben. Diese Validierungsregeln gelten automatisch für Razor Pages, die das Modell `Movie` bearbeiten.
 
@@ -166,10 +167,10 @@ Vielen Dank für Ihr Interesse an dieser Einführung in Razor Pages. Wir freuen 
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Arbeiten mit Formularen](xref:mvc/views/working-with-forms)
-* [Globalisierung und Lokalisierung](xref:fundamentals/localization)
-* [Einführung in Taghilfsprogramme](xref:mvc/views/tag-helpers/intro)
-* [Erstellen von Taghilfsprogrammen](xref:mvc/views/tag-helpers/authoring)
+* <xref:mvc/views/working-with-forms>
+* <xref:fundamentals/localization>
+* <xref:mvc/views/tag-helpers/intro>
+* <xref:mvc/views/tag-helpers/authoring>
 
 > [!div class="step-by-step"]
 > [Zurück: Hinzufügen eines neuen Felds](xref:tutorials/razor-pages/new-field)

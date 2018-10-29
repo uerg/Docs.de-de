@@ -3,14 +3,15 @@ title: 'Razor-Seiten mit EF Core in ASP.NET Core: Parallelität (8 von 8)'
 author: rick-anderson
 description: In diesem Tutorial wird gezeigt, wie Sie Konflikte behandeln, wenn mehrere Benutzer gleichzeitig dieselbe Entität aktualisieren.
 ms.author: riande
-ms.date: 11/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 722676b6765c32f3d11d5a3e23a5bea6ebe5488d
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: cd06cb1056e1c856214d2440533aad5789907107
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523258"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207341"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>Razor-Seiten mit EF Core in ASP.NET Core: Parallelität (8 von 8)
 
@@ -18,7 +19,7 @@ Von [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://gith
 
 [!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
-Dieses Tutorial zeigt, wie Sie Konflikte behandeln, wenn mehrere Benutzer gleichzeitig dieselbe Entität aktualisieren. Wenn nicht zu lösende Probleme auftreten, laden Sie die [fertige App](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) herunter, oder zeigen Sie diese an. [Anweisungen zum Download.](xref:tutorials/index#how-to-download-a-sample)
+Dieses Tutorial zeigt, wie Sie Konflikte behandeln, wenn mehrere Benutzer gleichzeitig dieselbe Entität aktualisieren. Wenn nicht zu lösende Probleme auftreten, laden Sie die [fertige App](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) herunter, oder zeigen Sie diese an. [Anweisungen zum Download.](xref:index#how-to-download-a-sample)
 
 ## <a name="concurrency-conflicts"></a>Nebenläufigkeitskonflikte
 
@@ -72,7 +73,7 @@ Die optimistische Nebenläufigkeit umfasst die folgenden Optionen:
 
 ## <a name="handling-concurrency"></a>Behandlung von Parallelität 
 
-Wenn eine Eigenschaft als ein [Parallelitätstoken](https://docs.microsoft.com/ef/core/modeling/concurrency) konfiguriert ist:
+Wenn eine Eigenschaft als ein [Parallelitätstoken](/ef/core/modeling/concurrency) konfiguriert ist:
 
 * Stellt EF Core sicher, dass die Eigenschaft nicht geändert wurde, nachdem sie abgerufen wurde. Die Überprüfung findet statt, wenn [SaveChanges](/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) oder [SaveChangesAsync](/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_) aufgerufen wird.
 * Wenn die Eigenschaft geändert wurde, nachdem sie abgerufen wurde, wird eine [DbUpdateConcurrencyException](/dotnet/api/microsoft.entityframeworkcore.dbupdateconcurrencyexception?view=efcore-2.0) ausgelöst. 

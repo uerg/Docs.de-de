@@ -3,14 +3,15 @@ title: 'ASP.NET Core MVC mit Entity Framework Core: Datenmodell (5 von 10)'
 author: rick-anderson
 description: In diesem Tutorial fügen Sie weitere Entitäten und Beziehungen hinzu und passen das Datenmodell an, indem Sie Regeln zur Formatierung, Validierung und Zuordnung angeben.
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 3714cf7ce705a52653394319fef1728a6ddcc3ee
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 87212edbfe34af6de938cf95314501e56e64a8be
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011768"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091040"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a>ASP.NET Core MVC mit Entity Framework Core: Datenmodell (5 von 10)
 
@@ -232,7 +233,7 @@ Ersetzen Sie in *Models/Course.cs* den Code, den Sie zuvor hinzugefügt haben, d
 
 Die Entität „Course“ besitzt die Fremdschlüsseleigenschaft `DepartmentID`, die auf die zugehörige Entität „Department“ zeigt und die Navigationseigenschaft `Department` besitzt.
 
-Entity Framework erfordert nicht, dass Sie eine Fremdschlüsseleigenschaft zu Ihrem Datenmodell hinzufügen, wenn eine Navigationseigenschaft für eine verknüpfte Entität vorhanden ist.  Entity Framework erstellt an den erforderlichen Stellen automatisch Fremdschlüssel in der Datenbank und erstellt [Schatteneigenschaften](https://docs.microsoft.com/ef/core/modeling/shadow-properties) für diese. Durch Fremdschlüssel im Datenmodell können Updates einfacher und effizienter durchgeführt werden. Wenn Sie beispielsweise die Entität „Course“ zum Bearbeiten abrufen, ist die Entität „Department“ NULL, wenn Sie diese nicht laden. Wenn Sie die Entität „Course“ also aktualisieren, müssen Sie ebenfalls die Entität „Department“ abrufen. Wenn die Fremdschlüsseleigenschaft `DepartmentID` im Datenmodell vorhanden ist, müssen Sie die Entität „Department“ vor dem Update nicht abrufen.
+Entity Framework erfordert nicht, dass Sie eine Fremdschlüsseleigenschaft zu Ihrem Datenmodell hinzufügen, wenn eine Navigationseigenschaft für eine verknüpfte Entität vorhanden ist.  Entity Framework erstellt an den erforderlichen Stellen automatisch Fremdschlüssel in der Datenbank und erstellt [Schatteneigenschaften](/ef/core/modeling/shadow-properties) für diese. Durch Fremdschlüssel im Datenmodell können Updates einfacher und effizienter durchgeführt werden. Wenn Sie beispielsweise die Entität „Course“ zum Bearbeiten abrufen, ist die Entität „Department“ NULL, wenn Sie diese nicht laden. Wenn Sie die Entität „Course“ also aktualisieren, müssen Sie ebenfalls die Entität „Department“ abrufen. Wenn die Fremdschlüsseleigenschaft `DepartmentID` im Datenmodell vorhanden ist, müssen Sie die Entität „Department“ vor dem Update nicht abrufen.
 
 ### <a name="the-databasegenerated-attribute"></a>Das Attribut „DatabaseGenerated“
 
@@ -246,7 +247,7 @@ public int CourseID { get; set; }
 
 Standardmäßig geht Entity Framework davon aus, dass Primärschlüsselwerte von der Datenbank generiert werden. Das ist in den meisten Fällen erwünscht. Für Course-Entitäten verwenden Sie jedoch eine benutzerdefinierte Kursnummer, z.B. eine 1000er-Reihe für eine Abteilung, eine 2000er-Reihe für eine andere usw.
 
-Das `DatabaseGenerated`-Attribut kann ebenfalls verwendet werden, um Standardwerte zu generieren. Im Fall von Datenbankspalten wird es verwendet, um das Datum zu erfassen, an dem eine Zeile erstellt oder aktualisiert wurde.  Weitere Informationen finden Sie unter [Generated Properties (Generierte Eigenschaften)](https://docs.microsoft.com/ef/core/modeling/generated-properties).
+Das `DatabaseGenerated`-Attribut kann ebenfalls verwendet werden, um Standardwerte zu generieren. Im Fall von Datenbankspalten wird es verwendet, um das Datum zu erfassen, an dem eine Zeile erstellt oder aktualisiert wurde.  Weitere Informationen finden Sie unter [Generated Properties (Generierte Eigenschaften)](/ef/core/modeling/generated-properties).
 
 ### <a name="foreign-key-and-navigation-properties"></a>Fremdschlüssel- und Navigationseigenschaften
 
@@ -373,7 +374,7 @@ Eine Jointabelle ist in der Datenbank für die m:n-Beziehung zwischen „Instruc
 
 Da die Fremdschlüssel nicht auf NULL festlegbar sind und zusammen jede Zeile der Tabelle eindeutig identifizieren, ist kein separater Primärschlüssel erforderlich. Die Eigenschaften *InstructorID* und *CourseID* fungieren als zusammengesetzter Primärschlüssel. Die einzige Möglichkeit zum Identifizieren von zusammengesetzten Primärschlüsseln für Entity Framework besteht in der Verwendung der *Fluent-API*. Dies kann nicht mithilfe von Attributen durchgeführt werden. Weitere Informationen zum Konfigurieren von zusammengesetzten Primärschlüsseln finden Sie im nächsten Abschnitt.
 
-Durch den zusammengesetzten Schlüssel wird sichergestellt, dass nicht mehrere Zeilen für denselben Dozenten und Kurs vorhanden sein können, obwohl es mehrere Zeilen für einen Kurs und mehrere Zeilen für einen Dozenten gibt. Die Joinentität `Enrollment` definiert ihren eigenen Primärschlüssel, dadurch sind Duplikate dieser Art möglich. Sie können einen eindeutigen Index zu den Feldern mit Fremdschlüsseln hinzufügen, um solche Duplikate zu verhindern, oder `Enrollment` mit einem zusammengesetzten Primärschlüssel konfigurieren, der `CourseAssignment` ähnelt. Weitere Informationen finden Sie unter [Indizes](https://docs.microsoft.com/ef/core/modeling/indexes).
+Durch den zusammengesetzten Schlüssel wird sichergestellt, dass nicht mehrere Zeilen für denselben Dozenten und Kurs vorhanden sein können, obwohl es mehrere Zeilen für einen Kurs und mehrere Zeilen für einen Dozenten gibt. Die Joinentität `Enrollment` definiert ihren eigenen Primärschlüssel, dadurch sind Duplikate dieser Art möglich. Sie können einen eindeutigen Index zu den Feldern mit Fremdschlüsseln hinzufügen, um solche Duplikate zu verhindern, oder `Enrollment` mit einem zusammengesetzten Primärschlüssel konfigurieren, der `CourseAssignment` ähnelt. Weitere Informationen finden Sie unter [Indizes](/ef/core/modeling/indexes).
 
 ## <a name="update-the-database-context"></a>Aktualisieren des Datenbankkontexts
 
@@ -385,7 +386,7 @@ Durch diesen Code werden neue Entitäten hinzugefügt, und der zusammengesetzte 
 
 ## <a name="fluent-api-alternative-to-attributes"></a>Fluent-API-Alternativen für Attribute
 
-Der Code in der `OnModelCreating`-Methode der `DbContext`-Klasse verwendet die *Fluent-API* zum Konfigurieren des Verhaltens von Entity Framework. Die API wird als „Fluent“ bezeichnet, da sie häufig durch das Verketten mehrerer Methodenaufrufe zu einer einzigen Anweisung verwendet wird. Ein Beispiel hierfür finden Sie in der [EF Core documentation (Dokumentation zu Entity Framework)](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration):
+Der Code in der `OnModelCreating`-Methode der `DbContext`-Klasse verwendet die *Fluent-API* zum Konfigurieren des Verhaltens von Entity Framework. Die API wird als „Fluent“ bezeichnet, da sie häufig durch das Verketten mehrerer Methodenaufrufe zu einer einzigen Anweisung verwendet wird. Ein Beispiel hierfür finden Sie in der [EF Core documentation (Dokumentation zu Entity Framework)](/ef/core/modeling/#methods-of-configuration):
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -400,7 +401,7 @@ In diesem Tutorial verwendet Sie die Fluent-API nur für Datenbankzuordnungen, d
 
 Einige Entwickler bevorzugen die exklusive Verwendung der Fluent-API, um ihre Entitätsklassen „rein“ zu halten. Sie können Attribute und die Fluent-API verwenden, wenn Sie möchten. Einige Anpassungen können nur mithilfe der Fluent-API vorgenommen werden. Im Allgemeinen wird jedoch empfohlen, einen der beiden Ansätze auszuwählen und diesen so konsistent wie möglich zu verwenden. Wenn Sie beide verwenden, beachten Sie, dass Attribute durch die Fluent-API überschrieben werden, wenn ein Konflikt vorliegt.
 
-Weitere Informationen zu Attributen und Fluent-API im Vergleich finden Sie unter [Methods of configuration (Konfigurationsmethoden)](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration).
+Weitere Informationen zu Attributen und Fluent-API im Vergleich finden Sie unter [Methods of configuration (Konfigurationsmethoden)](/ef/core/modeling/#methods-of-configuration).
 
 ## <a name="entity-diagram-showing-relationships"></a>Entitätsdiagramm mit angezeigten Beziehungen
 

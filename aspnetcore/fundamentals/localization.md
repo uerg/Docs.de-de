@@ -5,12 +5,12 @@ description: Erfahren Sie, wie ASP.NET Core Dienste und Middleware für das Loka
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 375d09d9bef59cf18b7805cbefe500aeb2e0cde7
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 5014d697603d802929b417e6439d4cc6983184d2
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326003"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207588"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalisierung und Lokalisierung in ASP.NET Core
 
@@ -30,7 +30,7 @@ Die Lokalisierung von Apps umfasst die folgenden Aufgaben:
 
 3. Implementieren Sie eine Strategie zum Auswählen der Sprache bzw. Kultur für jede Anforderung.
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/localization/sample/Localization) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/localization/sample/Localization) ([Vorgehensweise zum Herunterladen](xref:index#how-to-download-a-sample))
 
 ## <a name="make-the-apps-content-localizable"></a>Stellen Sie sicher, dass der Inhalt der App lokalisierbar ist.
 

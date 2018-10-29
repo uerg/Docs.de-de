@@ -5,12 +5,12 @@ description: Informationen Sie zum Erstellen einer Razor-Seiten-app mit Benutzer
 ms.author: riande
 ms.date: 7/24/2018
 uid: security/authorization/secure-data
-ms.openlocfilehash: 71b7855958b530b8bac32843a8d1e7db0113ffd9
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 7d9521686c67ab9120238886d50af081ce4c6907
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912630"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207861"
 ---
 ::: moniker range="<= aspnetcore-1.1"
 
@@ -88,11 +88,11 @@ In ASP.NET Core 2.1 `User.IsInRole` schlägt fehl, wenn `AddDefaultIdentity`. Di
 
 ## <a name="the-starter-and-completed-app"></a>Die Starter und die fertige app
 
-[Herunterladen](xref:tutorials/index#how-to-download-a-sample) der [abgeschlossen](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2) app. [Test](#test-the-completed-app) die fertige app, damit Sie mit den Security-Features vertraut machen.
+[Herunterladen](xref:index#how-to-download-a-sample) der [abgeschlossen](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2) app. [Test](#test-the-completed-app) die fertige app, damit Sie mit den Security-Features vertraut machen.
 
 ### <a name="the-starter-app"></a>Das Starter-app
 
-[Herunterladen](xref:tutorials/index#how-to-download-a-sample) der [Starter](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2) app.
+[Herunterladen](xref:index#how-to-download-a-sample) der [Starter](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2) app.
 
 Führen Sie die app, tippen Sie auf die **ContactManager** verknüpfen, und stellen Sie sicher, Sie erstellen, bearbeiten und Löschen eines Kontakts.
 

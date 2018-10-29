@@ -1,24 +1,24 @@
 ---
 title: Antwortkomprimierung in ASP.NET Core
 author: guardrex
-description: Informationen Sie zu antwortkomprimierung und wie Sie Antworten komprimierende Middleware in ASP.NET Core-apps verwenden.
+description: Informationen zur Antwortkomprimierung und zum Verwenden von Antworten komprimierender Middleware in ASP.NET Core-Apps.
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: performance/response-compression
-ms.openlocfilehash: d5e0b6ed21c14f2e76396cde846c69a76ad40794
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 8c3d74b6a346d51507d3c278b03ddc842feea13e
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578145"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207978"
 ---
 # <a name="response-compression-in-aspnet-core"></a>Antwortkomprimierung in ASP.NET Core
 
 Von [Luke Latham](https://github.com/guardrex)
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples) ([Vorgehensweise zum Herunterladen](xref:index#how-to-download-a-sample))
 
 Die Netzwerkbandbreite ist eine eingeschränkte Ressource. Verringern der Größe der Antwort in der Regel erhöht die Reaktionsfähigkeit einer App, häufig erheblich. Eine Möglichkeit zum Reduzieren der Größe der Nutzlast ist zum Komprimieren von Antworten von der app.
 
