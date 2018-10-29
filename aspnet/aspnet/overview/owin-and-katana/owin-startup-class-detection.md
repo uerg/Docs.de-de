@@ -114,15 +114,15 @@ In diesem Abschnitt fügen wir eine weitere Startup-Klasse hinzu. Sie können Ih
 9. Ersetzen Sie den OWIN-App Systemstart Key in der *"Web.config"* Datei durch Folgendes:
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample13.xml)]
-10. Wiederherstellen der `OwinStartup` Attribut in jeder Klasse die Attribut-Standardcode, die von Visual Studio generiert:
+10. Stellen Sie die Version wiederher, in die `OwinStartup` Attribute von Visual Studio generiert wurden:
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample14.cs)]
 
-    Die OWIN-App-Start-Schlüssel unten bewirkt, dass die Produktions-Klasse, ausgeführt.
+    Der OWIN-App-Start-Key unten bewirkt, dass die Produktions-Klasse, ausgeführt wird.
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample15.xml)]
 
-    Der letzte Schlüssel zum Systemstart gibt der Startmethode für die Konfiguration an. Die folgende Schlüssel zum Systemstart OWIN-App können Sie zum Ändern des Namens der Configuration-Klasse, `MyConfiguration` .
+    Der letzte Schlüssel, der Konfiguration, gibt die Startmethode zum Systemstart an. Der folgende Schlüssel erlaubt es Ihnen den Namen der Konfigurations-Klasse in `MyConfiguration` zu ändern.
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample16.xml)]
 
@@ -132,33 +132,33 @@ In diesem Abschnitt fügen wir eine weitere Startup-Klasse hinzu. Sie können Ih
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample17.xml?highlight=3-6)]
 
-   Der letzte Schlüssel wins, also in diesem Fall `TestStartup` angegeben ist.
+   Der letzte Schlüssel gewinnt, also in diesem Fall `TestStartup`.
 2. Installieren Sie aus der PMC Owinhost:
 
     [!code-console[Main](owin-startup-class-detection/samples/sample18.cmd)]
-3. Navigieren Sie zum Ordner Anwendung (dem Ordner mit den *"Web.config"* Datei) und in eine Eingabeaufforderung und geben:
+3. Navigieren Sie zum Ordner Anwendung (der Ordner mit der *"Web.config"* Datei) und öffnen Sie die Eingabeaufforderung und geben folgendes ein:
 
     [!code-console[Main](owin-startup-class-detection/samples/sample19.cmd)]
 
-   Im Befehlsfenster wird angezeigt:
+   Im Befehlsfenster wird folgendes angezeigt:
 
     [!code-console[Main](owin-startup-class-detection/samples/sample20.cmd)]
-4. Startet einen Browser mit der URL `http://localhost:5000/`.
+4. Starten Sie einen Browser mit der URL `http://localhost:5000/`.
 
     ![](owin-startup-class-detection/_static/image8.png)
 
-   OwinHost berücksichtigt die Start-Konventionen, die oben aufgeführten.
-5. Im Befehlsfenster die EINGABETASTE, um OwinHost zu beenden.
-6. In der `ProductionStartup` -Klasse verwenden, fügen Sie das folgende OwinStartup-Attribut, die angibt, den Anzeigenamen *ProductionConfiguration*.
+   OwinHost berücksichtigt die Start-Konventionen, die oben aufgeführten ist.
+5. Drücken Sie im Befehlsfenster die EINGABETASTE um OwinHost zu beenden.
+6. Fügen Sie das folgende OwinStartup-Attribut in der `ProductionStartup` -Klasse hinzu, das den Anzeigenamen *ProductionConfiguration* angibt.
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample21.cs)]
-7. In der Eingabeaufforderung und geben:
+7. Öffnen Sie die Eingabeaufforderung und geben folgendes ein:
 
     [!code-console[Main](owin-startup-class-detection/samples/sample22.cmd)]
 
    Die Produktions-Startup-Klasse wird geladen.
     ![](owin-startup-class-detection/_static/image9.png)
-   Die Anwendung verfügt über mehrere Klassen von Start, und in diesem Beispiel weisen wir eine verzögerte die Startup-Klasse, um bis zur Laufzeit zu laden.
+   Die Anwendung verfügt über mehrere Start-Klassen und in diesem Beispiel weisen wir die Startup-Klasse bis zur Laufzeit zu.
 8. Testen Sie die folgenden Startoptionen für die Common Language Runtime:
 
     [!code-console[Main](owin-startup-class-detection/samples/sample23.cmd)]
