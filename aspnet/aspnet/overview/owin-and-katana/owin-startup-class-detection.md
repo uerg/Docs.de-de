@@ -36,7 +36,7 @@ durch [Praburaj Thiagarajan](https://github.com/Praburaj), [Rick Anderson]((http
     [!code-csharp[Main](owin-startup-class-detection/samples/sample1.cs)]
 
    Das `OwinStartup` -Attribut überschreibt die Benennungskonvention. Sie können auch einen Anzeigenamen mit diesem Attribut angeben, jedoch müssen Sie in diesem Fall auch das `appSetting` Element in der Konfigurationsdatei verwenden.
-3. **Das AppSetting-Element in der Konfigurationsdatei**: Das `appSetting` -Element überschreibt das `OwinStartup` -Attribut und die Benennungskonvention. Sie können mehrere Starup-Klassen haben (jede mit einem `OwinStartup` Attribut) und können die zu landende Startup-Klasse in einer mit-Markup ähnlichen Konfigurationsdatei wie folgt konfigurieren:
+3. **Das AppSetting-Element in der Konfigurationsdatei**: Das `appSetting` -Element überschreibt das `OwinStartup` -Attribut und die Benennungskonvention. Sie können mehrere Starup-Klassen haben (jede mit einem `OwinStartup` Attribut) und können die zu ladende Startup-Klasse in einer mit-Markup ähnlichen Konfigurationsdatei wie folgt konfigurieren:
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample2.xml)]
 
