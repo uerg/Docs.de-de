@@ -2,7 +2,7 @@
 uid: aspnet/overview/owin-and-katana/owin-startup-class-detection
 title: OWIN-Startup-Klasse Erkennung | Microsoft-Dokumentation
 author: Praburaj
-description: Dieses Tutorial veranschaulicht das Konfigurieren der OWIN-Startup-Klasse. Für weitere Informationen zu OWIN können Sie sich die Übersicht des Katana-Projekt ansehen. Dieses Tutorial wurde...
+description: Dieses Tutorial veranschaulicht das Konfigurieren der OWIN-Startup-Klasse. Weitere Informationen zu OWIN, finden Sie in der Übersicht des Katana-Projekts. Dieses Tutorial wurde...
 ms.author: riande
 ms.date: 10/17/2013
 ms.assetid: 08257f55-36f4-4e39-9c88-2a5602838c79
