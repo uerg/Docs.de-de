@@ -13,52 +13,55 @@
 
 --> 
 
-<span data-ttu-id="82f66-101">Wenn Sie nun eine Suche übermitteln, enthält die URL die Suchabfragezeichenfolge.</span><span class="sxs-lookup"><span data-stu-id="82f66-101">Now when you submit a search, the URL contains the search query string.</span></span> <span data-ttu-id="82f66-102">Das Suchen wird auch an Aktionsmethode `HttpGet Index` übertragen, auch wenn Sie eine `HttpPost Index`-Methode haben.</span><span class="sxs-lookup"><span data-stu-id="82f66-102">Searching will also go to the `HttpGet Index` action method, even if you have a `HttpPost Index` method.</span></span>
+<span data-ttu-id="14ac0-101">Wenn Sie nun eine Suche übermitteln, enthält die URL die Suchabfragezeichenfolge.</span><span class="sxs-lookup"><span data-stu-id="14ac0-101">Now when you submit a search, the URL contains the search query string.</span></span> <span data-ttu-id="14ac0-102">Das Suchen wird auch an Aktionsmethode `HttpGet Index` übertragen, auch wenn Sie eine `HttpPost Index`-Methode haben.</span><span class="sxs-lookup"><span data-stu-id="14ac0-102">Searching will also go to the `HttpGet Index` action method, even if you have a `HttpPost Index` method.</span></span>
 
 ![Browserfenster mit „searchString=ghost“ in der URL und den zurückgegebenen Filmen Ghostbusters und Ghostbusters 2, die das Wort „Ghost“ enthalten](~/tutorials/first-mvc-app/search/_static/search_get.png)
 
-<span data-ttu-id="82f66-104">Das folgende Markup zeigt die Änderung am Tag `form`:</span><span class="sxs-lookup"><span data-stu-id="82f66-104">The following markup shows the change to the `form` tag:</span></span>
+<span data-ttu-id="14ac0-104">Das folgende Markup zeigt die Änderung am Tag `form`:</span><span class="sxs-lookup"><span data-stu-id="14ac0-104">The following markup shows the change to the `form` tag:</span></span>
 
 ```html
 <form asp-controller="Movies" asp-action="Index" method="get">
    ```
 
-## <a name="adding-search-by-genre"></a><span data-ttu-id="82f66-105">Hinzufügen einer Suche nach Genre</span><span class="sxs-lookup"><span data-stu-id="82f66-105">Adding Search by genre</span></span>
+## <a name="adding-search-by-genre"></a><span data-ttu-id="14ac0-105">Hinzufügen einer Suche nach Genre</span><span class="sxs-lookup"><span data-stu-id="14ac0-105">Adding Search by genre</span></span>
 
-<span data-ttu-id="82f66-106">Fügen Sie dem Ordner *Models* die folgende `MovieGenreViewModel`-Klasse hinzu:</span><span class="sxs-lookup"><span data-stu-id="82f66-106">Add the following `MovieGenreViewModel` class to the *Models* folder:</span></span>
+<span data-ttu-id="14ac0-106">Fügen Sie dem Ordner *Models* die folgende `MovieGenreViewModel`-Klasse hinzu:</span><span class="sxs-lookup"><span data-stu-id="14ac0-106">Add the following `MovieGenreViewModel` class to the *Models* folder:</span></span>
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieGenreViewModel.cs)]
 
-<span data-ttu-id="82f66-107">Das Ansichtsmodell „movie-genre“ enthält Folgendes:</span><span class="sxs-lookup"><span data-stu-id="82f66-107">The movie-genre view model will contain:</span></span>
+<span data-ttu-id="14ac0-107">Das Ansichtsmodell „movie-genre“ enthält Folgendes:</span><span class="sxs-lookup"><span data-stu-id="14ac0-107">The movie-genre view model will contain:</span></span>
 
-   * <span data-ttu-id="82f66-108">Eine Liste von Filmen.</span><span class="sxs-lookup"><span data-stu-id="82f66-108">A list of movies.</span></span>
-   * <span data-ttu-id="82f66-109">Ein `SelectList`-Element mit der Liste der Genres.</span><span class="sxs-lookup"><span data-stu-id="82f66-109">A `SelectList` containing the list of genres.</span></span> <span data-ttu-id="82f66-110">Es ermöglicht dem Benutzer, ein Genre in der Liste auszuwählen.</span><span class="sxs-lookup"><span data-stu-id="82f66-110">This will allow the user to select a genre from the list.</span></span>
-   * <span data-ttu-id="82f66-111">Ein `movieGenre`-Element, das das ausgewählte Genre enthält.</span><span class="sxs-lookup"><span data-stu-id="82f66-111">`movieGenre`, which contains the selected genre.</span></span>
+   * <span data-ttu-id="14ac0-108">Eine Liste von Filmen.</span><span class="sxs-lookup"><span data-stu-id="14ac0-108">A list of movies.</span></span>
+   * <span data-ttu-id="14ac0-109">Ein `SelectList`-Element mit der Liste der Genres.</span><span class="sxs-lookup"><span data-stu-id="14ac0-109">A `SelectList` containing the list of genres.</span></span> <span data-ttu-id="14ac0-110">Dies ermöglicht dem Benutzer, ein Genre in der Liste auszuwählen.</span><span class="sxs-lookup"><span data-stu-id="14ac0-110">This allows the user to select a genre from the list.</span></span>
+   * <span data-ttu-id="14ac0-111">Ein `MovieGenre`-Element, das das ausgewählte Genre enthält.</span><span class="sxs-lookup"><span data-stu-id="14ac0-111">`MovieGenre`, which contains the selected genre.</span></span>
+   * <span data-ttu-id="14ac0-112">`SearchString`, die den Text enthält, den Benutzer in das Suchtextfeld eingeben.</span><span class="sxs-lookup"><span data-stu-id="14ac0-112">`SearchString`, which contains the text users enter in the search text box.</span></span>
 
-<span data-ttu-id="82f66-112">Ersetzen Sie die `Index`-Methode in `MoviesController.cs` durch folgenden Code:</span><span class="sxs-lookup"><span data-stu-id="82f66-112">Replace the `Index` method in `MoviesController.cs` with the following code:</span></span>
+<span data-ttu-id="14ac0-113">Ersetzen Sie die `Index`-Methode in `MoviesController.cs` durch folgenden Code:</span><span class="sxs-lookup"><span data-stu-id="14ac0-113">Replace the `Index` method in `MoviesController.cs` with the following code:</span></span>
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_SearchGenre)]
 
-<span data-ttu-id="82f66-113">Der folgende Code ist eine `LINQ`-Abfrage, die alle Genres aus der Datenbank abruft.</span><span class="sxs-lookup"><span data-stu-id="82f66-113">The following code is a `LINQ` query that retrieves all the genres from the database.</span></span>
+<span data-ttu-id="14ac0-114">Der folgende Code ist eine `LINQ`-Abfrage, die alle Genres aus der Datenbank abruft.</span><span class="sxs-lookup"><span data-stu-id="14ac0-114">The following code is a `LINQ` query that retrieves all the genres from the database.</span></span>
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_LINQ)]
 
-<span data-ttu-id="82f66-114">Das `SelectList`-Element von Genres wird durch Projizieren der unterschiedlichen Genres erstellt (wir möchten nicht, dass unsere Auswahlliste doppelte Genres enthält).</span><span class="sxs-lookup"><span data-stu-id="82f66-114">The `SelectList` of genres is created by projecting the distinct genres (we don't want our select list to have duplicate genres).</span></span>
+<span data-ttu-id="14ac0-115">Das `SelectList`-Element von Genres wird durch Projizieren der unterschiedlichen Genres erstellt (wir möchten nicht, dass unsere Auswahlliste doppelte Genres enthält).</span><span class="sxs-lookup"><span data-stu-id="14ac0-115">The `SelectList` of genres is created by projecting the distinct genres (we don't want our select list to have duplicate genres).</span></span>
+
+<span data-ttu-id="14ac0-116">Wenn der Benutzer nach dem Element sucht, wird der Wert für die Suche im Suchfeld beibehalten.</span><span class="sxs-lookup"><span data-stu-id="14ac0-116">When the user searches for the item, the search value is retained in the search box.</span></span> <span data-ttu-id="14ac0-117">Wenn Sie den gesuchten Wert beibehalten möchten, füllen Sie die `SearchString`-Eigenschaft mit dem Suchwert auf.</span><span class="sxs-lookup"><span data-stu-id="14ac0-117">To retain the search value,  populate the `SearchString` property with the search value.</span></span> <span data-ttu-id="14ac0-118">Der Suchwert ist der `searchString`-Parameter für die Controlleraktion `Index`.</span><span class="sxs-lookup"><span data-stu-id="14ac0-118">The search value is the `searchString` parameter for the `Index` controller action.</span></span>
 
 ```csharp
 movieGenreVM.genres = new SelectList(await genreQuery.Distinct().ToListAsync())
-   ```
+```
 
-## <a name="adding-search-by-genre-to-the-index-view"></a><span data-ttu-id="82f66-115">Hinzufügen einer Suche nach Genre zur Indexansicht</span><span class="sxs-lookup"><span data-stu-id="82f66-115">Adding search by genre to the Index view</span></span>
+## <a name="adding-search-by-genre-to-the-index-view"></a><span data-ttu-id="14ac0-119">Hinzufügen einer Suche nach Genre zur Indexansicht</span><span class="sxs-lookup"><span data-stu-id="14ac0-119">Adding search by genre to the Index view</span></span>
 
-<span data-ttu-id="82f66-116">Aktualisieren Sie `Index.cshtml` wie folgt:</span><span class="sxs-lookup"><span data-stu-id="82f66-116">Update `Index.cshtml` as follows:</span></span>
+<span data-ttu-id="14ac0-120">Aktualisieren Sie `Index.cshtml` wie folgt:</span><span class="sxs-lookup"><span data-stu-id="14ac0-120">Update `Index.cshtml` as follows:</span></span>
 
 [!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexFormGenreNoRating.cshtml?highlight=1,15,16,17,28,31,34,37,43)]
 
-<span data-ttu-id="82f66-117">Überprüfen Sie den Lambdaausdruck, der im folgenden HTML-Hilfsprogramm verwendet wird:</span><span class="sxs-lookup"><span data-stu-id="82f66-117">Examine the lambda expression used in the following HTML Helper:</span></span>
+<span data-ttu-id="14ac0-121">Überprüfen Sie den Lambdaausdruck, der im folgenden HTML-Hilfsprogramm verwendet wird:</span><span class="sxs-lookup"><span data-stu-id="14ac0-121">Examine the lambda expression used in the following HTML Helper:</span></span>
 
-`@Html.DisplayNameFor(model => model.movies[0].Title)`
+`@Html.DisplayNameFor(model => model.Movies[0].Title)`
  
-<span data-ttu-id="82f66-118">Das HTML-Hilfsprogramm `DisplayNameFor` im vorangehenden Code überprüft die Eigenschaft `Title`, auf die im Lambdaausdruck verwiesen wird, um den Anzeigenamen zu bestimmen.</span><span class="sxs-lookup"><span data-stu-id="82f66-118">In the preceding code, the `DisplayNameFor` HTML Helper inspects the `Title` property referenced in the lambda expression to determine the display name.</span></span> <span data-ttu-id="82f66-119">Da der Lambda-Ausdruck überprüft statt ausgewertet wird, erhalten Sie keine Zugriffsverletzung, wenn `model`, `model.movies`, `model.movies[0]` oder `null` leer sind.</span><span class="sxs-lookup"><span data-stu-id="82f66-119">Since the lambda expression is inspected rather than evaluated, you don't receive an access violation when `model`, `model.movies`, or `model.movies[0]` are `null` or empty.</span></span> <span data-ttu-id="82f66-120">Wenn der Lambdaausdruck ausgewertet wird, (z.B. mit `@Html.DisplayFor(modelItem => item.Title)`), werden die Eigenschaftswerte ausgewertet.</span><span class="sxs-lookup"><span data-stu-id="82f66-120">When the lambda expression is evaluated (for example, `@Html.DisplayFor(modelItem => item.Title)`), the model's property values are evaluated.</span></span>
+<span data-ttu-id="14ac0-122">Das HTML-Hilfsprogramm `DisplayNameFor` im vorangehenden Code überprüft die Eigenschaft `Title`, auf die im Lambdaausdruck verwiesen wird, um den Anzeigenamen zu bestimmen.</span><span class="sxs-lookup"><span data-stu-id="14ac0-122">In the preceding code, the `DisplayNameFor` HTML Helper inspects the `Title` property referenced in the lambda expression to determine the display name.</span></span> <span data-ttu-id="14ac0-123">Da der Lambda-Ausdruck überprüft statt ausgewertet wird, erhalten Sie keine Zugriffsverletzung, wenn `model`, `model.Movies`, `model.Movies[0]` oder `null` leer sind.</span><span class="sxs-lookup"><span data-stu-id="14ac0-123">Since the lambda expression is inspected rather than evaluated, you don't receive an access violation when `model`, `model.Movies`, or `model.Movies[0]` are `null` or empty.</span></span> <span data-ttu-id="14ac0-124">Wenn der Lambdaausdruck ausgewertet wird, (z.B. mit `@Html.DisplayFor(modelItem => item.Title)`), werden die Eigenschaftswerte ausgewertet.</span><span class="sxs-lookup"><span data-stu-id="14ac0-124">When the lambda expression is evaluated (for example, `@Html.DisplayFor(modelItem => item.Title)`), the model's property values are evaluated.</span></span>
 
-<span data-ttu-id="82f66-121">Testen Sie die App mit einer Suche nach Genre, Filmtitel und beidem.</span><span class="sxs-lookup"><span data-stu-id="82f66-121">Test the app by searching by genre, by movie title, and by both.</span></span>
+<span data-ttu-id="14ac0-125">Testen Sie die App mit einer Suche nach Genre, Filmtitel und beidem.</span><span class="sxs-lookup"><span data-stu-id="14ac0-125">Test the app by searching by genre, by movie title, and by both.</span></span>
