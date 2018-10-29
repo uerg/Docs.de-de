@@ -4,14 +4,14 @@ author: guardrex
 description: Erfahren Sie mehr über den Webhost in ASP.NET Core, der für das Starten der App und das Verwalten der Lebensdauer verantwortlich ist.
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/01/2018
+ms.date: 10/18/2018
 uid: fundamentals/host/web-host
-ms.openlocfilehash: 7440ab26534840b190a346614f645860fc2b7d78
-ms.sourcegitcommit: 7211ae2dd702f67d36365831c490d6178c9a46c8
+ms.openlocfilehash: e19f12f69dfdd5653aea9c6be2b05f24009b875e
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44089898"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477448"
 ---
 # <a name="aspnet-core-web-host"></a>ASP.NET Core-Webhost
 
@@ -46,10 +46,10 @@ public class Program
 * Lädt [Hostkonfiguration](#host-configuration-values) aus:
   * Umgebungsvariablen mit dem Präfix `ASPNETCORE_` (z.B. `ASPNETCORE_ENVIRONMENT`)
   * Befehlszeilenargumenten
-* Lädt App-Konfiguration aus:
+* Lädt die App-Konfiguration in der folgenden Reihenfolge:
   * *appsettings.json*
   * *appsettings.{Environment}.json*
-  * [Benutzergeheimnissen](xref:security/app-secrets), wenn die App in der `Development`-Umgebung mit der Einstiegsassembly ausgeführt wird.
+  * [Geheimnis-Manager](xref:security/app-secrets), wenn die App in der `Development`-Umgebung mit der Einstiegsassembly ausgeführt wird.
   * Umgebungsvariablen.
   * Befehlszeilenargumenten
 * Konfiguriert die [Protokollierung](xref:fundamentals/logging/index) für die Konsolen- und Debugausgabe Die Protokollierung umfasst Regeln zur [Protokollfilterung](xref:fundamentals/logging/index#log-filtering), die im Abschnitt für die Protokollierungskonfiguration einer *appsettings.json*- oder *appsettings.{Environment}.json*-Datei angegeben werden.
@@ -184,7 +184,7 @@ Die Eigenschaft [IHostingEnvironment.ApplicationName](/dotnet/api/microsoft.exte
 **Typ:** *Zeichenfolge*  
 **Standardwert:** Der Name der Assembly, die den Einstiegspunkt der App enthält.  
 **Festlegen mit:** `UseSetting`  
-**Umgebungsvariable:** `ASPNETCORE_APPLICATIONKEY`
+**Umgebungsvariable:** `ASPNETCORE_APPLICATIONNAME`
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -365,15 +365,13 @@ WebHost.CreateDefaultBuilder(args)
 
 ### <a name="hosting-startup-exclude-assemblies"></a>Auszuschließende Hostingstartassemblys
 
-DESCRIPTION
+Eine durch Semikolons getrennte Zeichenfolge der Hostingstartassemblys, die beim Start ausgeschlossen werden sollen.
 
 **Schlüssel**: hostingStartupExcludeAssemblies  
 **Typ:** *Zeichenfolge*  
 **Standard:** Leere Zeichenfolge  
 **Festlegen mit:** `UseSetting`  
 **Umgebungsvariable:** `ASPNETCORE_HOSTINGSTARTUPEXCLUDEASSEMBLIES`
-
-Eine durch Semikolons getrennte Zeichenfolge der Hostingstartassemblys, die beim Start ausgeschlossen werden sollen.
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -659,7 +657,7 @@ Die `Run`-Methode startet die Web-App und blockiert den aufrufenden Thread, bis 
 host.Run();
 ```
 
-**Start**
+**Starten**
 
 Führen Sie den Host auf nicht blockierende Weise aus, indem Sie dessen `Start`-Methode aufrufen:
 
@@ -832,7 +830,7 @@ Die `Run`-Methode startet die Web-App und blockiert den aufrufenden Thread, bis 
 host.Run();
 ```
 
-**Start**
+**Starten**
 
 Führen Sie den Host auf nicht blockierende Weise aus, indem Sie dessen `Start`-Methode aufrufen:
 

@@ -5,12 +5,12 @@ description: In diesem Tutorial werden verwandte Daten gelesen und angezeigt. Da
 ms.author: riande
 ms.date: 11/05/2017
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: e23b8bb870b329bd705fbc9548df62524303893e
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: e8b59c19eac2c2adc1f13cf1e44f750576686c87
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912320"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348493"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Razor-Seiten mit EF Core in ASP.NET Core: Lesen verwandter Daten (6 von 8)
 
@@ -55,7 +55,7 @@ Es gibt mehrere Möglichkeiten, mit denen EF Core verwandte Daten in die Navigat
 
 * Der `Select`-Operator lädt nur die erforderlichen verwandten Daten.
 
-## <a name="create-a-courses-page-that-displays-department-name"></a>Erstellen einer Kursseite, die Abteilungsnamen anzeigt
+## <a name="create-a-course-page-that-displays-department-name"></a>Erstellen einer Kursseite, die den Abteilungsnamen anzeigt
 
 Die Course-Entität enthält eine Navigationseigenschaft, welche die `Department`-Entität enthält. Die `Department`-Entität enthält die Abteilung, der der Kurs zugewiesen ist.
 

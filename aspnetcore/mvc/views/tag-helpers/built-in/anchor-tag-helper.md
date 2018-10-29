@@ -4,22 +4,24 @@ author: pkellner
 description: Lernen Sie die Attribute für das ASP.NET Core-Anchor-Taghilfsprogramm kennen und erfahren Sie, welche Rolle jedes Attribut bei der Erweiterung des Verhaltens des HTML-Anchor-Tags spielt.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 01/31/2018
+ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 6bdf71eaf38f134cb15b5950d2cae6ab67f861a4
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 13508729c1e3b64a8b0e6965da57880738ab85c3
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273883"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325548"
 ---
 # <a name="anchor-tag-helper-in-aspnet-core"></a>Anchor-Tag-Hilfsprogramm in ASP.NET Core
 
 Von [Peter Kellner](http://peterkellner.net) und [Scott Addie](https://github.com/scottaddie)
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
-
 Das [Anchor-Taghilfsprogramm](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper) verbessert das HTML-Anchor-Tag (`<a ... ></a>`), indem neue Attribute hinzugefügt werden. Per Konvention erhalten Attributnamen das Präfix `asp-`. Der Attributwert `href` des gerenderten Anchor-Elements wird von den Werten der `asp-`-Attribute bestimmt.
+
+Eine Übersicht der Taghilfsprogramme finden Sie unter <xref:mvc/views/tag-helpers/intro>.
+
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
 
 Der folgende *SpeakerController* wird in den Beispielen in diesem Dokument verwendet:
 
@@ -171,7 +173,7 @@ Hashtags sind beim Erstellen von clientseitigen Apps nützlich. Sie können beis
 
 Das Attribut [asp-area](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper.area) legt den Bereichsnamen zum Festlegen der geeigneten Route fest. Das folgende Beispiel zeigt, wie das Bereichsattribut eine Neuzuordnung von Routen bewirken kann. Das Festlegen von `asp-area` auf „Blogs“ stellt das Verzeichnis *Areas/Blogs* den Routen der zugeordneten Controller und Ansichten für dieses Anchor-Tag voran.
 
-* **<Projektname\>**
+* **{Projektname}**
   * **wwwroot**
   * **Bereiche**
     * **Blogs**
@@ -181,7 +183,7 @@ Das Attribut [asp-area](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchorta
         * **Home**
           * *AboutBlog.cshtml*
           * *Index.cshtml*
-        * *_ViewStart.cshtml*
+        * *\_ViewStart.cshtml*
   * **Controller**
 
 Gemäß der obigen Verzeichnishierarchie lautet das Markup zum Verweis auf die Datei *AboutBlog.cshtml* wie folgt:
@@ -195,7 +197,9 @@ Der generierte HTML-Code:
 ```
 
 > [!TIP]
-> Die Routenvorlage muss einen Verweis auf den Bereich enthalten, damit Bereiche in einer MVC-App funktionieren. Diese Vorlage wird durch den zweiten Parameter des `routes.MapRoute`-Methodenaufrufs in *Startup.Configure* repräsentiert: [!code-csharp[](samples/TagHelpersBuiltIn/Startup.cs?name=snippet_UseMvc&highlight=5)]
+> Die Routenvorlage muss einen Verweis auf den Bereich enthalten, damit Bereiche in einer MVC-App funktionieren. Diese Vorlage wird durch den zweiten Parameter des `routes.MapRoute`-Methodenaufrufs in *Startup.Configure* dargestellt:
+>
+> [!code-csharp[](samples/TagHelpersBuiltIn/Startup.cs?name=snippet_UseMvc&highlight=5)]
 
 ## <a name="asp-protocol"></a>asp-protocol
 
@@ -267,5 +271,5 @@ Der generierte HTML-Code:
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Bereiche](xref:mvc/controllers/areas)
-* [Einführung in Razor Pages](xref:razor-pages/index)
+* <xref:mvc/controllers/areas>
+* <xref:razor-pages/index>

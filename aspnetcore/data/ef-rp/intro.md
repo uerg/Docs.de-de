@@ -5,12 +5,12 @@ description: Informationen zum Erstellen einer Razor Pages-App mit Entity Framew
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/intro
-ms.openlocfilehash: 89002f7b4a5af17a9404b14822086c7a9a6ec265
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: f714934a2ef804813290ae0c04432470a2ba5816
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011456"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477565"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Razor-Seiten mit Entity Framework Core in ASP.NET Core: Tutorial 1 von 8
 
@@ -187,7 +187,7 @@ Der Gerüstprozess hat folgende Dateien erstellt und geändert:
 * *Pages/Students/Create.cshtml.cs* ( bzw. /Delete, /Details, /Edit, /Index).
 * *Data/SchoolContext.cs*
 
-### <a name="files-updates"></a>Aktualisierte Dateien
+### <a name="file-updates"></a>Dateiupdates
 
 * *Startup.cs*: Die Änderungen an dieser Datei werden im nächsten Abschnitt ausführlich erläutert.
 * *appsettings.json*: Die Verbindungszeichenfolge, die zum Herstellen einer Verbindung mit einer lokalen Datenbank verwendet wird, wurde hinzugefügt.

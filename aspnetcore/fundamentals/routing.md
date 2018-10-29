@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/01/2018
 uid: fundamentals/routing
-ms.openlocfilehash: d9ba96c7b2abd35b1b13c84814bf3f776e8d8731
-ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
+ms.openlocfilehash: 500cefbc7caee2054b4afda7c1277685862f5ad4
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47861056"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348558"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
@@ -279,7 +279,7 @@ Routenparameter können über mehrere *Standardwerte* verfügen, die nach dem Pa
 
 ::: moniker range=">= aspnetcore-2.2"
 
-Routenparameter können Einschränkungen aufweisen, die mit dem gebundenen Routenwert der URL übereinstimmen müssen. Eine *Inline-Einschränkung* für einen Routenparameter geben Sie an, indem Sie hinter dem Namen des Routenparameters einen Doppelpunkt (`:`) und einen Einschränkungsnamen hinzufügen. Wenn für die Einschränkung Argumente erforderlich sind, werden diese nach dem Einschränkungsnamen in Klammern (`( )`) eingeschlossen. Mehrere Inline-Einschränkungen können festgelegt werden, indem ein weiterer Doppelpunkt (`:`) und Einschränkungsname hinzugefügt wird. Der Einschränkungsname und die Argumente werden dem <xref:Microsoft.AspNetCore.Routing.IInlineConstraintResolver>-Dienst übergeben, wodurch eine Instanz von <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> für die URL-Verarbeitung erstellt werden kann. Wenn für den Konstruktor der Einschränkung Dienste erforderlich sind, werden diese aus App-Diensten der Abhängigkeitsinjektion aufgelöst. In der Routenvorlage `blog/{article:minlength(10)}` wird beispielsweise die Einschränkung `minlength` mit dem Argument `10` festgelegt. Weitere Informationen zu Routeneinschränkungen und eine Liste der vom Framework bereitgestellten Einschränkungen finden Sie im Abschnitt [Referenz für Routeneinschränkungen](#route-constraint-reference).
+Routenparameter können Einschränkungen aufweisen, die mit dem gebundenen Routenwert der URL übereinstimmen müssen. Eine *Inline-Einschränkung* für einen Routenparameter geben Sie an, indem Sie hinter dem Namen des Routenparameters einen Doppelpunkt (`:`) und einen Einschränkungsnamen hinzufügen. Wenn für die Einschränkung Argumente erforderlich sind, werden diese nach dem Einschränkungsnamen in Klammern (`( )`) eingeschlossen. Mehrere Inline-Einschränkungen können festgelegt werden, indem ein weiterer Doppelpunkt (`:`) und Einschränkungsname hinzugefügt werden. Der Einschränkungsname und die Argumente werden dem <xref:Microsoft.AspNetCore.Routing.IInlineConstraintResolver>-Dienst übergeben, wodurch eine Instanz von <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> für die URL-Verarbeitung erstellt werden kann. Wenn für den Konstruktor der Einschränkung Dienste erforderlich sind, werden diese aus App-Diensten der Abhängigkeitsinjektion aufgelöst. In der Routenvorlage `blog/{article:minlength(10)}` wird beispielsweise die Einschränkung `minlength` mit dem Argument `10` festgelegt. Weitere Informationen zu Routeneinschränkungen und eine Liste der vom Framework bereitgestellten Einschränkungen finden Sie im Abschnitt [Referenz für Routeneinschränkungen](#route-constraint-reference).
 
 ::: moniker-end
 
@@ -391,7 +391,15 @@ Einen regulären Ausdruck können Sie verwenden, um einen Parameter auf zulässi
 
 ## <a name="parameter-transformer-reference"></a>Parametertransformatorreferenz
 
-Parametertransformatoren werden beim Generieren eines Links für eine `Route` ausgeführt. Parametertransformatoren übernehmen den Routenwert des Parameters und wandeln ihn in einen neuen Zeichenfolgenwert um. Der transformierte Wert wird im generierten Link verwendet. Beispielsweise generiert ein benutzerdefinierter Parametertransformator `slugify` im Routenmuster `blog\{article:slugify}` mit `Url.Action(new { article = "MyTestArticle" })` `blog\my-test-article`. Parametertransformatoren implementieren `Microsoft.AspNetCore.Routing.IOutboundParameterTransformer`und werden mithilfe von <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> konfiguriert.
+Parametertransformatoren:
+
+* Werden beim Generieren eines Links für eine `Route` ausgeführt.
+* Implementieren `Microsoft.AspNetCore.Routing.IOutboundParameterTransformer`.
+* Werden mithilfe von <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> konfiguriert.
+* Nehmen den Routenwert des Parameters an und transformieren ihn in einen neuen Zeichenfolgenwert.
+* Der transformierte Wert wird im generierten Link verwendet.
+
+Beispielsweise generiert ein benutzerdefinierter Parametertransformator `slugify` im Routenmuster `blog\{article:slugify}` mit `Url.Action(new { article = "MyTestArticle" })` `blog\my-test-article`.
 
 Parametertransformatoren werden auch von Frameworks verwendet, um den URI zu transformieren, zu dem ein Endpunkt aufgelöst wird. Beispielsweise verwendet ASP.NET Core MVC Parametertransformatoren zum Transformieren des Routenwerts, der zum Zuordnen einer `area`, eines `controller`, einer `action` und einer `page` verwendet wird.
 
@@ -403,7 +411,10 @@ routes.MapRoute(
 
 Mit der vorstehenden Route wird die Aktion `SubscriptionManagementController.GetAll()` dem URI `/subscription-management/get-all` zugeordnet. Ein Parametertransformator ändert nicht die zum Generieren eines Links verwendeten Routenwerte. `Url.Action("GetAll", "SubscriptionManagement")`-Ausgaben`/subscription-management/get-all`.
 
-ASP.NET Core MVC beinhaltet außerdem die `Microsoft.AspNetCore.Mvc.ApplicationModels.RouteTokenTransformerConvention`-API-Konvention. Die Konvention wendet einen angegebenen Parametertransformator auf alle Token von Attributrouten in der App an.
+ASP.NET Core bietet API-Konventionen für die Verwendung von Parametertransformatoren mit generierten Routen:
+
+* ASP.NET Core MVC verwendet die `Microsoft.AspNetCore.Mvc.ApplicationModels.RouteTokenTransformerConvention`-API-Konvention. Diese Konvention wendet einen angegebenen Parametertransformator auf alle Attributrouten in der App an. Der Parametertransformator transformiert Attributroutentoken, wenn diese ersetzt werden. Weitere Informationen finden Sie unter [Verwenden eines Parametertransformators zum Anpassen der Tokenersetzung](/aspnet/core/mvc/controllers/routing#use-a-parameter-transformer-to-customize-token-replacement).
+* Razor Pages verwendet die `Microsoft.AspNetCore.Mvc.ApplicationModels.PageRouteTransformerConvention`-API-Konvention. Diese Konvention wendet einen angegebenen Parametertransformator auf alle automatisch erkannten Razor-Seiten an. Der Parametertransformator transformiert die Ordner- und Dateinamensegmente von Razor-Seitenrouten. Weitere Informationen finden Sie unter [Verwenden eines Parametertransformators zum Anpassen von Seitenrouten](/aspnet/core/razor-pages/razor-pages-conventions#use-a-parameter-transformer-to-customize-page-routes).
 
 ::: moniker-end
 

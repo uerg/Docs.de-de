@@ -6,16 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 8986eec479dc69a144c30820d5775efe51386579
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 72c32b9c66b50663b33a5274b8f60de126622535
+ms.sourcegitcommit: 76ffb9456e0a44651dfcf052ce133f728ae2359b
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091118"
+ms.locfileid: "50132204"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hosten von ASP.NET Core unter Windows mit IIS
 
 Von [Luke Latham](https://github.com/guardrex)
+
+[Installieren des .NET Core Hosting-Pakets](#install-the-NET-core-hosting-bundle)
 
 ## <a name="supported-operating-systems"></a>Unterstützte Betriebssysteme
 
@@ -262,28 +264,42 @@ Aktivieren Sie die **IIS-Verwaltungskonsole** und die **WWW-Dienste**.
 
 ![Die IIS-Verwaltungskonsole und WWW-Dienste werden in Windows-Features ausgewählt.](index/_static/windows-features-win10.png)
 
----
-
 ## <a name="install-the-net-core-hosting-bundle"></a>Installieren des .NET Core Hosting-Pakets
 
-1. Installieren Sie das *Paket „.NET Core Hosting“* im Hostsystem. Das Paket installiert die .NET Core-Runtime, die .NET Core-Bibliothek und das [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module). Das Modul erstellt den Reverseproxy zwischen IIS und dem Kestrel-Server. Wenn das System nicht über eine Internetverbindung verfügt, beziehen und installieren Sie [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840), bevor Sie das Paket „.NET Core Hosting“ installieren.
+Installieren Sie das *Paket „.NET Core Hosting“* im Hostsystem. Das Paket installiert die .NET Core-Runtime, die .NET Core-Bibliothek und das [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module). Das Modul erstellt den Reverseproxy zwischen IIS und dem Kestrel-Server. Wenn das System nicht über eine Internetverbindung verfügt, beziehen und installieren Sie [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840), bevor Sie das Paket „.NET Core Hosting“ installieren.
 
-   1. Navigieren Sie zur [.NET-Download-Seite](https://www.microsoft.com/net/download/windows).
-   1. Klicken Sie unter **.NET Core** auf die Schaltfläche **Download .NET Core Runtime** (.NET Core Runtime herunterladen) neben **Run Apps** (Apps ausführen). Die ausführbare Datei des Installers enthält das Wort „hosting“ im Dateinamen (z.B. *dotnet-hosting-2.1.2-win.exe*).
-   1. Führen Sie das Installationsprogramm auf dem Server aus.
+> [!IMPORTANT]
+> Wenn das Hosting-Paket vor IIS installiert wird, muss die Paketinstallation repariert werden. Führen Sie nach der Installation von IIS erneut den Installer des Hosting-Pakets aus.
 
-   **Wichtig** Wenn das Hosting-Paket vor IIS installiert wird, muss die Paketinstallation repariert werden. Führen Sie nach der Installation von IIS erneut den Installer des Hosting-Pakets aus.
+### <a name="direct-download-current-version"></a>Direkter Download (aktuelle Version)
 
-   Führen Sie das Installationsprogramm über eine Administratoreingabeaufforderung mit einem oder mehreren Parametern aus, um das Verhalten des Installationsprogramms zu kontrollieren:
+Laden Sie den Installer über folgenden Link herunter:
+
+[Aktueller Installer für das .NET Core Hosting-Paket (direkter Download)](https://www.microsoft.com/net/permalink/dotnetcore-current-windows-runtime-bundle-installer)
+
+### <a name="earlier-versions-of-the-installer"></a>Frühere Versionen des Installers
+
+So erhalten Sie eine frühere Version des Installers:
+
+1. Navigieren Sie zu den[.NET-Downloadarchiven](https://www.microsoft.com/net/download/archives).
+1. Wählen Sie unter **.NET Core** die .NET Core-Version aus.
+1. Suchen Sie in der Spalte **Run apps - Runtime** (Apps ausführen – Runtime) die Zeile mit der gewünschten .NET Core-RuntimeRuntime-Version.
+1. Laden Sie den Installer über den Link **Runtime & Hosting Bundle** (Runtime- und Hosting-Paket) herunter.
+
+> [!WARNING]
+> Einige Installer enthalten Releaseversionen, die das Ende ihres Lebenszyklus erreicht haben und nicht mehr von Microsoft unterstützt werden. Weitere Informationen finden Sie in den [Unterstützungsrichtlinien](https://www.microsoft.com/net/download/dotnet-core/2.0).
+
+### <a name="install-the-hosting-bundle"></a>Installieren des Hosting-Pakets
+
+1. Führen Sie das Installationsprogramm auf dem Server aus. Die folgenden Schalter sind bei der Ausführung des Installers über eine Administratoreingabeaufforderung verfügbar:
 
    * `OPT_NO_ANCM=1` &ndash; Überspringen Sie die Installation des ASP.NET Core-Moduls.
    * `OPT_NO_RUNTIME=1` &ndash; Überspringen Sie die Installation der .NET Core Runtime.
    * `OPT_NO_SHAREDFX=1` &ndash; Überspringen Sie die Installation des geteilten ASP.NET Frameworks (ASP.NET Runtime).
    * `OPT_NO_X86=1` &ndash; Überspringen Sie die Installation von X86 Runtimes. Verwenden Sie diese Option, wenn Sie wissen, dass Sie keine 32-Bit-Apps hosten. Sollte die Möglichkeit bestehen, dass Sie sowohl 32-Bit- als auch 64-Bit-Apps hosten könnten, verwenden Sie diese Option nicht, und installieren Sie beide Runtimes.
-
 1. Starten Sie das System neu, oder führen Sie **net stop was /y** gefolgt von **net start w3svc** über eine Eingabeaufforderung aus. Durch den Neustart von IIS wird eine Änderung an der PATH-Systemeinstellung – einer Umgebungsvariable – angewendet, die durch den Installer vorgenommen wurde.
 
-   Wenn der Windows Hosting Bundle-Installer feststellt, dass für IIS ein Zurücksetzen erforderlich ist, um die Installation abzuschließen, setzt der Installer IIS zurück. Wenn der Installer eine IIS-Zurücksetzung auslöst, werden alle IIS-App-Pools und -Websites neu gestartet.
+Wenn der Windows Hosting Bundle-Installer feststellt, dass für IIS ein Zurücksetzen erforderlich ist, um die Installation abzuschließen, setzt der Installer IIS zurück. Wenn der Installer eine IIS-Zurücksetzung auslöst, werden alle IIS-App-Pools und -Websites neu gestartet.
 
 > [!NOTE]
 > Informationen zur Verwendung einer IIS-Freigabekonfiguration finden Sie unter [ASP.NET Core-Modul mit IIS-Freigabekonfiguration](xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration).

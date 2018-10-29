@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/02/2018
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 33fae5d87029c8b3afdc321e0247555c1e479d07
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 193bfc7651b6da6db69e8c15bd6beb82906bde0a
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912617"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477669"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Dependency Injection in ASP.NET Core
 
@@ -287,9 +287,9 @@ Die Schnittstellen sind in die Klasse `Operation` implementiert. Der `Operation`
 
 `OperationService` ist registriert und hängt von jedem anderen `Operation`-Typ ab. Wenn `OperationService` über die Abhängigkeitsinjektion angefordert wird, wird entweder eine neue Instanz jedes Diensts oder eine vorhandene Instanz basierend auf der Lebensdauer des abhängigen Diensts zurückgegeben.
 
-* Wenn vorübergehende Dienste bei der Anforderung erstellt werden, ist `OperationsId` von Dienst `IOperationTransient` anders als `OperationsId` von `OperationService`. `OperationService` erhält eine neue Instanz der Klasse `IOperationTransient`. Der `OperationsId`-Wert der neuen Instanz ist anders.
-* Wenn bereichsbezogene Dienste pro Anforderung erstellt werden, ist `OperationsId` in Dienst `IOperationScoped` und `OperationService` identisch innerhalb einer Anforderung. Anforderungsübergreifend haben die beiden Dienste jedoch einen anderen gemeinsamen `OperationsId`-Wert.
-* Wenn Singleton und Singletoninstanzdienste einmal erstellt und für alle Anforderungen und alle Dienste verwendet werden, ist `OperationsId` für alle Dienstanforderungen identisch.
+* Wenn vorübergehende Dienste bei der Anforderung erstellt werden, ist `OperationId` von Dienst `IOperationTransient` anders als `OperationId` von `OperationService`. `OperationService` erhält eine neue Instanz der Klasse `IOperationTransient`. Der `OperationId`-Wert der neuen Instanz ist anders.
+* Wenn bereichsbezogene Dienste pro Anforderung erstellt werden, ist `OperationId` in Dienst `IOperationScoped` und `OperationService` identisch innerhalb einer Anforderung. Anforderungsübergreifend haben die beiden Dienste jedoch einen anderen gemeinsamen `OperationId`-Wert.
+* Wenn Singleton und Singletoninstanzdienste einmal erstellt und für alle Anforderungen und alle Dienste verwendet werden, ist `OperationId` für alle Dienstanforderungen identisch.
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -538,7 +538,7 @@ Die Factorymethode des einzelnen Diensts, z. B. das zweite Argument für [AddSin
 
 ## <a name="recommendations"></a>Empfehlungen
 
-Beachten Sie folgende Empfehlungen bei der Arbeit mit Dependency Injection:
+* `async/await`- und `Task`-basierte Dienstauflösung wird nicht unterstützt. C# unterstützt keine asynchronen Konstruktoren, daher wird empfohlen, asynchrone Methoden zu verwenden, nachdem der Dienst synchron aufgelöst wurde.
 
 * Vermeiden Sie das Speichern von Daten und die direkte Konfiguration im Dienstcontainer. Der Einkaufswagen eines Benutzers sollte z. B. normalerweise nicht dem Dienstcontainer hinzugefügt werden. Bei der Konfiguration sollte das [Optionsmuster](xref:fundamentals/configuration/options) verwendet werden. Gleichermaßen sollten Sie „Datencontainer“-Objekte vermeiden, die nur vorhanden sind, um den Zugriff auf einige andere Objekte zuzulassen. Das tatsächlich benötige Element sollte besser über Dependency Injection angefordert werden.
 
@@ -557,7 +557,6 @@ Dependency Injection stellt eine *Alternative* zu statischen bzw. globalen Objek
 * <xref:mvc/views/dependency-injection>
 * <xref:mvc/controllers/dependency-injection>
 * <xref:security/authorization/dependencyinjection>
-* <xref:fundamentals/repository-pattern>
 * <xref:fundamentals/startup>
 * <xref:test/index>
 * <xref:fundamentals/middleware/extensibility>
