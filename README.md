@@ -1,13 +1,10 @@
-ASP.NET Docs
-============
+# <a name="aspnet-docs"></a>ASP.NET-Dokumentation
 
-This project provides the source for [docs.asp.net](http://docs.asp.net/). You can learn more about ASP.NET Core at the [Home](https://github.com/aspnet/home) repo. See the [Contributing Guide](CONTRIBUTING.md) and the [issues list](\https://github.com/aspnet/Docs/issues) if you would like to help out.
+Dieses Repository enthält die konzeptionelle Dokumentation zu ASP.NET Core und ASP.NET 4.x, die unter [docs.microsoft.com/aspnet](https://docs.microsoft.com/aspnet) gehostet wird. Wie Sie einen Beitrag leisten können, können Sie dem [Leitfaden für Beiträge](CONTRIBUTING.md) und der [Themenliste](https://github.com/aspnet/Docs/issues) entnehmen.
 
-API PR's ( *api/autoapi/...* ) should not be made here. Changes to API documentation should be made in the source repository against the triple slash /// comments. 
+Änderungen an der API-Dokumentation sollten im [ApiDocs-Repository](https://github.com/aspnet/ApiDocs) mit drei Schrägstrichen (`///`) als Kommentar vorgenommen werden.
 
-This project has adopted the [Microsoft Open Source Code of
-Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct
-FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com)
-with any additional questions or comments.
+## <a name="microsoft-open-source-code-of-conduct"></a>Microsoft Open Source-Verhaltensregeln
+
+Dieses Projekt hat die [Microsoft Open Source Code of Conduct (Microsoft Open Source-Verhaltensregeln)](https://opensource.microsoft.com/codeofconduct/) übernommen.
+Weitere Informationen finden Sie unter [Häufig gestellte Fragen zum Verhaltenskodex](https://opensource.microsoft.com/codeofconduct/faq/) oder indem Sie sich mit weiteren Fragen und Kommentaren an [opencode@microsoft.com](mailto:opencode@microsoft.com) wenden.

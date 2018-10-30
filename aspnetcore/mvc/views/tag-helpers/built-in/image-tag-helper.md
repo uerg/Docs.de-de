@@ -1,58 +1,62 @@
 ---
 title: Image-Taghilfsprogramm in ASP.NET Core
 author: pkellner
-description: Veranschaulicht die Arbeit mit dem Image-Taghilfsprogramm
+description: Veranschaulicht die Arbeit mit dem Image-Taghilfsprogramm.
 ms.author: riande
-ms.date: 02/14/2017
+ms.custom: mvc
+ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/image-tag-helper
-ms.openlocfilehash: 7ed160354b25aa0183ac49db93307b1f1b4d0666
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 5eb74a6698911a1c594d11573192cb1b9ed53b49
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276642"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325834"
 ---
 # <a name="image-tag-helper-in-aspnet-core"></a>Image-Taghilfsprogramm in ASP.NET Core
 
-Von [Peter Kellner](http://peterkellner.net) 
+Von [Peter Kellner](http://peterkellner.net)
 
-Das Image-Taghilfsprogramm verbessert den Tag `img` (`<img>`). Es benötigt den Tag `src` und das `boolean`-Attribut `asp-append-version`.
+Das Image-Taghilfsprogramm optimiert das `<img>`-Tag für die Bereitstellung des Cache-Busting-Verhaltens bei statischen Bilddateien.
 
-Wenn die Bildquelle (`src`) eine statische Datei auf dem Hostwebserver ist, wird der Bildquelle eine eindeutige Cache-Busting-Zeichenfolge als Abfrageparameter angefügt. Dadurch wird eine eindeutige Anforderungs-URL erstellt, die den aktualisierten Anforderungsparameter enthält, wenn die Datei auf dem Hostwebserver geändert wird. Die Cache-Busting-Zeichenfolge ist ein eindeutiger Wert, der den Hash der statischen Bilddatei darstellt.
+Eine Cache-Busting-Zeichenfolge ist ein eindeutiger Wert, der den Hash der statischen Bilddatei darstellt, der an die Asset-URL angefügt ist. Die eindeutige Zeichenfolge fordert Clients (und einige Proxys) auf, das Bild erneut vom Hostwebserver zu laden, und nicht über den Cache des Clients.
 
-Wenn die Bildquelle (`src`) keine statische Datei ist (z.B. eine Remote-URL oder die Datei ist auf dem Server nicht vorhanden), wird das Attribut `src` des Tags `<img>` ohne einen Cache-Busting-Abfragezeichenfolgenparameter erstellt.
+Wenn es sich bei der Bildquelle (`src`) um eine statische Datei auf dem Hostwebserver handelt, gilt Folgendes:
+
+* Eine eindeutige Cache-Busting-Zeichenfolge wird als Abfrageparameter an die Bildquelle angefügt.
+* Eine eindeutige Anforderungs-URL wird erstellt, die den aktualisierten Anforderungsparameter enthält, wenn die Datei auf dem Hostwebserver geändert wird.
+
+Eine Übersicht der Taghilfsprogramme finden Sie unter <xref:mvc/views/tag-helpers/intro>.
 
 ## <a name="image-tag-helper-attributes"></a>Attribute von Image-Taghilfsprogrammen
 
+### <a name="src"></a>src
+
+Um das Image-Taghilfsprogramm zu aktivieren, wird das `src`-Attribut im Element `<img>` benötigt.
+
+Die Bildquelle (`src`) muss auf eine physische statische Datei auf dem Server verweisen. Wenn `src` ein Remote-URI ist, wird nicht der Parameter für die Cache-Busting-Abfragezeichenfolge generiert.
 
 ### <a name="asp-append-version"></a>asp-append-version
 
-Wenn das Attribut `src` zusätzlich angegeben wird, wird das Image-Taghilfsprogramm aufgerufen.
+Wenn `asp-append-version` zusätzlich mit einem `true`-Wert sowie einem `src`-Attribut angegeben wird, wird das Image-Taghilfsprogramm aufgerufen.
 
-Das folgende Beispiel zeigt ein gültiges `img`-Taghilfsprogramm:
+Im folgenden Beispiel wird ein Image-Taghilfsprogramm verwendet:
 
 ```cshtml
-<img src="~/images/asplogo.png" 
-    asp-append-version="true"  />
+<img src="~/images/asplogo.png" asp-append-version="true" />
 ```
 
-Wenn die statische Datei im Verzeichnis *..wwwroot/images/asplogo.png* vorhanden ist, ähnelt der erstellte HTML-Code folgendem (der Hash wird abweichen):
+Wenn die statische Datei im Verzeichnis */wwwroot/images/* vorhanden ist, ähnelt der erstellte HTML-Code folgendem (der Hash wird abweichen):
 
 ```html
-<img 
-    src="/images/asplogo.png?v=Kl_dqr9NVtnMdsM2MUg4qthUnWZm5T1fCEimBPWDNgM"/>
+<img src="/images/asplogo.png?v=Kl_dqr9NVtnMdsM2MUg4qthUnWZm5T1fCEimBPWDNgM" />
 ```
 
-Der Wert, der dem Parameter `v` zugewiesen ist, ist der Hashwert der Datei auf dem Datenträger. Wenn der Webserver den Lesezugriff auf die statische Datei, auf die verwiesen wird, nicht erhalten kann, werden keine `v`-Parameter dem Attribut `src` zugefügt.
+Der Wert, der dem Parameter `v` zugewiesen ist, ist der Hashwert der Datei *asplogo.png* auf dem Datenträger. Wenn der Webserver den Lesezugriff auf die statische Datei, auf die verwiesen wird, nicht erhalten kann, werden im gerenderten Markup keine `v`-Parameter dem Attribut `src` zugefügt.
 
-- - -
+## <a name="hash-caching-behavior"></a>Hashverhalten beim Zwischenspeichern
 
-### <a name="src"></a>src
-
-Das src-Attribut wird auf dem Element `<img>` benötigt, um das Image-Taghilfsprogramm zu aktivieren. 
-
-> [!NOTE]
-> Das Image-Taghilfsprogramm verwendet den `Cache`-Anbieter auf dem lokalen Webserver zum Speichern der berechneten `Sha512` einer angegebenen Datei. Wenn die Datei erneut angefordert wird, muss `Sha512` nicht neu berechnet werden. Der Cache wird durch einen Datei-Watcher ungültig gemacht, der an die Datei angefügt wird, wenn `Sha512` der Datei berechnet wird.
+Das Image-Taghilfsprogramm verwendet den Cacheanbieter auf dem lokalen Webserver, um den berechneten `Sha512`-Hash einer angegebenen Datei zu speichern. Wenn die Datei mehrmals angefordert wird, wird der Hash nicht neu berechnet. Der Cache wird durch einen Datei-Watcher ungültig gemacht, der an die Datei angefügt wird, wenn der `Sha512`-Hash der Datei berechnet wird. Wenn die Datei auf dem Datenträger geändert wird, wird ein neuer Hash berechnet und zwischengespeichert.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 

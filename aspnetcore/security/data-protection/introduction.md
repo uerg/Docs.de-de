@@ -3,14 +3,15 @@ title: ASP.NET Core-Datenschutz
 author: rick-anderson
 description: Erfahren Sie mehr über das Konzept des Schutzes von Daten und den Entwurfsprinzipien von ASP.NET Core Datenschutz-APIs.
 ms.author: riande
-ms.date: 10/14/2016
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: security/data-protection/introduction
-ms.openlocfilehash: a49eee89e8c11b26c76ba167215c141482159933
-ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
+ms.openlocfilehash: 37f170a3e8a46ef2215b0999358d46dd402636df
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46292296"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50089547"
 ---
 # <a name="aspnet-core-data-protection"></a>ASP.NET Core-Datenschutz
 
@@ -44,7 +45,7 @@ Da fingen wir durch Erkennen von Problemen mit dem vorhandenen Stapel. Sobald wi
 
 Mit diesen Prinzipien Beachten Sie, die wir entwickelt einer einfaches, [benutzerfreundliche](xref:security/data-protection/using-data-protection) der Stapel zum Schutz von Daten.
 
-Die ASP.NET Core die Datenschutz-APIs sind in erster Linie für unbestimmte Persistenz vertrauliche Nutzlasten nicht vorgesehen. Andere Technologien wie [Windows CNG DPAPI](https://msdn.microsoft.com/library/windows/desktop/hh706794%28v=vs.85%29.aspx) und [Azure Rights Management](https://docs.microsoft.com/rights-management/) eignen sich besser für das Szenario unbegrenzten Speicher, und dementsprechend sichere schlüsselverwaltung Funktionen haben. Allerdings nichts verbietet Entwickler mithilfe der ASP.NET Core die Datenschutz-APIs für den langfristigen Schutz von vertraulichen Daten.
+Die ASP.NET Core die Datenschutz-APIs sind in erster Linie für unbestimmte Persistenz vertrauliche Nutzlasten nicht vorgesehen. Andere Technologien wie [Windows CNG DPAPI](https://msdn.microsoft.com/library/windows/desktop/hh706794%28v=vs.85%29.aspx) und [Azure Rights Management](/rights-management/) eignen sich besser für das Szenario unbegrenzten Speicher, und dementsprechend sichere schlüsselverwaltung Funktionen haben. Allerdings nichts verbietet Entwickler mithilfe der ASP.NET Core die Datenschutz-APIs für den langfristigen Schutz von vertraulichen Daten.
 
 ## <a name="audience"></a>Zielgruppe
 

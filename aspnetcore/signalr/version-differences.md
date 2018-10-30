@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.date: 09/10/2018
 uid: signalr/version-differences
-ms.openlocfilehash: ea2de2606a99de70fa645c0c42303525fea0a44e
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 4ac7952f26500285fc1c8f9453feb3ea8b33851a
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325535"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50089827"
 ---
 # <a name="differences-between-aspnet-signalr-and-aspnet-core-signalr"></a>Unterschiede zwischen SignalR für ASP.NET und ASP.NET Core SignalR
 
@@ -135,7 +135,7 @@ connection = new HubConnectionBuilder()
 
 ## <a name="scaleout-differences"></a>Horizontale Skalierung Unterschiede
 
-ASP.NET SignalR unterstützt SQL Server und Redis. ASP.NET Core SignalR unterstützt sowohl Azure SignalR Service und Redis.
+ASP.NET SignalR unterstützt SQL Server und Redis. ASP.NET Core SignalR unterstützt Azure SignalR Service und Redis.
 
 ### <a name="aspnet"></a>ASP.NET
 

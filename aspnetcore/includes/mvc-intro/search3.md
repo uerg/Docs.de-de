@@ -32,8 +32,9 @@ Fügen Sie dem Ordner *Models* die folgende `MovieGenreViewModel`-Klasse hinzu:
 Das Ansichtsmodell „movie-genre“ enthält Folgendes:
 
    * Eine Liste von Filmen.
-   * Ein `SelectList`-Element mit der Liste der Genres. Es ermöglicht dem Benutzer, ein Genre in der Liste auszuwählen.
-   * Ein `movieGenre`-Element, das das ausgewählte Genre enthält.
+   * Ein `SelectList`-Element mit der Liste der Genres. Dies ermöglicht dem Benutzer, ein Genre in der Liste auszuwählen.
+   * Ein `MovieGenre`-Element, das das ausgewählte Genre enthält.
+   * `SearchString`, die den Text enthält, den Benutzer in das Suchtextfeld eingeben.
 
 Ersetzen Sie die `Index`-Methode in `MoviesController.cs` durch folgenden Code:
 
@@ -45,9 +46,11 @@ Der folgende Code ist eine `LINQ`-Abfrage, die alle Genres aus der Datenbank abr
 
 Das `SelectList`-Element von Genres wird durch Projizieren der unterschiedlichen Genres erstellt (wir möchten nicht, dass unsere Auswahlliste doppelte Genres enthält).
 
+Wenn der Benutzer nach dem Element sucht, wird der Wert für die Suche im Suchfeld beibehalten. Wenn Sie den gesuchten Wert beibehalten möchten, füllen Sie die `SearchString`-Eigenschaft mit dem Suchwert auf. Der Suchwert ist der `searchString`-Parameter für die Controlleraktion `Index`.
+
 ```csharp
 movieGenreVM.genres = new SelectList(await genreQuery.Distinct().ToListAsync())
-   ```
+```
 
 ## <a name="adding-search-by-genre-to-the-index-view"></a>Hinzufügen einer Suche nach Genre zur Indexansicht
 
@@ -57,8 +60,8 @@ Aktualisieren Sie `Index.cshtml` wie folgt:
 
 Überprüfen Sie den Lambdaausdruck, der im folgenden HTML-Hilfsprogramm verwendet wird:
 
-`@Html.DisplayNameFor(model => model.movies[0].Title)`
+`@Html.DisplayNameFor(model => model.Movies[0].Title)`
  
-Das HTML-Hilfsprogramm `DisplayNameFor` im vorangehenden Code überprüft die Eigenschaft `Title`, auf die im Lambdaausdruck verwiesen wird, um den Anzeigenamen zu bestimmen. Da der Lambda-Ausdruck überprüft statt ausgewertet wird, erhalten Sie keine Zugriffsverletzung, wenn `model`, `model.movies`, `model.movies[0]` oder `null` leer sind. Wenn der Lambdaausdruck ausgewertet wird, (z.B. mit `@Html.DisplayFor(modelItem => item.Title)`), werden die Eigenschaftswerte ausgewertet.
+Das HTML-Hilfsprogramm `DisplayNameFor` im vorangehenden Code überprüft die Eigenschaft `Title`, auf die im Lambdaausdruck verwiesen wird, um den Anzeigenamen zu bestimmen. Da der Lambda-Ausdruck überprüft statt ausgewertet wird, erhalten Sie keine Zugriffsverletzung, wenn `model`, `model.Movies`, `model.Movies[0]` oder `null` leer sind. Wenn der Lambdaausdruck ausgewertet wird, (z.B. mit `@Html.DisplayFor(modelItem => item.Title)`), werden die Eigenschaftswerte ausgewertet.
 
 Testen Sie die App mit einer Suche nach Genre, Filmtitel und beidem.

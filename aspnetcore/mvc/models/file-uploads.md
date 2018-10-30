@@ -3,14 +3,15 @@ title: Dateiuploads in ASP.NET Core
 author: ardalis
 description: Verwenden von Modellbindung und Streaming zum Hochladen von Dateien in ASP.NET Core MVC
 ms.author: riande
-ms.date: 07/05/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: mvc/models/file-uploads
-ms.openlocfilehash: 771e22ca01c67f2b6bbee780324d9d08759b3279
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 913fc9aa473950b7117fb9da5c8913e658c43a9d
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38201731"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090266"
 ---
 # <a name="file-uploads-in-aspnet-core"></a>Dateiuploads in ASP.NET Core
 
@@ -70,7 +71,7 @@ Wenn Dateien mittels Modellbindung und der `IFormFile`-Schnittstelle hochgeladen
 
 [!code-csharp[](file-uploads/sample/FileUploadSample/Controllers/UploadFilesController.cs?name=snippet1)]
 
-Dateien, die über die `IFormFile`-Technik hochgeladen werden, werden im Arbeitsspeicher oder auf einem Datenträger auf dem Webserver vor der Verarbeitung gepuffert. Innerhalb der Aktionsmethode können Sie über einen Stream auf die `IFormFile`-Inhalte zugreifen. Dateien können nicht nur auf dem lokalen Dateisystem gestreamt werden, sondern auch auf dem [Azure Blob Storage](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/) oder dem [Entity Framework](https://docs.microsoft.com/ef/core/index).
+Dateien, die über die `IFormFile`-Technik hochgeladen werden, werden im Arbeitsspeicher oder auf einem Datenträger auf dem Webserver vor der Verarbeitung gepuffert. Innerhalb der Aktionsmethode können Sie über einen Stream auf die `IFormFile`-Inhalte zugreifen. Dateien können nicht nur auf dem lokalen Dateisystem gestreamt werden, sondern auch auf dem [Azure Blob Storage](/azure/visual-studio/vs-storage-aspnet5-getting-started-blobs) oder dem [Entity Framework](/ef/core/index).
 
 Zum Speichern von Binärdateidaten in einer Datenbank über das Entity Framework müssen Sie eine Eigenschaft des Typs `byte[]` auf der Entität definieren:
 
@@ -117,7 +118,7 @@ public async Task<IActionResult> Register(RegisterViewModel model)
             user.AvatarImage = memoryStream.ToArray();
         }
     // additional logic omitted
-    
+
     // Don't rely on or trust the model.AvatarImage.FileName property 
     // without validation.
 }

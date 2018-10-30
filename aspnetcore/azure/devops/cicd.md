@@ -3,14 +3,14 @@ title: DevOps mit ASP.NET Core und Azure | Continuous Integration und Continuous
 author: CamSoper
 description: Ein Leitfaden, der End-to-End-Anleitungen zum Erstellen einer DevOps-Pipeline für eine in Azure gehostete ASP.NET Core-App bereitstellt.
 ms.author: scaddie
-ms.date: 08/17/2018
+ms.date: 10/24/2018
 uid: azure/devops/cicd
-ms.openlocfilehash: 0bfe1545da4c0778055d7c81c1588d3267d2e711
-ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
+ms.openlocfilehash: 18a59a1ff6fd6bbf51ff664764725b8972dfa1bf
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44340107"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090532"
 ---
 # <a name="continuous-integration-and-deployment"></a>Continuous Integration und Continuous deployment
 
@@ -230,7 +230,7 @@ Der Builddefinition **Aufgaben** Registerkarte aufgelistet, die einzelnen Schrit
     > [!NOTE]
     > Ändern Sie zum Überprüfen der Unit Tests-Arbeit *SimpleFeedReader.Tests\Services\NewsServiceTests.cs* absichtlich einer der Tests unterbrochen. Ändern Sie z. B. `Assert.True(result.Count > 0);` zu `Assert.False(result.Count > 0);` in die `Returns_News_Stories_Given_Valid_Uri` Methode. Committen Sie und pushen Sie die Änderung in GitHub. Der Build wird ausgelöst, und ein Fehler auftritt. Ändert sich der Status des Build-Pipeline **Fehler**. Die Änderung, Commit und Push Identität erneut zurücksetzen. Der Buildvorgang erfolgreich ist.
 
-1. **Veröffentlichen** &mdash; führt die `dotnet publish --configuration release --output <local_path_on_build_agent>` Befehl erzeugt eine *ZIP* -Datei mit den Elementen, die bereitgestellt werden. Die `--output` Option gibt an, den Ort der Veröffentlichung, der die *ZIP* Datei. Dass der Speicherort angegeben wird, durch das Übergeben einer [vordefinierte Variable](https://docs.microsoft.com/vsts/pipelines/build/variables) mit dem Namen `$(build.artifactstagingdirectory)`. Diese Variable wird erweitert, in einen lokalen Pfad, z. B. *c:\agent\_work\1\a*, auf dem Build-Agent.
+1. **Veröffentlichen** &mdash; führt die `dotnet publish --configuration release --output <local_path_on_build_agent>` Befehl erzeugt eine *ZIP* -Datei mit den Elementen, die bereitgestellt werden. Die `--output` Option gibt an, den Ort der Veröffentlichung, der die *ZIP* Datei. Dass der Speicherort angegeben wird, durch das Übergeben einer [vordefinierte Variable](/azure/devops/pipelines/build/variables) mit dem Namen `$(build.artifactstagingdirectory)`. Diese Variable wird erweitert, in einen lokalen Pfad, z. B. *c:\agent\_work\1\a*, auf dem Build-Agent.
 1. **Artefakt veröffentlichen** &mdash; Publishes der *ZIP* Datei erstellt hat, indem die **veröffentlichen** Aufgabe. Akzeptiert der Task die *ZIP* Dateispeicherort als Parameter verwendet, die der vordefinierten Variablen ist `$(build.artifactstagingdirectory)`. Die *ZIP* Datei wird als Ordner mit dem Namen veröffentlicht *löschen*.
 
 Klicken Sie auf der Builddefinition **Zusammenfassung** Link, um einen Verlauf der Builds mit der Definition anzuzeigen:

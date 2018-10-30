@@ -3,14 +3,15 @@ title: Schlüsselverwaltungserweiterbarkeit in ASP.NET Core
 author: rick-anderson
 description: Informationen Sie zu ASP.NET Core-Datenschutz schlüsselverwaltungserweiterbarkeit.
 ms.author: riande
-ms.date: 11/22/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: security/data-protection/extensibility/key-management
-ms.openlocfilehash: b52212ff3462748a5c64f21e1b7854673e5fcadc
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: 1cf3fc30f72fb872ff9d7f33fc5ffb12a11a982f
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477461"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090614"
 ---
 # <a name="key-management-extensibility-in-aspnet-core"></a>Schlüsselverwaltungserweiterbarkeit in ASP.NET Core
 
@@ -60,7 +61,7 @@ Die `IKeyManager` -Schnittstelle stellt ein Objekt, das für die allgemeine Schl
 
 ## <a name="xmlkeymanager"></a>XmlKeyManager
 
-Die `XmlKeyManager` Typ ist die integrierte konkrete Implementierung der `IKeyManager`. Es bietet mehrere nützliche Funktionen, einschließlich schlüsselhinterlegung und Verschlüsselung von Schlüsseln im ruhenden Zustand. Schlüssel in diesem System als XML-Elemente dargestellt werden (insbesondere ["XElement"](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/xelement-class-overview)).
+Die `XmlKeyManager` Typ ist die integrierte konkrete Implementierung der `IKeyManager`. Es bietet mehrere nützliche Funktionen, einschließlich schlüsselhinterlegung und Verschlüsselung von Schlüsseln im ruhenden Zustand. Schlüssel in diesem System als XML-Elemente dargestellt werden (insbesondere ["XElement"](/dotnet/csharp/programming-guide/concepts/linq/xelement-class-overview)).
 
 `XmlKeyManager` hängt davon ab, auf mehrere andere Komponenten, die im Verlauf seiner Aufgaben ausführen:
 

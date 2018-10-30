@@ -3,14 +3,15 @@ title: Filter in ASP.NET Core
 author: ardalis
 description: Erfahren Sie, wie Filter funktionieren und wie Sie sie in ASP.NET Core MVC verwenden.
 ms.author: riande
-ms.date: 08/15/2018
+ms.custom: mvc
+ms.date: 10/15/2018
 uid: mvc/controllers/filters
-ms.openlocfilehash: e20d934a17337d404249220d703ac4bb7164dfa6
-ms.sourcegitcommit: 9bdba90b2c97a4016188434657194b2d7027d6e3
+ms.openlocfilehash: 6803e8e3a285716792427e9fb059c204f5a88ecb
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47402158"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391309"
 ---
 # <a name="filters-in-aspnet-core"></a>Filter in ASP.NET Core
 
@@ -159,7 +160,7 @@ Sie können die Standardsequenz der Ausführung überschreiben, indem Sie `IOrde
 
 Wenn Sie dieselben drei Aktionsfilter wie im obigen Beispiel verwenden, die Eigenschaft `Order` des Controllers und des globalen Filters jedoch auf jeweils 1 und 2 festlegen, wäre die Ausführungsreihenfolge umgekehrt.
 
-| Sequenz | Filterbereich | `Order`-Eigenschaft | Filtermethode |
+| Sequenz | Filterbereich | `Order` -Eigenschaft | Filtermethode |
 |:--------:|:------------:|:-----------------:|:-------------:|
 | 1 | Methode | 0 | `OnActionExecuting` |
 | 2 | Controller | 1  | `OnActionExecuting` |
@@ -204,13 +205,15 @@ Wenn Ihre Filter Abhängigkeiten enthalten, die Sie von DI beziehen, gibt es meh
 
 ### <a name="servicefilterattribute"></a>ServiceFilterAttribute
 
-Ein `ServiceFilter` ruft eine Instanz des Filter von DI ab. Fügen Sie dem Container den Filter in `ConfigureServices` hinzu, und verweisen Sie auf ihn in einem `ServiceFilter`-Attribut.
+Die Typen der Dienstfilterimplementierung werden in der DI registriert. Ein `ServiceFilterAttribute` ruft eine Instanz des Filter von DI ab. Fügen Sie das `Startup.ConfigureServices` dem Container in `ServiceFilterAttribute` hinzu, und verweisen Sie darauf in einem `[ServiceFilter]`-Attribut:
 
 [!code-csharp[](./filters/sample/src/FiltersSample/Startup.cs?name=snippet_ConfigureServices&highlight=11)]
 
 [!code-csharp[](../../mvc/controllers/filters/sample/src/FiltersSample/Controllers/HomeController.cs?name=snippet_ServiceFilter&highlight=1)]
 
-Die Verwendung von `ServiceFilter` ohne Registrierung der Filtertypergebnisse löst eine Ausnahme aus:
+Bei `ServiceFilterAttribute` ist die Einstellung `IsReusable` ein Hinweis darauf, dass die Filterinstanz *möglicherweise* außerhalb des Anforderungsbereich, in dem sie erstellt wurde, wiederverwendet wird. Das Framework bietet keine Garantie, dass eine einzelne Instanz des Filters erstellt wird oder der Filter nicht erneut später vom DI-Container angefordert wird. Verwenden Sie nicht `IsReusable` bei einem Filter, der von Diensten mit einer anderen Lebensdauer als der eines Singletons abhängig ist.
+
+Die Verwendung von `ServiceFilterAttribute` ohne Registrierung der Filtertypergebnisse löst eine Ausnahme aus:
 
 ```
 System.InvalidOperationException: No service for type
@@ -226,7 +229,9 @@ System.InvalidOperationException: No service for type
 Dieser Unterschied hat folgende Auswirkungen:
 
 * Typen, auf die mithilfe von `TypeFilterAttribute` verwiesen wird, müssen nicht zuerst beim Container registriert werden.  Stattdessen werden die Abhängigkeiten vom Container eingebracht. 
-* `TypeFilterAttribute` kann optional Konstruktorargumente für den Typ akzeptieren. 
+* `TypeFilterAttribute` kann optional Konstruktorargumente für den Typ akzeptieren.
+
+Bei `TypeFilterAttribute` ist die Einstellung `IsReusable` ein Hinweis darauf, dass die Filterinstanz *möglicherweise* außerhalb des Anforderungsbereich, in dem sie erstellt wurde, wiederverwendet wird. Das Framework bietet keine Garantie dafür, dass eine einzelne Instanz des Filters erstellt wird. Verwenden Sie nicht `IsReusable` bei einem Filter, der von Diensten mit einer anderen Lebensdauer als der eines Singletons abhängig ist.
 
 Das folgende Beispiel demonstriert, wie Sie Argumente durch Verwendung von `TypeFilterAttribute` an einen Typ übergeben:
 

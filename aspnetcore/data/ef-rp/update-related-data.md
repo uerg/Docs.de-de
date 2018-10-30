@@ -5,12 +5,12 @@ description: Mithilfe dieses Tutorials führen Sie Updates für verwandte Daten 
 ms.author: riande
 ms.date: 11/15/2017
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: c9d0e97dc612744f0023c48a27eb1c89fd153b95
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: 4306118240c052585a5c2eeb2053ce03534b547c
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523167"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207542"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>Razor-Seiten mit EF Core in ASP.NET Core: Aktualisieren verwandter Daten (7 von 8)
 
@@ -18,7 +18,7 @@ Von [Tom Dykstra](https://github.com/tdykstra) und [Rick Anderson](https://twitt
 
 [!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
-In diesem Tutorial wird veranschaulicht, wie verwandte Daten aktualisiert werden. Wenn nicht zu lösende Probleme auftreten, laden Sie die [fertige App](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) herunter, oder zeigen Sie diese an. [Anweisungen zum Download.](xref:tutorials/index#how-to-download-a-sample)
+In diesem Tutorial wird veranschaulicht, wie verwandte Daten aktualisiert werden. Wenn nicht zu lösende Probleme auftreten, laden Sie die [fertige App](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) herunter, oder zeigen Sie diese an. [Anweisungen zum Download.](xref:index#how-to-download-a-sample)
 
 In den folgenden Abbildungen werden einige der abgeschlossenen Seiten dargestellt.
 
@@ -49,7 +49,7 @@ Aktualisieren Sie das Seitenmodell „Create“ (Erstellen) mit dem folgenden Co
 
 Der vorangehende Code:
 
-* Wird von `DepartmentNamePageModel` abgeleitet.
+* Wird von `DepartmentNamePageModel`abgeleitet.
 * Verwendet `TryUpdateModelAsync`, um ein [Overposting](xref:data/ef-rp/crud#overposting) zu verhindern.
 * Ersetzt `ViewData["DepartmentID"]` durch `DepartmentNameSL` (aus der Basisklasse).
 

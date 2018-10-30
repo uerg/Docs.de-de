@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/28/2018
 uid: fundamentals/websockets
-ms.openlocfilehash: e46c2decf92d21322f2079bf880df534e0224db5
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: b0f1aeff6c7a5777993459274293ba23f2d9dc12
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911651"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206739"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>WebSockets-Unterstützung in ASP.NET Core
 
@@ -20,7 +20,7 @@ Von [Tom Dykstra](https://github.com/tdykstra) und [Andrew Stanton-Nurse](https:
 
 In diesem Artikel erfahren Sie, wie Sie mit WebSockets in ASP.NET beginnen. Bei [WebSockets](https://wikipedia.org/wiki/WebSocket) ([RFC 6455](https://tools.ietf.org/html/rfc6455)) handelt es sich um ein Protokoll, das bidirektionale persistente Kommunikationskanäle über TCP-Verbindungen ermöglicht. Es wird in Apps verwendet, die von schneller Kommunikation in Echtzeit profitieren, z.B. Chats, Dashboards und Spiele-Apps.
 
-[Zeigen Sie Beispielcode an, oder laden Sie diesen herunter](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/websockets/samples) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample)). Weitere Informationen finden Sie im Abschnitt [Nächste Schritte](#next-steps).
+[Zeigen Sie Beispielcode an, oder laden Sie diesen herunter](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/websockets/samples) ([Vorgehensweise zum Herunterladen](xref:index#how-to-download-a-sample)). Weitere Informationen finden Sie im Abschnitt [Nächste Schritte](#next-steps).
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
@@ -35,7 +35,7 @@ In diesem Artikel erfahren Sie, wie Sie mit WebSockets in ASP.NET beginnen. Bei 
 
   * Windows 8/Windows Server 2012 und höher
   * IIS 8/IIS 8 Express
-  * WebSockets müssen in IIS aktiviert sein (weitere Informationen finden Sie im Abschnitt [Unterstützung für IIS und IIS Express](#iisiis-express-support)).
+  * WebSockets müssen in IIS aktiviert sein (weitere Informationen finden Sie im Abschnitt [Unterstützung für IIS/IIS Express](#iisiis-express-support)).
   
 * Wenn die App unter [HTTP.sys](xref:fundamentals/servers/httpsys) ausgeführt wird:
 
@@ -133,7 +133,15 @@ Wenn Sie die WebSocket-Verbindung vor Beginn der Schleife akzeptieren, endet die
 
 In Windows Server 2012 oder höher und in Windows 8 oder höher mit IIS 8 oder IIS Express 8 oder höher ist die Unterstützung für das WebSocket-Protokoll enthalten.
 
+> [!NOTE]
+> WebSockets sind immer aktiviert, wenn Sie IIS Express verwenden.
+
+### <a name="enabling-websockets-on-iis"></a>Aktivieren von WebSockets in IIS
+
 So aktivieren Sie die Unterstützung für das WebSocket-Protokoll unter Windows Server 2012 oder höher:
+
+> [!NOTE]
+> Diese Schritte sind nicht erforderlich, wenn Sie IIS Express verwenden.
 
 1. Verwenden Sie den Assistenten **Rollen und Features hinzufügen** im Menü **Verwalten** oder den Link in **Server-Manager**.
 1. Klicken Sie auf **Rollenbasierte oder featurebasierte Installation**. Klicken Sie auf **Weiter**.
@@ -145,6 +153,9 @@ So aktivieren Sie die Unterstützung für das WebSocket-Protokoll unter Windows 
 1. Wenn die Installation abgeschlossen ist, klicken Sie auf **Schließen**, um den Assistenten zu beenden.
 
 So aktivieren Sie die Unterstützung für das WebSocket-Protokoll unter Windows 8 oder höher:
+
+> [!NOTE]
+> Diese Schritte sind nicht erforderlich, wenn Sie IIS Express verwenden.
 
 1. Navigieren Sie zu **Systemsteuerung** > **Programme** > **Programme und Features** > **Windows-Features aktivieren oder deaktivieren** (links auf dem Bildschirm).
 1. Öffnen Sie folgende Knoten: **Internetinformationsdienste** > **WWW-Dienste** > **Anwendungsentwicklungsfeatures**.

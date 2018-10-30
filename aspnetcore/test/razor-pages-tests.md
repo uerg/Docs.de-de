@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/27/2017
 uid: test/razor-pages-tests
-ms.openlocfilehash: 924908a92eea23fd2dc81a3809e74760d9295e4f
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: 5116ec3c3d6c27f9b0e098f82c82dd7b7337b8f6
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477409"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207497"
 ---
 # <a name="razor-pages-unit-tests-in-aspnet-core"></a>Razor-Seiten-Komponententests in ASP.NET Core
 
@@ -30,7 +30,7 @@ In diesem Thema wird davon ausgegangen, dass Sie ein grundlegendes Verständnis 
 * [Erste Schritte mit Razor Pages](xref:tutorials/razor-pages/razor-pages-start)
 * [Komponententest von C# -Code in .NET Core mit Dotnet Test und xUnit](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/razor-pages-tests/samples) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/razor-pages-tests/samples) ([Vorgehensweise zum Herunterladen](xref:index#how-to-download-a-sample))
 
 Das Beispielprojekt besteht aus zwei apps:
 

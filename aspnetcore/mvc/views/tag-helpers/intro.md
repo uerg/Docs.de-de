@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2018
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: c2af9099fe439e1cdbf9ba86ffae3b2b0f67391e
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 4b9bceb3ce0153af2d9a30c402febe09707145b7
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751479"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477305"
 ---
 # <a name="tag-helpers-in-aspnet-core"></a>Taghilfsprogramme in ASP.NET Core
 
@@ -68,7 +68,7 @@ Wenn Sie eine neue ASP.NET Core-Web-App mit dem Namen *AuthoringTagHelpers* erst
 
 [!code-cshtml[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=2&range=2-3)]
 
-Über die `@addTagHelper`-Anweisung werden Taghilfsprogramme in der Ansicht zur Verfügung gestellt. In diesem Fall ist *Pages/_ViewImports.cshtml* die Ansichtsdatei, die standardmäßig von allen Dateien im *Seiten*-Ordner und den Unterordnern geerbt wird. Dadurch werden Taghilfsprogramme zur Verfügung gestellt. Im obenstehenden Code wird die Platzhaltersyntax („\*“) verwendet, um anzugeben, dass alle in der Assembly (*Microsoft.AspNetCore.Mvc.TagHelpers*) festgelegten Taghilfsprogramme für alle Ansichtsdateien im *Ansichten*-Verzeichnis bzw. -Unterverzeichnis verfügbar sind. Über den ersten Parameter nach `@addTagHelper` wird das Taghilfsprogramm geladen („\*“ wird für alle Taghilfsprogramme verwendet), und über den zweiten Parameter „Microsoft.AspNetCore.Mvc.TagHelpers“ wird die Assembly angegeben, die die Taghilfsprogramme enthält. Bei *Microsoft.AspNetCore.Mvc.TagHelpers* handelt es sich um die Assembly für die integrierten ASP.NET Core-Taghilfsprogramme.
+Über die `@addTagHelper`-Anweisung werden Taghilfsprogramme in der Ansicht zur Verfügung gestellt. In diesem Fall ist *Pages/_ViewImports.cshtml* die Ansichtsdatei, die standardmäßig von allen Dateien im *Pages*-Ordner und den Unterordnern geerbt wird. Dadurch werden Taghilfsprogramme zur Verfügung gestellt. Im obenstehenden Code wird die Platzhaltersyntax („\*“) verwendet, um anzugeben, dass alle in der Assembly (*Microsoft.AspNetCore.Mvc.TagHelpers*) festgelegten Taghilfsprogramme für alle Ansichtsdateien im *Views*-Verzeichnis bzw. -Unterverzeichnis verfügbar sind. Über den ersten Parameter nach `@addTagHelper` wird das Taghilfsprogramm geladen („\*“ wird für alle Taghilfsprogramme verwendet), und über den zweiten Parameter „Microsoft.AspNetCore.Mvc.TagHelpers“ wird die Assembly angegeben, die die Taghilfsprogramme enthält. Bei *Microsoft.AspNetCore.Mvc.TagHelpers* handelt es sich um die Assembly für die integrierten ASP.NET Core-Taghilfsprogramme.
 
 Verwenden Sie folgenden Code, wenn Sie alle Taghilfsprogramme in diesem Projekt zur Verfügung stellen wollen. Dadurch wird eine Assembly mit dem Namen *AuthoringTagHelpers* erstellt:
 
@@ -89,7 +89,7 @@ Wenn Sie einer Ansicht über einen vollqualifizierten Namen ein Taghilfsprogramm
 @addTagHelper AuthoringTagHelpers.TagHelpers.Email*, AuthoringTagHelpers
 ```
 
-Wie obenstehend bereits erwähnt, ist das Taghilfsprogramm für alle Ansichtsdateien im *Ansichten*-Verzeichnis bzw. -Unterverzeichnis verfügbar, wenn Sie die `@addTagHelper`-Anweisung der *Views/_ViewImports.cshtml*-Datei hinzufügen. Sie können die `@addTagHelper`-Anweisung in bestimmten Ansichtsdateien verwenden, wenn Sie festlegen möchten, dass das Taghilfsprogramm nur für diese Ansichten verfügbar ist.
+Wie obenstehend bereits erwähnt, ist das Taghilfsprogramm für alle Ansichtsdateien im *Views*-Verzeichnis bzw. -Unterverzeichnis verfügbar, wenn Sie die `@addTagHelper`-Anweisung der Datei *Views/_ViewImports.cshtml* hinzufügen. Sie können die `@addTagHelper`-Anweisung in bestimmten Ansichtsdateien verwenden, wenn Sie festlegen möchten, dass das Taghilfsprogramm nur für diese Ansichten verfügbar ist.
 
 <a name="remove-razor-directives-label"></a>
 
@@ -127,6 +127,10 @@ Im nachfolgend Codebild ist das Präfix des Taghilfsprogramms auf `th:` festgele
 ![Bild](intro/_static/thp.png)
 
 Für `@addTagHelper` gelten dieselben Hierarchieregeln wie für `@tagHelperPrefix`.
+
+## <a name="self-closing-tag-helpers"></a>Taghilfsprogramme als selbstschließende Tags
+
+Viele Taghilfsprogramme können nicht als selbstschließende Tags verwendet werden. Einige Taghilfsprogramme sind als selbstschließende Tags konzipiert. Wenn Sie ein Taghilfsprogramm verwenden, das nicht als selbstschließendes Tag konzipiert ist, wird die gerenderte Ausgabe unterdrückt. Wenn Sie ein als selbstschließendes Tag konzipiertes Taghilfsprogramm verwenden, werden selbstschließende Tags in der gerenderten Ausgabe verwendet. Weitere Informationen finden Sie unter [Erstellen von Taghilfsprogrammen in ASP.NET Core](xref:mvc/views/tag-helpers/authoring) in [diesem Hinweis](xref:mvc/views/tag-helpers/authoring#self-closing).
 
 ## <a name="intellisense-support-for-tag-helpers"></a>IntelliSense-Unterstützung für Taghilfsprogramme
 

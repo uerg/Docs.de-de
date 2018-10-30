@@ -7,18 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/26/2017
 uid: performance/caching/middleware
-ms.openlocfilehash: d991bc48ed07ee71b0decaa0bee4df811fdc74c4
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: 4b2c71aad4b5bcfee14a271303df5874ccfedb90
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477526"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207328"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Antworten zwischenspeichernden Middleware in ASP.NET Core
 
 Durch [Luke Latham](https://github.com/guardrex) und [John Luo](https://github.com/JunTaoLuo)
 
-[Anzeigen oder Herunterladen von Beispielcode für ASP.NET Core 2.1](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([herunterladen](xref:tutorials/index#how-to-download-a-sample))
+[Zeigen Sie Beispielcode an, oder laden Sie diesen herunter](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([Vorgehensweise zum Herunterladen](xref:index#how-to-download-a-sample)).
 
 In diesem Artikel erläutert die Antworten Zwischenspeichern von Middleware in ASP.NET Core-Apps zu konfigurieren. Die Middleware wird bestimmt, wenn Antworten zwischengespeichert werden, speichert Antworten und Antworten dient, aus dem Cache. Eine Einführung in die HTTP-Zwischenspeicherung und die `ResponseCache` Attribut, finden Sie unter [Zwischenspeichern von Antworten](xref:performance/caching/response).
 
@@ -120,10 +120,10 @@ Die Middleware berücksichtigt die Regeln für die [Zwischenspeichern von HTTP 1
 
 Zur besseren Steuerung des Verhaltens untersuchen Sie andere caching-Funktionen von ASP.NET Core. Informationen hierzu finden Sie in den folgenden Themen:
 
-* [Zwischenspeichern in Speicher](xref:performance/caching/memory)
-* [Arbeiten mit einem verteilten Cache](xref:performance/caching/distributed)
-* [Cache-Taghilfsprogramm in ASP.NET Core MVC](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Taghilfsprogramm für verteilten Cache](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* <xref:performance/caching/memory>
+* <xref:performance/caching/distributed>
+* <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>
+* <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>
 
 ## <a name="troubleshooting"></a>Problembehandlung
 
@@ -155,11 +155,11 @@ Beim Testen und Problembehandlung von Verhalten beim Zwischenspeichern kann in e
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Application Startup (Starten von Anwendungen)](xref:fundamentals/startup)
-* [Middleware](xref:fundamentals/middleware/index)
-* [Zwischenspeichern in Speicher](xref:performance/caching/memory)
-* [Arbeiten mit einem verteilten Cache](xref:performance/caching/distributed)
-* [Erkennen von Änderungen mit Änderungstoken](xref:fundamentals/change-tokens)
-* [Zwischenspeichern von Antworten](xref:performance/caching/response)
-* [Cache-Taghilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Taghilfsprogramm für verteilten Cache](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* <xref:fundamentals/startup>
+* <xref:fundamentals/middleware/index>
+* <xref:performance/caching/memory>
+* <xref:performance/caching/distributed>
+* <xref:fundamentals/change-tokens>
+* <xref:performance/caching/response>
+* <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>
+* <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>

@@ -4,14 +4,14 @@ author: guardrex
 description: Erfahren Sie, wie ASP.NET Core Dependency Injection implementiert und wie Sie dieses Muster verwenden können.
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/02/2018
+ms.date: 10/24/2018
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 33fae5d87029c8b3afdc321e0247555c1e479d07
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: d9eb6a01e096c7e8cbcb0979e24331a8d5316a14
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912617"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207653"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Dependency Injection in ASP.NET Core
 
@@ -21,7 +21,7 @@ ASP.NET Core unterstützt das Softwareentwurfsmuster Abhängigkeitsinjektion. Da
 
 Weitere Informationen zur Abhängigkeitsinjektion innerhalb von MVC-Controllern finden Sie unter <xref:mvc/controllers/dependency-injection>.
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples) ([Vorgehensweise zum Herunterladen](xref:index#how-to-download-a-sample))
 
 ## <a name="overview-of-dependency-injection"></a>Übersicht über Abhängigkeitsinjektion
 
@@ -195,8 +195,8 @@ Die Methode `Startup.ConfigureServices` definiert die von der App verwendeten Di
 | [Microsoft.Extensions.ObjectPool.ObjectPoolProvider](/dotnet/api/microsoft.extensions.objectpool.objectpoolprovider) | Singleton |
 | [Microsoft.Extensions.Options.IConfigureOptions&lt;T&gt;](/dotnet/api/microsoft.extensions.options.iconfigureoptions-1) | Transient (vorübergehend) |
 | [Microsoft.Extensions.Options.IOptions&lt;T&gt;](/dotnet/api/microsoft.extensions.options.ioptions-1) | Singleton |
-| [System.Diagnostics.DiagnosticSource](https://docs.microsoft.com/dotnet/core/api/system.diagnostics.diagnosticsource) | Singleton |
-| [System.Diagnostics.DiagnosticListener](https://docs.microsoft.com/dotnet/core/api/system.diagnostics.diagnosticlistener) | Singleton |
+| [System.Diagnostics.DiagnosticSource](/dotnet/core/api/system.diagnostics.diagnosticsource) | Singleton |
+| [System.Diagnostics.DiagnosticListener](/dotnet/core/api/system.diagnostics.diagnosticlistener) | Singleton |
 
 Wenn eine Dienstsammlungs-Erweiterungsmethode verfügbar ist, um einen Dienst (und ggf. seine abhängigen Dienste) zu registrieren, ist die Konvention, eine einzige `Add{SERVICE_NAME}`-Erweiterungsmethode zu verwenden, um alle von diesem Dienst benötigten Dienste zu registrieren. Der folgende Code ist ein Beispiel für das Hinzufügen zusätzlicher Dienste zum Container mit den Erweiterungsmethoden [AddDbContext](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext), [AddIdentity](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionextensions.addidentity) und [AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc):
 
@@ -287,9 +287,9 @@ Die Schnittstellen sind in die Klasse `Operation` implementiert. Der `Operation`
 
 `OperationService` ist registriert und hängt von jedem anderen `Operation`-Typ ab. Wenn `OperationService` über die Abhängigkeitsinjektion angefordert wird, wird entweder eine neue Instanz jedes Diensts oder eine vorhandene Instanz basierend auf der Lebensdauer des abhängigen Diensts zurückgegeben.
 
-* Wenn vorübergehende Dienste bei der Anforderung erstellt werden, ist `OperationsId` von Dienst `IOperationTransient` anders als `OperationsId` von `OperationService`. `OperationService` erhält eine neue Instanz der Klasse `IOperationTransient`. Der `OperationsId`-Wert der neuen Instanz ist anders.
-* Wenn bereichsbezogene Dienste pro Anforderung erstellt werden, ist `OperationsId` in Dienst `IOperationScoped` und `OperationService` identisch innerhalb einer Anforderung. Anforderungsübergreifend haben die beiden Dienste jedoch einen anderen gemeinsamen `OperationsId`-Wert.
-* Wenn Singleton und Singletoninstanzdienste einmal erstellt und für alle Anforderungen und alle Dienste verwendet werden, ist `OperationsId` für alle Dienstanforderungen identisch.
+* Wenn vorübergehende Dienste bei der Anforderung erstellt werden, ist `OperationId` von Dienst `IOperationTransient` anders als `OperationId` von `OperationService`. `OperationService` erhält eine neue Instanz der Klasse `IOperationTransient`. Der `OperationId`-Wert der neuen Instanz ist anders.
+* Wenn bereichsbezogene Dienste pro Anforderung erstellt werden, ist `OperationId` in Dienst `IOperationScoped` und `OperationService` identisch innerhalb einer Anforderung. Anforderungsübergreifend haben die beiden Dienste jedoch einen anderen gemeinsamen `OperationId`-Wert.
+* Wenn Singleton und Singletoninstanzdienste einmal erstellt und für alle Anforderungen und alle Dienste verwendet werden, ist `OperationId` für alle Dienstanforderungen identisch.
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -494,8 +494,8 @@ Im folgenden Beispiel wird der integrierte Container durch [Autofac](https://aut
 
 * Installieren Sie das entsprechende Containerpaket bzw. die entsprechenden Containerpakete:
 
-    * [Autofac](https://www.nuget.org/packages/Autofac/)
-    * [Autofac.Extensions.DependencyInjection](https://www.nuget.org/packages/Autofac.Extensions.DependencyInjection/)
+  * [Autofac](https://www.nuget.org/packages/Autofac/)
+  * [Autofac.Extensions.DependencyInjection](https://www.nuget.org/packages/Autofac.Extensions.DependencyInjection/)
 
 * Konfigurieren Sie den Container in `Startup.ConfigureServices`, und geben Sie einen `IServiceProvider`-Wert zurück:
 
@@ -538,7 +538,7 @@ Die Factorymethode des einzelnen Diensts, z. B. das zweite Argument für [AddSin
 
 ## <a name="recommendations"></a>Empfehlungen
 
-Beachten Sie folgende Empfehlungen bei der Arbeit mit Dependency Injection:
+* `async/await`- und `Task`-basierte Dienstauflösung wird nicht unterstützt. C# unterstützt keine asynchronen Konstruktoren, daher wird empfohlen, asynchrone Methoden zu verwenden, nachdem der Dienst synchron aufgelöst wurde.
 
 * Vermeiden Sie das Speichern von Daten und die direkte Konfiguration im Dienstcontainer. Der Einkaufswagen eines Benutzers sollte z. B. normalerweise nicht dem Dienstcontainer hinzugefügt werden. Bei der Konfiguration sollte das [Optionsmuster](xref:fundamentals/configuration/options) verwendet werden. Gleichermaßen sollten Sie „Datencontainer“-Objekte vermeiden, die nur vorhanden sind, um den Zugriff auf einige andere Objekte zuzulassen. Das tatsächlich benötige Element sollte besser über Dependency Injection angefordert werden.
 
@@ -557,7 +557,6 @@ Dependency Injection stellt eine *Alternative* zu statischen bzw. globalen Objek
 * <xref:mvc/views/dependency-injection>
 * <xref:mvc/controllers/dependency-injection>
 * <xref:security/authorization/dependencyinjection>
-* <xref:fundamentals/repository-pattern>
 * <xref:fundamentals/startup>
 * <xref:test/index>
 * <xref:fundamentals/middleware/extensibility>

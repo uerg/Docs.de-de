@@ -3,14 +3,15 @@ title: 'Razor-Seiten mit EF Core in ASP.NET Core: Sortieren, Filtern, Paging (3 
 author: rick-anderson
 description: In diesem Tutorial fügen Sie mit ASP.NET Core und Entity Framework Core die Funktionen Sortieren, Filtern und Paging für das Paging hinzu.
 ms.author: riande
-ms.date: 6/31/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 668d6e54a64022dda948170f72538f6d4cd9a49f
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 19fe24e0f901c50e8425db7665b5b2257b608146
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011637"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090880"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Razor-Seiten mit EF Core in ASP.NET Core: Sortieren, Filtern, Paging (3 von 8)
 
@@ -51,7 +52,7 @@ Wenn die Indexseite über den Link **Studenten** angefordert wird, gibt es keine
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly&highlight=3-4)]
 
-Der folgende Code enthält den bedingten [C#-Operator „?:“](https://docs.microsoft.com/dotnet/csharp/language-reference/operators/conditional-operator):
+Der folgende Code enthält den bedingten [C#-Operator „?:“](/dotnet/csharp/language-reference/operators/conditional-operator):
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_Ternary)]
 
@@ -97,9 +98,9 @@ So überprüfen Sie die Funktionsfähigkeit der Sortierung:
 
 So erhalten Sie ein besseres Verständnis des Codes:
 
-* Legen Sie in *Student/Index.cshtml.cs* einen Breakpoint auf `switch (sortOrder)` fest.
+* Legen Sie in *Students/Index.cshtml.cs* einen Breakpoint auf `switch (sortOrder)` fest.
 * Fügen Sie für `NameSort` und `DateSort` ein Überwachungselement hinzu.
-* Legen Sie in *Student/Index.cshtml* einen Breakpoint auf `@Html.DisplayNameFor(model => model.Student[0].LastName)` fest.
+* Legen Sie in *Students/Index.cshtml* einen Breakpoint auf `@Html.DisplayNameFor(model => model.Student[0].LastName)` fest.
 
 Führen Sie den Debugger schrittweise aus.
 
@@ -235,9 +236,9 @@ Führen Sie die App aus, und navigieren Sie zur Studentenseite.
 
 So erhalten Sie ein besseres Verständnis des Codes:
 
-* Legen Sie in *Student/Index.cshtml.cs* einen Breakpoint auf `switch (sortOrder)` fest.
+* Legen Sie in *Students/Index.cshtml.cs* einen Breakpoint auf `switch (sortOrder)` fest.
 * Fügen Sie für `NameSort`, `DateSort`, `CurrentSort` und `Model.Student.PageIndex` ein Überwachungselement hinzu.
-* Legen Sie in *Student/Index.cshtml* einen Breakpoint auf `@Html.DisplayNameFor(model => model.Student[0].LastName)` fest.
+* Legen Sie in *Students/Index.cshtml* einen Breakpoint auf `@Html.DisplayNameFor(model => model.Student[0].LastName)` fest.
 
 Führen Sie den Debugger schrittweise aus.
 

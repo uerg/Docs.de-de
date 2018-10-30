@@ -8,12 +8,12 @@ ms.date: 01/30/2013
 ms.assetid: f9c07af0-4b20-4b08-af8f-47fc3df169a2
 msc.legacyurl: /single-page-application/overview/introduction/knockoutjs-template
 msc.type: authoredcontent
-ms.openlocfilehash: 328046363666944f121dedc1883bbe83f5b079d2
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 60bc8bf95cace722244ffc87ff4c00126a0ed2a0
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41828883"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207445"
 ---
 <a name="single-page-application-knockoutjs-template"></a>Einzelseitenanwendung: Knockout.js-Vorlage
 ====================
@@ -163,7 +163,7 @@ Die MVC-Controller befinden sich ebenfalls im Ordner "Controller" der Projektmap
 
 [!code-cshtml[Main](knockoutjs-template/samples/sample4.cshtml)]
 
-Wenn Benutzer angemeldet sind, die Hauptbenutzeroberfläche angezeigt. Andernfalls wird den Bereich für die Anmeldung angezeigt. Beachten Sie, dass diese bedingte Rendering auf dem Server erfolgt. Nie versuchen, Ausblenden von vertraulichen Inhalt auf dem Client & #8212anything, die Sie in einer HTTP-Antwort senden wird angezeigt, um eine Person, die die unformatierten HTTP-Nachrichten überwacht wird.
+Wenn Benutzer angemeldet sind, die Hauptbenutzeroberfläche angezeigt. Andernfalls wird den Bereich für die Anmeldung angezeigt. Beachten Sie, dass diese bedingte Rendering auf dem Server erfolgt. Nie versuchen, Ausblenden von vertraulichen Inhalt auf der Clientseite&#8212;alle Elemente, die Sie in einer HTTP-Antwort senden, ist für eine Person, die die unformatierten HTTP-Nachrichten ansehen, ist sichtbar.
 
 ## <a name="client-side-javascript-and-knockoutjs"></a>Clientseitige JavaScript-Code und "Knockout.js"
 

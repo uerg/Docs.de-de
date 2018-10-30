@@ -31,6 +31,7 @@ durch [Praburaj Thiagarajan](https://github.com/Praburaj), [Rick Anderson]((http
  Jede OWIN-Anwendung verfügt über eine Startup-Klasse, in der Sie Komponenten für die Pipeline der Anwendung angeben können. Es gibt verschiedene Möglichkeiten, wie Sie Ihre Startup-Klasse mit der Laufzeit verbinden können, die davon abhängt, welches Hosting-Modell Sie geauswählt haben (OwinHost, IIS und IIS Express). Die Startup-Klasse, die in diesem Tutorial gezeigt wird, kann in jeder Hostanwendung verwendet werden. Nutzen Sie eine dieser Ansätze um die Startup-Klasse, mit der Hosting-Laufzeit zu verbinden:
 
 1. **Benennungskonvention**: Katana durchsucht den globalen Namespace und alle Assemblies nach einer Klasse namens `Startup`.
+
 2. **OwinStartup Attribut**: Dies ist der Ansatz, den die meisten Entwickler zur Angabe der Startklasse verwenden. Das folgende Attribut legt als Startup-Klasse `TestStartup` fest und gibt als ihren Namespace `StartupDemo` an.
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample1.cs)]

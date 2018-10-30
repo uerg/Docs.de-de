@@ -3,14 +3,15 @@ title: DevOps mit ASP.NET Core und Azure | Überwachen und Debuggen
 author: CamSoper
 description: Ein Leitfaden, der End-to-End-Anleitungen zum Erstellen einer DevOps-Pipeline für eine in Azure gehostete ASP.NET Core-App bereitstellt.
 ms.author: casoper
-ms.date: 08/07/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: azure/devops/monitor
-ms.openlocfilehash: c2fc88493aee04d7ea2781d17e808581e89d2082
-ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
+ms.openlocfilehash: c4013de574fdf34114f2ae6c6a2150d72f807578
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42909323"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090187"
 ---
 # <a name="monitor-and-debug"></a>Überwachen und Debuggen
 
@@ -52,11 +53,11 @@ App Service-Web-apps sind einfach in Echtzeit überwacht. Das Azure-Portal rende
 
 ## <a name="advanced-monitoring"></a>Erweiterte Überwachung
 
-[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) ist der zentrale für alle überwachungsmetriken und Festlegen von Warnungen für Azure-Dienste. Administratoren können in Azure Monitor können präzise Leistung nachzuverfolgen und Trends zu erkennen. Jeder Azure-Dienst bietet eine eigene [Satz von Metriken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftwebsites-excluding-functions) an Azure Monitor.
+[Azure Monitor](/azure/monitoring-and-diagnostics/) ist der zentrale für alle überwachungsmetriken und Festlegen von Warnungen für Azure-Dienste. Administratoren können in Azure Monitor können präzise Leistung nachzuverfolgen und Trends zu erkennen. Jeder Azure-Dienst bietet eine eigene [Satz von Metriken](/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftwebsites-excluding-functions) an Azure Monitor.
 
 ## <a name="profile-with-application-insights"></a>Profil mit Application Insights
 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) ist ein Azure-Dienst zum Analysieren der Leistung und Stabilität von Web-apps und wie Benutzer sie verwenden. Die Daten aus Application Insights ist besseres, als die von Azure Monitor. Die Daten können Entwickler und Administratoren mit wichtigen Informationen zur Verbesserung der apps bereitstellen. Application Insights können mit einer Azure App Service-Ressource ohne Änderungen am Code hinzugefügt werden.
+[Application Insights](/azure/application-insights/app-insights-overview) ist ein Azure-Dienst zum Analysieren der Leistung und Stabilität von Web-apps und wie Benutzer sie verwenden. Die Daten aus Application Insights ist besseres, als die von Azure Monitor. Die Daten können Entwickler und Administratoren mit wichtigen Informationen zur Verbesserung der apps bereitstellen. Application Insights können mit einer Azure App Service-Ressource ohne Änderungen am Code hinzugefügt werden.
 
 1. Öffnen der [Azure-Portal](https://portal.azure.com), und navigieren Sie zu der *Mywebapp\<Unique_number\>*  App Service.
 1. Von der **Übersicht** Registerkarte, klicken Sie auf die **Application Insights** Kachel.
@@ -77,7 +78,7 @@ Da die app verwendet wird, sammelt Daten. Wählen Sie **aktualisieren** , die au
 
 ![Application Insights-Registerkarte "Übersicht"](./media/monitoring/app-insights-overview.png)
 
-Application Insights bietet nützliche Informationen ohne zusätzliche Konfiguration. Um den größtmöglichen aus Application Insights nutzen [Instrumentieren Ihrer app mit Application Insights SDK](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core). Wenn ordnungsgemäß konfiguriert ist, stellt der Dienst mit dem End-to-End-Überwachung auf den Webserver und Browser, einschließlich der clientseitigen Leistung. Weitere Informationen finden Sie unter den [Application Insights-Dokumentation](https://docs.microsoft.com/azure/application-insights/app-insights-overview).
+Application Insights bietet nützliche Informationen ohne zusätzliche Konfiguration. Um den größtmöglichen aus Application Insights nutzen [Instrumentieren Ihrer app mit Application Insights SDK](/azure/application-insights/app-insights-asp-net-core). Wenn ordnungsgemäß konfiguriert ist, stellt der Dienst mit dem End-to-End-Überwachung auf den Webserver und Browser, einschließlich der clientseitigen Leistung. Weitere Informationen finden Sie unter den [Application Insights-Dokumentation](/azure/application-insights/app-insights-overview).
 
 ## <a name="logging"></a>Protokollierung
 
@@ -93,7 +94,7 @@ Web-Server und app-Protokolle werden standardmäßig in Azure App Service deakti
 1. Geben Sie die **Beibehaltungsdauer** in Tagen. Beispiel: 30.
 1. Klicken Sie auf **Speichern**.
 
-ASP.NET Core und Web Server (App Service)-Protokolle werden für die Web-app generiert. Sie können heruntergeladen werden, mithilfe der FTP-/FTPS-Informationen angezeigt. Das Kennwort ist identisch mit den Anmeldeinformationen für die Bereitstellung erstellt, die weiter oben in diesem Handbuch. Die Protokolle möglich [Streaming direkt auf Ihren lokalen Computer mithilfe von PowerShell oder Azure-Befehlszeilenschnittstelle](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log#download). Protokolle können auch sein, [in Application Insights angezeigt](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log#how-to-view-logs-in-application-insights).
+ASP.NET Core und Web Server (App Service)-Protokolle werden für die Web-app generiert. Sie können heruntergeladen werden, mithilfe der FTP-/FTPS-Informationen angezeigt. Das Kennwort ist identisch mit den Anmeldeinformationen für die Bereitstellung erstellt, die weiter oben in diesem Handbuch. Die Protokolle möglich [Streaming direkt auf Ihren lokalen Computer mithilfe von PowerShell oder Azure-Befehlszeilenschnittstelle](/azure/app-service/web-sites-enable-diagnostic-log#download). Protokolle können auch sein, [in Application Insights angezeigt](/azure/app-service/web-sites-enable-diagnostic-log#how-to-view-logs-in-application-insights).
 
 ## <a name="log-streaming"></a>Protokollstreaming
 
@@ -104,21 +105,21 @@ App und die Web-Server-Protokolle können in Echtzeit über das Portal gestreamt
 
     ![Log-Stream-link](./media/monitoring/log-stream.png)
 
-Protokolle können auch sein, [gestreamt, die über Azure-Befehlszeilenschnittstelle oder Azure PowerShell](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log#streamlogs), einschließlich über Cloud Shell.
+Protokolle können auch sein, [gestreamt, die über Azure-Befehlszeilenschnittstelle oder Azure PowerShell](/azure/app-service/web-sites-enable-diagnostic-log#streamlogs), einschließlich über Cloud Shell.
 
 ## <a name="alerts"></a>Benachrichtigungen
 
-Azure Monitor bietet Ihnen auch [Benachrichtigungen in Echtzeit](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal) basierend auf Metriken, administrative Ereignisse und anderen Kriterien.
+Azure Monitor bietet Ihnen auch [Benachrichtigungen in Echtzeit](/azure/monitoring-and-diagnostics/insights-alerts-portal) basierend auf Metriken, administrative Ereignisse und anderen Kriterien.
 
 > *Hinweis: Derzeit Warnungen für Metriken für Web-app ist nur verfügbar in der Warnungsdienst (klassisch).*
 
-Die [Warnungen (klassisch) Dienst](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal) finden Sie in Azure Monitor oder unter dem **Überwachung** Teil der App Service-Einstellungen.
+Die [Warnungen (klassisch) Dienst](/azure/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal) finden Sie in Azure Monitor oder unter dem **Überwachung** Teil der App Service-Einstellungen.
 
 ![Link "projektwarnungen (klassisch)"](./media/monitoring/alerts.png)
 
 ## <a name="live-debugging"></a>Live-Debuggen
 
-Azure App Service möglich [Remote mit Visual Studio debuggt](https://docs.microsoft.com/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio#remotedebug) Wenn Protokolle nicht genügend Informationen bereitstellt. Remotedebuggen erfordert jedoch die app mit Debugsymbolen kompiliert werden. Debuggen sollte nicht in der Produktion, außer als letzten Ausweg erfolgen.
+Azure App Service möglich [Remote mit Visual Studio debuggt](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio#remotedebug) Wenn Protokolle nicht genügend Informationen bereitstellt. Remotedebuggen erfordert jedoch die app mit Debugsymbolen kompiliert werden. Debuggen sollte nicht in der Produktion, außer als letzten Ausweg erfolgen.
 
 ## <a name="conclusion"></a>Schlussbemerkung
 
@@ -134,9 +135,9 @@ In diesem Abschnitt haben Sie die folgenden Aufgaben aus:
 
 ## <a name="additional-reading"></a>Weiterführende Literatur
 
-* [Problembehandlung bei ASP.NET Core in Azure App Service](https://docs.microsoft.com/aspnet/core/host-and-deploy/azure-apps/troubleshoot)
-* [Referenz zu häufigen Fehlern bei Azure App Service und IIS mit ASP.NET Core](https://docs.microsoft.com/aspnet/core/host-and-deploy/azure-iis-errors-reference)
-* [Überwachen der Leistung von Azure-Web-app mit Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps)
-* [Aktivieren der Diagnoseprotokollierung für Apps in Azure App Service](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log)
-* [Problembehandlung in einer Web-App in Azure App Service mithilfe von Visual Studio](https://docs.microsoft.com/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio)
-* [Erstellen von klassischen metrikwarnungen in Azure Monitor für Azure-Dienste – Azure-Portal](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal)
+* <xref:host-and-deploy/azure-apps/troubleshoot>
+* <xref:host-and-deploy/azure-iis-errors-reference>
+* [Überwachen der Leistung von Azure-Web-app mit Application Insights](/azure/application-insights/app-insights-azure-web-apps)
+* [Aktivieren der Diagnoseprotokollierung für Apps in Azure App Service](/azure/app-service/web-sites-enable-diagnostic-log)
+* [Problembehandlung in einer Web-App in Azure App Service mithilfe von Visual Studio](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio)
+* [Erstellen von klassischen metrikwarnungen in Azure Monitor für Azure-Dienste – Azure-Portal](/azure/monitoring-and-diagnostics/insights-alerts-portal)

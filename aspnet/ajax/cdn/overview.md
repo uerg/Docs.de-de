@@ -759,7 +759,7 @@ Die folgenden Versionen von [Globalize](https://github.com/jquery/globalize "Glo
 
 ### <a name="respond-releases-on-the-cdn"></a>Reagieren Sie Versionen für das CDN
 
-Die folgenden Versionen von [ https://github.com/scottjehl/Respond ] (https://github.com/scottjehl/Respond " https://github.com/scottjehl/Respond ") reagieren auf das CDN gehostet werden:
+Die folgenden Versionen von [https://github.com/scottjehl/Respond](https://github.com/scottjehl/Respond "https://github.com/scottjehl/Respond") reagieren auf das CDN gehostet werden:
 
 #### <a name="respond-version-142"></a>Version 1.4.2 reagieren
 

@@ -3,14 +3,15 @@ title: Benutzerdefinierte Speicheranbieter für ASP.NET Core Identity
 author: ardalis
 description: Erfahren Sie, wie Sie benutzerdefinierte Speicheranbieter für ASP.NET Core Identity zu konfigurieren.
 ms.author: riande
-ms.date: 09/17/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: e206cf584d92a17d61676d71abc6fb577ae63453
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: b10731261ca0c748548fcba94a229ba055d46eb5
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477617"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090835"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Benutzerdefinierte Speicheranbieter für ASP.NET Core Identity
 
@@ -24,7 +25,7 @@ ASP.NET Core Identity handelt es sich um ein erweiterbares System können Sie zu
 
 Standardmäßig speichert die ASP.NET Core Identity-System Benutzerinformationen in einer SQL Server-Datenbank mit Entity Framework Core. Bei vielen apps können eignet sich dieser Ansatz gut. Möglicherweise bevorzugen Sie jedoch einen anderen persistenzmechanismus oder Datenschema verwenden. Zum Beispiel:
 
-* Verwenden Sie [Azure Table Storage](https://docs.microsoft.com/azure/storage/) oder einem anderen Datenspeicher.
+* Verwenden Sie [Azure Table Storage](/azure/storage/) oder einem anderen Datenspeicher.
 * Datenbanktabellen haben eine andere Struktur. 
 * Möglicherweise möchten Sie verwenden Sie einen Ansatz für unterschiedliche Daten, z. B. [Dapper](https://github.com/StackExchange/Dapper). 
 
@@ -146,27 +147,27 @@ In der `UserStore` -Klasse, verwenden Sie die Data Access-Klassen, die Sie erste
 
 ### <a name="interfaces-to-implement-when-customizing-user-store"></a>Schnittstellen zu implementieren, wenn der Speicher des Benutzers anpassen
 
-- **IUserStore**  
+* **IUserStore**  
  Die ["iuserstore"&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserstore-1) Schnittstelle ist die einzige Schnittstelle müssen Sie in den Speicher des Benutzers implementieren. Definiert Methoden zum Erstellen, aktualisieren, löschen und Abrufen von Benutzern.
-- **IUserClaimStore**  
+* **IUserClaimStore**  
  Die [IUserClaimStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserclaimstore-1) Schnittstelle definiert die Methoden, die Sie zum Aktivieren von benutzeransprüchen implementieren. Sie enthält Methoden zum Hinzufügen, entfernen und Abrufen von Ansprüchen des Benutzers.
-- **IUserLoginStore**  
+* **IUserLoginStore**  
  Die [IUserLoginStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserloginstore-1) definiert die Methoden, die Sie implementieren, um externe Authentifizierungsanbieter zu aktivieren. Sie enthält Methoden zum Hinzufügen, entfernen und Abrufen von benutzeranmeldungen und eine Methode zum Abrufen von einem Benutzer basierend auf den Anmeldeinformationen.
-- **IUserRoleStore**  
+* **IUserRoleStore**  
  Die [IUserRoleStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserrolestore-1) Schnittstelle definiert die Methoden, die Sie implementieren, um einen Benutzer einer Rolle zuzuordnen. Sie enthält Methoden zum Hinzufügen, entfernen, und rufen Sie die Rollen eines Benutzers und eine Methode zum Überprüfen, ob ein Benutzer eine Rolle zugewiesen ist.
-- **IUserPasswordStore**  
+* **IUserPasswordStore**  
  Die ["iuserpasswordstore"&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserpasswordstore-1) Schnittstelle definiert die Methoden, die Sie implementieren, um verschlüsselte Kennwörter beibehalten werden. Sie enthält Methoden zum Abrufen und festlegen, das verschlüsselte Kennwort, und eine Methode, die angibt, ob der Benutzer ein Kennwort festgelegt hat.
-- **IUserSecurityStampStore**  
+* **IUserSecurityStampStore**  
  Die [IUserSecurityStampStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iusersecuritystampstore-1) Schnittstelle definiert die Methoden, die Sie implementieren, um Sie verwenden einen sicherheitsstempel für den, der angibt, ob die Kontoinformationen des Benutzers geändert wurde. Dieser Zeitstempel wird aktualisiert, wenn ein Benutzer ändert das Kennwort ein, oder hinzufügt oder entfernt Anmeldungen. Sie enthält Methoden zum Abrufen und Festlegen des sicherheitsstempels.
-- **IUserTwoFactorStore**  
+* **IUserTwoFactorStore**  
  Die [IUserTwoFactorStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactorstore-1) Schnittstelle definiert die Methoden, die Sie implementieren, um die zweistufige Authentifizierung unterstützen. Sie enthält Methoden zum Abrufen und festlegen, ob die zweistufige Authentifizierung für einen Benutzer aktiviert ist.
-- **IUserPhoneNumberStore**  
+* **IUserPhoneNumberStore**  
  Die [IUserPhoneNumberStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserphonenumberstore-1) Schnittstelle definiert die Methoden, die Sie implementieren, um die Telefonnummern des Benutzers zu speichern. Sie enthält Methoden zum Abrufen und festlegen, die Telefonnummer und gibt an, ob die Telefonnummer bestätigt ist.
-- **IUserEmailStore**  
+* **IUserEmailStore**  
  Die [IUserEmailStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuseremailstore-1) Schnittstelle definiert die Methoden, die Sie implementieren, um die Benutzer-e-Mail-Adressen zu speichern. Sie enthält Methoden zum Abrufen und festlegen, die e-Mail-Adresse und gibt an, ob die e-Mail bestätigt ist.
-- **IUserLockoutStore**  
+* **IUserLockoutStore**  
  Die [IUserLockoutStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserlockoutstore-1) Schnittstelle definiert die Methoden, die Sie implementieren, um Informationen zum Sperren ein Konto zu speichern. Sie enthält Methoden zum Nachverfolgen von zugriffsversuchsfehlern und Sperrungen.
-- **IQueryableUserStore**  
+* **IQueryableUserStore**  
  Die [IQueryableUserStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iqueryableuserstore-1) Schnittstelle definiert die Elemente, die Sie implementieren, um einen abfragbaren benutzerpeicher.
 
 Sie implementieren nur die Schnittstellen, die erforderlich sind, in Ihrer app. Zum Beispiel:
@@ -199,9 +200,9 @@ Im folgenden finden eine Rolle-Beispielklasse:
 
 Sie erstellen eine `RoleStore` -Klasse, die Methoden für alle Vorgänge für Rollen bereitstellt. Diese Klasse ist, entspricht die [RoleStore&lt;TRole&gt; ](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.rolestore-1) Klasse. In der `RoleStore` -Klasse, die Sie implementieren die `IRoleStore<TRole>` und optional die `IQueryableRoleStore<TRole>` Schnittstelle.
 
-- **IRoleStore&lt;TRole&gt;**  
+* **IRoleStore&lt;TRole&gt;**  
  Die [IRoleStore&lt;TRole&gt; ](/dotnet/api/microsoft.aspnetcore.identity.irolestore-1) Schnittstelle definiert die Methoden, die in der Rolle Store-Klasse implementieren. Sie enthält Methoden zum Erstellen, aktualisieren, löschen und Rollen werden abgerufen.
-- **RoleStore&lt;TRole&gt;**  
+* **RoleStore&lt;TRole&gt;**  
  Zum Anpassen `RoleStore`, erstellen Sie eine Klasse, die implementiert die `IRoleStore<TRole>` Schnittstelle. 
 
 ## <a name="reconfigure-app-to-use-a-new-storage-provider"></a>Konfigurieren der app, um einen neuen Speicheranbieter verwenden
@@ -237,5 +238,5 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="references"></a>Verweise
 
-- [Benutzerdefinierte Speicheranbieter für ASP.NET 4.x-Identität](/aspnet/identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity)
-- [ASP.NET Core Identity](https://github.com/aspnet/identity) -dieses Repository enthält Links zu Community-Speicheranbieter verwaltet.
+* [Benutzerdefinierte Speicheranbieter für ASP.NET 4.x-Identität](/aspnet/identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity)
+* [ASP.NET Core Identity](https://github.com/aspnet/identity) &ndash; dieses Repository enthält Links zu Community-Speicheranbieter verwaltet.

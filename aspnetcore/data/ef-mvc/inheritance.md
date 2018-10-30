@@ -3,14 +3,15 @@ title: 'ASP.NET Core MVC mit EF Core: Vererbung (9 von 10)'
 author: rick-anderson
 description: In diesem Tutorial erfahren Sie, wie Sie die Vererbung mithilfe von Entity Framework Core in einer ASP.NET Core-App implementieren.
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: a71954297f44f936893a7f1e9d3b0685f81378b9
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 60417040dd296311e1aecff8f224aadf8da82779
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38126703"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090757"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---inheritance---9-of-10"></a>ASP.NET Core MVC mit EF Core: Vererbung (9 von 10)
 
@@ -142,7 +143,7 @@ Klicken Sie mit der rechten Maustaste auf die Tabelle „Person“, und klicken 
 
 ## <a name="summary"></a>Zusammenfassung
 
-Sie haben die „Tabelle pro Hierarchie“-Vererbung für die Klassen `Person`, `Student` und `Instructor` implementiert. Weitere Informationen zur Vererbung in Entity Framework Core finden Sie unter [Vererbung](https://docs.microsoft.com/ef/core/modeling/inheritance). Im nächsten Tutorial erfahren Sie, wie Sie eine Vielzahl von Entity Framework-Szenarios auf fortgeschrittenem Niveau verarbeiten können.
+Sie haben die „Tabelle pro Hierarchie“-Vererbung für die Klassen `Person`, `Student` und `Instructor` implementiert. Weitere Informationen zur Vererbung in Entity Framework Core finden Sie unter [Vererbung](/ef/core/modeling/inheritance). Im nächsten Tutorial erfahren Sie, wie Sie eine Vielzahl von Entity Framework-Szenarios auf fortgeschrittenem Niveau verarbeiten können.
 
 ::: moniker-end
 

@@ -3,14 +3,15 @@ title: 'Razor-Seiten mit EF Core in ASP.NET Core: Datenmodell (5 von 8)'
 author: rick-anderson
 description: In diesem Tutorial fügen Sie weitere Entitäten und Beziehungen hinzu und passen das Datenmodell an, indem Sie Regeln zur Formatierung, Validierung und Zuordnung angeben.
 ms.author: riande
-ms.date: 6/31/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 88d727b0545f1dacb56ea889e45b02f947867b19
-ms.sourcegitcommit: 6425baa92cec4537368705f8d27f3d0e958e43cd
+ms.openlocfilehash: 9a0d5a8e722487ccf7e08aadb39f838a0963451d
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220598"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090967"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Razor-Seiten mit EF Core in ASP.NET Core: Datenmodell (5 von 8)
 
@@ -121,6 +122,7 @@ Durch das Hinzufügen des `Column`-Attributs wird das Modell geändert, das `Sch
 ```SQL
 SqlException: Invalid column name 'FirstName'.
 ```
+
 So aktualisieren Sie die Datenbank:
 
 * Erstellen Sie das Projekt.
@@ -157,7 +159,7 @@ Die Warnung wird generiert, weil die Namensfelder nun auf 50 Zeichen beschränkt
 
 ![Tabelle „Students“ im SSOX nach der Migration](complex-data-model/_static/ssox-after-migration.png)
 
-Bevor die Migration angewendet wurde, wiesen die Namensspalten den Typ [nvarchar(MAX)](https://docs.microsoft.com/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql) auf. Die Namensspalten weisen nun den Typ `nvarchar(50)` auf. Der Spaltenname wurde von `FirstMidName` in `FirstName` geändert.
+Bevor die Migration angewendet wurde, wiesen die Namensspalten den Typ [nvarchar(MAX)](/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql) auf. Die Namensspalten weisen nun den Typ `nvarchar(50)` auf. Der Spaltenname wurde von `FirstMidName` in `FirstName` geändert.
 
 > [!Note]
 > Im folgenden Abschnitt werden beim Erstellen der App in einigen Phasen Compilerfehler generiert. Diese Anweisungen präzisieren, wann die App erstellt werden soll.
@@ -295,7 +297,7 @@ Die `Course`-Entität besitzt die Fremdschlüsseleigenschaft `DepartmentID`. `De
 
 Entity Framework Core erfordert keine Fremdschlüsseleigenschaft für ein Datenmodell, wenn das Modell über eine Navigationseigenschaft für eine verknüpfte Entität verfügt.
 
-Entity Framework Core erstellt an den erforderlichen Stellen automatisch Fremdschlüssel in der Datenbank. Entity Framework Core erstellt [Schatteneigenschaften](https://docs.microsoft.com/ef/core/modeling/shadow-properties) für automatisch erstellte Fremdschlüssel. Durch Fremdschlüssel im Datenmodell können Updates einfacher und effizienter durchgeführt werden. Betrachten Sie beispielsweise ein Modell, bei dem die Fremdschlüsseleigenschaft `DepartmentID` *nicht* enthalten ist. Folgendes wird durchgeführt, wenn eine Course-Entität zum Bearbeiten abgerufen wird:
+Entity Framework Core erstellt an den erforderlichen Stellen automatisch Fremdschlüssel in der Datenbank. Entity Framework Core erstellt [Schatteneigenschaften](/ef/core/modeling/shadow-properties) für automatisch erstellte Fremdschlüssel. Durch Fremdschlüssel im Datenmodell können Updates einfacher und effizienter durchgeführt werden. Betrachten Sie beispielsweise ein Modell, bei dem die Fremdschlüsseleigenschaft `DepartmentID` *nicht* enthalten ist. Folgendes wird durchgeführt, wenn eine Course-Entität zum Bearbeiten abgerufen wird:
 
 * Die `Department`-Entität ist NULL, wenn diese nicht explizit geladen wird.
 * Die `Department`-Entität muss abgerufen werden, um die Course-Entität zu aktualisieren.
@@ -314,7 +316,7 @@ public int CourseID { get; set; }
 
 Standardmäßig geht Entity Framework Core davon aus, dass Primärschlüsselwerte von der Datenbank generiert werden. Bei von der Datenbank generierten Primärschlüsselwerten handelt es sich in der Regel um die beste Herangehensweise. Bei `Course`-Entitäten wird der Primärschlüssel vom Benutzer angegeben, z.B. eine Kursnummer wie eine 1000er-Reihe für den Fachbereich Mathematik, eine 2000er-Reihe für den Fachbereich Englisch usw.
 
-Das `DatabaseGenerated`-Attribut kann ebenfalls zum Generieren von Standardwerten verwendet werden. Die Datenbank kann beispielsweise automatisch ein Datenfeld generieren, um das Datum aufzuzeichnen, an dem eine Zeile erstellt oder aktualisiert wurde. Weitere Informationen finden Sie unter [Generated Properties (Generierte Eigenschaften)](https://docs.microsoft.com/ef/core/modeling/generated-properties).
+Das `DatabaseGenerated`-Attribut kann ebenfalls zum Generieren von Standardwerten verwendet werden. Die Datenbank kann beispielsweise automatisch ein Datenfeld generieren, um das Datum aufzuzeichnen, an dem eine Zeile erstellt oder aktualisiert wurde. Weitere Informationen finden Sie unter [Generated Properties (Generierte Eigenschaften)](/ef/core/modeling/generated-properties).
 
 ### <a name="foreign-key-and-navigation-properties"></a>Fremdschlüssel- und Navigationseigenschaften
 
@@ -432,7 +434,7 @@ public Student Student { get; set; }
 
 Es besteht eine m:n-Beziehung zwischen der `Student`- und der `Course`-Entität. Die `Enrollment`-Entität fungiert in der Datenbank als m:n-Jointabelle *mit Nutzlast*. „Mit Nutzlast“ bedeutet, dass die Tabelle `Enrollment` außer den Fremdschlüsseln für die verknüpften Tabellen (in diesem Fall der Primärschlüssel und `Grade`) zusätzliche Daten enthält.
 
-Die folgende Abbildung stellt dar, wie diese Beziehungen in einem Entitätsdiagramm aussehen. (Dieses Diagramm wurde mithilfe von Entity Framework Power Tools für Entity Framework 6.x generiert. Das Erstellen des Diagramms ist nicht Teil des Tutorials.)
+Die folgende Abbildung stellt dar, wie diese Beziehungen in einem Entitätsdiagramm aussehen. (Diese Abbildung wurde mithilfe von [EF Power Tools](https://marketplace.visualstudio.com/items?itemName=ErikEJ.EntityFramework6PowerToolsCommunityEdition) für EF 6.x generiert. Das Erstellen des Diagramms ist nicht Teil des Tutorials.)
 
 ![m:n-Beziehung zwischen „Student“ und „Course“](complex-data-model/_static/student-course.png)
 
@@ -478,7 +480,7 @@ Durch den zusammengesetzten Schlüssel wird sichergestellt, dass:
 Die Joinentität `Enrollment` definiert ihren eigenen Primärschlüssel, wodurch Duplikate dieser Art möglich sind. So verhindern Sie solche Duplikate:
 
 * Fügen Sie einen eindeutigen Index zu den Feldern für Fremdschlüssel hinzu, oder
-* konfigurieren Sie `Enrollment` mit einem zusammengesetzten Primärschlüssel, der `CourseAssignment` ähnelt. Weitere Informationen finden Sie unter [Indizes](https://docs.microsoft.com/ef/core/modeling/indexes).
+* konfigurieren Sie `Enrollment` mit einem zusammengesetzten Primärschlüssel, der `CourseAssignment` ähnelt. Weitere Informationen finden Sie unter [Indizes](/ef/core/modeling/indexes).
 
 ## <a name="update-the-db-context"></a>Aktualisieren des Datenbankkontexts
 
@@ -490,7 +492,7 @@ Durch den vorangehenden Code werden neue Entitäten hinzugefügt, und der zusamm
 
 ## <a name="fluent-api-alternative-to-attributes"></a>Fluent-API-Alternativen für Attribute
 
-Die `OnModelCreating`-Methode im vorangehenden Code verwendet die *Fluent-API* zum Konfigurieren des Verhaltens von Entity Framework Core. Die API wird als „Fluent“ bezeichnet, da sie häufig durch das Verketten mehrerer Methodenaufrufe zu einer einzigen Anweisung verwendet wird. Der [folgende Code](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration) veranschaulicht die Fluent-API beispielhaft:
+Die `OnModelCreating`-Methode im vorangehenden Code verwendet die *Fluent-API* zum Konfigurieren des Verhaltens von Entity Framework Core. Die API wird als „Fluent“ bezeichnet, da sie häufig durch das Verketten mehrerer Methodenaufrufe zu einer einzigen Anweisung verwendet wird. Der [folgende Code](/ef/core/modeling/#methods-of-configuration) veranschaulicht die Fluent-API beispielhaft:
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -516,7 +518,7 @@ Einige der in diesem Tutorial verwendeten Attribute werden für Folgendes verwen
 * Nur für die Konfiguration von Entity Framework Core (z.B. `HasKey`)
 * Für die Validierung und die Konfiguration von Entity Framework (z.B. `[StringLength(50)]`)
 
-Weitere Informationen zu Attributen und Fluent-API im Vergleich finden Sie unter [Methods of configuration (Konfigurationsmethoden)](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration).
+Weitere Informationen zu Attributen und Fluent-API im Vergleich finden Sie unter [Methods of configuration (Konfigurationsmethoden)](/ef/core/modeling/#methods-of-configuration).
 
 ## <a name="entity-diagram-showing-relationships"></a>Entitätsdiagramm mit angezeigten Beziehungen
 
@@ -574,9 +576,16 @@ The ALTER TABLE statement conflicted with the FOREIGN KEY constraint "FK_dbo.Cou
 database "ContosoUniversity", table "dbo.Department", column 'DepartmentID'.
 ```
 
-Wenn Migrationen mit vorhandenen Daten ausgeführt werden, gibt es möglicherweise Fremdschlüsseleinschränkungen, die durch die vorhandenen Daten nicht erfüllt werden. Für dieses Tutorial wird eine neue Datenbank erstellt. Es kann also nicht gegen die Fremdschlüsseleinschränkungen verstoßen werden. Anleitungen zum Beseitigen von Fremdschlüsselverstößen in der aktuellen Datenbank finden Sie unter [Aufheben von Fremdschlüsseleinschränkungen mit Legacydaten](#fk).
+## <a name="apply-the-migration"></a>Anwenden der Migration
 
-### <a name="drop-and-update-the-database"></a>Löschen und Aktualisieren der Datenbank
+Da Sie nun über eine Datenbank verfügen, müssen Sie überlegen, wie zukünftig Änderungen an dieser vorgenommen werden sollen. In diesem Tutorial werden zwei Vorgehensweisen veranschaulicht:
+
+* [Löschen und Neuerstellen der Datenbank](#drop)
+* [Anwenden der Migration auf die vorhandene Datenbank](#applyexisting). Obwohl diese Methode komplexer und zeitaufwendiger ist, ist dies in der Praxis die bevorzugte Methode für Produktionsumgebungen. **Hinweis**: Dies ist ein optionaler Abschnitt des Tutorials. Sie können diesen Abschnitt überspringen und die Schritte zum Löschen und Neuerstellen durchführen. Wenn Sie stattdessen die Schritte in diesem Abschnitt ausführen möchten, führen Sie nicht die Schritte zum Löschen und Neuerstellen aus. 
+
+<a name="drop"></a>
+
+### <a name="drop-and-re-create-the-database"></a>Löschen und Neuerstellen der Datenbank
 
 Durch den Code in der aktualisierten `DbInitializer`-Klasse werden Startwertdaten für die neuen Entitäten hinzugefügt. Löschen und aktualisieren Sie die Datenbank, um EF Core zum Erstellen einer neuen Datenbank zu zwingen:
 
@@ -620,11 +629,11 @@ Führen Sie die App aus. Durch das Ausführen der App wird die `DbInitializer.In
 
 ![CourseAssignment-Daten im SSOX](complex-data-model/_static/ssox-ci-data.png)
 
-<a name="fk"></a>
+<a name="applyexisting"></a>
 
-## <a name="fixing-foreign-key-constraints-with-legacy-data"></a>Aufheben von Fremdschlüsseleinschränkungen mit Legacydaten
+### <a name="apply-the-migration-to-the-existing-database"></a>Anwenden der Migration auf die vorhandene Datenbank
 
-Dieser Abschnitt ist optional.
+Dieser Abschnitt ist optional. Diese Schritte funktionieren nur, wenn Sie den vorherigen Abschnitt [Löschen und Neuerstellen der Datenbank](#drop) übersprungen haben.
 
 Wenn Migrationen mit vorhandenen Daten ausgeführt werden, gibt es möglicherweise Fremdschlüsseleinschränkungen, die durch die vorhandenen Daten nicht erfüllt werden. Bei Produktionsdaten müssen Schritte ausgeführt werden, um die vorhandenen Daten zu migrieren. In diesem Abschnitt ist ein Beispiel zum Beheben von Verstößen gegen die Fremdschlüsseleinschränkungen enthalten. Nehmen Sie diese Codeänderungen nicht vor, ohne zuvor eine Sicherung durchzuführen. Nehmen Sie diese Codeänderungen nicht vor, wenn Sie den vorherigen Abschnitt abgeschlossen und die Datenbank aktualisiert haben.
 
@@ -639,7 +648,7 @@ So ermöglichen Sie die `ComplexDataModel`-Migration mit vorhandenen Daten:
 * Ändern Sie den Code, um der neuen Spalte (`DepartmentID`) einen Standardnamen zuzuweisen.
 * Erstellen Sie einen Dummy-Fachbereich namens „Temp“, die als Standardfachbereich fungiert.
 
-### <a name="fix-the-foreign-key-constraints"></a>Aufheben der Fremdschlüsseleinschränkungen
+#### <a name="fix-the-foreign-key-constraints"></a>Aufheben der Fremdschlüsseleinschränkungen
 
 Aktualisieren Sie die `Up`-Methode der `ComplexDataModel`-Klasse:
 

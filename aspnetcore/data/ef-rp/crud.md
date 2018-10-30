@@ -5,12 +5,12 @@ description: In diesem Tutorial wird veranschaulicht, wie mit EF Core Erstellung
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: 25493f93daf3fe5e874ad1d06b918196cd1f074d
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 4af16bdf3928609214c1255cdd411312c8b7d3f3
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912812"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477435"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>Razor-Seiten mit EF Core in ASP.NET Core: CRUD (2 von 8)
 
@@ -24,7 +24,7 @@ Von [Tom Dykstra](https://github.com/tdykstra), [Jon P. Smith](https://twitter.c
 
 In diesem Tutorial wird der erstellte CRUD-Code (CRUD = Create, Read, Update, Delete; Erstellen, Lesen, Aktualisieren, Löschen) überprüft und angepasst.
 
-Zur Minimierung der Komplexität und damit EF Core im Fokus dieser Tutorials bleibt, wird in den Seitenmodellen EF Core-Code verwendet. Einige Entwickler verwenden eine Dienstschicht oder ein [Repositorymuster](xref:fundamentals/repository-pattern), um eine Abstraktionsschicht zwischen der Benutzeroberfläche (Razor Pages) und der Datenzugriffsschicht zu erstellen.
+Zur Minimierung der Komplexität und damit EF Core im Fokus dieser Tutorials bleibt, wird in den Seitenmodellen EF Core-Code verwendet. Einige Entwickler verwenden eine Dienstschicht oder ein Repositorymuster für die Erstellung einer Abstraktionsschicht zwischen der Benutzeroberfläche (Razor Pages) und der Datenzugriffsschicht.
 
 In diesem Tutorial werden die Razor Pages „Create“ (Erstellen), „Edit“ (Bearbeiten), „Delete“ (Löschen) und „Details“ im Ordner *Students* erläutert.
 
@@ -57,7 +57,7 @@ In einem Großteil des Codes kann [FindAsync](/dotnet/api/microsoft.entityframew
 * Sucht eine Entität mit dem Primärschlüssel (PS). Wenn eine Entität mit dem PS vom Kontext nachverfolgt wird, wird sie ohne eine Anforderung an die Datenbank zurückgegeben.
 * Ist einfach und präzise.
 * Wurde für die Suche nach einer einzelnen Entität optimiert.
-* Kann manchmal Leistungsvorteile haben, in normalen Web-Apps ist dies jedoch selten der Fall.
+* Kann manchmal Leistungsvorteile haben, für normale Web-Apps ist dies jedoch selten der Fall.
 * Verwendet implizit [FirstAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.firstasync#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_FirstAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_) anstelle von [SingleAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.singleasync#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_SingleAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_).
 
 Wenn Sie jedoch weitere Entitäten mithilfe von `Include` einschließen möchten, ist `FindAsync` jedoch nicht mehr sinnvoll. Dies bedeutet, dass Sie `FindAsync` möglicherweise abbrechen und in eine Abfrage verschieben müssen, während Ihre App weiter ausgeführt wird.

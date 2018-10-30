@@ -5,14 +5,14 @@ description: Erfahren Sie, wie Sie mit der Azure Key Vault-Konfigurationsanbiete
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/17/2018
+ms.date: 10/24/2018
 uid: security/key-vault-configuration
-ms.openlocfilehash: 474824cccdc63bb3dc3978ed68cf4c89cec12ad5
-ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
+ms.openlocfilehash: c6dc8b9c462841351b3ada72deeae727da356a6c
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49391141"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207887"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Azure Key Vault-Konfigurationsanbieter in ASP.NET Core
 
@@ -20,7 +20,7 @@ Durch [Luke Latham](https://github.com/guardrex) und [Andrew Stanton-Nurse](http
 
 In diesem Dokument wird erläutert, wie Sie mit der [Microsoft Azure Key Vault](https://azure.microsoft.com/services/key-vault/) Konfigurationsanbieter zum Laden von app-Konfigurationswerte aus Azure Key Vault-Geheimnissen. Azure Key Vault ist ein cloudbasierter Dienst, der Sie schützen Sie Kryptografieschlüssel und Geheimnisse mithilfe von apps und Diensten unterstützt. Häufige Szenarien sind die Steuerung des Zugriffs auf sensible Konfigurationsdaten und erfüllt die Anforderung für FIPS 140-2 Level 2-überprüften Hardwaresicherheitsmodulen (HSM) beim Speichern der Konfigurationsdaten. Dieses Feature ist verfügbar für apps mit ASP.NET Core 1.1 oder höher.
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([Vorgehensweise zum Herunterladen](xref:index#how-to-download-a-sample))
 
 ## <a name="package"></a>Package
 
@@ -151,7 +151,7 @@ Wenn Sie diesen Ansatz zu implementieren:
 
 Verwenden der [Secret Manager-Tool](xref:security/app-secrets) verwalten die `ClientSecret` außerhalb Ihrer Projektstruktur für die Quelle. Mit dem Geheimnis-Manager, die Sie app-Geheimnissen mit einem bestimmten Projekt verknüpfen und für mehrere Projekte freigeben.
 
-Wenn Sie eine .NET Framework-app in einer Umgebung entwickeln, die Zertifikate unterstützt, können Sie mit einem x. 509-Zertifikat in Azure Key Vault authentifizieren. Privaten Schlüssel des x. 509-Zertifikats wird vom Betriebssystem verwaltet. Weitere Informationen finden Sie unter [authentifizieren mit einem Zertifikat anstelle eines geheimen Clientschlüssels](https://docs.microsoft.com/azure/key-vault/key-vault-use-from-web-application#authenticate-with-a-certificate-instead-of-a-client-secret). Verwenden der `AddAzureKeyVault` Überladung verwenden, akzeptiert eine `X509Certificate2` (`_env` im folgenden Beispiel:
+Wenn Sie eine .NET Framework-app in einer Umgebung entwickeln, die Zertifikate unterstützt, können Sie mit einem x. 509-Zertifikat in Azure Key Vault authentifizieren. Privaten Schlüssel des x. 509-Zertifikats wird vom Betriebssystem verwaltet. Weitere Informationen finden Sie unter [authentifizieren mit einem Zertifikat anstelle eines geheimen Clientschlüssels](/azure/key-vault/key-vault-use-from-web-application#authenticate-with-a-certificate-instead-of-a-client-secret). Verwenden der `AddAzureKeyVault` Überladung verwenden, akzeptiert eine `X509Certificate2` (`_env` im folgenden Beispiel:
 
 ```csharp
 var builtConfig = config.Build();

@@ -5,18 +5,18 @@ description: Erfahren Sie, wie Ansichtskomponenten in ASP.NET Core verwendet wer
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/views/view-components
-ms.openlocfilehash: cf2cfcdb07271503b844e31940e90b7376db0a6f
-ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
+ms.openlocfilehash: 52bfb9e3983eb49aabdef238d53c6fdd2950c075
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47211064"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207601"
 ---
 # <a name="view-components-in-aspnet-core"></a>Ansichtskomponenten in ASP.NET Core
 
 Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([Vorgehensweise zum Herunterladen](xref:index#how-to-download-a-sample))
 
 ## <a name="view-components"></a>Ansichtskomponenten
 
@@ -75,20 +75,20 @@ Eine Ansichtskomponente definiert Ihre Logik in einer `InvokeAsync`-Methode, die
 
 Die Runtime sucht in den folgenden Pfaden nach der Ansicht:
 
-* /Pages/Components/\<ansichtskomponentenname>/\<ansichtsname>
-* /Views/\<controllername>/Components/\<ansichtskomponentenname>/\<ansichtsname>
-* /Views/Shared/Components/\<ansichtskomponentenname>/\<ansichtsname>
+* /Pages/Components/{Ansichtskomponentenname}/{Ansichtsname}
+* /Views/{Controllername} /Components/{Ansichtskomponentenname}/{Ansichtsname}
+* /Views/Shared/Components/{Ansichtskomponentenname}/{Ansichtsname}
 
 Der Standardansichtsname für die Ansichtskomponente ist *Default*. Dies bedeutet, dass Ihre Ansichtsdatei normalerweise *Default.cshtml* heißt. Sie können einen anderen Ansichtsnamen angeben, wenn Sie die Ansichtskomponentenergebnisse erstellen oder die `View`-Methode aufrufen.
 
-Es wird empfohlen, dass Sie die Ansichtsdatei *Default.cshtml* nennen und den Pfad *View/Shared/Components/\<ansichtskomponentenname>/\<ansichtsname>* verwenden. Die Ansichtskomponente `PriorityList`, die in diesem Beispiel verwendet wird, verwendet *Views/Shared/Components/PriorityList/Default.cshtml* für die Ansichtskomponentenansicht.
+Es wird empfohlen, dass Sie die Ansichtsdatei *Default.cshtml* nennen und den Pfad *View/Shared/Components/{Ansichtskomponentenname}/{Ansichtsname}* verwenden. Die Ansichtskomponente `PriorityList`, die in diesem Beispiel verwendet wird, verwendet *Views/Shared/Components/PriorityList/Default.cshtml* für die Ansichtskomponentenansicht.
 
 ## <a name="invoking-a-view-component"></a>Aufrufen einer Ansichtskomponente
 
 Rufen Sie Folgendes in der Ansicht auf, wenn Sie die Ansichtskomponente verwenden möchten:
 
 ```cshtml
-@Component.InvokeAsync("Name of view component", <anonymous type containing parameters>)
+@Component.InvokeAsync("Name of view component", {Anonymous Type Containing Parameters})
 ```
 
 Die Parameter werden an die `InvokeAsync`-Methode übergeben. Die Ansichtskomponente `PriorityList`, die im Artikel entwickelt wurde, wird von der Ansichtsdatei *Views/Todo/Index.cshtml* aufgerufen. Im folgenden Code wird die `InvokeAsync`-Methode mit zwei Parametern aufgerufen:

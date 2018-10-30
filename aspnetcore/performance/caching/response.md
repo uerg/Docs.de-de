@@ -5,12 +5,12 @@ description: Erfahren Sie, wie Sie die Zwischenspeicherung von Antworten verwend
 ms.author: riande
 ms.date: 09/20/2017
 uid: performance/caching/response
-ms.openlocfilehash: 4bf61502738d70760679ec98c8f2f303eca9d504
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: bbf5b649bac9d31aa6d0ecdc3828648677b05716
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477488"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090692"
 ---
 # <a name="response-caching-in-aspnet-core"></a>Zwischenspeichern von Antworten in ASP.NET Core
 
@@ -68,7 +68,7 @@ Weitere Informationen finden Sie unter [in-Memory-Cache](xref:performance/cachin
 
 Verwenden Sie einen verteilten Cache zum Speichern von Daten im Arbeitsspeicher, wenn die app in einer Cloud oder Server-Farm gehostet wird. Der Cache wird auf allen Servern gemeinsam genutzt, die Anforderungen verarbeiten. Ein Client kann eine Anforderung übermitteln, die von einem beliebigen Server in der Gruppe verarbeitet wird, wenn zwischengespeicherte Daten für den Client verfügbar sind. ASP.NET Core bietet SQL Server und verteilt Redis-Caches.
 
-Weitere Informationen finden Sie unter [Work with a Distributed Cache (Arbeiten mit einem verteilten Cache)](xref:performance/caching/distributed).
+Weitere Informationen finden Sie unter <xref:performance/caching/distributed>.
 
 ### <a name="cache-tag-helper"></a>Cache-Taghilfsprogramm
 
@@ -230,9 +230,9 @@ Cache-Control: public,max-age=60
 
 * [Das Speichern von Antworten in Caches](https://tools.ietf.org/html/rfc7234#section-3)
 * [Cache-Control](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
-* [Zwischenspeichern in Speicher](xref:performance/caching/memory)
-* [Arbeiten mit einem verteilten Cache](xref:performance/caching/distributed)
-* [Erkennen von Änderungen mit Änderungstoken](xref:fundamentals/change-tokens)
-* [Antworten zwischenspeichernde Middleware](xref:performance/caching/middleware)
-* [Cache-Taghilfsprogramm](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Taghilfsprogramm für verteilten Cache](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* <xref:performance/caching/memory>
+* <xref:performance/caching/distributed>
+* <xref:fundamentals/change-tokens>
+* <xref:performance/caching/middleware>
+* <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>
+* <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>

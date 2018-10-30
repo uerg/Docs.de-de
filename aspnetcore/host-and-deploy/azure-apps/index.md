@@ -4,14 +4,14 @@ author: guardrex
 description: Dieser Artikel enthält Links zu Azure-Host- und Bereitstellungsressourcen.
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/29/2018
+ms.date: 10/24/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 315261c4d20970fc399cc2a879dd452bdf3be93f
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: b238630d6f762e2b9fad1060f8150185bcf413fe
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326055"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090227"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Bereitstellen von ASP.NET Core-Apps in Azure App Service
 
@@ -29,10 +29,10 @@ Verwenden Sie die Befehlszeile, um ASP.NET Core-Web-Apps zu erstellen und in Azu
 
 Die folgenden Artikel sind in der ASP.NET Core-Dokumentation verfügbar:
 
-[Veröffentlichen in Azure mit Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs)  
+<xref:tutorials/publish-to-azure-webapp-using-vs>  
 Erfahren Sie, wie eine ASP.NET Core-App in Azure App Service mit Visual Studio veröffentlicht wird.
 
-[Continuous Deployment in Azure mit Visual Studio und Git](xref:host-and-deploy/azure-apps/azure-continuous-deployment)  
+<xref:host-and-deploy/azure-apps/azure-continuous-deployment>  
 Erfahren Sie, wie Sie mit Visual Studio eine ASP.NET Core-Web-App erstellen und sie unter Verwendung von Git für Continuous Deployment in Azure App Service bereitstellen.
 
 [Erstellen Sie Ihre erste Pipeline mit Azure Pipelines](/azure/devops/pipelines/get-started-yaml)  
@@ -45,13 +45,13 @@ Entdecken Sie die Einschränkungen der Azure App Service-Laufzeitausführung, di
 
 ## <a name="application-configuration"></a>Anwendungskonfiguration
 
-In ASP.NET Core 2.0 und höher umfassen die folgenden NuGet-Pakete automatische Protokollierungsfeatures für Apps, die für Azure App Service bereitgestellt werden.
+Die folgenden NuGet-Pakete bieten automatische Protokollierungsfeatures für Apps, die für Azure App Service bereitgestellt werden:
 
 * [Microsoft.AspNetCore.AzureAppServices.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServices.HostingStartup/) verwendet [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration), um die ASP.NET Core-Lightup-Integration mit Azure App Service bereitzustellen. Die hinzugefügten Protokollierungsfeatures werden vom `Microsoft.AspNetCore.AzureAppServicesIntegration`-Paket bereitgestellt.
 * [Microsoft.AspNetCore.AzureAppServicesIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServicesIntegration/) führt [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) aus, um Anbieter für die Azure App Service-Diagnoseprotokollierung zum Paket `Microsoft.Extensions.Logging.AzureAppServices` hinzuzufügen.
 * [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices/) stellt Protokollierungsimplementierungen bereit, um die Azure App Service-Features für Diagnoseprotokolle und Protokollstreaming zu unterstützen.
 
-Wenn Sie eine Anwendung für .NET Core erstellen und einen Verweis auf das Metapaket [Microsoft.AspNetCore.All](xref:fundamentals/metapackage) herstellen, sind diese Pakete bereits in der Anwendung enthalten. Das neuere Metapaket [Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) ist nicht in den Paketen enthalten. Wenn Sie eine Anwendung für .NET Framework erstellen oder einen Verweis auf das `Microsoft.AspNetCore.App`-Metapaket herstellen, verweisen Sie auch auf die einzelnen Protokollierungspakete.
+Wenn Sie eine Anwendung für .NET Core erstellen und einen Verweis auf das Metapaket [Microsoft.AspNetCore.All](xref:fundamentals/metapackage) herstellen, sind die vorherigen Pakete in der Anwendung enthalten. Das Metapaket [Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) ist nicht in den Paketen enthalten. Wenn Sie eine Anwendung für .NET Framework erstellen oder einen Verweis auf das `Microsoft.AspNetCore.App`-Metapaket herstellen, verweisen Sie auch auf die einzelnen Protokollierungspakete.
 
 ::: moniker-end
 
@@ -79,13 +79,13 @@ Erfahren Sie, wie Sie Kontingente und Metrik für Apps und App Service-Pläne pr
 [Aktivieren der Diagnoseprotokollierung für Apps in Azure App Service](/azure/app-service/web-sites-enable-diagnostic-log)  
 Erfahren Sie, wie Sie die Diagnosesprotokollierung für HTTP-Statuscodes, fehlgeschlagene Anforderungen und Webserveraktivitäten aktivieren und auf die Protokolle zugreifen.
 
-[Einführung in die Fehlerbehandlung in ASP.NET Core](xref:fundamentals/error-handling)  
+<xref:fundamentals/error-handling>  
 Lernen Sie gängige Methoden zur Fehlerbehandlung in ASP.NET Core-Apps kennen.
 
-[Problembehandlung bei ASP.NET Core in Azure App Service](xref:host-and-deploy/azure-apps/troubleshoot)  
+<xref:host-and-deploy/azure-apps/troubleshoot>  
 Erfahren Sie, wie Sie Probleme mit Azure App Service-Bereitstellungen mit ASP.NET Core-Apps diagnostizieren können.
 
-[Referenz zu häufigen Fehlern bei Azure App Service und IIS mit ASP.NET Core](xref:host-and-deploy/azure-iis-errors-reference)  
+<xref:host-and-deploy/azure-iis-errors-reference>  
 Sehen Sie sich häufig auftretende Fehler und entsprechende Hinweise zur Fehlerbehebung bei der Bereitstellungskonfiguration für von Azure App Service/IIS gehosteten Apps an.
 
 ## <a name="data-protection-key-ring-and-deployment-slots"></a>Data Protection-Schlüsselbund und -Bereitstellungsslots
@@ -99,7 +99,7 @@ Wenn Sie zwischen Bereitstellungsslots wechseln, können Systeme, die Data Prote
 * SQL-Speicher
 * Redis Cache
 
-Weitere Informationen finden Sie unter [Schlüsselspeicheranbieter](xref:security/data-protection/implementation/key-storage-providers).
+Weitere Informationen finden Sie unter <xref:security/data-protection/implementation/key-storage-providers>.
 
 ## <a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>Bereitstellen der ASP.NET Core Vorschauversion für Azure App Service
 

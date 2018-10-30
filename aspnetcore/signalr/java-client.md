@@ -7,12 +7,12 @@ ms.author: mimengis
 ms.custom: mvc
 ms.date: 10/18/2018
 uid: signalr/java-client
-ms.openlocfilehash: 77ea338f08b1986e69ba8ef1578c4cfe01a310de
-ms.sourcegitcommit: ce6b6792c650708e92cdea051a5d166c0708c7c0
+ms.openlocfilehash: 646118c78d5d38b44b89d399cd06a5332a11d064
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652305"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207770"
 ---
 # <a name="aspnet-core-signalr-java-client"></a>ASP.NET Core SignalR-Java-client
 
@@ -22,7 +22,7 @@ Die Java-Clients kann Verbindungen mit einem ASP.NET Core SignalR-Server aus Jav
 
 In diesem Artikel erwähnten Beispiel Java-Konsolenanwendung verwendet die SignalR-Java-Client.
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/java-client/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/java-client/sample) ([Vorgehensweise zum Herunterladen](xref:index#how-to-download-a-sample))
 
 ## <a name="install-the-signalr-java-client-package"></a>Installieren Sie das Paket der SignalR-Java-client
 
@@ -85,7 +85,7 @@ Dies ist ein Preview Release von der Java-Client. Einige Funktionen werden nicht
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Java-API-Verweis](/java/api/com.microsoft.aspnet.signalr?view=aspnet-signalr-java)
+* [Java-API-Referenz](/java/api/com.microsoft.signalr?view=aspnet-signalr-java)
 * <xref:signalr/hubs>
 * <xref:signalr/javascript-client>
 * <xref:signalr/publish-to-azure-web-app>

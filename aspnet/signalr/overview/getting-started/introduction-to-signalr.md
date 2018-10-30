@@ -8,17 +8,17 @@ ms.date: 06/10/2014
 ms.assetid: 0fab5e35-8c1f-43d4-8635-b8aba8766a71
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: d103573fb31bb3b08d054cbf65ff906bd5d151d3
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 0b7e223b6b793d1860797157be6021ffb7f1bc12
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912799"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090292"
 ---
 <a name="introduction-to-signalr"></a>Einführung zu SignalR
 ====================
 
-Eine aktualisierte Version dieses Tutorials finden Sie [hier](/aspnet/core/tutorials/signalr) mit der neuesten Version von Visual Studio. Das neue Tutorial verwendet [ASP.NET Core](/aspnet/core/), die viele Verbesserungen bereitstellt, über die in diesem Tutorial.
+Finden Sie unter [Einführung in ASP.NET Core SignalR](/aspnet/core/signalr/introduction) für eine aktualisierte Version dieses Tutorials, die die neueste Version von Visual Studio verwendet. Das neue Tutorial verwendet [ASP.NET Core](/aspnet/core/), die viele Verbesserungen bereitstellt, über die in diesem Tutorial.
 
 durch [Patrick Fletcher](https://github.com/pfletcher)
 

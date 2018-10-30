@@ -3,14 +3,15 @@ title: 'Razor-Seiten mit EF Core in ASP.NET Core: Lesen verwandter Daten (6 von 
 author: rick-anderson
 description: In diesem Tutorial werden verwandte Daten gelesen und angezeigt. Das gilt für Daten, die Entity Framework in Navigationseigenschaften lädt.
 ms.author: riande
-ms.date: 11/05/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: e23b8bb870b329bd705fbc9548df62524303893e
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: cf8733e1e806c4be0c4b217fc45c7a338a03a3ce
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912320"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207555"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Razor-Seiten mit EF Core in ASP.NET Core: Lesen verwandter Daten (6 von 8)
 
@@ -20,7 +21,7 @@ Von [Tom Dykstra](https://github.com/tdykstra), [Jon P. Smith](https://twitter.c
 
 In diesem Tutorial werden verwandte Daten gelesen und angezeigt. Verwandte Daten sind Daten, die von EF Core in die Navigationseigenschaften geladen werden.
 
-Wenn nicht zu lösende Probleme auftreten, laden Sie die [fertige App](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) herunter, oder zeigen Sie diese an. [Anweisungen zum Download.](xref:tutorials/index#how-to-download-a-sample)
+Wenn nicht zu lösende Probleme auftreten, laden Sie die [fertige App](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) herunter, oder zeigen Sie diese an. [Anweisungen zum Download.](xref:index#how-to-download-a-sample)
 
 Die folgenden Abbildungen zeigen die abgeschlossenen Seiten für dieses Tutorial:
 
@@ -32,7 +33,7 @@ Die folgenden Abbildungen zeigen die abgeschlossenen Seiten für dieses Tutorial
 
 Es gibt mehrere Möglichkeiten, mit denen EF Core verwandte Daten in die Navigationseigenschaften einer Entität laden kann:
 
-* [Eager Loading (vorzeitiges Laden)](https://docs.microsoft.com/ef/core/querying/related-data#eager-loading). Beim Eager Loading lädt eine Abfrage für einen Entitätstyp auch verwandte Entitäten. Wenn die Entität gelesen wird, werden ihre verwandten Daten abgerufen. Dies führt normalerweise zu einer einzelnen Joinabfrage, die alle Daten abruft, die erforderlich sind. EF Core wird mehrere Abfragen für einige Typen von Eager Loading ausgeben. Die Ausgabe mehrerer Abfragen kann effizienter sein, als dies bei einigen Abfragen in EF6 der Fall war. Dort war nur eine einzelne Abfrage vorhanden. Eager Loading wird mit den `Include`- und `ThenInclude`-Methoden angegeben.
+* [Eager Loading (vorzeitiges Laden)](/ef/core/querying/related-data#eager-loading). Beim Eager Loading lädt eine Abfrage für einen Entitätstyp auch verwandte Entitäten. Wenn die Entität gelesen wird, werden ihre verwandten Daten abgerufen. Dies führt normalerweise zu einer einzelnen Joinabfrage, die alle Daten abruft, die erforderlich sind. EF Core wird mehrere Abfragen für einige Typen von Eager Loading ausgeben. Die Ausgabe mehrerer Abfragen kann effizienter sein, als dies bei einigen Abfragen in EF6 der Fall war. Dort war nur eine einzelne Abfrage vorhanden. Eager Loading wird mit den `Include`- und `ThenInclude`-Methoden angegeben.
 
   ![Beispiel für Eager Loading](read-related-data/_static/eager-loading.png)
  
@@ -47,15 +48,15 @@ Es gibt mehrere Möglichkeiten, mit denen EF Core verwandte Daten in die Navigat
 
   Hinweis: EF Core korrigiert automatisch Navigationseigenschaften für alle anderen Entitäten, die zuvor in die Kontextinstanz geladen wurden. Auch wenn die Daten für eine Navigationseigenschaft *nicht* explizit eingeschlossen sind, kann die Eigenschaft immer noch aufgefüllt werden, wenn einige oder alle verwandten Entitäten zuvor geladen wurden.
 
-* [Explizites Laden](https://docs.microsoft.com/ef/core/querying/related-data#explicit-loading). Wenn die Entität zuerst gelesen wird, werden verwandte Daten nicht abgerufen. Es muss Code geschrieben werden, um die verwandten Daten bei Bedarf abzurufen. Explizites Laden mit separaten Abfragen führt zu mehreren Abfragen, die an die Datenbank gesendet werden. Mit explizitem Laden gibt der Code die zu ladenden Navigationseigenschaften an. Verwenden Sie für explizites Laden die `Load`-Methode. Zum Beispiel:
+* [Explizites Laden](/ef/core/querying/related-data#explicit-loading). Wenn die Entität zuerst gelesen wird, werden verwandte Daten nicht abgerufen. Es muss Code geschrieben werden, um die verwandten Daten bei Bedarf abzurufen. Explizites Laden mit separaten Abfragen führt zu mehreren Abfragen, die an die Datenbank gesendet werden. Mit explizitem Laden gibt der Code die zu ladenden Navigationseigenschaften an. Verwenden Sie für explizites Laden die `Load`-Methode. Zum Beispiel:
 
   ![Beispiel für explizites Laden](read-related-data/_static/explicit-loading.png)
 
-* [Lazy Loading (verzögertes Laden)](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading). [Lazy Loading wurde in Version 2.1 zu EF Core hinzugefügt](/ef/core/querying/related-data#lazy-loading). Wenn die Entität zuerst gelesen wird, werden verwandte Daten nicht abgerufen. Wenn zum ersten Mal auf eine Navigationseigenschaft zugegriffen wird, werden die für diese Navigationseigenschaft erforderlichen Daten automatisch abgerufen. Wenn zum ersten Mal auf eine Navigationseigenschaft zugegriffen wird, wird jedes Mal eine Abfrage an die Datenbank geschickt.
+* [Lazy Loading (verzögertes Laden)](/ef/core/querying/related-data#lazy-loading). [Lazy Loading wurde in Version 2.1 zu EF Core hinzugefügt](/ef/core/querying/related-data#lazy-loading). Wenn die Entität zuerst gelesen wird, werden verwandte Daten nicht abgerufen. Wenn zum ersten Mal auf eine Navigationseigenschaft zugegriffen wird, werden die für diese Navigationseigenschaft erforderlichen Daten automatisch abgerufen. Wenn zum ersten Mal auf eine Navigationseigenschaft zugegriffen wird, wird jedes Mal eine Abfrage an die Datenbank geschickt.
 
 * Der `Select`-Operator lädt nur die erforderlichen verwandten Daten.
 
-## <a name="create-a-courses-page-that-displays-department-name"></a>Erstellen einer Kursseite, die Abteilungsnamen anzeigt
+## <a name="create-a-course-page-that-displays-department-name"></a>Erstellen einer Kursseite, die den Abteilungsnamen anzeigt
 
 Die Course-Entität enthält eine Navigationseigenschaft, welche die `Department`-Entität enthält. Die `Department`-Entität enthält die Abteilung, der der Kurs zugewiesen ist.
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/30/2018
 uid: test/integration-tests
-ms.openlocfilehash: 15186383497f8dd9a9766f8fe7cf32f70a121c8e
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: a136a362cd8973b3684f9a70bd4792d75238eab0
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477591"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207874"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Integrationstests in ASP.NET Core
 
@@ -22,7 +22,7 @@ Integrationstests stellen Sie sicher, dass der app-Komponenten auf einer Ebene o
 
 In diesem Thema wird davon ausgegangen, ein grundlegendes Verständnis der Komponententests. Wenn mit Konzepte nicht vertraut sind, finden Sie unter den [Unit Testing in .NET Core und .NET Standard](/dotnet/core/testing/) Thema und seine verknüpften Inhalt.
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples) ([Vorgehensweise zum Herunterladen](xref:index#how-to-download-a-sample))
 
 Die Beispiel-app ist eine Razor-Seiten-app und geht davon aus ein grundlegendes Verständnis der Razor-Seiten. Wenn Sie mit Razor-Seiten nicht vertraut sind, finden Sie unter den folgenden Themen:
 

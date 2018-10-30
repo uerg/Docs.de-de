@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/23/2018
 uid: mvc/controllers/testing
-ms.openlocfilehash: f036181f43d12ece89243fa3b0b0070ea84f8bc7
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 582a5ba461ee2df73b99e4f499e8152f7c6cb7cf
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010987"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477162"
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>Testen von Controllerlogik in ASP.NET Core
 
@@ -67,7 +67,7 @@ Wenn [ModelState](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionar
 
 Der zweite Test bestätigt dies, wenn der `ModelState` gültig ist:
 
-* Eine neue `BrainstormSession` wird hinzugefügt (über das [Repository](xref:fundamentals/repository-pattern)).
+* Eine neue `BrainstormSession` wird hinzugefügt (über das Repository).
 * Die Methode gibt ein `RedirectToActionResult` mit den erwarteten Eigenschaften zurück.
 
 Simulierte Aufrufe, die nicht aufgerufen werden, werden normalerweise ignoriert. Durch Aufrufen von `Verifiable` am Ende des Einrichtungsaufrufs wird jedoch eine Pseudoüberprüfung im Test ermöglicht. Dies erfolgt mit dem Aufruf von `mockRepo.Verify`. Damit schlägt der Test fehl, wenn die erwartete Methode nicht aufgerufen wurde.
@@ -185,5 +185,4 @@ Für eine gültige Sitzungs-`id` bestätigt der letzte Test Folgendes:
 * <xref:test/index>
 * <xref:test/integration-tests>
 * [Erstellen und Ausführen von Komponententests mit Visual Studio](/visualstudio/test/unit-test-your-code).
-* <xref:fundamentals/repository-pattern>
 * [Prinzip der expliziten Abhängigkeiten](https://deviq.com/explicit-dependencies-principle/)
