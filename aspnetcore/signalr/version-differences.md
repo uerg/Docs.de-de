@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.date: 09/10/2018
 uid: signalr/version-differences
-ms.openlocfilehash: 4ac7952f26500285fc1c8f9453feb3ea8b33851a
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 3cec37719b743b3c805ada77249f526278e44599
+ms.sourcegitcommit: 2ef32676c16f76282f7c23154d13affce8c8bf35
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50089827"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50234604"
 ---
 # <a name="differences-between-aspnet-signalr-and-aspnet-core-signalr"></a>Unterschiede zwischen SignalR für ASP.NET und ASP.NET Core SignalR
 
@@ -56,9 +56,9 @@ app.UseSignalR(routes =>
 });
 ```
 
-### <a name="sticky-sessions-now-required"></a>Persistente Sitzungen jetzt erforderlich.
+### <a name="sticky-sessions"></a>Persistente Sitzungen
 
-Aufgrund wie horizontale Skalierung in SignalR für ASP.NET gearbeitet haben können Clients erneut eine Verbindung herstellen und Senden von Nachrichten an einem beliebigen Server in der Farm. Aufgrund von Änderungen an das Modell mit horizontaler hochskalierung sowie Verbindungen nicht unterstützt wird dies nicht mehr unterstützt. Nachdem der Client mit dem Server verbunden ist, muss er für die Dauer der Verbindung mit dem gleichen Server interagieren.
+Das Modell mit horizontaler Skalierung für ASP.NET SignalR kann Clients erneut eine Verbindung herzustellen, und Senden von Nachrichten an einem beliebigen Server in der Farm. In ASP.NET Core SignalR muss der Client für die Dauer der Verbindung mit dem gleichen Server interagieren. Für die horizontale Skalierung mit Redis bedeutet dies, dass es sich bei persistente Sitzungen erforderlich sind. Für die Verwendung der Sendewarteschlange für horizontale Skalierung [Azure SignalR Service](/azure/azure-signalr/), persistente Sitzungen sind nicht erforderlich, da der Dienst übernimmt die Verbindungen mit Clients. 
 
 ### <a name="single-hub-per-connection"></a>Ein Hub pro Verbindung
 

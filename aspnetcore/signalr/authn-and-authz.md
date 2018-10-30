@@ -7,12 +7,12 @@ ms.author: anurse
 ms.custom: mvc
 ms.date: 06/29/2018
 uid: signalr/authn-and-authz
-ms.openlocfilehash: 31d5f753e043157caf43fa8df54e310ea0efd17b
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 7cfe90115b0710fba196693efd309f7c914f0ad4
+ms.sourcegitcommit: 2ef32676c16f76282f7c23154d13affce8c8bf35
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207939"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50234539"
 ---
 # <a name="authentication-and-authorization-in-aspnet-core-signalr"></a>Authentifizierung und Autorisierung in ASP.NET Core SignalR
 
@@ -28,11 +28,13 @@ SignalR kann verwendet werden, mit [Authentifizierung in ASP.NET Core](xref:secu
 
 In einer browserbasierten-app ermöglicht Cookie-Authentifizierung für Ihre vorhandenen Anmeldeinformationen des Benutzers automatisch an die SignalR-Verbindungen übermittelt. Wenn Sie den Browserclient zu verwenden, ist keine zusätzliche Konfiguration erforderlich. Wenn der Benutzer zu Ihrer app angemeldet ist, erbt die SignalR-Verbindung automatisch diese Authentifizierung.
 
-Cookie-Authentifizierung wird nicht empfohlen, es sei denn, der app lediglich zum Authentifizieren von Benutzern aus dem Webclient benötigt. Bei Verwendung der [.NET Client](xref:signalr/dotnet-client), `Cookies` Eigenschaft kann konfiguriert werden, der `.WithUrl` Aufruf, um ein Cookie bereitzustellen. Verwenden der Cookieauthentifizierung vom .NET-Client erfordert jedoch die app eine API zum Austauschen von Authentifizierungsdaten für ein Cookie bereitstellen.
+Cookies sind spezielle Browser wie Zugriffstoken gesendet, aber nicht-Browser-Clients senden können. Bei Verwendung der [.NET Client](xref:signalr/dotnet-client), `Cookies` Eigenschaft kann konfiguriert werden, der `.WithUrl` Aufruf, um ein Cookie bereitzustellen. Verwenden der Cookieauthentifizierung vom .NET-Client erfordert jedoch die app eine API zum Austauschen von Authentifizierungsdaten für ein Cookie bereitstellen.
 
 ### <a name="bearer-token-authentication"></a>Token-Bearer-Authentifizierung
 
-Token-Bearer-Authentifizierung wird empfohlen, wenn Clients als Browser-Clients verwenden. Bei diesem Ansatz wird dem Client ein Zugriffstoken, die der Server überprüft und zur Identifizierung des Benutzers verwendet. Die Details des Bearer-token-Authentifizierung sind über den Rahmen dieses Dokuments hinaus. Auf dem Server Bearer-token-Authentifizierung erfolgt über die [JWT-Bearer-Middleware](/dotnet/api/microsoft.extensions.dependencyinjection.jwtbearerextensions.addjwtbearer).
+Der Client kann ein Zugriffstoken für den anstatt eines Cookies bereitstellen. Der Server überprüft das Token und wird verwendet, um den Benutzer zu identifizieren. Diese Überprüfung erfolgt nur, wenn die Verbindung hergestellt wird. Während der Lebensdauer der Verbindung validieren nicht der Server automatisch, um für Widerrufen von token zu überprüfen.
+
+Auf dem Server Bearer-token-Authentifizierung erfolgt über die [JWT-Bearer-Middleware](/dotnet/api/microsoft.extensions.dependencyinjection.jwtbearerextensions.addjwtbearer).
 
 In JavaScript-Client das Token kann bereitgestellt werden, mithilfe der [AccessTokenFactory](xref:signalr/configuration#configure-bearer-authentication) Option.
 
@@ -55,6 +57,10 @@ var connection = new HubConnectionBuilder()
 Bearertoken werden in standard-Web-APIs einen HTTP-Header gesendet. SignalR ist jedoch nicht möglich, diese Header in Browsern festlegen, wenn Sie einige Transporte verwenden. Bei Verwendung von WebSockets "und" Server-Sent Ereignisse wird das Token als ein Abfragezeichenfolgen-Parameter übertragen. Um dies auf dem Server zu unterstützen, sind zusätzliche Konfigurationsschritte erforderlich:
 
 [!code-csharp[Configure Server to accept access token from Query String](authn-and-authz/sample/Startup.cs?name=snippet)]
+
+### <a name="cookies-vs-bearer-tokens"></a>Cookies im Vergleich zu Bearer-tokens 
+
+Da Cookies für Browser spezifisch sind, fügt das Senden von anderen Arten von Clients Komplexität, die im Vergleich zum Senden von Bearer-Tokens. Aus diesem Grund nicht die Cookie-Authentifizierung empfohlen, es sei denn, der app lediglich zum Authentifizieren von Benutzern aus dem Webclient benötigt. Token-Bearer-Authentifizierung wird empfohlen, wenn Clients als Browser-Clients verwenden.
 
 ### <a name="windows-authentication"></a>Windows-Authentifizierung
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: index
-ms.openlocfilehash: fcd95b88b970073f4d7eddf89729683d18be449d
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 37448b1b3d0da4e3cb34b1cd51f663b7e53ddced
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090653"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207393"
 ---
 # <a name="introduction-to-aspnet-core"></a>Einführung in ASP.NET Core
 
@@ -66,6 +66,14 @@ Das Anzielen auf .NET Core bringt mit jedem Release mehr und mehr Vorteile mit s
 * Quelle öffnen
 
 Es wird daran gearbeitet, die API-Lücke von .NET Framework zu .NET Core zu schließen. Das [Windows Compatibility Pack](/dotnet/core/porting/windows-compat-pack) stellt Tausende nur unter Windows verfügbare APIs in .NET Core zur Verfügung. Diese APIs waren in .NET Core 1.x nicht verfügbar.
+
+## <a name="how-to-download-a-sample"></a>Herunterladen eines Beispiels
+
+Viele der Artikel und Tutorials enthalten Links zu Beispielcode.
+
+1. [Laden Sie die Zip-Datei des ASP.NET Repositorys herunter](https://codeload.github.com/aspnet/Docs/zip/master).
+1. Entpacken Sie die Datei *Docs-master.zip*.
+1. Navigieren Sie mit der URL in der Beispielverknüpfung zum Beispielverzeichnis.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

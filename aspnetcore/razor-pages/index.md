@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: 7bd597acedade65f2be53f4f50a436981e576b1f
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 7fc048e427fd49e2142160615a12989fd4f40303
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326120"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207614"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Einführung in Razor Pages in ASP.NET Core
 
@@ -236,7 +236,7 @@ Die `OnPostDeleteAsync`-Methode:
 
 ::: moniker range=">= aspnetcore-2.1"
 
-## <a name="mark-page-properties-required"></a>Markieren von Eigenschaften als „Required“ (Erforderlich)
+## <a name="mark-page-properties-as-required"></a>Markieren von Eigenschaften als „Required“ (Erforderlich)
 
 Eigenschaften in einem `PageModel` können als [Required](/dotnet/api/system.componentmodel.dataannotations.requiredattribute) markiert werden:
 
