@@ -5,22 +5,22 @@ description: Informationen Sie zum Erstellen einer ASP.NET Core-app mit e-Mail-B
 ms.author: riande
 ms.date: 7/11/2018
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 3ca6d014245bb2a9bc4b1c90285f47eec7cefe84
-ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
+ms.openlocfilehash: 1fae5af24359afc991a30cd2b8e2f6927845962b
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39655471"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50244800"
 ---
+# <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Kontobestätigung und kennwortwiederherstellung in ASP.NET Core
+
 ::: moniker range="<= aspnetcore-2.0"
 
-Finden Sie unter [diese PDF-Datei](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/asp.net_repo_pdf_1-16-18.pdf) für die ASP.NET Core 1.1 und Version 2.1.
+Finden Sie unter [diese PDF-Datei](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_1-16-18.pdf) für die ASP.NET Core 1.1 und Version 2.1.
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
-
-# <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Kontobestätigung und kennwortwiederherstellung in ASP.NET Core
 
 Von [Rick Anderson](https://twitter.com/RickAndMSFT) und [Joe Audette](https://twitter.com/joeaudette)
 
@@ -32,7 +32,7 @@ Dieses Tutorial veranschaulicht das Erstellen eine ASP.NET Core-app mit e-Mail-B
 
 <!-- see C:/Dropbox/wrk/Code/SendGridConsole/Program.cs -->
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Vorraussetzungen
 
 [!INCLUDE [](~/includes/2.1-SDK.md)]
 

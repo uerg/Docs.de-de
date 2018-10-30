@@ -3,6 +3,8 @@
 ## [Vergleich zwischen .NET Core und ASP.NET](xref:fundamentals/choose-between-aspnet-and-aspnetcore)
 ## [Vergleich zwischen .NET Core und .NET Framework](/dotnet/articles/standard/choosing-core-framework-server)
 
+# [Erste Schritte](xref:getting-started)
+
 # Tutorials
 ## Web-Apps
 ### Razor Pages
