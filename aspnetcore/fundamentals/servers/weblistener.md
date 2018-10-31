@@ -4,14 +4,15 @@ author: rick-anderson
 description: Erfahren Sie mehr über WebListener, einen Webserver für ASP.NET Core unter Windows, der für die direkte Verbindung mit dem Internet ohne IIS verwendet werden kann.
 monikerRange: < aspnetcore-2.0
 ms.author: riande
-ms.date: 08/15/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: 5602c1ddbe76879587de12bcd82722c103dee03f
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 5d72672cc48243f8ee17df615e3379143ed868f6
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751462"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206441"
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>Implementierung des Webservers WebListener in ASP.NET Core
 
@@ -38,7 +39,7 @@ Unterstützte Windows-Versionen:
 
 - Windows 7 und Windows Server 2008 R2 und höher
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/weblistener/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/weblistener/sample) ([Vorgehensweise zum Herunterladen](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-weblistener"></a>Empfohlene Verwendung des WebListeners
 
@@ -160,7 +161,7 @@ Die offizielle Referenzdokumentation finden Sie unter den folgenden Links:
 
 In den folgenden Ressourcen finden Sie detaillierte Anweisungen zu verschiedenen Szenarios. Artikel, die sich auf `HttpListener` beziehen, beziehen sich auch auf `WebListener`, da beide Tools auf Http.Sys basieren.
 
-* [Vorgehensweise: Konfigurieren eines Ports mit einem SSL-Zertifikat](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-configure-a-port-with-an-ssl-certificate)
+* [Vorgehensweise: Konfigurieren eines Ports mit einem SSL-Zertifikat](/dotnet/framework/wcf/feature-details/how-to-configure-a-port-with-an-ssl-certificate)
 * [HTTPS Communication – HttpListener based Hosting and Client Certification (HTTPS-Kommunikation: HttpListener basierend auf Hosting- und Clientzertifizierung)](http://sunshaking.blogspot.com/2012/11/https-communication-httplistener-based.html) Hierbei handelt es sich um einen Blog eines Drittanbieters, der zwar schon recht alt ist, aber trotzdem nützliche Informationen enthält.
 * [How To: Walkthrough Using HttpListener or Http Server unmanaged code (C++) as an SSL Simple Server (Vorgehensweise: Exemplarische Vorgehensweise zum Verwenden von nicht verwaltetem Code (C++) für HttpListener oder Http-Server als einfacher SSL-Server)](https://blogs.msdn.microsoft.com/jpsanders/2009/09/29/how-to-walkthrough-using-httplistener-or-http-server-unmanaged-code-c-as-an-ssl-simple-server/) Hierbei handelt es sich ebenfalls um einen älteren Blog mit nützlichen Informationen.
 * [How Do I Set Up A .NET Core WebListener With SSL? (Einrichten eines .NET Core-WebListeners mit SSL)](https://blogs.msdn.microsoft.com/timomta/2016/11/04/how-do-i-set-up-a-net-core-weblistener-with-ssl/)
