@@ -5,12 +5,12 @@ description: Informationen Sie zum Erstellen einer Razor-Seiten-app mit Benutzer
 ms.author: riande
 ms.date: 7/24/2018
 uid: security/authorization/secure-data
-ms.openlocfilehash: 786e83eb28722e83eea46def962593f58ad524e2
-ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
-ms.translationtype: HT
+ms.openlocfilehash: 185628d4e06c9b5ae7f2685c10ea9e46dd5abe92
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244839"
+ms.locfileid: "50253220"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Erstellen einer ASP.NET Core-app mit Benutzerdaten, die durch Autorisierung geschützt sind
 
@@ -71,16 +71,16 @@ Das Beispiel enthält die folgenden Handler für die Autorisierung:
 In diesem Tutorial wird verschoben. Sie sollten mit vertraut sein:
 
 * [ASP.NET Core](xref:tutorials/first-mvc-app/start-mvc)
-* [Authentifizierung](xref:security/authentication/index)
+* [Authentifizierung](xref:security/authentication/identity)
 * [Kontobestätigung und Kennwortwiederherstellung](xref:security/authentication/accconfirm)
-* [Autorisierung](xref:security/authorization/index)
+* [Autorisierung](xref:security/authorization/introduction)
 * [Entity Framework Core](xref:data/ef-mvc/intro)
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.1"
 
-In ASP.NET Core 2.1 `User.IsInRole` schlägt fehl, wenn `AddDefaultIdentity`. Dieses Tutorial verwendet `AddDefaultIdentity` und benötigt deshalb das ASP.NET Core-2.2-Preview 1 oder höher. Finden Sie unter [GitHub-Problem](https://github.com/aspnet/Identity/issues/1813#issuecomment-394543909) für das Problem zu umgehen.
+In ASP.NET Core 2.1 `User.IsInRole` schlägt fehl, wenn `AddDefaultIdentity`. Dieses Tutorial verwendet `AddDefaultIdentity` und benötigt deshalb das ASP.NET Core 2.2 oder höher. Finden Sie unter [GitHub-Problem](https://github.com/aspnet/Identity/issues/1813#issuecomment-394543909) für das Problem zu umgehen.
 
 ::: moniker-end
 
@@ -352,7 +352,7 @@ Testen Sie, dass die app die Datenbank mit Anfangsdaten gefüllt. Wenn alle Zeil
 
 * [Erstellen einer .NET Core- und SQL-Datenbank-Web-Apps in Azure App Service](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
 * [ASP.NET Core-Autorisierung Lab](https://github.com/blowdart/AspNetAuthorizationWorkshop). Dieser Übung wird ausführlicher auf den Sicherheitsfeatures, die in diesem Lernprogramm eingeführt.
-* [Autorisierung in ASP.NET Core: einfach, Rollen-, Claims-basierte und benutzerdefinierte](xref:security/authorization/index)
+* <xref:security/authorization/introduction>
 * [Benutzerdefinierte, richtlinienbasierte Autorisierung](xref:security/authorization/policies)
 
 ::: moniker-end

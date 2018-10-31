@@ -5,12 +5,12 @@ description: Informationen Sie zum Erstellen einer ASP.NET Core-app mit e-Mail-B
 ms.author: riande
 ms.date: 7/11/2018
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 1fae5af24359afc991a30cd2b8e2f6927845962b
-ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
+ms.openlocfilehash: 4c2e62335bc7dd004829dbc2a8c1f62ea91f334f
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244800"
+ms.locfileid: "50253038"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Kontobestätigung und kennwortwiederherstellung in ASP.NET Core
 
@@ -27,7 +27,7 @@ Von [Rick Anderson](https://twitter.com/RickAndMSFT) und [Joe Audette](https://t
 Dieses Tutorial veranschaulicht das Erstellen eine ASP.NET Core-app mit e-Mail-Bestätigung und kennwortzurücksetzung. Dieses Tutorial ist der **nicht** ein Thema ab. Sie sollten mit vertraut sein:
 
 * [ASP.NET Core](xref:tutorials/razor-pages/razor-pages-start)
-* [Authentifizierung](xref:security/authentication/index)
+* [Authentifizierung](xref:security/authentication/identity)
 * [Entity Framework Core](xref:data/ef-mvc/intro)
 
 <!-- see C:/Dropbox/wrk/Code/SendGridConsole/Program.cs -->

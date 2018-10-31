@@ -5,12 +5,12 @@ description: Verwenden Sie Identität mit einer ASP.NET Core-app. Erfahren Sie, 
 ms.author: riande
 ms.date: 08/08/2018
 uid: security/authentication/identity
-ms.openlocfilehash: 0cea81b46a8f659671c0ae1768884194ad8c1162
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 4e162edc8fb63457c8690692685f344dccdfc659
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207796"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50252928"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Einführung in die Identität in ASP.NET Core
 
@@ -166,7 +166,7 @@ Wenn das Formular auf der Anmeldeseite gesendet wird, die `OnPostAsync` Aktion a
 
    [!code-csharp[](identity/sample/src/ASPNETv2.1-IdentityDemo/Login.cshtml.cs?name=snippet&highlight=10-11)]
 
-   Die Basis `Controller` -Klasse macht eine `User` -Eigenschaft, die Sie von Controllermethoden aus zugreifen können. Sie können z. B. auflisten `User.Claims` und autorisierungsentscheidungen treffen. Weitere Informationen finden Sie unter [Autorisierung](xref:security/authorization/index).
+   Die Basis `Controller` -Klasse macht eine `User` -Eigenschaft, die Sie von Controllermethoden aus zugreifen können. Sie können z. B. auflisten `User.Claims` und autorisierungsentscheidungen treffen. Weitere Informationen finden Sie unter <xref:security/authorization/introduction>.
 
 ::: moniker-end
 

@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/index
-ms.openlocfilehash: f3b1f74f2e3a991b72cae94019f42548e3858f20
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 4277266e20ab1921a2ba24d4500358ba90330370
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091027"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50252944"
 ---
 # <a name="overview-of-aspnet-core-security"></a>Übersicht über die ASP.NET Core-Sicherheit
 
@@ -40,7 +40,7 @@ Es gibt weitere Sicherheitsrisiken, die Sie kennen sollten. Weitere Informatione
 
 ## <a name="aspnet-core-security-documentation"></a>ASP.NET Core-Sicherheitsdokumentation
 
-* [Authentifizierung](xref:security/authentication/index)
+* Authentifizierung
   * [Einführung in Identity](xref:security/authentication/identity)
   * [Aktivieren der Authentifizierung mithilfe von Facebook, Google und anderen externen Anbietern](xref:security/authentication/social/index)
   * [Aktivieren der Authentifizierung mit dem WS-Verbund](xref:security/authentication/ws-federation)
@@ -54,7 +54,7 @@ Es gibt weitere Sicherheitsrisiken, die Sie kennen sollten. Weitere Informatione
     * [Aufrufen einer Web-API in einer ASP.NET Core-Web-App mithilfe von Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
     * [Eine ASP.NET Core-Web-App in Azure AD B2C](https://azure.microsoft.com/resources/samples/active-directory-b2c-dotnetcore-webapp/)
   * [Schützen von ASP.NET Core-Apps mit IdentityServer4](https://identityserver4.readthedocs.io)
-* [Autorisierung](xref:security/authorization/index)
+* Autorisierung
   * [Introduction (Einführung)](xref:security/authorization/introduction)
   * [Erstellen einer App mit Benutzerdaten, die durch Autorisierung geschützt sind](xref:security/authorization/secure-data)
   * [Einfache Autorisierung](xref:security/authorization/simple)
@@ -65,10 +65,10 @@ Es gibt weitere Sicherheitsrisiken, die Sie kennen sollten. Weitere Informatione
   * [Ressourcenbasierte Autorisierung](xref:security/authorization/resourcebased)
   * [Ansichtsbasierte Autorisierung](xref:security/authorization/views)
   * [Einschränken der Identität nach Schema](xref:security/authorization/limitingidentitybyscheme)
-* [Schutz von Daten](xref:security/data-protection/index)
+* Schutz von Daten
   * [Einführung in den Schutz von Daten](xref:security/data-protection/introduction)
   * [Erste Schritte mit Datenschutz-APIs](xref:security/data-protection/using-data-protection)
-  * [Consumer-APIs](xref:security/data-protection/consumer-apis/index)
+  * Consumer-APIs
     * [Übersicht über Consumer-APIs](xref:security/data-protection/consumer-apis/overview)
     * [purpose-Zeichenfolgen](xref:security/data-protection/consumer-apis/purpose-strings)
     * [Zweckhierarchie und Mehrinstanzenfähigkeit](xref:security/data-protection/consumer-apis/purpose-strings-multitenancy)

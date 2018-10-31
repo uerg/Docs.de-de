@@ -7,12 +7,12 @@ ms.author: anurse
 ms.custom: mvc
 ms.date: 06/29/2018
 uid: signalr/authn-and-authz
-ms.openlocfilehash: 7cfe90115b0710fba196693efd309f7c914f0ad4
-ms.sourcegitcommit: 2ef32676c16f76282f7c23154d13affce8c8bf35
+ms.openlocfilehash: aa1721ba1802e1bfba04d57378085a136c100deb
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 10/30/2018
-ms.locfileid: "50234539"
+ms.locfileid: "50252905"
 ---
 # <a name="authentication-and-authorization-in-aspnet-core-signalr"></a>Authentifizierung und Autorisierung in ASP.NET Core SignalR
 
@@ -22,7 +22,7 @@ Durch [Andrew Stanton-Nurse](https://twitter.com/anurse)
 
 ## <a name="authenticate-users-connecting-to-a-signalr-hub"></a>Authentifizieren von Benutzern, die Verbindung mit einer SignalR-hub
 
-SignalR kann verwendet werden, mit [Authentifizierung in ASP.NET Core](xref:security/authentication/index) , jede Verbindung ein Benutzers zugeordnet werden soll. In einem Hub Authentifizierungsdaten über aufgerufen werden können die [ `HubConnectionContext.User` ](/dotnet/api/microsoft.aspnetcore.signalr.hubconnectioncontext.user) Eigenschaft. Authentifizierung kann den Hub zum Aufrufen von Methoden für alle Verbindungen mit einem Benutzer verknüpft (finden Sie unter [Verwalten von Benutzern und Gruppen in SignalR](xref:signalr/groups) Informationen). Mehrere Verbindungen können einen einzelnen Benutzer zugeordnet werden.
+SignalR kann verwendet werden, mit [ASP.NET Core-Authentifizierung](xref:security/authentication/identity) , jede Verbindung ein Benutzers zugeordnet werden soll. In einem Hub Authentifizierungsdaten über aufgerufen werden können die [ `HubConnectionContext.User` ](/dotnet/api/microsoft.aspnetcore.signalr.hubconnectioncontext.user) Eigenschaft. Authentifizierung kann den Hub zum Aufrufen von Methoden für alle Verbindungen mit einem Benutzer verknüpft (finden Sie unter [Verwalten von Benutzern und Gruppen in SignalR](xref:signalr/groups) Informationen). Mehrere Verbindungen können einen einzelnen Benutzer zugeordnet werden.
 
 ### <a name="cookie-authentication"></a>Cookie-Authentifizierung
 
