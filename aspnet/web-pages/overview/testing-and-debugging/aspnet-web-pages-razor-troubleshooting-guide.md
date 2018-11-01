@@ -57,7 +57,7 @@ Stellen Sie sicher, dass mindestens eine für der Stamm Ihrer Website verfügt �
 
 Wenn dieser Fehler angezeigt wird, wenn der Webserver auf einem Remoteserver ist, wenden Sie sich an den Server-Administrator. Stellen Sie sicher, dass der Server die .NET Framework 4 oder höher installiert. Außerdem stellen Sie sicher, dass die Anwendung in einem Anwendungspool ausgeführt wird, die mit dieser Version von.NET Framework konfiguriert ist.
 
-Wenn Sie die Kontrolle über den Server verfügen, stellen Sie sicher, dass er die richtige Version von .NET Framework ausgeführt wird. Sie können auch versuchen, reparieren Sie die Installation durch Ausführen der `aspnet_regiis -iru` Befehl. (Z. B. Wenn Sie IIS nach der Installation von .NET Framework installieren, wird IIS nicht ordnungsgemäß konfiguriert werden ASP.NET-Seiten ausführt.) Weitere Informationen finden Sie unter [ASP.NET IIS Registration Tool (Aspnet\_regiis.exe)](https://msdn.microsoft.com/library/k6h9cz8h(v=vs.100).aspx).
+Wenn Sie die Kontrolle über den Server verfügen, stellen Sie sicher, dass er die richtige Version von .NET Framework ausgeführt wird. Sie können auch versuchen, reparieren Sie die Installation durch Ausführen der `aspnet_regiis -iru` Befehl. (Z. B. Wenn Sie IIS nach der Installation von .NET Framework installieren, wird IIS nicht ordnungsgemäß konfiguriert werden ASP.NET-Seiten ausführt.) Weitere Informationen finden Sie unter [ASP.NET IIS-Registrierungstool (Aspnet\_regiis.exe)](https://msdn.microsoft.com/library/k6h9cz8h(v=vs.100).aspx).
 
 ### <a name="http-error-40314---forbidden"></a>HTTP-Fehler beim 403.14 - verboten
 

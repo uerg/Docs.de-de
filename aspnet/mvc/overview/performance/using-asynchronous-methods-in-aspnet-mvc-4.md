@@ -161,7 +161,7 @@ Um die Vorteile einer asynchronen Webanwendung nutzen zu können, müssen Sie ei
 - Windows 7, Windows Vista und alle Windows-Clientbetriebssysteme höchstens 10 gleichzeitige Anforderungen. Sie benötigen ein Windows Server-Betriebssystem zum die Vorteile der asynchronen Methoden unter hoher Last finden Sie unter.
 - Registrieren Sie .NET 4.5 mit IIS über eine Eingabeaufforderung mit erhöhten Rechten aus:  
   %windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet\_Regiis -i  
-  Finden Sie unter [ASP.NET IIS Registration-Tool (Aspnet\_regiis.exe)](https://msdn.microsoft.com/library/k6h9cz8h.aspx)
+  Finden Sie unter [ASP.NET IIS-Registrierungstool (Aspnet\_regiis.exe)](https://msdn.microsoft.com/library/k6h9cz8h.aspx)
 - Sie müssen möglicherweise erhöhen die [HTTP.sys](https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture) Begrenzung für Anforderungswarteschlange vom Standardwert 1.000 auf 5.000. Wenn die Einstellung zu niedrig ist, wird möglicherweise angezeigt [HTTP.sys](https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture) ablehnen von Anforderungen mit einem HTTP 503-Status. So ändern Sie die HTTP.sys-Grenze der Warteschlange:
 
     - Öffnen Sie IIS-Manager, und navigieren Sie in den Bereich des Anwendungspools.
