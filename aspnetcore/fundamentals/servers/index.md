@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: fundamentals/servers/index
-ms.openlocfilehash: 161ab3fdf48e58d8c9af991dc5531e46d9c5adff
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 6b6ebbe9d31d571ea470fba0989d622dcf6e68af
+ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325860"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50758205"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Webserverimplementierungen in ASP.NET Core
 
@@ -19,7 +19,7 @@ Von [Tom Dykstra](https://github.com/tdykstra), [Steve Smith](https://ardalis.co
 
 Eine ASP.NET Core-App wird über eine In-Process-Implementierung eines HTTP-Servers ausgeführt. Die Serverimplementierung lauscht auf HTTP-Anforderungen und leitet diese als Gruppen von [Anforderungsfunktionen](xref:fundamentals/request-features), die in einem <xref:Microsoft.AspNetCore.Http.HttpContext> zusammengefasst werden, an die App weiter.
 
-ASP.NET Core stellt drei Serverimplementierungen zur Verfügung:
+Die folgenden Serverimplementierungen sind im Lieferumfang von ASP.NET Core enthalten:
 
 ::: moniker range=">= aspnetcore-2.2"
 
