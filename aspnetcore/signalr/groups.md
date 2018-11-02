@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/04/2018
 uid: signalr/groups
-ms.openlocfilehash: d3e580dfc42a36762358899892831c8b68f544b0
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 02db46f090c487a03171de244ff7ad0d5e9de0fa
+ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207159"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50758166"
 ---
 # <a name="manage-users-and-groups-in-signalr"></a>Verwalten von Benutzern und Gruppen in SignalR
 
@@ -54,6 +54,8 @@ Eine Gruppe ist eine Auflistung von Verbindungen mit einem Namen zugeordnet. Nac
 [!code-csharp[Hub methods](groups/sample/hubs/chathub.cs?range=15-27)]
 
 Der Gruppenmitgliedschaft wird nicht beibehalten, wenn eine Verbindung erneut hergestellt. Die Verbindung muss die Gruppe erneut beitreten, wenn er erneut hergestellt wird. Es ist nicht möglich, um die Mitglieder einer Gruppe zu zählen, da diese Informationen sind nicht verfügbar, wenn die Anwendung auf mehreren Servern skaliert wird.
+
+Verwenden, um den Zugriff auf Ressourcen zu schützen, bei der Verwendung von Gruppen [Authentifizierung und Autorisierung](xref:signalr/authn-and-authz) Funktionen in ASP.NET Core. Wenn Sie nur Benutzer zu einer Gruppe hinzufügen, wenn die Anmeldeinformationen für diese Gruppe gültig sind, werden Nachrichten an diese Gruppe nur auf autorisierte Benutzer geleitet. Gruppen sind jedoch nicht über eine Sicherheitsfunktion. Authentifizierungsansprüchen haben Funktionen, die Gruppen nicht, wie z. B. Ablauf und Sperrung sind. Wenn die Berechtigung eines Benutzers auf die Gruppe aufgehoben wird, müssen Sie manuell zu erkennen, und entfernen sie aus der Gruppe ein.
 
 > [!NOTE]
 > Gruppennamen werden Groß-/Kleinschreibung beachtet.
