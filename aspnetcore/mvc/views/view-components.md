@@ -5,12 +5,12 @@ description: Erfahren Sie, wie Ansichtskomponenten in ASP.NET Core verwendet wer
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/views/view-components
-ms.openlocfilehash: 52bfb9e3983eb49aabdef238d53c6fdd2950c075
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 91399acafb36f1f8759ed1783e70e59b631e3bf0
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207601"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50253130"
 ---
 # <a name="view-components-in-aspnet-core"></a>Ansichtskomponenten in ASP.NET Core
 
@@ -88,7 +88,7 @@ Es wird empfohlen, dass Sie die Ansichtsdatei *Default.cshtml* nennen und den Pf
 Rufen Sie Folgendes in der Ansicht auf, wenn Sie die Ansichtskomponente verwenden möchten:
 
 ```cshtml
-@Component.InvokeAsync("Name of view component", {Anonymous Type Containing Parameters})
+@await Component.InvokeAsync("Name of view component", {Anonymous Type Containing Parameters})
 ```
 
 Die Parameter werden an die `InvokeAsync`-Methode übergeben. Die Ansichtskomponente `PriorityList`, die im Artikel entwickelt wurde, wird von der Ansichtsdatei *Views/Todo/Index.cshtml* aufgerufen. Im folgenden Code wird die `InvokeAsync`-Methode mit zwei Parametern aufgerufen:

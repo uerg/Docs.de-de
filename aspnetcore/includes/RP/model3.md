@@ -1,4 +1,5 @@
 <a name="cli"></a>
+
 ## <a name="add-scaffold-tooling-and-perform-initial-migration"></a>Hinzufügen von Tools für den Gerüstbau und Ausführen der anfänglichen Migration
 
 Fügen Sie die folgenden Zeilen der *RazorPagesMovie.csproj*-Datei direkt vor dem abschließenden `</Project>`-Tag hinzu:
@@ -7,7 +8,8 @@ Fügen Sie die folgenden Zeilen der *RazorPagesMovie.csproj*-Datei direkt vor de
 <ItemGroup>
   <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.1.0-preview1-final"/>
 </ItemGroup>
-```  
+```
+  
 Führen Sie in der Befehlszeile die folgenden .NET Core-CLI-Befehle aus:
 
 ```console
