@@ -3,14 +3,15 @@ title: 'ASP.NET Core MVC mit Entity Framework Core: Tutorial 1 von 10'
 author: rick-anderson
 description: ''
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/intro
-ms.openlocfilehash: cbef7e5edf2950a87a4cd4155c63a22fff2990fe
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 6f867875ed670065ef76728342d3854281f08ae4
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751481"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091066"
 ---
 # <a name="aspnet-core-mvc-with-entity-framework-core---tutorial-1-of-10"></a>ASP.NET Core MVC mit Entity Framework Core: Tutorial 1 von 10
 
@@ -28,7 +29,7 @@ Bei der Beispiel-App handelt es sich um eine Website für die fiktive Contoso Un
 
 [Download or view the completed app (Herunterladen oder anzeigen der vollständigen App).](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-Entity Framework Core 2.0 ist die neuste Version von Entity Framework, die allerdings noch nicht alle Features von Entity Framework 6.x enthält. Weitere Informationen zum Auswählen zwischen EF 6.x und EF Core finden Sie unter [Vergleichen von EF Core und EF6.x](https://docs.microsoft.com/ef/efcore-and-ef6/). Wenn Sie sich für EF 6.x entscheiden, erhalten Sie weitere Informationen in der [Vorgängerversion dieser Tutorialreihe](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
+Entity Framework Core 2.0 ist die neuste Version von Entity Framework, die allerdings noch nicht alle Features von Entity Framework 6.x enthält. Weitere Informationen zum Auswählen zwischen EF 6.x und EF Core finden Sie unter [Vergleichen von EF Core und EF6.x](/ef/efcore-and-ef6/). Wenn Sie sich für EF 6.x entscheiden, erhalten Sie weitere Informationen in der [Vorgängerversion dieser Tutorialreihe](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
 > [!NOTE]
 > Weitere Informationen zur ASP.NET Core 1.1-Version dieses Tutorials finden Sie im [PDF-Format in der VS 2017 Update 2-Version dieses Tutorials](https://github.com/aspnet/Docs/blob/master/aspnetcore/data/ef-mvc/intro/_static/efmvc1.1.pdf).
@@ -106,11 +107,11 @@ Drücken Sie STRG+F5, um das Projekt auszuführen, oder wählen Sie aus dem Men�
 
 ## <a name="entity-framework-core-nuget-packages"></a>NuGet-Pakete für Entity Framework Core
 
-Installieren Sie den Datenbankanbieter, der verwendet werden soll, um einem Projekt EF Core-Unterstützung hinzuzufügen. In diesem Tutorial wird SQL Server verwendet, und das Anbieterpaket lautet [Microsoft.EntityFrameworkCore.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/). Dieses Paket ist bereits im Metapaket [Microsoft.AspNetCore.All](xref:fundamentals/metapackage) enthalten. Eine Installation ist daher nicht erforderlich.
+Installieren Sie den Datenbankanbieter, der verwendet werden soll, um einem Projekt EF Core-Unterstützung hinzuzufügen. In diesem Tutorial wird SQL Server verwendet, und das Anbieterpaket lautet [Microsoft.EntityFrameworkCore.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/). Dieses Paket ist im [Microsoft.AspNetCore.App-Metapaket](xref:fundamentals/metapackage-app) enthalten, weshalb Sie nicht auf das Paket verweisen müssen, wenn Ihre App über einen Paketverweis für das Paket `Microsoft.AspNetCore.App` verfügt.
 
 Dieses Paket und dessen Abhängigkeiten (`Microsoft.EntityFrameworkCore` und `Microsoft.EntityFrameworkCore.Relational`) stellen für EF Runtimeunterstützung bereit. Sie fügen später im Laufe des [Migrations](migrations.md)-Tutorials ein Paket mit Tools hinzu.
 
-Informationen zu anderen Datenbankanbietern, die für Entity Framework Core verfügbar sind, finden Sie unter [Datenbankanbieter](https://docs.microsoft.com/ef/core/providers/).
+Informationen zu anderen Datenbankanbietern, die für Entity Framework Core verfügbar sind, finden Sie unter [Datenbankanbieter](/ef/core/providers/).
 
 ## <a name="create-the-data-model"></a>Erstellen des Datenmodells
 
@@ -132,7 +133,7 @@ Erstellen Sie im Ordner *Models* (Modelle) die Klassendatei *Student.cs*, und er
 
 Die `ID`-Eigenschaft fungiert als Primärschlüsselspalte der Datenbanktabelle, die dieser Klasse entspricht. Standardmäßig interpretiert Entity Framework Core eine Eigenschaft mit dem Namen `ID` oder `classnameID` als Primärschlüssel.
 
-Die `Enrollments`-Eigenschaft ist eine Navigationseigenschaft. Navigationseigenschaften enthalten andere Entitäten, die dieser Entität zugehörig sind. In diesem Fall enthält die `Enrollments`-Eigenschaft einer `Student entity` all diese `Enrollment`-Entitäten, die mit der `Student`-Entität in Zusammenhang stehen. Das heißt: Wenn eine vorhandene „Student“-Zeile in der Datenbank über zwei zugehörige „Enrollment“-Zeilen (Zeilen, in denen der Primärschlüsselwert dieses Studenten in der StudentID-Fremdschlüsselspalte enthalten ist), enthält die `Enrollments`-Navigationseigenschaft dieser `Student`-Entität diese beiden `Enrollment`-Entitäten.
+Die `Enrollments`-Eigenschaft ist eine [Navigationseigenschaft](/ef/core/modeling/relationships). Navigationseigenschaften enthalten andere Entitäten, die dieser Entität zugehörig sind. In diesem Fall enthält die `Enrollments`-Eigenschaft einer `Student entity` all diese `Enrollment`-Entitäten, die mit der `Student`-Entität in Zusammenhang stehen. Das heißt: Wenn eine vorhandene „Student“-Zeile in der Datenbank über zwei zugehörige „Enrollment“-Zeilen (Zeilen, in denen der Primärschlüsselwert dieses Studenten in der StudentID-Fremdschlüsselspalte enthalten ist), enthält die `Enrollments`-Navigationseigenschaft dieser `Student`-Entität diese beiden `Enrollment`-Entitäten.
 
 Wenn eine Navigationseigenschaft mehrere Entitäten enthalten kann (wie bei m:n- oder 1:n-Beziehungen), muss dessen Typ aus einer Liste bestehen, in der Einträge hinzugefügt, gelöscht und aktualisiert werden können – z.B.: `ICollection<T>`. Sie können die `ICollection<T>`-Instanz oder einen Typ wie `List<T>` oder `HashSet<T>` angeben. Wenn Sie `ICollection<T>` angeben, erstellt EF standardmäßig eine `HashSet<T>`-Auflistung.
 
@@ -357,7 +358,7 @@ Behalten Sie Folgendes im Hinterkopf, wenn Sie asynchronen Code schreiben, der E
 
 * Wenn Sie von den Leistungsvorteilen des asynchronen Codes profitieren möchten, vergewissern Sie sich, dass auch alle Bibliothekspakete, die Sie verwenden (z.B. zum Paging) asynchronen Code verwenden, wenn sie Entity Framework Core-Methoden aufrufen, die Abfragen an die Datenbank senden.
 
-Weitere Informationen zur asynchronen Programmierung in .NET finden Sie unter [Async (Übersicht)](https://docs.microsoft.com/dotnet/articles/standard/async).
+Weitere Informationen zur asynchronen Programmierung in .NET finden Sie unter [Async (Übersicht)](/dotnet/articles/standard/async).
 
 ## <a name="summary"></a>Zusammenfassung
 

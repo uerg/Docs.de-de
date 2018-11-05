@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: b19913e5-cd8a-4e4b-a872-5ac7a858a934
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-server
 msc.type: authoredcontent
-ms.openlocfilehash: 03dd8a73141330348f2877760a5978a8a0b95122
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 6545491cfa36bb9fee555eb0348ec0a319bff470
+ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837697"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50758244"
 ---
 <a name="aspnet-signalr-hubs-api-guide---server-c"></a>ASP.NET SignalR-Hubs-API-Guide - Server (c#)
 ====================
@@ -304,6 +304,11 @@ Um den Client vom Server Methoden aufrufen, verwenden Sie die `Clients` Eigensch
 
 [!code-csharp[Main](hubs-api-guide-server/samples/sample23.cs?highlight=5)]
 
+Aufrufen einer Clientmethode ist ein asynchroner Vorgang und gibt eine `Task`. Verwendung `await`:
+
+* Um sicherzustellen, dass die Nachricht werden ohne Fehler gesendet. 
+* So aktivieren abfangen und Behandeln von Fehlern in einem Try / Catch-Block.
+
 **JavaScript-Client mithilfe des generierten Proxys**
 
 [!code-html[Main](hubs-api-guide-server/samples/sample24.html?highlight=1)]
@@ -572,7 +577,7 @@ In VB.NET oder einen Hub mit fester typbindung, das Aufrufer Zustandsobjekt, das
 
 ## <a name="how-to-handle-errors-in-the-hub-class"></a>Gewusst wie: Behandeln von Fehlern in der hubklasse
 
-Zur Behandlung von Fehlern, die in Ihrem Hub-Klasse, Methoden auftreten, verwenden Sie eine oder mehrere der folgenden Methoden:
+Zur Behandlung von Fehlern, die in Ihrem Hub-Klasse, Methoden auftreten, stellen Sie zunächst sicher Sie "überwachen" alle Ausnahmen in Async-Vorgänge (z. B. das Aufrufen von Clientmethoden) mithilfe von `await`. Verwenden Sie dann eine oder mehrere der folgenden Methoden:
 
 - Umschließen Sie den Methodencode in Try-Catch-Blöcke, und melden Sie sich das Ausnahmeobjekt. Sie können die Ausnahme an den Client senden, zum Debuggen, aber für die Sicherheit der Gründe, senden detaillierte Informationen für Clients in einer produktionsumgebung werden nicht empfohlen.
 - Erstellen eines Hubs Pipeline-Moduls, das behandelt die [OnIncomingError](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubpipelinemodule.onincomingerror(v=vs.111).aspx) Methode. Das folgende Beispiel zeigt eine Pipeline-Modul, das protokolliert Fehler, gefolgt von Code in "Startup.cs", die das Modul in die Hubs-Pipeline einfügt.

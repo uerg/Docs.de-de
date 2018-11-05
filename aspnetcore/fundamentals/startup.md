@@ -6,18 +6,20 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 4/13/2018
 uid: fundamentals/startup
-ms.openlocfilehash: 392dc83666bc6b9012adc6c32169ae7bdc7ed8d7
-ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
+ms.openlocfilehash: 2212344cb3c651714e8c520b096ab0c4eaf5a180
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49391114"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206455"
 ---
-# <a name="application-startup-in-aspnet-core"></a>Anwendungsstart in ASP.NET Core
+# <a name="app-startup-in-aspnet-core"></a>Anwendungsstart in ASP.NET Core
 
 Von [Steve Smith](https://ardalis.com), [Tom Dykstra](https://github.com/tdykstra) und [Luke Latham](https://github.com/guardrex)
 
 Die `Startup`-Klasse konfiguriert Dienste und die Anforderungspipeline einer App.
+
+[Zeigen Sie Beispielcode an, oder laden Sie diesen herunter](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/startup/sample/) ([Vorgehensweise zum Herunterladen](xref:index#how-to-download-a-sample)).
 
 ## <a name="the-startup-class"></a>Die Startup-Klasse
 
@@ -44,7 +46,7 @@ Der Web-Host stellt einige Dienste für den `Startup`-Klassenkonstruktor bereit.
 
 [!code-csharp[](startup/snapshot_sample/Startup2.cs)]
 
-Sie können auch einen konventionsbasierten Ansatz wählen, anstatt `IHostingEnvironment` einzufügen. Die App kann je nach Umgebung unterschiedliche `Startup`-Klassen definieren (z.B. `StartupDevelopment`). Zur Laufzeit wird dann die passende `Startup`-Klasse ausgewählt. Die Klasse, deren Namenssuffix mit der aktuellen Umgebung übereinstimmt, wird priorisiert. Wenn die App in der Entwicklungsumgebung ausgeführt wird und sowohl eine `Startup`-Klasse als auch eine `StartupDevelopment`-Klasse enthält, wird die `StartupDevelopment`-Klasse verwendet. Weitere Informationen finden Sie unter [Verwenden mehrerer Umgebungen](xref:fundamentals/environments#environment-based-startup-class-and-methods).
+Sie können auch einen konventionsbasierten Ansatz wählen, anstatt `IHostingEnvironment` einzufügen. Wenn die App unterschiedliche `Startup`-Klassen für unterschiedliche Umgebungen definiert (z.B. `StartupDevelopment`), wird zur Laufzeit die entsprechende `Startup`-Klasse ausgewählt. Die Klasse, deren Namenssuffix mit der aktuellen Umgebung übereinstimmt, wird priorisiert. Wenn die App in der Entwicklungsumgebung ausgeführt wird und sowohl eine `Startup`-Klasse als auch eine `StartupDevelopment`-Klasse enthält, wird die `StartupDevelopment`-Klasse verwendet. Weitere Informationen finden Sie unter [Verwenden mehrerer Umgebungen](xref:fundamentals/environments#environment-based-startup-class-and-methods).
 
 Weitere Informationen zu `WebHostBuilder` finden Sie im Artikel [Hosting](xref:fundamentals/host/index). Weitere Informationen zum Umgang mit Fehlern beim Start finden Sie unter [Startup exception handling (Umgang mit Ausnahmen beim Start)](xref:fundamentals/error-handling#startup-exception-handling).
 
@@ -96,7 +98,7 @@ Verwenden Sie [IStartupFilter](/dotnet/api/microsoft.aspnetcore.hosting.istartup
 
 Jede `IStartupFilter`-Schnittstelle implementiert mindestens eine Middleware in die Anforderungspipeline. Die Filter werden in der Reihenfolge aufgerufen, in der sie zum Dienstcontainer hinzugefügt wurden. Über Filter kann Middleware hinzugefügt werden, bevor oder nachdem dem nächsten Filter die Kontrolle erteilt wird. D.h., sie wird am Anfang oder am Ende einer App-Pipeline hinzugefügt.
 
-In der [Beispiel-App](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/startup/sample/) ([Download](xref:tutorials/index#how-to-download-a-sample)) wird deutlich, wie Sie eine Middleware über `IStartupFilter` registrieren. Die Beispiel-App enthält eine Middleware, die einen Optionswert über einen Parameter der Abfragezeichenfolge festlegt:
+Die Beispiel-App veranschaulicht, wie eine Middleware mit `IStartupFilter` registriert wird. Die Beispiel-App enthält eine Middleware, die einen Optionswert über einen Parameter der Abfragezeichenfolge festlegt:
 
 [!code-csharp[](startup/sample/RequestSetOptionsMiddleware.cs?name=snippet1)]
 

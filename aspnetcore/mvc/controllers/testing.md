@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/23/2018
 uid: mvc/controllers/testing
-ms.openlocfilehash: 582a5ba461ee2df73b99e4f499e8152f7c6cb7cf
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: 18674f85a0cf8c6dfffa94a2160f7182752674f7
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477162"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207991"
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>Testen von Controllerlogik in ASP.NET Core
 
@@ -19,7 +19,7 @@ Von [Steve Smith](https://ardalis.com/)
 
 [Controller](xref:mvc/controllers/actions) spielen in jeder ASP.NET Core MVC-App eine zentrale Rolle. Daher sollten Sie sich auch darauf verlassen können, dass Controller in Ihrer App wie beabsichtigt funktionieren. Automatisierte Tests können Fehler erkennen, bevor die App in einer Produktionsumgebung bereitgestellt wird.
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/testing/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/testing/sample) ([Vorgehensweise zum Herunterladen](xref:index#how-to-download-a-sample))
 
 ## <a name="unit-tests-of-controller-logic"></a>Komponententests der Controllerlogik
 
@@ -75,7 +75,7 @@ Simulierte Aufrufe, die nicht aufgerufen werden, werden normalerweise ignoriert.
 > [!NOTE]
 > Mit der in diesem Beispiel verwendeten Moq-Bibliothek können überprüfbare (oder „strikte“) Pseudoobjekte mit nicht überprüfbaren Pseudoobjekten (auch „nicht-strikte“ Pseudoobjekte oder „Stubs“ genannt) kombiniert werden. Weitere Informationen finden Sie unter [Customizing Mock behavior with Moq](https://github.com/Moq/moq4/wiki/Quickstart#customizing-mock-behavior) (Anpassen des Verhaltens von Pseudoobjekten mit Moq).
 
-Ein anderer Controller in der Beispiel-App zeigt Informationen zu einer bestimmten Brainstormingsitzung an. Der Controller enthält Logik, um ungültige `id` Werte zu behandeln (es gibt im folgenden Beispiel zwei `return`-Szenarien, die diese Fälle abdecken). Die endgültige `return`-Anweisung gibt ein neues `StormSessionViewModel` an die Ansicht zurück:
+In der Beispiel-App werden Informationen zu einer bestimmten Brainstormingsitzung mit [SessionController](https://github.com/aspnet/Docs/blob/master/aspnetcore/mvc/controllers/testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs) angezeigt. Der Controller enthält Logik, um ungültige `id` Werte zu behandeln (es gibt im folgenden Beispiel zwei `return`-Szenarien, die diese Fälle abdecken). Die endgültige `return`-Anweisung gibt ein neues `StormSessionViewModel`-Objekt an die Ansicht zurück (*Controllers/SessionController.cs*):
 
 [!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?name=snippet_SessionController&highlight=12-16,18-22,31)]
 

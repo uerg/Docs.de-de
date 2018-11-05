@@ -2,9 +2,11 @@
 
 Von [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Das `MovieContext`-Objekt übernimmt die Aufgabe der Herstellung der Verbindung mit der Datenbank und Zuordnung von `Movie`-Objekten zu Datensätzen in der Datenbank. Der Datenbankkontext wird mit dem Container [Abhängigkeitsinjektion](xref:fundamentals/dependency-injection) in der Methode `ConfigureServices` in der Datei *Startup.cs* registriert:
+Das `MovieContext`-Objekt übernimmt die Aufgabe der Herstellung der Verbindung mit der Datenbank und Zuordnung von `Movie`-Objekten zu Datensätzen in der Datenbank. Der Datenbankkontext wird mit dem [Dependency Injection](xref:fundamentals/dependency-injection)-Container in der Methode `ConfigureServices` in der Datei *Startup.cs* registriert:
 
 [!code-csharp[](code/Startup.cs?name=snippet2&highlight=6-8)]
+
+Weitere Informationen zur Verwendung von `DbContext` mit Dependency Injection (DI) finden Sie unter [Using DbContext with DI (Verwenden von DbContext mit DI)](/ef/core/miscellaneous/configuring-dbcontext#using-dbcontext-with-dependency-injection).
 
 ## <a name="sqlite"></a>SQLite
 

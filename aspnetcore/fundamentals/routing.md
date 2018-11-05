@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/01/2018
 uid: fundamentals/routing
-ms.openlocfilehash: 500cefbc7caee2054b4afda7c1277685862f5ad4
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: 06059d720bd4444b1ec12e42d466ee54d1658203
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348558"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207755"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
@@ -22,7 +22,7 @@ Mithilfe der Routingfunktionalität wird einem Routenhandler eine eingehende Anf
 > [!IMPORTANT]
 > In diesem Artikel wird das Low-Level-Routing in ASP.NET Core beschrieben. Weitere Informationen zum Routing mit ASP.NET Core MVC finden Sie unter <xref:mvc/controllers/routing>.
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([Vorgehensweise zum Herunterladen](xref:index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Routinggrundlagen
 
@@ -47,7 +47,7 @@ Durch eine Zuordnung während der Ausführung von `RouteAsync` werden außerdem 
 
 [RouteData.Values](xref:Microsoft.AspNetCore.Routing.RouteData.Values*) ist ein Wörterbuch mit *Routenwerten*, das aus der Route erstellt wird. Die Werte werden in der Regel durch die Tokenisierung der URL ermittelt und können so verwendet werden, dass Benutzereingaben akzeptiert oder weitere Entscheidungen in der App zum Versenden von Anforderungen getroffen werden.
 
-[RouteData.DataTokens](xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*) ist eine Eigenschaftensammlung mit zusätzlichen Daten zur zugeordneten Route. `DataTokens` werden bereitgestellt, damit sich jeder Route Zustandsdaten zuordnen lassen, sodass in der App später Entscheidungen auf Grundlage der zugeordneten Route getroffen werden können. Diese Werte werden vom Entwickler vorgegeben und beeinflussen das Routingverhalten **in keiner Weise**. Im Gegensatz zu Routenwerten, die sich leicht in bzw. aus Zeichenfolgen konvertieren lassen müssen, können Datentokenwerte außerdem einem beliebigen Typ entsprechen.
+[RouteData.DataTokens](xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*) ist eine Eigenschaftensammlung mit zusätzlichen Daten zur zugeordneten Route. `DataTokens` werden bereitgestellt, damit sich jeder Route Zustandsdaten zuordnen lassen, sodass in der App später Entscheidungen auf Grundlage der zugeordneten Route getroffen werden können. Diese Werte werden vom Entwickler vorgegeben und beeinflussen das Routingverhalten **in keiner Weise**. Im Gegensatz zu `RouteData.DataTokens`, die sich leicht in bzw. aus Zeichenfolgen konvertieren lassen müssen, können Werte in `RouteData.Values` außerdem einem beliebigen Typ entsprechen.
 
 [RouteData.Routers](xref:Microsoft.AspNetCore.Routing.RouteData.Routers*) ist eine Liste der Routen, die an der Zuordnung der Anforderung beteiligt waren. Routen können in anderen Routen geschachtelt werden. Die `Routers`-Eigenschaft stellt den Pfad mithilfe der logischen Routenstruktur dar, die zu der Zuordnung geführt hat. Üblicherweise ist das erste Element in `Routers` die Routensammlung. Dieses sollte zur URL-Generierung verwendet werden. Das letzte Element in `Routers` ist der Routenhandler, für den eine Zuordnung vorgenommen wurde.
 
@@ -63,7 +63,7 @@ Die primären Eingaben für `GetVirtualPath` sind:
 * [VirtualPathContext.Values](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values*)
 * [VirtualPathContext.AmbientValues](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues*)
 
-Für Routen werden überwiegend die Routenwerte verwendet, die von `Values` und `AmbientValues` bereitgestellt werden. Dadurch wird ermittelt, wo eine URL erstellt werden kann und welche Werte diese enthalten soll. `AmbientValues` sind Routenwerte, die durch die Zuordnung von aktueller Anforderung und Routingsystem erstellt wurden. Im Gegensatz dazu sind `Values` die Routenwerte, die angeben, wie die gewünschte URL für den aktuellen Vorgang generiert werden soll. `HttpContext` wird bereitgestellt, falls für eine Route Dienste oder zusätzliche Daten, die mit dem aktuellen Kontext verknüpft sind, abgerufen werden müssen.
+Für Routen werden überwiegend die Routenwerte verwendet, die von `Values` und `AmbientValues` bereitgestellt werden. Dadurch wird ermittelt, ob eine URL erstellt werden kann und welche Werte diese enthalten soll. `AmbientValues` sind Routenwerte, die durch die Zuordnung von aktueller Anforderung und Routingsystem erstellt wurden. Im Gegensatz dazu sind `Values` die Routenwerte, die angeben, wie die gewünschte URL für den aktuellen Vorgang generiert werden soll. `HttpContext` wird bereitgestellt, falls für eine Route Dienste oder zusätzliche Daten, die mit dem aktuellen Kontext verknüpft sind, abgerufen werden müssen.
 
 > [!TIP]
 > [VirtualPathContext.Values](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values*) kann als Menge von überschriebenen Eigenschaften für [VirtualPathContext.AmbientValues](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues*) betrachtet werden. Bei der URL-Generierung wird versucht, Routenwerte der aktuellen Anforderung wiederzuverwenden, um so URLs für Links generieren zu können, die dieselbe Route oder dieselben Routenwerte verwenden.
@@ -394,7 +394,7 @@ Einen regulären Ausdruck können Sie verwenden, um einen Parameter auf zulässi
 Parametertransformatoren:
 
 * Werden beim Generieren eines Links für eine `Route` ausgeführt.
-* Implementieren `Microsoft.AspNetCore.Routing.IOutboundParameterTransformer`.
+* Implementieren Sie `Microsoft.AspNetCore.Routing.IOutboundParameterTransformer`.
 * Werden mithilfe von <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> konfiguriert.
 * Nehmen den Routenwert des Parameters an und transformieren ihn in einen neuen Zeichenfolgenwert.
 * Der transformierte Wert wird im generierten Link verwendet.

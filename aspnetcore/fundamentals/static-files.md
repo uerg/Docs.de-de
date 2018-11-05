@@ -4,14 +4,14 @@ author: rick-anderson
 description: Hier erfahren Sie, wie statische Dateien bereitgestellt und gesichert werden und wie das Verhalten von Middleware beim Hosting statischer Dateien in einer ASP.NET Core-Web-App konfiguriert wird.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/18/2018
+ms.date: 10/18/2018
 uid: fundamentals/static-files
-ms.openlocfilehash: 63ebc5ce5094053eca08a9212b3b4c074c4bed64
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 5d00e6ba57053d17b45a24a1c57a446cb3db22ca
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325977"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207133"
 ---
 # <a name="static-files-in-aspnet-core"></a>Statische Dateien in ASP.NET Core
 
@@ -19,27 +19,29 @@ Von [Rick Anderson](https://twitter.com/RickAndMSFT) und [Scott Addie](https://t
 
 Bei statischen Dateien wie HTML, CSS, Images und JavaScript handelt es sich um Objekte, die Clients von einer ASP.NET Core-App direkt bereitgestellt werden. Damit diese Dateien bereitgestellt werden können, sind einige Konfigurationsschritte erforderlich.
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/static-files/samples) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample))
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/static-files/samples) ([Vorgehensweise zum Herunterladen](xref:index#how-to-download-a-sample))
 
 ## <a name="serve-static-files"></a>Bereitstellen statischer Dateien
 
-Statische Dateien werden im Webstammverzeichnis Ihres Projekts gespeichert. Das Standardverzeichnis lautet *\<content_root>/wwwroot*, es kann jedoch mit der Methode [UseWebRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usewebroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseWebRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_) geändert werden. Weitere Informationen finden Sie unter [Inhaltsstammverzeichnis](xref:fundamentals/index#content-root) und [Webstammverzeichnis](xref:fundamentals/index#web-root).
+Statische Dateien werden im Webstammverzeichnis Ihres Projekts gespeichert. Das Standardverzeichnis lautet *\<content_root>/wwwroot*, es kann jedoch mit der Methode [UseWebRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usewebroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseWebRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_) geändert werden. Weitere Informationen finden Sie unter [Inhaltsstammverzeichnis](xref:fundamentals/index#content-root) und [Webstammverzeichnis](xref:fundamentals/index#web-root-webroot).
 
 Der Web-Host der App muss über das Inhaltsstammverzeichnis informiert werden.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 Die Methode `WebHost.CreateDefaultBuilder` legt das Inhaltsstammverzeichnis auf das aktuelle Verzeichnis fest:
 
 [!code-csharp[](../common/samples/WebApplication1DotNetCore2.0App/Program.cs?name=snippet_Main&highlight=9)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 Legen Sie das Inhaltsstammverzeichnis auf das aktuelle Verzeichnis fest, indem Sie [UseContentRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usecontentroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseContentRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_) innerhalb von `Program.Main` aufrufen:
 
 [!code-csharp[](static-files/samples/1x/Program.cs?name=snippet_ProgramClass&highlight=7)]
 
----
+::: moniker-end
 
 Auf statische Dateien kann über einen Pfad relativ zum Webstammverzeichnis zugegriffen werden. Die Projektvorlage der **Webanwendung** verfügt beispielsweise über mehrere Ordner innerhalb des Ordners *wwwroot*:
 
@@ -50,15 +52,23 @@ Auf statische Dateien kann über einen Pfad relativ zum Webstammverzeichnis zuge
 
 Das URI-Format für den Zugriff auf eine Datei im Unterordner *Images* lautet *http://\<server_address>/images/\<image_file_name>*. Beispiel: *http://localhost:9189/images/banner3.svg*
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.1"
+
+Wenn .NET Framework die Zielkomponente ist, fügen Sie das Paket [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) zu Ihrem Projekt hinzu. Wenn .NET Core die Zielkomponente ist, ist dieses Paket im Metapaket [Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) enthalten.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
 
 Wenn .NET Framework die Zielkomponente ist, fügen Sie das Paket [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) zu Ihrem Projekt hinzu. Wenn .NET Core die Zielkomponente ist, ist dieses Paket im Metapaket [Microsoft.AspNetCore.All](xref:fundamentals/metapackage) enthalten.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 Fügen Sie das Paket [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) zu Ihrem Projekt hinzu.
 
----
+::: moniker-end
 
 Konfigurieren Sie die [Middleware](xref:fundamentals/middleware/index), über die Sie statische Dateien bereitstellen können.
 
@@ -71,6 +81,8 @@ Rufen Sie die Methode [UseStaticFiles](/dotnet/api/microsoft.aspnetcore.builder.
 Die parameterlose Überladung der Methode `UseStaticFiles` markiert die Dateien im Webstammverzeichnis als bereitstellbar. Folgendes Markup verweist auf *wwwroot/images/banner1.svg*:
 
 [!code-cshtml[](static-files/samples/1x/Views/Home/Index.cshtml?name=snippet_static_file_wwwroot)]
+
+Im vorhergehenden Code verweist die Tilde (`~/`) auf den Webstamm. Weitere Informationen finden Sie unter [Webstamm](xref:fundamentals/index#web-root-webroot).
 
 ### <a name="serve-files-outside-of-web-root"></a>Bereitstellen von Dateien außerhalb des Webstammverzeichnisses
 

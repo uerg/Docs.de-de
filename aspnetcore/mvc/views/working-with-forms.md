@@ -3,15 +3,15 @@ title: Taghilfsprogramme in Formularen in ASP.NET Core
 author: rick-anderson
 description: Beschreibt die integrierten Taghilfsprogramme, die mit Formularen verwendet werden.
 ms.author: riande
-ms.custom: H1Hack27Feb2017
-ms.date: 02/14/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: e613dc1e85b84cc5e2b8ad2bf3958040257d1966
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
-ms.translationtype: HT
+ms.openlocfilehash: efc71cc8d072769cde07e129b6d9bb933fc2f7af
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911278"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090214"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>Taghilfsprogramme in Formularen in ASP.NET Core
 
@@ -29,7 +29,7 @@ Das Taghilfsprogramm für [Formulare](https://www.w3.org/TR/html401/interact/for
 
 * Generiert den HTML-Attributwert [\<FORM>](https://www.w3.org/TR/html401/interact/forms.html) `action` für eine MVC-Controlleraktion oder eine benannte Route
 
-* Generiert ein ausgeblendetes [Token für die Anforderungsüberprüfung](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages), um (bei Verwendung mit dem `[ValidateAntiForgeryToken]`-Attribut in der nachfolgenden HTML-Aktionsmethode) websiteübergreifende Anforderungsfälschung zu verhindern.
+* Generiert ein ausgeblendetes [Token für die Anforderungsüberprüfung](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages), um (bei Verwendung mit dem `[ValidateAntiForgeryToken]`-Attribut in der nachfolgenden HTML-Aktionsmethode) websiteübergreifende Anforderungsfälschung zu verhindern.
 
 * Stellt das `asp-route-<Parameter Name>`-Attribut bereit, bei dem `<Parameter Name>` zu den Routenwerten hinzugefügt wird. Die `routeValues`-Parameter von `Html.BeginForm` und `Html.BeginRouteForm` bieten eine ähnliche Funktionalität.
 
@@ -48,7 +48,7 @@ Das zuvor erwähnte Taghilfsprogramm für Formulare generiert folgenden HTML-Cod
 </form>
 ```
 
-Die MVC-Runtime generiert den `action`-Attributwert aus den Attributen `asp-controller` und `asp-action` des Taghilfsprogramms für Formulare. Das Taghilfsprogramm für Formulare generiert ebenfalls ein ausgeblendetes [Token für die Anforderungsüberprüfung](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages), um (bei Verwendung mit dem `[ValidateAntiForgeryToken]`-Attribut in der nachfolgenden HTML-Aktionsmethode) websiteübergreifende Anforderungsfälschung zu verhindern. Es ist schwierig, ein reines HTML-Formular vor websiteübergreifender Anforderungsfälschung zu schützen. Das Taghilfsprogramm für Formulare stellt diesen Dienst für Sie bereit.
+Die MVC-Runtime generiert den `action`-Attributwert aus den Attributen `asp-controller` und `asp-action` des Taghilfsprogramms für Formulare. Das Taghilfsprogramm für Formulare generiert ebenfalls ein ausgeblendetes [Token für die Anforderungsüberprüfung](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages), um (bei Verwendung mit dem `[ValidateAntiForgeryToken]`-Attribut in der nachfolgenden HTML-Aktionsmethode) websiteübergreifende Anforderungsfälschung zu verhindern. Es ist schwierig, ein reines HTML-Formular vor websiteübergreifender Anforderungsfälschung zu schützen. Das Taghilfsprogramm für Formulare stellt diesen Dienst für Sie bereit.
 
 ### <a name="using-a-named-route"></a>Verwenden einer benannte Route
 
@@ -106,12 +106,12 @@ Das `Input`-Taghilfsprogramm legt das HTML-Attribut `type` basierend auf dem .NE
 
 |.NET-Typ|Eingabetyp|
 |---|---|
-|Bool|type=”checkbox”|
-|Zeichenfolge|type=”text”|
-|DateTime|type=”datetime”|
-|Byte|type=”number”|
-|Int|type=”number”|
-|Single, Double|type=”number”|
+|Bool|type="checkbox"|
+|Zeichenfolge|type="text"|
+|DateTime|type="datetime"|
+|Byte|type="number"|
+|Int|type="number"|
+|Single, Double|type="number"|
 
 
 In der folgenden Tabelle werden einige allgemeine Attribute für die [Datenanmerkung](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) aufgeführt, die das Taghilfsprogramm für die Eingabe bestimmten Eingabetypen zuordnet (nicht jedes Validierungsattribut wird aufgeführt):
@@ -119,13 +119,13 @@ In der folgenden Tabelle werden einige allgemeine Attribute für die [Datenanmer
 
 |Attribut|Eingabetyp|
 |---|---|
-|[EmailAddress]|type=”email”|
-|[Url]|type=”url”|
-|[HiddenInput]|type=”hidden”|
-|[Phone]|type=”tel”|
-|[DataType(DataType.Password)]| type=”password”|
-|[DataType(DataType.Date)]| type=”date”|
-|[DataType(DataType.Time)]| type=”time”|
+|[EmailAddress]|type="email"|
+|[Url]|type="url"|
+|[HiddenInput]|type="hidden"|
+|[Phone]|type="tel"|
+|[DataType(DataType.Password)]| type="password"|
+|[DataType(DataType.Date)]| type="date"|
+|[DataType(DataType.Time)]| type="time"|
 
 
 Beispiel:
@@ -244,7 +244,6 @@ Die folgende Razor-Syntax veranschaulicht das Durchlaufen einer Auflistung:
 Die Vorlage *Views/Shared/EditorTemplates/ToDoItem.cshtml*:
 
 [!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/ToDoItem.cshtml)]
-
 
 >[!NOTE]
 >Verwenden Sie immer `for` (*nicht* `foreach`), um eine Liste zu durchlaufen. Das Auswerten eines Indexers in einem LINQ-Ausdruck kann teuer sein und sollte minimiert werden.
@@ -574,10 +573,10 @@ Das richtige `<option>`-Element (enthält das `selected="selected"`-Attribut) wi
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Taghilfsprogramme](xref:mvc/views/tag-helpers/intro)
+* <xref:mvc/views/tag-helpers/intro>
 * [HTML-Formularelement](https://www.w3.org/TR/html401/interact/forms.html)
 * [Token für die Anforderungsüberprüfung](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)
-* [Modellbindung](xref:mvc/models/model-binding)
-* [Modellvalidierung](xref:mvc/models/validation)
+* <xref:mvc/models/model-binding>
+* <xref:mvc/models/validation>
 * [IAttributeAdapter-Schnittstelle](/dotnet/api/Microsoft.AspNetCore.Mvc.DataAnnotations.IAttributeAdapter)
 * [Codeauschnitte für dieses Dokument](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/working-with-forms/sample/final)

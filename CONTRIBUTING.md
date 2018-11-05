@@ -6,7 +6,7 @@ In diesem Dokument wird der Prozess bei der Mitwirkung an den Artikeln und Codeb
 
 Artikel werden als Markdowndateien im Repository gespeichert. Einfache Änderungen am Inhalt einer Markdowndatei erfolgen im Browser durch Klicken auf den Link **Bearbeiten** in der oberen rechten Ecke des Browserfensters. (Erweitern Sie in einem zu kleinen Browserfenster die Leiste **Optionen**, um den Link **Bearbeiten** anzuzeigen.) Befolgen Sie die Anweisungen zum Erstellen eines Pull Requests (PR). Wir überprüfen den PR und akzeptieren diesen oder schlagen Änderungen vor.
 
-## <a name="how-to-make-a-more-complex-submission"></a>Einreichen einer komplexeren Eingabe
+## <a name="how-to-make-a-more-complex-submission"></a>So reichen Sie einen komplexeren Vorschlag ein
 
 Sie benötigen Grundkenntnisse von [Git und GitHub.com](https://guides.github.com/activities/hello-world/).
 
@@ -55,6 +55,13 @@ Wenn der Titel des Artikels für den Linktext ungeeignet ist (z.B. ein Wort oder
 Weitere Informationen finden Sie auf der DocFX-Website unter [Cross Reference](https://dotnet.github.io/docfx/spec/docfx_flavored_markdown.html#cross-reference) (Querverweis).
 
 ## <a name="images-and-screenshots"></a>Bilder und Screenshots
+
+Fügen Sie nur in den folgenden Fällen Bilder in Artikel ein:
+
+* In grundlegenden Tutorials für Anfänger
+* Wenn ein Bild für die Übersichtlichkeit erforderlich ist
+
+Diese Einschränkungen sollen die Repositorygröße auf einem Minimum halten.
 
 Stellen Sie optional sicher, dass alle Bilder und Screenshots, die in der Dokumentation verwendet werden, komprimiert sind. Dies reduziert die Dateigröße und erhöht die Leistung beim Laden von Seiten. Zu den gängigen Tools zählen TinyPNG (mit der [TinyPNG-Website](https://tinypng.com/) oder der [TinyPNG-API](https://tinypng.com/developers)) oder die [Image Optimizer](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.ImageOptimizer)-Erweiterung für Visual Studio. 
 

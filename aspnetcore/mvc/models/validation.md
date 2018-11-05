@@ -3,14 +3,15 @@ title: Modellvalidierung im ASP.NET Core MVC
 author: tdykstra
 description: Informationen zur Modellvalidierung im ASP.NET Core MVC
 ms.author: riande
-ms.date: 07/31/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: mvc/models/validation
-ms.openlocfilehash: fe036f261b80f6134078835080409720d149374d
-ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.openlocfilehash: 73d41b4718071d00a6f80b33de182da2ad90f331
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312153"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090949"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>Modellvalidierung im ASP.NET Core MVC
 
@@ -27,6 +28,13 @@ Praktischerweise hat .NET die Validierung in Validierungsattribute unterteilt. D
 ## <a name="validation-attributes"></a>Validierungsattribute
 
 Mithilfe von Validierungsattributen können Sie die Modellvalidierung konfigurieren, sodass sie dem Konzept zum Validieren von Feldern in Datenbanktabellen ähnelt. Dies beinhaltet Einschränkungen wie das Zuweisen von Datentypen oder erforderlichen Feldern. Andere Typvalidierungen umfassen die Anwendung von Mustern auf Daten, um Geschäftsregeln zu erzwingen – z.B. das Angeben einer Kreditkarte, einer Telefonnummer oder einer E-Mail-Adresse. Mithilfe von Validierungsattributen können Anforderungen viel einfacher erzwungen werden.
+
+Validierungsattribute werden auf der Eigenschaftenebene festgelegt: 
+
+```csharp 
+[Required] 
+public string MyProperty { get; set; } 
+``` 
 
 Nachfolgend finden Sie ein annotiertes `Movie`-Modell einer App, das Informationen über Filme und Fernsehserien speichert. Die meisten Eigenschaften sind erforderlich und einige Zeichenfolgeneigenschaften haben Längenanforderungen. Außerdem gibt es neben einem benutzerdefinierten Validierungsattribut auch eine Bereichseinschränkung für die `Price`-Eigenschaft von 0 (null) bis 999,99 $.
 
@@ -62,7 +70,7 @@ Für manche Instanzen benötigen Sie ggf. mehr Features als die integrierten Att
 
 Die MVC-Modellbindung, die bei der Validierung und bei Validierungsattributen nicht in Betracht gezogen wird, lehnt die Übertragung eines Formularfelds ab, die einen fehlenden Wert oder einen Platzhalter für einen nicht auf NULL festlegbaren Typ enthält. Wenn kein `BindRequired`-Attribut für die Zieleigenschaft vorhanden ist, ignoriert die Modellbindung die fehlenden Daten für nicht auf NULL festlegbare Typen, wenn das Formularfeld keine eingehenden Daten enthält.
 
-Das [BindRequired-Attribut](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.bindrequiredattribute) (weitere Informationen finden Sie unter [Customize model binding behavior with attributes (Anpassen von Modellbindungsverhalten mit Attributen)](xref:mvc/models/model-binding#customize-model-binding-behavior-with-attributes)) ist nützlich, wenn Sie sicherstellen wollen, dass die Formulardaten vollständig sind. Wenn das Modellbindungssystem auf eine Eigenschaft angewendet wird, ist ein Wert für diese Eigenschaft erforderlich. Wenn das Modellbindungssystem auf einen Typ angewendet wird, sind für alle Eigenschaften dieses Typs Werte erforderlich.
+Das [BindRequired-Attribut](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.bindrequiredattribute) (siehe <xref:mvc/models/model-binding#customize-model-binding-behavior-with-attributes>) ist nützlich, um sicherzustellen, dass die Formulardaten vollständig sind. Wenn das Modellbindungssystem auf eine Eigenschaft angewendet wird, ist ein Wert für diese Eigenschaft erforderlich. Wenn das Modellbindungssystem auf einen Typ angewendet wird, sind für alle Eigenschaften dieses Typs Werte erforderlich.
 
 Wenn Sie einen [Nullable\<T>-Typ](/dotnet/csharp/programming-guide/nullable-types/) (z.B. `decimal?` oder `System.Nullable<decimal>`) verwenden, und ihn als `Required` markieren, wird eine Validierungsüberprüfung auf Serverseite ausgeführt. Dabei wird angenommen, dass es sich bei der Eigenschaft um einen Nullable-Standardtyp (z.B. eine `string`) handelt.
 
@@ -256,4 +264,4 @@ Wenn Sie mindestens zwei weitere Felder mit dem `[Remote]`-Attribut überprüfen
 public string MiddleName { get; set; }
 ```
 
-`AdditionalFields` muss wie alle anderen Attributargumente ein konstanter Ausdruck sein. Aus diesem Grund müssen Sie keine [interpolierte Zeichenfolge verwenden](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/interpolated-strings) oder [`string.Join()`](https://msdn.microsoft.com/library/system.string.join(v=vs.110).aspx) aufrufen, um `AdditionalFields` zu initialisieren. Für jedes weitere Feld, das Sie dem `[Remote]`-Attribut hinzufügen, müssen Sie der zugehörigen Aktionsmethode des Controllers ein weiteres Argument hinzufügen.
+`AdditionalFields` muss wie alle anderen Attributargumente ein konstanter Ausdruck sein. Aus diesem Grund müssen Sie keine [interpolierte Zeichenfolge verwenden](/dotnet/csharp/language-reference/keywords/interpolated-strings) oder [`string.Join()`](https://msdn.microsoft.com/library/system.string.join(v=vs.110).aspx) aufrufen, um `AdditionalFields` zu initialisieren. Für jedes weitere Feld, das Sie dem `[Remote]`-Attribut hinzufügen, müssen Sie der zugehörigen Aktionsmethode des Controllers ein weiteres Argument hinzufügen.

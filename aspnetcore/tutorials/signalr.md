@@ -7,29 +7,29 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 55fb6b1c13549129a00541c1228956a93854ad78
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: c059ace7ebe0e65ecb3ac068677d65ae148322a0
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578028"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207679"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Tutorial: Erste Schritte mit ASP.NET Core SignalR
 
 In diesem Tutorial werden die Grundlagen zur Erstellung einer Echtzeit-App mit SignalR beschrieben. Sie lernen Folgendes:
 
 > [!div class="checklist"]
-> * Erstellen eines Web-App-Projekts
+> * Erstellen Sie ein Webprojekt.
 > * Hinzufügen der SignalR-Clientbibliothek
 > * Erstellen eines SignalR-Hubs
 > * Konfigurieren des Projekts zur Verwendung von SignalR
-> * Hinzufügen von Code, der den Hub verwendet, um Nachrichten von einem beliebigen Client an alle verbundenen Clients zu senden
+> * Hinzufügen von Code, mit dem Nachrichten von jedem Client an alle verbundene Clients gesendet werden.
 
 Am Ende verfügen Sie über eine funktionierende Chat-App:
 
 ![SignalR-Beispiel-App](signalr/_static/signalr-get-started-finished.png)
 
-[Zeigen Sie Beispielcode an, oder laden Sie diesen herunter](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr/sample) ([Vorgehensweise zum Herunterladen](xref:tutorials/index#how-to-download-a-sample)).
+[Zeigen Sie Beispielcode an, oder laden Sie diesen herunter](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr/sample) ([Vorgehensweise zum Herunterladen](xref:index#how-to-download-a-sample)).
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
@@ -250,7 +250,7 @@ Der SignalR-Server muss zunächst konfiguriert werden, um Anforderungen an Signa
 In diesem Tutorial haben Sie gelernt, wie die folgenden Aufgaben ausgeführt werden:
 
 > [!div class="checklist"]
-> * Erstellen eines Web-App-Projekts
+> * Erstellen Sie ein Web-App-Projekt.
 > * Hinzufügen der SignalR-Clientbibliothek
 > * Erstellen eines SignalR-Hubs
 > * Konfigurieren des Projekts zur Verwendung von SignalR

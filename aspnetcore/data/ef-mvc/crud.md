@@ -3,14 +3,15 @@ title: ASP.NET Core MVC mit EF Core − Erweitert (2 von 10)
 author: rick-anderson
 description: ''
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/crud
-ms.openlocfilehash: de9b0bd1e0346d4c12f256e6226353f1ab47ed11
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: 34927415beadaa3f5c9035a9101e3c99f7cbc395
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477578"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090822"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>ASP.NET Core MVC mit EF Core − Erweitert (2 von 10)
 
@@ -91,7 +92,7 @@ Wenn `item.ID` 6 entspricht, generiert dies den folgenden HTML-Code:
 <a href="/Students/Edit?studentID=6">Edit</a>
 ```
 
-Weitere Informationen zu Taghilfsprogrammen finden Sie unter [Taghilfsprogramme in ASP.NET Core](xref:mvc/views/tag-helpers/intro).
+Weitere Informationen über Taghilfsprogramme finden Sie unter <xref:mvc/views/tag-helpers/intro>.
 
 ### <a name="add-enrollments-to-the-details-view"></a>Hinzufügen von Registrierungen in die Detailansicht
 
@@ -121,7 +122,7 @@ Dieser Code fügt die Entität „Student“ (Schüler) der Entitätenmenge „S
 
 Sie haben `ID` aus dem Attribut `Bind` entfernt, da ID der primäre Schlüsselwert ist, den SQL Server automatisch festlegt, wenn die Zeile eingefügt wird. Der ID-Wert wird nicht über Eingabe vom Benutzer festgelegt.
 
-Abgesehen vom Attribut `Bind`, ist der Try-Catch-Block die einzige Änderung, die Sie am eingerüsteten Code vorgenommen haben. Wenn eine Ausnahme abgefangen wird, die von `DbUpdateException` abgeleitet wird, während die Änderungen gespeichert werden, wird eine generische Fehlermeldung angezeigt. `DbUpdateException`-Ausnahmen werden manchmal durch etwas außerhalb der Anwendung ausgelöst, und nicht durch einen Programmierfehler. Es wird empfohlen, dass der Benutzer es erneut versucht. Zwar wird es in diesem Beispiel nicht implementiert, aber eine qualitätsorientierte Produktionsanwendung würde die Ausnahme protokollieren. Weitere Informationen finden Sie im Abschnitt **Log for insight (Einblicke durch Protokollierung)** im Artikel [Monitoring and Telemetry (Building Real-World Cloud Apps with Azure) (Überwachung und Telemetrie (Erstellen von realitätsnahen Cloud-Apps mit Azure))](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).
+Abgesehen vom Attribut `Bind`, ist der Try-Catch-Block die einzige Änderung, die Sie am eingerüsteten Code vorgenommen haben. Wenn eine Ausnahme abgefangen wird, die von `DbUpdateException` abgeleitet wird, während die Änderungen gespeichert werden, wird eine generische Fehlermeldung angezeigt. `DbUpdateException`-Ausnahmen werden manchmal durch etwas außerhalb der Anwendung ausgelöst, und nicht durch einen Programmierfehler. Es wird empfohlen, dass der Benutzer es erneut versucht. Zwar wird es in diesem Beispiel nicht implementiert, aber eine qualitätsorientierte Produktionsanwendung würde die Ausnahme protokollieren. Weitere Informationen finden Sie im Abschnitt **Log for insight (Einblicke durch Protokollierung)** im Artikel [Monitoring and Telemetry (Building Real-World Cloud Apps with Azure) (Überwachung und Telemetrie (Erstellen von realitätsnahen Cloud-Apps mit Azure))](/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).
 
 Das Attribut `ValidateAntiForgeryToken` hilft dabei, Angriffe mit der Websiteübergreifenden Anforderungsfälschung (CSRF) zu verhindern. Der [FormTagHelper](xref:mvc/views/working-with-forms#the-form-tag-helper) injiziert das Token automatisch in die Ansicht und ist enthalten, wenn das Formular vom Benutzer gesendet wird. Das Token wird vom Attribut `ValidateAntiForgeryToken` überprüft. Weitere Informationen über CSRF finden Sie unter [Anti-Request Forgery (Antianforderungsfälschung)](../../security/anti-request-forgery.md).
 
@@ -277,7 +278,7 @@ Rufen Sie die [Erweiterungsmethode AddDbContext](https://github.com/aspnet/Entit
 
 ## <a name="handling-transactions"></a>Verarbeiten von Transaktionen
 
-Standardgemäß implementiert Entity Framework implizit Transaktionen. In Szenarios, in denen Sie Änderungen an mehreren Zeilen oder Tabellen vornehmen und dann `SaveChanges` aufrufen, stellt Entity Framework automatisch sicher, dass alle Ihre Änderungen entweder fehlschlagen oder erfolgreich abgeschlossen werden. Wenn ein Fehler auftritt, nachdem einige der Änderungen durchgeführt wurden, werden diese Änderungen automatisch zurückgesetzt. Informationen zu Szenarios, die Sie genauer kontrollieren müssen (z.B. wenn Sie Vorgänge einfügen möchten, die außerhalb von Entity Framework in einer Transaktion ausgeführt werden), finden Sie unter [Transaktionen](https://docs.microsoft.com/ef/core/saving/transactions).
+Standardgemäß implementiert Entity Framework implizit Transaktionen. In Szenarios, in denen Sie Änderungen an mehreren Zeilen oder Tabellen vornehmen und dann `SaveChanges` aufrufen, stellt Entity Framework automatisch sicher, dass alle Ihre Änderungen entweder fehlschlagen oder erfolgreich abgeschlossen werden. Wenn ein Fehler auftritt, nachdem einige der Änderungen durchgeführt wurden, werden diese Änderungen automatisch zurückgesetzt. Informationen zu Szenarios, die Sie genauer kontrollieren müssen (z.B. wenn Sie Vorgänge einfügen möchten, die außerhalb von Entity Framework in einer Transaktion ausgeführt werden), finden Sie unter [Transaktionen](/ef/core/saving/transactions).
 
 ## <a name="no-tracking-queries"></a>Abfragen ohne Nachverfolgung
 
@@ -291,7 +292,7 @@ Sie können die Nachverfolgung von Entitätsobjekten im Arbeitsspeicher deaktivi
 
 * Sie sollten eine Entität anfügen, um diese zu aktualisieren, jedoch haben Sie eben diese Entität bereits für einen anderen Zweck abgerufen. Da diese Entität bereits vom Datenbankkontext nachverfolgt wird, können Sie die zu ändernde Entität nicht anfügen. Ein Weg, diese Situation zu bewältigen, ist `AsNoTracking` auf der vorherigen Abfrage aufzurufen.
 
-Weitere Informationen finden Sie unter [Tracking vs. No-Tracking (Mit Nachverfolgung gegen ohne Nachverfolgung)](https://docs.microsoft.com/ef/core/querying/tracking).
+Weitere Informationen finden Sie unter [Tracking vs. No-Tracking (Mit Nachverfolgung gegen ohne Nachverfolgung)](/ef/core/querying/tracking).
 
 ## <a name="summary"></a>Zusammenfassung
 

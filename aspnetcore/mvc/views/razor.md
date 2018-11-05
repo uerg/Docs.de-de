@@ -3,14 +3,14 @@ title: Razor-Syntaxverweis für ASP.NET Core
 author: rick-anderson
 description: Informationen zur Razor-Markupsyntax zum Einbetten von serverbasiertem Code in Webseiten
 ms.author: riande
-ms.date: 10/18/2017
+ms.date: 10/26/2018
 uid: mvc/views/razor
-ms.openlocfilehash: d0f4d59cb605cc3cc7cdfa84bfc65399699e475a
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 10f0db168b36fed82def8227b3c3edcf5b57f6d7
+ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272687"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50148888"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Razor-Syntaxverweis für ASP.NET Core
 
@@ -404,7 +404,7 @@ Razor-Anweisungen werden durch implizite Ausdrücke mit reservierten Schlüsselw
 
 Wenn Sie wissen, wie von Razor Code für eine Ansicht generiert wird, erleichtert dies das Verständnis dafür, wie Anweisungen funktionieren.
 
-[!code-html[](razor/sample/Views/Home/Contact8.cshtml)]
+[!code-cshtml[](razor/sample/Views/Home/Contact8.cshtml)]
 
 Durch den Code wird eine Klasse ähnlich der folgenden Klasse generiert:
 
@@ -422,7 +422,7 @@ public class _Views_Something_cshtml : RazorPage<dynamic>
 }
 ```
 
-Im Abschnitt [Anzeigen der Razor-C#-Klasse, die für eine Ansicht generiert wurde](#viewing-the-razor-c-class-generated-for-a-view) weiter unten wird erklärt, wie die generierte Klasse angezeigt wird.
+Im Abschnitt [Überprüfen der Razor-C#-Klasse, die für eine Ansicht generiert wurde](#inspect-the-razor-c-class-generated-for-a-view) weiter unten wird erklärt, wie die generierte Klasse angezeigt wird.
 
 <a name="using"></a>
 ### <a name="using"></a>@using
@@ -497,7 +497,6 @@ Wird „rick@contoso.com“ im Modell übergeben, generiert die Ansicht das folg
 ```
 
 ### <a name="inject"></a>@inject
-
 
 Mit der `@inject`-Anweisung kann die Razor Page einen Dienst vom [Dienstcontainer](xref:fundamentals/dependency-injection) in eine Ansicht einfügen. Weitere Informationen finden Sie unter [Dependency Injection in Ansichten](xref:mvc/views/dependency-injection).
 
@@ -574,32 +573,76 @@ Razor-C#-Schlüsselwörter werden mit dem doppeltem Escapezeichen `@(@C# Razor K
 
 * Klasse
 
-## <a name="viewing-the-razor-c-class-generated-for-a-view"></a>Anzeigen der Razor-C#-Klasse, die für eine Ansicht generiert wurde
+## <a name="inspect-the-razor-c-class-generated-for-a-view"></a>Überprüfen der Razor-C#-Klasse, die für eine Ansicht generiert wurde
+
+::: moniker range=">= aspnetcore-2.1"
+
+Mit .NET Core SDK 2.1 oder höher führt das [Razor SDK](xref:razor-pages/sdk) die Kompilierung von Razor-Dateien durch. Beim Erstellen eines Projekts generiert das Razor SDK das Verzeichnis *obj/<Buildkonfiguration>/<Zielframeworkbezeichnung>/Razor* im Projektstamm. Die Verzeichnisstruktur im *Razor*-Verzeichnis spiegelt die Verzeichnisstruktur des Projekts.
+
+Beachten Sie die folgende Verzeichnisstruktur in einem Razor Pages-Projekt in ASP.NET Core 2.1 für .NET Core 2.1:
+
+* **Areas/**
+  * **Admin/**
+    * **Pages/**
+      * *Index.cshtml*
+      * *Index.cshtml.cs*
+* **Pages/**
+  * **Shared/**
+    * *_Layout.cshtml*
+  * *_ViewImports.cshtml*
+  * *_ViewStart.cshtml*
+  * *Index.cshtml*
+  * *Index.cshtml.cs*
+
+Wenn Sie das Projekt mit der Konfiguration zum *Debuggen* erstellen, wird folgendes *obj*-Verzeichnis erstellt:
+
+* **obj/**
+  * **Debug/**
+    * **netcoreapp2.1/**
+      * **Razor/**
+        * **Areas/**
+          * **Admin/**
+            * **Pages/**
+              * *Index.g.cshtml.cs*
+        * **Pages/**
+          * **Shared/**
+            * *_Layout.g.cshtml.cs*
+          * *_ViewImports.g.cshtml.cs*
+          * *_ViewStart.g.cshtml.cs*
+          * *Index.g.cshtml.cs*
+
+Öffnen Sie *obj/Debug/netcoreapp2.1/Razor/Pages/Index.g.cshtml.cs*, um die für *Pages/Index.cshtml* generierte Klasse anzuzeigen.
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
 
 Fügen Sie dem ASP.NET Core MVC-Projekt die folgende Klasse hinzu:
 
 [!code-csharp[](razor/sample/Utilities/CustomTemplateEngine.cs)]
 
-Überschreiben Sie das von MVC hinzugefügte `RazorTemplateEngine` mit der `CustomTemplateEngine`-Klasse:
+Überschreiben Sie in `Startup.ConfigureServices` die von MVC hinzugefügte `RazorTemplateEngine`-Klasse mit der `CustomTemplateEngine`-Klasse:
 
 [!code-csharp[](razor/sample/Startup.cs?highlight=4&range=10-14)]
 
-Setzen Sie auf der `return csharpDocument`-Anweisung von `CustomTemplateEngine` einen Haltepunkt. Wenn die Ausführung des Programms am Haltepunkt angehalten wird, können Sie den Wert von `generatedCode` anzeigen.
+Legen Sie auf der `return csharpDocument;`-Anweisung von `CustomTemplateEngine` einen Haltepunkt fest. Wenn die Ausführung des Programms am Haltepunkt angehalten wird, können Sie den Wert von `generatedCode` anzeigen.
 
 ![Ansicht „Text-Schnellansicht“ von „generatedCode“](razor/_static/tvr.png)
+
+::: moniker-end
 
 ## <a name="view-lookups-and-case-sensitivity"></a>Ansicht der Suchvorgänge und Groß-/Kleinschreibung
 
 Die Razor-Ansichtsengine führt für Ansichten Suchvorgänge aus, die Groß- und Kleinschreibung berücksichtigen. Der tatsächliche Suchvorgang wird jedoch vom zugrunde liegenden Dateisystem bestimmt:
 
-* Dateibasierte Quelle: 
+* Dateibasierte Quelle:
   * Bei Betriebssystemen, die Dateisysteme ohne Berücksichtigung von Groß-/Kleinschreibung verwenden (z.B. Windows), wird bei Suchvorgängen nach physischen Dateianbietern die Groß- und Kleinschreibung nicht berücksichtigt. `return View("Test")` liefert beispielsweise eine Übereinstimmung für */Views/Home/Test.cshtml*, */Views/home/test.cshtml* sowie für jede andere Schreibweise.
   * Bei Dateisystemen, die Groß-/Kleinschreibung berücksichtigen (z.B. Linux, OSX sowie mit `EmbeddedFileProvider`), wird auch bei Suchvorgängen die Groß- und Kleinschreibung berücksichtigt. `return View("Test")` liefert beispielsweise speziell eine Übereinstimmung mit */Views/Home/Test.cshtml*.
 * Vorkompilierte Ansichten: Ab ASP.NET Core 2.0 wird bei der Suche nach vorkompilierten Ansichten unter allen Betriebssystemen die Groß- und Kleinschreibung nicht berücksichtigt. Das Verhalten ist mit dem Verhalten des physischen Dateianbieters unter Windows identisch. Unterscheiden sich zwei vorkompilierte Ansichten nur in der Groß-/Kleinschreibung, ist das Ergebnis der Suche nicht deterministisch.
 
 Entwicklern wird empfohlen, sich bei der Groß-/Kleinschreibung von Datei- und Verzeichnisnamen an der Schreibweise folgender Begriffe zu orientieren:
 
-    * Bereichs-, Controller- und Aktionsnamen 
+    * Bereichs-, Controller- und Aktionsnamen
     * Razor Pages
-    
+
 Mit einer übereinstimmenden Groß- und Kleinschreibung wird sichergestellt, dass die entsprechenden Ansichten für die Bereitstellungen unabhängig von dem zugrunde liegenden Dateisystem gefunden werden.
