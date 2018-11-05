@@ -1,19 +1,19 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/customizing-a-view
 title: 'EF Database First mit ASP.NET MVC: Anpassen einer Ansicht | Microsoft-Dokumentation'
-author: tfitzmac
+author: Rick-Anderson
 description: Verwenden MVC, Entity Framework und ASP.NET-Gerüstbau, können Sie eine Webanwendung erstellen, die eine Schnittstelle für eine vorhandene Datenbank bereitstellt. Dieses Tutorial Seri...
 ms.author: riande
 ms.date: 10/01/2014
 ms.assetid: 269380ff-d7e1-4035-8ad1-fe1316a25f76
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/customizing-a-view
 msc.type: authoredcontent
-ms.openlocfilehash: ce450af93459f2a69557b3fe0d1ead813ae99986
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: f66e097d53514ab3842e04cd545ca626c652478a
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41833627"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021209"
 ---
 <a name="ef-database-first-with-aspnet-mvc-customizing-a-view"></a>EF Database First mit ASP.NET MVC: Anpassen einer Ansicht
 ====================

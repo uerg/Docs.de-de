@@ -1,19 +1,19 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/creating-and-using-a-helper-in-an-aspnet-web-pages-site
 title: Erstellen und Verwenden eines Hilfsprogramms in einer ASP.NET Web Pages (Razor) Standort | Microsoft-Dokumentation
-author: tfitzmac
+author: Rick-Anderson
 description: Dieser Artikel beschreibt, wie Sie eine Hilfsprogramm auf einer Website für ASP.NET Web Pages (Razor) zu erstellen. Ein Hilfsprogramm ist eine wiederverwendbare Komponente, die Code und Markup Perf enthält...
 ms.author: riande
 ms.date: 02/17/2014
 ms.assetid: 46bff772-01e0-40f0-9ae6-9e18c5442ee6
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/creating-and-using-a-helper-in-an-aspnet-web-pages-site
 msc.type: authoredcontent
-ms.openlocfilehash: a6d3074f39a1d7b81b173813a73380fe2a536e7a
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 3b54ba8a35a354eb0562a47866cd8b5dcb66bc86
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41835360"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021507"
 ---
 <a name="creating-and-using-a-helper-in-an-aspnet-web-pages-razor-site"></a>Erstellen und Verwenden eines Hilfsprogramms in einer ASP.NET Web Pages (Razor)-Website
 ====================

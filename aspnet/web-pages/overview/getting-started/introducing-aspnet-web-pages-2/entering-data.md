@@ -1,19 +1,19 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/entering-data
 title: Einführung in ASP.NET Web Pages - eingeben von Datenbankdaten mithilfe von Formularen | Microsoft-Dokumentation
-author: tfitzmac
+author: Rick-Anderson
 description: In diesem Tutorial erfahren Sie, wie ein Anmeldeformular erstellen, und geben die Daten, die aus dem Formular in eine Datenbanktabelle bei Verwendung von ASP.NET Web Pages (...)
 ms.author: riande
 ms.date: 05/28/2015
 ms.assetid: d37c93fc-25fd-4e94-8671-0d437beef206
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/entering-data
 msc.type: authoredcontent
-ms.openlocfilehash: 453ed888bc219175c5a3a25f857dfa79ab22b608
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: e40d2962ccac56eaaf4812819aa42168e69295bc
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837146"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021728"
 ---
 <a name="introducing-aspnet-web-pages---entering-database-data-by-using-forms"></a>Einführung in ASP.NET Web Pages - eingeben von Datenbankdaten mithilfe von Formularen
 ====================
@@ -32,10 +32,10 @@ durch [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > Features/Technologien erläutert:
 > 
-> - Die `Database.Execute`-Methode.
+> - Die `Database.Execute` -Methode.
 > - Die SQL-Anweisung `Insert Into` Anweisung
 > - Die `Validation` Helper.
-> - Die `Response.Redirect`-Methode.
+> - Die `Response.Redirect` -Methode.
 
 
 ## <a name="what-youll-build"></a>Sie lernen Folgendes

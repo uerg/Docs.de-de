@@ -8,12 +8,12 @@ ms.date: 06/26/2013
 ms.assetid: 23fc77da-2725-4434-99a0-ff872d96336b
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
-ms.openlocfilehash: 3b66f02c9be6441ff7d6c38d6180cc8556c6b8b9
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 18a44c280e6df1603837938d24d7d639d8c87cc2
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912890"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021416"
 ---
 <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>Erstellen Sie eine REST-API mit Attributrouting in der ASP.NET-Web-API 2
 ====================
@@ -52,11 +52,11 @@ Für die meisten Anforderungen wird die API jedoch eine Teilmenge dieser Daten (
 
 Starten Sie durch Ausführen von Visual Studio. Von der **Datei** , wählen Sie im Menü **neu** und wählen Sie dann **Projekt**.
 
-Erweitern Sie die **installiert** > **Visual C#-** Kategorie. Klicken Sie unter **Visual C#-** Option **Web**. Wählen Sie in der Liste der Projektvorlagen das Projekt **ASP.NET MVC 4-Webanwendung**. Nennen Sie das Projekt &quot;BooksAPI&quot;.
+Erweitern Sie die **installiert** > **Visual C#-** Kategorie. Klicken Sie unter **Visual C#-** Option **Web**. Wählen Sie in der Liste der Projektvorlagen das Projekt **ASP.NET-Webanwendung ((.NET Framework)**. Nennen Sie das Projekt &quot;BooksAPI&quot;.
 
 ![](create-a-rest-api-with-attribute-routing/_static/image1.png)
 
-In der **neues ASP.NET-Projekt** wählen Sie im Dialogfeld die **leere** Vorlage. Unter "Hinzufügen von Ordnern und kernreferenzen für" Wählen Sie die **Web-API-** Kontrollkästchen. Klicken Sie auf **erstellen Projekt**.
+In der **neue ASP.NET-Webanwendung** wählen Sie im Dialogfeld die **leere** Vorlage. Unter "Hinzufügen von Ordnern und kernreferenzen für" Wählen Sie die **Web-API-** Kontrollkästchen. Klicken Sie auf **OK**.
 
 ![](create-a-rest-api-with-attribute-routing/_static/image2.png)
 
@@ -86,7 +86,7 @@ Klicken Sie im Projektmappen-Explorer den Ordner "Controllers". Wählen Sie **hi
 
 ![](create-a-rest-api-with-attribute-routing/_static/image4.png)
 
-In der **Gerüst hinzufügen** wählen Sie im Dialogfeld "Web-API 2-Controller mit Lese-/schreibaktionen, mithilfe von Entitätsframework."
+In der **Gerüst hinzufügen** wählen Sie im Dialogfeld **Web API 2-Controller mit Aktionen unter Verwendung von Entity Framework**.
 
 [![](create-a-rest-api-with-attribute-routing/_static/image6.png)](create-a-rest-api-with-attribute-routing/_static/image5.png)
 
