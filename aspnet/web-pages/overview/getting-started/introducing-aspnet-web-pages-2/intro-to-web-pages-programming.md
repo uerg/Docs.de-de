@@ -1,19 +1,19 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
 title: Einführung in ASP.NET Web Pages - Grundlagen der Programmierung | Microsoft-Dokumentation
-author: tfitzmac
+author: Rick-Anderson
 description: 'In diesem Tutorial enthält eine Übersicht der Programmierung in ASP.NET Web Pages mit Razor-Syntax. Sie lernen Folgendes: die grundlegende Razor-Syntax, mit denen Sie für den Pr...'
 ms.author: riande
 ms.date: 06/17/2015
 ms.assetid: 7526ed45-a97d-4e8a-8301-01324ef0eff9
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
 msc.type: authoredcontent
-ms.openlocfilehash: 120246fab3e71afeef2e2b7c4388f7c294e6b703
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: ec1c055d1b3f6ca5c6374a18840c2595bb368e0e
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41835224"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021533"
 ---
 <a name="introducing-aspnet-web-pages---programming-basics"></a>Einführung in ASP.NET Web Pages - Grundlagen der Programmierung
 ====================
@@ -306,7 +306,7 @@ Klicken Sie in WebMatrix erstellen Sie eine Seite, und nennen Sie sie *GravatarT
 
 In der &lt;Text&gt; -Element, Hinzufügen einer &lt;Div&gt; Element. In der &lt;Div&gt; -Element, geben Sie Folgendes:
 
-@Gravatar
+@Gravatar.
 
 Das @-Zeichen ist das gleiche Zeichen, die Sie mit denen Sie Razor-Code zu markieren. **Gravatar** ist das Hilfsobjekt, der mit dem Sie arbeiten.
 

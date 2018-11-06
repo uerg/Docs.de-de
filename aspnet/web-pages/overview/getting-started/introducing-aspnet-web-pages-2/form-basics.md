@@ -1,19 +1,19 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/form-basics
 title: Einführung in ASP.NET Web Pages - HTML-Formular-Grundlagen | Microsoft-Dokumentation
-author: tfitzmac
+author: Rick-Anderson
 description: 'In diesem Tutorial erfahren Sie, die Grundlagen der Vorgehensweise: Erstellen Sie ein Eingabeformular an und wie die Eingabe des Benutzers verarbeitet, bei der Verwendung von ASP.NET Web Pages (Razor). Und nachdem Sie...'
 ms.author: riande
 ms.date: 05/28/2015
 ms.assetid: 81ed82bf-b940-44f1-b94a-555d0cb7cc98
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/form-basics
 msc.type: authoredcontent
-ms.openlocfilehash: 5cf628b63e868e3f76aa19879d4af554241979c0
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 28385ac2244ab0bfb38ee5fcbc64e6e11804612b
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41836765"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021676"
 ---
 <a name="introducing-aspnet-web-pages---html-form-basics"></a>Einführung in ASP.NET Web Pages - HTML-Formular-Grundlagen
 ====================
@@ -69,8 +69,8 @@ Die `<form>` Element einschließt, HTML-Elemente übermittelt werden. (Eine einf
 > 
 > HTTP, das Protokoll, Browser und Server zu verwenden, um Informationen auszutauschen, ist die grundlegende Vorgänge überraschend einfach. Browser verwenden nur ein paar Verben, um Anforderungen an Server senden. Beim Schreiben von Code für das Web, ist es hilfreich zu verstehen, diese Verben und wie Browser und Server sie verwenden. Bei weitem sind die am häufigsten verwendeten Verben dies die:
 > 
-> - `GET` Der Browser verwendet dieses Verb etwas vom Server abgerufen. Z. B. Wenn Sie eine URL in Ihren Browser eingeben, die der Browser führt eine `GET` Vorgang auf die Seite "anfordern, werden sollen. Wenn die Seite Grafiken enthält, führt der Browser zusätzliche `GET` Vorgänge, um die Bilder zu erhalten. Wenn die `GET` -Vorgang bleibt, Informationen an den Server übergeben, die Informationen als Teil der URL in der Abfragezeichenfolge übergeben wird.
-> - `POST` Der Browser sendet eine `POST` Anforderung zum Senden von Daten hinzugefügt oder auf dem Server geändert werden. Z. B. die `POST` Verb wird verwendet, um Datensätze in einer Datenbank erstellen oder vorhandene ändern. In den meisten Fällen, wenn Sie ein Formular auszufüllen, und klicken Sie auf die Schaltfläche "Senden", die der Browser führt eine `POST` Vorgang. In einem `POST` -Vorgang an den Server übergebenen Daten werden im Text der Seite.
+> - `GET`. Der Browser verwendet dieses Verb etwas vom Server abgerufen. Z. B. Wenn Sie eine URL in Ihren Browser eingeben, die der Browser führt eine `GET` Vorgang auf die Seite "anfordern, werden sollen. Wenn die Seite Grafiken enthält, führt der Browser zusätzliche `GET` Vorgänge, um die Bilder zu erhalten. Wenn die `GET` -Vorgang bleibt, Informationen an den Server übergeben, die Informationen als Teil der URL in der Abfragezeichenfolge übergeben wird.
+> - `POST`. Der Browser sendet eine `POST` Anforderung zum Senden von Daten hinzugefügt oder auf dem Server geändert werden. Z. B. die `POST` Verb wird verwendet, um Datensätze in einer Datenbank erstellen oder vorhandene ändern. In den meisten Fällen, wenn Sie ein Formular auszufüllen, und klicken Sie auf die Schaltfläche "Senden", die der Browser führt eine `POST` Vorgang. In einem `POST` -Vorgang an den Server übergebenen Daten werden im Text der Seite.
 > 
 > Ein wichtiger Unterschied zwischen dieser Verben ist, eine `GET` Vorgang darf nicht mehr ändern, Elemente auf dem Server – oder auf etwas abstraktere Weise ausgedrückt eine `GET` Vorgang führt nicht zu einer Änderung in den Zustand auf dem Server. Durchführen können eine `GET` -Vorgang für die gleichen Ressourcen wie oft und solange aus, und ändern Sie diese Ressourcen nicht. (Ein `GET` Vorgang wird oft betont, "sicher", oder um einen technischen Begriff, zu verwenden ist *Idempotent*.) Im Gegensatz dazu sind natürlich eine `POST` Anforderung ändert sich etwas auf dem Server jedes Mal, die Sie den Vorgang ausführen.
 > 
