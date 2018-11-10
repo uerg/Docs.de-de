@@ -1,19 +1,19 @@
 ---
 uid: mvc/overview/older-versions/using-oauth-providers-with-mvc
 title: Verwenden von OAuth-Anbietern mit MVC 4 | Microsoft-Dokumentation
-author: tfitzmac
+author: Rick-Anderson
 description: In diesem Tutorial erfahren Sie, wie Sie eine ASP.NET MVC 4-Webanwendung erstellen, die Benutzern ermöglicht, melden Sie sich mit den Anmeldeinformationen von einem externen Anbieter, z. B. Facebo...
 ms.author: riande
 ms.date: 06/19/2013
 ms.assetid: 7a87f16f-0e19-4f15-a88a-094ae866c4a2
 msc.legacyurl: /mvc/overview/older-versions/using-oauth-providers-with-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 9b0db2775db5c74762bdc55328ad44ef7ebe75ce
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: d0203b62c911056fc56ed103c1c42f67816cbbf0
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41825952"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021754"
 ---
 <a name="using-oauth-providers-with-mvc-4"></a>Verwenden von OAuth-Anbietern mit MVC 4
 ====================
@@ -35,7 +35,7 @@ In diesem Tutorial sind zwei Hauptziele:
 
 Obwohl in die Beispielen in diesem Tutorial zur Verwendung von Facebook als Authentifizierungsanbieter zu konzentrieren, können Sie den Code, um einen der Anbieter verwenden, ändern. Die Schritte zum Implementieren von beliebigen Anbietern sind sehr ähnlich, mit den Schritten, die Sie in diesem Lernprogramm sehen werden. Sie sehen nur die erhebliche Unterschiede bei direkten Aufrufen an den Anbieter-API festgelegt.
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Vorraussetzungen
 
 - [Microsoft Visual Studio 2012](https://www.microsoft.com/visualstudio/eng/downloads#vs) oder [Microsoft Visual Studio Express 2012 für Web](https://www.microsoft.com/visualstudio/eng/downloads#d-2012-express)
 
@@ -83,7 +83,7 @@ In diesem Tutorial werden nicht alle Schritte angezeigt, die Sie ausführen müs
 - [Microsoft](http://manage.dev.live.com/)
 - [Twitter](https://dev.twitter.com/)
 
-Wenn Sie Ihre Website mit Facebook zu registrieren, können Sie angeben &quot;"localhost"&quot; für die Domäne der Website und `&quot;http://localhost/&quot;` für die URL, wie in der folgenden Abbildung dargestellt. Verwenden "localhost" arbeitet mit den meisten Anbietern zusammen, aber derzeit funktioniert nicht mit dem Microsoft-Anbieter. Für den Microsoft-Anbieter müssen Sie eine gültige Website-URL einschließen.
+Wenn Sie Ihre Website mit Facebook zu registrieren, können Sie angeben &quot;"localhost"&quot; für die Domäne der Website und `&quot; http://localhost/&quot;` für die URL, wie in der folgenden Abbildung dargestellt. Verwenden "localhost" arbeitet mit den meisten Anbietern zusammen, aber derzeit funktioniert nicht mit dem Microsoft-Anbieter. Für den Microsoft-Anbieter müssen Sie eine gültige Website-URL einschließen.
 
 ![Registrieren der site](using-oauth-providers-with-mvc/_static/image4.png)
 
@@ -183,7 +183,7 @@ Diese Datei enthält die Logik für die Protokollierung, das Registrieren und Ve
 
 Zusätzliche Benutzerdaten werden wieder in übergeben die **ExtraData** Eigenschaft der **AuthenticationResult** von zurückgegebene Objekt der **VerifyAuthentication** Methode. Der Facebook-Client enthält die folgenden Werte in der **ExtraData** Eigenschaft:
 
-- ID
+- id
 - Name
 - aus
 - Geschlecht

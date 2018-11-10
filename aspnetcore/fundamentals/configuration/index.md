@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/09/2018
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 2af66c0f35109dc1de954bf501f33ad61ddef4db
-ms.sourcegitcommit: 85f2939af7a167b9694e1d2093277ffc9a741b23
+ms.openlocfilehash: 6dd478770d4eae4d497da576c17fbe7d2c133b89
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50968370"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021741"
 ---
 # <a name="configuration-in-aspnet-core"></a>Konfiguration in ASP.NET Core
 
@@ -1151,6 +1151,7 @@ public class Program
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 config.SetBasePath(Directory.GetCurrentDirectory());
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "path/to/files");
                 config.AddKeyPerFile(directoryPath: path, optional: true);
             })
             .UseStartup<Startup>();
@@ -1509,13 +1510,13 @@ viewModel.TvShow = tvShow;
 
 Betrachten Sie die Konfigurationsschlüssel und -werte in der folgenden Tabelle.
 
-| Key     | Wert  |
-| :-----: | :----: |
-| array:0 | value0 |
-| array:1 | value1 |
-| array:2 | value2 |
-| array:4 | value4 |
-| array:5 | value5 |
+| Key             | Wert  |
+| :-------------: | :----: |
+| array:entries:0 | value0 |
+| array:entries:1 | value1 |
+| array:entries:2 | value2 |
+| array:entries:4 | value4 |
+| array:entries:5 | value5 |
 
 Diese Schlüssel und Werte werden mit dem Speicherkonfigurationsanbieter in die Beispiel-App geladen:
 
@@ -1574,17 +1575,17 @@ Die [ConfigurationBinder.Get&lt;T&gt;](xref:Microsoft.Extensions.Configuration.C
 
 Das gebundene Objekt, eine Instanz von `ArrayExample`, empfängt die Arraydaten aus der Konfiguration.
 
-| `ArrayExamples.Entries`-Index | `ArrayExamples.Entries`-Wert |
-| :---------------------------: | :---------------------------: |
-| 0                             | value0                        |
-| 1                             | value1                        |
-| 2                             | value2                        |
-| 3                             | value4                        |
-| 4                             | value5                        |
+| `ArrayExample.Entries`-Index | `ArrayExample.Entries`-Wert |
+| :--------------------------: | :--------------------------: |
+| 0                            | value0                       |
+| 1                            | value1                       |
+| 2                            | value2                       |
+| 3                            | value4                       |
+| 4                            | value5                       |
 
 Index &num;3 im gebundenen Objekt enthält die Konfigurationsdaten für den `array:4`-Konfigurationsschlüssel und die Wert für `value4`. Beim Binden von Konfigurationsdaten, die ein Array enthalten, werden die Arrayindizes in den Konfigurationsschlüsseln lediglich zum Durchlaufen der Konfigurationsdaten beim Erstellen des Objekts verwendet. Ein NULL-Wert kann in den Konfigurationsdaten nicht beibehalten werden, und ein NULL-Eintrag wird nicht in einem gebundenen Objekt erstellt, wenn ein Array in Konfigurationsschlüsseln mindestens einen Index überspringt.
 
-Das fehlende Konfigurationselement für Index &num;3 kann vor dem Binden an die `ArrayExamples`Instanz von jedem Konfigurationsanbieter bereitgestellt werden, der das richtige Schlüssel-Wert-Paar in der Konfiguration erzeugt. Wenn das Beispiel einen zusätzlichen JSON-Konfigurationsanbieter mit dem fehlenden Schlüssel-Wert-Paar enthält, entspricht `ArrayExamples.Entries` dem kompletten Konfigurationsarray:
+Das fehlende Konfigurationselement für Index &num;3 kann vor dem Binden an die `ArrayExample`Instanz von jedem Konfigurationsanbieter bereitgestellt werden, der das richtige Schlüssel-Wert-Paar in der Konfiguration erzeugt. Wenn das Beispiel einen zusätzlichen JSON-Konfigurationsanbieter mit dem fehlenden Schlüssel-Wert-Paar enthält, entspricht `ArrayExample.Entries` dem kompletten Konfigurationsarray:
 
 *missing_value.json*:
 
@@ -1620,16 +1621,16 @@ Das Schlüssel-Wert-Paar in der Tabelle wird in die Konfiguration geladen.
 | :-------------: | :----: |
 | array:entries:3 | value3 |
 
-Wenn die `ArrayExamples`-Klasseninstanz gebunden wird, nachdem der JSON-Konfigurationsanbieter den Eintrag für Index &num;3 enthält, enthält das `ArrayExamples.Entries`-Array den Wert.
+Wenn die `ArrayExample`-Klasseninstanz gebunden wird, nachdem der JSON-Konfigurationsanbieter den Eintrag für Index &num;3 enthält, enthält das `ArrayExample.Entries`-Array den Wert.
 
-| `ArrayExamples.Entries`-Index | `ArrayExamples.Entries`-Wert |
-| :---------------------------: | :---------------------------: |
-| 0                             | value0                        |
-| 1                             | value1                        |
-| 2                             | value2                        |
-| 3                             | value3                        |
-| 4                             | value4                        |
-| 5                             | value5                        |
+| `ArrayExample.Entries`-Index | `ArrayExample.Entries`-Wert |
+| :--------------------------: | :--------------------------: |
+| 0                            | value0                       |
+| 1                            | value1                       |
+| 2                            | value2                       |
+| 3                            | value3                       |
+| 4                            | value4                       |
+| 5                            | value5                       |
 
 **JSON-Arrayverarbeitung**
 

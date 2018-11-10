@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.date: 09/10/2018
 uid: signalr/version-differences
-ms.openlocfilehash: 3cec37719b743b3c805ada77249f526278e44599
-ms.sourcegitcommit: 2ef32676c16f76282f7c23154d13affce8c8bf35
+ms.openlocfilehash: 8f07647959b6ef815eed599703bdb1bfb446572f
+ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50234604"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51505751"
 ---
 # <a name="differences-between-aspnet-signalr-and-aspnet-core-signalr"></a>Unterschiede zwischen SignalR für ASP.NET und ASP.NET Core SignalR
 
@@ -36,6 +36,10 @@ Automatische Verbindungen werden in ASP.NET Core SignalR nicht unterstützt. Wen
 ### <a name="protocol-support"></a>Unterstützung des Protokolls
 
 SignalR für ASP.NET Core unterstützt JSON als auch ein neues binäres Protokoll, die basierend auf [MessagePack](xref:signalr/messagepackhubprotocol). Darüber hinaus können benutzerdefinierte Protokolle erstellt werden.
+
+### <a name="transports"></a>Transportprotokolle
+
+Der Forever Frame-Transport wird in ASP.NET Core SignalR nicht unterstützt.
 
 ## <a name="differences-on-the-server"></a>Unterschiede, auf dem server
 
@@ -72,6 +76,14 @@ Unterstützt nun das ASP.NET Core SignalR [Streamingdaten](xref:signalr/streamin
 
 Die Möglichkeit, die oft ausgegebene Befehlszeilen Zustand zwischen Clients und dem Hub (oft als HubState bezeichnet) übergeben wurde, sowie Unterstützung für Meldungen zum Druckfortschritt aufgehoben. Es gibt keine Entsprechung der Hub-Proxys im Moment ein.
 
+### <a name="globalhost"></a>GlobalHost
+
+ASP.NET Core verfügt über Abhängigkeitsinjektion (Dependency Injection), die im Framework integriert. Dienste können DI verwenden, um Zugriff auf die [HubContext](xref:signalr/hubcontext). Die `GlobalHost` -Objekt, das in ASP.NET SignalR, zum Abrufen verwendet wird einer `HubContext` in ASP.NET Core SignalR nicht vorhanden ist.
+
+### <a name="hubpipeline"></a>Hubpipeline-Objekt
+
+ASP.NET Core SignalR keine Unterstützung für `HubPipeline` Module.
+
 ## <a name="differences-on-the-client"></a>Unterschiede, auf dem client
 
 ### <a name="typescript"></a>TypeScript
@@ -90,6 +102,10 @@ npm install @aspnet/signalr
 ### <a name="jquery"></a>jQuery
 
 Die Abhängigkeit von jQuery wurde entfernt, aber Projekte jQuery weiterhin verwenden können.
+
+### <a name="internet-explorer-support"></a>Internet Explorer-support
+
+ASP.NET Core SignalR erfordert Microsoft InternetExplorer 11 oder höher (ASP.NET SignalR unterstützt Microsoft InternetExplorer 8 und höher).
 
 ### <a name="javascript-client-method-syntax"></a>JavaScript-Client-Methodensyntax
 
