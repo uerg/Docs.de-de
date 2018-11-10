@@ -28,7 +28,7 @@ Tippen Sie auf die Menülinks (**MvcMovie**, **Home**, **About**). Auf jeder Sei
 
 ::: moniker range=">= aspnetcore-2.1"
 
-[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout21.cshtml?highlight=7,31)]
+[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout21.cshtml?highlight=6,29)]
 
 ::: moniker-end
 
@@ -115,6 +115,6 @@ Daten werden der URL entnommen und mithilfe der [MVC-Modellbindung](xref:mvc/mod
 
 ![Die Ansicht „About“ mit der Beschriftung „Welcome“ und der viermal gezeigten Wortfolge „Hello Rick“](~/tutorials/first-mvc-app/adding-view/_static/rick2.png)
 
-Im obigen Beispiel haben wir das Wörterbuch `ViewData` zum Übergeben von Daten vom Controller an eine Ansicht verwendet. Später in diesem Tutorial verwenden wir eine Ansichtsmodell, um Daten von einem Controller an eine Ansicht zu übergeben. Der Ansatz mit dem Ansichtsmodell für das Übergeben von Daten ist im Allgemeinen dem Ansatz mit dem Wörterbuch `ViewData` vorzuziehen. Weitere Informationen finden Sie unter [ViewModel vs ViewData vs ViewBag vs TempData vs Session in MVC](http://www.mytecbits.com/microsoft/dot-net/viewmodel-viewdata-viewbag-tempdata-mvc).
+Im obigen Beispiel haben wir das Wörterbuch `ViewData` zum Übergeben von Daten vom Controller an eine Ansicht verwendet. Später in diesem Tutorial verwenden wir eine Ansichtsmodell, um Daten von einem Controller an eine Ansicht zu übergeben. Der Ansatz mit dem Ansichtsmodell für das Übergeben von Daten ist im Allgemeinen dem Ansatz mit dem Wörterbuch `ViewData` vorzuziehen. Weitere Informationen finden Sie in diesem Artikel zur [Verwendung von ViewBag, ViewData oder TempData](http://www.rachelappel.com/when-to-use-viewbag-viewdata-or-tempdata-in-asp-net-mvc-3-applications/) (in englischer Sprache).
 
 Das war also eine Art eines „M“ für Modell, jedoch nicht der Art Datenbank. Lassen Sie uns das Gelernte umsetzen und eine Filmdatenbank erstellen.

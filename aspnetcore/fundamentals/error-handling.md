@@ -1,17 +1,17 @@
 ---
 title: Fehlerbehandlung in ASP.NET Core
-author: ardalis
+author: tdykstra
 description: Erfahren Sie mehr über die Fehlerbehandlung in ASP.NET Core-Apps.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 07/05/2018
+ms.date: 11/01/2018
 uid: fundamentals/error-handling
-ms.openlocfilehash: d1e94fdc89fbebc264dc001bbf35666af16f4799
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 89117d78486493747d649c3bb0d9cce9f97ef419
+ms.sourcegitcommit: 85f2939af7a167b9694e1d2093277ffc9a741b23
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50208030"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50968318"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Fehlerbehandlung in ASP.NET Core
 
@@ -119,23 +119,34 @@ Die Middleware unterstützt zahlreiche Erweiterungsmethoden. Eine Methode verwen
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePages)]
 
-Eine andere Methode verwendet einen Inhaltstyp und eine Formatzeichenfolge:
+Eine Überladung von `UseStatusCodePages` verwendet einen Inhaltstyp und eine Formatzeichenfolge:
 
 ```csharp
 app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
 ```
+### <a name="redirect-re-execute-extension-methods"></a>Umleitungen von Erweiterungsmethoden für ein erneutes Ausführen
 
-Es gibt auch Erweiterungsmethoden für Umleitungen und erneutes Ausführen. Die Umleitungsmethode sendet den Statuscode *302 Found* (Gefunden) an den Client und leitet diesen an die bereitgestellte Vorlage für die Speicherort-URL weiter. Die Vorlage kann einen `{0}`-Platzhalter für den Statuscode enthalten. URLs, die mit `~` beginnen, wird der Basispfad vorangestellt. URLs, die nicht mit `~` beginnen, werden ohne Änderungen verwendet.
+<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithRedirects*>:
+
+* Sendet den Statuscode *302 Found* (Gefunden) an den Client.
+* Der Client wird an den in der URL-Vorlage angegebenen Standort umgeleitet. 
+
+Die Vorlage kann einen `{0}`-Platzhalter für den Statuscode enthalten. Der Vorlagenpfad muss mit einem Schrägstrich (`/`) beginnen.
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
 
-Die Methode für die erneute Ausführung gibt den ursprünglichen Statuscode an den Client zurück und legt fest, dass der Antworttext durch die erneute Ausführung der Anforderungspipeline mithilfe eines alternativen Pfads erstellt werden soll. Dieser Pfad kann einen `{0}`-Platzhalter für den Statuscode enthalten:
+<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithReExecute*>:
+
+* Gibt den ursprünglichen Statuscode an den Client zurück.
+* Gibt an, dass der Antworttext durch die erneute Ausführung der Anforderungspipeline mithilfe eines alternativen Pfads erstellt werden soll. 
+
+Die Vorlage kann einen `{0}`-Platzhalter für den Statuscode enthalten. Der Vorlagenpfad muss mit einem Schrägstrich (`/`) beginnen.
 
 ```csharp
 app.UseStatusCodePagesWithReExecute("/error/{0}");
 ```
 
-Statuscodeseiten können für bestimmte Anforderungen in der Handlermethode einer Razor-Seite oder in einem MVC-Controller deaktiviert werden. Versuchen Sie, [IStatusCodePagesFeature](/dotnet/api/microsoft.aspnetcore.diagnostics.istatuscodepagesfeature) aus der Sammlung [HttpContext.Features](/dotnet/api/microsoft.aspnetcore.http.httpcontext.features) der Anforderung abzurufen und das Feature zu deaktivieren (falls es verfügbar ist), um Statuscodeseiten zu deaktivieren:
+Statuscodeseiten können für bestimmte Anforderungen in der Razor Pages-Handlermethode oder in einem MVC-Controller deaktiviert werden. Versuchen Sie, [IStatusCodePagesFeature](/dotnet/api/microsoft.aspnetcore.diagnostics.istatuscodepagesfeature) aus der Sammlung [HttpContext.Features](/dotnet/api/microsoft.aspnetcore.http.httpcontext.features) der Anforderung abzurufen und das Feature zu deaktivieren (falls es verfügbar ist), um Statuscodeseiten zu deaktivieren:
 
 ```csharp
 var statusCodePagesFeature = HttpContext.Features.Get<IStatusCodePagesFeature>();
@@ -146,7 +157,7 @@ if (statusCodePagesFeature != null)
 }
 ```
 
-Bei Verwendung einer `UseStatusCodePages*`-Überladung, die auf einen Endpunkt in der App verweist, müssen Sie eine MVC-Ansicht oder Razor Page für den Endpunkt erstellen. Mit der Vorlage [dotnet new](/dotnet/core/tools/dotnet-new) für eine Razor Pages-App werden beispielsweise die folgende Seite und die folgende Seitenmodellklasse erstellt:
+Um eine `UseStatusCodePages*`-Überladung zu verwenden, die auf einen Endpunkt in der App verweist, müssen Sie eine MVC-Ansicht oder Razor Page für den Endpunkt erstellen. Mit der Vorlage [dotnet new](/dotnet/core/tools/dotnet-new) für eine Razor Pages-App werden beispielsweise die folgende Seite und die folgende Seitenmodellklasse erstellt:
 
 *Error.cshtml*:
 

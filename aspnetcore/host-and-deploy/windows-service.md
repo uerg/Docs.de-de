@@ -2,16 +2,17 @@
 title: Hosten von ASP.NET Core in einem Windows-Dienst
 author: guardrex
 description: Erfahren Sie, wie eine ASP.NET Core-App in einem Windows-Dienst gehostet wird.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 09/25/2018
+ms.date: 10/30/2018
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: f9b1c3fbfafa839c116688e0ac63804afcd5dbe0
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 11913019bfe5d06c259b806fce9cc580a8280ad5
+ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206672"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50758192"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Hosten von ASP.NET Core in einem Windows-Dienst
 
@@ -29,38 +30,12 @@ Die folgenden minimalen Änderungen sind für die Einrichtung eines vorhandenen 
 
    * Bestätigen Sie das Vorhandensein eines Windows [Runtime-Bezeichners (RID)](/dotnet/core/rid-catalog), oder fügen Sie diesen der `<PropertyGroup>` hinzu, die das Zielframework enthält:
 
-      ::: moniker range=">= aspnetcore-2.1"
-
       ```xml
       <PropertyGroup>
-        <TargetFramework>netcoreapp2.1</TargetFramework>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
         <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
       </PropertyGroup>
       ```
-
-      ::: moniker-end
-
-      ::: moniker range="= aspnetcore-2.0"
-
-      ```xml
-      <PropertyGroup>
-        <TargetFramework>netcoreapp2.0</TargetFramework>
-        <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
-      </PropertyGroup>
-      ```
-
-      ::: moniker-end
-
-      ::: moniker range="< aspnetcore-2.0"
-
-      ```xml
-      <PropertyGroup>
-        <TargetFramework>netcoreapp1.1</TargetFramework>
-        <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
-      </PropertyGroup>
-      ```
-
-      ::: moniker-end
 
       So führen Sie die Veröffentlichung für mehrere RIDs aus:
 
@@ -77,56 +52,88 @@ Die folgenden minimalen Änderungen sind für die Einrichtung eines vorhandenen 
 
    * Rufen Sie [UseContentRoot](xref:fundamentals/host/web-host#content-root) auf, und verwenden Sie anstelle von `Directory.GetCurrentDirectory()` einen Pfad zum veröffentlichten Speicherort der App.
 
-     ::: moniker range=">= aspnetcore-2.0"
-
      [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=ServiceOnly&highlight=8-9,16)]
 
-     ::: moniker-end
+1. Veröffentlichen Sie die App mit [dotnet publish](/dotnet/articles/core/tools/dotnet-publish), einem [Visual Studio-Veröffentlichungsprofil](xref:host-and-deploy/visual-studio-publish-profiles) oder Visual Studio Code. Wählen Sie bei Verwendung von Visual Studio das **FolderProfile** aus, und konfigurieren Sie den **Zielspeicherort**, bevor Sie auf die Schaltfläche **Veröffentlichen** klicken.
 
-     ::: moniker range="< aspnetcore-2.0"
-
-     [!code-csharp[](windows-service/samples_snapshot/1.x/AspNetCoreService/Program.cs?name=ServiceOnly&highlight=3-4,8,13)]
-
-     ::: moniker-end
-
-1. Veröffentlichen Sie die App. Verwenden Sie [dotnet publish](/dotnet/articles/core/tools/dotnet-publish) oder ein [Visual Studio-Veröffentlichungsprofil](xref:host-and-deploy/visual-studio-publish-profiles). Wählen Sie **FolderProfile** aus, wenn Sie Visual Studio verwenden.
-
-   Um die Beispiel-App mit CLI-Tools (Befehlszeilenschnittstelle) zu veröffentlichen, führen Sie den Befehl [dotnet publish](/dotnet/core/tools/dotnet-publish) an einer Eingabeaufforderung aus dem Projektordner aus. Der RID muss in der Eigenschaft `<RuntimeIdenfifier>` (oder `<RuntimeIdentifiers>`) der Projektdatei angegeben werden. Im folgenden Beispiel wird die App in Releasekonfiguration für die `win7-x64`-Runtime veröffentlicht:
+   Um die Beispiel-App mit CLI-Tools (Befehlszeilenschnittstelle) zu veröffentlichen, führen Sie den Befehl [dotnet publish](/dotnet/core/tools/dotnet-publish) an einer Eingabeaufforderung aus dem Projektordner aus. Der RID muss in der Eigenschaft `<RuntimeIdenfifier>` (oder `<RuntimeIdentifiers>`) der Projektdatei angegeben werden. Im folgenden Beispiel wird die App in der Releasekonfiguration für die `win7-x64`-Runtime in einem unter *c:\\svc* erstellten Ordner veröffentlicht:
 
    ```console
-   dotnet publish --configuration Release --runtime win7-x64
+   dotnet publish --configuration Release --runtime win7-x64 --output c:\svc
    ```
 
-1. Verwenden Sie das Befehlszeilentool [sc.exe](https://technet.microsoft.com/library/bb490995), um den Dienst zu erstellen. Der Wert `binPath` ist der Pfad zu der ausführbaren Datei der App, der den Namen der ausführbaren Datei enthält. **Das Leerzeichen zwischen dem Gleichheitszeichen und dem Anführungszeichen am Anfang des Pfads ist erforderlich.**
+1. Erstellen Sie mit dem `net user`-Befehl ein Benutzerkonto für den Dienst:
 
    ```console
-   sc create <SERVICE_NAME> binPath= "<PATH_TO_SERVICE_EXECUTABLE>"
+   net user {USER ACCOUNT} {PASSWORD} /add
    ```
 
-   Verwenden Sie zum Erstellen eines Diensts, der im Projektordner veröffentlicht wird, den Pfad zum *Veröffentlichungsordner*. Im folgenden Beispiel:
+   Erstellen Sie für die Beispiel-App ein Benutzerkonto mit dem Namen `ServiceUser` und einem Kennwort. Ersetzen Sie im folgenden Befehl `{PASSWORD}` durch ein [sicheres Kennwort](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements).
 
-   * Das Projekt befindet sich im Ordner *„C:\\meine_dienste\\AspNetCoreService*“.
-   * Das Projekt wird in der `Release`-Konfiguration veröffentlicht.
-   * Der Zielframeworkmoniker (Target Framework Moniker, TFM) ist `netcoreapp2.1`.
-   * Der Runtimebezeichner (RID) ist `win7-x64`.
-   * Der Name der ausführbaren App-Datei lautet *AspNetCoreService.exe*.
+   ```console
+   net user ServiceUser {PASSWORD} /add
+   ```
+
+   Wenn Sie den Benutzer einer Gruppe hinzufügen müssen, verwenden Sie den Befehl `net localgroup`. Hierbei steht `{GROUP}` für den Namen der Gruppe:
+
+   ```console
+   net localgroup {GROUP} {USER ACCOUNT} /add
+   ```
+
+   Weitere Informationen finden Sie unter [Dienstbenutzerkonten](/windows/desktop/services/service-user-accounts).
+
+1. Gewähren Sie mit dem Befehl [icacls](/windows-server/administration/windows-commands/icacls) Schreib-/Lese-/Ausführungszugriff für den App-Ordner:
+
+   ```console
+   icacls "{PATH}" /grant {USER ACCOUNT}:(OI)(CI){PERMISSION FLAGS} /t
+   ```
+
+   * `{PATH}` &ndash; Pfad zum App-Ordner.
+   * `{USER ACCOUNT}` &ndash; Das Benutzerkonto (SID).
+   * `(OI)`&ndash; Mit dem Flag für die Objektvererbung werden Berechtigungen an untergeordnete Dateien weitergegeben.
+   * `(CI)`&ndash; Mit dem Flag für die Containervererbung werden Berechtigungen an untergeordnete Ordner weitergegeben.
+   * `{PERMISSION FLAGS}` &ndash; Legt die Zugriffsberechtigungen für die App fest.
+     * Schreiben (`W`)
+     * Lesen (`R`)
+     * Ausführen (`X`)
+     * Vollzugriff (`F`)
+     * Ändern (`M`)
+   * `/t` &ndash; Rekursive Anwendung auf vorhandene untergeordnete Ordner und Dateien.
+
+   Verwenden Sie für die im Ordner *c:\\svc* veröffentlichte Beispiel-App und das Konto `ServiceUser` mit Schreib-/Lese-/Ausführungsberechtigungen den folgenden Befehl:
+
+   ```console
+   icacls "c:\svc" /grant ServiceUser:(OI)(CI)WRX /t
+   ```
+
+   Weitere Informationen finden Sie unter [icacls](/windows-server/administration/windows-commands/icacls).
+
+1. Verwenden Sie das Befehlszeilentool [sc.exe](https://technet.microsoft.com/library/bb490995), um den Dienst zu erstellen. Der Wert `binPath` ist der Pfad zu der ausführbaren Datei der App, der den Namen der ausführbaren Datei enthält. **Das Leerzeichen zwischen dem Gleichheitszeichen und dem Anführungszeichen für jeden Parameter und Wert ist erforderlich.**
+
+   ```console
+   sc create {SERVICE NAME} binPath= "{PATH}" obj= "{DOMAIN}\{USER ACCOUNT}" password= "{PASSWORD}"
+   ```
+
+   * `{SERVICE NAME}` &ndash; Der Name, der dem Dienst im [Dienststeuerungs-Manager](/windows/desktop/services/service-control-manager) zugewiesen wird.
+   * `{PATH}`&ndash; Der Pfad zur ausführbaren Datei des Diensts.
+   * `{DOMAIN}` (oder der lokale Computername, wenn der Computer nicht in die Domäne eingebunden ist) und `{USER ACCOUNT}` &ndash; Die Domäne (oder der lokale Computername) und das Benutzerkonto, mit dem der Dienst ausgeführt wird. Lassen Sie den Parameter`obj` **nicht** aus. Der Standardwert für `obj` ist das [LocalSystem-Konto](/windows/desktop/services/localsystem-account). Die Ausführung eines Diensts mit dem `LocalSystem`-Konto stellt ein erhebliches Sicherheitsrisiko dar. Führen Sie einen Dienst immer mit einem Benutzerkonto mit eingeschränkten Berechtigungen auf dem Server aus.
+   * `{PASSWORD}` &ndash; Das Kennwort für das Benutzerkonto.
+
+   Im folgenden Beispiel:
+
    * Der Dienst heißt **MyService**.
-
-   Beispiel:
+   * Der veröffentlichte Dienst ist im Ordner *c:\\svc* vorhanden. Der Name der ausführbaren App-Datei lautet *AspNetCoreService.exe*. Der `binPath`-Wert wird in doppelte gerade Anführungszeichen (") eingeschlossen.
+   * Der Dienst wird mit dem Konto `ServiceUser` ausgeführt. Ersetzen Sie `{DOMAIN}` durch den Domänennamen oder den lokalen Computernamen für das Benutzerkonto. Schließen Sie den Wert `obj` in doppelte gerade Anführungszeichen (") ein. Beispiel: Wenn das Hostsystem ein lokaler Computer mit Namen `MairaPC` ist, legen Sie `obj` auf `"MairaPC\ServiceUser"` fest.
+   * Ersetzen Sie `{PASSWORD}` durch das Kennwort für das Benutzerkonto. Der `password`-Wert wird in doppelte gerade Anführungszeichen (") eingeschlossen.
 
    ```console
-   sc create MyService binPath= "c:\my_services\AspNetCoreService\bin\Release\netcoreapp2.1\win7-x64\publish\AspNetCoreService.exe"
+   sc create MyService binPath= "c:\svc\aspnetcoreservice.exe" obj= "{DOMAIN}\ServiceUser" password= "{PASSWORD}"
    ```
 
    > [!IMPORTANT]
-   > Achten Sie auf das Leerzeichen zwischen dem `binPath=`-Argument und seinem Wert.
+   > Stellen Sie sicher, dass Leerzeichen zwischen den Gleichheitszeichen des Parameters und den Parameterwerten vorhanden sind.
 
-   So veröffentlichen und starten Sie den Dienst aus einem anderen Ordner:
-
-      * Verwenden Sie die Option [--output &lt;OUTPUT_DIRECTORY&gt;](/dotnet/core/tools/dotnet-publish#options) im Befehl `dotnet publish`. Wenn Sie Visual Studio verwenden, konfigurieren Sie den **Zielspeicherort** auf der Seite **FolderProfile** der publish-Eigenschaft, bevor Sie auf die Schaltfläche **Veröffentlichen** klicken.
-      * Erstellen Sie den Dienst mit dem Befehl `sc.exe`, indem Sie den Pfad des Ausgabeordners verwenden. Fügen Sie den Namen der ausführbaren Datei des Diensts in dem Pfad hinzu, der für `binPath` bereitgestellt wird.
-
-1. Starten Sie den Dienst mithilfe des Befehls `sc start <SERVICE_NAME>`.
+1. Starten Sie den Dienst mithilfe des Befehls `sc start {SERVICE NAME}`.
 
    Verwenden Sie zum Starten des Diensts der Beispiel-App den folgenden Befehl:
 
@@ -136,7 +143,7 @@ Die folgenden minimalen Änderungen sind für die Einrichtung eines vorhandenen 
 
    Das Starten des Diensts dauert ein paar Sekunden.
 
-1. Um den Status des Diensts zu überprüfen, verwenden Sie den `sc query <SERVICE_NAME>`-Befehl. Der Status wird als einer der folgenden Werte gemeldet:
+1. Um den Status des Diensts zu überprüfen, verwenden Sie den `sc query {SERVICE NAME}`-Befehl. Der Status wird als einer der folgenden Werte gemeldet:
 
    * `START_PENDING`
    * `RUNNING`
@@ -153,7 +160,7 @@ Die folgenden minimalen Änderungen sind für die Einrichtung eines vorhandenen 
 
    Rufen Sie die App für den Dienst der Beispiel-App über `http://localhost:5000` auf.
 
-1. Verwenden Sie zum Beenden des Diensts den Befehl `sc stop <SERVICE_NAME>`.
+1. Verwenden Sie zum Beenden des Diensts den Befehl `sc stop {SERVICE NAME}`.
 
    Verwenden Sie zum Beenden des Diensts der Beispiel-App den folgenden Befehl:
 
@@ -161,7 +168,7 @@ Die folgenden minimalen Änderungen sind für die Einrichtung eines vorhandenen 
    sc stop MyService
    ```
 
-1. Deinstallieren Sie den Dienst nach einer kurzen Verzögerung zum Beenden des Diensts mit dem Befehl `sc delete <SERVICE_NAME>`.
+1. Deinstallieren Sie den Dienst nach einer kurzen Verzögerung zum Beenden des Diensts mit dem Befehl `sc delete {SERVICE NAME}`.
 
    Überprüfen Sie den Status des Diensts der Beispiel-App:
 
@@ -179,22 +186,12 @@ Die folgenden minimalen Änderungen sind für die Einrichtung eines vorhandenen 
 
 Das Testen und Debuggen ist bei der Ausführung außerhalb eines Diensts einfacher. Daher ist es üblich, dass Code hinzugefügt wird, der `RunAsService` nur unter bestimmten Bedingungen aufruft. Beispielsweise kann die App als Konsolen-App mit dem Befehlszeilenargument `--console` ausgeführt werden oder wenn der Debugger angefügt wird:
 
-::: moniker range=">= aspnetcore-2.0"
-
 [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=ServiceOrConsole)]
 
 Da für die Konfiguration von ASP.NET Core Name/Wert-Paare für Befehlszeilenargumente erforderlich sind, wird der `--console`-Schalter entfernt, bevor die Argumente an [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) übergeben werden.
 
 > [!NOTE]
 > `isService` wird nicht von `Main` an `CreateWebHostBuilder` übergeben. Die Signatur von `CreateWebHostBuilder` muss `CreateWebHostBuilder(string[])` sein, damit die [Integrationstests](xref:test/integration-tests) korrekt ablaufen.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](windows-service/samples_snapshot/1.x/AspNetCoreService/Program.cs?name=ServiceOrConsole)]
-
-::: moniker-end
 
 ## <a name="handle-stopping-and-starting-events"></a>Behandeln des Stoppens und Startens von Ereignissen
 
@@ -210,20 +207,10 @@ Nehmen Sie zum Behandeln von [OnStarting](/dotnet/api/microsoft.aspnetcore.hosti
 
 3. Rufen Sie in `Program.Main` anstelle von [RunAsService](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostwindowsserviceextensions.runasservice) die neue Erweiterungsmethode `RunAsCustomService` auf:
 
-   ::: moniker range=">= aspnetcore-2.0"
-
    [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=HandleStopStart&highlight=17)]
 
    > [!NOTE]
    > `isService` wird nicht von `Main` an `CreateWebHostBuilder` übergeben. Die Signatur von `CreateWebHostBuilder` muss `CreateWebHostBuilder(string[])` sein, damit die [Integrationstests](xref:test/integration-tests) korrekt ablaufen.
-
-   ::: moniker-end
-
-   ::: moniker range="< aspnetcore-2.0"
-
-   [!code-csharp[](windows-service/samples_snapshot/1.x/AspNetCoreService/Program.cs?name=HandleStopStart&highlight=27)]
-
-   ::: moniker-end
 
 Wenn für den benutzerdefinierten `WebHostService`-Code ein Dienst aus der Abhängigkeitsinjektion erforderlich ist (z.B. eine Protokollierung), rufen Sie diese über die [IWebHost.Services](/dotnet/api/microsoft.aspnetcore.hosting.iwebhost.services)-Eigenschaft ab:
 
@@ -235,7 +222,12 @@ Dienste, die mit Anforderungen aus dem Internet oder einem Unternehmensnetzwerk 
 
 ## <a name="configure-https"></a>HTTPS konfigurieren
 
-Geben Sie einen [Kestrel-Server-HTTPS-Endpunktkonfiguration](xref:fundamentals/servers/kestrel#endpoint-configuration) ein.
+So konfigurieren Sie den Dienst mit einem sicheren Endpunkt:
+
+1. Erstellen Sie über die Mechanismen zum Abrufen und Bereitstellen eines Zertifikats für Ihre Plattform ein X.509-Zertifikat für das Hostsystem.
+1. Geben Sie eine [Kestrel-Server-HTTPS-Endpunktkonfiguration](xref:fundamentals/servers/kestrel#endpoint-configuration) an, um das Zertifikat zu verwenden.
+
+Die Verwendung des ASP.NET Core-HTTPS-Entwicklerzertifikats zum Schützen eines Dienstendpunkts wird nicht unterstützt.
 
 ## <a name="current-directory-and-content-root"></a>Aktuelles Verzeichnis und Inhaltsstammverzeichnis
 

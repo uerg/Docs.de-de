@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: mvc/models/validation
-ms.openlocfilehash: 73d41b4718071d00a6f80b33de182da2ad90f331
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 1063fdccb97e55e6b0eb6689187134ff41c10a02
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090949"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50253155"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>Modellvalidierung im ASP.NET Core MVC
 
@@ -22,6 +22,8 @@ Von [Rachel Appel](https://github.com/rachelappel)
 Bevor eine App Daten in einer Datenbank speichern kann, muss sie diese Daten überprüfen. Daten müssen auf mögliche Sicherheitsbedrohungen überprüft werden. Außerdem muss geprüft werden, ob sie richtig nach Typ und Größe formatiert und mit den Regeln konform sind. Die Validierung kann zwar redundant und die Implementierung aufwendig sein, jedoch ist sie unbedingt notwendig. Im MVC werden sowohl der Client als auch der Server validiert.
 
 Praktischerweise hat .NET die Validierung in Validierungsattribute unterteilt. Diese Attribute enthalten Validierungscode, sodass Sie weniger Code schreiben müssen.
+
+In ASP.NET Core 2.2 und höher umgeht (überspringt) die ASP.NET Core-Runtime die Validierung, wenn sie bestimmen kann, dass ein vorgegebener Modellgraph keine Validierung erfordert. Das Überspringen der Validierung kann zu erheblichen Leistungsverbesserungen führen, wenn die zu validierenden Modelle keine Validierungssteuerelemente verwenden können oder ihnen keine Validierungssteuerelemente zugeordnet sind. Die übersprungene Validierung umfasst Objekte wie z.B. Sammlungen von primitiven (`byte[]`, `string[]`, `Dictionary<string, string>` usw.) oder komplexen Objektgraphen ohne Validierungssteuerelemente.
 
 [Beispiel anzeigen oder von GitHub herunterladen](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/models/validation/sample).
 

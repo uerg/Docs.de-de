@@ -1,6 +1,6 @@
 Die folgende Tabelle zeigt die Details der Parameter des Codegenerators von ASP.NET:
 
-| Parameter               | description|
+| Parameter               | Beschreibung |
 | ----------------- | ------------ |
 | -m  | Der Name des Modells. |
 | -dc  | Der Datenkontext. |
@@ -13,10 +13,12 @@ Verwenden Sie den `h`-Switch um Hilfe für den `aspnet-codegenerator razorpage`-
 ```console
 dotnet aspnet-codegenerator razorpage -h
 ```
+
 <a name="test"></a>
+
 ### <a name="test-the-app"></a>Testen der App
 
-* Führen Sie die App aus, und fügen Sie `/Movies` an die URL im Browser an (`http://localhost:port/movies`).
+* Führen Sie die App aus, und fügen Sie `/Movies` an die URL im Browser an (`http://localhost:port/Movies`).
 * Testen Sie den Link **Create** (Erstellen).
 
   ![Seite „Create“](../../tutorials/razor-pages/model/_static/conan.png)
@@ -27,7 +29,4 @@ dotnet aspnet-codegenerator razorpage -h
 
 Wenn der folgende (oder ein ähnlicher) Fehler angezeigt wird, stellen Sie sicher, dass Migrationen ausgeführt wurden und die Datenbank aktualisiert wurde:
 
-```
-An unhandled exception occurred while processing the request.
-'no such table: Movie'.
-```
+`An unhandled exception occurred while processing the request. 'no such table: Movie'.`

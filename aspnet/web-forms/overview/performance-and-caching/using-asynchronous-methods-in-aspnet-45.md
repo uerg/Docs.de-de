@@ -8,12 +8,12 @@ ms.date: 06/06/2012
 ms.assetid: a585c9a2-7c8e-478b-9706-90f3739c50d1
 msc.legacyurl: /web-forms/overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 61bb977af9dca6fc080151ffd6ea3d966f1b1592
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 9a3c9fab4932c3bc85733a912cf1d1eaaecc1ab7
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325418"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225485"
 ---
 <a name="using-asynchronous-methods-in-aspnet-45"></a>Verwenden asynchroner Methoden in ASP.NET 4.5
 ====================
@@ -198,9 +198,10 @@ Um die Vorteile einer asynchronen Webanwendung nutzen zu können, müssen Sie ei
   
   Beachten Sie in den oben genannten Images als v4. 0, .NET Framework aufgeführt ist, auch wenn der Anwendungspool .NET 4.5 verwendet. Um diese Abweichung zu verstehen, sehen Sie Folgendes ein:
 
-        - [.NET Versioning and Multi-Targeting - .NET 4.5 is an in-place upgrade to .NET 4.0](http://www.hanselman.com/blog/NETVersioningAndMultiTargetingNET45IsAnInplaceUpgradeToNET40.aspx)
-        - [How to set an IIS Application or AppPool to use ASP.NET 3.5 rather than 2.0](http://www.hanselman.com/blog/HowToSetAnIISApplicationOrAppPoolToUseASPNET35RatherThan20.aspx)
-        - [.NET Framework Versions and Dependencies](https://msdn.microsoft.com/library/bb822049(VS.110).aspx)
+- [.NET-versionsverwaltung und Festlegung von Zielversionen – .NET 4.5 ist ein direktes Upgrade auf .NET 4.0](http://www.hanselman.com/blog/NETVersioningAndMultiTargetingNET45IsAnInplaceUpgradeToNET40.aspx)
+- [Eine IIS-Anwendung oder AppPool, Verwendung von ASP.NET 3.5 und nicht als Version 2.0 einrichten](http://www.hanselman.com/blog/HowToSetAnIISApplicationOrAppPoolToUseASPNET35RatherThan20.aspx)
+- [.NET Framework-Versionen und -Abhängigkeiten](https://msdn.microsoft.com/library/bb822049(VS.110).aspx)
+
 - Wenn Ihre Anwendung von Webdiensten mithilfe wird oder System.NET Kommunikation mit einem Back-End-über-HTTP-Sie möglicherweise erhöhen müssen die [ConnectionManagement/Maxconnection](https://msdn.microsoft.com/library/fb6y0fyc(VS.110).aspx) Element. Bei ASP.NET-Anwendungen wird dies durch das Feature für die automatische Konfiguration 12 Mal die Anzahl der CPUs beschränkt. Dies bedeutet, dass für eine Quad-Prozedur, höchstens 12 stehen \* 4 = 48 gleichzeitige Verbindungen zu einem IP-Endpunkt. Da dies mit verbunden ist [AutoConfig](https://msdn.microsoft.com/library/7w2sway1(VS.110).aspx), die einfachste Möglichkeit zum erhöhen `maxconnection` in einer ASP.NET-Anwendung-Anwendung besteht darin, festzulegen [System.Net.ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(VS.110).aspx) programmgesteuert in die von `Application_Start` -Methode in der die *"Global.asax"* Datei. Siehe Beispiel für ein Beispiel herunterladen.
 - In .NET 4.5, den Standardwert von 5000 für ["maxConcurrentRequestsPerCPU"](https://blogs.msdn.com/tmarq/archive/2007/07/21/asp-net-thread-usage-on-iis-7-0-and-6-0.aspx) sollten ausreichend sein.
 

@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: tutorials/signalr
-ms.openlocfilehash: fcfe2fa6cc88b9eee1389e171fa5eb7711b4f14f
-ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
+ms.openlocfilehash: 7d9f3a3f8aa7a5e47169da66e6fa2d6a28de3853
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50758127"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021247"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Tutorial: Erste Schritte mit ASP.NET Core SignalR
 
@@ -69,12 +69,13 @@ Am Ende verfügen Sie über eine funktionierende Chat-App:
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
-* Öffnen Sie einen Ordner, den Sie für ein neues Projekt verwenden können.
+* Öffnen Sie das [integrierte Terminal](https://code.visualstudio.com/docs/editor/integrated-terminal) in dem Ordner, in dem der neue Projektordner erstellt wird.
 
-* Führen Sie über das [integrierte Terminal](https://code.visualstudio.com/docs/editor/integrated-terminal) den folgenden Befehl aus:
+* Führen Sie die folgenden Befehle aus:
 
    ```console
    dotnet new webapp -o SignalRChat
+   code -r SignalRChat
    ```
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio für Mac](#tab/visual-studio-mac)
@@ -113,13 +114,11 @@ Die SignalR-Serverbibliothek ist im Metapaket `Microsoft.AspNetCore.App` enthalt
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
-* Führen Sie den folgenden Befehl über das **integrierte Terminal** aus, um LibMan zu installieren.
+* Führen Sie den folgenden Befehl über das integrierte Terminal aus, um LibMan zu installieren.
 
   ```console
   dotnet tool install -g Microsoft.Web.LibraryManager.Cli
   ```
-
-* Navigieren Sie zum Projektordner (der die Datei *SignalRChat.csproj* enthält).
 
 * Führen Sie den folgenden Befehl aus, um die SignalR-Clientbibliothek mit LibMan abzurufen. Es kann einige Sekunden dauern, bis die Ausgabe angezeigt wird.
 
@@ -225,8 +224,12 @@ Der SignalR-Server muss zunächst konfiguriert werden, um Anforderungen an Signa
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-* Drücken Sie **STRG+F5**, um die App ohne Debugging zu starten.
+* Führen Sie über das integrierte Terminal den folgenden Befehl aus:
 
+  ```console
+  dotnet run -p SignalRChat
+  ```
+  
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio für Mac](#tab/visual-studio-mac)
 
 * Wählen Sie im Menü **Ausführen > Starten ohne Debuggen** aus.

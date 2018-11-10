@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 2590682755721a4bb14902b9fe7138a3bff56d31
-ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
+ms.openlocfilehash: fb69584f6e9d4756e175bbd6f3deb1f413b80fc5
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50148810"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50244813"
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Cache-Taghilfsprogramm im ASP.NET Core MVC
 
@@ -135,7 +135,7 @@ Im folgenden Beispiel werden die Werte von `Make` und `Model` überwacht. Außer
 | -------------- | -------------------- |
 | Zeichenfolge         | `Make`, `Make,Model` |
 
-`vary-by-route` akzeptiert eine durch Trennzeichen getrennte Liste von Headerwerten, die eine Cacheaktualisierung auslösen, wenn der Routendatenparameter geändert wird.
+`vary-by-route` akzeptiert eine durch Trennzeichen getrennte Liste mit Namen von Routenparametern, die eine Cacheaktualisierung auslösen, wenn der Routendatenparameter geändert wird.
 
 Beispiel:
 
@@ -161,7 +161,7 @@ routes.MapRoute(
 | -------------- | -------------------------------------------------------------------------------- |
 | Zeichenfolge         | `.AspNetCore.Identity.Application`, `.AspNetCore.Identity.Application,HairColor` |
 
-`vary-by-cookie` akzeptiert eine durch Trennzeichen getrennte Liste von Headerwerten, die eine Cacheaktualisierung auslösen, wenn die Headerwerte geändert werden.
+`vary-by-cookie` akzeptiert eine durch Trennzeichen getrennte Liste mit Namen von Cookies, die eine Cacheaktualisierung auslösen, wenn der Cookiewert geändert wird.
 
 Das folgende Beispiel überwacht das Cookie, das der ASP.NET Core-Identität zugeordnet ist. Wenn ein Benutzer authentifiziert ist, löst eine Änderung im Identitätscookie eine Cacheaktualisierung aus:
 

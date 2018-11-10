@@ -5,14 +5,14 @@ description: Erfahren Sie, wie Sie mit dem ASP.NET Core SignalR-Java-Client.
 monikerRange: '>= aspnetcore-2.2'
 ms.author: mimengis
 ms.custom: mvc
-ms.date: 10/18/2018
+ms.date: 11/06/2018
 uid: signalr/java-client
-ms.openlocfilehash: 646118c78d5d38b44b89d399cd06a5332a11d064
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 4ee4e61fc301ebeec4d95b1167f94f16c38f3ac5
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207770"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225420"
 ---
 # <a name="aspnet-core-signalr-java-client"></a>ASP.NET Core SignalR-Java-client
 
@@ -74,6 +74,19 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 ```
 
 Dies kann problemlos ignoriert werden.
+
+
+## <a name="configure-bearer-token-authentication"></a>Konfigurieren von Bearer-token-Authentifizierung
+
+In den SignalR-Java-Client, können Sie ein trägertoken, das zur Authentifizierung verwendet wird, durch die Bereitstellung einer "Access token Factory" konfigurieren, um die [HttpHubConnectionBuilder](/java/api/com.microsoft.signalr._http_hub_connection_builder?view=aspnet-signalr-java). Verwendung [WithAccessTokenFactory](/java/api/com.microsoft.signalr._http_hub_connection_builder.withaccesstokenprovider?view=aspnet-signalr-java#com_microsoft_signalr__http_hub_connection_builder_withAccessTokenProvider_Single_String__) zu einer [RxJava](https://github.com/ReactiveX/RxJava) [einzelne<String>](http://reactivex.io/documentation/single.html). Mit einem Aufruf von [Single.defer](http://reactivex.io/RxJava/javadoc/io/reactivex/Single.html#defer-java.util.concurrent.Callable-), Sie können Logik schreiben, um Zugriffstoken für den Client zu generieren.
+
+```java
+HubConnection hubConnection = HubConnectionBuilder.create("YOUR HUB URL HERE")
+    .withAccessTokenProvider(Single.defer(() -> {
+        // Your logic here.
+        return Single.just("An Access Token");
+    })).build();
+```
 
 ## <a name="known-limitations"></a>Bekannte Einschränkungen
 

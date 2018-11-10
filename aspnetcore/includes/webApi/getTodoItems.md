@@ -15,7 +15,7 @@ Der vorangehende Code:
 * Er definiert eine API-Controllerklasse ohne Methoden.
 * Er erstellt ein neues Todo-Element, wenn `TodoItems` leer ist. Sie können nicht alle Todo-Elemente löschen, weil der Konstruktor ein neues erstellt, wenn `TodoItems` leer ist.
 
-In den nächsten Abschnitten werden Methoden zum Implementieren der API hinzugefügt. Die Klasse wird mit einem `[ApiController]`-Attribut versehen, um einige praktische Features zu aktivieren. Informationen zu den Features, die durch das Attribut aktiviert werden, finden Sie unter [Kommentieren einer Klasse mithilfe von ApiControllerAttribute](xref:web-api/index#annotate-class-with-apicontrollerattribute).
+In den nächsten Abschnitten werden Methoden zum Implementieren der API hinzugefügt. Die Klasse wird mit einem `[ApiController]`-Attribut versehen, um einige praktische Features zu aktivieren. Informationen zu den Features, die durch das Attribut aktiviert werden, finden Sie unter [Anmerkungen mit ApiControllerAttribute](xref:web-api/index#annotation-with-apicontrollerattribute).
 
 ::: moniker-end
 

@@ -1,19 +1,19 @@
 ---
-title: Hinzufügen eines Modells zu einer Razor-Seiten-App in ASP.NET Core mit Visual Studio Code
+title: Hinzufügen eines Modells zu einer Razor Pages-App in ASP.NET Core mit Visual Studio Code
 author: rick-anderson
-description: Erfahren Sie, wie Sie ein Modell mithilfe von Visual Studio Code zu einer Razor-Seiten-App in ASP.NET Core hinzufügen.
+description: Erfahren Sie, wie Sie ein Modell mithilfe von Visual Studio Code zu einer Razor Pages-App in ASP.NET Core hinzufügen.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/27/2017
 uid: tutorials/razor-pages-vsc/model
-ms.openlocfilehash: 3552b541c43375aef43838800855ec63e7fed372
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: c4aef369bb3965b70d1b461cf63e6f5a26a00628
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38152970"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50244722"
 ---
-# <a name="add-a-model-to-an-aspnet-core-razor-pages-app-with-visual-studio-code"></a>Hinzufügen eines Modells zu einer Razor-Seiten-App in ASP.NET Core mit Visual Studio Code
+# <a name="add-a-model-to-an-aspnet-core-razor-pages-app-with-visual-studio-code"></a>Hinzufügen eines Modells zu einer Razor Pages-App in ASP.NET Core mit Visual Studio Code
 
 [!INCLUDE [model1](../../includes/RP/model1.md)]
 
@@ -27,7 +27,21 @@ ms.locfileid: "38152970"
 
 [!INCLUDE [model 2a](../../includes/RP/model2a.md)]
 
-[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices2&highlight=3-4)]
+### <a name="entity-framework-core-nuget-package-for-sqlite"></a>NuGet-Pakete für SQLite für Entity Framework Core
+
+Führen Sie in der Befehlszeile den folgenden .NET Core-CLI-Befehl aus:
+
+```console
+dotnet add package Microsoft.EntityFrameworkCore.SQLite
+```
+
+<a name="reg"></a>
+
+### <a name="register-the-database-context"></a>Registrieren des Datenbankkontexts
+
+Registrieren Sie den Datenbankkontext mit dem [Abhängigkeitsinjektionscontainer](xref:fundamentals/dependency-injection) in der Datei *Startup.cs*.
+
+[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices2&highlight=10-11)]
 
 Fügen Sie am Anfang der Datei *Startup.cs* die folgenden `using`-Anweisungen ein.
 
@@ -38,45 +52,24 @@ using Microsoft.EntityFrameworkCore;
 
 Erstellen Sie das Projekt, um sicherzustellen, dass keine Fehler vorliegen.
 
-### <a name="entity-framework-core-nuget-packages-for-migrations"></a>NuGet-Pakete für Migrationen in Entity Framework Core
-
-Die EF-Tools für die Befehlszeilenschnittstelle (CLI) werden unter [Microsoft.EntityFrameworkCore.Tools.DotNet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools.DotNet) bereitgestellt. Fügen Sie das Paket zum Installieren zu der `DotNetCliToolReference`-Sammlung in der *CSPROJ*-Datei hinzu. **Hinweis:** Sie müssen dieses Paket installieren, indem Sie die *CSPROJ*-Datei bearbeiten. Sie können den `install-package`-Befehl oder die Paket-Manager-GUI nicht verwenden.
-
-Bearbeiten Sie die Datei *RazorPagesMovie.csproj*:
-
-* Klicken Sie auf **Datei** > **Datei öffnen**, und wählen Sie anschließend die Datei *RazorPagesMovie.csproj* aus.
-* Fügen Sie der zweiten **\<ItemGroup>** einen Toolverweis für `Microsoft.EntityFrameworkCore.Tools.DotNet` hinzu:
-
-[!code-xml[](../../tutorials/razor-pages/razor-pages-start/snapshot_cli_sample/RazorPagesMovie/RazorPagesMovie.cli.csproj)]
-
 [!INCLUDE [model 3](../../includes/RP/model3.md)]
 
 <a name="scaffold"></a>
+
 ### <a name="scaffold-the-movie-model"></a>Aufbauen des Filmmodells
 
 * Öffnen Sie ein Befehlsfenster im Projektverzeichnis (das Verzeichnis mit den Dateien *Program.cs*, *Startup.cs*, und *CSPROJ*).
-* Führen Sie den folgenden Befehl aus:
-
-**Hinweis: Führen Sie den folgenden Befehl unter Windows aus. Für MacOS und Linux gilt der nächste Befehl.**
+* **Für Windows**: Führen Sie den folgenden Befehl aus:
 
   ```console
   dotnet aspnet-codegenerator razorpage -m Movie -dc MovieContext -udl -outDir Pages\Movies --referenceScriptLibraries
   ```
 
-* Führen Sie unter macOS und Linux den folgenden Befehl aus:
+* **Für macOS und Linux**: Führen Sie den folgenden Befehl aus:
 
   ```console
   dotnet aspnet-codegenerator razorpage -m Movie -dc MovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
   ```
-
-Wenn Sie eine Fehlermeldung erhalten:
-  ```
-  The process cannot access the file 
- 'RazorPagesMovie/bin/Debug/netcoreapp2.0/RazorPagesMovie.dll' 
-  because it is being used by another process.
-  ```
-
-Beenden Sie Visual Studio, und führen Sie den Befehl erneut aus.
 
 [!INCLUDE [model 4](../../includes/RP/model4.md)]
 
@@ -84,4 +77,4 @@ Im nächsten Tutorial finden Sie Erläuterungen zu den Dateien, die durch den Ge
 
 > [!div class="step-by-step"]
 > [Zurück: Erste Schritte](xref:tutorials/razor-pages-vsc/razor-pages-start)
-> [Weiter: Gerüstbau mit Razor-Seiten](xref:tutorials/razor-pages-vsc/page)
+> [Weiter: Gerüstbau mit Razor Pages](xref:tutorials/razor-pages-vsc/page)

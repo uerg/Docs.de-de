@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 2518b9911f13da79c76c84e530cf53fc2df474e5
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: f46bddb618d2a030e29b7dfa1671ea53b0d4bcc2
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090445"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021351"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Hinzufügen der Validierung zu einer Razor-Seite in ASP.NET Core
 
@@ -161,7 +161,7 @@ Der folgende Code zeigt die Kombination von Attributen in einer Zeile:
 
 ### <a name="publish-to-azure"></a>Veröffentlichen in Azure
 
-Informationen zur Bereitstellung in Azure finden Sie unter [Tutorial: Erstellen einer ASP.NET-App in Azure mit der SQL-Datenbank](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase). Die Anweisungen beziehen sich auf eine ASP.NET-App, nicht auf eine ASP.NET Core-App, aber die Schritte sind identisch.
+Informationen zur Bereitstellung in Azure finden Sie unter [Tutorial: Erstellen einer ASP.NET-App in Azure mit der SQL-Datenbank](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase). Diese Anweisungen beziehen sich auf eine ASP.NET-App, nicht auf eine ASP.NET Core-App, aber die Schritte sind identisch.
 
 Vielen Dank für Ihr Interesse an dieser Einführung in Razor Pages. Wir freuen uns über Ihr Feedback. [Erste Schritte mit Razor Pages und EF Core](xref:data/ef-rp/intro) ist ein ausgezeichneter Anschlussartikel an dieses Tutorial.
 

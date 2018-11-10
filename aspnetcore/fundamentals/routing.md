@@ -6,18 +6,29 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/01/2018
 uid: fundamentals/routing
-ms.openlocfilehash: 06059d720bd4444b1ec12e42d466ee54d1658203
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: a014782ba503bc8bd0fdefb4cb4f382aa8fde4cd
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207755"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50244969"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
 Von [Ryan Nowak](https://github.com/rynowak), [Steve Smith](https://ardalis.com/) und [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Mithilfe der Routingfunktionalität wird einem Routenhandler eine eingehende Anforderung zugeordnet. Routen werden in der App definiert und beim Start der App konfiguriert. Eine Route kann optional Werte aus der URL extrahieren, die in der Anforderung enthalten ist. Diese Werte können anschließend für die Verarbeitung der Anforderung verwendet werden. Mit Routeninformationen aus der App lassen sich über die Routingfunktionalität URLs generieren, die Routenhandlern zugeordnet werden. So kann durch Routing entweder ein Routenhandler auf der Grundlage einer URL ermittelt oder mithilfe von Routenhandlerinformationen eine URL bestimmt werden, die einem bestimmten Routenhandler zugeordnet ist.
+
+Für die meisten Apps sollte eine grundlegendes und beschreibendes Routingschema ausgewählt werden, um lesbare und aussagekräftige URLs zu erhalten. Für die konventionelle Standardroute `{controller=Home}/{action=Index}/{id?}` gilt:
+
+* Sie unterstützt ein grundlegendes und beschreibendes Routingschema.
+* Sie ist ein guter Startpunkt für Web-Apps, die von Browsern verwendet werden sollen.
+
+Es ist üblich, in speziellen Situationen (z.B. Blog, E-Commerce) durch ein [Attributrouting](xref:mvc/controllers/routing#attribute-routing) oder dedizierte konventionelle Routen zusätzliche kurze Routen zu stark frequentierten Bereichen der App hinzuzufügen.
+
+Web-APIs sollten das Attributrouting verwenden, um die Funktionalität der App als einen Satz von Ressourcen zu modellieren, bei denen Vorgänge durch HTTP-Verben dargestellt werden. Dies bedeutet, dass viele Vorgänge (z.B. GET, POST) für dieselbe logische Ressource dieselbe URL verwenden. Das Attributrouting bietet eine Ebene der Steuerung, die für einen sorgfältigen Entwurf des API-URL-Raums erforderlich ist.
+
+Die MVC-Unterstützung zum Generieren von URLs ermöglicht es, die App ohne Hartcodierung der URLs zum Verlinken der App zu entwickeln. Auf diese Weise kann mit einer grundlegenden Routingkonfiguration begonnen werden, und die Routen können geändert werden, nachdem die Form der App festgelegt wurde.
 
 > [!IMPORTANT]
 > In diesem Artikel wird das Low-Level-Routing in ASP.NET Core beschrieben. Weitere Informationen zum Routing mit ASP.NET Core MVC finden Sie unter <xref:mvc/controllers/routing>.
@@ -414,7 +425,7 @@ Mit der vorstehenden Route wird die Aktion `SubscriptionManagementController.Get
 ASP.NET Core bietet API-Konventionen für die Verwendung von Parametertransformatoren mit generierten Routen:
 
 * ASP.NET Core MVC verwendet die `Microsoft.AspNetCore.Mvc.ApplicationModels.RouteTokenTransformerConvention`-API-Konvention. Diese Konvention wendet einen angegebenen Parametertransformator auf alle Attributrouten in der App an. Der Parametertransformator transformiert Attributroutentoken, wenn diese ersetzt werden. Weitere Informationen finden Sie unter [Verwenden eines Parametertransformators zum Anpassen der Tokenersetzung](/aspnet/core/mvc/controllers/routing#use-a-parameter-transformer-to-customize-token-replacement).
-* Razor Pages verwendet die `Microsoft.AspNetCore.Mvc.ApplicationModels.PageRouteTransformerConvention`-API-Konvention. Diese Konvention wendet einen angegebenen Parametertransformator auf alle automatisch erkannten Razor-Seiten an. Der Parametertransformator transformiert die Ordner- und Dateinamensegmente von Razor-Seitenrouten. Weitere Informationen finden Sie unter [Verwenden eines Parametertransformators zum Anpassen von Seitenrouten](/aspnet/core/razor-pages/razor-pages-conventions#use-a-parameter-transformer-to-customize-page-routes).
+* Razor Pages verwendet die `Microsoft.AspNetCore.Mvc.ApplicationModels.PageRouteTransformerConvention`-API-Konvention. Diese Konvention wendet einen angegebenen Parametertransformator auf alle automatisch erkannten Razor Pages an. Der Parametertransformator transformiert die Ordner- und Dateinamensegmente von Razor Pages-Routen. Weitere Informationen finden Sie unter [Verwenden eines Parametertransformators zum Anpassen von Seitenrouten](/aspnet/core/razor-pages/razor-pages-conventions#use-a-parameter-transformer-to-customize-page-routes).
 
 ::: moniker-end
 

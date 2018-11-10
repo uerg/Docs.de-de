@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: efc71cc8d072769cde07e129b6d9bb933fc2f7af
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
-ms.translationtype: MT
+ms.openlocfilehash: 7319fbbfe3e78e61526f9042b2b6004a351c2186
+ms.sourcegitcommit: 2ef32676c16f76282f7c23154d13affce8c8bf35
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090214"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50234617"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>Taghilfsprogramme in Formularen in ASP.NET Core
 
@@ -245,8 +245,7 @@ Die Vorlage *Views/Shared/EditorTemplates/ToDoItem.cshtml*:
 
 [!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/ToDoItem.cshtml)]
 
->[!NOTE]
->Verwenden Sie immer `for` (*nicht* `foreach`), um eine Liste zu durchlaufen. Das Auswerten eines Indexers in einem LINQ-Ausdruck kann teuer sein und sollte minimiert werden.
+Wenn der Wert in einem Kontext wie `asp-for` oder `Html.DisplayFor` ausgeführt wird, sollte nach Möglichkeit `foreach` verwendet werden. Allgemein ist `for` besser als `foreach` (sofern das Szenario dies zulässt), weil kein Enumerator zugewiesen werden muss. Die Auswertung eines Indexers in einem LINQ-Ausdruck kann jedoch teuer sein und sollte auf ein Mindestmaß reduziert werden.
 
 &nbsp;
 

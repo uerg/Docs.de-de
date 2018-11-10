@@ -2,7 +2,8 @@
 
 Diese Beispiel-App besteht aus folgenden Projekten:
 
-- **WebApiSample.Api**: Ein auf .NET Core 2.1 ausgerichtetes ASP.NET Core 2.1-Projekt.
+- **WebApiSample.Api.22*: Ein auf .NET Core 2.2 ausgerichtetes ASP.NET Core 2.2-Projekt.
+- **WebApiSample.Api.21**: Ein auf .NET Core 2.1 ausgerichtetes ASP.NET Core 2.1-Projekt.
 - **WebApiSample.Api.Pre21**: Ein auf .NET Core 2.0 ausgerichtetes ASP.NET Core 2.0-Projekt.
 - **WebApiSample.DataAccess**: Eine .NET Standard 2.0-Klassenbibliothek, die als Datenzugriffsebene für die beiden Web-API-Projekte dient.
 

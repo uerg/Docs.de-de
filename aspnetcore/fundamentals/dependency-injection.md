@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: d9eb6a01e096c7e8cbcb0979e24331a8d5316a14
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 3626ce834b904db64c1976aefc77dc60a7bfdf1c
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207653"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50253168"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Dependency Injection in ASP.NET Core
 
@@ -427,7 +427,7 @@ Die Dienste, die innerhalb einer ASP.NET Core-Anforderung von `HttpContext` verf
 
 Anforderungsdienste stellen die Dienste dar, die als Teil der App konfiguriert und angefordert werden. Wenn Objekte Abhängigkeiten angeben, werden diese von den in `RequestServices` gefundenen Typen erfüllt (nicht in `ApplicationServices`).
 
-Generell sollte die App diese Eigenschaften nicht direkt verwenden. Fordern Sie stattdessen die von Klassen benötigten Typen über Klassenkonstruktoren an, und lassen Sie das Framework die Abhängigkeiten einfügen. Dadurch werden Klassen angehalten, die leichter getestet werden können (siehe Themen zu [Testen und Debuggen](xref:test/index)).
+Generell sollte die App diese Eigenschaften nicht direkt verwenden. Fordern Sie stattdessen die von Klassen benötigten Typen über Klassenkonstruktoren an, und lassen Sie das Framework die Abhängigkeiten einfügen. So erhalten Sie Klassen, die einfacher getestet werden können.
 
 > [!NOTE]
 > Fordern Sie für den Zugriff auf die `RequestServices`-Sammlung Abhängigkeiten lieber als Konstruktorparameter an.
@@ -558,7 +558,6 @@ Dependency Injection stellt eine *Alternative* zu statischen bzw. globalen Objek
 * <xref:mvc/controllers/dependency-injection>
 * <xref:security/authorization/dependencyinjection>
 * <xref:fundamentals/startup>
-* <xref:test/index>
 * <xref:fundamentals/middleware/extensibility>
 * [Schreiben von sauberem Code in ASP.NET Core über Dependency Injection (MSDN)](https://msdn.microsoft.com/magazine/mt703433.aspx)
 * [Entwurf einer mit Containern verwalteten Anwendung, Einleitung: Welche Zugehörigkeit hat der Container?](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2018
 uid: fundamentals/app-state
-ms.openlocfilehash: da20538a0dc6e13caedaf6a1130e66981dcb7af2
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 5ca909681ca9da3fae0391991902da97581852be
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207289"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50253181"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>Sitzungs- und App-Zustand in ASP.NET Core
 
@@ -71,7 +71,7 @@ Der Sitzungszustand verhält sich wie folgt:
 Der Cacheanbieter im Arbeitsspeicher speichert Sitzungsdaten im Arbeitsspeicher des Servers, auf dem sich die App befindet. Beachten Sie in einem Szenario mit einer Serverfarm Folgendes:
 
 * Verwenden Sie *Sticky Sessions* (anhaftende Sitzungen), um jede Sitzung an eine spezifische App-Instanz auf einem separaten Server zu binden. [Azure App Service](https://azure.microsoft.com/services/app-service/) verwendet [Routing von Anwendungsanforderungen (ARR)](/iis/extensions/planning-for-arr/using-the-application-request-routing-module), um Sticky Sessions standardmäßig zu erzwingen. Diese Sitzungen können allerdings Auswirkungen auf die Skalierbarkeit haben und Updates für Web-Apps erschweren. Ein geeigneteres Vorgehen ist das Verwenden von Redis oder über SQL Server verteilte Caches, für die keine Sticky Sessions notwendig sind. Weitere Informationen finden Sie unter <xref:performance/caching/distributed>.
-* Das Sitzungscookie wird über [IDataProtector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector) verschlüsselt. Der Datenschutz muss ordnungsgemäß konfiguriert sein, sodass er Sitzungscookies auf jedem Computer liest. Weitere Informationen finden Sie unter [Schutz von Daten in ASP.NET Core](xref:security/data-protection/index) und [Key storage providers (Wichtige Speicheranbieter)](xref:security/data-protection/implementation/key-storage-providers).
+* Das Sitzungscookie wird über [IDataProtector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector) verschlüsselt. Der Datenschutz muss ordnungsgemäß konfiguriert sein, sodass er Sitzungscookies auf jedem Computer liest. Weitere Informationen finden Sie unter <xref:security/data-protection/introduction> und [Schlüsselspeicheranbieter](xref:security/data-protection/implementation/key-storage-providers).
 
 ### <a name="configure-session-state"></a>Konfigurieren des Sitzungszustands
 
@@ -274,7 +274,7 @@ Bevor Sie einen TempData-Anbieter auswählen, müssen Sie folgende Überlegungen
 
 1. Verwendet die App bereits den Sitzungszustand? Falls dies der Fall ist, hat die Verwendung des TempData-Anbieters abgesehen von der Größe der Daten keine zusätzlichen Auswirkungen auf die App.
 2. Verwendet die App TempData nur selten für verhältnismäßig kleine Datenmengen (bis zu 500 Bytes)? Falls dies der Fall ist, entsteht durch das Cookie des TempData-Anbieters nur ein kleiner zusätzlicher Aufwand für jede Anforderung, die TempData enthält. Falls dies nicht der Fall ist, kann der Sitzungszustand des TempData-Anbieters nützlich sein, um Roundtrips für große Datenmengen für jede Anforderung durchzuführen, bis TempData verarbeitet wird.
-3. Wird die App in einer Serverfarm auf mehreren Servern ausgeführt? Wenn dies der Fall ist, ist keine weitere Konfiguration erforderlich, um das Cookie des TempData-Anbieters außerhalb des Schutzes von Daten zu verwenden (weitere Informationen unter [Schutz von Daten](xref:security/data-protection/index) und [Wichtige Speicheranbieter](xref:security/data-protection/implementation/key-storage-providers)).
+3. Wird die App in einer Serverfarm auf mehreren Servern ausgeführt? Wenn dies der Fall ist, ist keine weitere Konfiguration erforderlich, um das Cookie des TempData-Anbieters außerhalb des Schutzes von Daten zu verwenden (siehe <xref:security/data-protection/introduction> und [Schlüsselspeicheranbieter](xref:security/data-protection/implementation/key-storage-providers)).
 
 > [!NOTE]
 > Die meisten Webclients (z.B. Webbrowser) erzwingen Einschränkungen für die maximale Größe der Cookies, für die Gesamtanzahl der Cookies oder für beides. Wenn Sie das Cookie des TempData-Anbieters verwenden, sollten Sie überprüfen, ob die App diese Einschränkungen überschreitet. Beachten Sie die Gesamtgröße der Daten. Rechnen Sie mit erhöhter Cookiegröße aufgrund von Verschlüsselung und Segmentierung.
