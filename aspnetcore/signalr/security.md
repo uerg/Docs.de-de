@@ -5,14 +5,14 @@ description: Erfahren Sie, wie Sie Authentifizierung und Autorisierung in ASP.NE
 monikerRange: '>= aspnetcore-2.1'
 ms.author: anurse
 ms.custom: mvc
-ms.date: 10/17/2018
+ms.date: 11/06/2018
 uid: signalr/security
-ms.openlocfilehash: be1dd24c40327d9a0d8f91bf75300128d3d52725
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
-ms.translationtype: HT
+ms.openlocfilehash: f646d319cf3030fd4d769e882514da14b230bbdd
+ms.sourcegitcommit: c3fa5aded0bf76a7414047d50b8a2311d27ee1ef
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225368"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51276144"
 ---
 # <a name="security-considerations-in-aspnet-core-signalr"></a>Überlegungen zur Sicherheit in ASP.NET Core SignalR
 
@@ -35,7 +35,7 @@ Weitere Informationen zum Konfigurieren von CORS finden Sie unter [aktivieren Ur
 * HTTP-Methoden `GET` und `POST` müssen zulässig sein.
 * Anmeldeinformationen müssen aktiviert werden, auch wenn keine Authentifizierung verwendet wird.
 
-Beispielsweise kann die folgende CORS-Richtlinie einer SignalR-Browser-Client auf gehosteten `http://example.com` Zugriff auf die SignalR-app, die auf gehosteten `http://signalr.example.com`:
+Beispielsweise kann die folgende CORS-Richtlinie einer SignalR-Browser-Client auf gehosteten `https://example.com` Zugriff auf die SignalR-app, die auf gehosteten `https://signalr.example.com`:
 
 [!code-csharp[Main](security/sample/Startup.cs?name=snippet1)]
 
@@ -70,7 +70,14 @@ In ASP.NET Core 2.1 und höher headerüberprüfung erfolgt über eine benutzerde
 
 ## <a name="access-token-logging"></a>Access-token-Protokollierung
 
-Bei der Verwendung von WebSockets oder Server-Sent Ereignisse sendet der Browserclient das Zugriffstoken in der Abfragezeichenfolge an. Empfangen des Zugriffstokens über die Abfragezeichenfolge in der Regel so sicher wie die Verwendung des Standards ist `Authorization` Header. Allerdings melden vielen Webservern an die URL für jede Anforderung, einschließlich der Abfragezeichenfolge. Protokollieren die URLs möglicherweise melden Sie sich das Zugriffstoken. Eine bewährte Methode besteht darin im Web protokolleinstellungen des Servers zu verhindern, dass bei der Protokollierung Zugriffstoken festzulegen.
+Bei der Verwendung von WebSockets oder Server-Sent Ereignisse sendet der Browserclient das Zugriffstoken in der Abfragezeichenfolge an. Empfangen des Zugriffstokens über die Abfragezeichenfolge in der Regel so sicher wie die Verwendung des Standards ist `Authorization` Header. Sie sollten immer HTTPS verwenden, um sicherzustellen, dass eine sichere End-to-End-Verbindung zwischen dem Client und Server. Viele Webserver melden Sie sich die URL für jede Anforderung, einschließlich der Abfragezeichenfolge. Protokollieren die URLs möglicherweise melden Sie sich das Zugriffstoken. ASP.NET Core protokolliert die URL für jede Anforderung standardmäßig die Abfragezeichenfolge enthält. Zum Beispiel:
+
+```
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:5000/myhub?access_token=1234
+```
+
+Wenn Sie Bedenken in Bezug auf diese Daten mit Ihrem Server-Protokolle protokolliert haben, können Sie diese Protokollierung deaktivieren, indem konfigurieren die `Microsoft.AspNetCore.Hosting` Protokollierung der `Warning` Ebene oder höher (diese Meldungen werden geschrieben, auf `Info` Ebene). Finden Sie in der Dokumentation auf [Protokollfilterung](xref:fundamentals/logging/index#log-filtering) für Weitere Informationen. Wenn Sie weiterhin bestimmte Anforderungsinformationen protokollieren möchten, können Sie [schreiben Sie eine Middleware](xref:fundamentals/middleware/index#write-middleware) Protokollierung der Daten an, Sie benötigen, und filtern, der `access_token` Wert der Abfragezeichenfolge (falls vorhanden).
 
 ## <a name="exceptions"></a>Ausnahmen
 
