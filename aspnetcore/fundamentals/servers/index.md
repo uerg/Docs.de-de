@@ -1,17 +1,17 @@
 ---
 title: Webserverimplementierungen in ASP.NET Core
-author: rick-anderson
+author: guardrex
 description: Ermitteln Sie die Webserver Kestrel und HTTP.sys für ASP.NET Core. Erfahren Sie mehr über das Auswählen eines Servers und darüber, wann ein Reverseproxyserver zu verwenden ist.
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: fundamentals/servers/index
-ms.openlocfilehash: 6b6ebbe9d31d571ea470fba0989d622dcf6e68af
-ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
+ms.openlocfilehash: 06d4bf09b07fc70a10b3e260e78c29fe189486c5
+ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50758205"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51505725"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Webserverimplementierungen in ASP.NET Core
 
@@ -144,7 +144,7 @@ Wird eine App über eine Eingabeaufforderung im Ordner des Projekts gestartet, s
 
 * [Kestrel](xref:fundamentals/servers/kestrel#http2-support)
   * Betriebssystem
-    * Windows Server 2012 R2/Windows 8.1 oder höher
+    * Windows Server 2016/Windows 10 oder höher&dagger;
     * Linux mit OpenSSL 1.0.2 oder höher (z.B. Ubuntu 16.04 oder höher)
     * HTTP/2 wird unter macOS in einem zukünftigen Release unterstützt.
   * Zielframework: .NET Core 2.2 oder höher
@@ -158,6 +158,8 @@ Wird eine App über eine Eingabeaufforderung im Ordner des Projekts gestartet, s
   * Windows Server 2016/Windows 10 oder höher, IIS 10 oder höher
   * Öffentlich zugängliche Edge-Server-Verbindungen verwenden HTTP/2, aber die Reverseproxyverbindung mit Kestrel verwendet HTTP/1.1.
   * Zielframework: Gilt nicht für Out-of-Process-Bereitstellungen von IIS.
+
+&dagger;Kestrel bietet eingeschränkte Unterstützung für HTTP/2 unter Windows Server 2012 R2 und Windows 8.1. Die Unterstützung ist eingeschränkt, weil die Liste der unterstützten TLS-Verschlüsselungssammlungen unter diesen Betriebssystemen begrenzt ist. Zum Sichern von TLS-Verbindungen ist möglicherweise ein durch einen Elliptic Curve Digital Signature Algorithm (ECDSA) generiertes Zertifikat erforderlich.
 
 ::: moniker-end
 

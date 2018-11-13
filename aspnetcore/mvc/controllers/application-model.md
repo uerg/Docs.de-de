@@ -5,12 +5,12 @@ description: Erfahren Sie, wie Sie das Anwendungsmodell lesen und bearbeiten, um
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/controllers/application-model
-ms.openlocfilehash: 7a03f5eaa561557f3abe9c8dd8f4e46a57413a55
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: f3e0aafa3e6a352c632e4abbf3943be61f11ea81
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277591"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225498"
 ---
 # <a name="work-with-the-application-model-in-aspnet-core"></a>Arbeiten mit dem Anwendungsmodell in ASP.NET Core
 
@@ -169,7 +169,7 @@ ASP.NET Core MVC verwendet andere Konventionen aus ASP.NET-Web-API 2. Mithilfe v
 
 Für die Verwendung der Web-API-Kompatibilitätsshim müssen Sie das Paket zu Ihrem Projekt und anschließend die Konventionen zu MVC hinzufügen, indem Sie `AddWebApiConventions`unter `Startup` aufrufen:
 
-```c#
+```csharp
 services.AddMvc().AddWebApiConventions();
 ```
 
