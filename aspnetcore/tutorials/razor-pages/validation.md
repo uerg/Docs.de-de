@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: f46bddb618d2a030e29b7dfa1671ea53b0d4bcc2
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: d4cc0ab9de314c0c5a1a9016efd1e566ff1c47d2
+ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021351"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51505777"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Hinzufügen der Validierung zu einer Razor-Seite in ASP.NET Core
 
@@ -61,8 +61,7 @@ Klicken Sie auf den Link **Neu erstellen**. Füllen Sie das Formular mit einigen
 
 ![Ansichtsformular „Movie“ mit mehreren clientseitigen jQuery-Validierungsfehlern](validation/_static/val.png)
 
-> [!NOTE]
-> Sie können ggf. in das Feld `Price` keine Dezimaltrennzeichen oder Kommas eingeben. Zur Unterstützung der [jQuery-Validierung](https://jqueryvalidation.org/) in nicht englischen Gebietsschemas, in denen ein Komma („,“) als Dezimaltrennzeichen verwendet wird, und Nicht-US-englischen Datums- und Uhrzeitformaten müssen Sie Schritte zur Globalisierung Ihrer App ausführen. Weitere Informationen finden Sie unter [Zusätzliche Ressourcen](#additional-resources). Geben Sie einstweilen ganze Zahlen wie 10 ein.
+[!INCLUDE[](~/includes/currency.md)]
 
 Wie Sie sehen, hat das Formular in allen Feldern mit einem ungültigen Wert automatisch eine Validierungsfehlermeldung angezeigt. Die Fehlermeldungen werden sowohl auf Clientseite (mithilfe von JavaScript und jQuery) als auch auf Serverseite erzwungen (wenn ein Benutzer JavaScript deaktiviert hat).
 
