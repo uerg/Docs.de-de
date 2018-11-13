@@ -5,12 +5,12 @@ description: Ein Leitfaden, der End-to-End-Anleitungen zum Erstellen einer DevOp
 ms.author: scaddie
 ms.date: 10/24/2018
 uid: azure/devops/cicd
-ms.openlocfilehash: 18a59a1ff6fd6bbf51ff664764725b8972dfa1bf
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: edaf2c2e1428e5e82104786d94584a4ef08f9ee3
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090532"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51570086"
 ---
 # <a name="continuous-integration-and-deployment"></a>Continuous Integration und Continuous deployment
 
@@ -271,7 +271,7 @@ Klicken Sie auf den Slot Swap-Vorgang wird die folgende Aufgabenkonfiguration:
 
 ![Release Pipeline Slot Swap-Vorgang](media/cicd/release-definition-task2.png)
 
-Das Abonnement, Ressourcengruppe, Diensttyp, Web-app-Name und Slot Bereitstellungsdetails werden bereitgestellt. Die **mit Produktion tauschen** aktiviert ist. Daher die Komponenten bereitgestellt die *staging* Slot werden in die produktionsumgebung verlagert wurde.
+Das Abonnement, Ressourcengruppe, Diensttyp, Web-app-Name und Slot Bereitstellungsdetails werden bereitgestellt. Die **mit Produktion tauschen** Kontrollkästchen ist aktiviert. Daher die Komponenten bereitgestellt die *staging* Slot werden in die produktionsumgebung verlagert wurde.
 
 ## <a name="additional-reading"></a>Weiterführende Literatur
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 08/09/2018
 uid: client-side/bower
-ms.openlocfilehash: 8606c21596a5d9d6ada9c60b55b2f54da21c601b
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: 06edf7ee791aac0984ff71c2f243f61093f0d503
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41902718"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51570021"
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>Verwalten von clientseitigen Paketen mit Bower in ASP.NET Core
 
@@ -40,7 +40,7 @@ In diesem Tutorial fügen wir Unterstützung für [Font Awesome](http://fontawes
 
   ![Bower-Pakete verwalten](bower/_static/manage-bower-packages.png)
 
-* Überprüfen Sie, ob die "Änderungen in *" bower.JSON "*" aktiviert ist. Wählen Sie eine Version aus der Dropdown-Liste, und klicken Sie auf die **installieren** Schaltfläche. Die **Ausgabe** Fenster zeigt die Details zur Installation.
+* Überprüfen Sie, ob die "Änderungen in *" bower.JSON "*" das Kontrollkästchen aktiviert ist. Wählen Sie eine Version aus der Dropdown-Liste, und klicken Sie auf die **installieren** Schaltfläche. Die **Ausgabe** Fenster zeigt die Details zur Installation.
 
 ### <a name="manual-installation-in-bowerjson"></a>Manuelle Installation in "bower.JSON"
 

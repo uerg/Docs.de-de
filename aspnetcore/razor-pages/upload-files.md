@@ -4,14 +4,14 @@ author: guardrex
 description: Erfahren Sie, wie Sie Dateien auf eine Razor Page hochladen.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 07/11/2018
+ms.date: 11/10/2018
 uid: razor-pages/upload-files
-ms.openlocfilehash: 92e72869967b6e3202c97b92e341ea22adc69651
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 8d86a84bcd31cc1e1e6fbe0693c7ec179e589f3d
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912500"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51570008"
 ---
 # <a name="upload-files-to-a-razor-page-in-aspnet-core"></a>Hochladen von Dateien auf eine Razor-Seite in ASP.NET Core
 
@@ -22,6 +22,8 @@ Dieses Thema baut auf den [Beispiel-app](https://github.com/aspnet/Docs/tree/mas
 In diesem Thema zeigt, wie einfache modellbindung zum Hochladen von Dateien, verwendet die eignet sich gut für kleine Dateien hochladen. Informationen zum Streamen von großen Dateien finden Sie unter [Hochladen großer Dateien über Streaming](xref:mvc/models/file-uploads#uploading-large-files-with-streaming).
 
 In den folgenden Schritten fügen Sie der Beispiel-App eine Funktion zum Hochladen eines Filmzeitplans hinzu. Ein Filmzeitplan wird durch eine `Schedule`-Klasse dargestellt. Die Klasse enthält zwei Versionen des Zeitplans. Eine Version wird für Kunden bereitgestellt, `PublicSchedule`. Die andere Version wird für Mitarbeiter des Unternehmens verwendet, `PrivateSchedule`. Jede Version wird als separate Datei hochgeladen. Das Tutorial veranschaulicht, wie zwei Dateiuploads von einer Seite mit einem einzigen POST an den Server durchgeführt werden.
+
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/upload-files/samples) ([Vorgehensweise zum Herunterladen](xref:index#how-to-download-a-sample))
 
 ## <a name="security-considerations"></a>Sicherheitsüberlegungen
 
