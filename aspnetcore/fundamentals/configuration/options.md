@@ -4,14 +4,14 @@ author: guardrex
 description: Erfahren Sie, wie Sie Optionsmuster verwenden, um Gruppen von zusammengehörigen Einstellungen in ASP.NET Core-Anwendungen darzustellen.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/28/2017
+ms.date: 11/09/2018
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 359bd438066aefcf572c91dacee99e85c0f10b1a
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 99aa5028a8704c7e9e3010415137e2560213a2ad
+ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207354"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51505792"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Optionsmuster in ASP.NET Core
 
@@ -252,7 +252,7 @@ named_options_2: option1 = named_options_2_value1_from_action, option2 = 5
 
 ## <a name="configure-all-options-with-the-configureall-method"></a>Konfigurieren aller Optionen mit der ConfigureAll-Methode
 
-Konfigurieren Sie alle Optionsinstanzen mit der [OptionsServiceCollectionExtensions.ConfigureAll](/dotnet/api/microsoft.extensions.dependencyinjection.optionsservicecollectionextensions.configureall)-Methode. Der folgende Code konfiguriert `Option1` für alle Konfigurationsinstanzen mit einem gemeinsamen Wert. Fügen Sie der `Configure`-Methode manuell den folgenden Code hinzu:
+Konfigurieren Sie alle Optionsinstanzen mit der [OptionsServiceCollectionExtensions.ConfigureAll](/dotnet/api/microsoft.extensions.dependencyinjection.optionsservicecollectionextensions.configureall)-Methode. Der folgende Code konfiguriert `Option1` für alle Konfigurationsinstanzen mit einem gemeinsamen Wert. Fügen Sie der `ConfigureServices`-Methode manuell den folgenden Code hinzu:
 
 ```csharp
 services.ConfigureAll<MyOptions>(myOptions => 
@@ -270,6 +270,35 @@ named_options_2: option1 = ConfigureAll replacement value, option2 = 5
 
 > [!NOTE]
 > Alle Optionen sind benannte Instanzen. Vorhandene `IConfigureOption`-Instanzen werden behandelt, als ob sie auf die `Options.DefaultName`-Instanz abzielen. Diese ist `string.Empty`. `IConfigureNamedOptions` implementiert auch `IConfigureOptions`. Die Standardimplementierung von [IOptionsFactory&lt;TOptions&gt;](/dotnet/api/microsoft.extensions.options.ioptionsfactory-1) ([Verweisquelle](https://github.com/aspnet/Options/blob/release/2.0/src/Microsoft.Extensions.Options/IOptionsFactory.cs)) verfügt über eine Logik zur ordnungsgemäßen Anwendung. Die benannte Option `null` wird verwendet, um auf alle benannten Instanzen anstelle einer bestimmten benannten Instanz abzuzielen ([ConfigureAll](/dotnet/api/microsoft.extensions.dependencyinjection.optionsservicecollectionextensions.configureall) und [PostConfigureAll](/dotnet/api/microsoft.extensions.dependencyinjection.optionsservicecollectionextensions.postconfigureall) verwenden diese Konvention).
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+
+## <a name="optionsbuilder-api"></a>OptionsBuilder-API
+
+<xref:Microsoft.Extensions.Options.OptionsBuilder`1> dient zum Konfigurieren von `TOptions`-Instanzen. `OptionsBuilder` optimiert die Erstellung von benannten Optionen, da es sich nur um einen einzelnen Parameter für den ersten `AddOptions<TOptions>(string optionsName)`-Aufruf handelt statt um alle nachfolgenden Aufrufe. Die Optionsvalidierung und die `ConfigureOptions`-Überladungen, die Dienstabhängigkeiten akzeptieren, sind nur über `OptionsBuilder` verfügbar.
+
+```csharp
+// Options.DefaultName = "" is used.
+services.AddOptions<MyOptions>().Configure(o => o.Property = "default");
+    
+services.AddOptions<MyOptions>("optionalName")
+    .Configure(o => o.Property = "named");
+```
+
+## <a name="configurelttoptions-tdep1--tdep4gt-method"></a>Konfigurieren der Methode &lt;TOptions, TDep1, ... TDep4&gt;
+
+Die Konfiguration von Optionen mit Diensten von DI durch die Implementierung von `IConfigure[Named]Options` als Baustein ist ausführlich. Überladungen für `ConfigureOptions` in `OptionsBuilder<TOptions>` ermöglichen es Ihnen, Optionen mit bis zu fünf Diensten zu konfigurieren:
+
+```csharp
+services.AddOptions<MyOptions>("optionalName")
+    .Configure<Service1, Service2, Service3, Service4, Service5>(
+        (o, s, s2, s3, s4, s5) => 
+            o.Property = DoSomethingWith(s, s2, s3, s4, s5));
+```
+
+Die Überladung registriert eine vorübergehende generische <xref:Microsoft.Extensions.Options.IConfigureNamedOptions`1>, die über einen Konstruktor verfügt, der die angegebenen generischen Diensttypen akzeptiert. 
 
 ::: moniker-end
 
@@ -329,7 +358,49 @@ public interface IValidateOptions<TOptions> where TOptions : class
 }
 ```
 
-Eine schnelle Überprüfung (Fail-Fast beim Start) und eine auf Datenanmerkungen basierende Überprüfung sind für ein zukünftiges Release geplant.
+Die Überprüfung auf Basis von Datenanmerkungen ist über das Paket [Microsoft.Extensions.Options.DataAnnotations](https://www.nuget.org/packages/Microsoft.Extensions.Options.DataAnnotations) durch Aufrufen der `ValidateDataAnnotations`-Methode in `OptionsBuilder<TOptions>` verfügbar:
+
+```csharp
+private class AnnotatedOptions
+{
+    [Required]
+    public string Required { get; set; }
+
+    [StringLength(5, ErrorMessage = "Too long.")]
+    public string StringLength { get; set; }
+
+    [Range(-5, 5, ErrorMessage = "Out of range.")]
+    public int IntRange { get; set; }
+}
+    
+[Fact]
+public void CanValidateDataAnnotations()
+{
+    var services = new ServiceCollection();
+    services.AddOptions<AnnotatedOptions>()
+        .Configure(o =>
+        {
+            o.StringLength = "111111";
+            o.IntRange = 10;
+            o.Custom = "nowhere";
+        })
+        .ValidateDataAnnotations();
+
+    var sp = services.BuildServiceProvider();
+
+    var error = Assert.Throws<OptionsValidationException>(() => 
+        sp.GetRequiredService<IOptions<AnnotatedOptions>>().Value);
+    ValidateFailure<AnnotatedOptions>(error, Options.DefaultName, 1,
+        "DataAnnotation validation failed for members Required " +
+            "with the error 'The Required field is required.'.",
+        "DataAnnotation validation failed for members StringLength " +
+            "with the error 'Too long.'.",
+        "DataAnnotation validation failed for members IntRange " +
+            "with the error 'Out of range.'.");
+}    
+```
+
+Die vorzeitige Überprüfung (Fail-fast beim Start) wird für ein späteres Release in Erwägung.
 
 ::: moniker-end
 

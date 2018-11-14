@@ -5,14 +5,14 @@ description: Erfahren Sie, wie Sie mit WebSockets in ASP.NET beginnen.
 monikerRange: '>= aspnetcore-1.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 06/28/2018
+ms.date: 11/06/2018
 uid: fundamentals/websockets
-ms.openlocfilehash: b0f1aeff6c7a5777993459274293ba23f2d9dc12
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 3a649f88699d61636d9aa7fbfe4468ca67b3b018
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206739"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225407"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>WebSockets-Unterstützung in ASP.NET Core
 
@@ -72,10 +72,24 @@ Fügen Sie die WebSockets-Middleware zur `Configure`-Methode der `Startup`-Klass
 
 ::: moniker-end
 
+::: moniker range="< aspnetcore-2.2"
+
 Sie können die folgenden Einstellungen konfigurieren:
 
-* `KeepAliveInterval`: Legt fest, wie oft Ping-Frames an den Client gesendet werden, um sicherzustellen, dass Proxys die Verbindung aufrechterhalten
-* `ReceiveBufferSize`: Legt die Größe des Puffers fest, der zum Empfang von Daten verwendet wird Fortgeschrittene Benutzer müssen diese Angaben möglicherweise ändern, um die Leistung auf Grundlage der Größe ihrer Daten anzupassen.
+* `KeepAliveInterval`: Legt fest, wie oft Ping-Frames an den Client gesendet werden, um sicherzustellen, dass Proxys die Verbindung aufrechterhalten Der Standardwert beträgt zwei Minuten.
+* `ReceiveBufferSize`: Legt die Größe des Puffers fest, der zum Empfang von Daten verwendet wird Fortgeschrittene Benutzer müssen diese Angaben möglicherweise ändern, um die Leistung auf Grundlage der Größe ihrer Daten anzupassen. Der Standardwert ist 4 KB.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+Sie können die folgenden Einstellungen konfigurieren:
+
+* `KeepAliveInterval`: Legt fest, wie oft Ping-Frames an den Client gesendet werden, um sicherzustellen, dass Proxys die Verbindung aufrechterhalten Der Standardwert beträgt zwei Minuten.
+* `ReceiveBufferSize`: Legt die Größe des Puffers fest, der zum Empfang von Daten verwendet wird Fortgeschrittene Benutzer müssen diese Angaben möglicherweise ändern, um die Leistung auf Grundlage der Größe ihrer Daten anzupassen. Der Standardwert ist 4 KB.
+* `AllowedOrigins` – Eine Liste der zulässigen Origin-Headerwerte für WebSocket-Anforderungen. Alle Ursprünge sind standardmäßig zulässig. Weitere Informationen finden Sie unter „Beschränkung von WebSocket-Ursprüngen“ weiter unten.
+
+::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -128,6 +142,32 @@ Der weiter oben gezeigte Code, der WebSocket-Anforderungen akzeptiert, übergibt
 ::: moniker-end
 
 Wenn Sie die WebSocket-Verbindung vor Beginn der Schleife akzeptieren, endet die Middlewarepipeline. Wenn Sie das Socket schließen, wird die Pipeline entladen. Das bedeutet, dass sich die Anforderung in der Pipeline nicht mehr weiter bewegt, wenn der WebSocket akzeptiert wird. Wenn die Schleife beendet und der Socket geschlossen ist, wird die Anforderung in der Pipeline weiter verarbeitet.
+
+::: moniker range=">= aspnetcore-2.2"
+
+### <a name="websocket-origin-restriction"></a>Beschränkung von WebSocket-Ursprüngen
+
+Der von CORS erzeugte Schutz gilt nicht für WebSockets. Für Browser gilt Folgendes **nicht**:
+
+* Ausführen von CORS-Preflightanforderungen
+* Berücksichtigen der Einschränkungen, die in den `Access-Control`-Headern bei der Erstellung von WebSocket-Anforderungen angegeben sind
+
+Allerdings senden Browser den `Origin`-Header, wenn die WebSocket-Anforderungen ausgegeben werden. Anwendungen sollten zur Überprüfung dieser Header konfiguriert werden, um sicherzustellen, dass nur WebSockets von den erwarteten Ursprüngen zulässig sind.
+
+Wenn Sie Ihren Server unter „https://server.com“ und Ihren Client unter „https://client.com“ hosten, fügen Sie „https://client.com“ zur Liste `AllowedOrigins` hinzu, damit sie von WebSockets überprüft wird.
+
+```csharp
+app.UseWebSockets(new WebSocketOptions()
+{
+    AllowedOrigins.Add("https://client.com");
+    AllowedOrigins.Add("https://www.client.com");
+});
+```
+
+> [!NOTE]
+> Der `Origin`-Header wird vom Client gesteuert und kann wie der `Referer`-Header überlistet werden. Verwenden Sie diese Header **nicht** als Authentifizierungsmechanismus.
+
+::: moniker-end
 
 ## <a name="iisiis-express-support"></a>Unterstützung für IIS und IIS Express
 

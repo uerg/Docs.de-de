@@ -5,12 +5,12 @@ description: Hier finden Sie Informationen zum Einstieg in ASP.NET Core MVC und 
 ms.author: riande
 ms.date: 8/23/2017
 uid: tutorials/first-mvc-app-mac/start-mvc
-ms.openlocfilehash: e94b9aa6b6c594ae407792387788410f776d4c1d
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 059ac1f7fa94d97adc958be3c0b936cdfa7f6d3e
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272292"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225472"
 ---
 # <a name="get-started-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>Erste Schritte mit ASP.NET Core MVC und Visual Studio für Mac
 
@@ -36,7 +36,7 @@ Klicken Sie in Visual Studio auf **Datei > Neue Projektmappe**.
 
 ![Neue Projektmappe in macOS](../first-web-api-mac/_static/sln.png)
 
-Klicken Sie auf **.NET Core-App > ASP.NET Core > Web-App > Weiter**.
+Klicken Sie auf **.NET Core-App > ASP.NET Core > Web-App (MVC) > Weiter**.
 
 ![Dialogfeld „Neue Projektmappe“ in macOS](start-mvc/1.png)
 

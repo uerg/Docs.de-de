@@ -4,14 +4,14 @@ author: tdykstra
 description: Informationen zur Modellvalidierung im ASP.NET Core MVC
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 11/06/2018
 uid: mvc/models/validation
-ms.openlocfilehash: 1063fdccb97e55e6b0eb6689187134ff41c10a02
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: f1757f807e50019e5071abc42ec3129935ab77aa
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253155"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225459"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>Modellvalidierung im ASP.NET Core MVC
 
@@ -33,10 +33,10 @@ Mithilfe von Validierungsattributen können Sie die Modellvalidierung konfigurie
 
 Validierungsattribute werden auf der Eigenschaftenebene festgelegt: 
 
-```csharp 
-[Required] 
+```csharp
+[Required]
 public string MyProperty { get; set; } 
-``` 
+```
 
 Nachfolgend finden Sie ein annotiertes `Movie`-Modell einer App, das Informationen über Filme und Fernsehserien speichert. Die meisten Eigenschaften sind erforderlich und einige Zeichenfolgeneigenschaften haben Längenanforderungen. Außerdem gibt es neben einem benutzerdefinierten Validierungsattribut auch eine Bereichseinschränkung für die `Price`-Eigenschaft von 0 (null) bis 999,99 $.
 
@@ -82,13 +82,19 @@ Für die Validierung auf Clientseite ist ein Wert für ein Formularfeld, das mit
 
 Der Modellstatus stellt Validierungsfehler in übermittelten HTML-Formularwerten dar.
 
-MVC überprüft die Felder solange, bis die maximale Anzahl von Fehlern (standardmäßig 200) erreicht. Sie können diese Nummer konfigurieren, indem Sie den folgenden Code in die `ConfigureServices`-Methode in der *Startup.cs*-Datei einfügen:
+MVC überprüft die Felder solange, bis die maximale Anzahl von Fehlern (standardmäßig 200) erreicht wird. Sie können diese Zahl mit dem folgenden Code in `Startup.ConfigureServices` konfigurieren:
 
 [!code-csharp[](validation/sample/Startup.cs?range=27)]
 
-## <a name="handling-model-state-errors"></a>Behandeln von Modellstatusfehlern
+## <a name="handle-model-state-errors"></a>Behandeln von Modellstatusfehlern
 
-Die Modellvalidierung wird vor jeder ausgelösten Controlleraktion ausgelöst. Die Aktionsmethode ist dafür verantwortlich, `ModelState.IsValid` zu untersuchen und angemessen zu reagieren. Als angemessene Reaktion gilt in der Regel die Rückgabe einer Fehlerantwort, in der bestenfalls der Grund angegeben wird, warum die Modellvalidierung fehlgeschlagen ist.
+Die Modellprüfung erfolgt vor der Ausführung einer Controlleraktion. Die Überprüfung von `ModelState.IsValid` und entsprechende Maßnahmen erfolgen im Rahmen der Aktion. Als angemessene Reaktion gilt in der Regel die Rückgabe einer Fehlerantwort, in der bestenfalls der Grund angegeben wird, warum die Modellvalidierung fehlgeschlagen ist.
+
+::: moniker range=">= aspnetcore-2.1"
+
+Wenn `ModelState.IsValid` in Web-API-Controllern mit dem Attribut `[ApiController]` `false` ergibt, wird eine automatische HTTP 400-Antwort mit Details zum Problem zurückgegeben. Weitere Informationen finden Sie unter [Automatische HTTP 400-Antworten](xref:web-api/index#automatic-http-400-responses).
+
+::: moniker-end
 
 Einige Apps wählen eine Standardkonvention aus, um Modellvalidierungsfehler zu behandeln. Dann kann ein Filter hilfreich sein, um eine solche Richtlinie zu implementieren. Sie sollten testen, wie sich Ihre Aktionen mit gültigen und ungültigen Modellstatus verhalten.
 
