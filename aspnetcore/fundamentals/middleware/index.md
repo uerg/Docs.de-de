@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/21/2018
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 84e79df7fcf5790e658a20c80f21d73cdc76c054
-ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
+ms.openlocfilehash: 6daf201654d68de978141f3dd42d48732c1161f7
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46483008"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51570034"
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core-Middleware
 
@@ -34,7 +34,7 @@ Die ASP.NET Core-Anforderungspipeline besteht aus einer Sequenz von Anforderungs
 
 ![Anforderungsverarbeitungsmuster mit eingehender Anforderung, deren Verarbeitung von drei Middlewares und die ausgehende Antwort der Anwendung. Jede Middleware führt ihre Logik aus und übergibt die Anforderung an der next()-Anweisung an die nächste Middleware. Nachdem die Anforderung von der dritten Middleware verarbeitet wurde, wird sie wieder an die vorherigen Middlewares in umgekehrter Reihenfolge übergeben, nachdem die next()-Anweisungen erreicht wurden. Dann verlässt sie die Anwendung als Antwort an den Client.](index/_static/request-delegate-pipeline.png)
 
-Jeder Delegat kann Vorgänge vor und nach dem nächsten Delegaten ausführen. Ein Delegat kann sich auch dagegen entscheiden, eine Anforderung an den nächsten Delegaten zu übergeben. Dies wird als *Kurzschluss der Anforderungspipeline* bezeichnet. Das Kurzschließen ist oft sinnvoll, da es unnötige Arbeit verhindert. Die Middleware für statische Dateien kann z.B. eine Anforderung einer statischen Datei zurückgeben und den Rest der Pipeline kurzschließen. Die Ausnahmebehandlungsdelegaten werden am Anfang der Pipeline aufgerufen, sodass sie Ausnahmen abfangen können, die zu einem späteren Zeitpunkt in der Pipeline ausgelöst werden.
+Jeder Delegat kann Vorgänge vor und nach dem nächsten Delegaten ausführen. Ein Delegat kann sich auch dagegen entscheiden, eine Anforderung an den nächsten Delegaten zu übergeben. Dies wird als *Kurzschluss der Anforderungspipeline* bezeichnet. Das Kurzschließen ist oft sinnvoll, da es unnötige Arbeit verhindert. Die Middleware für statische Dateien kann beispielsweise die Anforderung einer statischen Datei zurückgeben und den Rest der Pipeline kurzschließen. Die Ausnahmebehandlungsdelegaten werden am Anfang der Pipeline aufgerufen, sodass sie Ausnahmen abfangen können, die zu einem späteren Zeitpunkt in der Pipeline ausgelöst werden.
 
 Die einfachste mögliche ASP.NET Core-App enthält einen einzigen Anforderungsdelegaten, der alle Anforderungen verarbeitet. In diesem Fall ist keine tatsächliche Anforderungspipeline vorhanden. Stattdessen wird eine einzelne anonyme Funktion als Antwort auf jede HTTP-Anforderung aufgerufen.
 
@@ -167,12 +167,12 @@ Wenn die Anforderung nicht von der Middleware für statische Dateien verarbeitet
 
 ::: moniker-end
 
-Im folgenden Beispiel wird eine Middlewarereihenfolge veranschaulicht, bei der Anforderungen für statische Dateien von der Middleware für statische Dateien vor der Middleware für die Antwortkomprimierung verarbeitet werden. Die statischen Dateien werden bei dieser Middlewarereihenfolge nicht komprimiert. Die MVC-Antworten von <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvcWithDefaultRoute*> können komprimiert werden.
+Im folgenden Beispiel wird eine Middlewarereihenfolge veranschaulicht, bei der Anforderungen statischer Dateien von der Middleware für statische Dateien vor der Middleware für die Antwortkomprimierung verarbeitet werden. Die statischen Dateien werden bei dieser Middlewarereihenfolge nicht komprimiert. Die MVC-Antworten von <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvcWithDefaultRoute*> können komprimiert werden.
 
 ```csharp
 public void Configure(IApplicationBuilder app)
 {
-    // Static files not compressed by Static Files Middleware.
+    // Static files not compressed by Static File Middleware.
     app.UseStaticFiles();
     app.UseResponseCompression();
     app.UseMvcWithDefaultRoute();
