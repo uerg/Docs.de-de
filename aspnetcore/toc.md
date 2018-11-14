@@ -185,6 +185,8 @@
 ## [Aktionsrückgabetypen](xref:web-api/action-return-types)
 ## [Formatieren von Antwortdaten](xref:web-api/advanced/formatting)
 ## [Benutzerdefinierte Formatierer](xref:web-api/advanced/custom-formatters)
+## [Analyzer](xref:web-api/advanced/analyzers)
+## [Konventionen](xref:web-api/advanced/conventions)
 
 # Echtzeit-Apps
 ## [Übersicht](xref:signalr/introduction)
