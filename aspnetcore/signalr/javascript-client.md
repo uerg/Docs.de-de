@@ -5,14 +5,14 @@ description: Übersicht über ASP.NET Core SignalR JavaScript-Client.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 08/14/2018
+ms.date: 11/14/2018
 uid: signalr/javascript-client
-ms.openlocfilehash: 02844c35d1933d36576c25ff335a572fb65eff5c
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 7de7abd7176e160154a458a3b90f662ba8f47f8c
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50208017"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708386"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>ASP.NET Core SignalR-JavaScript-client
 
@@ -98,6 +98,17 @@ Einrichten von clientseitigen Protokollierung, Ablaufverfolgung durch Übergeben
 Verwenden der ["configurelogging"](/javascript/api/%40aspnet/signalr/hubconnectionbuilder#configurelogging) Methode [HubConnectionBuilder](/javascript/api/%40aspnet/signalr/hubconnectionbuilder) so konfigurieren Sie die Protokollebene. Nachrichten werden in der Browserkonsole protokolliert.
 
 [!code-javascript[Logging levels](javascript-client/sample/wwwroot/js/chat.js?range=9-12)]
+
+## <a name="reconnect-clients"></a>Verbinden von clients
+
+Für SignalR JavaScript-Client nicht automatisch erneut eine Verbindung herzustellen. Sie müssen Code schreiben, die den Client manuell neu verbunden wird. Der folgende Code veranschaulicht einen typischen verbindungswiederherstellungs-Ansatz:
+
+1. Eine Funktion (in diesem Fall die `start` Funktion) wird erstellt, um die Verbindung zu starten.
+1. Rufen Sie die `start` -Funktion in der Verbindungs `onclose` -Ereignishandler.
+
+[!code-javascript[Reconnect the JavaScript client](javascript-client/sample/wwwroot/js/chat.js?range=30-42)]
+
+Eine Implementierung unter realen Bedingungen würde ein Exponentielles Backoff verwendet, oder Wiederholen Sie eine angegebene Anzahl von Malen, bevor aufgegeben wird. 
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 

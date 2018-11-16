@@ -4,14 +4,14 @@ author: tdykstra
 description: Unterschiede zwischen SignalR und ASP.NET Core SignalR
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
-ms.date: 09/10/2018
+ms.date: 11/14/2018
 uid: signalr/version-differences
-ms.openlocfilehash: 8f07647959b6ef815eed599703bdb1bfb446572f
-ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
+ms.openlocfilehash: c9302f1c9e7cd4e62eaeaef871feb54ef26aa3ca
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51505751"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708412"
 ---
 # <a name="differences-between-aspnet-signalr-and-aspnet-core-signalr"></a>Unterschiede zwischen SignalR für ASP.NET und ASP.NET Core SignalR
 
@@ -75,6 +75,10 @@ Unterstützt nun das ASP.NET Core SignalR [Streamingdaten](xref:signalr/streamin
 ### <a name="state"></a>Zustand
 
 Die Möglichkeit, die oft ausgegebene Befehlszeilen Zustand zwischen Clients und dem Hub (oft als HubState bezeichnet) übergeben wurde, sowie Unterstützung für Meldungen zum Druckfortschritt aufgehoben. Es gibt keine Entsprechung der Hub-Proxys im Moment ein.
+
+### <a name="persistentconnection-removal"></a>PersistentConnection entfernen
+
+In ASP.NET Core SignalR die [PersistentConnection](https://docs.microsoft.com/previous-versions/aspnet/jj919047(v%3dvs.118)) Klasse wurde entfernt. 
 
 ### <a name="globalhost"></a>GlobalHost
 
