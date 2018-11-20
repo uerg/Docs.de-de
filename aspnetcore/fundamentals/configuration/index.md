@@ -4,14 +4,14 @@ author: guardrex
 description: In diesem Artikel erfahren Sie, wie Sie mit der Konfigurations-API eine ASP.NET Core-App konfigurieren.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/09/2018
+ms.date: 11/15/2018
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 6dd478770d4eae4d497da576c17fbe7d2c133b89
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: 766ac77a2af01509f8e4bc646a18f7dfbc923511
+ms.sourcegitcommit: d3392f688cfebc1f25616da7489664d69c6ee330
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021741"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51818394"
 ---
 # <a name="configuration-in-aspnet-core"></a>Konfiguration in ASP.NET Core
 
@@ -538,10 +538,11 @@ Beim Verwenden hierarchischer Schlüssel in Umgebungsvariablen funktioniert ein 
 
 ::: moniker range=">= aspnetcore-2.0"
 
-`AddEnvironmentVariables` wird automatisch aufgerufen, wenn Sie ein neues <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>-Element mit <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> initialisieren. Weitere Informationen finden Sie unter [Webhost: Einrichten eines Hosts](xref:fundamentals/host/web-host#set-up-a-host).
+`AddEnvironmentVariables` wird für Umgebungsvariablen mit dem Präfix `ASPNETCORE_` automatisch aufgerufen, wenn Sie einen neuen <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> initialisieren. Weitere Informationen finden Sie unter [Webhost: Einrichten eines Hosts](xref:fundamentals/host/web-host#set-up-a-host).
 
 `CreateDefaultBuilder` lädt außerdem:
 
+* App-Konfiguration über Umgebungsvariablen ohne Präfix durch Aufruf von `AddEnvironmentVariables` ohne Präfix.
 * Optionale Konfiguration aus *appsettings.json* und *appsettings.{Environment}.json*.
 * [Benutzergeheimnisse (Geheimnis-Manager)](xref:security/app-secrets) (in der Entwicklungsumgebung)
 * Befehlszeilenargumenten
@@ -554,7 +555,7 @@ Der Umgebungsvariablen-Konfigurationsanbieter wird aufgerufen, nachdem die Konfi
 
 Rufen Sie <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> beim Erstellen des Hosts auf, um die Konfiguration der App anzugeben.
 
-`AddEnvironmentVariables` für Umgebungsvariablen mit dem Präfix `ASPNETCORE_` wurde bereits von `CreateDefaultBuilder` aufgerufen. Wenn Sie App-Konfigurationen aus zusätzlichen Umgebungsvariablen bereitstellen müssen, rufen Sie die zusätzlichen Anbieter der App in <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> auf, und rufen Sie `AddEnvironmentVariables` mit dem Präfix auf.
+Wenn Sie App-Konfigurationen aus zusätzlichen Umgebungsvariablen bereitstellen müssen, rufen Sie die zusätzlichen Anbieter der App in <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> auf, und rufen Sie `AddEnvironmentVariables` mit dem Präfix auf.
 
 ```csharp
 public class Program
@@ -585,7 +586,7 @@ Rufen Sie beim direkten Erstellen von <xref:Microsoft.AspNetCore.Hosting.WebHost
 
 Rufen Sie die Erweiterungsmethode `AddEnvironmentVariables` für eine <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>-Instanz auf. Wenden Sie die Konfiguration mit der <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*>-Methode auf <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> an.
 
-`AddEnvironmentVariables` für Umgebungsvariablen mit dem Präfix `ASPNETCORE_` wurde bereits von `CreateDefaultBuilder` aufgerufen. Wenn Sie App-Konfigurationen aus zusätzlichen Umgebungsvariablen bereitstellen müssen, rufen Sie die zusätzlichen Anbieter der App in <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> auf, und rufen Sie `AddEnvironmentVariables` mit dem Präfix auf.
+Wenn Sie App-Konfigurationen aus zusätzlichen Umgebungsvariablen bereitstellen müssen, rufen Sie die zusätzlichen Anbieter der App in <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> auf, und rufen Sie `AddEnvironmentVariables` mit dem Präfix auf.
 
 ```csharp
 public class Program

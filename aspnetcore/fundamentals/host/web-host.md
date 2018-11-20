@@ -2,23 +2,26 @@
 title: ASP.NET Core-Webhost
 author: guardrex
 description: Erfahren Sie mehr über den Webhost in ASP.NET Core, der für das Starten der App und das Verwalten der Lebensdauer verantwortlich ist.
-monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/05/2018
+ms.date: 11/12/2018
 uid: fundamentals/host/web-host
-ms.openlocfilehash: a3601b71c65321af56644eb87c4527d6290e4378
-ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
+ms.openlocfilehash: 5af09ad715768d51ce8ef2c8425cc51ebada6859
+ms.sourcegitcommit: 1d6ab43eed9cb3df6211c22b97bb3a9351ec4419
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51505816"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51597822"
 ---
 # <a name="aspnet-core-web-host"></a>ASP.NET Core-Webhost
 
 Von [Luke Latham](https://github.com/guardrex)
 
+::: moniker range="<= aspnetcore-1.1"
+
 Laden Sie für die Version 1.1 dieses Themas den [ASP.NET Core-Webhost (Version 1.1, PDF)](https://webpifeed.blob.core.windows.net/webpifeed/Partners/Web-Host_1.1.pdf) herunter.
+
+::: moniker-end
 
 Durch ASP.NET Core-Apps kann ein *Host* gestartet und konfiguriert werden. Der Host ist verantwortlich für das Starten der App und das Verwalten der Lebensdauer. Der Host konfiguriert mindestens einen Server und eine Pipeline für die Anforderungsverarbeitung. In diesem Artikel wird der ASP.NET Core-Webhost ([IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder)) behandelt, der für das Hosten von Web-Apps nützlich ist. Weitere Informationen zum generischen .NET-Host ([IHostBuilder](/dotnet/api/microsoft.extensions.hosting.ihostbuilder)) finden Sie unter <xref:fundamentals/host/generic-host>.
 

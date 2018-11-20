@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/30/2018
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 9943c9dd2d6dd67a79186ee880b181a5915d06be
-ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
+ms.openlocfilehash: cac5ccdea7838d26b7468f9bf1ab8d317b444b46
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51505712"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708516"
 ---
 # <a name="net-generic-host"></a>Generischer .NET-Host
 
@@ -75,7 +75,7 @@ Die Eigenschaft [IHostingEnvironment.ApplicationName](xref:Microsoft.Extensions.
 **Typ:** *Zeichenfolge*  
 **Standardwert:** Der Name der Assembly, die den Einstiegspunkt der App enthält.  
 **Festlegen mit:** `HostBuilderContext.HostingEnvironment.ApplicationName`  
-**Umgebungsvariable:** `<PREFIX_>APPLICATIONNAME` (`<PREFIX_>` ist [optional und benutzerdefiniert](#configuration-builder))
+**Umgebungsvariable:** `<PREFIX_>APPLICATIONNAME` (`<PREFIX_>` ist [optional und benutzerdefiniert](#configurehostconfiguration))
 
 ### <a name="content-root"></a>Inhaltsstammverzeichnis
 
@@ -85,7 +85,7 @@ Diese Einstellung bestimmt, wo der Host mit der Suche nach Inhaltsdateien beginn
 **Typ:** *Zeichenfolge*  
 **Standard:** Entspricht standardmäßig dem Ordner, in dem die App-Assembly gespeichert ist.  
 **Festlegen mit:** `UseContentRoot`  
-**Umgebungsvariable:** `<PREFIX_>CONTENTROOT` (`<PREFIX_>` ist [optional und benutzerdefiniert](#configuration-builder))
+**Umgebungsvariable:** `<PREFIX_>CONTENTROOT` (`<PREFIX_>` ist [optional und benutzerdefiniert](#configurehostconfiguration))
 
 Wenn der Pfad nicht vorhanden ist, kann der Host nicht gestartet werden.
 
@@ -99,7 +99,7 @@ Legt die [Umgebung](xref:fundamentals/environments) der App fest.
 **Typ:** *Zeichenfolge*  
 **Standard:** Produktion  
 **Festlegen mit:** `UseEnvironment`  
-**Umgebungsvariable:** `<PREFIX_>ENVIRONMENT` (`<PREFIX_>` ist [optional und benutzerdefiniert](#configuration-builder))
+**Umgebungsvariable:** `<PREFIX_>ENVIRONMENT` (`<PREFIX_>` ist [optional und benutzerdefiniert](#configurehostconfiguration))
 
 Die Umgebung kann auf einen beliebigen Wert festgelegt werden. Zu den durch Frameworks definierten Werten zählen `Development`, `Staging` und `Production`. Die Groß-/Kleinschreibung wird bei Werten nicht beachtet.
 
