@@ -4,14 +4,14 @@ author: tdykstra
 description: Erfahren Sie, wie die Modellbindung in ASP.NET Core MVC Aktionsmethodenparametern Daten aus HTTP-Anforderungen zuordnet.
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: tdykstra
-ms.date: 08/14/2018
+ms.date: 11/13/2018
 uid: mvc/models/model-binding
-ms.openlocfilehash: 0ce20a8040c6b19da1f57e1c053a7ef81d8bcb23
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 1dc9b41328ed78440622acc1865b6f088d394403
+ms.sourcegitcommit: 1d6ab43eed9cb3df6211c22b97bb3a9351ec4419
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751711"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51597783"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Modellbindung in ASP.NET Core
 
@@ -55,7 +55,7 @@ Da die Modellbindung einen Schlüssel namens `id` verlangt, `id` jedoch kein Tei
 
 Bisher wurden in diesem Beispiel einfache Typen verwendet. Einfache Typen bestehen in MVC aus allen primitiven .NET-Typen oder aus Typen mit einem Zeichenfolgentypkonverter. Falls der Aktionsmethodenparameter aus einer Klasse wie dem `Movie`-Typen besteht, der sowohl einfache als auch komplexe Typen als Eigenschaften enthält, kann die Modellbindung von MVC ihn trotzdem ordnungsgemäß verarbeiten. Sie nutzt Reflektion und Rekursion, um die Eigenschaften komplexer Typen auf der Suche nach Übereinstimmungen zu durchlaufen. Die Modellbindung sucht nach der Schreibweise *Parametername.Eigenschaftenname*, um Werte an Eigenschaften zu binden. Wenn keine übereinstimmenden Werte gefunden werden, versucht die Modellbindung, einfach anhand des Eigenschaftennamens Bindungen durchzuführen. Bei Typen wie `Collection` sucht die Modellbindung nach Übereinstimmungen mit *Parametername[index]* oder nur *[index]*. Bei der Modellbindung werden `Dictionary`-Typen ähnlich behandelt, da nur *parametername[key]* oder nur *[key]* verlangt wird, solange die Schlüssel aus einfachen Typen bestehen. Unterstützte Schlüssel stimmen mit der Feldnamen-HTML überein und markieren Hilfsprogramme, die für den gleichen Modelltyp generiert wurde. Dies ermöglicht die Erhaltung von Werten, sodass Formularfelder der Einfachheit halber mit der Benutzereingabe befüllt bleiben, z.B. wenn gebundene Daten aus einem Erstellungs- oder Bearbeitungsvorgang die Überprüfung nicht bestanden haben.
 
-Damit eine Bindung hergestellt werden kann, muss die Klasse einen öffentlichen Standardkonstruktor und der zu bindende Member öffentliche schreibbare Eigenschaften haben. Wenn die Modellbindung erfolgt, wird die Klasse nur mit dem öffentlichen Standardkonstruktor instanziiert. Anschließend können die Eigenschaften festgelegt werden.
+Damit die Modellbindung durchgeführt werden kann, muss die Klasse über einen öffentlichen Standardkonstruktor und öffentliche schreibbare Eigenschaften verfügen, die gebunden werden können. Wenn die Modellbindung erfolgt, wird die Klasse mit dem öffentlichen Standardkonstruktor instanziiert. Anschließend können die Eigenschaften festgelegt werden.
 
 Wenn ein Parameter gebunden ist, beendet die Modellbindung die Suche nach Werten mit diesem Namen und fährt mit dem Binden des nächsten Parameters fort. Andernfalls legt das Verhalten der Standardmodellbindung Parameter in Abhängigkeit ihres Typs auf ihre jeweiligen Standardwerte fest:
 

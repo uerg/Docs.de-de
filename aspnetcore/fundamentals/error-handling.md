@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 11/01/2018
 uid: fundamentals/error-handling
-ms.openlocfilehash: 89117d78486493747d649c3bb0d9cce9f97ef419
-ms.sourcegitcommit: 85f2939af7a167b9694e1d2093277ffc9a741b23
+ms.openlocfilehash: fbc86d36f66e71e6ebd84f536148fba2e3c452d8
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50968318"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51570060"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Fehlerbehandlung in ASP.NET Core
 
@@ -146,7 +146,7 @@ Die Vorlage kann einen `{0}`-Platzhalter für den Statuscode enthalten. Der Vorl
 app.UseStatusCodePagesWithReExecute("/error/{0}");
 ```
 
-Statuscodeseiten können für bestimmte Anforderungen in der Razor Pages-Handlermethode oder in einem MVC-Controller deaktiviert werden. Versuchen Sie, [IStatusCodePagesFeature](/dotnet/api/microsoft.aspnetcore.diagnostics.istatuscodepagesfeature) aus der Sammlung [HttpContext.Features](/dotnet/api/microsoft.aspnetcore.http.httpcontext.features) der Anforderung abzurufen und das Feature zu deaktivieren (falls es verfügbar ist), um Statuscodeseiten zu deaktivieren:
+Statuscodeseiten können für bestimmte Anforderungen in der Handlermethode einer Razor-Seite oder in einem MVC-Controller deaktiviert werden. Versuchen Sie, [IStatusCodePagesFeature](/dotnet/api/microsoft.aspnetcore.diagnostics.istatuscodepagesfeature) aus der Sammlung [HttpContext.Features](/dotnet/api/microsoft.aspnetcore.http.httpcontext.features) der Anforderung abzurufen und das Feature zu deaktivieren (falls es verfügbar ist), um Statuscodeseiten zu deaktivieren:
 
 ```csharp
 var statusCodePagesFeature = HttpContext.Features.Get<IStatusCodePagesFeature>();

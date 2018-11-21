@@ -3,14 +3,14 @@ title: Anpassen von Modellbindungen in ASP.NET Core
 author: ardalis
 description: Erfahren Sie mehr darüber, wie Controlleraktionen durch Modellbindungen direkt mit den Modelltypen in ASP.NET Core arbeiten.
 ms.author: riande
-ms.date: 04/10/2017
+ms.date: 11/13/2018
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: dc901aea3c20e7f2e955f39d923216de70ef015b
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 1da42829270e8ff4a626a45aec4d4e825062bd4f
+ms.sourcegitcommit: f202864efca81a72ea7120c0692940c40d9d0630
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090406"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51635289"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>Anpassen von Modellbindungen in ASP.NET Core
 
@@ -87,11 +87,14 @@ In folgendem Beispiel wird das `ModelBinder`-Attribut auf das `Author`-Modell an
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Data/Author.cs?highlight=10)]
 
-Im oben stehenden Beispiel gibt das `ModelBinder`-Attribut den Typ von `IModelBinder` an, der zur Bindung von `Author`-Aktionsparametern verwendet werden soll. 
+Im oben stehenden Beispiel gibt das `ModelBinder`-Attribut den Typ von `IModelBinder` an, der zur Bindung von `Author`-Aktionsparametern verwendet werden soll.
 
-`AuthorEntityBinder` wird verwendet, um einen `Author`-Parameter zu binden. Dies geschieht durch Abrufen einer Entität aus der Datenquelle mit Entity Framework Core und einer `authorId`:
+Die folgende `AuthorEntityBinder`-Klasse bindet `Author`-Parameter durch das Abrufen einer Entität aus der Datenquelle mit Entity Framework Core und einer `authorId`:
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Binders/AuthorEntityBinder.cs?name=demo)]
+
+> [!NOTE]
+> Diese `AuthorEntityBinder`-Klasse soll eine benutzerdefinierte Modellbindung darstellen. Die Klasse stellt keine bewährte Methode für ein Suchszenario dar. Binden Sie die `authorId` für Suchvorgänge, und fragen Sie die Datenbank in einer Aktionsmethode ab. Dadurch werden Fehler bei der Modellbindung von `NotFound`-Fällen unterschieden.
 
 Im folgenden Code wird die Verwendung von `AuthorEntityBinder` in einer Aktionsmethode veranschaulicht:
 
@@ -107,7 +110,7 @@ Sie können das Attribut `ModelBinder` auf einzelne Modelleigenschaften (z.B. Vi
 
 ### <a name="implementing-a-modelbinderprovider"></a>Implementieren von ModelBinderProvider
 
-Statt ein Attribut anzuwenden, können Sie auch `IModelBinderProvider` implementieren. So werden die integrierten Frameworkbindungen implementiert. Wenn Sie den Typ angeben, den Ihre Bindung verwendet, geben Sie gleichzeitig auch den Typ der Argumente an, den sie erzeugt, und **nicht** die Eingabe, die Ihre Bindung akzeptiert. Der folgende Bindungsanbieter funktioniert mit `AuthorEntityBinder`. Wenn er der Anbieterauflistung von MVC hinzugefügt wird, müssen Sie das Attribut `ModelBinder` nicht für `Author` oder Parameter des Typs `Author` verwenden.
+Statt ein Attribut anzuwenden, können Sie auch `IModelBinderProvider` implementieren. So werden die integrierten Frameworkbindungen implementiert. Wenn Sie den Typ angeben, den Ihre Bindung verwendet, geben Sie gleichzeitig auch den Typ der Argumente an, den sie erzeugt, und **nicht** die Eingabe, die Ihre Bindung akzeptiert. Der folgende Bindungsanbieter funktioniert mit `AuthorEntityBinder`. Wenn er der Anbietersammlung von MVC hinzugefügt wird, müssen Sie das Attribut `ModelBinder` nicht für `Author` oder Parameter des Typs `Author` verwenden.
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Binders/AuthorEntityBinderProvider.cs?highlight=17-20)]
 
@@ -130,6 +133,7 @@ Wenn Sie Ihren Anbieter am Ende der Auflistung hinzufügen, kann es passieren, d
 ## <a name="recommendations-and-best-practices"></a>Empfehlungen und bewährte Methoden
 
 Benutzerdefinierte Modellbindungen:
+
 - Sollten nicht versuchen, Statuscodes festzulegen oder Ergebnisse zurückzugeben (z.B. 404 – Nicht gefunden). Wenn die Modellbindung fehlschlägt, sollte ein [Aktionsfilter](xref:mvc/controllers/filters) oder Logik innerhalb der Aktionsmethode selbst den Fehler behandeln.
 - Sind besonders beim Eliminieren von wiederholendem Code und übergreifenden Belangen aus Aktionsmethoden nützlich.
 - Sollten normalerweise nicht dazu verwendet werden, eine Zeichenfolge in einen benutzerdefinierten Typ zu konvertieren. [`TypeConverter`](/dotnet/api/system.componentmodel.typeconverter) ist oft eine sinnvollere Option.

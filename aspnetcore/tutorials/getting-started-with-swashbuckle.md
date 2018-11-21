@@ -4,14 +4,14 @@ author: zuckerthoben
 description: Erfahren Sie, wie Sie Ihren ASP.NET Core-Web-API-Projekten Swashbuckle hinzufügen, um die Swagger-Benutzeroberfläche zu integrieren.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 11/05/2018
+ms.date: 11/14/2018
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: 945a2ebe138ba6a1f6029f9e867887b1ce8d628f
-ms.sourcegitcommit: 09affee3d234cb27ea6fe33bc113b79e68900d22
+ms.openlocfilehash: 9832e1ea2b59085b6680820469b16d549f4b0582
+ms.sourcegitcommit: f202864efca81a72ea7120c0692940c40d9d0630
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51191281"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51635341"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Erste Schritte mit Swashbuckle und ASP.NET Core
 
@@ -107,6 +107,8 @@ Die Swagger-Benutzeroberfläche ist unter `http://localhost:<port>/swagger` verf
 > Legen Sie für die Eigenschaft `RoutePrefix` eine leere Zeichenfolge fest, um die Swagger-Benutzeroberfläche im App-Stamm (`http://localhost:<port>/`) bereitzustellen:
 >
 > [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup3.cs?name=snippet_UseSwaggerUI&highlight=4)]
+
+Wenn Sie virtuelle Verzeichnisse verwenden (z.B. mit ISS oder einem Reverseproxy), legen Sie den Swagger-Endpunkt auf einen relativen Pfad mit dem Präfix `./` fest. Beispielsweise `./swagger/v1/swagger.json`. `/swagger/v1/swagger.json` weist die App an, am ursprünglichen Stamm der URL nach einer JSON-Datei (und ggf. nach einem Routenpräfix) zu suchen. Beispielsweise `http://localhost:<port>/<route_prefix>/swagger/v1/swagger.json` anstelle von `http://localhost:<port>/<virtual_directory>/<route_prefix>/swagger/v1/swagger.json`.
 
 ## <a name="customize-and-extend"></a>Anpassen und Erweitern
 
@@ -401,7 +403,7 @@ Wenn .NET Framework oder .NET Core 1.x die Zielkomponente ist, müssen Sie Ihrem
 
 Dieses Paket ist bereits installiert, wenn Sie als Zielkomponente .NET Core 2.x und das [Metapaket](xref:fundamentals/metapackage) verwenden.
 
-Aktivieren Sie die Middleware für statische Dateien:
+Aktivieren von Middleware für statische Dateien:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup.cs?name=snippet_Configure&highlight=3)]
 

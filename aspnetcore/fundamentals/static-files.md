@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/18/2018
 uid: fundamentals/static-files
-ms.openlocfilehash: 5d00e6ba57053d17b45a24a1c57a446cb3db22ca
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: fb92141b1864574242b29ecc386024ce72a6be87
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207133"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51570125"
 ---
 # <a name="static-files-in-aspnet-core"></a>Statische Dateien in ASP.NET Core
 
@@ -122,10 +122,10 @@ Die Dateien wurden 10 Minuten lang (600 Sekunden) in der Entwicklungsumgebung ö
 
 Die Middleware für statische Dateien bietet keine Autorisierungsüberprüfungen. Alle über die Middleware bereitgestellten Dateien, Dateien unter *wwwroot* inbegriffen, sind öffentlich zugänglich. So stellen Sie Dateien basierend auf der Autorisierung bereit:
 
-* Speichern Sie sie außerhalb von *wwwroot* sowie außerhalb sämtlicher Verzeichnisse, auf welche die Middleware für statische Dateien zugreifen kann, **und**
+* Speichern Sie sie außerhalb von *wwwroot* sowie außerhalb sämtlicher Verzeichnisse, auf die die Middleware für statische Dateien zugreifen kann.
 * Stellen Sie sie über eine Aktionsmethode bereit, für die die Autorisierung gilt. Geben Sie ein [FileResult](/dotnet/api/microsoft.aspnetcore.mvc.fileresult)-Objekt zurück:
 
-[!code-csharp[](static-files/samples/1x/Controllers/HomeController.cs?name=snippet_BannerImageAction)]
+  [!code-csharp[](static-files/samples/1x/Controllers/HomeController.cs?name=snippet_BannerImageAction)]
 
 ## <a name="enable-directory-browsing"></a>Aktivieren der Verzeichnissuche
 

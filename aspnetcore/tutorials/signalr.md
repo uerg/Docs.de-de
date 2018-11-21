@@ -5,14 +5,14 @@ description: In diesem Tutorial erstellen Sie eine Chat-App, die ASP.NET Core Si
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 08/31/2018
+ms.date: 11/13/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 7d9f3a3f8aa7a5e47169da66e6fa2d6a28de3853
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: 8916b3659250c1bcbbc2dc9b3d466586f98bcc7e
+ms.sourcegitcommit: d3392f688cfebc1f25616da7489664d69c6ee330
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021247"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51818381"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Tutorial: Erste Schritte mit ASP.NET Core SignalR
 
@@ -238,7 +238,7 @@ Der SignalR-Server muss zunächst konfiguriert werden, um Anforderungen an Signa
 
 * Kopieren Sie die URL aus der Adressleiste, öffnen Sie eine neue Browserinstanz oder Registerkarte, und fügen Sie die URL in die Adressleiste ein.
 
-* Geben Sie in einem der beiden Browser einen Namen und eine Nachricht ein, und klicken sie auf **Send** (Senden).
+* Geben Sie in einem der beiden Browser einen Namen und eine Nachricht ein, und klicken sie auf **Nachricht senden**.
 
   Der Name und die Nachricht werden sofort auf beiden Seiten angezeigt.
 
