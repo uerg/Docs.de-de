@@ -5,14 +5,14 @@ description: Erfahren Sie, wie Sie mit Hubs in ASP.NET Core SignalR.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 11/07/2018
+ms.date: 11/20/2018
 uid: signalr/hubs
-ms.openlocfilehash: 0413d354307208726f4252f431ac59526effed08
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: 91f92e9d6b776457cd319965d548ee401ddc5e0e
+ms.sourcegitcommit: 4225e2c49a0081e6ac15acff673587201f54b4aa
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569918"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282138"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>Verwenden von Hubs in SignalR für ASP.NET Core
 
@@ -85,7 +85,6 @@ Die `Hub` -Klasse verfügt über eine `Clients` -Eigenschaft, die folgenden Eige
 | `Caller` | Ruft eine Methode auf dem Client, der die hubmethode aufgerufen hat. |
 | `Others` | Ruft eine Methode für alle verbundenen Clients mit Ausnahme des Clients, die die Methode aufgerufen hat. |
 
-
 `Hub.Clients` Außerdem enthält die folgenden Methoden:
 
 | Methode | Beschreibung |
@@ -126,7 +125,17 @@ Diese Schnittstelle kann verwendet werden, auf der vorherigen Umgestalten `ChatH
 
 Mithilfe von `Hub<IChatClient>` ermöglicht während der Kompilierung der Clientmethoden überprüfen. Dies verhindert, dass Probleme verursacht werden, da mit der Magic-Zeichenfolgen, `Hub<T>` können nur Zugriff auf die in der Schnittstelle definierten Methoden bereitstellen.
 
-Verwenden eines stark typisierten `Hub<T>` deaktiviert die Möglichkeit, verwenden Sie `SendAsync`.
+Verwenden eines stark typisierten `Hub<T>` deaktiviert die Möglichkeit, verwenden Sie `SendAsync`. Alle für die Schnittstelle definierten Methoden können immer noch als asynchron definiert werden. Jede dieser Methoden sollten in der Tat Zurückgeben einer `Task`. Da es sich um eine Schnittstelle ist, verwenden Sie nicht die `async` Schlüsselwort. Zum Beispiel:
+
+```csharp
+public interface IClient
+{
+    Task ClientMethod();
+}
+```
+
+> [!NOTE]
+> Die `Async` Suffix wird nicht aus der Name der Methode entfernt. Wenn die Clientmethode definiert ist, mit `.on('MyMethodAsync')`, verwenden Sie nicht `MyMethodAsync` als Namen.
 
 ## <a name="change-the-name-of-a-hub-method"></a>Ändern Sie den Namen einer Hub-Methode
 
@@ -150,7 +159,7 @@ In den hubmethoden ausgelöste Ausnahmen werden an den Client gesendet, die die 
 
 [!code-javascript[Error](hubs/sample/wwwroot/js/chat.js?range=23)]
 
-Wenn es sich bei Ihrem Hub eine Ausnahme auslöst, gibt SignalR standardmäßig eine generische Fehlermeldung an den Client. Zum Beispiel:
+Wenn es sich bei Ihrem Hub eine Ausnahme auslöst, werden nicht die Verbindungen geschlossen. Standardmäßig gibt SignalR eine generische Fehlermeldung an den Client zurück. Zum Beispiel:
 
 ```
 Microsoft.AspNetCore.SignalR.HubException: An unexpected error occurred invoking 'MethodName' on the server.

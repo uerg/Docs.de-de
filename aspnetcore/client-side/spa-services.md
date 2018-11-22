@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: H1Hack27Feb2017
 ms.date: 08/02/2017
 uid: client-side/spa-services
-ms.openlocfilehash: 6d6a92427d5d4b853248e60a12625573c4375515
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: b0fc6be29e3ecedd9706238f439f229377bb5a63
+ms.sourcegitcommit: ad28d1bc6657a743d5c2fa8902f82740689733bb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523297"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52256549"
 ---
 # <a name="use-javascriptservices-to-create-single-page-applications-in-aspnet-core"></a>Verwenden von JavaScriptServices zum Erstellen von einseitigen Anwendungen in ASP.NET Core
 
@@ -191,7 +191,7 @@ app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions {
 });
 ```
 
-Genau wie bei [Webpack Dev Middleware](#webpack-dev-middleware) muss die `UseWebpackDevMiddleware`-Erweiterungsmethode vor der `UseStaticFiles`-Erweiterungsmethode aufgerufen werden. Registrieren Sie die Middleware aus Sicherheitsgründen nur, wenn die App im Entwicklungsmodus ausgeführt wird.
+Genau wie bei [Webpack Dev Middleware](#webpack-dev-middleware) muss die `UseWebpackDevMiddleware`-Erweiterungsmethode vor der `UseStaticFiles`-Erweiterungsmethode aufgerufen werden. Registrieren Sie die Middleware aus Sicherheitsgründen nur, wenn die app im Entwicklungsmodus ausgeführt wird.
 
 Die *webpack.config.js*-Datei muss ein `plugins`-Array definieren, auch wenn es leer gelassen wird:
 
@@ -243,9 +243,9 @@ Eine Liste der verfügbaren SPA-Vorlagen wird angezeigt:
 
 | Vorlagen                                 | Kurzname | Sprache | Tags        |
 |:------------------------------------------|:-----------|:---------|:------------|
-| MVC, ASP.NET Core mit Angular             | angular    | [C#]     | Web/MVC/SPA |
-| MVC, ASP.NET Core mit React.js            | react      | [C#]     | Web/MVC/SPA |
-| MVC, ASP.NET Core mit React.js und Redux  | reactredux | [C#]     | Web/MVC/SPA |
+| MVC, ASP.NET Core mit Angular             | angular    | [C#]     | MVC/Web/SPA |
+| MVC, ASP.NET Core mit React.js            | react      | [C#]     | MVC/Web/SPA |
+| MVC, ASP.NET Core mit React.js und Redux  | reactredux | [C#]     | MVC/Web/SPA |
 
 Schließen Sie zum Erstellen eines neuen Projekts mithilfe einer der SPA-Vorlagen den **Kurznamen** der Vorlage in den Befehl [dotnet new](/dotnet/core/tools/dotnet-new) ein. Der folgende Befehl erstellt eine Angular-Anwendung mit ASP.NET Core MVC, die für die serverseitige Verwendung konfiguriert ist:
 
