@@ -85,7 +85,7 @@
 ##### [Aktualisieren der Seiten](xref:tutorials/razor-pages-mac/da1)
 ##### [Hinzufügen der Suche](xref:tutorials/razor-pages-mac/search)
 ### [Filter](xref:razor-pages/filter)
-### [Klassenbibliotheken](xref:razor-pages/ui-class)
+### [Razor-Klassenbibliotheken](xref:razor-pages/ui-class)
 ### [Routen- und App-Konventionen](xref:razor-pages/razor-pages-conventions)
 ### [Hochladen von Dateien](xref:razor-pages/upload-files)
 ### [Razor SDK](xref:razor-pages/sdk)
