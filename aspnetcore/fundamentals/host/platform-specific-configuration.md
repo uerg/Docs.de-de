@@ -5,18 +5,18 @@ description: Erfahren Sie, wie Sie eine ASP.NET Core-App aus einer externen Asse
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/13/2018
+ms.date: 11/22/2018
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: a06c2da04c1631f5811a535c891ca5190b0d8864
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: ef3b48dc72f294a783d789c4c9a796e3498a91d9
+ms.sourcegitcommit: 710fc5fcac258cc8415976dc66bdb355b3e061d5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207536"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52299455"
 ---
 # <a name="enhance-an-app-from-an-external-assembly-in-aspnet-core-with-ihostingstartup"></a>Erweitern einer App mit einer externen Assembly in ASP.NET Core mit IHostingStartup
 
-Von [Luke Latham](https://github.com/guardrex)
+Von [Luke Latham](https://github.com/guardrex) und [Pavel Krymets](https://github.com/pakrym)
 
 Mit einer [IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup)-Implementierung (Hostingstart) werden Verbesserungen an einer App beim Start von einer externen Assemblys aus vorgenommen. Eine externe Bibliothek kann beispielsweise eine Hostingstartimplementierung verwenden, um zusätzliche Konfigurationsanbieter oder -dienste für eine App bereitzustellen. `IHostingStartup` *ist in ASP.NET Core 2.0 und höher verfügbar*.
 
@@ -113,14 +113,21 @@ Die Indexseite der App liest und rendert die Konfigurationswerte für die beiden
 
 *Dieses Verfahren ist nur für .NET Core-Apps, nicht jedoch für .NET Framework verfügbar.*
 
-Eine dynamische Hostingstarterweiterung, die zur Aktivierung keinen Kompilierungszeitverweis erfordert, kann in einer Konsolen-App ohne Einstiegspunkt bereitgestellt werden. Die App enthält ein `HostingStartup`-Attribut. So erstellen Sie einen dynamischen Hostingstart:
+Eine dynamische Hostingstarterweiterung, die zur Aktivierung keinen Kompilierungszeitverweis erfordert, kann in einer Konsolen-App ohne Einstiegspunkt bereitgestellt werden, die ein `HostingStartup`-Attribut enthält. Durch die Veröffentlichung der Konsolen-App wird eine Hostingstartassembly erstellt, die über den Laufzeitspeicher genutzt werden kann.
 
-1. Aus der Klasse, die die `IHostingStartup`-Implementierung enthält wird eine Implementierungsbibliothek erstellt. Die Implementierungsbibliothek wird wie ein gewöhnliches Paket behandelt.
-1. Eine Konsolen-App ohne Einstiegspunkt verweist auf das Paket der Implementierungsbibliothek. Eine Konsolen-App wird aus folgenden Gründen verwendet:
-   * Eine Abhängigkeitendatei ist ein ausführbares App-Objekt, sodass eine Bibliothek keine Abhängigkeitendateien bereitstellen kann.
-   * Eine Bibliothek kann dem [Laufzeitpaketspeicher](/dotnet/core/deploying/runtime-store), der ein ausführbares Projekt benötigt, das die freigegebene Laufzeit als Ziel verwendet, nicht direkt hinzugefügt werden.
-1. Die Konsolen-App wird veröffentlicht, um die Abhängigkeiten des Hostingstarts abzurufen. Die Veröffentlichung der Konsolen-App hat unter anderem zur Folge, dass nicht verwendete Abhängigkeiten aus der Abhängigkeitendatei entfernt werden.
-1. Die App und die dazu gehörende Abhängigkeitendatei werden im Laufzeitpaketspeicher abgelegt. Damit die Hostingstartassembly und die entsprechende Abhängigkeitendatei erkannt werden, wird auf sie in zwei Umgebungsvariablen verwiesen.
+In diesem Prozess wird aus folgenden Gründen eine Konsolen-App ohne Einstiegspunkt verwendet:
+
+* Eine Abhängigkeitendatei ist erforderlich, um den Hostingstart in der Hostingstartassembly zu nutzen. Eine Abhängigkeitendatei ist eine ausführbare App-Ressource, die durch das Veröffentlichen einer App, nicht einer Bibliothek, erstellt wird.
+* Eine Bibliothek kann dem [Laufzeitpaketspeicher](/dotnet/core/deploying/runtime-store), der ein ausführbares Projekt benötigt, das die freigegebene Laufzeit als Ziel verwendet, nicht direkt hinzugefügt werden.
+
+Bei der Erstellung eines dynamischen Hostingstarts geschieht Folgendes:
+
+* Eine Hostingstartassembly wird über die Konsolen-App ohne Einstiegspunkt erstellt, für die Folgendes gilt:
+  * Sie enthält eine Klasse mit der `IHostingStartup`-Implementierung.
+  * Sie enthält ein [HostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.hostingstartupattribute)-Attribut zum Identifizieren der `IHostingStartup`-Implementierungsklasse.
+* Die Konsolen-App wird veröffentlicht, um die Abhängigkeiten des Hostingstarts abzurufen. Die Veröffentlichung der Konsolen-App hat unter anderem zur Folge, dass nicht verwendete Abhängigkeiten aus der Abhängigkeitendatei entfernt werden.
+* Die Abhängigkeitendatei wird so geändert, dass der Laufzeitspeicherort der Hostingstartassembly festgelegt wird.
+* Die Hostingstartassembly und die dazu gehörende Abhängigkeitendatei werden im Laufzeitpaketspeicher abgelegt. Damit die Hostingstartassembly und die entsprechende Abhängigkeitendatei erkannt werden, werden sie in einem Paar von Umgebungsvariablen aufgeführt.
 
 Die Konsolen-App verweist auf das Paket [Microsoft.AspNetCore.Hosting.Abstractions](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.Abstractions/):
 
@@ -167,187 +174,98 @@ Optionen für die Hostingstartaktivierung:
 
 Die Hostingstartimplementierung wird im [Laufzeitspeicher](/dotnet/core/deploying/runtime-store) abgelegt. Ein Kompilierzeitverweis auf die Assembly wird von der erweiterten App nicht benötigt.
 
-Nach dem Erstellen des Hostingstarts dient die Projektdatei des Hostingstarts als Manifestdatei für den Befehl [dotnet store](/dotnet/core/tools/dotnet-store).
+Nach der Erstellung des Hostingstarts wird mithilfe der Manifestprojektdatei und des Befehls [dotnet store](/dotnet/core/tools/dotnet-store) ein Laufzeitspeicher generiert.
 
 ```console
-dotnet store --manifest <PROJECT_FILE> --runtime <RUNTIME_IDENTIFIER>
+dotnet store --manifest {MANIFEST FILE} --runtime {RUNTIME IDENTIFIER} --output {OUTPUT LOCATION} --skip-optimization
 ```
 
-Mit diesem Befehl werden die Hostingstartassembly und andere Abhängigkeiten, die nicht Teil des freigegebenen Frameworks sind, im Laufzeitspeicher des Benutzerprofils an der folgenden Stelle abgelegt:
+In der Beispiel-App (Projekt *RuntimeStore*) wird der folgende Befehl verwendet:
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%USERPROFILE%\.dotnet\store\x64\<TARGET_FRAMEWORK_MONIKER>\<ENHANCEMENT_ASSEMBLY_NAME>\<ENHANCEMENT_VERSION>\lib\<TARGET_FRAMEWORK_MONIKER>\
+``` console
+dotnet store --manifest store.manifest.csproj --runtime win7-x64 --output ./deployment/store --skip-optimization
 ```
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-```
-/Users/<USER>/.dotnet/store/x64/<TARGET_FRAMEWORK_MONIKER>/<ENHANCEMENT_ASSEMBLY_NAME>/<ENHANCEMENT_VERSION>/lib/<TARGET_FRAMEWORK_MONIKER>/
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-```
-/Users/<USER>/.dotnet/store/x64/<TARGET_FRAMEWORK_MONIKER>/<ENHANCEMENT_ASSEMBLY_NAME>/<ENHANCEMENT_VERSION>/lib/<TARGET_FRAMEWORK_MONIKER>/
-```
-
----
-
-Wenn Sie die Assembly und die Abhängigkeiten zur globalen Verwendung ablegen möchten, fügen Sie dem `dotnet store`-Befehl die `-o|--output`-Option mit dem folgenden Pfad hinzu:
-
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%PROGRAMFILES%\dotnet\store\x64\<TARGET_FRAMEWORK_MONIKER>\<ENHANCEMENT_ASSEMBLY_NAME>\<ENHANCEMENT_VERSION>\lib\<TARGET_FRAMEWORK_MONIKER>\
-```
-
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-```
-/usr/local/share/dotnet/store/x64/<TARGET_FRAMEWORK_MONIKER>/<ENHANCEMENT_ASSEMBLY_NAME>/<ENHANCEMENT_VERSION>/lib/<TARGET_FRAMEWORK_MONIKER>/
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-```
-/usr/local/share/dotnet/store/x64/<TARGET_FRAMEWORK_MONIKER>/<ENHANCEMENT_ASSEMBLY_NAME>/<ENHANCEMENT_VERSION>/lib/<TARGET_FRAMEWORK_MONIKER>/
-```
-
----
+Damit die Runtime den Laufzeitspeicher ermitteln kann, wird der Speicherort des Laufzeitspeichers der Umgebungsvariablen `DOTNET_SHARED_STORE` hinzugefügt.
 
 **Ändern und Ablegen der Abhängigkeitendatei des Hostingstarts**
 
-Der Runtime-Speicherort wird in der *\*.deps.json*-Datei angegeben. Das `runtime`-Element muss den Speicherort der Laufzeitassembly der Erweiterung angeben, um die Erweiterung zu aktivieren. Setzen Sie dem `runtime`-Speicherort `lib/<TARGET_FRAMEWORK_MONIKER>/` voran:
+Um die Erweiterung ohne einen Paketverweis auf die Erweiterung zu aktivieren, geben Sie mit `additionalDeps` zusätzliche Abhängigkeiten zur Laufzeit an. `additionalDeps` ermöglicht Ihnen Folgendes:
 
-[!code-json[](platform-specific-configuration/samples-snapshot/2.x/StartupEnhancement2.deps.json?range=2-13&highlight=8)]
+* Erweitern des App-Bibliotheksdiagramms durch Bereitstellen einer Reihe zusätzlicher *\*.deps.json*-Dateien, die beim Start mit der App-eigenen *\*.deps.json*-Datei zusammengeführt werden
+* Bereitstellen der Hostingstartassembly, sodass sie ermittelt und geladen werden kann
 
-Im Beispielcode (*StartupDiagnostics*-Projekt) wird die Änderung der *\*.deps.json*-Datei von einem [PowerShell](/powershell/scripting/powershell-scripting)-Skript durchgeführt. Das PowerShell-Skript wird automatisch von einem Buildziel in der Projektdatei gestartet.
+Folgender Ansatz wird zum Generieren der zusätzlichen Abhängigkeitendatei empfohlen:
 
-Die *\*.deps.json*-Datei der Implementierung muss sich an einem erreichbaren Speicherort befinden.
+ 1. Führen Sie `dotnet publish` für die Manifestdatei des Laufzeitspeichers aus, auf die im vorherigen Abschnitt verwiesen wurde.
+ 1. Entfernen Sie den Manifestverweis aus den Bibliotheken und dem Abschnitt `runtime` der daraus resultierenden *\*.deps.json*-Datei.
 
-Platzieren Sie die Datei im Ordner *additonalDeps* der `.dotnet`-Einstellung des Benutzerprofils für die Verwendung pro Benutzer:
+Im Beispielprojekt wird die Eigenschaft `store.manifest/1.0.0` aus den Abschnitten `targets` und `libraries` entfernt:
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%USERPROFILE%\.dotnet\x64\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\<SHARED_FRAMEWORK_VERSION>\
-```
-
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-```
-/Users/<USER>/.dotnet/x64/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-```
-/Users/<USER>/.dotnet/x64/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/
-```
-
----
-
-Platzieren Sie die Datei im *additonalDeps*-Ordner der .NET Core-Installation für die globale Verwendung:
-
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%PROGRAMFILES%\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\<SHARED_FRAMEWORK_VERSION>\
-```
-
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-```
-/usr/local/share/dotnet/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-```
-/usr/local/share/dotnet/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/
-```
-
----
-
-Beachten Sie, dass die freigegebene Frameworkversion die Version der freigegebenen Runtime angibt, die die Ziel-App verwendet. Die freigegebene Runtime wird in der *\*.runtimeconfig.json*-Datei angezeigt. In der Beispiel-App (*HostingStartupApp*) wird die freigegebene Laufzeit in der Datei *HostingStartupApp.runtimeconfig.json* angegeben.
-
-**Angeben der Abhängigkeitendatei des Hostingstarts**
-
-Der Speicherort der *\*.deps.json*-Datei der Implementierung ist in der Umgebungsvariablen `DOTNET_ADDITIONAL_DEPS` angegeben.
-
-Wenn die Datei im Ordner *.dotnet* des Benutzerprofils abgelegt wird, legen Sie den Wert der Umgebungsvariablen wie folgt fest:
-
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%USERPROFILE%\.dotnet\x64\additionalDeps\
+```json
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.1",
+    "signature": "4ea77c7b75ad1895ae1ea65e6ba2399010514f99"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.1": {
+      "store.manifest/1.0.0": {
+        "dependencies": {
+          "StartupDiagnostics": "1.0.0"
+        },
+        "runtime": {
+          "store.manifest.dll": {}
+        }
+      },
+      "StartupDiagnostics/1.0.0": {
+        "runtime": {
+          "lib/netcoreapp2.1/StartupDiagnostics.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "store.manifest/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "StartupDiagnostics/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oiQr60vBQW7+nBTmgKLSldj06WNLRTdhOZpAdEbCuapoZ+M2DJH2uQbRLvFT8EGAAv4TAKzNtcztpx5YOgBXQQ==",
+      "path": "startupdiagnostics/1.0.0",
+      "hashPath": "startupdiagnostics.1.0.0.nupkg.sha512"
+    }
+  }
+}
 ```
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+Legen Sie die *\*.deps.json*-Datei an folgendem Speicherort ab:
 
 ```
-/Users/<USER>/.dotnet/x64/additionalDeps/
+{ADDITIONAL DEPENDENCIES PATH}/shared/{SHARED FRAMEWORK NAME}/{SHARED FRAMEWORK VERSION}/{ENHANCEMENT ASSEMBLY NAME}.deps.json
 ```
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+* `{ADDITIONAL DEPENDENCIES PATH}` &ndash; Der Umgebungsvariablen `DOTNET_ADDITIONAL_DEPS` hinzugefügter Speicherort.
+* `{SHARED FRAMEWORK NAME}` &ndash; Freigegebenes Framework, das für diese zusätzliche Abhängigkeitendatei erforderlich ist.
+* `{SHARED FRAMEWORK VERSION}` &ndash; Mindestversion des freigegebenen Frameworks.
+* `{ENHANCEMENT ASSEMBLY NAME}` &ndash; Der Name der Erweiterungsassembly.
+
+In der Beispiel-App (Projekt *RuntimeStore*) wird die zusätzliche Abhängigkeitendatei an folgendem Speicherort abgelegt:
 
 ```
-/Users/<USER>/.dotnet/x64/additionalDeps/
+additionalDeps/shared/Microsoft.AspNetCore.App/2.1.0/StartupDiagnostics.deps.json
 ```
 
----
+Damit die Runtime den Speicherort des Laufzeitspeichers ermitteln kann, wir die zusätzliche Abhängigkeitendatei der Umgebungsvariablen `DOTNET_ADDITIONAL_DEPS` hinzugefügt.
 
-Wenn die Datei in der .NET Core-Installation für die globale Verwendung platziert wird, geben Sie den vollständigen Pfad zur Datei an:
-
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%PROGRAMFILES%\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\<SHARED_FRAMEWORK_VERSION>\<ENHANCEMENT_ASSEMBLY_NAME>.deps.json
-```
-
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-```
-/usr/local/share/dotnet/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/<ENHANCEMENT_ASSEMBLY_NAME>.deps.json
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-```
-/usr/local/share/dotnet/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/<ENHANCEMENT_ASSEMBLY_NAME>.deps.json
-```
-
----
-
-Damit die Beispiel-App (*HostingStartupApp*) die Abhängigkeitendatei (*HostingStartupApp.runtimeconfig.json*) findet, wird die Abhängigkeitendatei im Profil des Benutzers abgelegt.
-
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-Legen Sie für die Umgebungsvariable `DOTNET_ADDITIONAL_DEPS` den folgenden Wert fest:
-
-```
-%UserProfile%\.dotnet\x64\additionalDeps\StartupDiagnostics\
-```
-
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-Legen Sie für die Umgebungsvariable `DOTNET_ADDITIONAL_DEPS` den folgenden Wert fest:
-
-```
-/Users/<USER>/.dotnet/x64/additionalDeps/StartupDiagnostics/
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-Legen Sie für die Umgebungsvariable `DOTNET_ADDITIONAL_DEPS` den folgenden Wert fest:
-
-```
-/Users/<USER>/.dotnet/x64/additionalDeps/StartupDiagnostics/
-```
-
----
+In der Beispiel-App (Projekt *RuntimeStore*) wird das Erstellen des Laufzeitspeichers und das Generieren der zusätzlichen Abhängigkeitendatei durch ein [PowerShell](/powershell/scripting/powershell-scripting)-Skript durchgeführt.
 
 Beispiele zum Festlegen von Umgebungsvariablen für verschiedene Betriebssysteme finden Sie unter [Use multiple environments (Verwenden mehrerer Umgebungen)](xref:fundamentals/environments).
 
@@ -355,9 +273,9 @@ Beispiele zum Festlegen von Umgebungsvariablen für verschiedene Betriebssysteme
 
 Um die Bereitstellung eines Hostingstarts in einer Umgebung mit mehreren Computern zu erleichtern, erstellt die Beispiel-App in der veröffentlichten Ausgabe einen *deployment*-Ordner, der Folgendes enthält:
 
-* Die Hostingstartassembly.
+* Der Laufzeitspeicher des Hostingstarts.
 * Die Abhängigkeitendatei des Hostingstarts.
-* Ein PowerShell-Skript, das die `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES` und `DOTNET_ADDITIONAL_DEPS` erstellt oder ändert, um die Aktivierung des Hostingstarts zu unterstützen. Führen Sie das Skript über eine PowerShell-Administratoreingabeaufforderung auf dem Bereitstellungssystem aus.
+* Ein PowerShell-Skript, das `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES`, `DOTNET_SHARED_STORE` und `DOTNET_ADDITIONAL_DEPS` erstellt oder ändert, um die Aktivierung des Hostingstarts zu unterstützen. Führen Sie das Skript über eine PowerShell-Administratoreingabeaufforderung auf dem Bereitstellungssystem aus.
 
 ### <a name="nuget-package"></a>NuGet-Paket
 
