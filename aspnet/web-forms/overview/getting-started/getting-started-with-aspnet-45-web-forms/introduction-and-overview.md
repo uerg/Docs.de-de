@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 9b96eaa1-8ef0-4338-a2e8-e0f970bfaf68
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
-ms.openlocfilehash: 8e3ae964dafc73bdf703cd7cbab430bbc99a6188
-ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
+ms.openlocfilehash: b9ed6ce4ac13f047f53c56e183433cbd038ea15c
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336023"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450683"
 ---
 <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2013"></a>Erste Schritte mit ASP.NET 4.5 Web Forms und Visual Studio 2013
 ====================
@@ -21,7 +21,7 @@ durch [Erik Reitan](https://github.com/Erikre)
 
 [Herunterladen der Wingtip Toys-Beispielprojekts (c#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) oder [E-Book (PDF) herunterladen](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
-Diese detaillierte lernprogrammreihe vermittelt Ihnen die Grundlagen zum Erstellen einer ASP.NET Web Forms-Anwendung mithilfe von ASP.NET 4.5 und Microsoft Visual Studio Express 2013 für Web. [ASP.NET Web Forms-Quiz](http://quizapp.cloudapp.net/?quiz=ASP.NET)  
+Diese detaillierte lernprogrammreihe vermittelt Ihnen die Grundlagen zum Erstellen einer ASP.NET Web Forms-Anwendung mithilfe von ASP.NET 4.5 und Microsoft Visual Studio Express 2013 für Web. 
 
 ## <a name="introduction"></a>Einführung
 
@@ -141,7 +141,7 @@ Sie können nach der Rückkehr aus PayPal, überprüfen und Abschließen der Bes
 
 ![Wingtip Toys - Order-Überprüfung](introduction-and-overview/_static/image7.png)
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Vorraussetzungen
 
 Bevor Sie beginnen, stellen Sie sicher, dass Sie die folgende Software auf Ihrem Computer installiert haben:
 

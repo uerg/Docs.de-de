@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/04/2018
 uid: client-side/using-gulp
-ms.openlocfilehash: 4f383be0498b5b861bd43cc0f0685b1e62c7571b
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: e280eabecbd427f3e1418b3d7a60e0ea3df46a5a
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795517"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450605"
 ---
 # <a name="use-gulp-in-aspnet-core"></a>Verwenden von Gulp in ASP.NET Core
 
@@ -28,7 +28,7 @@ Ein *aufgabenausführung* ist ein Tool, das diese routinemäßiger Entwicklungs-
 
 ## <a name="gulp"></a>Gulp
 
-Gulp ist ein JavaScript-basiertes streaming Build Toolkit für clientseitigen Code. Es wird häufig verwendet, um clientseitige Dateien über eine Reihe von Prozessen zu streamen, wenn ein bestimmtes Ereignis in einer Buildumgebung ausgelöst wird. Z. B. Gulp dienen zum Automatisieren von [Bündelung und Minimierung](bundling-and-minification.md) oder die Bereinigung von einer Entwicklungsumgebung, bevor Sie einen neuen Build.
+Gulp ist ein JavaScript-basiertes streaming Build Toolkit für clientseitigen Code. Es wird häufig verwendet, um clientseitige Dateien über eine Reihe von Prozessen zu streamen, wenn ein bestimmtes Ereignis in einer Buildumgebung ausgelöst wird. Z. B. Gulp dienen zum Automatisieren von [Bündelung und Minimierung](bundling-and-minification.md) oder dem Bereinigen von einer Entwicklungsumgebung, bevor Sie einen neuen Build.
 
 Eine Reihe von Gulp-Aufgaben wird in definiert *"gulpfile.js"*. Das folgende JavaScript umfasst Gulp-Module und gibt die Dateipfade in die neue Aufgaben verwiesen werden:
 
@@ -58,7 +58,7 @@ Der obige Code gibt an, welche Module Knoten erforderlich sind. Die `require` Fu
 
 | Modulname | Beschreibung |
 | ----------- | ----------- |
-| gulp        | Erstellen Sie das Gulp-streaming auf System. Weitere Informationen finden Sie unter [gulp](https://www.npmjs.com/package/gulp). |
+| Gulp        | Erstellen Sie das Gulp-streaming auf System. Weitere Informationen finden Sie unter [gulp](https://www.npmjs.com/package/gulp). |
 | rimraf      | Ein Modul, Knoten löschen. Weitere Informationen finden Sie unter [Rimraf](https://www.npmjs.com/package/rimraf). |
 | Gulp-concat | Ein Modul, das verkettet Dateien auf Grundlage des Betriebssystems Zeilenumbruchzeichen. Weitere Informationen finden Sie unter [Gulp-Concat](https://www.npmjs.com/package/gulp-concat). |
 | Gulp-cssmin | Ein Modul, das CSS-Dateien verkleinert. Weitere Informationen finden Sie unter [Gulp-Cssmin](https://www.npmjs.com/package/gulp-cssmin). |

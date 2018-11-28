@@ -4,14 +4,14 @@ author: rick-anderson
 description: Erfahren Sie, wie CORS als Standard zum Zulassen oder ablehnen von ursprungsübergreifenden Anforderungen in einer ASP.NET Core-app.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/05/2018
+ms.date: 11/27/2018
 uid: security/cors
-ms.openlocfilehash: 8e5056b448d47d75272e9394b03ce8a58b05a0f4
-ms.sourcegitcommit: 09affee3d234cb27ea6fe33bc113b79e68900d22
+ms.openlocfilehash: f0e01cfa618184d8a3b19c06212dc3914183a2e4
+ms.sourcegitcommit: e7fafb153b9de7595c2558a0133f8d1c33a3bddb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51191320"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52458542"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>Aktivieren Sie Ursprungsübergreifender Anforderungen (CORS) in ASP.NET Core
 
@@ -124,7 +124,7 @@ Wenn Sie um CORS für einen Controller oder die Aktion zu deaktivieren, verwende
 
 ## <a name="cors-policy-options"></a>CORS-Richtlinie-Optionen
 
-Dieser Abschnitt beschreibt die verschiedenen Optionen, die Sie in einer CORS-Richtlinie festlegen können.
+Dieser Abschnitt beschreibt die verschiedenen Optionen, die Sie in einer CORS-Richtlinie festlegen können. Die <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsOptions.AddPolicy*> Methode wird aufgerufen, `Startup.ConfigureServices`.
 
 * [Legen Sie die zulässigen Ursprünge](#set-the-allowed-origins)
 * [Legen Sie die zulässigen HTTP-Methoden](#set-the-allowed-http-methods)
@@ -139,55 +139,59 @@ Für einige Optionen, es kann hilfreich sein, lesen Sie die [funktioniert wie CO
 
 Die CORS-Middleware in ASP.NET Core MVC verfügt über einige Möglichkeiten zum Angeben der zulässigen Ursprünge:
 
-* <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithOrigins*>: Ermöglicht die Angabe einer oder mehrerer URLs. Die URL kann es sich um das Schema, Host-Name und Port ohne Pfadinformationen enthalten. Beispielsweise `https://example.com`. Die URL muss angegeben werden, ohne nachgestellten Schrägstrich (`/`).
+* <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithOrigins*> &ndash; Ermöglicht die Angabe einer oder mehrerer URLs. Die URL kann es sich um das Schema, Host-Name und Port ohne Pfadinformationen enthalten. Beispielsweise `https://example.com`. Die URL muss angegeben werden, ohne nachgestellten Schrägstrich (`/`).
 
-[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=20-24&highlight=4)]
+  [!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=20-25&highlight=4-5)]
 
-* <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyOrigin*>: Ermöglicht die CORS-Anforderungen aus allen Ursprüngen mit einem beliebigen Schema (`http` oder `https`).
+* <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyOrigin*> &ndash; CORS-Anforderungen von der alle Ursprünge mit einem beliebigen Schema zulässig (`http` oder `https`).
 
-[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=28-32&highlight=4)]
+  [!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=29-33&highlight=4)]
 
-Wägen Sie sorgfältig, bevor Sie die Anforderungen von einem beliebigen Ursprung zulassen. Dadurch können Anforderungen von einem beliebigen Ursprung bedeutet, dass *eine beliebige Website* Cross-Origin-Anfragen an Ihre app vornehmen können.
+  Wägen Sie sorgfältig, bevor Sie die Anforderungen von einem beliebigen Ursprung zulassen. Dadurch können Anforderungen von einem beliebigen Ursprung bedeutet, dass *eine beliebige Website* Cross-Origin-Anfragen an Ihre app vornehmen können.
 
-::: moniker range=">= aspnetcore-2.2"
+  ::: moniker range=">= aspnetcore-2.2"
 
-> [!NOTE]
-> Angeben von `AllowAnyOrigin` und `AllowCredentials` ist eine unsichere Konfiguration und kann dazu führen, siteübergreifende anforderungsfälschung. Der CORS-Dienst gibt eine ungültige CORS-Antwort zurück, wenn eine app mit den beiden konfiguriert ist.
+  > [!NOTE]
+  > Angeben von `AllowAnyOrigin` und `AllowCredentials` ist eine unsichere Konfiguration und kann dazu führen, siteübergreifende anforderungsfälschung. Der CORS-Dienst gibt eine ungültige CORS-Antwort zurück, wenn eine app mit beiden Methoden konfiguriert ist.
+
+  ::: moniker-end
+
+  ::: moniker range="< aspnetcore-2.2"
+
+  > [!NOTE]
+  > Angeben von `AllowAnyOrigin` und `AllowCredentials` ist eine unsichere Konfiguration und kann dazu führen, siteübergreifende anforderungsfälschung. Geben Sie ggf. eine genaue Liste der Ursprünge, wenn der Client selbst auf Serverressourcen autorisieren muss.
+
+  ::: moniker-end
+
+  Diese Einstellung wirkt sich auf die preflight-Anforderungen und die `Access-Control-Allow-Origin` Header. Weitere Informationen finden Sie unter den [Preflight-Anforderungen](#preflight-requests) Abschnitt.
+
+::: moniker range=">= aspnetcore-2.0"
+
+* <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.SetIsOriginAllowedToAllowWildcardSubdomains*> &ndash; Legt die <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicy.IsOriginAllowed*> Eigenschaft der Richtlinie, die eine Funktion sein, ermöglicht Ursprünge zu eine Domäne konfigurierten mit Platzhaltern entsprechen, bei der Auswertung, wenn der Ursprung zulässig ist.
+
+  [!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=100-104&highlight=4)]
 
 ::: moniker-end
-
-::: moniker range="< aspnetcore-2.2"
-
-> [!NOTE]
-> Angeben von `AllowAnyOrigin` und `AllowCredentials` ist eine unsichere Konfiguration und kann dazu führen, siteübergreifende anforderungsfälschung. Geben Sie ggf. eine genaue Liste der Ursprünge, wenn der Client autorisiert werden, auf Serverressourcen zugreifen muss.
-
-::: moniker-end
-
-Diese Einstellung wirkt sich auf [preflight-Anforderungen und der Access-Control-Allow-Origin-Header](#preflight-requests) (weiter unten in diesem Thema beschrieben).
-
-* <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.SetIsOriginAllowedToAllowWildcardSubdomains*> – Ermöglicht das CORS-Anforderungen aus allen untergeordneten Domänen einer Domäne. Das Schema darf nicht mit einem Platzhalter sein.
-
-[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=98-104&highlight=4)]
 
 ### <a name="set-the-allowed-http-methods"></a>Legen Sie die zulässigen HTTP-Methoden
 
 Um alle HTTP-Methoden zu ermöglichen, rufen <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyMethod*>:
 
-[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=45-50&highlight=5)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=46-51&highlight=5)]
 
-Diese Einstellung wirkt sich auf [preflight-Anforderungen und der Access-Control-Allow-Methods-Header](#preflight-requests) (weiter unten in diesem Thema beschrieben).
+Diese Einstellung wirkt sich auf die preflight-Anforderungen und die `Access-Control-Allow-Methods` Header. Weitere Informationen finden Sie unter den [Preflight-Anforderungen](#preflight-requests) Abschnitt.
 
 ### <a name="set-the-allowed-request-headers"></a>Legt die zulässigen Anforderungsheader fest.
 
 Wird aufgerufen, um bestimmte Header in einer CORS-Anforderung gesendet werden können *erstellen Anforderungsheader*, rufen Sie <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithHeaders*> , und geben Sie die erlaubten Header:
 
-[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=54-59&highlight=5)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=55-60&highlight=5)]
 
 Um zuzulassen, die alle erstellen Anforderungsheader, rufen Sie <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyHeader*>:
 
-[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=63-68&highlight=5)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=64-69&highlight=5)]
 
-Diese Einstellung wirkt sich auf [preflight-Anforderungen und der Access-Control-Request-Headers-Header](#preflight-requests) (weiter unten in diesem Thema beschrieben).
+Diese Einstellung wirkt sich auf die preflight-Anforderungen und die `Access-Control-Request-Headers` Header. Weitere Informationen finden Sie unter den [Preflight-Anforderungen](#preflight-requests) Abschnitt.
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -247,7 +251,7 @@ Die Antwortheader, die standardmäßig verfügbar sind:
 
 CORS-Spezifikation ruft diese Header *Header für die einfache Antwort*. Um weitere Header für die app verfügbar zu machen, rufen Sie <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithExposedHeaders*>:
 
-[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=72-77&highlight=5)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=73-78&highlight=5)]
 
 ### <a name="credentials-in-cross-origin-requests"></a>Anmeldeinformationen im Cross-Origin-Anforderungen
 
@@ -274,7 +278,7 @@ $.ajax({
 
 Darüber hinaus muss der Server die Anmeldeinformationen zulassen. Um ursprungsübergreifende Anmeldeinformationen ermöglichen möchten, rufen <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowCredentials*>:
 
-[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=81-86&highlight=5)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=82-87&highlight=5)]
 
 Die HTTP-Antwort enthält ein `Access-Control-Allow-Credentials` -Header, der dem Browser darüber informiert, dass der Server die Anmeldeinformationen für eine Anforderung zwischen verschiedenen Ursprüngen zulässt.
 
@@ -320,11 +324,11 @@ Eine CORS-preflight-Anforderung sind zum Beispiel eine `Access-Control-Request-H
 
 Um bestimmte Header zu ermöglichen, rufen <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithHeaders*>:
 
-[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=54-59&highlight=5)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=55-60&highlight=5)]
 
 Um zuzulassen, die alle erstellen Anforderungsheader, rufen Sie <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyHeader*>:
 
-[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=63-68&highlight=5)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=64-69&highlight=5)]
 
 Browser sind nicht vollständig konsistent in diese Festlegung `Access-Control-Request-Headers`. Wenn Sie Header nicht festgelegt `"*"` (oder verwenden Sie <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicy.AllowAnyHeader*>), Sie sollten mindestens einschließen `Accept`, `Content-Type`, und `Origin`, sowie alle benutzerdefinierten Header, die Sie unterstützen möchten.
 
@@ -349,7 +353,7 @@ Wenn die preflight-Anforderung abgelehnt wird, gibt die app eine *200 OK* Antwor
 
 Die `Access-Control-Max-Age` Header gibt an, wie lange die Antwort auf die preflight-Anforderung zwischengespeichert werden kann. Rufen Sie zum Festlegen dieser Header <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.SetPreflightMaxAge*>:
 
-[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=90-95&highlight=5)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=91-96&highlight=5)]
 
 ## <a name="how-cors-works"></a>Funktionsweise von CORS
 
