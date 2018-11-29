@@ -3,135 +3,127 @@ title: URL-umschreibende Middleware in ASP.NET Core
 author: guardrex
 description: Informationen zum Umschreiben und Umleiten von URL mit URL-umschreibender Middleware in ASP.NET Core-Anwendungen
 ms.author: riande
-ms.date: 08/17/2017
+ms.custom: mvc
+ms.date: 11/19/2018
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 5a1891c838436467fb49ff6288587fab08201179
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 98787891a97e49081d72107484f030d216d82f45
+ms.sourcegitcommit: ad28d1bc6657a743d5c2fa8902f82740689733bb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207185"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52256566"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>URL-umschreibende Middleware in ASP.NET Core
 
 Von [Luke Latham](https://github.com/guardrex) und [Mikael Mengistu](https://github.com/mikaelm12)
 
-[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/sample/) ([Vorgehensweise zum Herunterladen](xref:index#how-to-download-a-sample))
+::: moniker range="<= aspnetcore-1.1"
 
-Bei der URL-Umschreibung werden die Anforderungs-URLs verändert, die auf mindesten einer vordefinierten Regel basieren. Es wird eine Abstraktion zwischen den Speicherorten und Adressen von Ressourcen erstellt, sodass diese nicht eng miteinander verknüpft sind. Für folgende Szenarios kann die URL-Umschreibung angewendet werden:
+Für die Version 1.1 dieses Themas laden Sie einfach die [Middleware zur URL-Neuschreibung in ASP.NET Core (Version 1.1, PDF)](https://webpifeed.blob.core.windows.net/webpifeed/Partners/URL_Rewriting_1.1.pdf) herunter.
 
-* Temporäres oder permanentes Verschieben oder Ersetzen von Serverressourcen, wobei stabile Locators für diese Ressourcen erhalten bleiben.
+::: moniker-end
+
+In diesem Artikel wird das Umschreiben von URLs beschrieben. Außerdem erhalten Sie Anweisungen zur Verwendung der URL-umschreibenden Middleware in ASP.NET Core-Apps.
+
+Bei der URL-Umschreibung werden die Anforderungs-URLs verändert, die auf mindesten einer vordefinierten Regel basieren. Es wird eine Abstraktion zwischen den Speicherorten und Adressen von Ressourcen erstellt, sodass diese nicht eng miteinander verknüpft sind. Die URL-Neuschreibung ist hilfreich in verschiedenen Szenarios wie:
+
+* Kurzzeitiges oder permanentes Verschieben oder Ersetzen von Serverressourcen, sowie Erhalten von stabilen Locators für diese Ressourcen.
 * Verteilen der Verarbeitung von Anforderungen auf verschiedene Apps oder Bereiche einer App.
-* Entfernen, Hinzufügen oder Umorganisieren von URL-Segmenten in eingehenden Anforderungen.
+* Entfernen, Hinzufügen oder Umorganisieren von URL-Segmenten bei eingehenden Anforderungen.
 * Optimieren von öffentlichen URLs für die Suchmaschinenoptimierung (Search Engine Optimization, SEO).
-* Zulassen, dass unterstützte öffentliche URLs verwendet werden, damit die Benutzer den Inhalt einsehen können, der ihnen beim Klicken auf einen Link angezeigt wird.
+* Gestatten der Verwendung von angezeigten öffentlichen URLs, um Besuchern zu helfen, den Inhalt vorherzusagen, der durch die Anforderung einer Ressource zurückgegeben wird.
 * Umleiten von unsicheren Anforderungen auf sichere Endpunkte.
-* Vermeiden von Hotlinking von Bildern.
-
-Es gibt verschiedene Möglichkeiten, Regeln zum Ändern der URL zu definieren. Sie können z.B. RegEx, die Apache-Modulregeln „mod_rewrite“, die Regeln zum IIS-Umschreibungsmodul oder benutzerdefinierte logische Regeln verwenden. In diesem Artikel wird das Umschreiben von URLs beschrieben. Außerdem erhalten Sie Anweisungen zur Verwendung der URL-umschreibenden Middleware in ASP.NET Core-Apps.
+* Verhindern von Hotlinks zu externen Websites, die eine gehostete statische Ressource auf einer anderen Website verwenden, bei der die Ressource zu ihrem eigenen Inhalt verlinkt wird.
 
 > [!NOTE]
-> Wenn Sie URLs umschreiben, kann das negative Auswirkungen auf die Leistung einer App haben. Wenn möglich, sollten Sie so wenig Regeln wie möglich erstellen und darauf achten, dass sie nicht zu kompliziert sind.
+> Wenn Sie URLs umschreiben, kann das negative Auswirkungen auf die Leistung einer App haben. Wenn möglich, sollten Sie so wenig Regeln wie möglich erstellen und darauf achten, dass diese nicht zu kompliziert sind.
+
+[Anzeigen oder Herunterladen von Beispielcode](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/) ([Vorgehensweise zum Herunterladen](xref:index#how-to-download-a-sample))
 
 ## <a name="url-redirect-and-url-rewrite"></a>Umleiten und Umschreiben von URLs
 
-Auf den ersten Blick scheint der Unterschied zwischen dem *Umleiten* und *Umschreiben* von URLs eher gering zu sein, allerdings haben die beiden Verfahren sehr unterschiedliche Auswirkungen auf die Bereitstellung von Ressourcen für Clients. Die URL-umschreibenden Middleware von ASP.NET Core kann für beide Vorgänge verwendet werden.
+Der Unterschied zwischen dem *Umleiten* und *Neu schreiben* von URLs ist zwar gering, allerdings haben die beiden Verfahren sehr unterschiedliche Auswirkungen auf die Bereitstellung von Ressourcen für Clients. Die URL-umschreibenden Middleware von ASP.NET Core kann für beide Vorgänge verwendet werden.
 
-Bei der *Umleitung von URLs* handelt es sich um einen clientseitigen Vorgang, bei dem der Client angewiesen wird, auf eine Ressource unter einer anderen Adresse zuzugreifen. Dafür ist ein Roundtrip zum Server erforderlich. Die Umleitungs-URL, die an den Client zurückgegeben wird, wird in der Adressleiste des Browsers angezeigt, wenn der Client eine neue Anforderung an die Ressource sendet. 
+Bei der *Umleitung von URLs* findet ein clientseitiger Vorgang statt, bei dem der Client angewiesen wird, auf eine Ressource unter einer anderen Adresse zuzugreifen, als die, die der Client ursprünglich angefordert hat. Dafür ist ein Roundtrip zum Server erforderlich. Die Umleitungs-URL, die an den Client zurückgegeben wird, wird in der Adressleiste des Browsers angezeigt, wenn der Client eine neue Anforderung an die Ressource sendet.
 
-Wenn `/resource` auf `/different-resource` *umgeleitet* wird, fordert der Client `/resource` an. Der Server sendet dann die Antwort, dass der Client die Ressource unter `/different-resource` abrufen soll. In der Antwort ist außerdem ein Statuscode enthalten, aus dem entnommen werden kann, ob die Umleitung temporär oder permanent ist. Der Client führt unter der Umleitungs-URL eine neue Anforderung für die Ressource aus.
+Wenn `/resource` auf `/different-resource` *umgeleitet* wird, sendet der Server die Antwort, dass der Client die Ressource unter `/different-resource` abrufen soll. In der Antwort ist außerdem ein Statuscode enthalten, aus dem entnommen werden kann, ob die Umleitung temporär oder permanent ist.
 
 ![Ein Web-API-Dienstendpunkt wurde auf dem Server kurzzeitig von Version 1 (v1) auf Version 2 (v2) geändert. Der Client sendet eine Anforderung an den Dienst unter dem Pfad für Version 1: „/v1/api“. Der Server sendet eine „302 – Gefunden“-Antwort mit dem neuen, temporären Pfad für Version 2: „/v2/api“. Der Client sendet eine zweite Anforderung an den Dienst unter der Umleitungs-URL. Der Server gibt den Statuscode „200 – OK“ zurück.](url-rewriting/_static/url_redirect.png)
 
-Wenn Anforderungen auf eine andere URL umgeleitet werden, müssen Sie angeben, ob die Umleitung temporär oder permanent sein soll. Der Statuscode „301 – Permanent verschoben“ wird verwendet, wenn der Ressource eine neue permanente URL zugewiesen wurde, und Sie dem Client die Anweisung geben möchten, dass alle zukünftigen Anforderungen an die Ressource die neue URL verwenden sollen. *Der Client kann die Antwort zwischenspeichern, wenn der Statuscode 301 empfangen wird.* Der Statuscode „302 – Gefunden“ wird verwendet, wenn die Umleitung temporär ist oder häufig verändert wird. Dann speichert der Client die Umleitungs-URL nicht und verwendet sie auch nicht erneut. Weitere Informationen finden Sie unter [RFC 2616: Status Code Definitions (RFC 2616: Statuscodedefinitionen)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
+Wenn Anforderungen auf eine andere URL umgeleitet werden, muss angegeben werden, ob die Umleitung temporär oder permanent sein soll. Geben Sie hierzu den Statuscode mit der Antwort an:
 
-Bei der *Umschreibung einer URL* handelt es sich um einen serverseitigen Vorgang, über den Ressourcen von einer anderen Ressourcenadresse bereitgestellt werden. Wenn eine URL umgeschrieben wird, ist kein Roundtrip zum Server erforderlich. Die umgeschriebene URL wird nicht an den Server zurückgegeben und nicht in der Adressleiste des Browsers angezeigt. Wenn `/resource` in `/different-resource` *umgeschrieben* wird, sendet der Client die Anforderung `/resource`, und der Server ruft die Ressource *intern* unter `/different-resource` ab. Auch wenn der Client die Ressource unter der umgeschriebenen URL abrufen kann, erhält er nicht die Information, dass die Ressource unter der umgeschriebenen URL gespeichert ist, wenn er die Anforderung sendet und eine Antwort erhält.
+* Der Statuscode *301 – Permanent verschoben* wird verwendet, wenn der Ressource eine neue permanente URL zugewiesen wurde, und Sie dem Client die Anweisung geben möchten, dass alle zukünftigen Anforderungen an die Ressource die neue URL verwenden sollen. *Der Client kann die Antwort zwischenspeichern und wiederverwenden, wenn der Statuscode 301 empfangen wird.*
+
+* Der Statuscode *302 – Gefunden* wird verwendet, wenn die Umleitung temporär ist oder sowieso Änderungen vorbehalten sind. Der Statuscode 302 teilt dem Client mit, dass die URL nicht gespeichert und nicht wiederverwendet werden soll.
+
+Weitere Informationen zu Statuscodes finden Sie unter [RFC 2616: Status Code Definitions (RFC 2616: Statuscodedefinitionen)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
+
+Bei der *Neuschreibung einer URL* handelt es sich um einen serverseitigen Vorgang, bei dem eine Ressource von einer anderen Ressourcenadresse, als der vom Client angeforderten, bereitgestellt wird. Wenn eine URL neu geschrieben wird, ist kein Roundtrip zum Server erforderlich. Die neu geschriebene URL wird nicht an den Server zurückgegeben und nicht in der Adressleiste des Browsers angezeigt.
+
+Wenn `/resource` in `/different-resource` *umgeschrieben* wird, ruft der Server die Ressource *intern* ab und gibt sie zurück an `/different-resource`.
+
+Auch wenn der Client die Ressource unter der neu geschriebene URL abrufen kann, erhält er nicht die Information, dass die Ressource unter der umgeschriebenen URL gespeichert ist, wenn er die Anforderung sendet und eine Antwort erhält.
 
 ![Ein Web-API-Dienstendpunkt wurde auf dem Server von Version 1 (v1) auf Version 2 (v2) geändert. Der Client sendet eine Anforderung an den Dienst unter dem Pfad für Version 1: „/v1/api“. Die Anforderungs-URL wird umgeschrieben, damit über den Pfad für Version 2 („/v2/api“) auf den Dienst zugegriffen werden kann. Der Dienst sendet eine Antwort an den Client mit dem Statuscode „200 – OK“.](url-rewriting/_static/url_rewrite.png)
 
 ## <a name="url-rewriting-sample-app"></a>URL-umschreibende Beispiel-App
 
-Mit der [URL-umschreibenden Beispiel-App](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/sample/) können Sie die Features der URL-umschreibenden Middleware testen. Die App wendet Regeln zum Umschreiben und Umleiten an und stellt die umgeschriebene oder umgeleitete URL dar.
+Mit der [Beispiel-App](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/) können Sie die Features der Middleware zur URL-Neuschreibung testen. Die App wendet Umleitungs- und Neuschreibungsregeln an und zeigt die umgeleitete oder neu geschriebene URL für verschiedene Szenarios an.
 
 ## <a name="when-to-use-url-rewriting-middleware"></a>Empfohlene Verwendung der URL-umschreibenden Middleware
 
-Verwenden Sie die URL-umschreibende Middleware, wenn Sie das [URL-Umschreibungsmodul](https://www.iis.net/downloads/microsoft/url-rewrite) nicht mit IIS unter Windows Server verwenden können, wenn Sie unter Apache-Server nicht mit dem [Apache-Modul „mod_rewrite“](https://httpd.apache.org/docs/2.4/rewrite/) arbeiten können, das [Umschreiben von URLs unter Nginx](https://www.nginx.com/blog/creating-nginx-rewrite-rules/) nicht funktioniert oder Ihre App von [HTTP.sys-Server](xref:fundamentals/servers/httpsys) (ehemals [WebListener](xref:fundamentals/servers/weblistener)) gehostet wird. Sie sollten mit IIS, Apache oder Nginx serverbasierte Technologien zum Umschreiben von URLs verwenden, da die Middleware nicht alle Features dieser Module unterstützt und die Leistung der Middleware nicht mit der Leistung der Module übereinstimmt. Dennoch funktionieren einige Features der Servermodule nicht mit ASP.NET Core-Projekten – z.B. die Einschränkungen `IsFile` und `IsDirectory` des IIS-Umschreibungsmoduls. Verwenden Sie in diesem Szenario stattdessen die Middleware.
+Sie können Middleware zur URL-Neuschreibung verwenden, wenn die folgenden Ansätze nicht möglich sind:
+
+* [URL Rewrite module with IIS on Windows Server (URL-Neuschreibungsmodul mit IIS auf Windows-Server)](https://www.iis.net/downloads/microsoft/url-rewrite)
+* [Apache mod_rewrite module on Apache Server (Apache mod_rewrite-Modul auf Apache-Server)](https://httpd.apache.org/docs/2.4/rewrite/)
+* [URL rewriting on Nginx (URL-Neuschreibung auf Nginx)](https://www.nginx.com/blog/creating-nginx-rewrite-rules/)
+
+Sie können die Middleware auch verwenden, wenn die App auf dem [HTTP.sys-Server](xref:fundamentals/servers/httpsys) (früher [WebListener](xref:fundamentals/servers/weblistener)) gehostet wird.
+
+Die Hauptgründe für die Verwendung der serverbasierten Technologien zur URL-Neuschreibung in IIS, Apache und Nginx sind:
+
+* Die Middleware unterstützt nicht alle Features dieser Module.
+
+  Einige Features der Servermodule funktionieren nicht mit ASP.NET Core-Projekten – z.B. die Einschränkungen `IsFile` und `IsDirectory` des IIS-Neuschreibungsmoduls. Verwenden Sie in diesem Szenario stattdessen die Middleware.
+* Die Leistung der Middleware stimmt wahrscheinlich nicht mit der Leistung der Module überein.
+
+  Benchmarking ist der einzige Weg, um sicher festzustellen, welcher Ansatz die Leistung am meisten beeinträchtigt oder ob die nachlassende Leistung nur geringfügig ist.
 
 ## <a name="package"></a>Package
 
-Fügen Sie einen Verweis auf das [`Microsoft.AspNetCore.Rewrite`](https://www.nuget.org/packages/Microsoft.AspNetCore.Rewrite/)-Paket hinzu, um die Middleware in Ihrem Projekt zu verwenden. Dieses Feature ist für alle Apps verfügbar, die für ASP.NET Core 1.1 oder höher konzipiert sind.
+Um die Middleware in Ihr Projekt einzuschließen, fügen Sie einen Paketverweis zum [Microsoft.AspNetCore.App-Metapaket](xref:fundamentals/metapackage-app) in der Projektdatei ein, die das [Microsoft.AspNetCore.Rewrite](https://www.nuget.org/packages/Microsoft.AspNetCore.Rewrite)-Paket enthält.
+
+Wenn Sie das `Microsoft.AspNetCore.App`Metapaket nicht verwenden, fügen Sie dem Paket einen Projekthinweis hinzu`Microsoft.AspNetCore.Rewrite`.
 
 ## <a name="extension-and-options"></a>Erweiterung und Optionen
 
-Legen Sie URL-Rewrite- und -Umleitungsregeln fest, indem Sie eine Instanz der [RewriteOptions](/dotnet/api/microsoft.aspnetcore.rewrite.rewriteoptions)-Klasse erstellen und Erweiterungsmethoden für jede Regel hinzufügen. Verketten Sie mehrere Regeln in der Reihenfolge miteinander, in der sie verarbeitet werden sollen. Die `RewriteOptions` werden an die URL-umschreibende Middleware übergeben, wenn diese mit `app.UseRewriter(options);` zu der Anforderungspipeline hinzugefügt wird.
+Legen Sie URL-Neuschreibungs- und -Umleitungsregeln fest, indem Sie eine Instanz der [RewriteOptions](xref:Microsoft.AspNetCore.Rewrite.RewriteOptions)-Klasse erstellen und Erweiterungsmethoden für jede Neuschreibungsregel hinzufügen. Verketten Sie mehrere Regeln in der Reihenfolge miteinander, in der sie verarbeitet werden sollen. Die `RewriteOptions` werden an die Middleware zur URL-Neuschreibung übergeben, wenn diese mit <xref:Microsoft.AspNetCore.Builder.RewriteBuilderExtensions.UseRewriter*> zu der Anforderungspipeline hinzugefügt wird:
 
-::: moniker range=">= aspnetcore-2.0"
-
-[!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-```csharp
-public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-{
-    var options = new RewriteOptions()
-        .AddRedirect("redirect-rule/(.*)", "redirected/$1")
-        .AddRewrite(@"^rewrite-rule/(\d+)/(\d+)", "rewritten?var1=$1&var2=$2", 
-            skipRemainingRules: true)
-        .AddApacheModRewrite(env.ContentRootFileProvider, "ApacheModRewrite.txt")
-        .AddIISUrlRewrite(env.ContentRootFileProvider, "IISUrlRewrite.xml")
-        .Add(RedirectXMLRequests)
-        .Add(new RedirectImageRequests(".png", "/png-images"))
-        .Add(new RedirectImageRequests(".jpg", "/jpg-images"));
-
-    app.UseRewriter(options);
-}
-```
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](url-rewriting/samples/2.x/SampleApp/Startup.cs?name=snippet1)]
 
 ### <a name="redirect-non-www-to-www"></a>Umleitung einer Nicht-WWW-Anforderung an eine WWW-Anforderung
 
 Drei Optionen ermöglichen der App, Nicht-`www`-Anforderungen an `www` umzuleiten:
 
-* [AddRedirectToWwwPermanent(RewriteOptions)](/dotnet/api/microsoft.aspnetcore.rewrite.rewriteoptionsextensions.addredirecttowwwpermanent) &ndash; Die Anforderung wird dauerhaft an die Unterdomäne `www` umgeleitet, sofern die Anforderung nicht `www` ist. Wird mit dem Statuscode [Status308PermanentRedirect](/dotnet/api/microsoft.aspnetcore.http.statuscodes.status308permanentredirect) umgeleitet.
-* [AddRedirectToWww(RewriteOptions)](/dotnet/api/microsoft.aspnetcore.rewrite.rewriteoptionsextensions.addredirecttowww) &ndash; Die Anforderung wird an die Unterdomäne `www` umgeleitet, sofern die eingehende Anforderung nicht `www` ist. Wird mit dem Statuscode [Status307TemporaryRedirect](/dotnet/api/microsoft.aspnetcore.http.statuscodes.status307temporaryredirect) umgeleitet.
-* [AddRedirectToWww(RewriteOptions, Int32)](/dotnet/api/microsoft.aspnetcore.rewrite.rewriteoptionsextensions.addredirecttowww) &ndash; Die Anforderung wird an die Unterdomäne `www` umgeleitet, sofern die eingehende Anforderung nicht `www` ist. Ermöglicht es Ihnen, den Statuscode für die Antwort zu senden. Verwenden Sie die Felder der [StatusCodes](/dotnet/api/microsoft.aspnetcore.http.statuscodes)-Klasse für Zuweisungen zu `AddRedirectToWww`.
+* <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirectToWwwPermanent*> &ndash; Die Anforderung wird dauerhaft an die Unterdomäne `www` umgeleitet, sofern die Anforderung nicht `www` ist. Wird mit dem Statuscode [Status308PermanentRedirect](xref:Microsoft.AspNetCore.Http.StatusCodes.Status308PermanentRedirect) umgeleitet.
 
-::: moniker-end
+* <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirectToWww*> &ndash; Die Anforderung wird an die Unterdomäne `www` umgeleitet, sofern die eingehende Anforderung nicht `www` ist. Wird mit dem Statuscode [Status307TemporaryRedirect](xref:Microsoft.AspNetCore.Http.StatusCodes.Status307TemporaryRedirect) umgeleitet. Eine Überladung ermöglicht es Ihnen, den Statuscode für die Antwort zu senden. Verwenden Sie ein Feld der <xref:Microsoft.AspNetCore.Http.StatusCodes>-Klasse, um einen Statuscode zuzuweisen.
 
 ### <a name="url-redirect"></a>Umleitungs-URL
 
-Verwenden Sie `AddRedirect`, um Anforderungen umzuleiten. Der erste Parameter enthält Ihren RegEx, damit dieser dem Pfad der eingehenden URL zugeordnet werden kann. Beim zweiten Parameter handelt es sich um eine Ersatzzeichenfolge. Der dritte Parameter gibt, falls vorhanden, den Statuscode an. Wenn Sie den Statuscode nicht angeben, wird standardmäßig „302 – Gefunden“ zurückgegeben, was bedeutet, dass die Ressource kurzzeitig verschoben oder ersetzt wurde.
+Verwenden Sie <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirect*>, um Anforderungen umzuleiten. Der erste Parameter enthält Ihren RegEx, damit dieser dem Pfad der eingehenden URL zugeordnet werden kann. Beim zweiten Parameter handelt es sich um eine Ersatzzeichenfolge. Der dritte Parameter gibt, falls vorhanden, den Statuscode an. Wenn Sie den Statuscode nicht angeben, wird standardmäßig *302 – Gefunden* zurückgegeben, was bedeutet, dass die Ressource kurzzeitig verschoben oder ersetzt wurde.
 
-::: moniker range=">= aspnetcore-2.0"
+[!code-csharp[](url-rewriting/samples/2.x/SampleApp/Startup.cs?name=snippet1&highlight=9)]
 
-[!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=9)]
+Aktivieren Sie in Ihrem Browser die Entwicklertools, und senden Sie eine Anforderung an die Beispiel-App mit dem Pfad `/redirect-rule/1234/5678`. Der RegEx stimmt mit dem Anforderungspfad unter `redirect-rule/(.*)` überein, und der Pfad wird durch `/redirected/1234/5678` ersetzt. Die Umleitungs-URL wird mit dem Statuscode *302 – Gefunden* an den Client zurückgesendet. Unter der Umleitungs-URL sendet der Browser eine neue Anforderung, die in dessen Adressleiste angezeigt wird. Da keine Regel in der Beispiel-App mit der Umleitungs-URL übereinstimmt:
 
-::: moniker-end
+* Die zweite Anforderung erhält die Antwort *200 – OK* von der App.
+* Der Antworttext zeigt die Umleitungs-URL an.
 
-::: moniker range="< aspnetcore-2.0"
-
-```csharp
-public void Configure(IApplicationBuilder app)
-{
-    var options = new RewriteOptions()
-        .AddRedirect("redirect-rule/(.*)", "redirected/$1");
-
-    app.UseRewriter(options);
-}
-```
-
-::: moniker-end
-
-Aktivieren Sie in Ihrem Browser die Entwicklertools, und senden Sie eine Anforderung an die Beispiel-App mit dem Pfad `/redirect-rule/1234/5678`. Der RegEx stimmt mit dem Anforderungspfad unter `redirect-rule/(.*)` überein, und der Pfad wird durch `/redirected/1234/5678` ersetzt. Die Umleitungs-URL wird mit dem Statuscode „302 – Gefunden“ an den Client zurückgesendet. Unter der Umleitungs-URL sendet der Browser eine neue Anforderung, die in dessen Adressleiste angezeigt wird. Da keine Regeln in der Beispiel-App für die Umleitungs-URL gelten, wird für die zweite Anforderung die Antwort „200 – OK“ von der App zurückgegeben, und im Antworttext wird die Umleitungs-URL angezeigt. Wenn eine URL *weitergeleitet* wird, wird ein Roundtrip zum Server ausgelöst.
+Wenn eine URL *weitergeleitet* wird, wird ein Roundtrip zum Server ausgelöst.
 
 > [!WARNING]
-> Seien Sie vorsichtig, wenn Sie die Umleitungsregeln einrichten. Bei jeder Anforderung an die App werden Ihre Umleitungsregeln überprüft – auch nach einer Umleitung. Dabei kann schnell aus Versehen eine Dauerschleife von Umleitungen entstehen.
+> Seien Sie vorsichtig, wenn Sie Umleitungsregeln einrichten. Bei jeder Anforderung an die App werden Umleitungsregeln überprüft – auch nach einer Umleitung. Dabei kann schnell aus Versehen eine *Dauerschleife von Umleitungen* entstehen.
 
 Ursprüngliche Anforderung: `/redirect-rule/1234/5678`
 
@@ -143,7 +135,12 @@ Erfassungsgruppen werden in der Ersetzungszeichenfolge mit dem Dollarzeichen (`$
 
 ### <a name="url-redirect-to-a-secure-endpoint"></a>URL-Umleitung an einen sicheren Endpunkt
 
-Verwenden Sie `AddRedirectToHttps`, um HTTP-Anforderungen auf denselben Host und Pfad mithilfe von HTTPS (`https://`) umzuleiten. Wenn kein Statuscode angegeben wird, wird für die Middleware standardmäßig „302 – Gefunden“ zurückgegeben. Wenn kein Port angegeben wird, wird für die Middleware standardmäßig `null` zurückzugeben. Das heißt, das Protokoll ändert sich in `https://`, und der Client greift auf die Ressource auf Port 443 zu. Im Beispiel wird dargestellt, wie Sie den Statuscode „301 – Permanent verschoben“ festlegen und den Port in 5001 ändern.
+Verwenden Sie <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirectToHttps*>, um HTTP-Anforderungen auf denselben Host und Pfad mithilfe des HTTPS-Protokolls umzuleiten. Wenn kein Statuscode angegeben wird, wird für die Middleware standardmäßig *302 – Gefunden* zurückgegeben. Wenn kein Port angegeben ist:
+
+* Für die Middleware wird standardmäßig `null` zurückgegeben.
+* Das Schema ändert sich in `https` (HTTPS-Protokoll), und der Client hat über Port 443 Zugriff auf die Ressource.
+
+Im folgenden Beispiel wird dargestellt, wie Sie den Statuscode *301 – Permanent verschoben* festlegen und den Port in 5001 ändern.
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -155,7 +152,7 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-Verwenden Sie `AddRedirectToHttpsPermanent`, um unsichere Anforderungen auf denselben Host und Pfad mit einem sicheren HTTPS-Protokoll (`https://` auf Port 443) umzuleiten. Die Middleware legt den Statuscode auf „301 – Permanent verschoben“ fest.
+Verwenden Sie <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirectToHttpsPermanent*>, um unsichere Anforderungen auf denselben Host und Pfad mit einem sicheren HTTPS-Protokoll auf Port 443 umzuleiten. Die Middleware legt den Statuscode auf *301 – Permanent verschoben* fest.
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -168,7 +165,7 @@ public void Configure(IApplicationBuilder app)
 ```
 
 > [!NOTE]
-> Wenn Sie eine Umleitung auf HTTPS ohne weitere erforderliche Umleitungsregeln durchführen, wird empfohlen, Middleware für HTTPS-Umleitung zu verwenden. Weitere Informationen finden Sie im Artikel zum [Erzwingen von HTTPS](xref:security/enforcing-ssl#require-https).
+> Wenn Sie eine Umleitung an einen sicheren Endpunkt ohne weitere erforderliche Umleitungsregeln durchführen, wird empfohlen, Middleware für HTTPS-Umleitung zu verwenden. Weitere Informationen finden Sie im Artikel zum [Erzwingen von HTTPS](xref:security/enforcing-ssl#require-https).
 
 Anhand der Beispiel-App wird veranschaulicht, wie `AddRedirectToHttps` oder `AddRedirectToHttpsPermanent` verwendet werden sollen. Fügen Sie die Erweiterungsmethode zu den `RewriteOptions` hinzu. Senden Sie eine unsichere Anforderung an die App unter einer beliebigen URL. Schließen Sie die Sicherheitswarnung des Browsers, in der Sie darüber informiert werden, dass das selbstsignierte Zertifikat nicht vertrauenswürdig ist, oder erstellen sie eine Ausnahme, um dem Zertifikat zu vertrauen.
 
@@ -182,36 +179,17 @@ Ursprüngliche Anforderung über `AddRedirectToHttpsPermanent`: `http://localhos
 
 ### <a name="url-rewrite"></a>Umschreiben einer URL
 
-Erstellen Sie mithilfe von `AddRewrite` eine Regel zum Umschreiben von URLs. Der erste Parameter enthält Ihren RegEx, damit dieser der eingehenden URL zugeordnet werden kann. Beim zweiten Parameter handelt es sich um eine Ersatzzeichenfolge. Der dritte Parameter (`skipRemainingRules: {true|false}`) teilt der Middleware mit, ob sie zusätzliche Umschreibungsregeln überspringen soll, wenn die aktuelle Regel angewendet wird.
+Erstellen Sie mithilfe von <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRewrite*> eine Regel zum Umschreiben von URLs. Der erste Parameter enthält den RegEx, damit dieser der eingehenden URL zugeordnet werden kann. Beim zweiten Parameter handelt es sich um eine Ersatzzeichenfolge. Der dritte Parameter (`skipRemainingRules: {true|false}`) teilt der Middleware mit, ob sie zusätzliche Umschreibungsregeln überspringen soll, wenn die aktuelle Regel angewendet wird.
 
-::: moniker range=">= aspnetcore-2.0"
-
-[!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=10-11)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-```csharp
-public void Configure(IApplicationBuilder app)
-{
-    var options = new RewriteOptions()
-        .AddRewrite(@"^rewrite-rule/(\d+)/(\d+)", "rewritten?var1=$1&var2=$2", 
-            skipRemainingRules: true);
-
-    app.UseRewriter(options);
-}
-```
-
-::: moniker-end
+[!code-csharp[](url-rewriting/samples/2.x/SampleApp/Startup.cs?name=snippet1&highlight=10-11)]
 
 Ursprüngliche Anforderung: `/rewrite-rule/1234/5678`
 
 ![Browserfenster mit Entwicklertools, die die Anforderung und Antwort nachverfolgen](url-rewriting/_static/add_rewrite.png)
 
-Im RegEx fällt besonders das Zirkumflexzeichen (`^`) am Anfang des Ausdrucks auf. Das bedeutet, dass die Übereinstimmung schon am Anfang des URL-Pfads beginnt.
+Das Zirkumflexzeichen (`^`) am Anfang des Ausdrucks bedeutet, dass die Übereinstimmung schon am Anfang des URL-Pfads beginnt.
 
-Im zuvor genannten Beispiel zur Umleitungsregel (`redirect-rule/(.*)`) gibt es kein Zirkumflexzeichen am Anfang des RegEx. Daher kann jedes beliebige Zeichen vor `redirect-rule/` im Pfad stehen, damit es zu einer Übereinstimmung kommt.
+In dem vorherigen Beispiel zu den Umleitungsregeln, `redirect-rule/(.*)`, beginnt der RegEx nicht mit einem Zirkumflexzeichen (`^`). So kann für eine Übereinstimmung ein beliebiges Zeichen im Pfad vor `redirect-rule/` stehen.
 
 | Pfad                               | Match |
 | ---------------------------------- | :---: |
@@ -219,7 +197,7 @@ Im zuvor genannten Beispiel zur Umleitungsregel (`redirect-rule/(.*)`) gibt es k
 | `/my-cool-redirect-rule/1234/5678` | Ja   |
 | `/anotherredirect-rule/1234/5678`  | Ja   |
 
-Die Umschreibungsregel (`^rewrite-rule/(\d+)/(\d+)`) stimmt nur mit Pfaden überein, wenn sie mit `rewrite-rule/` beginnen. Beachten Sie die unterschiedlichen Übereinstimmungen zwischen der Umschreibungsregel und der Umleitungsregel.
+Die Umschreibungsregel (`^rewrite-rule/(\d+)/(\d+)`) stimmt nur mit Pfaden überein, wenn sie mit `rewrite-rule/` beginnen. Beachten Sie die unterschiedliche Übereinstimmung in der folgenden Tabelle:
 
 | Pfad                              | Match |
 | --------------------------------- | :---: |
@@ -227,46 +205,27 @@ Die Umschreibungsregel (`^rewrite-rule/(\d+)/(\d+)`) stimmt nur mit Pfaden über
 | `/my-cool-rewrite-rule/1234/5678` | Nein    |
 | `/anotherrewrite-rule/1234/5678`  | Nein    |
 
-Auf den `^rewrite-rule/`-Teil des Ausdruck folgen zwei Erfassungsgruppen: `(\d+)/(\d+)`. `\d` steht für *Übereinstimmung mit einer Ziffer (Zahl)*. Das Pluszeichen (`+`) steht für *match one or more of the preceding character* (Übereinstimmung mit mindestens einem vorausgehenden Zeichen). Aus diesem Grund muss die URL eine Zahl enthalten, auf die ein Schrägstrich und eine weitere Zahl folgt. Die Erfassungsgruppen werden in die umgeschriebene URL als `$1` und `$2` eingefügt. Über die Ersetzungszeichenfolge der Umschreibungsregel werden die Erfassungsgruppen in die Abfragezeichenfolge eingefügt. Der angeforderte `/rewrite-rule/1234/5678`-Pfad wird umgeschrieben, um eine Ressource unter `/rewritten?var1=1234&var2=5678` abzurufen. Wenn es in der ursprünglichen Abfrage eine Abfragezeichenfolge gibt, bleibt sie erhalten, wenn die URL umgeschrieben wird.
+Auf den `^rewrite-rule/`-Teil des Ausdruck folgen zwei Erfassungsgruppen: `(\d+)/(\d+)`. `\d` steht für *Übereinstimmung mit einer Ziffer (Zahl)*. Das Pluszeichen (`+`) steht für *match one or more of the preceding character* (Übereinstimmung mit mindestens einem vorausgehenden Zeichen). Aus diesem Grund muss die URL eine Zahl enthalten, auf die ein Schrägstrich und eine weitere Zahl folgt. Die Erfassungsgruppen werden in die umgeschriebene URL als `$1` und `$2` eingefügt. Über die Ersetzungszeichenfolge der Neuschreibungsregel werden die Erfassungsgruppen in die Abfragezeichenfolge eingefügt. Der angeforderte `/rewrite-rule/1234/5678`-Pfad wird umgeschrieben, um eine Ressource unter `/rewritten?var1=1234&var2=5678` abzurufen. Wenn es in der ursprünglichen Anforderung eine Abfragezeichenfolge gibt, bleibt diese erhalten, wenn die URL umgeschrieben wird.
 
-Es gibt keinen Roundtrip zum Server, um die Ressource abzurufen. Wenn es die Ressource gibt, wird sie abgerufen und dem Client mit dem Statuscode „200– OK“ zurückgegeben. Da der Client nicht umgeleitet wird, ändert sich die URL in der Adressleiste des Browsers nicht. Für den Client hat der URL-Umschreibungsvorgang nie stattgefunden.
+Es gibt keinen Roundtrip zum Server, um die Ressource abzurufen. Wenn es die Ressource gibt, wird sie abgerufen und dem Client mit dem Statuscode *200 – OK* zurückgegeben. Da der Client nicht umgeleitet wird, ändert sich die URL in der Adressleiste des Browsers nicht. Clients können nicht erkennen, dass ein Vorgang zum erneuten Schreiben einer URL auf dem Server stattgefunden hat.
 
 > [!NOTE]
-> Verwenden Sie `skipRemainingRules: true` so häufig wie möglich, da das Abgleichen von Regeln sehr umfangreich ist und die Antwortzeit der App verringert. Führen Sie folgende Schritte aus, um die schnellsten App-Antwortzeiten zu erreichen:
-> * Sortieren Sie Ihre Umschreibungsregeln von der am häufigsten abgeglichenen Regel zu der am seltensten abgeglichenen Regel.
+> Verwenden Sie `skipRemainingRules: true` so häufig wie möglich, da das Abgleichen von Regeln rechnerisch sehr aufwendig ist und die Antwortzeit der App verringert. Führen Sie folgende Schritte aus, um die schnellsten App-Antwortzeiten zu erreichen:
+>
+> * Sortieren Sie Neuschreibungsregeln von der am häufigsten abgeglichenen Regel zu der am seltensten abgeglichenen Regel.
 > * Überspringen Sie die Verarbeitung der übrigen Regeln, wenn es zu einer Übereinstimmung kommt und keine zusätzlichen Regelverarbeitungen erforderlich sind.
 
 ### <a name="apache-modrewrite"></a>Apache: „mod_rewrite“
 
-Wenden Sie die Apache-Regeln „mod_rewrite“ mit `AddApacheModRewrite` an. Vergewissern Sie sich, dass die Regeldatei mit der App bereitgestellt wird. Weitere Informationen zu diesen Regeln finden Sie unter [Apache: „mod_rewrite“](https://httpd.apache.org/docs/2.4/rewrite/).
+Wenden Sie die Apache-Regeln „mod_rewrite“ mit <xref:Microsoft.AspNetCore.Rewrite.ApacheModRewriteOptionsExtensions.AddApacheModRewrite*> an. Vergewissern Sie sich, dass die Regeldatei mit der App bereitgestellt wird. Weitere Informationen zu diesen Regeln finden Sie unter [Apache: „mod_rewrite“](https://httpd.apache.org/docs/2.4/rewrite/).
 
-::: moniker range=">= aspnetcore-2.0"
+Zum Lesen der Regeldatei *ApacheModRewrite.txt* wird <xref:System.IO.StreamReader> verwendet:
 
-Zum Lesen der Regeldatei *ApacheModRewrite.txt* wird `StreamReader` verwendet.
+[!code-csharp[](url-rewriting/samples/2.x/SampleApp/Startup.cs?name=snippet1&highlight=3-4,12)]
 
-[!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=3-4,12)]
+Die Beispiel-App leitet Anforderungen von `/apache-mod-rules-redirect/(.\*)` auf `/redirected?id=$1` um. Der Antwortstatuscode lautet *302 – Gefunden*.
 
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-Der erste Parameter verwendet eine `IFileProvider`-Schnittstelle, die über [Dependency Injection](dependency-injection.md) bereitgestellt wird. `IHostingEnvironment` wird eingefügt, um `ContentRootFileProvider` bereitzustellen. Der zweite Parameter steht für den Pfad Ihrer Regeldatei (*ApacheModRewrite.txt* in der Beispiel-App).
-
-```csharp
-public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-{
-    var options = new RewriteOptions()
-        .AddApacheModRewrite(env.ContentRootFileProvider, "ApacheModRewrite.txt");
-
-    app.UseRewriter(options);
-}
-```
-
-::: moniker-end
-
-Die Beispiel-App leitet Anforderungen von `/apache-mod-rules-redirect/(.\*)` auf `/redirected?id=$1` um. Der Antwortstatuscode lautet „302 – Gefunden“.
-
-[!code[](url-rewriting/sample/ApacheModRewrite.txt)]
+[!code[](url-rewriting/samples/2.x/SampleApp/ApacheModRewrite.txt)]
 
 Ursprüngliche Anforderung: `/apache-mod-rules-redirect/1234`
 
@@ -306,35 +265,15 @@ Die Middleware unterstützt die folgenden Servervariablen für die Apache „mod
 
 ### <a name="iis-url-rewrite-module-rules"></a>Regeln zum IIS-Umschreibungsmodul
 
-Verwenden Sie `AddIISUrlRewrite`, um die Regeln zu verwenden, die für das IIS-Umschreibungsmodul gelten. Vergewissern Sie sich, dass die Regeldatei mit der App bereitgestellt wird. Geben Sie Ihrer Middleware nicht die Anweisung, die *web.config*-Datei zu verwenden, wenn sie auf der Windows Server-IIS ausgeführt wird. Die Regeln sollten mit IIS außerhalb der *web.config*-Datei gespeichert werden, um Konflikte mit dem IIS-Umschreibungsmodul zu vermeiden. Weitere Informationen und Beispiele zu den Regeln zum IIS-Umschreibungsmodul finden Sie unter [Using Url Rewrite Module 2.0 (Verwenden des URL-Umschreibungsmoduls 2.0)](/iis/extensions/url-rewrite-module/using-url-rewrite-module-20) und [URL Rewrite Module Configuration Reference (Konfigurationsreferenz des URL-Umschreibungsmoduls)](/iis/extensions/url-rewrite-module/url-rewrite-module-configuration-reference).
+Um denselben Regelsatz zu verwenden, der für das IIS-Moduls für URL-Neuschreibung gilt, verwenden Sie <xref:Microsoft.AspNetCore.Rewrite.IISUrlRewriteOptionsExtensions.AddIISUrlRewrite*>. Vergewissern Sie sich, dass die Regeldatei mit der App bereitgestellt wird. Geben Sie der Middleware nicht die Anweisung, die *web.config*-Datei der App zu verwenden, wenn sie auf der Windows Server-IIS ausgeführt wird. Bei IIS sollten diese Regeln außerhalb der *web.config*-Datei der App gespeichert werden, um Konflikte mit dem IIS-Neuschreibungsmodul zu vermeiden. Weitere Informationen und Beispiele zu den Regeln zum IIS-Umschreibungsmodul finden Sie unter [Using Url Rewrite Module 2.0 (Verwenden des URL-Umschreibungsmoduls 2.0)](/iis/extensions/url-rewrite-module/using-url-rewrite-module-20) und [URL Rewrite Module Configuration Reference (Konfigurationsreferenz des URL-Umschreibungsmoduls)](/iis/extensions/url-rewrite-module/url-rewrite-module-configuration-reference).
 
-::: moniker range=">= aspnetcore-2.0"
+Zum Lesen der Regeldatei *IISUrlRewrite.xml* wird <xref:System.IO.StreamReader> verwendet:
 
-Zum Lesen der Regeldatei *IISUrlRewrite.xml* wird `StreamReader` verwendet.
+[!code-csharp[](url-rewriting/samples/2.x/SampleApp/Startup.cs?name=snippet1&highlight=5-6,13)]
 
-[!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=5-6,13)]
+Die Beispiel-App schreibt Anforderungen von `/iis-rules-rewrite/(.*)` in `/rewritten?id=$1` um. Die Antwort wird an den Client mit dem Statuscode *200 – OK* gesendet.
 
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-Der erste Parameter verwendet eine `IFileProvider`-Schnittstelle, wohingegen es sich bei dem zweiten Parameter um einen Pfad zu einer XML-Regeldatei handelt (*IISUrlRewrite.xml* in der Beispiel-App).
-
-```csharp
-public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-{
-    var options = new RewriteOptions()
-        .AddIISUrlRewrite(env.ContentRootFileProvider, "IISUrlRewrite.xml");
-
-    app.UseRewriter(options);
-}
-```
-
-::: moniker-end
-
-Die Beispiel-App schreibt Anforderungen von `/iis-rules-rewrite/(.*)` in `/rewritten?id=$1` um. Die Antwort wird an den Client mit dem Statuscode „200 – OK“ gesendet.
-
-[!code-xml[](url-rewriting/sample/IISUrlRewrite.xml)]
+[!code-xml[](url-rewriting/samples/2.x/SampleApp/IISUrlRewrite.xml)]
 
 Ursprüngliche Anforderung: `/iis-rules-rewrite/1234`
 
@@ -344,31 +283,12 @@ Wenn Sie über ein aktives IIS-Umschreibungsmodul verfügen, für das die Regeln
 
 #### <a name="unsupported-features"></a>Nicht unterstützte Features
 
-::: moniker range=">= aspnetcore-2.0"
-
 Die im Lieferumfang von ASP.NET Core 2.x enthaltene Middleware unterstützt die folgenden Features des IIS-URL-Umschreibungsmoduls nicht:
 
 * Ausgehende Regeln
 * Benutzerdefinierte Servervariablen
 * Platzhalter
 * LogRewrittenUrl
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-Die im Lieferumfang von ASP.NET Core 1.x enthaltene Middleware unterstützt die folgenden Features des IIS-URL-Umschreibungsmoduls nicht:
-
-* Globale Regeln
-* Ausgehende Regeln
-* Umschreibungszuordnungen
-* Benutzerdefinierte Antwortaktionen
-* Benutzerdefinierte Servervariablen
-* Platzhalter
-* Action:CustomResponse
-* LogRewrittenUrl
-
-::: moniker-end
 
 #### <a name="supported-server-variables"></a>Unterstützte Servervariablen
 
@@ -392,77 +312,47 @@ Die Middleware unterstützt die folgenden Servervariablen für das IIS-URL-Umsch
 * REQUEST_URI
 
 > [!NOTE]
-> Sie können `IFileProvider` auch über `PhysicalFileProvider` abrufen. Über diesen Ansatz können Sie flexibler einen Speicherort für die Dateien der Umschreibungsregeln auswählen. Vergewissern Sie sich, dass die Dateien zu den Umschreibungsregeln auf dem Server unter dem von Ihnen angegebenen Pfad bereitgestellt werden.
+> Sie können <xref:Microsoft.Extensions.FileProviders.IFileProvider> auch über <xref:Microsoft.Extensions.FileProviders.PhysicalFileProvider> abrufen. Über diesen Ansatz können Sie flexibler einen Speicherort für die Dateien der Umschreibungsregeln auswählen. Vergewissern Sie sich, dass die Dateien zu den Umschreibungsregeln auf dem Server unter dem von Ihnen angegebenen Pfad bereitgestellt werden.
+>
 > ```csharp
 > PhysicalFileProvider fileProvider = new PhysicalFileProvider(Directory.GetCurrentDirectory());
 > ```
 
 ### <a name="method-based-rule"></a>Methodenbasierte Regel
 
-Verwenden Sie `Add(Action<RewriteContext> applyRule)`, um Ihre eigene Regellogik in einer Methode zu implementieren. Über `RewriteContext` können Sie `HttpContext` in Ihrer Methode verwenden. `RewriteContext.Result` bestimmt, wie die zusätzliche Pipelineverarbeitung erfolgt.
+Verwenden Sie <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.Add*>, um Ihre eigene Regellogik in einer Methode zu implementieren. `Add` macht <xref:Microsoft.AspNetCore.Rewrite.RewriteContext> verfügbar, wodurch die Verwendung von <xref:Microsoft.AspNetCore.Http.HttpContext> in Ihrer Methode ermöglicht wird. [RewriteContext.Result](xref:Microsoft.AspNetCore.Rewrite.RewriteContext.Result*) bestimmt, wie die zusätzliche Pipelineverarbeitung erfolgt. Legen Sie den Wert auf eines der <xref:Microsoft.AspNetCore.Rewrite.RuleResult>-Felder fest, die in der folgenden Tabelle beschrieben sind:
 
-| `RewriteContext.Result`              | Aktion                                                          |
-| ------------------------------------ | --------------------------------------------------------------- |
-| `RuleResult.ContinueRules` (Standardwert) | Regeln weiter anwenden                                         |
-| `RuleResult.EndResponse`             | Regeln nicht mehr anwenden und Antwort senden                       |
-| `RuleResult.SkipRemainingRules`      | Regeln nicht mehr anwenden, und den Kontext an die nächste Middleware senden |
+| `RewriteContext.Result`              | Aktion                                                           |
+| ------------------------------------ | ---------------------------------------------------------------- |
+| `RuleResult.ContinueRules` (Standardwert) | Regeln weiter anwenden.                                         |
+| `RuleResult.EndResponse`             | Regeln nicht mehr anwenden und Antwort senden.                       |
+| `RuleResult.SkipRemainingRules`      | Regeln nicht mehr anwenden, und den Kontext an die nächste Middleware senden. |
 
-::: moniker range=">= aspnetcore-2.0"
+[!code-csharp[](url-rewriting/samples/2.x/SampleApp/Startup.cs?name=snippet1&highlight=14)]
 
-[!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=14)]
+In der Beispiel-App wird eine Methode dargestellt, die Anforderungen für Pfade weiterleitet, die auf *.xml* enden. Wenn eine Anforderung für `/file.xml` erfolgt, wird sie zu `/xmlfiles/file.xml` umgeleitet. Der Statuscode wird auf *301 – Permanent verschoben* festgelegt. Wenn vom Browser eine neue Anforderung für */xmlfiles/file.xml* gesendet wird, wird dem Client die Datei von Middleware für statische Dateien aus dem Ordner *wwwroot/xmlfiles* bereitgestellt. Legen Sie für eine Umleitung den Statuscode der Antwort explizit fest. Andernfalls wird ein Statuscode *200 – OK* zurückgegeben, und die Umleitung findet nicht auf dem Client statt.
 
-::: moniker-end
+*RewriteRules.cs*:
 
-::: moniker range="< aspnetcore-2.0"
+[!code-csharp[](url-rewriting/samples/2.x/SampleApp/RewriteRules.cs?name=snippet_RedirectXmlFileRequests&highlight=14-18)]
 
-```csharp
-public void Configure(IApplicationBuilder app)
-{
-    var options = new RewriteOptions()
-        .Add(RedirectXMLRequests);
+Bei diesem Ansatz können auch Anforderungen erneut generiert werden. In der Beispiel-App wird demonstriert, wie der Pfad für eine beliebige Textdateianforderung umgeschrieben wird, um die Textdatei *file.txt* aus dem Ordner *wwwroot* bereitzustellen. Middleware für statische Dateien stellt die Datei bereit, die auf dem aktualisierten Anforderungspfad basiert:
 
-    app.UseRewriter(options);
-}
-```
+[!code-csharp[](url-rewriting/samples/2.x/SampleApp/Startup.cs?name=snippet1&highlight=15,22)]
 
-::: moniker-end
+*RewriteRules.cs*:
 
-In der Beispiel-App wird eine Methode dargestellt, die Anforderungen für Pfade weiterleitet, die auf *.xml* enden. Wenn Sie eine Anforderung an `/file.xml` senden, wird diese an `/xmlfiles/file.xml` weitergeleitet. Der Statuscode wird auf „301 – Permanent verschoben“ festgelegt. Sie müssen für eine Umleitung den Statuscode auf eine genaue Antwort festlegen. Ansonsten wird der Statuscode „200 – OK“ zurückgegeben und es wird keine Umleitung zum Client ausgeführt.
-
-[!code-csharp[](url-rewriting/sample/RewriteRules.cs?name=snippet1)]
-
-Ursprüngliche Anforderung: `/file.xml`
-
-![Browserfenster mit Entwicklertools, die die Anforderungen und Antworten der file.xml-Datei nachverfolgen](url-rewriting/_static/add_redirect_xml_requests.png)
+[!code-csharp[](url-rewriting/samples/2.x/SampleApp/RewriteRules.cs?name=snippet_RewriteTextFileRequests&highlight=7-8)]
 
 ### <a name="irule-based-rule"></a>IRule-basierte Regel
 
-Verwenden Sie `Add(IRule)`, um Ihre eigene Regellogik in einer Klasse zu kapseln, die die `IRule`-Schnittstelle implementiert. Wenn Sie `IRule` verwenden, können Sie flexibler entscheiden, ob Sie eine methodenbasierte Regel verwenden möchten. Ihre Implementierungsklasse kann an den Stellen einen Konstruktor enthalten, an denen Sie Parameter für die `ApplyRule`-Methode übergeben.
+Um Regellogik in einer Klasse zu nutzen, die die <xref:Microsoft.AspNetCore.Rewrite.IRule>-Schnittstelle implementiert, verwenden Sie <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.Add*>. Wenn Sie `IRule` verwenden, können Sie flexibler entscheiden, ob Sie eine methodenbasierte Regel verwenden möchten. Ihre Implementierungsklasse kann einen Konstruktor enthalten, wodurch Sie Parameter für die <xref:Microsoft.AspNetCore.Rewrite.IRule.ApplyRule*>-Methode übergeben können.
 
-::: moniker range=">= aspnetcore-2.0"
+[!code-csharp[](url-rewriting/samples/2.x/SampleApp/Startup.cs?name=snippet1&highlight=16-17)]
 
-[!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=15-16)]
+Die Werte für die Parameter in der Beispiel-App für `extension` und `newPath` werden auf verschiedene Bedingungen geprüft. `extension` muss einen Wert enthalten, der *.png*, *.jpg* oder *.gif* entspricht. Wenn `newPath` nicht gültig ist, wird <xref:System.ArgumentException> nicht ausgelöst. Wenn eine Anforderung für *image.png* erfolgt, wird sie zu `/png-images/image.png` umgeleitet. Wenn eine Anforderung für *image.jpg* erfolgt, wird die zu `/jpg-images/image.jpg` umgeleitet. Der Statuscode ist auf *301 – Permanent verschoben* festgelegt, und `context.Result` erhält die Anweisung, Verarbeitungsregeln nicht mehr anzuwenden und die Antwort zu senden.
 
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-```csharp
-public void Configure(IApplicationBuilder app)
-{
-    var options = new RewriteOptions()
-        .Add(new RedirectImageRequests(".png", "/png-images"))
-        .Add(new RedirectImageRequests(".jpg", "/jpg-images"));
-
-    app.UseRewriter(options);
-}
-```
-
-::: moniker-end
-
-Die Werte für die Parameter in der Beispiel-App für `extension` und `newPath` werden auf verschiedene Bedingungen geprüft. `extension` muss einen Wert enthalten, der *.png*, *.jpg* oder *.gif* entspricht. Wenn `newPath` nicht gültig ist, wird `ArgumentException` nicht ausgelöst. Wenn Sie eine Anforderung an *image.png* senden, wird diese an `/png-images/image.png` weitergeleitet. Wenn Sie eine Anforderung an *image.jpg* senden, wird diese an `/jpg-images/image.jpg` weitergeleitet. Der Statuscode ist auf „301 – Permanent verschoben“ festgelegt, und `context.Result` erhält die Anweisung, Verarbeitungsregeln nicht mehr anzuwenden und Antworten zu senden.
-
-[!code-csharp[](url-rewriting/sample/RewriteRules.cs?name=snippet2)]
+[!code-csharp[](url-rewriting/samples/2.x/SampleApp/RewriteRules.cs?name=snippet_RedirectImageRequests)]
 
 Ursprüngliche Anforderung: `/image.png`
 
@@ -475,7 +365,7 @@ Ursprüngliche Anforderung: `/image.jpg`
 ## <a name="regex-examples"></a>RegEx-Beispiele
 
 | Ziel | RegEx-Zeichenfolge und<br>übereinstimmendes Beispiel | Ersetzungszeichenfolge und<br>Ausgabebeispiel |
-| ---- | :-----------------------------: | :------------------------------------: |
+| ---- | ------------------------------- | -------------------------------------- |
 | Umschreiben des Pfads in die Abfragezeichenfolge | `^path/(.*)/(.*)`<br>`/path/abc/123` | `path?var1=$1&var2=$2`<br>`/path?var1=abc&var2=123` |
 | Entfernen des nachgestellten Schrägstrichs | `(.*)/$`<br>`/path/` | `$1`<br>`/path` |
 | Erzwingen des nachgestellten Schrägstrichs | `(.*[^/])$`<br>`/path` | `$1/`<br>`/path/` |

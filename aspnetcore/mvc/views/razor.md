@@ -5,12 +5,12 @@ description: Informationen zur Razor-Markupsyntax zum Einbetten von serverbasier
 ms.author: riande
 ms.date: 10/26/2018
 uid: mvc/views/razor
-ms.openlocfilehash: 10f0db168b36fed82def8227b3c3edcf5b57f6d7
-ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
+ms.openlocfilehash: ab9fb3f55399764c5fe985811d92c504ed210767
+ms.sourcegitcommit: ad28d1bc6657a743d5c2fa8902f82740689733bb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50148888"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52256579"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Razor-Syntaxverweis für ASP.NET Core
 
@@ -525,6 +525,105 @@ Der folgende Code wird in der Razor-C#-Klasse generiert:
 ### <a name="section"></a>@section
 
 Die `@section`-Anweisung wird in Verbindung mit dem [Layout](xref:mvc/views/layout) verwendet, damit Ansichten Inhalt in verschiedenen Teilen der HTML-Seite rendern können. Weitere Informationen finden Sie unter [Abschnitte](xref:mvc/views/layout#layout-sections-label).
+
+## <a name="templated-razor-delegates"></a>Auf Vorlagen basierende Razor-Delegate
+
+Mit Razor-Vorlagen können Sie einen Ausschnitt der Benutzeroberfläche mit dem folgenden Format festlegen:
+
+```cshtml
+@<tag>...</tag>
+```
+
+In dem folgenden Beispiel wird veranschaulicht, wie ein auf Vorlagen basierendes Razor-Delegat als <xref:System.Func`2> angegeben wird. Der [dynamische Typ](/dotnet/csharp/programming-guide/types/using-type-dynamic) wird für den Parameter der Methode angegeben, die der Delegat einkapselt. Ein [Objekttyp](/dotnet/csharp/language-reference/keywords/object) wird als Rückgabewert des Delegats angegeben. Die Vorlage wird mit <xref:System.Collections.Generic.List`1> von `Pet` mit einer `Name`-Eigenschaft verwendet.
+
+```csharp
+public class Pet
+{
+    public string Name { get; set; }
+}
+```
+
+```cshtml
+@{
+    Func<dynamic, object> petTemplate = @<p>You have a pet named @item.Name.</p>;
+
+    var pets = new List<Pet>
+    {
+        new Pet { Name = "Rin Tin Tin" },
+        new Pet { Name = "Mr. Bigglesworth" },
+        new Pet { Name = "K-9" }
+    };
+}
+```
+
+Die Vorlage wird mit `pets` gerendert und mit einer `foreach`-Anweisung bereitgestellt:
+
+```cshtml
+@foreach (var pet in pets)
+{
+    @petTemplate2(pet)
+}
+```
+
+Gerenderte Ausgabe:
+
+```html
+<p>You have a pet named <strong>Rin Tin Tin</strong>.</p>
+<p>You have a pet named <strong>Mr. Bigglesworth</strong>.</p>
+<p>You have a pet named <strong>K-9</strong>.</p>
+```
+
+Sie können auch eine Razor-Inlinevorlage als Argument für eine Methode bereitstellen. In dem folgenden Beispiel erhält die `Repeat`-Methode eine Razor-Vorlage. Die Methode verwendet die Vorlage zum Erstellen von HTML-Inhalten mit Wiederholungen von Elementen aus einer Liste:
+
+```cshtml
+@using Microsoft.AspNetCore.Html
+
+@functions {
+    public static IHtmlContent Repeat(IEnumerable<dynamic> items, int times, 
+        Func<dynamic, IHtmlContent> template)
+    {
+        var html = new HtmlContentBuilder();
+
+        foreach (var item in items)
+        {
+            for (var i = 0; i < times; i++)
+            {
+                html.AppendHtml(template(item));
+            }
+        }
+
+        return html;
+    }
+}
+```
+
+Wird die Liste von Haustieren aus dem vorherigen Beispiel verwendet, wird die `Repeat`-Methode wie folgt aufgerufen:
+
+* <xref:System.Collections.Generic.List`1> von `Pet`.
+* Anzahl der Wiederholungen für jedes Haustier.
+* Inlinevorlage zur Verwendung für die Elemente einer unsortierten Liste.
+
+```cshtml
+<ul>
+    @Repeat(pets, 3, @<li>@item.Name</li>)
+</ul>
+```
+
+Gerenderte Ausgabe:
+
+```html
+<ul>
+    <li>Rin Tin Tin</li>
+    <li>Rin Tin Tin</li>
+    <li>Rin Tin Tin</li>
+    <li>Mr. Bigglesworth</li>
+    <li>Mr. Bigglesworth</li>
+    <li>Mr. Bigglesworth</li>
+    <li>K-9</li>
+    <li>K-9</li>
+    <li>K-9</li>
+</ul>
+```
 
 ## <a name="tag-helpers"></a>Taghilfsprogramme
 
