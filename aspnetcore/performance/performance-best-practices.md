@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.date: 11/29/2018
 uid: performance/performance-best-practices
-ms.openlocfilehash: ced86dbc2d6f40b503493eda122d8977d6df7035
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: 9f3ed97bf4d4eb371ff5ae3874234b44745cc4ca
+ms.sourcegitcommit: 0fc89b80bb1952852ecbcf3c5c156459b02a6ceb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52452954"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52618115"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>Best Practices für ASP.NET Core-Leistung
 
@@ -24,7 +24,7 @@ Dieses Thema enthält bewährte Methoden für ASP.NET Core Richtlinien für die 
 
 ## <a name="cache-aggressively"></a>Zwischenspeichern aggressiv
 
-Zwischenspeichern ist in mehrere Teile dieses Dokuments erläutert. Weitere Informationen finden Sie unter [Zwischenspeichern von Antworten in ASP.NET Core](xref:performance/caching/index).
+Zwischenspeichern ist in mehrere Teile dieses Dokuments erläutert. Weitere Informationen finden Sie unter <xref:performance/caching/response>.
 
 ## <a name="avoid-blocking-calls"></a>Vermeidung von blockierenden aufrufen
 
@@ -71,7 +71,7 @@ Empfehlungen:
 
 * **Führen Sie** alle Datenzugriffs-APIs asynchron aufrufen.
 * **Nicht** abrufen mehr Daten als erforderlich erledigt wird. Schreiben Sie Abfragen, um nur die Daten zurückzugeben, die für die aktuelle HTTP-Anforderung erforderlich ist.
-* **Führen Sie** sollten Sie Zwischenspeichern häufig verwendete Daten, die aus einer Datenbank oder einer remote-Dienst abgerufen werden, wenn die Daten etwas veraltet sein kann. Je nach Szenario können Sie eine [MemoryCache](xref:performance/caching/memory) oder [DistributedCache](xref:performance/caching/distributed). Weitere Informationen finden Sie unter [Zwischenspeichern von Antworten in ASP.NET Core](xref:performance/caching/index).
+* **Führen Sie** sollten Sie Zwischenspeichern häufig verwendete Daten, die aus einer Datenbank oder einer remote-Dienst abgerufen werden, wenn die Daten etwas veraltet sein kann. Je nach Szenario können Sie eine [MemoryCache](xref:performance/caching/memory) oder [DistributedCache](xref:performance/caching/distributed). Weitere Informationen finden Sie unter <xref:performance/caching/response>.
 * Minimieren Sie Netzwerk-Roundtrips. Ziel ist es, alle Daten, die in einem einzigen Aufruf benötigt werden und mehrere Aufrufe nicht abrufen.
 * **Führen Sie** verwenden [Abfragen ohne nachverfolgung](/ef/core/querying/tracking#no-tracking-queries) in Entity Framework Core beim Zugriff auf Daten für nur-Lese Zwecke. EF Core kann die Ergebnisse der Abfragen ohne nachverfolgung effizienter zurückgeben.
 * **Führen Sie** filtern und aggregieren LINQ-Abfragen (mit `.Where`, `.Select`, oder `.Sum` -Anweisungen, z. B.), damit die Filterung von der Datenbank abgeschlossen ist.
