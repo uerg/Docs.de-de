@@ -20,6 +20,7 @@
 ### [mit Visual Studio Code](xref:tutorials/web-api-vsc)
 ### [mit Visual Studio für Mac](xref:tutorials/first-web-api-mac)
 ### [für native mobile Apps](xref:mobile/native-mobile-backend)
+### [Mit MongoDB](xref:tutorials/first-mongo-app)
 ## Web-Apps in Echtzeit
 ### [SignalR mit Javascript](xref:tutorials/signalr)
 ### [SignalR mit TypeScript](xref:tutorials/signalr-typescript-webpack)
@@ -178,6 +179,7 @@
 ### [Web-API mit Visual Studio Code](xref:tutorials/web-api-vsc)
 ### [Web-API mit Visual Studio für Mac](xref:tutorials/first-web-api-mac)
 ### [Web-API für native mobile Apps](xref:mobile/native-mobile-backend)
+### [Web-API mit MongoDB](xref:tutorials/first-mongo-app)
 ## Swagger bzw. OpenAPI
 ### [Übersicht](xref:tutorials/web-api-help-pages-using-swagger)
 ### [Erste Schritte mit Swashbuckle](xref:tutorials/get-started-with-swashbuckle)
@@ -189,7 +191,7 @@
 ## [Konventionen](xref:web-api/advanced/conventions)
 
 # Echtzeit-Apps
-## [Übersicht](xref:signalr/introduction)
+## [SignalR-Übersicht](xref:signalr/introduction)
 ## [Unterstützte Plattformen](xref:signalr/supported-platforms)
 ## Tutorials
 ### [SignalR mit Javascript](xref:tutorials/signalr)
@@ -208,6 +210,10 @@
 ### [JavaScript-Client](xref:signalr/javascript-client)
 ### [JavaScript-API-Referenz](/javascript/api/?view=signalr-js-latest)
 ### [WebPack und TypeScript](xref:tutorials/signalr-typescript-webpack)
+## Hosten und Skalieren
+### [Übersicht](xref:signalr/scale)
+### [Azure SignalR-Dienst](/azure/azure-signalr/signalr-overview)
+### [Redis-Rückwandplatine](xref:signalr/redis-backplane)
 ## [Konfiguration](xref:signalr/configuration)
 ## [Authentifizierung und Autorisierung](xref:signalr/authn-and-authz)
 ## [Überlegungen zur Sicherheit](xref:signalr/security)
@@ -407,6 +413,15 @@
 ## [Freigeben von Cookies für mehrere Apps](xref:security/cookie-sharing)
 ## [Liste sicherer IP-Adressen](xref:security/ip-safelist)
 
+# Leistung
+## [Übersicht](xref:performance/performance-best-practices)
+##  Zwischenspeichern von Antworten
+### [Übersicht](xref:performance/caching/response)
+### [In-Memory-Cache](xref:performance/caching/memory)
+### [Verteiltes Caching](xref:performance/caching/distributed)
+### [Antworten zwischenspeichernde Middleware](xref:performance/caching/middleware)
+## [Antwortkomprimierung](xref:performance/response-compression)
+
 # Andere Themen
 ## [Globalisierung und Lokalisierung](xref:fundamentals/localization)
 ## [Lokalisierung portabler Objekte mit Orchard Core](xref:fundamentals/portable-object-localization)
@@ -422,13 +437,6 @@
 ## [Metapaket „Microsoft.AspNetCore.All“](xref:fundamentals/metapackage)
 ## [Protokollierung mit LoggerMessage](xref:fundamentals/logging/loggermessage)
 ## [Verwenden eines Dateiüberwachungselements](xref:tutorials/dotnet-watch)
-## Zwischenspeichern von Antworten
-### [Übersicht](xref:performance/caching/index)
-### [Zwischenspeichern in Speicher](xref:performance/caching/memory)
-### [Verteiltes Caching](xref:performance/caching/distributed)
-### [Zwischenspeichern von Antworten](xref:performance/caching/response)
-### [Antworten zwischenspeichernde Middleware](xref:performance/caching/middleware)
-## [Antwortkomprimierung](xref:performance/response-compression)
 
 # Migration
 ## [2.1 zu 2.2](xref:migration/21-to-22)
