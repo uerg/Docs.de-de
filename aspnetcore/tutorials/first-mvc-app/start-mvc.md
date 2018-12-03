@@ -5,12 +5,12 @@ description: Hier finden Sie Informationen zum Einstieg in ASP.NET Core MVC und 
 ms.author: riande
 ms.date: 10/07/2017
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: fe555e4cfcaec5d4bb8ccee00b06d1bbcaae9dcd
-ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
+ms.openlocfilehash: 9d50607899058c887597a3d73198552d3ef5b020
+ms.sourcegitcommit: c4572be5ebb301013a5698caf9b5572b76cb2e34
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49391205"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52710087"
 ---
 # <a name="get-started-with-aspnet-core-mvc-and-visual-studio"></a>Erste Schritte mit ASP.NET Core MVC und Visual Studio
 
@@ -23,6 +23,9 @@ Es gibt drei Versionen dieses Tutorials:
 * macOS: [Erstellen einer ASP.NET Core MVC-App mit Visual Studio für Mac](xref:tutorials/first-mvc-app-mac/start-mvc)
 * Windows: [Erstellen einer ASP.NET Core MVC-App mit Visual Studio](xref:tutorials/first-mvc-app/start-mvc)
 * macOS, Linux und Windows: [Erstellen einer ASP.NET Core MVC-App mit Visual Studio Code](xref:tutorials/first-mvc-app-xplat/start-mvc)
+
+> [!NOTE]
+> Wir testen gerade eine vorgeschlagene neue Struktur für das ASP.NET Core-Inhaltsverzeichnis.  Falls Sie einige Minuten Zeit haben, um einen Test durchzuführen, in dem Sie sieben unterschiedliche Artikel im aktuellen und vorgeschlagene Inhaltsverzeichnis finden sollen, [klicken Sie hier, um daran teilzunehmen](https://dpk4xbh5.optimalworkshop.com/treejack/rps16hd5).
 
 ## <a name="install-visual-studio-and-net-core"></a>Installieren von Visual Studio und .NET Core
 
@@ -81,26 +84,7 @@ Im nächsten Teil dieses Tutorials erfahren Sie mehr über MVC und beginnen mit 
 
 ::: moniker range="<= aspnetcore-2.0"
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
-
 [!INCLUDE [](~/includes/net-core-prereqs.md)]
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
-
-Installieren Sie Visual Studio Community 2017. Wählen Sie den Download „Community“ aus. Überspringen Sie diesen Schritt, wenn Sie Visual Studio 2017 bereits installiert haben.
-
-* [Visual Studio 2017-Installationsprogramm auf der Homepage](https://www.visualstudio.com/)
-
-Führen Sie das Installationsprogramm aus, und wählen Sie die folgenden Workloads aus:
-
-* **ASP.NET- und Webentwicklung** (unter **Web & Cloud**)
-* **Plattformübergreifende .NET Core-Entwicklung** (unter **Andere Toolsets**)
-
-![**ASP.NET- und Webentwicklung** (unter **Web & Cloud**)](start-mvc/_static/web_workload.png)
-
-![**Plattformübergreifende .NET Core-Entwicklung** (unter **Andere Toolsets**)](start-mvc/_static/x_plat_wl.png)
-
----
 
 ## <a name="create-a-web-app"></a>Erstellen einer Web-App
 
@@ -117,8 +101,6 @@ Schließen Sie das Dialogfeld **Neues Projekt**ab:
 
 ![Dialogfeld „Neues Projekt“, .NET Core im linken Bereich, ASP.NET Core-Web ](start-mvc/_static/new_project2.png)
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
 Schließen Sie das Dialogfeld **ASP.NET Core-Webanwendung (.NET Core) – MvcMovie** ab:
 
 * Klicken Sie im Dropdownfeld der Versionsauswahl auf **ASP.NET Core 2.–**.
@@ -126,19 +108,6 @@ Schließen Sie das Dialogfeld **ASP.NET Core-Webanwendung (.NET Core) – MvcMov
 * Tippen Sie auf **OK**.
 
 ![Dialogfeld „Neues Projekt“, .NET Core im linken Bereich, ASP.NET Core-Web ](start-mvc/_static/new_project22.png)
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
-Schließen Sie das Dialogfeld **ASP.NET Core-Webanwendung (.NET Core) – MvcMovie** ab:
-
-* Tippen Sie im Dropdownfeld der Versionsauswahl auf **ASP.NET Core 1.1**.
-* Tippen Sie auf **Webanwendung**.
-* Behalten Sie den Standardwert **Keine Authentifizierung** bei.
-* Tippen Sie auf **OK**.
-
-![Neue ASP.NET Core-Web-App](start-mvc/_static/p3.png)
-
----
 
 Visual Studio verwendet eine Standardvorlage für das MVC-Projekt, das Sie gerade erstellt haben. Wenn Sie einen Projektnamen eingeben und einige Optionen festlegen, funktioniert Ihre App bereits. Dies ist ein grundlegendes Startprojekt und ein guter Einstieg.
 

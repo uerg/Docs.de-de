@@ -5,12 +5,12 @@ description: Erklärt ASP.NET Core vs. ASP.NET 4.x und wie man sich für eines v
 ms.author: riande
 ms.date: 09/11/2018
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
-ms.openlocfilehash: 79e56e10b756677431ceff289300c251e54bf632
-ms.sourcegitcommit: bdfba5e7575b2a786ef27c0edf688c7dbd09ee95
+ms.openlocfilehash: fa281a068dfdcd8a7c45dd5d0a0c3084c4bc8dbc
+ms.sourcegitcommit: e8d80ff566bfe505b43389d7bc4551edb1c0c872
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52288667"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52549071"
 ---
 # <a name="choose-between-aspnet-4x-and-aspnet-core"></a>Wählen zwischen ASP.NET 4.x und ASP.NET Core
 
@@ -63,4 +63,4 @@ Weitere Informationen über Unterstützung für ASP.NET Core 2.x in .NET Framewo
 * <xref:host-and-deploy/azure-apps/index>
 
 > [!NOTE]
-> Wir testen gerade eine vorgeschlagene neue Struktur für das ASP.NET Core-Inhaltsverzeichnis.  Falls Sie einige Minuten Zeit haben, um einen Test durchzuführen, in dem Sie sieben unterschiedliche Artikel im aktuellen und vorgeschlagene Inhaltsverzeichnis finden sollen, [klicken Sie hier, um daran teilzunehmen](https://dpk4xbh5.optimalworkshop.com/treejack/aa11wn82).
+> Wir testen gerade eine vorgeschlagene neue Struktur für das ASP.NET Core-Inhaltsverzeichnis.  Falls Sie einige Minuten Zeit haben, um einen Test durchzuführen, in dem Sie sieben unterschiedliche Artikel im aktuellen und vorgeschlagene Inhaltsverzeichnis finden sollen, [klicken Sie hier, um daran teilzunehmen](https://dpk4xbh5.optimalworkshop.com/treejack/rps16hd5).
