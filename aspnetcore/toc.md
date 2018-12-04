@@ -59,7 +59,7 @@
 ## Razor Pages
 ### [Übersicht](xref:razor-pages/index)
 ### Tutorials
-#### Razor Pages mit Visual Studio-Code
+#### Razor Pages mit Visual Studio
 ##### [Übersicht](xref:tutorials/razor-pages/index)
 ##### [Erste Schritte](xref:tutorials/razor-pages/razor-pages-start)
 ##### [Hinzufügen eines Modells](xref:tutorials/razor-pages/model)
