@@ -3,16 +3,16 @@ uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-
 title: Erste Schritte mit Entity Framework 6 Code First anhand von MVC 5 | Microsoft-Dokumentation
 author: tdykstra
 ms.author: riande
-ms.date: 10/04/2018
+ms.date: 12/04/2018
 ms.assetid: 00bc8b51-32ed-4fd3-9745-be4c2a9c1eaf
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 5dd9a5a24d8c67c5190c98e3240d132eaa27661c
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: c7ab9458f83e05af84f72d9a2519a8c1c39b84b5
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912409"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861432"
 ---
 # <a name="get-started-with-entity-framework-6-code-first-using-mvc-5"></a>Erste Schritte mit Entity Framework 6 Code First mit MVC 5
 
@@ -21,7 +21,7 @@ durch [Tom Dykstra](https://github.com/tdykstra)
 [Abgeschlossenes Projekt herunterladen](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
 > [!NOTE]
-> Ein [neuere Version dieses Tutorials](/aspnet/core/tutorials/razor-pages/razor-pages-start?view=aspnetcore-2.1) ist verfügbar, verwendet [Razor-Seiten](/aspnet/core/razor-pages). Razor Pages ist ein seitenbasiertes Programmiermodell, mit dem Sie Webbenutzeroberflächen einfacher und schneller erstellen können. Wir empfehlen Lernprogramm Razor-Seiten über MVC-Version. Das Tutorial zu Razor Pages:
+> Für Neuentwicklungen empfohlen [ASP.NET Core Razor Pages](/aspnet/core/razor-pages) über ASP.NET MVC-Controller und Ansichten. Eine ähnlich dem folgenden Tutorial-Reihe steht für Razor-Seiten, die [Tutorial zu Razor Pages](/aspnet/core/tutorials/razor-pages/razor-pages-start):
 >
 > * Ist einfacher zu befolgen.
 > * Bietet mehr bewährte Methoden für Entity Framework Core.
@@ -88,7 +88,7 @@ Finden Sie unter **Softwareversionen** am oberen Rand der Seite. Entitätsframew
 
 Sie können das Websitemenü, das Layout und die Startseite über einige Änderungen einrichten.
 
-1. Open *Views\Shared ebenfalls einen\\_Layout.cshtml*, und ändern Sie folgende:
+1. Open *Views\Shared\\"_Layout.cshtml"*, und nehmen Sie die folgenden Änderungen:
 
    - Ändern Sie jedes Vorkommen von "My ASP.NET Application" und "Application Name" in "Contoso University".
    - Fügen Sie Menüeinträge für Schüler/Studenten, Kurse, Dozenten und Abteilungen, und löschen Sie den Eintrag wenden Sie sich an.
@@ -303,7 +303,7 @@ Verwenden Sie entweder **Server-Explorer** oder **Objekt-Explorer von SQL Server
     ![Tabelle "Student"](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/table-data.png)
 4. Schließen der **Server-Explorer** Verbindung.
 
-Die *ContosoUniversity1.mdf* und *ldf* werden der *% USERPROFILE%* Ordner.
+Die *ContosoUniversity1.mdf* und *ldf* -Datenbankdateien befinden sich in der *% USERPROFILE%* Ordner.
 
 Da Sie verwenden die `DropCreateDatabaseIfModelChanges` Initialisierer, können Sie nun eine Änderung vornehmen der `Student` Klasse, die Anwendung erneut auszuführen und die Datenbank automatisch Ihren Änderungen entsprechend neu erstellt werden würde. Angenommen, Sie fügen ein `EmailAddress` -Eigenschaft der `Student` Klasse Kursteilnehmer Seite erneut ausführen, und sehen Sie dann die Tabelle erneut, sehen Sie eine neue `EmailAddress` Spalte.
 

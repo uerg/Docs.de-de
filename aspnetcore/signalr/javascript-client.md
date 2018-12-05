@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 11/14/2018
 uid: signalr/javascript-client
-ms.openlocfilehash: 7de7abd7176e160154a458a3b90f662ba8f47f8c
-ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
+ms.openlocfilehash: 247ccd40412cdb41f38edccbe96d4832751f12cf
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708386"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861986"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>ASP.NET Core SignalR-JavaScript-client
 
@@ -113,7 +113,9 @@ Eine Implementierung unter realen Bedingungen würde ein Exponentielles Backoff 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 * [JavaScript-API-Referenz](/javascript/api/?view=signalr-js-latest)
+* [JavaScript-tutorial](xref:tutorials/signalr)
+* [Webpack- und TypeScript-tutorial](xref:tutorials/signalr-typescript-webpack)
 * [Hubs](xref:signalr/hubs)
 * [.NET-Client](xref:signalr/dotnet-client)
 * [Veröffentlichen in Azure](xref:signalr/publish-to-azure-web-app)
-* [Aktivieren Sie Ursprungsübergreifender Anforderungen (CORS) in ASP.NET Core](xref:security/cors)
+* [Cross-Origin Requests (CORS)](xref:security/cors)
