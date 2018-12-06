@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: 7fc048e427fd49e2142160615a12989fd4f40303
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: cc881ff42d57ab1654f492a70006a995939e4844
+ms.sourcegitcommit: 8a65f6c2cbe290fb2418eed58f60fb74c95392c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207614"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52892119"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Einführung in Razor Pages in ASP.NET Core
 
@@ -25,15 +25,15 @@ Dieses Dokument bietet eine Einführung in Razor Pages. Es handelt sich nicht um
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
-[!INCLUDE [](~/includes/net-core-prereqs.md)]
+[!INCLUDE[](~/includes/net-core-prereqs-all-2.2.md)]
 
 <a name="rpvs17"></a>
 
-## <a name="creating-a-razor-pages-project"></a>Erstellen eines Projekts mit Razor Pages
+## <a name="create-a-razor-pages-project"></a>Erstellen eines Razor Pages-Projekts
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Ausführliche Informationen zum Erstellen eines Projekts mit Razor-Seiten mithilfe von Visual Studio finden Sie unter [Erste Schritte mit Razor-Seiten](xref:tutorials/razor-pages/razor-pages-start).
+Ausführliche Informationen zum Erstellen eines Razor Pages-Projekts finden Sie unter [Erste Schritte mit Razor Pages](xref:tutorials/razor-pages/razor-pages-start).
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio für Mac](#tab/visual-studio-mac)
 
@@ -52,20 +52,6 @@ Führen Sie `dotnet new razor` über die Befehlszeile aus.
 Öffnen Sie die generierte Datei *.csproj* aus Visual Studio für Mac.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
-
-::: moniker range=">= aspnetcore-2.1"
-
-Führen Sie `dotnet new webapp` über die Befehlszeile aus.
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0"
-
-Führen Sie `dotnet new razor` über die Befehlszeile aus.
-
-::: moniker-end
-
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core-CLI](#tab/netcore-cli)
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -117,7 +103,7 @@ Notizen:
 * Die Runtime sucht standardmäßig im Ordner *Pages* (Seiten) nach Dateien mit Razor Pages.
 * Wenn eine Seite nicht in einer URL enthalten ist, ist `Index` die Standardseite.
 
-## <a name="writing-a-basic-form"></a>Schreiben eines einfachen Formulars
+## <a name="write-a-basic-form"></a>Schreiben eines einfachen Formulars
 
 Razor Pages ist darauf ausgelegt, allgemeine Muster, die mit Webbrowsern verwendet werden können, beim Erstellen einer App leichter implementieren zu können. Die [Modellbindung](xref:mvc/models/model-binding), [Taghilfsprogramme](xref:mvc/views/tag-helpers/intro) und alle HTML-Hilfsprogramme *funktionieren nur* mit den Eigenschaften, die in einer Klasse der Razor Pages definiert wurden. Nehmen wir z.B. eine Seite, die ein allgemeines Kontaktformular für das `Contact`-Modell implementiert:
 
@@ -173,10 +159,7 @@ Die Eigenschaft `Customer` verwendet das `[BindProperty]`-Attribut, um die Model
 
 Razor Pages binden Eigenschaften standardmäßig nur an Nicht-GET-Verben. Durch die Bindung an Eigenschaften können Sie den Umfang von Codes reduzieren, den Sie schreiben müssen. Die Bindung reduziert den Code mithilfe der gleichen Eigenschaft, um Formularfelder (`<input asp-for="Customer.Name" />`) zu rendern und die Eingabe zu akzeptieren.
 
-> [!NOTE]
-> Aus Sicherheitsgründen müssen Sie Daten von GET-Anforderungen in die Seitenmodelleigenschaften einbinden. Überprüfen Sie die Benutzereingaben, bevor Sie sie den Eigenschaften zuordnen. Die Entscheidung für dieses Verhalten ist von Vorteil, wenn Sie auf Szenarios eingehen, die von Abfragezeichenfolgen oder von Werten für Routen abhängig sind.
->
-> Legen Sie die `[BindProperty]`-Attribute der Eigenschaft `SupportsGet` auf `true`: `[BindProperty(SupportsGet = true)]` fest, um eine Eigenschaft an GET-Anforderungen zu binden.
+[!INCLUDE[](~/includes/bind-get.md)]
 
 Die Startseite (*Index.cshtml*):
 
@@ -246,7 +229,7 @@ Weitere Informationen finden Sie unter [Modellvalidierung](xref:mvc/models/valid
 
 ## <a name="manage-head-requests-with-the-onget-handler"></a>Verwalten von HEAD-Anforderungen mit dem OnGet-Handler
 
-HEAD-Anforderungen gestatten Ihnen das Abrufen der Kopfzeilen für eine bestimmte Ressource. Im Gegensatz zu GET-Anforderungen geben HEAD-Anforderungen keinen Antworttext zurück. 
+HEAD-Anforderungen gestatten Ihnen das Abrufen der Kopfzeilen für eine bestimmte Ressource. Im Gegensatz zu GET-Anforderungen geben HEAD-Anforderungen keinen Antworttext zurück.
 
 Normalerweise wird ein HEAD-Handler erstellt und für HEAD-Anforderungen aufgerufen: 
 
