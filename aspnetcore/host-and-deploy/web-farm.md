@@ -4,14 +4,14 @@ author: guardrex
 description: Hier erfahren Sie, wie Sie mehrere Instanzen einer ASP.NET Core-App mit gemeinsam genutzten Ressourcen in einer Webfarmumgebung hosten.
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/16/2018
+ms.date: 11/26/2018
 uid: host-and-deploy/web-farm
-ms.openlocfilehash: 2435c24bc205486331c828337ca81c43e6e60448
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 4873665e6174a6acf885e1ebb41fb005d646bd1f
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39096088"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450670"
 ---
 # <a name="host-aspnet-core-in-a-web-farm"></a>Hosten von ASP.NET Core in einer Webfarm
 
@@ -67,7 +67,9 @@ Die folgenden Szenarien erfordern keine zusätzliche Konfiguration, hängen jedo
 
 ## <a name="troubleshoot"></a>Problembehandlung
 
-Wenn Schutz von Daten oder Zwischenspeichern für eine Webfarmumgebung nicht konfiguriert wurde, treten beim Verarbeiten von Anforderungen zeitweilig Fehler auf. Dies geschieht, weil Knoten nicht dieselben Ressourcen teilen und Benutzeranforderungen nicht immer an denselben Knoten zurückgeleitet werden.
+### <a name="data-protection-and-caching"></a>Schutz von Daten und Zwischenspeichern
+
+Wenn der Schutz von Daten oder Zwischenspeichern für eine Webfarmumgebung nicht konfiguriert wurde, treten beim Verarbeiten von Anforderungen zeitweilig Fehler auf. Dies geschieht, weil Knoten nicht dieselben Ressourcen teilen und Benutzeranforderungen nicht immer an denselben Knoten zurückgeleitet werden.
 
 Gehen Sie beispielsweise von einem Benutzer aus, der sich mithilfe der Cookieauthentifizierung in der App anmeldet. Der Benutzer meldet sich in der App auf einem Webfarmknoten an. Wenn seine nächste Anforderung auf demselben Knoten eintrifft, auf dem er sich angemeldet hat, kann die App das Authentifizierungscookie entschlüsseln und den Zugriff auf die App-Ressource gewähren. Wenn seine nächste Anforderung auf einem anderen Knoten eintrifft, kann die App das Authentifizierungscookie nicht auf dem Knoten entschlüsseln, auf dem der Benutzer angemeldet ist, und die Autorisierung für die angeforderte Ressource schlägt fehl.
 
@@ -81,3 +83,7 @@ Wenn eines der folgenden Symptome **zeitweilig** auftritt, ist das Problem in de
 * Fehler bei POSTs &ndash; Die Überprüfung zur Fälschungssicherheit schlägt fehl.
 
 Weitere Informationen zur Konfiguration zum Schutz von Daten für Webfarmbereitstellungen finden Sie unter <xref:security/data-protection/configuration/overview>. Weitere Informationen zur Zwischenspeicherkonfiguration für Webfarmbereitstellungen finden Sie unter <xref:performance/caching/distributed>.
+
+## <a name="obtain-data-from-apps"></a>Abrufen von Daten aus Apps
+
+Wenn die Webfarm-Apps in der Lage sind, auf Anforderungen zu reagieren, erhalten Sie Anforderungen, Verbindungen und zusätzliche Daten von den Apps über die Inlinemiddleware des Terminals. Weitere Informationen und Beispielcode finden Sie unter <xref:test/troubleshoot#obtain-data-from-an-app>.

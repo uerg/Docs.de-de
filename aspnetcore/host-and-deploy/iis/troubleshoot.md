@@ -4,14 +4,14 @@ author: guardrex
 description: Erfahren Sie, wie Sie Probleme mit IIS-Bereitstellungen (IIS = Internet Information Services) von ASP.NET Core-Apps diagnostizieren können.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 11/26/2018
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 2b23bf8230f7a1c207ef7870da098ffb0c597fd5
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.openlocfilehash: 2ff870623de43676be38c5de8f338a7913e885a8
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225446"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450709"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>Problembehandlung bei ASP.NET Core in IIS
 
@@ -47,7 +47,8 @@ Hier finden Sie weitere Informationen zur integrierten Debuggingunterstützung i
 
 ## <a name="app-startup-errors"></a>App-Startfehler
 
-**502.5: Prozessfehler**  
+### <a name="5025-process-failure"></a>502.5: Prozessfehler
+
 Der Workerprozess schlägt fehl. Die App wird nicht gestartet.
 
 Das ASP.NET Core-Modul kann den .NET-Back-End-Prozess nicht starten. Die Ursache für einen Fehler beim Starten eines Prozesses kann in der Regel über Einträge im [Anwendungsereignisprotokoll](#application-event-log) und im [stdout-Protokoll des ASP.NET Core-Moduls](#aspnet-core-module-stdout-log) ermittelt werden. 
@@ -60,7 +61,7 @@ Die Fehlerseite *502.5: Prozessfehler* wird zurückgegeben, wenn ein falsch konf
 
 ::: moniker range=">= aspnetcore-2.2"
 
-**500.30 In-Process-Startfehler**
+### <a name="50030-in-process-startup-failure"></a>500.30: Prozessinterner Startupfehler
 
 Der Workerprozess schlägt fehl. Die App wird nicht gestartet.
 
@@ -68,7 +69,7 @@ Das ASP.NET Core-Modul kann den .NET Core-CLR-In-Process nicht starten. Die Ursa
 
 Eine allgemeine Fehlerbedingung ist, dass die App aufgrund einer Version des freigegebenen ASP.NET Core-Frameworks falsch konfiguriert ist, die nicht vorhanden ist. Überprüfen Sie, welche Versionen des freigegebenen ASP.NET Core-Frameworks auf dem Zielcomputer installiert sind.
 
-**500.0 Fehler beim Laden des In-Process-Handlers**
+### <a name="5000-in-process-handler-load-failure"></a>500.0: Fehler beim Laden des prozessinternen Handlers
 
 Der Workerprozess schlägt fehl. Die App wird nicht gestartet.
 
@@ -77,7 +78,7 @@ Das ASP.NET Core-Modul kann die .NET Core-CLR und den In-Process-Anforderungshan
 * Diese App legt entweder das NuGet-Paket [Microsoft.AspNetCore.Server.IIS](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IIS) oder das Metapaket [Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) als Ziel fest.
 * Die Version des freigegebenen ASP.NET Core-Frameworks, die von der App als Ziel festgelegt ist, ist auf dem Zielcomputer installiert.
 
-**500.0 Fehler beim Laden des Out-of-Process-Handlers**
+### <a name="5000-out-of-process-handler-load-failure"></a>500.0: Fehler beim Laden des prozessexternen Handlers
 
 Der Workerprozess schlägt fehl. Die App wird nicht gestartet.
 
@@ -85,12 +86,13 @@ Das ASP.NET Core-Modul kann den Out-of-Process-Hostinganforderungshandler nicht 
 
 ::: moniker-end
 
-**500: Interner Serverfehler**  
+### <a name="500-internal-server-error"></a>500: Interner Serverfehler
+
 Die App wird gestartet, aber ein Fehler verhindert, dass der Server auf die Anforderung eingeht.
 
 Dieser Fehler tritt im Code der App während des Starts oder bei der Erstellung einer Antwort auf. Die Antwort enthält möglicherweise keinen Inhalt oder die Antwort wird als *500: Interner Serverfehler* im Browser angezeigt. Das Anwendungsereignisprotokoll gibt normalerweise an, dass die Anwendung normal gestartet wurde. Aus Sicht des Servers ist dies richtig. Die App wurde gestartet, sie kann jedoch keine gültige Antwort generieren. [Führen Sie die App in einer Eingabeaufforderung](#run-the-app-at-a-command-prompt) auf dem Server aus oder [aktivieren Sie das stdout-Protokoll des ASP.NET Core-Moduls](#aspnet-core-module-stdout-log), um das Problem zu beheben.
 
-**Verbindungszurücksetzung**
+### <a name="connection-reset"></a>Verbindungszurücksetzung
 
 Falls ein Fehler auftritt, nachdem die Header gesendet wurden, ist es zu spät für den Server, einen **500: Interner Serverfehler** zu senden, wenn ein Fehler auftritt. Dies ist häufig der Fall, wenn während der Serialisierung komplexer Objekte für eine Antwort ein Fehler auftritt. Diese Art von Fehler wird angezeigt, wenn ein *Verbindungszurücksetzungsfehler* auf dem Client auftritt. Mithilfe der [Anwendungsprotokollierung](xref:fundamentals/logging/index) können diese Fehlertypen behoben werden.
 
@@ -113,7 +115,7 @@ Greifen Sie auf das Anwendungsereignisprotokoll zu:
 
 Viele Startfehler erzeugen keine nützlichen Informationen im Anwendungsereignisprotokoll. Sie können die Ursache für einige Fehler ermitteln, indem Sie die App in einer Eingabeaufforderung auf dem Hostsystem ausführen.
 
-**Framework-abhängige Bereitstellung**
+#### <a name="framework-dependent-deployment"></a>Framework-abhängige Bereitstellung
 
 Wenn es sich bei der App um eine [Framework-abhängige Bereitstellung handelt](/dotnet/core/deploying/#framework-dependent-deployments-fdd):
 
@@ -121,7 +123,7 @@ Wenn es sich bei der App um eine [Framework-abhängige Bereitstellung handelt](/
 1. Die Konsolenausgabe der App, die Fehler anzeigt, wird in das Konsolenfenster geschrieben.
 1. Wenn der Fehler während einer Anforderung an die App auftritt, führen Sie eine Anforderung an den Host und Port aus, auf dem Kestrel empfangsbereit ist. Führen Sie unter Verwendung der Standardhosts und -ports eine Anforderung für `http://localhost:5000/` aus. Wenn die App normalerweise auf die Kestrel-Endpunktadresse reagiert, hängt das Problem wahrscheinlich eher mit der Reverseproxykonfiguration und weniger mit der App selbst zusammen.
 
-**Eigenständige Bereitstellung**
+#### <a name="self-contained-deployment"></a>Eigenständige Bereitstellung
 
 Wenn es sich bei der App um eine [eigenständige Bereitstellung](/dotnet/core/deploying/#self-contained-deployments-scd) handelt:
 
@@ -142,7 +144,8 @@ So aktivieren Sie stdout-Protokolle und zeigen diese an:
 1. Navigieren Sie zu dem Ordner *logs*. Suchen und öffnen Sie das aktuelle stdout-Protokoll.
 1. Untersuchen Sie das Protokoll auf Fehler.
 
-**Wichtig** Deaktivieren Sie die stdout-Protokollierung, wenn die Problembehandlung abgeschlossen ist.
+> [!IMPORTANT]
+> Deaktivieren Sie die stdout-Protokollierung, wenn die Problembehandlung abgeschlossen ist.
 
 1. Bearbeiten Sie die Datei *web.config*.
 1. Legen Sie **stdoutLogEnabled** auf `false` fest.
@@ -153,9 +156,27 @@ So aktivieren Sie stdout-Protokolle und zeigen diese an:
 >
 > Verwenden Sie für die routinemäßige Protokollierung in einer ASP.NET Core-App eine Protokollierungsbibliothek, die die Protokolldateigröße beschränkt und die Protokolle rotiert. Weitere Informationen finden Sie im Artikel zur [Protokollierung von Drittanbietern](xref:fundamentals/logging/index#third-party-logging-providers).
 
-## <a name="enabling-the-developer-exception-page"></a>Aktivieren der Seite mit Ausnahmen für Entwickler
+## <a name="enable-the-developer-exception-page"></a>Aktivieren der Seite mit Ausnahmen für Entwickler
 
 Die `ASPNETCORE_ENVIRONMENT` [Umgebungsvariable kann zur Datei web.config hinzugefügt werden](xref:host-and-deploy/aspnet-core-module#setting-environment-variables), um die App in der Entwicklungsumgebung auszuführen. Solange die Umgebung nicht beim Starten der App von `UseEnvironment` im Host-Builder außer Kraft gesetzt wird, kann die [Seite mit Ausnahmen für Entwickler](xref:fundamentals/error-handling) durch Festlegen der Umgebungsvariable angezeigt werden, wenn die App ausgeführt wird.
+
+::: moniker range=">= aspnetcore-2.2"
+
+```xml
+<aspNetCore processPath="dotnet"
+      arguments=".\MyApp.dll"
+      stdoutLogEnabled="false"
+      stdoutLogFile=".\logs\stdout"
+      hostingModel="inprocess">
+  <environmentVariables>
+    <environmentVariable name="ASPNETCORE_ENVIRONMENT" value="Development" />
+  </environmentVariables>
+</aspNetCore>
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
 
 ```xml
 <aspNetCore processPath="dotnet"
@@ -168,11 +189,17 @@ Die `ASPNETCORE_ENVIRONMENT` [Umgebungsvariable kann zur Datei web.config hinzug
 </aspNetCore>
 ```
 
+::: moniker-end
+
 Das Festlegen der Umgebungsvariablen für `ASPNETCORE_ENVIRONMENT` wird nur bei der Verwendung von Staging- und Testservern empfohlen, die nicht für das Internet verfügbar gemacht werden. Entfernen Sie nach der Fehlerbehebung die Umgebungsvariable aus der Datei *web.config*. Informationen zum Festlegen von Umgebungsvariablen in der Datei *web.config* finden Sie unter [Untergeordnetes environmentVariables-Element von aspNetCore](xref:host-and-deploy/aspnet-core-module#setting-environment-variables).
 
-## <a name="common-startup-errors"></a>Häufige Startfehler 
+## <a name="common-startup-errors"></a>Häufige Startfehler
 
 Siehe <xref:host-and-deploy/azure-iis-errors-reference>. Die meisten der häufig auftretenden Probleme, die den Start von Apps verhindern, werden im Referenzartikel behandelt.
+
+## <a name="obtain-data-from-an-app"></a>Abrufen von Daten aus einer App
+
+Wenn eine App in der Lage sind, auf Anforderungen zu reagieren, erhalten Sie Anforderungen, Verbindungen und zusätzliche Daten von den Apps über die Inlinemiddleware des Terminals. Weitere Informationen und Beispielcode finden Sie unter <xref:test/troubleshoot#obtain-data-from-an-app>.
 
 ## <a name="slow-or-hanging-app"></a>Langsame oder hängende App
 
@@ -190,7 +217,7 @@ Siehe [Remotedebuggen von ASP.NET Core auf einem IIS-Remotecomputer in Visual St
 
 [Application Insights](/azure/application-insights/) stellt Telemetriedaten von Apps bereit, die von IIS gehostet werden, einschließlich Features für die Fehlerprotokollierung und die Berichterstellung. Application Insights kann nur Fehler melden, die nach dem Start der App auftreten, wenn die Protokollierungsfeatures der App verfügbar werden. Weitere Informationen finden Sie unter [Application Insights for ASP.NET Core (Application Insights für ASP.NET Core)](/azure/application-insights/app-insights-asp-net-core).
 
-## <a name="additional-troubleshooting-advice"></a>Weitere Hinweise zur Problembehandlung
+## <a name="additional-advice"></a>Zusätzliche Hinweise
 
 Manchmal schlägt eine funktionsfähige App direkt nach der Durchführung eines Upgrades des .NET Core SDK auf dem Entwicklungscomputer oder der Paketversionen in der App fehl. In einigen Fällen können inkohärente Pakete eine App beschädigen, wenn größere Upgrades durchgeführt werden. Die meisten dieser Probleme können durch Befolgung der folgenden Anweisungen behoben werden:
 
@@ -201,11 +228,12 @@ Manchmal schlägt eine funktionsfähige App direkt nach der Durchführung eines 
 
 > [!TIP]
 > Sie können Paketcaches ganz einfach löschen, indem Sie `dotnet nuget locals all --clear` über eine Eingabeaufforderung ausführen.
-> 
+>
 > Darüber hinaus können Paketcaches mit dem Tool [nuget.exe](https://www.nuget.org/downloads) und durch Ausführung des Befehls `nuget locals all -clear` gelöscht werden. *nuget.exe* ist wird unter dem Windows Desktop-Betriebssystem nicht gebündelt installiert und muss separat von der [NuGet-Website](https://www.nuget.org/downloads) abgerufen werden.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
+* <xref:test/troubleshoot>
 * <xref:fundamentals/error-handling>
 * <xref:host-and-deploy/azure-iis-errors-reference>
 * <xref:host-and-deploy/aspnet-core-module>

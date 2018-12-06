@@ -4,14 +4,14 @@ author: shirhatti
 description: Informationen zur Unterstützung für das Debuggen von ASP.NET Core-Apps, wenn diese hinter IIS unter Windows Server ausgeführt werden.
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/14/2018
+ms.date: 11/26/2018
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: eb8b4369d6d5434adbac187f59b18d7a2b80055c
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 65dbe690a33d82a4edddf315803dc4c656db27a0
+ms.sourcegitcommit: e8d80ff566bfe505b43389d7bc4551edb1c0c872
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277653"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52549100"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>IIS-Support zum Zeitpunkt der Entwicklung in Visual Studio für ASP.NET Core
 
@@ -129,13 +129,19 @@ Alternativ können Sie in der App manuell ein Startprofil zur Datei [launchSetti
 
 ## <a name="run-the-project"></a>Ausführen des Projekts
 
-Legen Sie auf der VS-UI die Schaltfläche „Ausführen“ auf das Profil **IIS** fest, und klicken Sie zum Starten der App auf die Schaltfläche:
+In Visual Studio:
 
-![Auf das Profil „IIS“ festgelegte Schaltfläche „Ausführen“ in der VS-Symbolleiste.](development-time-iis-support/_static/toolbar.png)
+* Vergewissern Sie sich, dass die Dropdownliste der Buildkonfiguration auf **Debuggen** festgelegt ist.
+* Legen Sie die Schaltfläche „Ausführen“ auf das Profil **IIS** fest, und klicken Sie zum Starten der App auf die Schaltfläche.
+
+![Die Schaltfläche „Ausführen“ in der VS-Symbolleiste ist auf das IIS-Profil eingestellt, während die Dropdownliste für die Buildkonfiguration auf „Release“ gesetzt ist.](development-time-iis-support/_static/toolbar.png)
 
 Visual Studio fordert möglicherweise zu einem Neustart auf, wenn das Profil nicht als Administrator ausgeführt wird. Wenn Sie dazu aufgefordert werden, starten Sie Visual Studio neu.
 
 Bei Verwendung eines nicht vertrauenswürdigen Entwicklungszertifikats müssen Sie für den Browser möglicherweise eine Ausnahme für das nicht vertrauenswürdige Zertifikat erstellen.
+
+> [!NOTE]
+> Das Debuggen einer Releasebuildkonfiguration mit [Nur mein Code](/visualstudio/debugger/just-my-code) und Compileroptimierungen führt zu einer beeinträchtigten Leistung. Beispielsweise werden Haltepunkte nicht erreicht.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
