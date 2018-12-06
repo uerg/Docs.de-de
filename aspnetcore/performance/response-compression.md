@@ -5,14 +5,14 @@ description: Informationen zur Antwortkomprimierung und zum Verwenden von Antwor
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/21/2018
+ms.date: 12/01/2018
 uid: performance/response-compression
-ms.openlocfilehash: 8c3d74b6a346d51507d3c278b03ddc842feea13e
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 2516fbb30e55990dc4ad0d92069853bc26874bc9
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207978"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861887"
 ---
 # <a name="response-compression-in-aspnet-core"></a>Antwortkomprimierung in ASP.NET Core
 
@@ -24,7 +24,7 @@ Die Netzwerkbandbreite ist eine eingeschränkte Ressource. Verringern der Größ
 
 ## <a name="when-to-use-response-compression-middleware"></a>Antworten komprimierende Middleware verwenden
 
-Verwenden Sie Server-basierte Antwort komprimierungstechnologien in IIS, Apache oder Nginx. Die Leistung der Middleware wird nicht mit dem der Servermodule wahrscheinlich überein. [HTTP.sys-Server](xref:fundamentals/servers/httpsys) und [Kestrel](xref:fundamentals/servers/kestrel) keine integrierte komprimierungsunterstützung derzeit bieten.
+Verwenden Sie Server-basierte Antwort komprimierungstechnologien in IIS, Apache oder Nginx. Die Leistung der Middleware wird nicht mit dem der Servermodule wahrscheinlich überein. [HTTP.sys-Server](xref:fundamentals/servers/httpsys) Server und [Kestrel](xref:fundamentals/servers/kestrel) Server keine integrierte komprimierungsunterstützung derzeit anbieten.
 
 Verwenden Sie Antworten komprimierende Middleware, wenn Sie sich befinden:
 
@@ -33,8 +33,8 @@ Verwenden Sie Antworten komprimierende Middleware, wenn Sie sich befinden:
   * [Apache Mod_deflate-Modul](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
   * [Nginx-Komprimierung und Dekomprimierung](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
 * Hosten direkt auf:
-  * [HTTP.sys-Server](xref:fundamentals/servers/httpsys) (ehemals [WebListener](xref:fundamentals/servers/weblistener))
-  * [Kestrel](xref:fundamentals/servers/kestrel)
+  * [HTTP.sys](xref:fundamentals/servers/httpsys) Server (ehemals [WebListener](xref:fundamentals/servers/weblistener))
+  * [Kestrel](xref:fundamentals/servers/kestrel) Server
 
 ## <a name="response-compression"></a>Antwortkomprimierung
 
@@ -432,7 +432,7 @@ Beim Komprimieren von Antworten basierend auf den `Accept-Encoding` -Header, es 
 
 ## <a name="middleware-issue-when-behind-an-nginx-reverse-proxy"></a>Middleware-Problem, wenn der Server einen Nginx-reverse-proxy
 
-Wenn eine Anforderung über einen Proxy von Nginx, ist die `Accept-Encoding` Header entfernt wird. Dadurch wird verhindert, dass die Middleware die Antwort zu komprimieren. Weitere Informationen finden Sie unter [NGINX: Komprimierung und Dekomprimierung](https://www.nginx.com/resources/admin-guide/compression-and-decompression/). Dieses Problem wird nachverfolgt, indem [herausfinden, Pass-Through-Komprimierung für Nginx (BasicMiddleware Nr. 123)](https://github.com/aspnet/BasicMiddleware/issues/123).
+Wenn eine Anforderung über einen Proxy von Nginx, ist die `Accept-Encoding` Header entfernt wird. Entfernen der `Accept-Encoding` Header wird verhindert, dass die Middleware die Antwort zu komprimieren. Weitere Informationen finden Sie unter [NGINX: Komprimierung und Dekomprimierung](https://www.nginx.com/resources/admin-guide/compression-and-decompression/). Dieses Problem wird nachverfolgt, indem [herausfinden, Pass-Through-Komprimierung für Nginx (Aspnet/BasicMiddleware \#123)](https://github.com/aspnet/BasicMiddleware/issues/123).
 
 ## <a name="working-with-iis-dynamic-compression"></a>Arbeiten mit dynamische Komprimierung in IIS
 
