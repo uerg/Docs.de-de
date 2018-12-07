@@ -8,12 +8,12 @@ ms.date: 05/28/2015
 ms.assetid: 7e85c70e-1a88-4408-8b3d-29611c7713ed
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/publishing
 msc.type: authoredcontent
-ms.openlocfilehash: fe196e5db8fd1cecbe84b2eb970939303f9313d1
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: bd6611a03ee4940f5d4176ce23464f313b9ec884
+ms.sourcegitcommit: eef99d14d96dc8c3c1bb0e2c4cb14da152f8a952
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021455"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53022504"
 ---
 <a name="introducing-aspnet-web-pages---publishing-a-site-by-using-webmatrix"></a>Einführung in ASP.NET Web Pages - Veröffentlichen einer Website mit WebMatrix
 ====================
@@ -50,7 +50,7 @@ Dieses Lernprogramm enthält vier Abschnitte:
 <a id="defaultpage"></a>
 ## <a name="setting-up-the-default-page"></a>Die Standardseite einrichten
 
-Wenn ein Benutzer auf die Basisadresse für Ihre Website navigiert, wird die Standardseite für die Website, die dem Benutzer angezeigt. Z. B. wenn als Standardseite für die Website unter www.contoso.com "default.htm" festgelegt ist, und dann weiter navigieren <strong>www.contoso.com</strong> ist identisch mit der Navigation zu <strong>www.contoso.com/Default.htm</strong>.
+Wenn ein Benutzer auf die Basisadresse für Ihre Website navigiert, wird die Standardseite für die Website, die dem Benutzer angezeigt. Z. B. wenn *"default.htm"* festgelegt ist, wie die Standardseite für die Website unter `www.contoso.com`, zum Navigieren `www.contoso.com` ist identisch mit der Navigation zu `www.contoso.com/Default.htm`.
 
 Ihre Website derzeit verwendet **Default.cshtml** wie die Standardseite. Diese Seite ist für die voreingestellte Seite in Ordnung, aber in diesem Tutorial nicht hinzugefügt haben alle Inhalte der Seite, damit sie eine leere Seite angezeigt wird. Öffnen Sie Default.cshtml, und Ersetzen Sie den Inhalt durch den folgenden Code.
 
