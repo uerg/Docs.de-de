@@ -1,17 +1,17 @@
 ---
-title: DevOps mit ASP.NET Core und Azure | Bereitstellen einer app in App Service
+title: 'Bereitstellen einer app in App Service: DevOps mit ASP.NET Core und Azure'
 author: CamSoper
-description: Ein Leitfaden, der End-to-End-Anleitungen zum Erstellen einer DevOps-Pipeline für eine in Azure gehostete ASP.NET Core-App bereitstellt.
+description: Bereitstellen einer ASP.NET Core-Apps in Azure App Service, der erste Schritt für DevOps mit ASP.NET Core und Azure.
 ms.author: casoper
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/deploy-to-app-service
-ms.openlocfilehash: 33026ed510aae63a9e580aa5d708f94aad778fca
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 4424d3d15cbd234357c8265fa276834cb9abf352
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090936"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121219"
 ---
 # <a name="deploy-an-app-to-app-service"></a>Bereitstellen einer app in App Service
 
@@ -150,12 +150,12 @@ Die app wurde bereits von der Befehlsshell aus bereitgestellt wurde. Integrierte
 3. Drücken Sie **STRG**+**UMSCHALT**+**B** zum Erstellen der app.
 4. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf das Projekt, und klicken Sie auf **veröffentlichen**.
 
-    ![Mit der rechten Maustaste, veröffentlichen](./media/deploying-to-app-service/publish.png)
+    ![Screenshot der mit der rechten Maustaste, und veröffentlichen](./media/deploying-to-app-service/publish.png)
 5. Visual Studio kann eine neue App Service-Ressource erstellen, aber über die vorhandene Bereitstellung dieses Update veröffentlicht werden. In der **Veröffentlichungsziel** wählen Sie im Dialogfeld **App Service** aus der Liste auf der linken Seite, und wählen Sie dann **vorhandene auswählen**. Klicken Sie auf **Veröffentlichen**.
 6. In der **App Service** Dialogfeld bestätigen, dass die Microsoft- oder Organisationskonto an, die zum Erstellen von Ihrem Azure-Abonnement in der oberen rechten Ecke angezeigt wird. Ist dies nicht, klicken Sie auf der Dropdownliste aus, und fügen Sie es hinzu.
 7. Überprüfen Sie, ob die richtige Azure **Abonnement** ausgewählt ist. Für **Ansicht**Option **Ressourcengruppe**. Erweitern Sie die **AzureTutorial** Ressourcengruppe aus, und wählen Sie dann die vorhandene Web-app. Klicken Sie auf **OK**.
 
-    ![App Service-Dialogfeld "Veröffentlichen"](./media/deploying-to-app-service/publish-dialog.png)
+    ![Screenshot mit Publish App Service-Dialogfeld](./media/deploying-to-app-service/publish-dialog.png)
 
 Visual Studio erstellt und die app in Azure bereitgestellt wird. Navigieren Sie zu der URL der Web-app. Überprüfen Sie, die die `<h2>` elementänderung ist.
 
@@ -211,7 +211,7 @@ Bereitstellungsslots unterstützen das Staging der Änderungen ohne Auswirkungen
 
 6. Öffnen Sie zwei Browserfenster, um sicherzustellen, dass V3 im stagingslot bereitgestellt wurde. Navigieren Sie in einem Fenster zu öffnen zu der ursprünglichen URL der Web-app. Navigieren Sie zu der staging-Web-app-URL, in dem anderen Fenster. Produktions-URL dient V2 der app. Die staging-URL dient V3 der app.
 
-    ![Vergleichen das Browserfenster](./media/deploying-to-app-service/ready-to-swap.png)
+    ![Screenshot, der die Browserfenster vergleichen](./media/deploying-to-app-service/ready-to-swap.png)
 
 7. Wechseln Sie in der Cloud Shell im stagingslot überprüft/vorbereitet-nach-oben in der Produktion.
 

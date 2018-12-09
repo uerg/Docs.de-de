@@ -3,14 +3,15 @@ title: Erstellen einer ASP.NET Core-app mit Benutzerdaten, die durch Autorisieru
 author: rick-anderson
 description: Informationen Sie zum Erstellen einer Razor-Seiten-app mit Benutzerdaten, die durch Autorisierung geschützt sind. Enthält, HTTPS, Authentifizierung und Sicherheit, ASP.NET Core Identity.
 ms.author: riande
-ms.date: 7/24/2018
+ms.date: 12/07/2018
+ms.custom: seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: 185628d4e06c9b5ae7f2685c10ea9e46dd5abe92
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: d49ee7779b425d625b81c8a65694121c616bfba6
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253220"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121634"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Erstellen einer ASP.NET Core-app mit Benutzerdaten, die durch Autorisierung geschützt sind
 
@@ -38,21 +39,21 @@ In diesem Tutorial veranschaulicht das Erstellen einer ASP.NET Core-Web-Apps mit
 
 In der folgenden Abbildung wird der Benutzer Rick (`rick@example.com`) angemeldet ist. Rick kann nur genehmigte Kontakte anzeigen und **bearbeiten**/**löschen**/**neu erstellen** Links, um seine Kontakte. Nur der letzte Datensatz erstellt, von Rick, zeigt **bearbeiten** und **löschen** Links. Andere Benutzer werden der letzte Eintrag nicht angezeigt, bis Manager oder Administratoren den Status "Genehmigt" annimmt.
 
-![Abbildung beschrieben vor](secure-data/_static/rick.png)
+![Screenshot der Rick angemeldet](secure-data/_static/rick.png)
 
 In der folgenden Abbildung `manager@contoso.com` ist signiert, im und in der Rolle "Managers":
 
-![Abbildung beschrieben vor](secure-data/_static/manager1.png)
+![Screenshot mit manager@contoso.com angemeldet](secure-data/_static/manager1.png)
 
 Die folgende Abbildung zeigt die Manager Detailansicht eines Kontakts an:
 
-![Abbildung beschrieben vor](secure-data/_static/manager.png)
+![Anzeigen von Vorgesetzten eines Kontakts](secure-data/_static/manager.png)
 
 Die **genehmigen** und **ablehnen** Schaltflächen sind nur für Manager und Administratoren angezeigt.
 
 In der folgenden Abbildung `admin@contoso.com` in und in der Rolle "Administratoren" angemeldet ist:
 
-![Abbildung beschrieben vor](secure-data/_static/admin.png)
+![Screenshot mit admin@contoso.com angemeldet](secure-data/_static/admin.png)
 
 Der Administrator muss alle Berechtigungen. Sie können lesen, bearbeiten und löschen Sie einen beliebigen Kontakt, und ändern Sie den Status von Kontakten.
 
@@ -281,25 +282,32 @@ Finden Sie unter [dieses Problem](https://github.com/aspnet/Docs/issues/8502) In
 
 ## <a name="test-the-completed-app"></a>Testen Sie die fertige app
 
+Wenn Sie ein Kennwort für die per Seeding hinzugefügten Benutzerkonten bereits festgelegt haben, verwenden Sie die [Secret Manager-Tool](xref:security/app-secrets#secret-manager) zum Festlegen eines Kennworts:
+
+* Wählen Sie ein sicheres Kennwort: Verwenden Sie acht oder mehr Zeichen und mindestens einen Großbuchstaben, Anzahl und Symbol. Z. B. `Passw0rd!` erfüllt die Anforderungen für sichere Kennwörter.
+* Führen Sie den folgenden Befehl aus dem Ordner des Projekts, in denen `<PW>` ist das Kennwort:
+
+  ```console
+  dotnet user-secrets set SeedUserPW <PW>
+  ```
+
 Wenn die app Kontakte hat:
 
 * Löschen Sie alle Datensätze in der `Contact` Tabelle.
 * Starten Sie die app zum Seeding der Datenbank neu.
 
-Registrieren Sie einen Benutzer, für das Durchsuchen von Kontakten.
+Eine einfache Möglichkeit zum Testen der fertigen app wird auf drei verschiedene Browser (oder inkognito/InPrivate-Sitzungen) zu starten. Registrieren Sie einen neuen Benutzer in einem Browser (z. B. `test@example.com`). Melden Sie sich an jeden Browser mit einem anderen Benutzer. Überprüfen Sie die folgenden Vorgänge aus:
 
-Eine einfache Möglichkeit zum Testen der fertigen app wird auf drei verschiedene Browser (oder inkognito/InPrivate-Versionen) zu starten. Registrieren Sie einen neuen Benutzer in einem Browser (z. B. `test@example.com`). Melden Sie sich an jeden Browser mit einem anderen Benutzer. Überprüfen Sie die folgenden Vorgänge aus:
-
-* Registrierte Benutzer können die genehmigten Kontaktdaten anzeigen.
+* Registrierte Benutzer können alle genehmigten wenden Sie sich an Daten anzeigen.
 * Registrierte Benutzer können bearbeiten und ihre eigenen Daten löschen.
-* Manager können genehmigen oder ablehnen von Kontaktdaten. Die `Details` anzeigen zeigt **genehmigen** und **ablehnen** Schaltflächen.
+* Manager können genehmigen/Kontaktdaten ablehnen. Die `Details` anzeigen zeigt **genehmigen** und **ablehnen** Schaltflächen.
 * Administratoren können genehmigen/ablehnen und alle Daten bearbeiten und löschen.
 
-| Benutzer| Optionen |
-| ------------ | ---------|
-| test@example.com | Kann bearbeiten oder eigene Daten löschen |
-| manager@contoso.com | Können genehmigen/ablehnen "und" Bearbeiten und löschen, die Daten besitzen |
-| admin@contoso.com | Kann bearbeiten und löschen und alle Daten genehmigen/ablehnen|
+| Benutzer                | Ein Seeding ausgeführt, von der app | Optionen                                  |
+| ------------------- | :---------------: | ---------------------------------------- |
+| test@example.com    | Nein                | Löschen Sie bearbeiten und die eigenen Daten.                |
+| manager@contoso.com | Ja               | Genehmigen oder ablehnen und eigene Daten bearbeiten und löschen. |
+| admin@contoso.com   | Ja               | Genehmigen oder ablehnen und alle Daten bearbeiten und löschen. |
 
 Erstellen Sie einen Kontakt in der Administrator-Browser. Kopieren Sie die URL für das Löschen und Bearbeiten von den Administrator wenden Sie sich an. Fügen Sie diesen Links, in den Browser des Testbenutzers zu überprüfen, ob die Testbenutzers diese Vorgänge kann nicht ein.
 

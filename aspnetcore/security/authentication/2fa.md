@@ -5,13 +5,14 @@ description: Erfahren Sie, wie Sie die zweistufige Authentifizierung (2FA) mit e
 monikerRange: < aspnetcore-2.0
 ms.author: riande
 ms.date: 09/22/2018
+ms.custom: seodec18
 uid: security/authentication/2fa
-ms.openlocfilehash: 5b0866ecf15381b040e3646eecc22374b6b0c9e2
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 6f20928b0dec9b235fa17c1b44c81a48d031e9e0
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50205885"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121660"
 ---
 # <a name="two-factor-authentication-with-sms-in-aspnet-core"></a>Zweistufige Authentifizierung mit SMS in ASP.NET Core
 
@@ -97,7 +98,7 @@ Hinzufügen `SMSoptions` zum Dienstcontainer in die `ConfigureServices` -Methode
 
 * Tippen Sie auf Ihren Benutzernamen, das aktiviert wird, die `Index` Aktionsmethode im Controller der verwalten. Tippen Sie dann auf die Telefonnummer **hinzufügen** Link.
 
-![Verwalten von anzeigen](2fa/_static/login2fa2.png)
+![Verwalten von Ansicht: Tippen Sie auf den Link "hinzufügen"](2fa/_static/login2fa2.png)
 
 * Fügen Sie eine Telefonnummer, die den Überprüfungscode erhalten, und tippen Sie auf **Überprüfungscode senden**.
 
@@ -111,11 +112,11 @@ Wenn Sie keine SMS erhalten, finden Sie unter protokollseite Twilio.
 
 * Die Ansicht "verwalten" zeigt, dass Ihre Telefonnummer wurde erfolgreich hinzugefügt wurde.
 
-![Verwalten von anzeigen](2fa/_static/login2fa5.png)
+![Verwalten von Ansicht – Profiler - Telefonnummer wurde erfolgreich hinzugefügt.](2fa/_static/login2fa5.png)
 
 * Tippen Sie auf **aktivieren** zweistufige Authentifizierung zu aktivieren.
 
-![Verwalten von anzeigen](2fa/_static/login2fa6.png)
+![Verwalten von Ansicht: zwei-Faktor-Authentifizierung aktivieren](2fa/_static/login2fa6.png)
 
 ### <a name="test-two-factor-authentication"></a>Die zweistufige Authentifizierung testen
 

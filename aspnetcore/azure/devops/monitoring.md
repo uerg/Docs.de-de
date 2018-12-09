@@ -1,17 +1,17 @@
 ---
-title: DevOps mit ASP.NET Core und Azure | Überwachen und Debuggen
+title: 'Überwachen Sie und Debuggen Sie: DevOps mit ASP.NET Core und Azure'
 author: CamSoper
-description: Ein Leitfaden, der End-to-End-Anleitungen zum Erstellen einer DevOps-Pipeline für eine in Azure gehostete ASP.NET Core-App bereitstellt.
+description: Überwachen und Debuggen Ihren Code als Teil einer DevOps-Lösung mit ASP.NET Core und Azure
 ms.author: casoper
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/monitor
-ms.openlocfilehash: c4013de574fdf34114f2ae6c6a2150d72f807578
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: e005b951aec578b396fc19dec5d2f55cbce4f664
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090187"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121608"
 ---
 # <a name="monitor-and-debug"></a>Überwachen und Debuggen
 
@@ -35,7 +35,7 @@ App Service-Web-apps sind einfach in Echtzeit überwacht. Das Azure-Portal rende
 
 1. Die **Übersicht** Registerkarte zeigt nützliche "auf einen Blick"-Informationen, darunter Diagramme, die zuletzt verwendete Metrik anzeigen.
 
-    ![Übersichtsbereich](./media/monitoring/overview.png)
+    ![Screenshot mit Übersicht über panel](./media/monitoring/overview.png)
 
     * **HTTP 5xx**: die Anzahl der serverseitigen Fehlern, in der Regel Ausnahmen in ASP.NET Core-Code.
     * **Daten In**: eingehende Daten, die in Ihrer Web-app stammen.
@@ -45,7 +45,7 @@ App Service-Web-apps sind einfach in Echtzeit überwacht. Das Azure-Portal rende
 
     Auf dieser Seite befinden sich auch mehrere Self-service-Tools für die Problembehandlung und Optimierung.
 
-    ![Self-service-tools](./media/monitoring/wizards.png)
+    ![Screenshot mit Self-service-tools](./media/monitoring/wizards.png)
 
     * **Diagnose und Problembehandlung** ist ein Self-service-Ratgebers.
     * **Application Insights** ist für die profilerstellung der Leistung und Verhalten der app und wird weiter unten in diesem Abschnitt erläutert.
@@ -103,7 +103,7 @@ App und die Web-Server-Protokolle können in Echtzeit über das Portal gestreamt
 1. Öffnen der [Azure-Portal](https://portal.azure.com), und navigieren Sie zu der *Mywebapp\<Unique_number\>*  App Service.
 1. Klicken Sie im Menü auf der linken Seite einen Bildlauf nach unten, um die **Überwachung** aus, und wählen Sie **Protokollstream**.
 
-    ![Log-Stream-link](./media/monitoring/log-stream.png)
+    ![Screenshot mit Log Stream link](./media/monitoring/log-stream.png)
 
 Protokolle können auch sein, [gestreamt, die über Azure-Befehlszeilenschnittstelle oder Azure PowerShell](/azure/app-service/web-sites-enable-diagnostic-log#streamlogs), einschließlich über Cloud Shell.
 

@@ -3,15 +3,15 @@ title: Facebook externe Anmeldung Setup in ASP.NET Core
 author: rick-anderson
 description: Dieses Tutorial veranschaulicht die Integration von Facebook-Konto der Benutzerauthentifizierung in eine vorhandene ASP.NET Core-app.
 ms.author: riande
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.date: 11/11/2018
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: e8ae16538b5d6844af7d983071fad629ebbe6217
-ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
+ms.openlocfilehash: 8bb22dc6df9879e827ff9a5ac11e9e3ad5346dc2
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708503"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121504"
 ---
 # <a name="facebook-external-login-setup-in-aspnet-core"></a>Facebook externe Anmeldung Setup in ASP.NET Core
 
@@ -129,7 +129,7 @@ Wenn Sie beim Klicken auf **Facebook**, Sie werden zur Authentifizierung an Face
 
 Facebook-Authentifizierung standardmäßige öffentliche Profil und e-Mail-Adresse anfordert:
 
-![Seite der Facebook-Authentifizierung](index/_static/FBLoginDone.png)
+![Facebook-Authentifizierung Seite zustimmungsbildschirm](index/_static/FBLoginDone.png)
 
 Nachdem Sie Ihre Facebook-Anmeldeinformationen eingeben, werden Sie an Ihrem Standort weitergeleitet, in dem Sie Ihre e-Mail-Adresse festlegen können.
 

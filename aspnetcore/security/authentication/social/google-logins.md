@@ -3,15 +3,15 @@ title: Google externe Anmeldung Setup in ASP.NET Core
 author: rick-anderson
 description: Dieses Tutorial veranschaulicht die Integration von Google-Konto der Benutzerauthentifizierung in eine vorhandene ASP.NET Core-app.
 ms.author: riande
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.date: 11/11/2018
 uid: security/authentication/google-logins
-ms.openlocfilehash: dfda83e1d7cf3c5ff8e31de20c15d468de5d15c0
-ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
+ms.openlocfilehash: e5deda5d521643e3155be00f4630a86c6a82575c
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708451"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121530"
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>Google externe Anmeldung Setup in ASP.NET Core
 
@@ -27,7 +27,7 @@ In diesem Tutorial erfahren Sie, wie Sie Benutzern die Anmeldung mit ihrer Googl
 
 * Sie werden zur **-API-Manager-Bibliothek** Seite:
 
-![Seite "API-Manager-Bibliothek"](index/_static/GoogleConsoleSwitchboard.png)
+![Angebotsseite auf der Seite für die API-Manager-Bibliothek](index/_static/GoogleConsoleSwitchboard.png)
 
 * Tippen Sie auf **erstellen** , und geben Sie Ihre **Projektname**:
 
@@ -35,15 +35,15 @@ In diesem Tutorial erfahren Sie, wie Sie Benutzern die Anmeldung mit ihrer Googl
 
 * Nach dem Akzeptieren des Dialogfelds werden Sie an der Library-Seite können Sie auf die Funktionen für Ihre neue app weitergeleitet. Suchen **Google + API** in der Liste und klicken Sie auf den zugehörigen Link, um die API-Funktion hinzufügen:
 
-![Seite "API-Manager-Bibliothek"](index/_static/GoogleConsoleChooseApi.png)
+![Suchen Sie nach "Google +-API" auf der Seite für die API-Manager-Bibliothek](index/_static/GoogleConsoleChooseApi.png)
 
 * Die Seite für die neu hinzugefügte-API wird angezeigt. Tippen Sie auf **aktivieren** um Google +-Anmeldung in der Funktion Ihrer app hinzufügen:
 
-![API-Manager Google +-API-Seite](index/_static/GoogleConsoleEnableApi.png)
+![Angebotsseite auf der Seite für die API-Manager Google +-API](index/_static/GoogleConsoleEnableApi.png)
 
 * Nach der Aktivierung der API, tippen Sie auf **Anmeldeinformationen erstellen** so konfigurieren Sie die geheimen Schlüssel:
 
-![API-Manager Google +-API-Seite](index/_static/GoogleConsoleGoCredentials.png)
+![Erstellen Sie Schaltfläche "Anmeldeinformationen" auf API-Manager Google +-API-Seite](index/_static/GoogleConsoleGoCredentials.png)
 
 * Wählen Sie Folgendes aus:
   * **Google + API**

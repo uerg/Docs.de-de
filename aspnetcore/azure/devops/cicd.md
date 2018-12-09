@@ -1,16 +1,17 @@
 ---
-title: DevOps mit ASP.NET Core und Azure | Continuous Integration und Continuous deployment
+title: Continuous Integration und Continuous Deployment - DevOps mit ASP.NET Core und Azure
 author: CamSoper
-description: Ein Leitfaden, der End-to-End-Anleitungen zum Erstellen einer DevOps-Pipeline für eine in Azure gehostete ASP.NET Core-App bereitstellt.
+description: Continuous Integration und Continuous Deployment in DevOps mit ASP.NET Core und Azure
 ms.author: scaddie
 ms.date: 10/24/2018
+ms.custom: seodec18
 uid: azure/devops/cicd
-ms.openlocfilehash: edaf2c2e1428e5e82104786d94584a4ef08f9ee3
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: e5bddde41291c9573f58d749bbf830de9ea9319d
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570086"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121589"
 ---
 # <a name="continuous-integration-and-deployment"></a>Continuous Integration und Continuous deployment
 
@@ -235,15 +236,15 @@ Der Builddefinition **Aufgaben** Registerkarte aufgelistet, die einzelnen Schrit
 
 Klicken Sie auf der Builddefinition **Zusammenfassung** Link, um einen Verlauf der Builds mit der Definition anzuzeigen:
 
-![Erstellen Sie die Versionsgeschichte](media/cicd/build-definition-summary.png)
+![Screenshot mit Definition buildverlauf](media/cicd/build-definition-summary.png)
 
 Klicken Sie auf die entsprechende Seite auf den Link für die eindeutige Buildnummer:
 
-![Seite "Zusammenfassung" des Definition erstellen](media/cicd/build-definition-completed.png)
+![Screenshot mit Definition Seite "Buildzusammenfassung"](media/cicd/build-definition-completed.png)
 
 Es wird eine Zusammenfassung von diesem bestimmten Build angezeigt. Klicken Sie auf die **Artefakte** Registerkarte, und beachten Sie die *löschen* wird vom Build erstellten Ordner aufgeführt:
 
-![Buildartefakte Definition - Drop-Ordner](media/cicd/build-definition-artifacts.png)
+![Screenshot der Artefakte des Builds-Definition - Drop-Ordner](media/cicd/build-definition-artifacts.png)
 
 Verwenden der **herunterladen** und **Durchsuchen** Links, um die veröffentlichten Artefakte zu überprüfen.
 
@@ -251,25 +252,25 @@ Verwenden der **herunterladen** und **Durchsuchen** Links, um die veröffentlich
 
 Eine releasepipeline wurde erstellt, mit dem Namen *MyFirstProject – ASP.NET Core-CD*:
 
-![Übersicht über die Release-pipeline](media/cicd/release-definition-overview.png)
+![Screenshot mit –-Pipeline – Übersicht](media/cicd/release-definition-overview.png)
 
 Die zwei wichtigsten Komponenten der releasepipeline sind die **Artefakte** und **Umgebungen**. Klicken Sie auf das Feld in der **Artefakte** Abschnitt zeigt den folgenden Bereich:
 
-![Pipeline releaseartefakte](media/cicd/release-definition-artifacts.png)
+![Screenshot mit Pipeline releaseartefakte](media/cicd/release-definition-artifacts.png)
 
 Die **Quelle (Builddefinition)** Wert darstellt, die Builddefinition, die mit dem dieses Release-Pipeline verknüpft ist. Die *ZIP* -Datei, die von einer erfolgreichen Ausführung der Builddefinition wird bereitgestellt, um die *Produktion* Umgebung für die Bereitstellung in Azure. Klicken Sie auf die *-Phase 1, 2 Aufgaben* -link in der *Produktion* Feld der Umgebung zum Anzeigen der Release-Pipeline-Aufgaben:
 
-![Freigeben von Pipeline-Aufgaben](media/cicd/release-definition-tasks.png)
+![Screenshot mit Pipeline releasetasks](media/cicd/release-definition-tasks.png)
 
 Die releasepipeline besteht aus zwei Aufgaben: *Bereitstellen von Azure App Service in Slot* und *Verwalten von Azure App Service – Slottausch*. Klicken Sie auf die erste Aufgabe wird die folgende Aufgabenkonfiguration:
 
-![Bereitstellungstask für den Release-pipeline](media/cicd/release-definition-task1.png)
+![Bereitstellungstask für den Screenshot mit Release-pipeline](media/cicd/release-definition-task1.png)
 
 Die Azure-Abonnement, Diensttyp, Web-app-Name, Ressourcengruppe und bereitstellungsslots werden in der Bereitstellungsaufgabe definiert. Die **Paket oder Ordner** Textfeld enthält die *ZIP* Dateipfad zum extrahiert und bereitgestellt werden die *staging* Steckplatz des der *Mywebapp\<eindeutig a_nzahl\>*  Web-app.
 
 Klicken Sie auf den Slot Swap-Vorgang wird die folgende Aufgabenkonfiguration:
 
-![Release Pipeline Slot Swap-Vorgang](media/cicd/release-definition-task2.png)
+![Screenshot mit Pipeline Slot Swap freigabetask](media/cicd/release-definition-task2.png)
 
 Das Abonnement, Ressourcengruppe, Diensttyp, Web-app-Name und Slot Bereitstellungsdetails werden bereitgestellt. Die **mit Produktion tauschen** Kontrollkästchen ist aktiviert. Daher die Komponenten bereitgestellt die *staging* Slot werden in die produktionsumgebung verlagert wurde.
 
