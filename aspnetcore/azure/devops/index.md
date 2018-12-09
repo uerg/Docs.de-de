@@ -4,13 +4,14 @@ author: CamSoper
 description: Ein Leitfaden, der End-to-End-Anleitungen zum Erstellen einer DevOps-Pipeline für eine in Azure gehostete ASP.NET Core-App bereitstellt.
 ms.author: casoper
 ms.date: 08/07/2018
+ms.custom: seodec18
 uid: azure/devops/index
-ms.openlocfilehash: f2eb2499a61ce639457f30f4d182dac6ff677a0f
-ms.sourcegitcommit: 6d02e26748a09eabeb0e11740a398cc2bc90b098
+ms.openlocfilehash: 6b6f17fd917f32b9e0682414febee10643cf3d13
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41746067"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121192"
 ---
 # <a name="devops-with-aspnet-core-and-azure"></a>DevOps mit ASP.NET Core und Azure
 
@@ -46,7 +47,7 @@ Informationen zu den verschiedenen Methoden zum Bereitstellen einer ASP.NET Core
 
 ### <a name="continuous-integration-and-deploymentxrefazuredevopscicd"></a>[Continuous Integration und Continuous Deployment](xref:azure/devops/cicd)
 
-Stellen Sie eine End-to-End-Lösung für Continuous Integration und Continuous Deployment für Ihre ASP.NET Core-App mit GitHub, VSTS und Azure bereit.
+Stellen Sie eine End-to-End-Lösung für Continuous Integration und Continuous Deployment für Ihre ASP.NET Core-App mit GitHub, Azure DevOps Services und Azure bereit.
 
 ### <a name="monitor-and-debugxrefazuredevopsmonitor"></a>[Überwachen und Debuggen](xref:azure/devops/monitor)
 
