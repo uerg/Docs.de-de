@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: eaf76a44bc7750aef94319042e61aa294c6cba35
-ms.sourcegitcommit: 09affee3d234cb27ea6fe33bc113b79e68900d22
+ms.openlocfilehash: 92a2e567e968cce59ba7b6f374ebd4bc189b81ee
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51191268"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862121"
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>Implementierung des Webservers WebListener in ASP.NET Core
 
@@ -87,7 +87,7 @@ Außerdem gibt es [Einstellungen für die Http.Sys-Registrierung](https://suppor
 
 * Konfigurieren von URLs und Ports, die überwacht werden sollen 
 
-  Standardmäßig ist ASP.NET Core an `http://localhost:5000` gebunden. Wenn Sie URL-Präfixe und Ports konfigurieren möchten, können Sie die Erweiterungsmethode `UseURLs`, das Befehlszeilenargument `urls` oder das ASP.NET Core-Konfigurationssystem verwenden. Weitere Informationen finden Sie unter [Host in ASP.NET Core (Hosten in ASP.NET Core)](xref:fundamentals/host/index).
+  Standardmäßig ist ASP.NET Core an `http://localhost:5000` gebunden. Wenn Sie URL-Präfixe und Ports konfigurieren möchten, können Sie die Erweiterungsmethode `UseURLs`, das Befehlszeilenargument `urls` oder das ASP.NET Core-Konfigurationssystem verwenden. Weitere Informationen finden Sie unter [Hosten in ASP.NET Core](xref:fundamentals/host/index).
 
   Der WebListener verwendet die [Präfixzeichenfolgenformate von Http.Sys](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx). Es gibt keine spezifischen Anforderungen an Präfixzeichenfolgenformate für Präfixe für den WebListener.
 

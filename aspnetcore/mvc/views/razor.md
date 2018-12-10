@@ -5,12 +5,12 @@ description: Informationen zur Razor-Markupsyntax zum Einbetten von serverbasier
 ms.author: riande
 ms.date: 10/26/2018
 uid: mvc/views/razor
-ms.openlocfilehash: ab9fb3f55399764c5fe985811d92c504ed210767
-ms.sourcegitcommit: ad28d1bc6657a743d5c2fa8902f82740689733bb
+ms.openlocfilehash: 2ec86c774e0fd26c4455829680a2b1db687b8090
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52256579"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121584"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Razor-Syntaxverweis für ASP.NET Core
 
@@ -508,7 +508,7 @@ Mit der `@functions`-Anweisung kann eine Razor-Seite einer Ansicht einen C#-Code
 @functions { // C# Code }
 ```
 
-Zum Beispiel:
+Beispiel:
 
 [!code-cshtml[](razor/sample/Views/Home/Contact6.cshtml)]
 
@@ -741,7 +741,7 @@ Die Razor-Ansichtsengine führt für Ansichten Suchvorgänge aus, die Groß- und
 
 Entwicklern wird empfohlen, sich bei der Groß-/Kleinschreibung von Datei- und Verzeichnisnamen an der Schreibweise folgender Begriffe zu orientieren:
 
-    * Bereichs-, Controller- und Aktionsnamen
-    * Razor Pages
+* Bereichs-, Controller- und Aktionsnamen
+* Razor Pages
 
 Mit einer übereinstimmenden Groß- und Kleinschreibung wird sichergestellt, dass die entsprechenden Ansichten für die Bereitstellungen unabhängig von dem zugrunde liegenden Dateisystem gefunden werden.
