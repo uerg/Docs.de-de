@@ -6,20 +6,11 @@
 # [Erste Schritte](xref:getting-started)
 
 # Tutorials
-## [Erstellen einer Web-API](xref:tutorials/first-web-api)
+## Web-APIs
+### [Erstellen einer Web-API](xref:tutorials/first-web-api)
+### [Web-API mit MongoDB](xref:tutorials/first-mongo-app)
 ## Web-Apps
-### Razor Pages
-#### [Introduction to Razor Pages (Einführung in Razor Pages)](xref:razor-pages/index)
-
-#### [Tutorial zu Razor Pages](xref:tutorials/razor-pages/index)
-##### [Erste Schritte](xref:tutorials/razor-pages/razor-pages-start)
-##### [Hinzufügen eines Modells](xref:tutorials/razor-pages/model)
-##### [Gerüstbau](xref:tutorials/razor-pages/page)
-##### [Arbeit mit einer Datenbank](xref:tutorials/razor-pages/sql)
-##### [Aktualisieren der Seiten](xref:tutorials/razor-pages/da1)
-##### [Hinzufügen der Suche](xref:tutorials/razor-pages/search)
-##### [Hinzufügen eines neuen Felds](xref:tutorials/razor-pages/new-field)
-##### [Hinzufügen der Validierung](xref:tutorials/razor-pages/validation)
+### [Razor Pages](xref:tutorials/razor-pages/index)
 
 ### MVC
 #### [mit Visual Studio](xref:tutorials/first-mvc-app/index)
@@ -165,7 +156,9 @@
 # Web-APIs
 ## [Übersicht](xref:web-api/index)
 
-## [Erstellen einer Web-API](xref:tutorials/first-web-api)
+## Tutorials
+### [Erstellen einer Web-API](xref:tutorials/first-web-api)
+### [Web-API mit MongoDB](xref:tutorials/first-mongo-app)
 
 ## Swagger bzw. OpenAPI
 ### [Übersicht](xref:tutorials/web-api-help-pages-using-swagger)
@@ -420,7 +413,7 @@
 ## [Ändern von Token](xref:fundamentals/change-tokens)
 ## [Open Web Interface for .NET (OWIN)](xref:fundamentals/owin)
 ## [Hintergrundaufgaben mit gehosteten Diensten](xref:fundamentals/host/hosted-services)
-## [Erweitern einer App über eine externe Assembly](xref:fundamentals/configuration/platform-specific-configuration)
+## [Hostingstartassemblys](xref:fundamentals/configuration/platform-specific-configuration)
 ## [Metapaket „Microsoft.AspNetCore.App“](xref:fundamentals/metapackage-app)
 ## [Metapaket „Microsoft.AspNetCore.All“](xref:fundamentals/metapackage)
 ## [Protokollierung mit LoggerMessage](xref:fundamentals/logging/loggermessage)
@@ -448,6 +441,6 @@
 ## [Neuigkeiten in 2.0](xref:aspnetcore-2.0)
 ## [Neuerungen in 1.1](xref:aspnetcore-1.1)
 
-# [API-Referenz](/dotnet/api/?view=aspnetcore-2.0)
+# [API-Referenz](/dotnet/api/?view=aspnetcore-2.2)
 
 # [Mitwirken](https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md)
