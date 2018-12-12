@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: d1983524-e0d5-4ee6-9d87-1f552f7cb964
 msc.legacyurl: /signalr/overview/testing-and-debugging/unit-testing-signalr-applications
 msc.type: authoredcontent
-ms.openlocfilehash: ba8f5d4577403fe9765641d7ee5d88bde045680a
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: d8f3afdc2749173d1e260096ee6bd4bf1ae4c7cb
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910823"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287511"
 ---
 <a name="unit-testing-signalr-applications"></a>Komponententests für SignalR-Anwendungen
 ====================
 durch [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > In diesem Artikel wird beschrieben, mit den Komponententest-Features von SignalR 2.
 >
@@ -42,7 +44,7 @@ Sie können die Komponententestfunktionen in SignalR 2 verwenden, um Komponenten
 
 In diesem Abschnitt fügen Sie Komponententests für die Anwendung erstellt, der [Tutorials: Erste Schritte](../getting-started/tutorial-getting-started-with-signalr.md) mit [XUnit.net](https://github.com/xunit/xunit) und [Moq](https://github.com/Moq/moq4).
 
-XUnit.net dienen zum Steuern des Tests; Moq wird zum Erstellen einer [simulieren](http://en.wikipedia.org/wiki/Mock_object) Objekt zum Testen. Anderen Mockframeworks können verwendet werden, falls gewünscht. [NSubstitute](http://nsubstitute.github.io/) ist auch eine gute Wahl. In diesem Tutorial wird veranschaulicht, wie das mock-Objekt auf zwei Arten einrichten: zunächst mithilfe einer `dynamic` Objekt (eingeführt in .NET Framework 4) und dann mithilfe einer Schnittstelle.
+XUnit.net dienen zum Steuern des Tests; Moq wird zum Erstellen einer [simulieren](http://en.wikipedia.org/wiki/Mock_object) Objekt zum Testen. Anderen Mockframeworks können verwendet werden, falls gewünscht. [NSubstitute](http://nsubstitute.github.io/) ist auch eine gute Wahl. In diesem Tutorial wird veranschaulicht, wie Sie das mock-Objekt auf zwei Arten einrichten: Zunächst mithilfe einer `dynamic` Objekt (eingeführt in .NET Framework 4) und dann mithilfe einer Schnittstelle.
 
 ### <a name="contents"></a>Inhalt
 

@@ -8,16 +8,18 @@ ms.date: 07/01/2015
 ms.assetid: 2a7517a0-b88c-4162-ade3-9bf6ca7062fd
 msc.legacyurl: /signalr/overview/deployment/using-signalr-with-azure-web-sites
 msc.type: authoredcontent
-ms.openlocfilehash: c5ede2891ef18b622ed269723603dea3b67a135d
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: da69e1aba1b56d69ad8e710cddd2b492168f1255
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912604"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287754"
 ---
 <a name="using-signalr-with-web-apps-in-azure-app-service"></a>Verwenden von SignalR mit Web-Apps in Azure App Service
 ====================
 durch [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Dieses Dokument beschreibt, wie Sie eine SignalR-Anwendung zu konfigurieren, die in Microsoft Azure ausgeführt wird.
 >
@@ -98,7 +100,7 @@ Am oberen Rand der Konfigurationsseite stellen Sie sicher, dass .NET 4.5 für Ih
 
 Auf der Seite-Konfiguration in der **WebSockets** wählen Sie die Einstellung **auf**.
 
-![WebSockets-Einstellung: auf](using-signalr-with-azure-web-sites/_static/image10.png)
+![WebSockets-Einstellung: Ein](using-signalr-with-azure-web-sites/_static/image10.png)
 
 Wählen Sie am unteren Rand der Konfigurationsseite, **speichern** zum Speichern der Änderungen.
 

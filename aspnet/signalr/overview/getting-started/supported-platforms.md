@@ -8,23 +8,24 @@ ms.date: 04/18/2018
 ms.assetid: eac31beb-0f46-4afa-9def-e80904dea4f0
 msc.legacyurl: /signalr/overview/getting-started/supported-platforms
 msc.type: authoredcontent
-ms.openlocfilehash: d522602c3523d97a12c74b2d901391bd00d4f2b9
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: e270f9a328f36854fdfb3e23b78e0b40cdda6411
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837468"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287362"
 ---
 <a name="supported-platforms"></a>Unterstützte Plattformen
 ====================
 durch [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > In diesem Artikel wird beschrieben, welche Clients und Servern von SignalR unterstützt werden. 
 > 
 > ## <a name="questions-and-comments"></a>Fragen und Kommentare
 > 
 > Lassen Sie Feedback, auf wie Ihnen in diesem Tutorial gefallen hat und was wir in den Kommentaren am unteren Rand der Seite verbessern können. Wenn Sie Fragen, die nicht direkt mit dem Tutorial verknüpft sind haben, können Sie sie veröffentlichen das [ASP.NET SignalR-Forum](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oder [StackOverflow.com](http://stackoverflow.com/).
-
 
 SignalR ist unter einer Vielzahl von Server- und Client-Konfigurationen unterstützt. Darüber hinaus verfügt über jeden Transportoption auf einen Satz von Anforderungen über eigene aus. Wenn Sie die Systemanforderungen für einen Transport nicht verfügbar sind, wird SignalR ordnungsgemäß Failover auf andere Transporte. Weitere Informationen zu die Transporte, die von SignalR unterstützt, finden Sie unter [Transporte und Fallbacks](introduction-to-signalr.md#transports).
 

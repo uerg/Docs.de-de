@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: cd378ecd-3e9e-4236-b902-65916d85a048
 msc.legacyurl: /signalr/overview/guide-to-the-api/working-with-groups
 msc.type: authoredcontent
-ms.openlocfilehash: 75ef2998efe4d9bcea62c4a42a2043e2dabd6d85
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: bf4b8597fe9c0bff06b95cfb9970211106191fd4
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911509"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287636"
 ---
 <a name="working-with-groups-in-signalr"></a>Arbeiten mit Gruppen in SignalR
 ====================
 durch [Patrick Fletcher](https://github.com/pfletcher), [Tom FitzMacken](https://github.com/tfitzmac)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > In diesem Thema wird beschrieben, wie zum Hinzufügen von Benutzern zu Gruppen und Beibehalten von Informationen über die Gruppenmitgliedschaft wird.
 >
@@ -37,7 +39,6 @@ durch [Patrick Fletcher](https://github.com/pfletcher), [Tom FitzMacken](https:/
 > ## <a name="questions-and-comments"></a>Fragen und Kommentare
 >
 > Lassen Sie Feedback, auf wie Ihnen in diesem Tutorial gefallen hat und was wir in den Kommentaren am unteren Rand der Seite verbessern können. Wenn Sie Fragen, die nicht direkt mit dem Tutorial verknüpft sind haben, können Sie sie veröffentlichen das [ASP.NET SignalR-Forum](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oder [StackOverflow.com](http://stackoverflow.com/).
-
 
 ## <a name="overview"></a>Übersicht
 

@@ -6,12 +6,12 @@ ms.author: casoper
 ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/monitor
-ms.openlocfilehash: e005b951aec578b396fc19dec5d2f55cbce4f664
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 00489bd92dfff8fd80bd24c2e60193d32031d7c4
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121608"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284369"
 ---
 # <a name="monitor-and-debug"></a>Überwachen und Debuggen
 
@@ -37,11 +37,11 @@ App Service-Web-apps sind einfach in Echtzeit überwacht. Das Azure-Portal rende
 
     ![Screenshot mit Übersicht über panel](./media/monitoring/overview.png)
 
-    * **HTTP 5xx**: die Anzahl der serverseitigen Fehlern, in der Regel Ausnahmen in ASP.NET Core-Code.
-    * **Daten In**: eingehende Daten, die in Ihrer Web-app stammen.
-    * **Ausgehende Daten**: Daten aus Ihrer Web-app ausgehender Datenverkehr, für Clients.
-    * **Anforderungen**: die Anzahl von HTTP-Anforderungen.
-    * **Durchschnittliche Antwortzeit**: Durchschnittliche Zeit für die Web-app auf HTTP-Anforderungen reagiert.
+    * **HTTP 5xx**: Anzahl von serverseitigen Fehlern, die in der Regel Ausnahmen in ASP.NET Core-Code.
+    * **Daten In**: Eingang von Daten in Ihrer Web-app stammen.
+    * **Ausgehende Daten**: Ausgehende Daten aus Ihrer Web-app, für Clients.
+    * **Anforderungen**: Anzahl von HTTP-Anforderungen.
+    * **Durchschnittliche Antwortzeit**: Die durchschnittliche Zeit für die Web-app auf HTTP-Anforderungen reagiert.
 
     Auf dieser Seite befinden sich auch mehrere Self-service-Tools für die Problembehandlung und Optimierung.
 
@@ -111,7 +111,7 @@ Protokolle können auch sein, [gestreamt, die über Azure-Befehlszeilenschnittst
 
 Azure Monitor bietet Ihnen auch [Benachrichtigungen in Echtzeit](/azure/monitoring-and-diagnostics/insights-alerts-portal) basierend auf Metriken, administrative Ereignisse und anderen Kriterien.
 
-> *Hinweis: Derzeit Warnungen für Metriken für Web-app ist nur verfügbar in der Warnungsdienst (klassisch).*
+> *Hinweis: Derzeit Warnungen für Metriken für Web-app ist nur in der Warnungsdienst (klassisch) verfügbar.*
 
 Die [Warnungen (klassisch) Dienst](/azure/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal) finden Sie in Azure Monitor oder unter dem **Überwachung** Teil der App Service-Einstellungen.
 

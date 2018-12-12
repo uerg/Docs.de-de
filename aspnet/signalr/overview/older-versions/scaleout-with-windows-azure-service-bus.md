@@ -8,16 +8,18 @@ ms.date: 05/01/2013
 ms.assetid: 501db899-e68c-49ff-81b2-1dc561bfe908
 msc.legacyurl: /signalr/overview/older-versions/scaleout-with-windows-azure-service-bus
 msc.type: authoredcontent
-ms.openlocfilehash: d597eebc958815b1b1b9fdffc256c4453efce6b3
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 687d3d7787baa69410ee35d651a029c69d28c70b
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910953"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286999"
 ---
 <a name="signalr-scaleout-with-azure-service-bus-signalr-1x"></a>Horizontale Skalierung in SignalR mit Azure Servicebus (SignalR 1.x)
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 In diesem Tutorial stellen Sie eine SignalR-Anwendung für eine Windows Azure-Webrolle, mit der Service Bus-Rückwandplatine zum Verteilen von Nachrichten an alle Rolleninstanzen bereit.
 
@@ -53,7 +55,7 @@ Wählen Sie für jede Anwendung einen anderen Wert für "Nameihrerapp" ein. Verw
 
 ## <a name="create-the-azure-services"></a>Erstellen Sie die Azure-Dienste
 
-Erstellen Sie einen Cloud-Dienst aus, wie im [erstellen und Bereitstellen eines Clouddiensts](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy). Führen Sie die Schritte im Abschnitt "Vorgehensweise: erstellen ein Clouddiensts mit der Schnellerfassung". Für dieses Tutorial müssen Sie nicht, ein Zertifikat hochzuladen.
+Erstellen Sie einen Cloud-Dienst aus, wie im [erstellen und Bereitstellen eines Clouddiensts](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy). Führen Sie die Schritte im Abschnitt "Vorgehensweise: Erstellen Sie einen Cloud-Dienst mithilfe der Schnellerfassung". Für dieses Tutorial müssen Sie nicht, ein Zertifikat hochzuladen.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image2.png)
 

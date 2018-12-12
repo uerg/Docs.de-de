@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: 7e781fc1-1c1f-45a8-bc1d-338e96dbe9c9
 msc.legacyurl: /signalr/overview/performance/scaleout-in-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 78d917ae3a12edb9f117742d1a35d2accb073f01
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 50f9e5bc2713af7fe41473339e360099a92d4c5d
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911684"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286986"
 ---
 <a name="introduction-to-scaleout-in-signalr"></a>Einführung zur horizontalen Skalierung in SignalR
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > ## <a name="software-versions-used-in-this-topic"></a>In diesem Thema verwendeten Softwareversionen
 >
@@ -78,9 +80,9 @@ Der Cursor Mechanismus funktioniert auch, wenn ein Client auf einen anderen Serv
 
 Verwenden eine Rückwandplatine, ist der maximale Nachrichtendurchsatz niedriger als bei der Kommunikation von Clients direkt mit einem einzelnen Server-Knoten. Dies liegt daran der Rückwand leitet jede Nachricht auf jedem Knoten aus, damit der Rückwand Engpässe auftreten kann. Ob diese Einschränkung ein Problem aufgetreten ist, hängt von der Anwendung ab. Hier sind z. B. einige typischen Szenarien für SignalR:
 
-- [Serverübertragung](../getting-started/tutorial-server-broadcast-with-signalr.md) (beispielsweise Börsenticker): Backplanes eignen sich gut für dieses Szenario, da der Server die Rate kontrolliert, an dem Nachrichten gesendet werden.
-- [Client-zu-Client](../getting-started/tutorial-getting-started-with-signalr.md) (z. B. chat): In diesem Szenario kann einen Engpass von der Rückwand sein, wenn die Anzahl der Nachrichten mit der Anzahl der Clients skaliert werden kann, d. h., wenn die Anzahl der Nachrichten wird proportional mehr Clients verknüpfen.
-- [Echtzeitnachrichten](../getting-started/tutorial-high-frequency-realtime-with-signalr.md) (z. B. in Echtzeit Spiele): eine Rückwandplatine wird für dieses Szenario nicht empfohlen.
+- [Serverübertragung](../getting-started/tutorial-server-broadcast-with-signalr.md) (beispielsweise Börsenticker): Backplanes eignen sich gut für dieses Szenario, da der Server die Rate kontrolliert, an der Nachrichten gesendet werden.
+- [Client-zu-Client](../getting-started/tutorial-getting-started-with-signalr.md) (z. B. chat): In diesem Szenario wird möglicherweise der Rückwand einen Engpass, wenn die Anzahl der Nachrichten mit der Anzahl der Clients skaliert werden kann; d. h., wenn die Anzahl der Nachrichten wird verknüpfen proportional mehr Clients.
+- [Echtzeitnachrichten](../getting-started/tutorial-high-frequency-realtime-with-signalr.md) (z. B. in Echtzeit Spiele): Eine Rückwandplatine wird für dieses Szenario nicht empfohlen.
 
 ## <a name="enabling-tracing-for-signalr-scaleout"></a>Aktivieren der Ablaufverfolgung für horizontale Skalierung in SignalR
 

@@ -6,12 +6,12 @@ ms.author: casoper
 ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/deploy-to-app-service
-ms.openlocfilehash: 4424d3d15cbd234357c8265fa276834cb9abf352
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 9fe17c9e210d4dda9b74818104fc52a60d4f0077
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121219"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284538"
 ---
 # <a name="deploy-an-app-to-app-service"></a>Bereitstellen einer app in App Service
 
@@ -73,7 +73,7 @@ Herunterladen Sie über eine Befehlsshell den Code, erstellen Sie das Projekt, u
 
 Um die app bereitstellen, müssen Sie zum Erstellen einer App Service [Web-App](/azure/app-service/app-service-web-overview). Nach der Erstellung der Web-App stellen Sie sich darauf aus Ihrem lokalen Computer mit Git bereit.
 
-1. Melden Sie sich bei der [Azure Cloudshell](https://shell.azure.com/bash). Hinweis: Wenn Sie zum ersten Mal anmelden, fordert Cloud Shell zum Erstellen eines Speicherkontos für Konfigurationsdateien. Akzeptieren Sie die Standardeinstellungen, oder geben Sie einen eindeutigen Namen.
+1. Melden Sie sich bei der [Azure Cloudshell](https://shell.azure.com/bash). Hinweis: Wenn Sie zum ersten Mal anmelden, fordert Cloud Shell, um ein Speicherkonto für Konfigurationsdateien zu erstellen. Akzeptieren Sie die Standardeinstellungen, oder geben Sie einen eindeutigen Namen.
 
 2. Verwenden Sie Cloud Shell, für die folgenden Schritte aus.
 
@@ -141,7 +141,7 @@ Um die app bereitstellen, müssen Sie zum Erstellen einer App Service [Web-App](
 
 ## <a name="deployment-with-visual-studio"></a>Bereitstellung mit Visual Studio
 
-> *Hinweis: Dieser Abschnitt gilt für Windows nur. Linux und MacOS-Benutzer sollte es sich um die in Schritt 2 unten beschriebenen Änderung vornehmen. Speichern Sie die Datei, und committen der Änderung im lokalen Repository mit `git commit`. Drücken Sie schließlich die Änderung mit `git push`, wie im ersten Abschnitt.*
+> *Hinweis: Dieser Abschnitt gilt nur für Windows. Linux und MacOS-Benutzer sollte es sich um die in Schritt 2 unten beschriebenen Änderung vornehmen. Speichern Sie die Datei, und committen der Änderung im lokalen Repository mit `git commit`. Drücken Sie schließlich die Änderung mit `git push`, wie im ersten Abschnitt.*
 
 Die app wurde bereits von der Befehlsshell aus bereitgestellt wurde. Integrierte Tools für Visual Studio können wir ein Update für die app bereit. Hinter den Kulissen führt Visual Studio das gleiche wie die Befehlszeilentools, jedoch innerhalb von Visual Studio vertraute Benutzeroberfläche.
 

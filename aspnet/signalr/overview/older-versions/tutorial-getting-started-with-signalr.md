@@ -8,16 +8,18 @@ ms.date: 02/18/2013
 ms.assetid: fdc3599a-5217-44c1-951f-0eec9812dce7
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: d541dad19d8fd547d61e8850d64e514ea5db7fcf
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 720a4879f5fbe3c0c2b4c7809cb94c22547329c3
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912422"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287360"
 ---
 <a name="tutorial-getting-started-with-signalr-1x"></a>Tutorial: Erste Schritte mit SignalR 1.x
 ====================
 durch [Patrick Fletcher](https://github.com/pfletcher), [Tim Teebken](https://github.com/timlt)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Dieses Tutorial zeigt, wie Sie mithilfe von SignalR eine Chatanwendung mit Echtzeitfunktionalität erstellen. Sie werden eine leere ASP.NET-Webanwendung SignalR hinzu, und erstellen Sie eine HTML-Seite zum Senden und Meldungen angezeigt werden.
 
@@ -165,7 +167,7 @@ Der folgende Code zeigt, wie Sie eine Verbindung mit dem Hub zu öffnen. Der Cod
 
 Sie haben gelernt, dass es sich bei SignalR handelt es sich ein Framework zum Erstellen von Echtzeit-Webanwendungen. Sie erfahren auch mehrere Aufgaben bei der Entwicklung von SignalR: wie eine ASP.NET-Anwendung SignalR hinzugefügt, wie zum Erstellen einer hubklasse und das Senden und Empfangen von Nachrichten aus dem Hub.
 
-Sie können die beispielanwendung in diesem Tutorial oder andere SignalR-Anwendungen verfügbar über das Internet, indem sie bei einem Hostinganbieter bereitstellen. Microsoft bietet kostenloses Webhosting für bis zu 10 Websites in einem kostenlosen [Windows Azure-Testkonto](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604). Eine exemplarische Vorgehensweise zum Bereitstellen der beispielanwendung für die SignalR finden Sie unter [der SignalR Beispiel "Erste Schritte" als ein Windows Azure-Website veröffentlichen](https://blogs.msdn.com/b/timlee/archive/2013/02/27/deploy-the-signalr-getting-started-sample-as-a-windows-azure-web-site.aspx). Ausführliche Informationen dazu, wie Sie ein Visual Studio-Webprojekt auf einer Windows Azure-Website bereitstellen, finden Sie unter [Bereitstellung einer ASP.NET-Anwendung auf einem Windows Azure-Website](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet). (Hinweis: der WebSocket-Transport wird derzeit nicht unterstützt für Windows Azure-Websites. Bei der WebSocket-Transport ist nicht verfügbar, die SignalR verwendet die andere verfügbare Transporte wie beschrieben im Abschnitt Transporte, der die [Einführung zu SignalR Thema](index.md).)
+Sie können die beispielanwendung in diesem Tutorial oder andere SignalR-Anwendungen verfügbar über das Internet, indem sie bei einem Hostinganbieter bereitstellen. Microsoft bietet kostenloses Webhosting für bis zu 10 Websites in einem kostenlosen [Windows Azure-Testkonto](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604). Eine exemplarische Vorgehensweise zum Bereitstellen der beispielanwendung für die SignalR finden Sie unter [der SignalR Beispiel "Erste Schritte" als ein Windows Azure-Website veröffentlichen](https://blogs.msdn.com/b/timlee/archive/2013/02/27/deploy-the-signalr-getting-started-sample-as-a-windows-azure-web-site.aspx). Ausführliche Informationen dazu, wie Sie ein Visual Studio-Webprojekt auf einer Windows Azure-Website bereitstellen, finden Sie unter [Bereitstellung einer ASP.NET-Anwendung auf einem Windows Azure-Website](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet). (Beachten Sie: Der WebSocket-Transport wird derzeit nicht für Windows Azure Web Sites unterstützt. Bei der WebSocket-Transport ist nicht verfügbar, die SignalR verwendet die andere verfügbare Transporte wie beschrieben im Abschnitt Transporte, der die [Einführung zu SignalR Thema](index.md).)
 
 Erweiterte Konzepte der SignalR-Entwicklungen finden Sie unter den folgenden Websites für SignalR-Quellcode und Ressourcen:
 

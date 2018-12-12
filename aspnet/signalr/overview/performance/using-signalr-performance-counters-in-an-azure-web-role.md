@@ -9,30 +9,32 @@ ms.date: 10/03/2018
 ms.assetid: 2a127d3b-21ed-4cc9-bec0-cdab4e742a25
 msc.legacyurl: /signalr/overview/performance/using-signalr-performance-counters-in-an-azure-web-role
 msc.type: authoredcontent
-ms.openlocfilehash: 7304ff17bb53f94bdee1e90602d206bf32184e37
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: bdd875201895c6eaf155b54582d0898c2570d93c
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795459"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287701"
 ---
 # <a name="using-signalr-performance-counters-in-an-azure-web-role"></a>Verwenden von SignalR-Leistungsindikatoren in einer Azure-Webrolle
 
 Von [Luke Latham](https://github.com/guardrex)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 SignalR-Leistungsindikatoren werden verwendet, um die Leistung Ihrer app in einer Azure-Webrolle zu überwachen. Die Leistungsindikatoren werden von Microsoft Azure-Diagnose erfasst. SignalR-Leistungsindikatoren in Azure mit der Installation *signalr.exe*, das gleiche Tool zum eigenständigen oder lokalen apps. Da Azure-Rollen nur vorübergehend auftreten, konfigurieren Sie eine app zum Installieren und Registrieren von SignalR-Leistungsindikatoren nach dem Start.
 
 ## <a name="prerequisites"></a>Vorraussetzungen
 
 * Visual Studio 2015 oder [2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
-* [Microsoft Azure SDK für Visual Studio](https://azure.microsoft.com/downloads/) **Hinweis: Starten Sie Ihren Computer nach der Installation des SDK neu.**
-* Microsoft Azure-Abonnement: für ein kostenloses Azure-Testkonto registrieren zu können, finden Sie unter [Azure – kostenlose Testversion](https://azure.microsoft.com/free/).
+* [Microsoft Azure SDK für Visual Studio](https://azure.microsoft.com/downloads/) **beachten: Starten Sie Ihren Computer nach der Installation des SDK neu.**
+* Microsoft Azure-Abonnement: Für ein kostenloses Azure-Testkonto registrieren zu können, finden Sie unter [Azure – kostenlose Testversion](https://azure.microsoft.com/free/).
 
 ## <a name="creating-an-azure-web-role-application-that-exposes-signalr-performance-counters"></a>Erstellen einer Anwendung für Azure-Webrolle, stellt SignalR-Leistungsindikatoren
 
 1. Öffnen Sie Visual Studio.
 
-2. Wählen Sie in Visual Studio **Datei** > **neu** > **Projekt**.
+2. Klicken Sie in Visual Studio auf **Datei** > **Neu** > **Projekt**.
 
 3. In der **neues Projekt** wählen Sie im Dialogfeld die **Visual C#-** > **Cloud** Kategorie auf der linken Seite, und wählen Sie dann die **fürAzure-Clouddienst** Vorlage. Benennen Sie die app **SignalRPerfCounters** , und wählen Sie **OK**.
 

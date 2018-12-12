@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: adcfef99-9bc5-489d-a91b-9b7c2bc35e04
 msc.legacyurl: /signalr/overview/releases/upgrading-signalr-1x-projects-to-20
 msc.type: authoredcontent
-ms.openlocfilehash: 450ddedb520035cc05a0dbcca1a2666dd1ba24c7
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 23ea23585b15395cf86bdad13885af32d1b64e79
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910550"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286843"
 ---
 <a name="upgrading-signalr-1x-projects-to-version-2"></a>Aktualisieren von SignalR 1.x-Projekte auf Version 2
 ====================
 durch [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > In diesem Thema wird beschrieben, wie Sie ein vorhandenes SignalR 1.x-Projekt auf SignalR aktualisieren 2.x, und Beheben von Problemen, die während des Upgrades auftreten können.
 >
@@ -50,7 +52,7 @@ SignalR 2 bietet eine einheitliche Entwicklungsumgebung bietet über Serverplatt
 
 Obwohl empfohlen wird, Anwendungen mit SignalR 2 zu aktualisieren, werden SignalR 1.x weiterhin unterstützt.
 
-Dieses Tutorial beschreibt, wie Sie eine im Internet gehostete Anwendung mit SignalR 2 zu aktualisieren. Selbst gehostete Anwendungen (diejenigen, die ein Server in einer Konsolenanwendung, Windows-Dienst oder andere geplante Prozesses hosten) werden jetzt als SignalR-2 unterstützt. Informationen zum Erstellen einer selbst gehosteten Anwendung mit SignalR 2 beginnen, finden Sie unter [Tutorial: Selfhosten von SignalR](../deployment/tutorial-signalr-self-host.md).
+Dieses Tutorial beschreibt, wie Sie eine im Internet gehostete Anwendung mit SignalR 2 zu aktualisieren. Selbst gehostete Anwendungen (diejenigen, die ein Server in einer Konsolenanwendung, Windows-Dienst oder andere geplante Prozesses hosten) werden jetzt als SignalR-2 unterstützt. Informationen zum Erstellen einer selbst gehosteten Anwendung mit SignalR 2 beginnen, finden Sie unter [Lernprogramm: Selfhosten von SignalR](../deployment/tutorial-signalr-self-host.md).
 
 ## <a name="contents"></a>Inhalt
 
@@ -61,7 +63,7 @@ Die folgenden Abschnitte beschreiben die Aufgaben zum beim Upgrade von SignalR-P
 
 <a id="example"></a>
 
-## <a name="example-upgrading-the-getting-started-tutorial-application-to-signalr-2"></a>Beispiel: Aktualisieren der erste Schritte-Lernprogrammen Anwendung mit SignalR 2
+## <a name="example-upgrading-the-getting-started-tutorial-application-to-signalr-2"></a>Beispiel: Aktualisieren die erste Schritte-Tutorial Anwendung mit SignalR 2
 
 In diesem Abschnitt Aktualisieren Sie die Anwendung, die erstellt werden, der [SignalR 1.x-Version der Getting Started Tutorial](../older-versions/index.md) mit SignalR 2.
 

@@ -8,16 +8,18 @@ ms.date: 05/15/2013
 ms.assetid: eaa206c4-edb3-487e-8fcb-54a3261fed36
 msc.legacyurl: /signalr/overview/older-versions/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 905dea4918be731673c39e788069ce2dc78e1649
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 2035b3feebfa32dd7ec4d6adf715a7fee5e7b74f
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910693"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287361"
 ---
 <a name="dependency-injection-in-signalr-1x"></a>Abhängigkeitsinjektion in SignalR 1.x
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 Abhängigkeitsinjektion ist eine Möglichkeit zum Entfernen von hartcodierten Abhängigkeiten zwischen Objekten, erleichtert Ihnen die Abhängigkeiten eines Objekts entweder zu Testzwecken (mithilfe von Mockobjekten) zu ersetzen oder Laufzeitverhalten zu ändern. In diesem Tutorial wird gezeigt, wie Abhängigkeitsinjektion in SignalR-Hubs. Es wird gezeigt, wie IoC-Container mit SignalR verwenden. Ein IoC-Container ist ein allgemeines Rahmenwerk für Dependency Injection.
 
@@ -81,7 +83,7 @@ Der Chat-Anwendung ist möglicherweise zu einfach, um von einem IoC-Container zu
 
 Der StockTicker-Beispiel definiert zwei wichtigste Klassen:
 
-- `StockTickerHub`: Das Hub-Klasse, die Clientverbindungen verwaltet.
+- `StockTickerHub`: Die hubklasse, die Clientverbindungen verwaltet.
 - `StockTicker`: Ein Singleton, der Aktienkurse enthält und in regelmäßigen Abständen aktualisiert werden.
 
 `StockTickerHub` enthält einen Verweis auf die `StockTicker` Singleton, während `StockTicker` enthält einen Verweis auf die **IHubConnectionContext** für die `StockTickerHub`. Er verwendet diese Schnittstelle für die Kommunikation mit `StockTickerHub` Instanzen. (Weitere Informationen finden Sie unter [Serverübertragung mit ASP.NET SignalR](index.md).)

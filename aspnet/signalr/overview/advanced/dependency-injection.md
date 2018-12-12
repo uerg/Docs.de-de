@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: a14121ae-02cf-4024-8af0-9dd0dc810690
 msc.legacyurl: /signalr/overview/advanced/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 607738e7531eaf9ee9f6a24267b65e153cc4d599
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: f5959902b030621a19d912d7db2ea0faf95b7a7c
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912865"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287790"
 ---
 <a name="dependency-injection-in-signalr"></a>Abhängigkeitsinjektion in SignalR
 ====================
 durch [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > ## <a name="software-versions-used-in-this-topic"></a>In diesem Thema verwendeten Softwareversionen
 >
@@ -99,7 +101,7 @@ Der Chat-Anwendung ist möglicherweise zu einfach, um von einem IoC-Container zu
 
 Der StockTicker-Beispiel definiert zwei wichtigste Klassen:
 
-- `StockTickerHub`: Das Hub-Klasse, die Clientverbindungen verwaltet.
+- `StockTickerHub`: Die hubklasse, die Clientverbindungen verwaltet.
 - `StockTicker`: Ein Singleton, der Aktienkurse enthält und in regelmäßigen Abständen aktualisiert werden.
 
 `StockTickerHub` enthält einen Verweis auf die `StockTicker` Singleton, während `StockTicker` enthält einen Verweis auf die **IHubConnectionContext** für die `StockTickerHub`. Er verwendet diese Schnittstelle für die Kommunikation mit `StockTickerHub` Instanzen. (Weitere Informationen finden Sie unter [Serverübertragung mit ASP.NET SignalR](../getting-started/tutorial-server-broadcast-with-signalr.md).)

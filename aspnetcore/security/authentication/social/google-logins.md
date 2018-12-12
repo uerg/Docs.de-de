@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 11/11/2018
 uid: security/authentication/google-logins
-ms.openlocfilehash: e5deda5d521643e3155be00f4630a86c6a82575c
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 372504eb4f6fea412b5b160e0d5e9251dafe0d56
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121530"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284486"
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>Google externe Anmeldung Setup in ASP.NET Core
 
@@ -50,11 +50,11 @@ In diesem Tutorial erfahren Sie, wie Sie Benutzern die Anmeldung mit ihrer Googl
   * **Webserver (z. B. node.js, Tomcat)**, und
   * **Benutzerdaten**:
 
-![Seite "API-Manager-Anmeldeinformationen": finden Sie heraus, welche Art von Anmeldeinformationen benötigen Bereich](index/_static/GoogleConsoleChooseCred.png)
+![Seite für die API-Manager-Anmeldeinformationen: Erfahren Sie, welche Art von Anmeldeinformationen benötigen Bereich](index/_static/GoogleConsoleChooseCred.png)
 
 * Tippen Sie auf **welche Anmeldeinformationen benötige ich?** die gelangen Sie zum zweiten Schritt des app-Konfiguration, **erstellen Sie eine OAuth 2.0-Client-ID**:
 
-![Seite "API-Manager-Anmeldeinformationen": eine OAuth 2.0-Client-ID erstellen](index/_static/GoogleConsoleCreateClient.png)
+![Seite für die API-Manager-Anmeldeinformationen: Erstellen Sie eine OAuth 2.0-Client-ID](index/_static/GoogleConsoleCreateClient.png)
 
 * Da wir ein Google +-Projekt, mit nur einem Merkmal (Anmelden) erstellen, können wir geben Sie den gleichen **Namen** für die OAuth 2.0-Client-ID, das wir für das Projekt verwendet.
 
@@ -67,13 +67,13 @@ In diesem Tutorial erfahren Sie, wie Sie Benutzern die Anmeldung mit ihrer Googl
 
 * Tippen Sie auf **Client-ID erstellen**, die mit dem dritten Schritt gelangen Sie **richten Sie die OAuth 2.0-Zustimmungsdialogfeld**:
 
-![Seite "API-Manager-Anmeldeinformationen": Einrichten der OAuth 2.0-zustimmungsbildschirm](index/_static/GoogleConsoleAddCred.png)
+![Seite für die API-Manager-Anmeldeinformationen: Einrichten der OAuth 2.0-zustimmungsbildschirm](index/_static/GoogleConsoleAddCred.png)
 
 * Geben Sie Ihre öffentlich **e-Mail-Adresse** und **Produktname** für Ihre app angezeigt wird, wenn es sich bei Google + der Benutzer zur Anmeldung aufgefordert. Weitere Optionen sind verfügbar unter **Weitere Anpassungsoptionen**.
 
 * Tippen Sie auf **Weiter** bis zum letzten Schritt fortfahren **Anmeldeinformationen herunterladen**:
 
-![Seite "API-Manager-Anmeldeinformationen": Herunterladen von Anmeldeinformationen](index/_static/GoogleConsoleFinish.png)
+![Seite für die API-Manager-Anmeldeinformationen: Anmeldeinformationen herunterladen](index/_static/GoogleConsoleFinish.png)
 
 * Tippen Sie auf **herunterladen** um eine JSON-Datei mit Geheimnissen aus Anwendungen, zu speichern und **Fertig** um die Erstellung der neuen app abzuschließen.
 
@@ -136,7 +136,7 @@ Finden Sie unter den [GoogleOptions](/dotnet/api/microsoft.aspnetcore.builder.go
 
 Führen Sie die Anwendung, und klicken Sie auf **melden Sie sich bei**. Eine Option aus, um sich mit Google anmelden wird angezeigt:
 
-![Webanwendung zur Ausführung in Microsoft Edge: Benutzer nicht authentifiziert.](index/_static/DoneGoogle.png)
+![Webanwendung, die in Microsoft Edge ausgeführt wird: Benutzer nicht authentifiziert.](index/_static/DoneGoogle.png)
 
 Wenn Sie Google klicken, werden Sie für die Authentifizierung an Google umgeleitet:
 
@@ -146,14 +146,14 @@ Nach dem Eingeben Ihrer Google-Anmeldeinformationen an, werden dann Sie zurück 
 
 Sie sind jetzt angemeldet, sich mit Ihren Google-Anmeldeinformationen:
 
-![Webanwendung zur Ausführung in Microsoft Edge: Benutzerauthentifizierung](index/_static/Done.png)
+![Webanwendung, die in Microsoft Edge ausgeführt wird: Benutzerauthentifizierung](index/_static/Done.png)
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
 ## <a name="troubleshooting"></a>Problembehandlung
 
 * Wenn Sie erhalten eine `403 (Forbidden)` Fehlerseite aus Ihrer eigenen app beim Ausführen im Entwicklungsmodus (oder unterbrechen im Debugger mit dem gleichen Fehler), sicher, dass **Google + API** in aktiviert wurde die **-API-Manager-Bibliothek** durch die folgenden Schritte [weiter oben auf dieser Seite](#create-the-app-in-google-api-console). Wenn die Anmeldung funktioniert nicht, und Sie sind keine Fehler erhalten, wechseln Sie in Development-Modus, um das Problem einfacher Debuggen lässt.
-* **ASP.NET Core 2.x nur:** Wenn Identität ist nicht konfiguriert, durch den Aufruf `services.AddIdentity` in `ConfigureServices`, Authentifizierungsversuch führt zu *ArgumentException: die Option 'SignInScheme' muss angegeben werden*. Die Projektvorlage, die in diesem Tutorial verwendete wird sichergestellt, dass dies geschehen ist.
+* **ASP.NET Core 2.x nur:** Wenn Identität nicht, durch den Aufruf konfiguriert ist `services.AddIdentity` in `ConfigureServices`, Authentifizierungsversuch führt zu *ArgumentException: Die Option 'SignInScheme' muss angegeben werden*. Die Projektvorlage, die in diesem Tutorial verwendete wird sichergestellt, dass dies geschehen ist.
 * Wenn die Standortdatenbank nicht erstellt wurde, indem die ursprüngliche Migration anwenden, erhalten Sie *Fehler bei ein Datenbankvorgang beim Verarbeiten der Anforderung* Fehler. Tippen Sie auf **Migrationen anwenden** der Datenbank zu erstellen und aktualisieren, um den Fehler hinaus fortgesetzt.
 
 ## <a name="next-steps"></a>Nächste Schritte

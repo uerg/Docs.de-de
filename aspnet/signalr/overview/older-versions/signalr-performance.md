@@ -8,16 +8,18 @@ ms.date: 07/03/2013
 ms.assetid: 9594d644-66b6-4223-acdd-23e29a6e4c46
 msc.legacyurl: /signalr/overview/older-versions/signalr-performance
 msc.type: authoredcontent
-ms.openlocfilehash: 3ac62639617e1ff83761d0a1d45c27303d0b820d
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: ea2d3908544ac8b3ea17ceceaf1d2905c5c6f322
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912760"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287568"
 ---
 <a name="signalr-performance-signalr-1x"></a>SignalR-Leistung (SignalR 1.x)
 ====================
 durch [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > In diesem Thema wird beschrieben, wie für entwerfen, zu messen und Verbessern der Leistung in einer SignalR-Anwendung.
 
@@ -79,7 +81,7 @@ Die folgenden Konfigurationseinstellungen können verwendet werden, um den Serve
 
 **IIS-Konfigurationseinstellungen**
 
-- **Maximale Anzahl gleichzeitiger Anforderungen pro Anwendung**: Erhöhen der Anzahl von gleichzeitigen IIS Anforderungen steigt die Serverressourcen verfügbar sind, Anforderungen zu verarbeiten. Der Standardwert ist 5000. Um diese Einstellung erhöhen, führen Sie die folgenden Befehle an einer Eingabeaufforderung mit erhöhten Rechten aus:
+- **Maximale Anzahl gleichzeitiger Anforderungen pro Anwendung**: Erhöhen der Anzahl von gleichzeitigen IIS erhöht Anforderungen Serverressourcen verfügbar sind, Anforderungen zu verarbeiten. Der Standardwert ist 5000. Um diese Einstellung erhöhen, führen Sie die folgenden Befehle an einer Eingabeaufforderung mit erhöhten Rechten aus:
 
     [!code-console[Main](signalr-performance/samples/sample4.cmd)]
 
@@ -92,7 +94,7 @@ Dieser Abschnitt enthält Konfigurationseinstellungen, die festgelegt werden kö
 
 Die folgenden: ASP.NET-Einstellungen, die SignalR-Leistung verbessern können
 
-- **Maximale Anzahl gleichzeitiger Anforderungen pro CPU**: erhöhen diese Einstellung möglicherweise Leistungsengpässe verringern. Um diese Einstellung erhöhen, fügen Sie die folgende Konfigurationseinstellung der `aspnet.config` Datei:
+- **Maximale Anzahl gleichzeitiger Anforderungen pro CPU**: Erhöhen diese Einstellung möglicherweise Leistungsengpässe verringern. Um diese Einstellung erhöhen, fügen Sie die folgende Konfigurationseinstellung der `aspnet.config` Datei:
 
     [!code-xml[Main](signalr-performance/samples/sample5.xml?highlight=4)]
 - **Begrenzung für Anforderungswarteschlange**: Wenn die Gesamtzahl der Verbindungen überschreitet die `maxConcurrentRequestsPerCPU` festlegen, ASP.NET startet drosselungsanforderungen über eine Warteschlange. Um die Größe der Warteschlange zu erhöhen, können Sie erhöhen die `requestQueueLimit` festlegen. Zu diesem Zweck fügen Sie die folgende Konfigurationseinstellung der `processModel` Knoten `config/machine.config` (statt `aspnet.config`):
@@ -178,10 +180,10 @@ Die folgenden Metriken Messen von Datenverkehr über die interne SignalR-Nachric
 Die folgenden Metriken Messen von SignalR-Nachrichtenverkehr generierten Fehler. **Hub-Lösung** Fehler auftreten, wenn Sie einen Hub oder hubmethode nicht aufgelöst werden kann. **Hubaufruf** Fehler sind Ausnahmen, die beim Aufruf einer hubmethode. **Transport** treten Verbindungsfehler während einer HTTP-Anforderung oder Antwort ausgelöst wurde.
 
 - **Fehler: Alle gesamt**
-- **Fehler: All/Sekunde**
+- **Fehler: Alle/Sekunde**
 - **Fehler: Gesamtanzahl der Hub-Lösung**
 - **Fehler: Hub-Lösung/Sekunde**
-- **Fehler: Gesamtanzahl der Hub-Aufruf**
+- **Fehler: Hub-aufrufen gesamt**
 - **Fehler: Hub-aufrufen/Sek.**
 - **Fehler: Transport gesamt**
 - **Fehler: Transport/Sek.**

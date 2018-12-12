@@ -6,12 +6,12 @@ ms.author: casoper
 ms.date: 09/21/2018
 ms.custom: mvc, seodec18
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: e8ac1e33819dd369460139df25597e1aa0979c91
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 9c541644d276bbdc990bb01f8bd80c92862cd6f0
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121712"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284616"
 ---
 # <a name="authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Authentifizierung in Web-APIs mit Azure Active Directory B2C in ASP.NET Core
 
@@ -19,7 +19,7 @@ Von [Cam Soper](https://twitter.com/camsoper)
 
 [Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) ist eine Cloudlösung für die Verwaltung von Identität für Web- und mobilen apps. Der Dienst ermöglicht die Authentifizierung für apps, die in der Cloud und lokal gehostet werden. Authentifizierungstypen sind einzelne Konten, Konten sozialer Netzwerke, und Verbundbenutzer Unternehmenskonten zu authentifizieren. Azure AD B2C bietet auch Multi-Factor Authentication mit Minimalkonfiguration.
 
-Azure Active Directory (Azure AD) und Azure AD B2C sind separate Produktangebote. Azure AD-Mandant repräsentiert eine Organisation, auf, während ein Azure AD B2C-Mandanten ist, eine Sammlung von Identitäten, die mit Anwendungen der vertrauenden Seite verwendet werden. Weitere Informationen finden Sie unter [Azure AD B2C: häufig gestellte Fragen (FAQ)](/azure/active-directory-b2c/active-directory-b2c-faqs).
+Azure Active Directory (Azure AD) und Azure AD B2C sind separate Produktangebote. Azure AD-Mandant repräsentiert eine Organisation, auf, während ein Azure AD B2C-Mandanten ist, eine Sammlung von Identitäten, die mit Anwendungen der vertrauenden Seite verwendet werden. Weitere Informationen finden Sie unter [Azure AD B2C: Häufig gestellte Fragen (FAQ)](/azure/active-directory-b2c/active-directory-b2c-faqs).
 
 Da Web-APIs enthalten keine Benutzeroberfläche, können sie nicht den Benutzer an einem sicheren Tokendienst wie Azure AD B2C umleiten. Stattdessen wird die API ein trägertoken, das von der aufrufenden app übergeben bereits den Benutzer mit Azure AD B2C authentifiziert hat. Die API überprüft das Token ohne direkten Benutzereingriff.
 
@@ -182,7 +182,7 @@ Um eine authentifizierte Anforderung an die Web-API vornehmen zu können, ist ei
    | <strong>Die Clientauthentifizierung</strong> |                                Senden von Clientanmeldeinformationen in Text                                |                                                                                                                                                                                                                                                                              |
 
     > [!NOTE]
-    > &dagger; Das Dialogfeld für die Richtlinie Einstellungen im Azure Active Directory B2C-Portal zeigt zwei mögliche URLs an: in das Format `https://login.microsoftonline.com/`{Mandanten-Domain-Name} / {zusätzliche Pfadinformationen}, und die andere im Format `https://{tenant name}.b2clogin.com/`{Mandanten-Domain-Name} / {zusätzliche die Pfadinformationen}. Sie verfügt über **kritische** , die die Domäne finden Sie in in `AzureAdB2C.Instance` in der Web-API *"appSettings.JSON"* Datei entspricht, die in der Web-app verwendet *"appSettings.JSON"* Datei. Dies ist der gleichen Domäne, die für die Authentifizierungs-URL-Feld in Postman verwendet. Beachten Sie, dass Visual Studio verwendet ein etwas anderes URL-Format als was im Portal angezeigt wird. Solange die angegebenen Domänen entsprechen, funktioniert die URL.
+    > &dagger; Das Dialogfeld für die Richtlinie Einstellungen im Azure Active Directory B2C-Portal zeigt zwei mögliche URLs: Eine im Format `https://login.microsoftonline.com/`{Mandanten-Domain-Name} / {zusätzliche Pfadinformationen}, und die andere im Format `https://{tenant name}.b2clogin.com/`{Mandanten-Domain-Name} / {zusätzliche Pfadinformationen}. Sie verfügt über **kritische** , die die Domäne finden Sie in in `AzureAdB2C.Instance` in der Web-API *"appSettings.JSON"* Datei entspricht, die in der Web-app verwendet *"appSettings.JSON"* Datei. Dies ist der gleichen Domäne, die für die Authentifizierungs-URL-Feld in Postman verwendet. Beachten Sie, dass Visual Studio verwendet ein etwas anderes URL-Format als was im Portal angezeigt wird. Solange die angegebenen Domänen entsprechen, funktioniert die URL.
 
 3. Wählen Sie die **Token anfordern** Schaltfläche.
 

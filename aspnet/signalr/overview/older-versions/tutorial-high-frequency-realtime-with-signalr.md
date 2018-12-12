@@ -8,16 +8,18 @@ ms.date: 04/16/2013
 ms.assetid: ad2a5da5-2e79-40ea-bc84-028d327f5982
 msc.legacyurl: /signalr/overview/older-versions/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: c677bcbc78eac6056c035c2b34fe659caac9c6fa
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: a679a7c66a94fa440a1ead64225eb86f7de90c9e
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912279"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287957"
 ---
 <a name="high-frequency-realtime-with-signalr-1x"></a>Echtzeitnachrichten mit SignalR 1.x
 ====================
 durch [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Dieses Tutorial veranschaulicht, wie eine Webanwendung erstellen, die ASP.NET SignalR verwendet wird, um häufige-messaging-Funktionalität bereitzustellen. Häufige messaging bedeutet in diesem Fall die Updates, die mit einer festen Rate gesendet werden; Bei dieser Anwendung bis zu 10 Nachrichten pro Sekunde.
 > 

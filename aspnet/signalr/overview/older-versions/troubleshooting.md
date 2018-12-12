@@ -8,16 +8,18 @@ ms.date: 06/05/2013
 ms.assetid: 347210ba-c452-4feb-886f-b51d89f58971
 msc.legacyurl: /signalr/overview/older-versions/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: df949347cecd9ac617a52ad798f37bebdb8524fa
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 6c2a8e72959c9370ff46084ca135c2b2977f4f42
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826287"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287682"
 ---
 <a name="signalr-troubleshooting-signalr-1x"></a>Problembehandlung für SignalR (SignalR 1.x)
 ====================
 durch [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Dieses Dokument beschreibt allgemeine Probleme mit SignalR.
 
@@ -157,8 +159,8 @@ Dieser Fehler kann in Umgebungen mit Domänen hinweg auftreten, in denen domäne
 
 Es gibt mehrere Ursachen für dieses Problem. Überprüfen Sie Folgendes aus:
 
-- **Hub-Proxy-Adresse Verweis nicht ordnungsgemäß formatiert:** dieser Fehler wird häufig angezeigt, wenn der Verweis auf die generierten Hub-Proxy-Adresse nicht korrekt formatiert ist. Stellen Sie sicher, dass der Verweis auf die Hub-Adresse richtig gemacht wird. Finden Sie unter [wie auf den dynamisch generierten Proxy verwiesen](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy) Details.
-- **Hinzufügen von Routen für die Anwendung vor dem Hinzufügen der hubroute:** , wenn Ihre Anwendung anderen Routen verwendet, stellen Sie sicher, dass die erste Route hinzugefügt, den Aufruf wird `MapHubs`.
+- **Hub-Proxy-Adresse Verweis nicht ordnungsgemäß formatiert:** Dieser Fehler wird häufig angezeigt, wenn der Verweis auf die generierten Hub-Proxy-Adresse nicht korrekt formatiert ist. Stellen Sie sicher, dass der Verweis auf die Hub-Adresse richtig gemacht wird. Finden Sie unter [wie auf den dynamisch generierten Proxy verwiesen](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy) Details.
+- **Hinzufügen von Routen für die Anwendung vor dem Hinzufügen der hubroute:** Wenn Ihre Anwendung anderen Routen verwendet, stellen Sie sicher, dass die erste Route hinzugefügt, den Aufruf wird `MapHubs`.
 
 ### <a name="500-internal-server-error"></a>"500 Interner Serverfehler"
 
@@ -172,7 +174,7 @@ Dieser Fehler ausgelöst, wenn der Aufruf von `MapHubs` erfolgt nicht ordnungsge
 
 Stellen Sie sicher, dass die Parameter, die Sie an Ihre Methoden senden keine nicht-serialisierbare Typen (z.B. Dateihandles oder Datenbankverbindungen) enthalten. Wenn Sie Mitglieder für ein serverseitiges Objekt verwenden, die Sie nicht möchten, die an den Client (entweder für die Sicherheit oder aus Gründen der Serialisierung), verwenden gesendet werden müssen die `JSONIgnore` Attribut.
 
-### <a name="protocol-error-unknown-transport-error"></a>"Protokollfehler: Unbekannter Transport" Fehler
+### <a name="protocol-error-unknown-transport-error"></a>"Protokollfehler: Unbekannter Transportfehler "
 
 Dieser Fehler kann auftreten, wenn der Client die Transporte, die SignalR verwendet, nicht unterstützt wird. Finden Sie unter [Transporte und Fallbacks](../getting-started/introduction-to-signalr.md#transports) Informationen, die auf dem Browser mit SignalR verwendet werden können.
 
@@ -184,11 +186,11 @@ Dieser Fehler tritt auf, wenn `DisableJavaScriptProxies` festgelegt ist, währen
 
 Dieser Fehler kann auftreten, wenn Authentifizierung wird verwendet, und der Client wird abgemeldet, bevor die Verbindung beendet wird. Die Lösung besteht darin, die SignalR-Verbindung, bevor der Client durch die Abmeldung zu beenden.
 
-### <a name="uncaught-error-signalr-jquery-not-found-please-ensure-jquery-is-referenced-before-the-signalrjs-file-error"></a>"Unerwarteter Fehler: SignalR: jQuery wurde nicht gefunden. Stellen Sie sicher, dass jQuery, bevor die SignalR.js-Datei verwiesen wird"Fehler
+### <a name="uncaught-error-signalr-jquery-not-found-please-ensure-jquery-is-referenced-before-the-signalrjs-file-error"></a>"Unerwarteter Fehler: SignalR: jQuery, wurde nicht gefunden. Stellen Sie sicher, dass jQuery, bevor die SignalR.js-Datei verwiesen wird"Fehler
 
 Der SignalR-JavaScript-Client erfordert jQuery ausführen. Stellen Sie sicher, dass der Verweis auf die jQuery richtig ist, dass der verwendete Pfad gültig ist und dass der Verweis auf jQuery vor dem Verweis auf SignalR ist.
 
-### <a name="uncaught-typeerror-cannot-read-property-ltpropertygt-of-undefined-error"></a>"Nicht abgefangene TypeError: Eigenschaft kann nicht gelesen werden kann '&lt;Eigenschaft&gt;" undefined "Fehler
+### <a name="uncaught-typeerror-cannot-read-property-ltpropertygt-of-undefined-error"></a>"Nicht abgefangene TypeError: Eigenschaft kann nicht gelesen werden kann '&lt;Eigenschaft&gt;"undefined" Fehler
 
 Dieser Fehler tritt aus ohne jQuery oder Hubs Proxy ordnungsgemäß verwiesen. Stellen Sie sicher, dass der Verweis auf die jQuery und die Hubs-Proxy richtig ist, dass der verwendete Pfad gültig ist und dass der Verweis auf jQuery vor dem Verweis auf die Hubs-Proxy ist. Standardverweis auf den Proxy Hubs sollte wie folgt aussehen:
 

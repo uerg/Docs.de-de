@@ -8,16 +8,18 @@ ms.date: 10/13/2014
 ms.assetid: 1568247f-60b5-4eca-96e0-e661fbb2b273
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 7a85a704dc5d830ec793540fbc44a3ce7ec8c934
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: ad2eee8742d5bc45dc2bdc90f76736b4dc94d14b
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911534"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288007"
 ---
 <a name="tutorial-server-broadcast-with-signalr-2"></a>Tutorial: Serverübertragung mit SignalR 2
 ====================
 durch [Tom Dykstra](https://github.com/tdykstra), [Tom FitzMacken](https://github.com/tfitzmac)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Dieses Tutorial veranschaulicht, wie eine Webanwendung erstellen, die ASP.NET SignalR 2 verwendet, um Server-broadcast-Funktionalität bereitzustellen. Serverübertragung bedeutet, dass die Kommunikation, die an Clients gesendet, die vom Server initiiert werden. Dieses Szenario erfordert einen anderen Programmieransatz als Peer-zu-Peer-Szenarien, z. B. Chat-Anwendungen, die in denen Kommunikation, die an Clients gesendet, die von einer oder mehreren Clients initiiert werden.
 >
@@ -52,7 +54,6 @@ durch [Tom Dykstra](https://github.com/tdykstra), [Tom FitzMacken](https://githu
 > ## <a name="questions-and-comments"></a>Fragen und Kommentare
 >
 > Lassen Sie Feedback, auf wie Ihnen in diesem Tutorial gefallen hat und was wir in den Kommentaren am unteren Rand der Seite verbessern können. Wenn Sie Fragen, die nicht direkt mit dem Tutorial verknüpft sind haben, können Sie sie veröffentlichen das [ASP.NET SignalR-Forum](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oder [StackOverflow.com](http://stackoverflow.com/).
-
 
 ## <a name="overview"></a>Übersicht
 
@@ -222,7 +223,7 @@ Sie haben nun die Einrichtung der Servercode abgeschlossen. Im nächsten Abschni
 
     [!code-javascript[Main](tutorial-server-broadcast-with-signalr/samples/sample12.js)]
 
-    $.connection bezieht sich auf die SignalR-Proxys. Der Code einen Verweis auf den Proxy für die StockTickerHub-Klasse abgerufen und in die Ticker-Variable eingefügt. Proxyname ist der Name, der vom [HubName]-Attribut festgelegt wurde:
+    $.connection bezieht sich auf die SignalR-Proxys. Der Code einen Verweis auf den Proxy für die StockTickerHub-Klasse abgerufen und in die Ticker-Variable eingefügt. Der Proxyname ist der Name, der durch das [HubName]-Attribut festgelegt wurde:
 
     [!code-javascript[Main](tutorial-server-broadcast-with-signalr/samples/sample13.js)]
 

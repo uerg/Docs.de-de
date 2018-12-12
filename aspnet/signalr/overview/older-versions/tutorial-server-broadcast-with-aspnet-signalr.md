@@ -8,16 +8,18 @@ ms.date: 04/10/2013
 ms.assetid: ab7b2554-956a-4f6d-b2a0-4ae0c62e8580
 msc.legacyurl: /signalr/overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 7d604af11ade848358e291d1df25f2f8df850132
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: d5c09f6493c4dedb4fc2ecbf9055dd014ede71f2
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911980"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288046"
 ---
 <a name="tutorial-server-broadcast-with-aspnet-signalr-1x"></a>Tutorial: Serverübertragung mit ASP.NET SignalR 1.x
 ====================
 durch [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Dieses Tutorial veranschaulicht, wie eine Webanwendung erstellen, die ASP.NET SignalR verwendet, um Server-broadcast-Funktionalität bereitzustellen. Serverübertragung bedeutet, dass die Kommunikation, die an Clients gesendet, die vom Server initiiert werden. Dieses Szenario erfordert einen anderen Programmieransatz als Peer-zu-Peer-Szenarien, z. B. Chat-Anwendungen, die in denen Kommunikation, die an Clients gesendet, die von einer oder mehreren Clients initiiert werden.
 > 
@@ -221,7 +223,7 @@ Sie haben nun die Einrichtung der Servercode abgeschlossen. Im nächsten Abschni
 
     [!code-javascript[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample14.js)]
 
-    $.connection bezieht sich auf die SignalR-Proxys. Der Code einen Verweis auf den Proxy für die StockTickerHub-Klasse abgerufen und in die Ticker-Variable eingefügt. Proxyname ist der Name, der vom [HubName]-Attribut festgelegt wurde:
+    $.connection bezieht sich auf die SignalR-Proxys. Der Code einen Verweis auf den Proxy für die StockTickerHub-Klasse abgerufen und in die Ticker-Variable eingefügt. Der Proxyname ist der Name, der durch das [HubName]-Attribut festgelegt wurde:
 
     [!code-javascript[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample15.js)]
 

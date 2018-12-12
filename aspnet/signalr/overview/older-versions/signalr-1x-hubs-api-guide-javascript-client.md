@@ -8,16 +8,18 @@ ms.date: 04/17/2013
 ms.assetid: dcd4593b-1118-418a-af71-d12ff33fb36d
 msc.legacyurl: /signalr/overview/older-versions/signalr-1x-hubs-api-guide-javascript-client
 msc.type: authoredcontent
-ms.openlocfilehash: 993ad7924d8335f79aa2c3e41c00ddfa8bc26874
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 2d50a92cff96be5c5c60105bba6682d38f9666b6
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41838950"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288091"
 ---
 <a name="signalr-1x-hubs-api-guide---javascript-client"></a>SignalR 1.x-API-Leitfaden für die Hubs - JavaScript-Client
 ====================
 durch [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Dieses Dokument enthält eine Einführung zur Verwendung von den Hubs-API für SignalR-Version 1.1 im JavaScript-Clients wie Browsern und Anwendungen für Windows Store (WinJS).
 > 
@@ -446,7 +448,7 @@ SignalR bietet die folgenden Verbindung, die Objektlebensdauer-Ereignisse, die S
 - `starting`: Wird ausgelöst, bevor alle Daten über die Verbindung gesendet werden.
 - `received`: Wird ausgelöst, wenn alle Daten für die Verbindung empfangen werden. Stellt die empfangenen Daten bereit.
 - `connectionSlow`: Wird ausgelöst, wenn der Client eine Verbindung langsame ist oder häufig löschen erkennt.
-- `reconnecting`: Wird ausgelöst, wenn der zugrunde liegenden Transport, erneut eine Verbindung herzustellen beginnt.
+- `reconnecting`: Wird ausgelöst, wenn des zugrunde liegenden Transports, erneut eine Verbindung herzustellen beginnt.
 - `reconnected`: Wird ausgelöst, wenn der zugrunde liegenden Transport die Verbindung wiederhergestellt wurde.
 - `stateChanged`: Wird ausgelöst, wenn der Verbindungsstatus ändert. Enthält den alten Status und den neuen Zustand (Herstellen einer Verbindung, verbunden, Verbindung oder Disconnected).
 - `disconnected`: Wird ausgelöst, wenn die Verbindung getrennt wurde.

@@ -8,21 +8,23 @@ ms.date: 02/22/2015
 ms.assetid: 148d9ca7-1af1-44b6-a9fb-91e261b9b463
 msc.legacyurl: /signalr/overview/performance/signalr-connection-density-testing-with-crank
 msc.type: authoredcontent
-ms.openlocfilehash: 556accb1bcc18e9e4d1f813a87fc6f4b67bda088
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: 308fed51953b085506488c5e0dda1ced9f4d09fb
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021481"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287570"
 ---
 <a name="signalr-connection-density-testing-with-crank"></a>Verbindungs-Dichte SignalR mit Crank testen
 ====================
 durch [Tom FitzMacken](https://github.com/tfitzmac)
 
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
+
 > Dieser Artikel beschreibt, wie das Crank-Tool zum Testen einer Anwendung mit mehreren simulierten Clients.
 
 
-Sobald Ihre Anwendung in der hostumgebung (entweder eine Azure web-Rolle, IIS, oder für selbst gehostete Einsatz von Owin) ausgeführt wird, können Sie die Antwort der Anwendung auf ein hohes Maß an Verbindung Dichte, die mit dem Tool Crank testen. Die Hostingumgebung kann ein Server (Internet Information Services, IIS), einem Owin-Host oder einer Azure-Webrolle sein. (Hinweis: Leistungsindikatoren sind nicht verfügbar in Azure App Service-Web-Apps, sodass Sie nicht um ein Dichte Verbindungstest Leistungsdaten erhalten.)
+Sobald Ihre Anwendung in der hostumgebung (entweder eine Azure web-Rolle, IIS, oder für selbst gehostete Einsatz von Owin) ausgeführt wird, können Sie die Antwort der Anwendung auf ein hohes Maß an Verbindung Dichte, die mit dem Tool Crank testen. Die Hostingumgebung kann ein Server (Internet Information Services, IIS), einem Owin-Host oder einer Azure-Webrolle sein. (Beachten Sie: Leistungsindikatoren sind nicht verfügbar auf Azure App Service-Web-Apps, sodass Sie nicht um ein Dichte Verbindungstest Leistungsdaten erhalten.)
 
 Verbindung Dichte bezieht sich auf die Anzahl der gleichzeitigen TCP-Verbindungen, die auf einem Server hergestellt werden kann. Jede TCP-Verbindung eine eigene Rechenaufwand, und Öffnen einer großen Anzahl von Verbindungen im Leerlauf werden schließlich einen Speicherengpass erstellen.
 
@@ -45,21 +47,21 @@ Sobald heruntergeladen und erstellt die Codebasis und Leistungsindikatoren auf d
 Optionen für das Tool Crank sind verfügbar:
 
 - **/?** : Zeigt die Hilfe an. Die verfügbaren Optionen werden auch angezeigt, wenn die **Url** Parameter ausgelassen wird.
-- **/ Url**: die URL für SignalR-Verbindungen. Dieser Parameter ist erforderlich. Für eine SignalR-Anwendung, die Verwendung der standardzuordnung, endet der Pfad in "/ Signalr".
-- **/ Transport**: der Name des Transports verwendet. Der Standardwert ist `auto`, wählt die verfügbare Protokoll. Unter anderem `WebSockets`, `ServerSentEvents`, und `LongPolling` (`ForeverFrame` ist keine Option für Crank, seit der .NET Client statt Internet Explorer verwendet wird). Weitere Informationen dazu, wie SignalR Transporte auswählt, finden Sie unter [Transporte und Fallbacks](../getting-started/introduction-to-signalr.md#transports).
-- **/ BatchSize**: die Anzahl der Clients, die in jedem Batch hinzugefügt. Der Standardwert ist 50.
-- **/ ConnectInterval**: das Intervall in Millisekunden zwischen dem Hinzufügen von Verbindungen. Der Standard ist 500.
-- **/ Verbindungen**: die Anzahl von Verbindungen verwendet, um Auslastungstest-Anwendung. Der Standardwert ist 100.000.
-- **/ ConnectTimeout**: das Timeout in Sekunden vor Abbruch des Testlaufs. Der Standardwert ist 300.
-- **MinServerMBytes**: das Minimum (MB) erreicht. Der Standard ist 500.
-- **SendBytes**: die Größe der Nutzlast in Bytes an den Server gesendet. Der Standard ist 0.
-- **SendInterval**: die Verzögerung in Millisekunden zwischen Nachrichten an den Server. Der Standard ist 500.
-- **SendTimeout**: das Timeout in Millisekunden für Nachrichten an den Server. Der Standardwert ist 300.
-- **ControllerUrl**: die Url, in denen ein Client einen Controller-Hub hostet. Der Standardwert ist null (kein Controller-Hub). Der Controller-Hub wurde gestartet, beim Start der Sitzung Crank. keine weiteren erfolgt, wenden Sie sich an, zwischen dem Controller-Hub und einer Kurbel.
-- **NumClients**: die Anzahl der simulierten Clients an die Anwendung eine Verbindung herzustellen. Der Standardwert ist 1.
-- **LogFile**: der Dateiname für die Protokolldatei für den Testlauf. Die Standardeinstellung ist `crank.csv`.
-- **SampleInterval**: die Zeit in Millisekunden zwischen Proben von Leistungsindikatoren. Der Standard ist 1000.
-- **SignalRInstance**: Namen der Instanz für die Leistungsindikatoren auf dem Server. Der Standardwert ist der Zustand der Client-Verbindung verwenden.
+- **/ Url**: Die URL für SignalR-Verbindungen. Dieser Parameter ist erforderlich. Für eine SignalR-Anwendung, die Verwendung der standardzuordnung, endet der Pfad in "/ Signalr".
+- **/ Transport**: Der Name des Transports verwendet werden soll. Der Standardwert ist `auto`, wählt die verfügbare Protokoll. Unter anderem `WebSockets`, `ServerSentEvents`, und `LongPolling` (`ForeverFrame` ist keine Option für Crank, seit der .NET Client statt Internet Explorer verwendet wird). Weitere Informationen dazu, wie SignalR Transporte auswählt, finden Sie unter [Transporte und Fallbacks](../getting-started/introduction-to-signalr.md#transports).
+- **/ BatchSize**: Die Anzahl der Clients, die in jedem Batch hinzugefügt werden soll. Der Standardwert ist 50.
+- **/ ConnectInterval**: Das Intervall in Millisekunden zwischen dem Hinzufügen von Verbindungen. Der Standard ist 500.
+- **/ Verbindungen**: Die Anzahl der Verbindungen verwendet, um Auslastungstest-Anwendung. Der Standardwert ist 100.000.
+- **/ ConnectTimeout**: Das Timeout in Sekunden vor Abbruch des Testlaufs. Der Standardwert ist 300.
+- **MinServerMBytes**: Die minimale Megabyte (MB) erreicht. Der Standard ist 500.
+- **SendBytes**: Die Größe der Nutzlast in Bytes an den Server gesendet werden soll. Der Standard ist 0.
+- **SendInterval**: Die Verzögerung in Millisekunden zwischen Nachrichten an den Server. Der Standard ist 500.
+- **SendTimeout**: Das Timeout in Millisekunden für Nachrichten an den Server. Der Standardwert ist 300.
+- **ControllerUrl**: Die Url, in denen ein Client einen Controller-Hub hostet. Der Standardwert ist null (kein Controller-Hub). Der Controller-Hub wurde gestartet, beim Start der Sitzung Crank. keine weiteren erfolgt, wenden Sie sich an, zwischen dem Controller-Hub und einer Kurbel.
+- **NumClients**: Die Anzahl der simulierten Clients an die Anwendung eine Verbindung herzustellen. Der Standardwert ist 1.
+- **LogFile**: Der Dateiname für die Protokolldatei für den Testlauf. Die Standardeinstellung ist `crank.csv`.
+- **SampleInterval**: Die Zeit in Millisekunden zwischen Proben von Leistungsindikatoren. Der Standard ist 1000.
+- **SignalRInstance**: Der Instanzname für die Leistungsindikatoren auf dem Server. Der Standardwert ist der Zustand der Client-Verbindung verwenden.
 
 ### <a name="example"></a>Beispiel
 

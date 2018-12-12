@@ -8,16 +8,19 @@ ms.date: 07/16/2014
 ms.assetid: ba07958c-42e1-4da0-81db-ba6925ed6db0
 msc.legacyurl: /signalr/overview/getting-started/real-time-web-applications-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 59831fb8497c86ec5e02de3912b36a15f416597c
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: de2f2349fc284e167bd8227ae55da79b9f1f4549
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913233"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288001"
 ---
 <a name="hands-on-lab-real-time-web-applications-with-signalr"></a>Praxisnahe Übung: Echtzeit-Webanwendungen mit SignalR
 ====================
+
 durch [Web Camps Team](https://twitter.com/webcamps)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 [Herunterladen Sie Web Camps Training Kit](http://aka.ms/webcamps-training-kit)
 
@@ -25,9 +28,9 @@ durch [Web Camps Team](https://twitter.com/webcamps)
 > 
 > **SignalR** bietet auch eine einfache, allgemeine API für die Server, Client-RPC (Aufrufen von JavaScript-Funktionen in Ihrer Clients Browsern aus .NET-Code serverseitige) in Ihrer ASP.NET-Anwendung sowie nützliche Hooks für die verbindungsverwaltung, hinzufügen z. B. eine Verbindung herstellen/trennen-Ereignisse, Gruppierung Verbindungen und -Autorisierung.
 > 
-> **SignalR** ist eine Abstraktion über einige der Transporte, die in Echtzeit Aufgaben zwischen Client und Server erforderlich sind. Ein **SignalR** Verbindung HTTP startet, und klicken Sie dann auf heraufgestuft wird eine **WebSocket** Verbindung, sofern verfügbar. **WebSocket** ist der ideale Transport für **SignalR**, da die Nutzung des Serverarbeitsspeichers vereinfacht, die geringste Latenz und verfügt über die zugrunde liegenden Funktionen (z. B. Vollduplexkommunikation zwischen Client und Server), aber auch über die Anforderungen äußerst strikte: **WebSocket** erfordert, dass der Server verwenden **Windows Server 2012** oder **Windows 8**, zusammen mit **.NET Framework 4.5**. Wenn diese Anforderungen nicht erfüllt sind, **SignalR** wird versucht, andere Transporte verwenden, um die Verbindungen herstellen (z. B. *Ajax langer Abruf*).
+> **SignalR** ist eine Abstraktion über einige der Transporte, die in Echtzeit Aufgaben zwischen Client und Server erforderlich sind. Ein **SignalR** Verbindung HTTP startet, und klicken Sie dann auf heraufgestuft wird eine **WebSocket** Verbindung, sofern verfügbar. **WebSocket** ist der ideale Transport für **SignalR**, da die Nutzung des Serverarbeitsspeichers vereinfacht, die geringste Latenz und verfügt über die zugrunde liegenden Funktionen (z. B. Vollduplexkommunikation zwischen Client und Server), aber auch über den die strengen Anforderungen an: **WebSocket** erfordert, dass der Server verwenden **Windows Server 2012** oder **Windows 8**, zusammen mit **.NET Framework 4.5**. Wenn diese Anforderungen nicht erfüllt sind, **SignalR** wird versucht, andere Transporte verwenden, um die Verbindungen herstellen (z. B. *Ajax langer Abruf*).
 > 
-> Die **SignalR** -API enthält zwei Modelle für die Kommunikation zwischen Clients und Servern: **dauerhafte Verbindungen** und **Hubs**. Ein **Verbindung** stellt einen einfachen Endpunkt dar, für die einzelnen-Empfänger senden gruppiert, oder Senden von Nachrichten. Ein **Hub** ist eine weitere allgemeine Pipeline, die auf den Verbindungs-API, die Ihre Client- und Methoden direkt aufeinander aufrufen können.
+> Die **SignalR** -API enthält zwei Modelle für die Kommunikation zwischen Clients und Servern: **Permanente Verbindungen** und **Hubs**. Ein **Verbindung** stellt einen einfachen Endpunkt dar, für die einzelnen-Empfänger senden gruppiert, oder Senden von Nachrichten. Ein **Hub** ist eine weitere allgemeine Pipeline, die auf den Verbindungs-API, die Ihre Client- und Methoden direkt aufeinander aufrufen können.
 > 
 > ![SignalR-Architektur](real-time-web-applications-with-signalr/_static/image1.png)
 > 
@@ -269,9 +272,9 @@ Weitere Informationen zur Funktionsweise der SignalR-Backplane finden Sie in die
 > [!NOTE]
 > Es gibt einige Szenarien, in denen eine Rückwandplatine Engpässe auftreten können. Hier sind einige typischen Szenarien für SignalR:
 > 
-> - [Serverübertragung](tutorial-server-broadcast-with-signalr.md) (beispielsweise Börsenticker): Backplanes eignen sich gut für dieses Szenario, da der Server die Rate kontrolliert, an dem Nachrichten gesendet werden.
-> - [Client-zu-Client](tutorial-getting-started-with-signalr.md) (z. B. chat): In diesem Szenario kann einen Engpass von der Rückwand sein, wenn die Anzahl der Nachrichten mit der Anzahl der Clients skaliert werden kann, d. h., wenn die Anzahl der Nachrichten wird proportional mehr Clients verknüpfen.
-> - [Echtzeitnachrichten](tutorial-high-frequency-realtime-with-signalr.md) (z. B. in Echtzeit Spiele): eine Rückwandplatine wird für dieses Szenario nicht empfohlen.
+> - [Serverübertragung](tutorial-server-broadcast-with-signalr.md) (beispielsweise Börsenticker): Backplanes eignen sich gut für dieses Szenario, da der Server die Rate kontrolliert, an der Nachrichten gesendet werden.
+> - [Client-zu-Client](tutorial-getting-started-with-signalr.md) (z. B. chat): In diesem Szenario wird möglicherweise der Rückwand einen Engpass, wenn die Anzahl der Nachrichten mit der Anzahl der Clients skaliert werden kann; d. h., wenn die Anzahl der Nachrichten wird verknüpfen proportional mehr Clients.
+> - [Echtzeitnachrichten](tutorial-high-frequency-realtime-with-signalr.md) (z. B. in Echtzeit Spiele): Eine Rückwandplatine wird für dieses Szenario nicht empfohlen.
 
 
 In dieser Übung verwenden Sie **SQL Server** zum Verteilen von Nachrichten über die **Meister Quiz** Anwendung. Führen Sie diese Aufgaben auf einem einzelnen Testcomputer zu erfahren, wie die Konfiguration einzurichten, sondern um den vollen Effekt zu erzielen, benötigen Sie zum Bereitstellen der SignalR-Anwendung mit zwei oder mehr Servern. Sie müssen auch SQL Server auf einem der Server oder auf einem separaten dedizierten Server installieren.
