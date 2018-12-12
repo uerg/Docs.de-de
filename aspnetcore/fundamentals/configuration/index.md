@@ -4,14 +4,14 @@ author: guardrex
 description: In diesem Artikel erfahren Sie, wie Sie mit der Konfigurations-API eine ASP.NET Core-App konfigurieren.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/15/2018
+ms.date: 12/07/2018
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 766ac77a2af01509f8e4bc646a18f7dfbc923511
-ms.sourcegitcommit: d3392f688cfebc1f25616da7489664d69c6ee330
+ms.openlocfilehash: 6f0378ffc4f9a1efa95c8f70d70e7799abef130b
+ms.sourcegitcommit: 1872d2e6f299093c78a6795a486929ffb0bbffff
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51818394"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53216897"
 ---
 # <a name="configuration-in-aspnet-core"></a>Konfiguration in ASP.NET Core
 
@@ -534,7 +534,7 @@ Um die Umgebungsvariablenkonfiguration zu aktivieren, rufen Sie die <xref:Micros
 
 Beim Verwenden hierarchischer Schlüssel in Umgebungsvariablen funktioniert ein Doppelpunkt (`:`) als Trennzeichen ggf. nicht auf allen Plattformen. Ein doppelter Unterstrich (`__`) wird auf allen Plattformen unterstützt und durch einen Doppelpunkt ersetzt.
 
-[Azure App Service](https://azure.microsoft.com/services/app-service/) ermöglicht Ihnen Umgebungsvariablen im Azure-Portal festzulegen, die die App-Konfiguration mit dem Umgebungsvariablen-Konfigurationsanbieter überschreiben können. Weitere Informationen finden Sie unter [Azure Apps: Überschreiben der App-Konfiguration mit dem Azure-Portal](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal).
+[Azure App Service](https://azure.microsoft.com/services/app-service/) ermöglicht Ihnen Umgebungsvariablen im Azure-Portal festzulegen, die die App-Konfiguration mit dem Umgebungsvariablen-Konfigurationsanbieter überschreiben können. Weitere Informationen finden Sie unter [Azure-Apps: Überschreiben der App-Konfiguration im Azure-Portal](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal).
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -1136,6 +1136,8 @@ Um die Schlüssel-pro-Datei-Konfiguration zu aktivieren, rufen Sie die <xref:Mic
 
 * Einen `Action<KeyPerFileConfigurationSource>`-Delegat, der die Quelle konfiguriert
 * Ob das Verzeichnis optional ist; und den Pfad zum Verzeichnis
+
+Der doppelte Unterstrich (`__`) wird als Trennzeichen für Konfigurationsschlüssel in Dateinamen verwendet. Der Dateiname `Logging__LogLevel__System` erzeugt z.B. den Konfigurationsschlüssel `Logging:LogLevel:System`.
 
 Rufen Sie <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> beim Erstellen des Hosts auf, um die Konfiguration der App anzugeben:
 
