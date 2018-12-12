@@ -1,19 +1,19 @@
 ---
-title: Hosten in ASP.NET Core
+title: Webhost und generischer Host in ASP.NET Core
 author: guardrex
 description: Erfahren Sie mehr über den Webhost von ASP.NET Core und den generischen Host von .NET, die für das Starten von Apps und das Verwalten der Lebensdauer verantwortlich sind.
 ms.author: riande
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.date: 08/28/2018
 uid: fundamentals/host/index
-ms.openlocfilehash: 9927722b5080beb94e5628d9e7b54e6d50a5bff8
-ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
+ms.openlocfilehash: 43a68f67368ce37a1fb4032579c6c4e4c05d2719
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336049"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284577"
 ---
-# <a name="host-in-aspnet-core"></a>Hosten in ASP.NET Core
+# <a name="web-host-and-generic-host-in-aspnet-core"></a>Webhost und generischer Host in ASP.NET Core
 
 .NET-Apps konfigurieren und starten einen *Host*. Der Host ist verantwortlich für das Starten der App und das Verwalten der Lebensdauer. Es stehen zwei Host-APIs zur Verfügung:
 

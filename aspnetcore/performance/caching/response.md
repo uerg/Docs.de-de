@@ -123,9 +123,9 @@ Dieser Header wird nur geschrieben, wenn die `VaryByHeader` festgelegt wird. Fes
 
 ::: moniker-end
 
-Sie können die Antwortheadern mit Ihres Browsers Netzwerktools anzeigen. Die folgende Abbildung zeigt die Ausgabe auf Edge-F12 die **Netzwerk** Registerkarte, wenn die `About2` Aktionsmethode wird aktualisiert:
+Sie können die Antwortheadern mit Ihres Browsers Netzwerktools anzeigen. Die folgende Abbildung zeigt die Ausgabe auf Microsoft Edge-F12 die **Netzwerk** Registerkarte, wenn die `About2` Aktionsmethode wird aktualisiert:
 
-![Edge F12-Ausgabe auf der Registerkarte "Netzwerk", wenn die About2 Aktionsmethode aufgerufen wird](response/_static/vary.png)
+![Microsoft Edge F12-Ausgabe auf der Registerkarte "Netzwerk", wenn die About2 Aktionsmethode aufgerufen wird](response/_static/vary.png)
 
 ### <a name="nostore-and-locationnone"></a>NoStore und Location.None
 
