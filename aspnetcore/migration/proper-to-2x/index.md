@@ -3,14 +3,14 @@ title: Migrieren von ASP.NET zu ASP.NET Core
 author: isaac2004
 description: Anweisungen zum Migrieren vorhandener ASP.NET MVC- oder Web-API-Apps zu ASP.NET Core Web.
 ms.author: scaddie
-ms.date: 12/10/2018
+ms.date: 12/11/2018
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 6808fefb890dcdec6abdd0604ab61dfd2573d910
-ms.sourcegitcommit: 1872d2e6f299093c78a6795a486929ffb0bbffff
+ms.openlocfilehash: a9eef832a68afa1a73e3c7c545378da190602ce2
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53216793"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284395"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core"></a>Migration von ASP.NET zu ASP.NET Core
 
@@ -20,7 +20,7 @@ Dieser Artikel dient als Leitfaden zum Migrieren von ASP.NET-Anwendungen zu ASP.
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
-[!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
+[.NET Core SDK 2.2 oder höher](https://www.microsoft.com/net/download)
 
 ## <a name="target-frameworks"></a>Zielframeworks
 
@@ -28,15 +28,15 @@ ASP.NET Core-Projekte bieten Entwicklern die Flexibilität, Anwendungen für .NE
 
 Bei der Erstellung von Anwendungen für .NET Framework müssen Projekte auf einzelne NuGet-Pakete verweisen.
 
-Wenn das Zielframework .NET Core ist, können Sie mit dem [Metapaket](xref:fundamentals/metapackage) für ASP.NET Core auf die meisten expliziten Paketverweise verzichten. Das `Microsoft.AspNetCore.All`-Metapaket können Sie folgendermaßen in Ihrem Projekt installieren:
+Wenn das Zielframework .NET Core ist, können Sie mit dem [Metapaket](xref:fundamentals/metapackage-app) für ASP.NET Core auf die meisten expliziten Paketverweise verzichten. Das `Microsoft.AspNetCore.App`-Metapaket können Sie folgendermaßen in Ihrem Projekt installieren:
 
 ```xml
 <ItemGroup>
-  <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.9" />
+   <PackageReference Include="Microsoft.AspNetCore.App" />
 </ItemGroup>
 ```
 
-Wenn das Metapaket verwendet wird, werden mit der Anwendung keine Pakete bereitgestellt, auf die im Metapaket verwiesen wird. Die notwendigen Objekte sind im .NET Core-Laufzeitspeicher vorhanden und werden zur Verbesserung der Leistung vorkompiliert. Weitere Informationen finden Sie unter [Microsoft.AspNetCore.All metapackage for ASP.NET Core 2.x (Microsoft.AspNetCore.All-Metapaket für ASP.NET Core 2.x)](xref:fundamentals/metapackage).
+Wenn das Metapaket verwendet wird, werden mit der Anwendung keine Pakete bereitgestellt, auf die im Metapaket verwiesen wird. Die notwendigen Objekte sind im .NET Core-Laufzeitspeicher vorhanden und werden zur Verbesserung der Leistung vorkompiliert. Weitere Informationen finden Sie unter [Das Metapaket „Microsoft.AspNetCore.App“ für ASP.NET Core 2.1](xref:fundamentals/metapackage-app).
 
 ## <a name="project-structure-differences"></a>Unterschiede bei Projektstrukturen
 
@@ -64,15 +64,14 @@ ASP.NET Core verwendet einen ähnlichen Ansatz, ist jedoch hinsichtlich des Eins
 
 [!code-csharp[](samples/program.cs)]
 
-In `Startup` muss die `Configure`-Methode enthalten sein. Fügen Sie in `Configure` der Pipeline die erforderliche Middleware hinzu. Im folgenden Beispiel, das der Standardwebsitevorlage entnommen wurde, werden mehrere Erweiterungsmethoden zum Konfigurieren der Pipeline verwendet. Hierdurch wird Folgendes unterstützt:
+In `Startup` muss die `Configure`-Methode enthalten sein. Fügen Sie in `Configure` der Pipeline die erforderliche Middleware hinzu. Im folgenden Beispiel, das der Standardwebsitevorlage entnommen wurde, konfigurieren Erweiterungsmethoden die Pipeline mit Unterstützung für Folgendes:
 
-* [Browserverknüpfung](xref:client-side/using-browserlink)
 * Fehlerseiten
-* Statische Dateien
+* HTTP Strict Transport Security
+* HTTP-Umleitung zu HTTPS
 * ASP.NET Core MVC
-* Identität
 
-[!code-csharp[](../../common/samples/WebApplication1/Startup.cs?highlight=8,9,10,14,17,19,21&start=58&end=84)]
+[!code-csharp[](samples/startup.cs)]
 
 Durch die Entkopplung von Host und Anwendung wird die Möglichkeit geschaffen, in der Zukunft eine Migration zu einer anderen Plattform vorzunehmen.
 
