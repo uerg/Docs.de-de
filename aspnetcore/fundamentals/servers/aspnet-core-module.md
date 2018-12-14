@@ -1,17 +1,17 @@
 ---
 title: ASP.NET Core-Modul
 author: guardrex
-description: Erfahren Sie, wie der Kestrel-Webserver durch das ASP.NET Core-Modul IIS oder IIS Express als Reverseproxyserver zu verwenden.
+description: Erfahren Sie, wie der Kestrel-Webserver durch das ASP.NET Core-Modul IIS oder IIS Express verwenden kann.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 09/21/2018
+ms.date: 11/30/2018
 uid: fundamentals/servers/aspnet-core-module
-ms.openlocfilehash: 39c1b364f9dab635c79e00561d212c858c0c4395
-ms.sourcegitcommit: 09affee3d234cb27ea6fe33bc113b79e68900d22
+ms.openlocfilehash: d3f3a42dd7aebc425905b865376a584bcf0e5153
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51191255"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861458"
 ---
 # <a name="aspnet-core-module"></a>ASP.NET Core-Modul
 
@@ -36,7 +36,7 @@ Unterstützte Windows-Versionen:
 
 ::: moniker range=">= aspnetcore-2.2"
 
-Beim In-Process-Hosting verfügt das Modul über eine eigene Serverimplementierung, `IISHttpServer`.
+Beim In-Process-Hosting verwendet das Modul eine prozessinterne IIS-Serverimplementierung: IIS-HTTP-Server (`IISHttpServer`).
 
 Beim Out-of-Process-Hosting funktioniert das Modul nur mit Kestrel. Das Modul ist nicht kompatibel mit [HTTP.sys](xref:fundamentals/servers/httpsys) (ehemals [WebListener](xref:fundamentals/servers/weblistener)).
 
@@ -73,9 +73,9 @@ Das folgende Diagramm zeigt die Beziehung zwischen IIS, dem ASP.NET Core-Modul u
 
 ![ASP.NET Core-Modul](aspnet-core-module/_static/ancm-inprocess.png)
 
-Eine Anforderung geht aus dem Web beim HTTP.sys-Treiber im Kernelmodus ein. Der Treiber leitet die native Anforderung an IIS auf dem konfigurierten Port der Webseite weiter, normalerweise 80 (HTTP) oder 443 (HTTPS). Das Modul empfängt die native Anforderung und übergibt die Steuerung an `IISHttpServer`, wodurch die Anforderung aus einer nativen in eine verwaltete Anforderung überführt wird.
+Eine Anforderung geht aus dem Web beim HTTP.sys-Treiber im Kernelmodus ein. Der Treiber leitet die native Anforderung an IIS auf dem konfigurierten Port der Webseite weiter, normalerweise 80 (HTTP) oder 443 (HTTPS). Das Modul empfängt die native Anforderung und übergibt sie an den IIS-HTTP-Server (`IISHttpServer`). Der IIS-HTTP-Server ist eine prozessinterne IIS-Serverimplementierung, die die Anforderung vom nativen Modus in den verwalteten Modus konvertiert.
 
-Nachdem `IISHttpServer` die Anforderung erhalten hat, wird die Anforderung in die Middleware-Pipeline von ASP.NET Core eingestellt. Die Middleware-Pipeline behandelt die Anforderung und gibt sie als `HttpContext`-Instanz an die App-Logik weiter. Die Antwort der App wird dann an IIS zurückgegeben, wo sie per Push an den HTTP-Client zurückgegeben wird, der die Anforderung initiiert hat.
+Nachdem der IIS-HTTP-Server die Anforderung verarbeitet hat, wird die Anforderung per Push an die Middlewarepipeline von ASP.NET Core übertragen. Die Middleware-Pipeline behandelt die Anforderung und gibt sie als `HttpContext`-Instanz an die App-Logik weiter. Die Antwort der App wird an IIS übergeben, von wo sie per Push an den Client zurückgegeben wird, der die Anforderung initiiert hat.
 
 ### <a name="out-of-process-hosting-model"></a>Out-of-Process-Hostingmodell
 

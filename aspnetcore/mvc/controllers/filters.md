@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/15/2018
 uid: mvc/controllers/filters
-ms.openlocfilehash: e5305852fad058961661373f9310d6dcaf30aa16
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: d25976af860ed8733c0548a4102e0095969b2ba6
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253194"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861848"
 ---
 # <a name="filters-in-aspnet-core"></a>Filter in ASP.NET Core
 
@@ -252,7 +252,8 @@ Dieser Filter kann mithilfe der Syntax `[SampleActionFilter]` auf Klassen oder M
 
 ## <a name="authorization-filters"></a>Autorisierungsfilter
 
-Für Autorisierungsfilter gilt Folgendes:
+Für *Autorisierungsfilter* gilt Folgendes:
+
 * Sie steuern den Zugriff auf Aktionsmethoden.
 * Sie werden als erste Filter in der Filterpipeline ausgeführt. 
 * Sie verfügen nur über eine Methode, die vor der Aktion ausgeführt wird, nicht jedoch über eine Methode, die nach der Aktion ausgeführt wird. 

@@ -3,14 +3,14 @@ title: Ansichtskomponenten in ASP.NET Core
 author: rick-anderson
 description: Erfahren Sie, wie Ansichtskomponenten in ASP.NET Core verwendet werden und wie sie Apps hinzugefügt werden.
 ms.author: riande
-ms.date: 02/14/2017
+ms.date: 12/03/2018
 uid: mvc/views/view-components
-ms.openlocfilehash: 91399acafb36f1f8759ed1783e70e59b631e3bf0
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: 5812abad80cd906d6b9a7175bd7cdefd03a99eb3
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253130"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861328"
 ---
 # <a name="view-components-in-aspnet-core"></a>Ansichtskomponenten in ASP.NET Core
 
@@ -63,13 +63,13 @@ Eine Ansichtskomponentenklasse:
 
 ### <a name="view-component-methods"></a>Ansichtskomponentenmethoden
 
-Eine Ansichtskomponente definiert Ihre Logik in einer `InvokeAsync`-Methode, die ein `IViewComponentResult`-Objekt zurückgibt. Parameter stammen direkt vom Aufruf der Ansichtskomponente und nicht von der Modellbindung. Eine Ansichtskomponente behandelt nie direkt eine Anfrage. Normalerweise initialisiert eine Ansichtskomponente ein Modell und übergibt dieses an eine Ansicht, indem sie die `View`-Methode aufruft. Zusammengefasst bedeutet dies für Komponentenmethoden Folgendes:
+Eine Ansichtskomponente definiert ihre Logik in einer `InvokeAsync`-Methode, die ein `Task<IViewComponentResult>` zurückgibt, oder in einer synchronen `Invoke`-Methode, die ein `IViewComponentResult` zurückgibt. Parameter stammen direkt vom Aufruf der Ansichtskomponente und nicht von der Modellbindung. Eine Ansichtskomponente behandelt nie direkt eine Anfrage. Normalerweise initialisiert eine Ansichtskomponente ein Modell und übergibt dieses an eine Ansicht, indem sie die `View`-Methode aufruft. Zusammengefasst bedeutet dies für Komponentenmethoden Folgendes:
 
-* Sie definieren eine `InvokeAsync`-Methode, die ein `IViewComponentResult`-Objekt zurückgibt.
-* Normalerweise initialisieren sie ein Modell und übergeben dieses an eine Ansicht, indem sie die `ViewComponent` `View`-Methode aufrufen.
-* Parameter stammen vom Methodenaufruf und nicht HTTP. Es gibt keine Modellbindung.
-* Sie können nicht direkt als HTTP-Endpunkt erreicht werden. Stattdessen werden sie über Ihren Code aufgerufen (normalerweise in einer Ansicht). Eine Ansichtskomponente behandelt nie eine Anfrage.
-* Sie werden in der Signatur überladen und nicht in Details der aktuellen HTTP-Anforderung
+* Es wird eine `InvokeAsync`-Methode definiert, die ein `Task<IViewComponentResult>` zurückgibt, oder eine synchrone `Invoke`-Methode, die ein `IViewComponentResult` zurückgibt.
+* Normalerweise initialisieren die Methoden ein Modell und übergeben dieses durch Aufrufen der `ViewComponent`-Methode `View` an eine Ansicht.
+* Parameter stammen aus der aufrufenden Methode, nicht aus HTTP. Es gibt keine Modellbindung.
+* Die Methoden sind nicht direkt als HTTP-Endpunkt erreichbar. Sie werden von Ihrem Code aufgerufen (üblicherweise in einer Ansicht). Eine Ansichtskomponente verarbeitet nie eine Anforderung.
+* Methoden werden in der Signatur überladen, nicht in Details der aktuellen HTTP-Anforderung.
 
 ### <a name="view-search-path"></a>Anzeigen des Suchpfads
 

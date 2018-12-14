@@ -1,20 +1,20 @@
 ---
-title: Erweitern einer App mit einer externen Assembly in ASP.NET Core mit IHostingStartup
+title: Verwenden von Hostingstartassemblys in ASP.NET Core
 author: guardrex
 description: Erfahren Sie, wie Sie eine ASP.NET Core-App aus einer externen Assembly mithilfe einer Implementierung von IHostingStartup erweitern.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.custom: mvc
+ms.custom: mvc,seodec18
 ms.date: 11/22/2018
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: ef3b48dc72f294a783d789c4c9a796e3498a91d9
-ms.sourcegitcommit: 710fc5fcac258cc8415976dc66bdb355b3e061d5
+ms.openlocfilehash: 6c38242afee46b80bafcba47a8f77e2c05f6537e
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52299455"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121725"
 ---
-# <a name="enhance-an-app-from-an-external-assembly-in-aspnet-core-with-ihostingstartup"></a>Erweitern einer App mit einer externen Assembly in ASP.NET Core mit IHostingStartup
+# <a name="use-hosting-startup-assemblies-in-aspnet-core"></a>Verwenden von Hostingstartassemblys in ASP.NET Core
 
 Von [Luke Latham](https://github.com/guardrex) und [Pavel Krymets](https://github.com/pakrym)
 

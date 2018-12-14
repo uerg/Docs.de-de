@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/19/2018
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 98787891a97e49081d72107484f030d216d82f45
-ms.sourcegitcommit: ad28d1bc6657a743d5c2fa8902f82740689733bb
+ms.openlocfilehash: 84052789717738a48c346d35d1a2642017a9ab93
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52256566"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861913"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>URL-umschreibende Middleware in ASP.NET Core
 
@@ -210,7 +210,7 @@ Auf den `^rewrite-rule/`-Teil des Ausdruck folgen zwei Erfassungsgruppen: `(\d+)
 Es gibt keinen Roundtrip zum Server, um die Ressource abzurufen. Wenn es die Ressource gibt, wird sie abgerufen und dem Client mit dem Statuscode *200 – OK* zurückgegeben. Da der Client nicht umgeleitet wird, ändert sich die URL in der Adressleiste des Browsers nicht. Clients können nicht erkennen, dass ein Vorgang zum erneuten Schreiben einer URL auf dem Server stattgefunden hat.
 
 > [!NOTE]
-> Verwenden Sie `skipRemainingRules: true` so häufig wie möglich, da das Abgleichen von Regeln rechnerisch sehr aufwendig ist und die Antwortzeit der App verringert. Führen Sie folgende Schritte aus, um die schnellsten App-Antwortzeiten zu erreichen:
+> Verwenden Sie `skipRemainingRules: true`, wo immer das möglich ist, da das Abgleichen von Regeln rechnerisch sehr aufwendig ist und die Antwortzeit der App erhöht. Führen Sie folgende Schritte aus, um die schnellsten App-Antwortzeiten zu erreichen:
 >
 > * Sortieren Sie Neuschreibungsregeln von der am häufigsten abgeglichenen Regel zu der am seltensten abgeglichenen Regel.
 > * Überspringen Sie die Verarbeitung der übrigen Regeln, wenn es zu einer Übereinstimmung kommt und keine zusätzlichen Regelverarbeitungen erforderlich sind.
