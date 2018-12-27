@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.date: 11/14/2018
 uid: signalr/version-differences
-ms.openlocfilehash: c9302f1c9e7cd4e62eaeaef871feb54ef26aa3ca
-ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
+ms.openlocfilehash: fb10d6e62ff28128e6e9e5dcef55e44f25de8ad0
+ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708412"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53425119"
 ---
 # <a name="differences-between-aspnet-signalr-and-aspnet-core-signalr"></a>Unterschiede zwischen SignalR für ASP.NET und ASP.NET Core SignalR
 
@@ -24,6 +24,7 @@ ASP.NET Core SignalR nicht kompatibel mit Clients oder Servern für ASP.NET Sign
 | Server-NuGet-Paket | [Microsoft.AspNet.SignalR](https://www.nuget.org/packages/Microsoft.AspNet.SignalR/) | [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/) ((.NET Core)<br>[Microsoft.AspNetCore.SignalR](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR/) ((.NET Framework) |
 | Die NuGet-Pakete | [Microsoft.AspNet.SignalR.Client](https://www.nuget.org/packages/Microsoft.AspNet.SignalR.Client/)<br>[Microsoft.AspNet.SignalR.JS](https://www.nuget.org/packages/Microsoft.AspNet.SignalR.JS/) | [Microsoft.AspNetCore.SignalR.Client](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR.Client/) |
 | Client-Npm-Pakets | [SignalR](https://www.npmjs.com/package/signalr) | [@aspnet/signalr](https://www.npmjs.com/package/@aspnet/signalr) |
+| Java-Client | [GitHub-Repository](https://github.com/SignalR/java-client) (veraltet)  | Maven-Paket [com.microsoft.signalr](https://search.maven.org/artifact/com.microsoft.signalr/signalr) |
 | Server App-Typ | ASP.NET ("System.Web") oder Selbstgehostetem | ASP.NET Core |
 | Unterstützte Plattformen | .NET Framework 4.5 oder höher | .NET Framework 4.6.1 oder höher<br>.NET Core 2.1 oder höher |
 
@@ -165,7 +166,7 @@ ASP.NET SignalR unterstützt SQL Server und Redis. ASP.NET Core SignalR unterst�
 
 ### <a name="aspnet-core"></a>ASP.NET Core
 
-* [Der Azure SignalR Service](/azure/azure-signalr/)
+* [Azure SignalR-Dienst](/azure/azure-signalr/)
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 

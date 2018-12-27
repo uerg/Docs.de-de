@@ -5,14 +5,14 @@ description: Informationen zur Antwortkomprimierung und zum Verwenden von Antwor
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/18/2018
 uid: performance/response-compression
-ms.openlocfilehash: 2516fbb30e55990dc4ad0d92069853bc26874bc9
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 51ab51652a7b3f9b4ef97b3abbffe2e398c0bfb5
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861887"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637754"
 ---
 # <a name="response-compression-in-aspnet-core"></a>Antwortkomprimierung in ASP.NET Core
 
@@ -33,12 +33,12 @@ Verwenden Sie Antworten komprimierende Middleware, wenn Sie sich befinden:
   * [Apache Mod_deflate-Modul](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
   * [Nginx-Komprimierung und Dekomprimierung](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
 * Hosten direkt auf:
-  * [HTTP.sys](xref:fundamentals/servers/httpsys) Server (ehemals [WebListener](xref:fundamentals/servers/weblistener))
-  * [Kestrel](xref:fundamentals/servers/kestrel) Server
+  * [HTTP.sys-Server](xref:fundamentals/servers/httpsys) (früher als "WebListener" bezeichnet)
+  * [Kestrel-server](xref:fundamentals/servers/kestrel)
 
 ## <a name="response-compression"></a>Antwortkomprimierung
 
-In der Regel kann alle Antworten, die nicht komprimierte antwortkomprimierung nutzen. In der Regel nicht komprimierte Antworten enthalten: CSS, JavaScript, HTML, XML und JSON. Sie sollten nicht systemintern komprimierter Assets, wie z. B. PNG-Dateien komprimieren. Wenn Sie versuchen, eine systemintern komprimierte Antwort weiter komprimiert, wird keine zusätzliche kleine Verringerung Größe und die Übertragung wahrscheinlich mit der Zeit, die zum Verarbeiten der Komprimierung benötigten überholt. Komprimieren Sie Dateien, die kleiner als ungefähr 150 – 1000 Bytes (je nach Inhalt der Datei und die Effizienz der Komprimierung) nicht. Der Mehraufwand für das Komprimieren von kleinen Dateien kann es sich um eine komprimierte Datei, die größer als die nicht komprimierte Datei führen.
+In der Regel kann alle Antworten, die nicht komprimierte antwortkomprimierung nutzen. Antworten, die in der Regel nicht komprimiert sind: CSS, JavaScript, HTML, XML und JSON. Sie sollten nicht systemintern komprimierter Assets, wie z. B. PNG-Dateien komprimieren. Wenn Sie versuchen, eine systemintern komprimierte Antwort weiter komprimiert, wird keine zusätzliche kleine Verringerung Größe und die Übertragung wahrscheinlich mit der Zeit, die zum Verarbeiten der Komprimierung benötigten überholt. Komprimieren Sie Dateien, die kleiner als ungefähr 150 – 1000 Bytes (je nach Inhalt der Datei und die Effizienz der Komprimierung) nicht. Der Mehraufwand für das Komprimieren von kleinen Dateien kann es sich um eine komprimierte Datei, die größer als die nicht komprimierte Datei führen.
 
 Wenn ein Client komprimierten Inhalte verarbeiten kann, muss der Client den Server seiner Funktionen per informieren die `Accept-Encoding` Header mit der Anforderung. Wenn ein Server komprimierten Inhalte sendet, muss Informationen enthalten die `Content-Encoding` Header wie die komprimierte Antwort codiert wird. In der folgenden Tabelle werden die Inhalte Codierung Bezeichnungen, die von der Middleware unterstützt angezeigt.
 
@@ -50,7 +50,7 @@ Wenn ein Client komprimierten Inhalte verarbeiten kann, muss der Client den Serv
 | `deflate`                       | Nein                   | [Komprimierte Daten DEFLATE-format](https://tools.ietf.org/html/rfc1951) |
 | `exi`                           | Nein                   | [W3C effiziente XML-Austausch](https://tools.ietf.org/id/draft-varga-netconf-exi-capability-00.html) |
 | `gzip`                          | Ja                  | [GZIP-Dateiformat](https://tools.ietf.org/html/rfc1952) |
-| `identity`                      | Ja                  | Bezeichner "Keine Codierung": die Antwort nicht codiert werden muss. |
+| `identity`                      | Ja                  | "Keine Codierung"-ID: Die Antwort muss nicht codiert werden. |
 | `pack200-gzip`                  | Nein                   | [Netzwerk-Übertragungsformat für Java-Archive](https://jcp.org/aboutJava/communityprocess/review/jsr200/index.html) |
 | `*`                             | Ja                  | Alle verfügbaren Inhalte, die Codierung wird nicht explizit angefordert |
 
@@ -64,7 +64,7 @@ Wenn ein Client komprimierten Inhalte verarbeiten kann, muss der Client den Serv
 | `deflate`                       | Nein                   | [Komprimierte Daten DEFLATE-format](https://tools.ietf.org/html/rfc1951) |
 | `exi`                           | Nein                   | [W3C effiziente XML-Austausch](https://tools.ietf.org/id/draft-varga-netconf-exi-capability-00.html) |
 | `gzip`                          | Ja (Standard)        | [GZIP-Dateiformat](https://tools.ietf.org/html/rfc1952) |
-| `identity`                      | Ja                  | Bezeichner "Keine Codierung": die Antwort nicht codiert werden muss. |
+| `identity`                      | Ja                  | "Keine Codierung"-ID: Die Antwort muss nicht codiert werden. |
 | `pack200-gzip`                  | Nein                   | [Netzwerk-Übertragungsformat für Java-Archive](https://jcp.org/aboutJava/communityprocess/review/jsr200/index.html) |
 | `*`                             | Ja                  | Alle verfügbaren Inhalte, die Codierung wird nicht explizit angefordert |
 
@@ -464,7 +464,7 @@ Mit einem Tool wie [Fiddler](https://www.telerik.com/fiddler), [Firebug](https:/
 
 * <xref:fundamentals/startup>
 * <xref:fundamentals/middleware/index>
-* [Mozilla Developer Network: Accept-Encoding.](https://developer.mozilla.org/docs/Web/HTTP/Headers/Accept-Encoding)
+* [Mozilla Developer Network: Accept-Encoding](https://developer.mozilla.org/docs/Web/HTTP/Headers/Accept-Encoding)
 * [RFC 7231 Abschnitt 3.1.2.1: Inhalt Codings](https://tools.ietf.org/html/rfc7231#section-3.1.2.1)
 * [RFC 7230 Abschnitt 4.2.3: Gzip-Codierung](https://tools.ietf.org/html/rfc7230#section-4.2.3)
 * [GZIP-Datei-Format Specification Version 4.3](http://www.ietf.org/rfc/rfc1952.txt)

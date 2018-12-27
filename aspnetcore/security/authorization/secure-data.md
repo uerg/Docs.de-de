@@ -3,15 +3,15 @@ title: Erstellen einer ASP.NET Core-app mit Benutzerdaten, die durch Autorisieru
 author: rick-anderson
 description: Informationen Sie zum Erstellen einer Razor-Seiten-app mit Benutzerdaten, die durch Autorisierung geschützt sind. Enthält, HTTPS, Authentifizierung und Sicherheit, ASP.NET Core Identity.
 ms.author: riande
-ms.date: 12/07/2018
+ms.date: 12/18/2018
 ms.custom: seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: d49ee7779b425d625b81c8a65694121c616bfba6
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: fa82d3d99f4e4b7ad17ed385fb7c029745797e8d
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121634"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637832"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Erstellen einer ASP.NET Core-app mit Benutzerdaten, die durch Autorisierung geschützt sind
 
@@ -57,14 +57,14 @@ In der folgenden Abbildung `admin@contoso.com` in und in der Rolle "Administrato
 
 Der Administrator muss alle Berechtigungen. Sie können lesen, bearbeiten und löschen Sie einen beliebigen Kontakt, und ändern Sie den Status von Kontakten.
 
-Die app wurde erstellt, indem [Gerüstbau](xref:tutorials/first-mvc-app-xplat/adding-model#scaffold-the-moviecontroller) Folgendes `Contact` Modell:
+Die app wurde erstellt, indem [Gerüstbau](xref:tutorials/first-mvc-app/adding-model#scaffold-the-movie-model) Folgendes `Contact` Modell:
 
 [!code-csharp[](secure-data/samples/starter2.1/Models/Contact.cs?name=snippet)]
 
 Das Beispiel enthält die folgenden Handler für die Autorisierung:
 
 * `ContactIsOwnerAuthorizationHandler`: Stellt sicher, dass ein Benutzer nur ihre Daten bearbeiten kann.
-* `ContactManagerAuthorizationHandler`: Ermöglicht es Managern zum Genehmigen oder ablehnen von Kontakten aus.
+* `ContactManagerAuthorizationHandler`: Zum Genehmigen oder ablehnen von Kontakten können.
 * `ContactAdministratorsAuthorizationHandler`: Ermöglicht es Administratoren, die zum Genehmigen oder ablehnen von Kontakten und zu bearbeiten und Löschen von Kontakten.
 
 ## <a name="prerequisites"></a>Vorraussetzungen
@@ -284,7 +284,7 @@ Finden Sie unter [dieses Problem](https://github.com/aspnet/Docs/issues/8502) In
 
 Wenn Sie ein Kennwort für die per Seeding hinzugefügten Benutzerkonten bereits festgelegt haben, verwenden Sie die [Secret Manager-Tool](xref:security/app-secrets#secret-manager) zum Festlegen eines Kennworts:
 
-* Wählen Sie ein sicheres Kennwort: Verwenden Sie acht oder mehr Zeichen und mindestens einen Großbuchstaben, Anzahl und Symbol. Z. B. `Passw0rd!` erfüllt die Anforderungen für sichere Kennwörter.
+* Wählen Sie ein sicheres Kennwort ein: Verwenden acht oder mehr Zeichen und mindestens einen Großbuchstaben, Zahl und symbol. Z. B. `Passw0rd!` erfüllt die Anforderungen für sichere Kennwörter.
 * Führen Sie den folgenden Befehl aus dem Ordner des Projekts, in denen `<PW>` ist das Kennwort:
 
   ```console

@@ -3,14 +3,14 @@ title: Migrieren von Authentifizierungs- und Identitätseinstellungen nach ASP.N
 author: scottaddie
 description: In diesem Artikel wird beschrieben, die am häufigsten verwendeten Schritte zum Migrieren von ASP.NET Core 1.x-Authentifizierung und Identifizierung zu ASP.NET Core 2.0.
 ms.author: scaddie
-ms.date: 10/26/2017
+ms.date: 12/18/2018
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: 6d457d42ad29ca579ba74e3b097d143bd6531b72
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: d28b4af483c7ec9d6cff6db3e2f1693e765d4202
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837794"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637611"
 ---
 # <a name="migrate-authentication-and-identity-to-aspnet-core-20"></a>Migrieren von Authentifizierungs- und Identitätseinstellungen nach ASP.NET Core 2.0
 
@@ -283,7 +283,7 @@ Es gibt zwei Varianten der Windows-Authentifizierung:
 
 Die erste Variante, die oben beschriebenen ist von den 2.0 Änderungen nicht betroffen.
 
-Die zweite Variante, die oben beschriebenen wird durch die 2.0-Änderungen beeinflusst. Beispielsweise können Sie möglicherweise werden erlauben anonyme Benutzer in Ihre Anwendung auf IIS oder [HTTP.sys](xref:fundamentals/servers/weblistener) layer jedoch autorisierende von Benutzern auf der Controllerebene. In diesem Szenario legen Sie das Standardschema auf `IISDefaults.AuthenticationScheme` in die `ConfigureServices` -Methode der *"Startup.cs"*:
+Die zweite Variante, die oben beschriebenen wird durch die 2.0-Änderungen beeinflusst. Beispielsweise ermöglichen Sie möglicherweise werden es anonyme Benutzer in Ihrer app auf IIS oder [HTTP.sys](xref:fundamentals/servers/httpsys) layer jedoch autorisierende von Benutzern auf der Controllerebene. In diesem Szenario legen Sie das Standardschema auf `IISDefaults.AuthenticationScheme` in die `Startup.ConfigureServices` Methode:
 
 ```csharp
 services.AddAuthentication(IISDefaults.AuthenticationScheme);

@@ -4,16 +4,16 @@ title: Routing- und Aktionsauswahl in ASP.NET Web-API | Microsoft-Dokumentation
 author: MikeWasson
 description: ''
 ms.author: riande
-ms.date: 07/27/2012
+ms.date: 12/14/2018
 ms.assetid: bcf2d223-cb7f-411e-be05-f43e96a14015
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/routing-and-action-selection
 msc.type: authoredcontent
-ms.openlocfilehash: b4912d3ee1e13651f2a63d54d7dbfd92e00f85f8
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: ce54181996376cb5dde3b91c10c16f33b3c6a570
+ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41838988"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53425171"
 ---
 <a name="routing-and-action-selection-in-aspnet-web-api"></a>Routing- und Aktionsauswahl in ASP.NET Web-API
 ====================
@@ -62,7 +62,7 @@ Wenn Sie Standardwerte angeben, entspricht die Route einen URI, der diese Segmen
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample4.cs)]
 
-Der URI "`http://localhost/api/products`" diese Route. Das Segment "{Category}" wird den Standardwert "alle" zugewiesen.
+Die URIs `http://localhost/api/products/all` und `http://localhost/api/products` die vorherige Route übereinstimmen. Im letzteren URI, die fehlende `{category}` Segment ist der Standardwert zugewiesen `all`.
 
 ### <a name="route-dictionary"></a>Routenwörterbuchs
 
@@ -83,7 +83,7 @@ Für "api/Produkte/Toys/123" enthält jedoch des Routenwörterbuchs:
 
 - Controller: "Produkte"
 - Kategorie: "Toys"
-- id: "123"
+- ID: "123"
 
 Die Standardwerte können auch einen Wert, der nicht, eine beliebige Stelle angezeigt wird in der routenvorlage enthalten. Wenn die Route übereinstimmt, wird dieser Wert im Wörterbuch gespeichert. Zum Beispiel:
 
@@ -122,7 +122,7 @@ Vor dem Betrachten des Auswahlalgorithmus, müssen wir einige Dinge zu Controlle
 
 **HTTP-Methoden.** Das Framework wählt nur die Aktionen, die die HTTP-Methode der Anforderung wie folgt bestimmt entsprechen:
 
-1. Sie können die HTTP-Methode mit einem Attribut angeben: **AcceptVerbs**, **HttpDelete**, **HttpGet**, **HttpHead**,  **"HttpOptions"**, **HttpPatch**, **HttpPost**, oder **HttpPut**.
+1. Sie können die HTTP-Methode mit einem Attribut angeben: **AcceptVerbs**, **HttpDelete**, **HttpGet**, **HttpHead**, **"HttpOptions"**, **HttpPatch**, **HttpPost**, oder **HttpPut**.
 2. Andernfalls, wenn der Name der Controller-Methode mit "Get", "Post", "Put", "Delete", "Head", "Optionen" oder "Patch" gestartet wird, klicken Sie dann gemäß der Konvention die Aktion unterstützt diese HTTP-Methode.
 3. Wenn keine der oben genannten, unterstützt die Methode POST aus.
 
@@ -189,7 +189,7 @@ HTTP-Anforderung:
 Der URI entspricht der Route, die mit dem Namen "DefaultApi". Das Wörterbuch für die Route enthält die folgenden Einträge:
 
 - Controller: "Produkte"
-- id: "1"
+- ID: "1"
 
 Des Routenwörterbuchs enthält nicht den Abfragezeichenfolgen-Parameter, "Version" und "Details", aber diese werden betrachtet werden bei der Auswahl der Aktion.
 
@@ -205,7 +205,7 @@ Als Nächstes versuchen wir, Parameternamen für die Aktionen entsprechen nur au
 
 | Aktion | Parameter zur Übereinstimmung |
 | --- | --- |
-| `GetAll` | Keine |
+| `GetAll` | none |
 | `GetById` | "Id" |
 | `FindProductsByName` | "Name" |
 

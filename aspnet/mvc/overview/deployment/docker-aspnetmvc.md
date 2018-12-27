@@ -5,14 +5,14 @@ description: Erfahren Sie, wie Sie eine vorhandene ASP.NET MVC-Anwendung in eine
 keywords: Windows-Containers,Docker,ASP.NET MVC
 author: BillWagner
 ms.author: wiwagn
-ms.date: 02/01/2017
+ms.date: 12/14/2018
 ms.assetid: c9f1d52c-b4bd-4b5d-b7f9-8f9ceaf778c4
-ms.openlocfilehash: 7b34187747d3081998b8b60a72adae78cafe2c3e
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: ef184f4256c20e2a66de8fd2d4f8e67f07d9a086
+ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207965"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53425158"
 ---
 # <a name="migrating-aspnet-mvc-applications-to-windows-containers"></a>Migrieren von ASP.NET MVC-Anwendungen zu Windows-Containern
 
@@ -68,9 +68,9 @@ Klicken Sie auf **Veröffentlichen**, und Visual Studio kopiert alle erforderlic
 
 ## <a name="build-the-image"></a>Erstellen des Images
 
-Definieren Sie das Docker-Image in einer Dockerfile-Datei. Die Dockerfile-Datei enthält Anweisungen für das Basisimage, zusätzliche Komponenten, die Anwendung, die Sie ausführen möchten, und weitere Konfigurationsimages.  Die Dockerfile-Datei ist die Eingabe für den `docker build`-Befehl, der das Image erstellt.
+Erstellen Sie eine neue Datei namens *dockerfile-Datei* Ihr Docker-Image zu definieren. *Dockerfile-Datei* enthält Anweisungen zum Erstellen des endgültigen Images und enthält keine Basis-Image-Namen, erforderlichen Komponenten, die app, die Sie ausführen möchten und weitere konfigurationsimages. *Dockerfile-Datei* ist die Eingabe für die `docker build` -Befehl, der das Image erstellt.
 
-Sie erstellen ein Image auf der Grundlage des `microsoft/aspnet`-Images, das sich auf dem [Docker-Hub](https://hub.docker.com/r/microsoft/aspnet/) befindet.
+In dieser Übung erstellen Sie ein Image auf Grundlage der `microsoft/aspnet` Image befindet sich auf [Docker Hub](https://hub.docker.com/r/microsoft/aspnet/).
 Das Basisimage `microsoft/aspnet` ist ein Windows Server-Image. Es enthält Windows Server Core, IIS und ASP.NET 4.7.2. Wenn Sie dieses Image im Container ausführen, werden IIS und die installierten Websites automatisch gestartet.
 
 Die Dockerfile-Datei, die das Image erstellt, sieht folgendermaßen aus:
