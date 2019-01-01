@@ -1,2 +1,2 @@
-* [Visual Studio 2017 Version 15.9 oder höher](https://visualstudio.microsoft.com/downloads/) mit der **ASP.NET und Webentwicklung** arbeitsauslastung
+* [Version 15.9 von Visual Studio 2017 oder höher](https://visualstudio.microsoft.com/downloads/) mit der Workload **ASP.NET und Webentwicklung**
 * [.NET Core SDK 2.2 oder höher](https://www.microsoft.com/net/download/all)
