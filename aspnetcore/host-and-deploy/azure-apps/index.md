@@ -5,14 +5,14 @@ description: Dieser Artikel enthält Links zu Azure-Host- und Bereitstellungsres
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/10/2018
+ms.date: 12/18/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: b6ff2124aac7e866f630cf359cbd188e88906844
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: c70363c9cff94a682553745aba7fd4e396721f4e
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284694"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637676"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Bereitstellen von ASP.NET Core-Apps in Azure App Service
 
@@ -226,7 +226,7 @@ Durch sichere Protokollbindungen können Sie ein Zertifikat festlegen, das verwe
 Azure App Service auf Windows Server verwendet [Internetinformationsdienste (IIS)](https://www.iis.net/). Die folgenden Artikel gehen auf die zugrunde liegende IIS-Technologie ein:
 
 * <xref:host-and-deploy/iis/index>
-* <xref:fundamentals/servers/aspnet-core-module>
+* <xref:host-and-deploy/aspnet-core-module>
 * <xref:host-and-deploy/aspnet-core-module>
 * <xref:host-and-deploy/iis/modules>
 * [Microsoft TechNet-Bibliothek: Windows Server](/windows-server/windows-server-versions)
