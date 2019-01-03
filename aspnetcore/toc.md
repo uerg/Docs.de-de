@@ -11,11 +11,7 @@
 ### [Web-API mit MongoDB](xref:tutorials/first-mongo-app)
 ## Web-Apps
 ### [Razor Pages](xref:tutorials/razor-pages/index)
-
-### MVC
-#### [mit Visual Studio](xref:tutorials/first-mvc-app/index)
-#### [mit Visual Studio Code](xref:tutorials/first-mvc-app-xplat/index)
-#### [mit Visual Studio für Mac](xref:tutorials/first-mvc-app-mac/index)
+### [MVC](xref:tutorials/first-mvc-app/index)
 
 ## Web-Apps in Echtzeit
 ### [SignalR mit Javascript](xref:tutorials/signalr)
@@ -46,11 +42,7 @@
 ### [Übersicht](xref:fundamentals/host/index)
 ### [Webhost](xref:fundamentals/host/web-host)
 ### [Generischer Host](xref:fundamentals/host/generic-host)
-## Server
-### [Übersicht](xref:fundamentals/servers/index)
-### [Kestrel](xref:fundamentals/servers/kestrel)
-### [ASP.NET Core-Modul](xref:fundamentals/servers/aspnet-core-module)
-### [HTTP.sys](xref:fundamentals/servers/httpsys)
+## [Server](xref:fundamentals/servers/index)
 ## [Initiieren von HTTP-Anforderungen](xref:fundamentals/http-requests)
 
 # Web-Apps
@@ -66,50 +58,26 @@
 #### [Hinzufügen eines neuen Felds](xref:tutorials/razor-pages/new-field)
 #### [Hinzufügen der Validierung](xref:tutorials/razor-pages/validation)
 
+## MVC
+### [Übersicht über MVC](xref:mvc/overview)
+### [MVC-Tutorial](xref:tutorials/first-mvc-app/index)
+#### [Erste Schritte](xref:tutorials/first-mvc-app/start-mvc)
+#### [Hinzufügen eines Controllers](xref:tutorials/first-mvc-app/adding-controller)
+#### [Hinzufügen einer Ansicht](xref:tutorials/first-mvc-app/adding-view)
+#### [Hinzufügen eines Modells](xref:tutorials/first-mvc-app/adding-model)
+#### [Arbeit mit einer Datenbank](xref:tutorials/first-mvc-app/working-with-sql)
+#### [Controlleraktionen und Ansichten](xref:tutorials/first-mvc-app/controller-methods-views)
+#### [Hinzufügen der Suche](xref:tutorials/first-mvc-app/search)
+#### [Hinzufügen eines neuen Felds](xref:tutorials/first-mvc-app/new-field)
+#### [Hinzufügen der Validierung](xref:tutorials/first-mvc-app/validation)
+#### [Untersuchen der Methoden „Details“ und „Delete“](xref:tutorials/first-mvc-app/details)
+
 ### [Filter](xref:razor-pages/filter)
 ### [Razor-Klassenbibliotheken](xref:razor-pages/ui-class)
 ### [Routen- und App-Konventionen](xref:razor-pages/razor-pages-conventions)
 ### [Hochladen von Dateien](xref:razor-pages/upload-files)
 ### [Razor SDK](xref:razor-pages/sdk)
-## MVC
-### [Übersicht](xref:mvc/overview)
-### Tutorials
-#### MVC mit Visual Studio
-##### [Übersicht](xref:tutorials/first-mvc-app/index)
-##### [Erste Schritte](xref:tutorials/first-mvc-app/start-mvc)
-##### [Hinzufügen eines Controllers](xref:tutorials/first-mvc-app/adding-controller)
-##### [Hinzufügen einer Ansicht](xref:tutorials/first-mvc-app/adding-view)
-##### [Hinzufügen eines Modells](xref:tutorials/first-mvc-app/adding-model)
-##### [Arbeit mit einer Datenbank](xref:tutorials/first-mvc-app/working-with-sql)
-##### [Controlleraktionen und Ansichten](xref:tutorials/first-mvc-app/controller-methods-views)
-##### [Hinzufügen der Suche](xref:tutorials/first-mvc-app/search)
-##### [Hinzufügen eines neuen Felds](xref:tutorials/first-mvc-app/new-field)
-##### [Hinzufügen der Validierung](xref:tutorials/first-mvc-app/validation)
-##### [Untersuchen der Methoden „Details“ und „Delete“](xref:tutorials/first-mvc-app/details)
-#### MVC mit Visual Studio Code
-##### [Übersicht](xref:tutorials/first-mvc-app-xplat/index)
-##### [Erste Schritte](xref:tutorials/first-mvc-app-xplat/start-mvc)
-##### [Hinzufügen eines Controllers](xref:tutorials/first-mvc-app-xplat/adding-controller)
-##### [Hinzufügen einer Ansicht](xref:tutorials/first-mvc-app-xplat/adding-view)
-##### [Hinzufügen eines Modells](xref:tutorials/first-mvc-app-xplat/adding-model)
-##### [Arbeiten mit SQLite](xref:tutorials/first-mvc-app-xplat/working-with-sql)
-##### [Controllermethoden und -ansichten](xref:tutorials/first-mvc-app-xplat/controller-methods-views)
-##### [Hinzufügen der Suche](xref:tutorials/first-mvc-app-xplat/search)
-##### [Hinzufügen eines neuen Felds](xref:tutorials/first-mvc-app-xplat/new-field)
-##### [Hinzufügen der Validierung](xref:tutorials/first-mvc-app-xplat/validation)
-##### [Untersuchen der Methoden „Details“ und „Delete“](xref:tutorials/first-mvc-app/details)
-#### MVC mit Visual Studio Code für Mac
-##### [Übersicht](xref:tutorials/first-mvc-app-mac/index)
-##### [Erste Schritte](xref:tutorials/first-mvc-app-mac/start-mvc)
-##### [Hinzufügen eines Controllers](xref:tutorials/first-mvc-app-mac/adding-controller)
-##### [Hinzufügen einer Ansicht](xref:tutorials/first-mvc-app-mac/adding-view)
-##### [Hinzufügen eines Modells](xref:tutorials/first-mvc-app-mac/adding-model)
-##### [Arbeiten mit SQLite](xref:tutorials/first-mvc-app-mac/working-with-sql)
-##### [Controllermethoden und -ansichten](xref:tutorials/first-mvc-app-mac/controller-methods-views)
-##### [Hinzufügen der Suche](xref:tutorials/first-mvc-app-mac/search)
-##### [Hinzufügen eines neuen Felds](xref:tutorials/first-mvc-app-mac/new-field)
-##### [Hinzufügen der Validierung](xref:tutorials/first-mvc-app-mac/validation)
-##### [Untersuchen der Methoden „Details“ und „Delete“](xref:tutorials/first-mvc-app/details)
+
 ### [Ansichten](xref:mvc/views/overview)
 ### [Teilansichten](xref:mvc/views/partial)
 ### [Controller](xref:mvc/controllers/actions)
@@ -284,9 +252,11 @@
 ## Hosten unter Windows mit IIS
 ### [Übersicht](xref:host-and-deploy/iis/index)
 ### [Problembehandlung bei den Internetinformationsdiensten (IIS)](xref:host-and-deploy/iis/troubleshoot)
-### [Referenz für das ASP.NET Core-Modul](xref:host-and-deploy/aspnet-core-module)
+### [ASP.NET Core-Modul](xref:host-and-deploy/aspnet-core-module)
 ### [IIS-Unterstützung in Visual Studio](xref:host-and-deploy/iis/development-time-iis-support)
 ### [IIS-Module](xref:host-and-deploy/iis/modules)
+## [Kestrel](xref:fundamentals/servers/kestrel)
+## [HTTP.sys](xref:fundamentals/servers/httpsys)
 ## [Hosten in einem Windows-Dienst](xref:host-and-deploy/windows-service)
 ## [Hosten unter Linux mit Nginx](xref:host-and-deploy/linux-nginx)
 ## [Hosten unter Linux mit Apache](xref:host-and-deploy/linux-apache)
