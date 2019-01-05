@@ -31,9 +31,9 @@ Beispiel [Anzeigen oder Herunterladen](https://github.com/aspnet/Docs/tree/maste
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Klicken Sie mit der rechten Maustaste auf das Projekt **RazorPagesMovie** > **Hinzufügen** > **Neuer Ordner**. Geben Sie dem Ordner den Namen *Modelle*.
+Klicken Sie mit der rechten Maustaste auf das Projekt **RazorPagesMovie** > **Hinzufügen** > **Neuer Ordner**. Geben Sie dem Ordner den Namen *Models*.
 
-Klicken Sie mit der rechten Maustaste auf den Ordner *Modelle*. Wählen Sie **Hinzufügen** > **Klasse** aus. Nennen Sie die Klasse **Movie**.
+Klicken Sie mit der rechten Maustaste auf den Ordner *Models*. Wählen Sie **Hinzufügen** > **Klasse** aus. Nennen Sie die Klasse **Movie**.
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
 
@@ -42,7 +42,7 @@ Klicken Sie mit der rechten Maustaste auf den Ordner *Modelle*. Wählen Sie **Hi
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Fügen Sie einen Ordner namens *Models* hinzu.
-* Fügen Sie zum Ordner *Modelle* eine Klasse mit dem Namen *Movie.cs* hinzu.
+* Fügen Sie zum Ordner *Models* eine Klasse mit dem Namen *Movie.cs* hinzu.
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
 
@@ -51,13 +51,13 @@ Klicken Sie mit der rechten Maustaste auf den Ordner *Modelle*. Wählen Sie **Hi
 <!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio für Mac](#tab/visual-studio-mac)
 
-* Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf das Projekt**RazorPagesMovie**, und klicken Sie dann auf **Hinzufügen** > **Neuer Ordner**. Geben Sie dem Ordner den Namen *Modelle*.
-* Klicken Sie mit der rechten Maustaste auf den Ordner *Modelle*, und klicken Sie auf **Hinzufügen** > **Neue Datei**.
+* Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf das Projekt**RazorPagesMovie**, und klicken Sie dann auf **Hinzufügen** > **Neuer Ordner**. Geben Sie dem Ordner den Namen *Models*.
+* Klicken Sie mit der rechten Maustaste auf den Ordner *Models*, und klicken Sie auf **Hinzufügen** > **Neue Datei**.
 * Führen Sie im Dialogfeld **Neue Datei** folgende Aktionen aus:
 
   * Klicken Sie im linken Bereich auf **Allgemein**.
   * Klicken Sie im mittleren Bereich auf **Leere Klasse**.
-  * Geben Sie der Klasse den Namen **Film**, und wählen sie **Neu** aus.
+  * Geben Sie der Klasse den Namen **Movie**, und wählen sie **Neu** aus.
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
 
